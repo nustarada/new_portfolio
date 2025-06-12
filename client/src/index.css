@@ -99,51 +99,7 @@
     z-index: 1;
   }
   
-  .cyber-grid::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(
-      ellipse 800px 600px at var(--mouse-x) var(--mouse-y),
-      rgba(138, 43, 226, calc(0.4 * var(--wave-intensity))) 0%,
-      rgba(255, 107, 107, calc(0.25 * var(--wave-intensity))) 25%,
-      rgba(78, 205, 196, calc(0.15 * var(--wave-intensity))) 50%,
-      transparent 70%
-    );
-    animation: liquid-wave 6s ease-in-out infinite;
-    pointer-events: none;
-    transition: all 0.2s ease-out;
-    opacity: var(--wave-intensity);
-  }
-  
-  .cyber-grid::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(
-        ellipse 500px 400px at calc(var(--mouse-x) - 15%) calc(var(--mouse-y) + 10%),
-        rgba(255, 107, 107, calc(0.3 * var(--wave-intensity))) 0%,
-        rgba(138, 43, 226, calc(0.18 * var(--wave-intensity))) 35%,
-        transparent 65%
-      ),
-      radial-gradient(
-        ellipse 400px 300px at calc(var(--mouse-x) + 20%) calc(var(--mouse-y) - 12%),
-        rgba(78, 205, 196, calc(0.25 * var(--wave-intensity))) 0%,
-        rgba(255, 107, 107, calc(0.12 * var(--wave-intensity))) 45%,
-        transparent 70%
-      );
-    animation: liquid-float 10s ease-in-out infinite;
-    pointer-events: none;
-    transition: all 0.3s ease-out;
-    opacity: calc(var(--wave-intensity) * 0.8);
-  }
+
   
   .floating-orb {
     position: absolute;

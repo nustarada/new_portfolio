@@ -27,39 +27,45 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
     window.addEventListener('resize', resizeCanvas);
 
     const gridSize = 50;
-    const distortionRadius = 150;
-    const maxDistortion = 30;
+    const distortionRadius = 120;
+    const maxDistortion = 25;
+    
+    // Smooth interpolation for mouse position
+    let currentMouseX = mouseX;
+    let currentMouseY = mouseY;
+    const lerpFactor = 0.1;
 
     const drawLiquidGrid = () => {
       const width = canvas.offsetWidth;
       const height = canvas.offsetHeight;
       
+      // Smooth interpolation for cursor movement
+      currentMouseX += (mouseX - currentMouseX) * lerpFactor;
+      currentMouseY += (mouseY - currentMouseY) * lerpFactor;
+      
       ctx.clearRect(0, 0, width, height);
-      ctx.strokeStyle = `rgba(138, 43, 226, ${0.15 * intensity})`;
+      ctx.strokeStyle = `rgba(138, 43, 226, ${0.2 * intensity})`;
       ctx.lineWidth = 1;
 
-      // Convert percentage to pixels
-      const mousePixelX = (mouseX / 100) * width;
-      const mousePixelY = (mouseY / 100) * height;
+      // Convert percentage to pixels with smoothed values
+      const mousePixelX = (currentMouseX / 100) * width;
+      const mousePixelY = (currentMouseY / 100) * height;
 
       // Draw vertical lines with liquid distortion
       for (let x = 0; x <= width; x += gridSize) {
         ctx.beginPath();
-        let prevY = 0;
         
-        for (let y = 0; y <= height; y += 2) {
-          const distanceToMouse = Math.sqrt(
-            Math.pow(x - mousePixelX, 2) + Math.pow(y - mousePixelY, 2)
-          );
+        for (let y = 0; y <= height; y += 4) {
+          const dx = x - mousePixelX;
+          const dy = y - mousePixelY;
+          const distance = Math.sqrt(dx * dx + dy * dy);
           
           let distortedX = x;
           
-          if (distanceToMouse < distortionRadius) {
-            const distortionFactor = (1 - distanceToMouse / distortionRadius);
-            const angle = Math.atan2(y - mousePixelY, x - mousePixelX);
-            const distortion = Math.sin(distortionFactor * Math.PI) * maxDistortion * intensity;
-            
-            distortedX = x + Math.cos(angle + Math.PI / 2) * distortion;
+          if (distance < distortionRadius && distance > 0) {
+            const distortionFactor = Math.pow(1 - distance / distortionRadius, 2);
+            const distortion = distortionFactor * maxDistortion * intensity;
+            distortedX = x + (dx / distance) * distortion;
           }
           
           if (y === 0) {
@@ -67,7 +73,6 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
           } else {
             ctx.lineTo(distortedX, y);
           }
-          prevY = y;
         }
         ctx.stroke();
       }
@@ -76,61 +81,23 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
       for (let y = 0; y <= height; y += gridSize) {
         ctx.beginPath();
         
-        for (let x = 0; x <= width; x += 2) {
-          const distanceToMouse = Math.sqrt(
-            Math.pow(x - mousePixelX, 2) + Math.pow(y - mousePixelY, 2)
-          );
+        for (let x = 0; x <= width; x += 4) {
+          const dx = x - mousePixelX;
+          const dy = y - mousePixelY;
+          const distance = Math.sqrt(dx * dx + dy * dy);
           
           let distortedY = y;
           
-          if (distanceToMouse < distortionRadius) {
-            const distortionFactor = (1 - distanceToMouse / distortionRadius);
-            const angle = Math.atan2(y - mousePixelY, x - mousePixelX);
-            const distortion = Math.sin(distortionFactor * Math.PI) * maxDistortion * intensity;
-            
-            distortedY = y + Math.sin(angle + Math.PI / 2) * distortion;
+          if (distance < distortionRadius && distance > 0) {
+            const distortionFactor = Math.pow(1 - distance / distortionRadius, 2);
+            const distortion = distortionFactor * maxDistortion * intensity;
+            distortedY = y + (dy / distance) * distortion;
           }
           
           if (x === 0) {
             ctx.moveTo(x, distortedY);
           } else {
             ctx.lineTo(x, distortedY);
-          }
-        }
-        ctx.stroke();
-      }
-
-      // Add flowing wave effect
-      const time = Date.now() * 0.001;
-      ctx.strokeStyle = `rgba(138, 43, 226, ${0.1 * intensity})`;
-      
-      for (let i = 0; i < 3; i++) {
-        ctx.beginPath();
-        const offsetX = Math.sin(time + i) * 20;
-        const offsetY = Math.cos(time + i * 0.7) * 15;
-        
-        for (let x = 0; x <= width; x += 2) {
-          const waveY = height / 2 + Math.sin((x + time * 100 + i * 100) * 0.01) * 30;
-          const distanceToMouse = Math.sqrt(
-            Math.pow(x - mousePixelX, 2) + Math.pow(waveY - mousePixelY, 2)
-          );
-          
-          let finalY = waveY + offsetY;
-          let finalX = x + offsetX;
-          
-          if (distanceToMouse < distortionRadius) {
-            const distortionFactor = (1 - distanceToMouse / distortionRadius);
-            const angle = Math.atan2(waveY - mousePixelY, x - mousePixelX);
-            const distortion = Math.sin(distortionFactor * Math.PI) * maxDistortion * intensity;
-            
-            finalX += Math.cos(angle + Math.PI / 2) * distortion;
-            finalY += Math.sin(angle + Math.PI / 2) * distortion;
-          }
-          
-          if (x === 0) {
-            ctx.moveTo(finalX, finalY);
-          } else {
-            ctx.lineTo(finalX, finalY);
           }
         }
         ctx.stroke();
