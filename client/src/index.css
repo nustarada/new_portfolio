@@ -32,14 +32,27 @@
     @apply border-border;
   }
   
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  #root {
+    background-color: #080808 !important;
+    color: #fafafa !important;
+    min-height: 100vh;
+  }
+  
   body {
     @apply bg-background text-foreground overflow-x-hidden;
     font-family: 'Space Grotesk', sans-serif;
     line-height: 1.6;
+    background-color: #080808 !important;
+    color: #fafafa !important;
   }
   
   html {
     scroll-behavior: smooth;
+    background-color: #080808 !important;
   }
 }
 
