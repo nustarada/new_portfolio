@@ -36,7 +36,9 @@ import {
   MessageSquare,
   Send,
   ArrowRight,
-  X
+  X,
+  MapPin,
+  FileText
 } from 'lucide-react';
 
 export default function Home() {
@@ -752,11 +754,11 @@ export default function Home() {
                   >
                     <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
                       <Users className="w-4 h-4 text-primary" />
-                      <span>Full Name</span>
+                      <span>Name</span>
                     </label>
                     <Input 
                       {...register('name', { required: true })}
-                      placeholder="Enter your full name"
+                      placeholder="Enter your name"
                       className="h-12 bg-white/5 border-2 border-white/10 hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm"
                     />
                   </motion.div>
@@ -770,7 +772,7 @@ export default function Home() {
                   >
                     <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
                       <Mail className="w-4 h-4 text-primary" />
-                      <span>Email Address</span>
+                      <span>Email</span>
                     </label>
                     <Input 
                       {...register('email', { required: true })}
@@ -780,39 +782,53 @@ export default function Home() {
                     />
                   </motion.div>
                 </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    viewport={{ once: true }}
+                    className="group/field"
+                  >
+                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
+                      <MapPin className="w-4 h-4 text-primary" />
+                      <span>City, Country</span>
+                    </label>
+                    <Input 
+                      {...register('location', { required: true })}
+                      placeholder="New York, USA"
+                      className="h-12 bg-white/5 border-2 border-white/10 hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm"
+                    />
+                  </motion.div>
+                  
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    viewport={{ once: true }}
+                    className="group/field"
+                  >
+                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
+                      <FileText className="w-4 h-4 text-primary" />
+                      <span>Subject</span>
+                    </label>
+                    <Input 
+                      {...register('subject', { required: true })}
+                      placeholder="Project inquiry"
+                      className="h-12 bg-white/5 border-2 border-white/10 hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm"
+                    />
+                  </motion.div>
+                </div>
                 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
                   viewport={{ once: true }}
                 >
                   <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
-                    <Target className="w-4 h-4 text-primary" />
-                    <span>Project Type</span>
-                  </label>
-                  <Select>
-                    <SelectTrigger className="h-12 bg-white/5 border-2 border-white/10 hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white rounded-xl backdrop-blur-sm">
-                      <SelectValue placeholder="What type of project are you working on?" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-slate-900/95 border-white/20 backdrop-blur-xl">
-                      <SelectItem value="product-design" className="text-white hover:bg-primary/20">🎨 Product Design</SelectItem>
-                      <SelectItem value="design-system" className="text-white hover:bg-primary/20">🎯 Design System</SelectItem>
-                      <SelectItem value="ai-integration" className="text-white hover:bg-primary/20">🤖 AI Integration</SelectItem>
-                      <SelectItem value="consulting" className="text-white hover:bg-primary/20">💡 Design Consulting</SelectItem>
-                      <SelectItem value="other" className="text-white hover:bg-primary/20">✨ Other</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  viewport={{ once: true }}
-                >
-                  <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
-                    <Mail className="w-4 h-4 text-primary" />
+                    <MessageSquare className="w-4 h-4 text-primary" />
                     <span>Project Details</span>
                   </label>
                   <Textarea 
@@ -826,7 +842,7 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
                   viewport={{ once: true }}
                   className="pt-4"
                 >
