@@ -199,8 +199,8 @@ export default function Home() {
           </div>
 
           <Button variant="outline" size="sm" className="morphing-border">
-            <Download className="w-4 h-4 mr-2" />
-            Resume
+            <Mail className="w-4 h-4 mr-2" />
+            Contact Me
           </Button>
         </div>
       </nav>
@@ -339,8 +339,8 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover/secondary:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10 flex items-center space-x-2">
-                    <Mail className="w-5 h-5" />
-                    <span>Get In Touch</span>
+                    <Download className="w-5 h-5" />
+                    <span>Resume</span>
                   </div>
                 </Button>
               </motion.div>
