@@ -279,7 +279,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 1.3 }}
               className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto font-medium"
             >
-              Crafting exceptional digital experiences through strategic design thinking and cutting-edge AI integration.
+              Designing exceptional digital experiences using AI-powered design tools, Figma workflows, and innovative platforms like Replit.
             </motion.p>
             
             {/* Action Buttons */}
@@ -352,16 +352,16 @@ export default function Home() {
                 <div className="space-y-6 text-lg text-white leading-relaxed">
                   <p>
                     With <span className="text-primary font-bold">four years of specialized experience</span> in UI/UX design, 
-                    I transform complex challenges into intuitive digital solutions. My approach combines strategic 
-                    design thinking with cutting-edge AI integration to create products that drive 
-                    meaningful business outcomes.
+                    I leverage cutting-edge AI design tools and platforms to create innovative digital solutions. My expertise spans 
+                    <span className="text-primary font-bold">Figma design workflows, AI-powered design automation, and Replit-based prototyping</span> 
+                    to deliver exceptional user experiences.
                   </p>
                   
                   <p>
-                    As a design leader, I excel in user research, system architecture, and cross-
-                    functional collaboration. I've successfully led teams through product launches, 
-                    managed design systems at scale, and pioneered <span className="text-primary font-bold">AI-enhanced design 
-                    workflows that improve efficiency by 40%</span>.
+                    As a design innovator, I specialize in integrating AI tools into design processes, mastering 
+                    <span className="text-primary font-bold">Figma's advanced features, and utilizing Replit for rapid design-to-code workflows</span>. 
+                    This unique approach has enabled me to <span className="text-primary font-bold">reduce design iteration cycles by 60% 
+                    while maintaining design excellence</span>.
                   </p>
                 </div>
               </Card>
@@ -407,8 +407,8 @@ export default function Home() {
                 <h3 className="text-2xl font-bold mb-6 text-white">Core Expertise</h3>
                 <div className="grid grid-cols-1 gap-3">
                   {[
-                    'AI Integration', 'Design Systems', 'User Research', 'Team Leadership',
-                    'Product Strategy', 'Prototyping', 'Data Visualization', 'Cross-functional Collaboration'
+                    'AI Design Tools', 'Figma Mastery', 'Replit Prototyping', 'Design Systems',
+                    'User Research', 'AI-Powered Workflows', 'Rapid Prototyping', 'Design Automation'
                   ].map((skill, index) => (
                     <motion.div
                       key={skill}
@@ -446,7 +446,7 @@ export default function Home() {
                   intuitive, and delightful."
                 </blockquote>
                 <p className="text-white/80 mt-4 text-base">
-                  I believe in data-driven decisions, user-centered approaches, and the power of AI to augment human creativity.
+                  I harness the power of AI design tools, master Figma's ecosystem, and leverage Replit's capabilities to create innovative, efficient design workflows that deliver exceptional results.
                 </p>
               </Card>
             </motion.div>
