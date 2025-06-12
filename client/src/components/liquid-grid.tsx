@@ -29,15 +29,17 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
     const gridSize = 50;
     const distortionRadius = 180;
     const maxDistortion = 35;
-    
-    // Smooth interpolation for mouse position
-    let currentMouseX = mouseX;
-    let currentMouseY = mouseY;
     const lerpFactor = 0.1;
+    
+    // Initialize smooth interpolation variables
+    let currentMouseX = mouseX || 50;
+    let currentMouseY = mouseY || 50;
 
     const drawLiquidGrid = () => {
       const width = canvas.offsetWidth;
       const height = canvas.offsetHeight;
+      
+      if (width === 0 || height === 0) return;
       
       // Smooth interpolation for cursor movement
       currentMouseX += (mouseX - currentMouseX) * lerpFactor;
