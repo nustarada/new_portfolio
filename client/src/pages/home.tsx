@@ -59,13 +59,21 @@ export default function Home() {
       // Update liquid wave position for hero section
       if (heroRef.current) {
         const rect = heroRef.current.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        const isInHero = e.clientY >= rect.top && e.clientY <= rect.bottom;
         
-        if (x >= 0 && x <= 100 && y >= 0 && y <= 100) {
+        if (isInHero) {
+          const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+          const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+          
           setMousePos({ x, y });
           heroRef.current.style.setProperty('--mouse-x', `${x}%`);
           heroRef.current.style.setProperty('--mouse-y', `${y}%`);
+          heroRef.current.style.setProperty('--wave-intensity', '1');
+          
+          // Debug log to verify tracking
+          console.log(`Mouse in hero: ${x.toFixed(1)}%, ${y.toFixed(1)}%`);
+        } else {
+          heroRef.current.style.setProperty('--wave-intensity', '0.5');
         }
       }
     };

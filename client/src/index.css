@@ -69,6 +69,9 @@
   }
   
   .cyber-grid {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --wave-intensity: 0.3;
     background-image: 
       linear-gradient(rgba(138, 43, 226, 0.15) 1px, transparent 1px),
       linear-gradient(90deg, rgba(138, 43, 226, 0.15) 1px, transparent 1px);
@@ -86,15 +89,16 @@
     right: 0;
     bottom: 0;
     background: radial-gradient(
-      ellipse 600px 400px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(138, 43, 226, 0.25) 0%,
-      rgba(255, 107, 107, 0.15) 30%,
-      rgba(78, 205, 196, 0.10) 60%,
-      transparent 80%
+      ellipse 800px 600px at var(--mouse-x) var(--mouse-y),
+      rgba(138, 43, 226, calc(0.4 * var(--wave-intensity))) 0%,
+      rgba(255, 107, 107, calc(0.25 * var(--wave-intensity))) 25%,
+      rgba(78, 205, 196, calc(0.15 * var(--wave-intensity))) 50%,
+      transparent 70%
     );
     animation: liquid-wave 6s ease-in-out infinite;
     pointer-events: none;
-    transition: all 0.3s ease-out;
+    transition: all 0.2s ease-out;
+    opacity: var(--wave-intensity);
   }
   
   .cyber-grid::after {
@@ -106,20 +110,21 @@
     bottom: 0;
     background: 
       radial-gradient(
-        ellipse 400px 300px at calc(var(--mouse-x, 50%) - 20%) calc(var(--mouse-y, 50%) + 10%),
-        rgba(255, 107, 107, 0.20) 0%,
-        rgba(138, 43, 226, 0.12) 40%,
-        transparent 70%
+        ellipse 500px 400px at calc(var(--mouse-x) - 15%) calc(var(--mouse-y) + 10%),
+        rgba(255, 107, 107, calc(0.3 * var(--wave-intensity))) 0%,
+        rgba(138, 43, 226, calc(0.18 * var(--wave-intensity))) 35%,
+        transparent 65%
       ),
       radial-gradient(
-        ellipse 300px 200px at calc(var(--mouse-x, 50%) + 30%) calc(var(--mouse-y, 50%) - 15%),
-        rgba(78, 205, 196, 0.15) 0%,
-        rgba(255, 107, 107, 0.08) 50%,
-        transparent 75%
+        ellipse 400px 300px at calc(var(--mouse-x) + 20%) calc(var(--mouse-y) - 12%),
+        rgba(78, 205, 196, calc(0.25 * var(--wave-intensity))) 0%,
+        rgba(255, 107, 107, calc(0.12 * var(--wave-intensity))) 45%,
+        transparent 70%
       );
     animation: liquid-float 10s ease-in-out infinite;
     pointer-events: none;
-    transition: all 0.4s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: calc(var(--wave-intensity) * 0.8);
   }
   
   .floating-orb {
