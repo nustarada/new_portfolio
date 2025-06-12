@@ -26,9 +26,9 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const gridSize = 40;
-    const distortionRadius = 200;
-    const maxDistortion = 50;
+    const gridSize = 60;
+    const distortionRadius = 180;
+    const maxDistortion = 30;
     const lerpFactor = 0.1;
     
     // Initialize smooth interpolation variables
@@ -52,15 +52,15 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
       ctx.clearRect(0, 0, width, height);
       
       // Add glow effect based on intensity
-      const baseOpacity = 0.4;
-      const glowOpacity = intensity * 0.6;
-      const totalOpacity = Math.min(baseOpacity + glowOpacity, 1.0);
+      const baseOpacity = 0.15;
+      const glowOpacity = intensity * 0.25;
+      const totalOpacity = Math.min(baseOpacity + glowOpacity, 0.5);
       
-      // Enhanced grid with glow effect
+      // Enhanced grid with subtle glow effect
       ctx.strokeStyle = `rgba(138, 43, 226, ${totalOpacity})`;
-      ctx.lineWidth = 1.5;
-      ctx.shadowColor = `rgba(138, 43, 226, ${intensity * 0.5})`;
-      ctx.shadowBlur = intensity * 15;
+      ctx.lineWidth = 1;
+      ctx.shadowColor = `rgba(138, 43, 226, ${intensity * 0.2})`;
+      ctx.shadowBlur = intensity * 8;
 
       // Draw vertical lines with liquid distortion
       for (let x = 0; x <= width; x += gridSize) {
@@ -114,11 +114,11 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
         ctx.stroke();
       }
 
-      // Add secondary grid with different color for more visibility
-      ctx.strokeStyle = `rgba(78, 205, 196, ${totalOpacity * 0.6})`;
-      ctx.lineWidth = 1;
-      ctx.shadowColor = `rgba(78, 205, 196, ${intensity * 0.3})`;
-      ctx.shadowBlur = intensity * 10;
+      // Add secondary grid with different color for subtle depth
+      ctx.strokeStyle = `rgba(78, 205, 196, ${totalOpacity * 0.4})`;
+      ctx.lineWidth = 0.8;
+      ctx.shadowColor = `rgba(78, 205, 196, ${intensity * 0.15})`;
+      ctx.shadowBlur = intensity * 5;
 
       // Draw secondary vertical lines offset by half grid size
       for (let x = gridSize / 2; x <= width; x += gridSize) {
