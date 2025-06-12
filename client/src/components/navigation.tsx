@@ -41,9 +41,10 @@ export function Navigation() {
             whileTap={{ scale: 0.95 }}
           >
             <img 
-              src="@assets/Logo black_1749711104405.png" 
+              src="/attached_assets/Logo black_1749713682616.png" 
               alt="Karan Gadhave Logo" 
-              className="h-8 w-auto filter invert opacity-90 hover:opacity-100 transition-opacity"
+              className="h-8 w-auto brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+              style={{ filter: 'brightness(0) invert(1)' }}
             />
           </motion.div>
           

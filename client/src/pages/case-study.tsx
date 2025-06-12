@@ -117,14 +117,9 @@ export default function CaseStudy() {
               Back to Portfolio
             </Button>
           </Link>
-          <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-300">
-            <img 
-              src="/attached_assets/Logo black_1749713682616.png" 
-              alt="Karan Gadhave Logo" 
-              className="h-8 w-auto brightness-0 invert"
-              style={{ filter: 'brightness(0) invert(1)' }}
-            />
-          </Link>
+          <div className="text-sm text-white/70 hidden md:block truncate max-w-md">
+            {caseStudyData.title}
+          </div>
           <div className="w-24" /> {/* Spacer for balance */}
         </div>
       </motion.nav>
