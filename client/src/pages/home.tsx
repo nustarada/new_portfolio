@@ -172,7 +172,7 @@ export default function Home() {
             className="flex items-center space-x-3"
             whileHover={{ scale: 1.05 }}
           >
-            <img src={logoPath} alt="Karan Gadhave" className="w-8 h-8 invert" />
+            <img src={logoPath} alt="Karan Gadhave" className="w-8 h-8" />
             <span className="text-xl font-bold glow-text">Karan Gadhave</span>
           </motion.div>
           
@@ -218,26 +218,24 @@ export default function Home() {
               </Badge>
             </div>
             
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
-              <span 
-                className="text-glitch glow-text block text-sm md:text-base font-medium mb-4" 
-                data-text="SENIOR PRODUCT DESIGNER & AI INNOVATOR"
-              >
-                SENIOR PRODUCT DESIGNER & AI INNOVATOR
-              </span>
-            </h1>
-            
-            <div className="flex items-center justify-center gap-6 mb-8">
-              <motion.img 
+            <motion.div 
+              className="flex justify-center mb-8"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            >
+              <img 
                 src={logoPath} 
                 alt="Karan Gadhave Logo" 
-                className="w-16 h-16 md:w-20 md:h-20 invert opacity-90" 
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="w-20 h-20 md:w-24 md:h-24 opacity-90" 
               />
-              <div className="text-5xl md:text-7xl font-bold glow-text">
-                Karan
-              </div>
+            </motion.div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight glow-text">
+              SENIOR PRODUCT DESIGNER & AI INNOVATOR
+            </h1>
+            
+            <div className="text-3xl md:text-4xl font-medium mb-8 text-foreground opacity-80">
+              Karan
             </div>
             
             <p className="text-lg md:text-xl text-foreground opacity-90 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
