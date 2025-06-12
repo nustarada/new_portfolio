@@ -137,7 +137,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground cursor-glow relative overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground cursor-glow relative overflow-hidden" style={{ backgroundColor: '#080808', color: '#fafafa' }}>
       {/* Custom Cursor */}
       <div 
         className="custom-cursor"
