@@ -7,9 +7,9 @@
 @layer base {
   :root {
     --background: 0 0% 3%;
-    --foreground: 0 0% 95%;
+    --foreground: 0 0% 98%;
     --card: 0 0% 7%;
-    --card-foreground: 0 0% 95%;
+    --card-foreground: 0 0% 98%;
     --popover: 0 0% 7%;
     --popover-foreground: 0 0% 95%;
     --primary: 262 83% 58%;
@@ -47,7 +47,7 @@
     font-family: 'Space Grotesk', sans-serif;
     line-height: 1.7;
     background-color: #080808 !important;
-    color: #f2f2f2 !important;
+    color: #ffffff !important;
     font-weight: 400;
   }
   
