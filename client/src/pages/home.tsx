@@ -30,6 +30,8 @@ import {
 export default function Home() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [activeSection, setActiveSection] = useState('');
+  const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
+  const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
@@ -53,6 +55,19 @@ export default function Home() {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setCursorPos({ x: e.clientX, y: e.clientY });
+      
+      // Update liquid wave position for hero section
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        
+        if (x >= 0 && x <= 100 && y >= 0 && y <= 100) {
+          setMousePos({ x, y });
+          heroRef.current.style.setProperty('--mouse-x', `${x}%`);
+          heroRef.current.style.setProperty('--mouse-y', `${y}%`);
+        }
+      }
     };
 
     const handleScroll = () => {
@@ -169,7 +184,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center justify-center relative cyber-grid">
+      <section ref={heroRef} id="hero" className="min-h-screen flex items-center justify-center relative cyber-grid">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 100 }}

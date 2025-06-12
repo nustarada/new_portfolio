@@ -86,14 +86,15 @@
     right: 0;
     bottom: 0;
     background: radial-gradient(
-      ellipse 800px 600px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(138, 43, 226, 0.15) 0%,
-      rgba(255, 107, 107, 0.08) 25%,
-      rgba(78, 205, 196, 0.05) 50%,
-      transparent 70%
+      ellipse 600px 400px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(138, 43, 226, 0.25) 0%,
+      rgba(255, 107, 107, 0.15) 30%,
+      rgba(78, 205, 196, 0.10) 60%,
+      transparent 80%
     );
-    animation: liquid-wave 8s ease-in-out infinite;
+    animation: liquid-wave 6s ease-in-out infinite;
     pointer-events: none;
+    transition: all 0.3s ease-out;
   }
   
   .cyber-grid::after {
@@ -104,11 +105,21 @@
     right: 0;
     bottom: 0;
     background: 
-      radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.1) 0%, transparent 40%),
-      radial-gradient(circle at 80% 70%, rgba(255, 107, 107, 0.08) 0%, transparent 40%),
-      radial-gradient(circle at 40% 80%, rgba(78, 205, 196, 0.06) 0%, transparent 40%);
-    animation: liquid-float 12s ease-in-out infinite;
+      radial-gradient(
+        ellipse 400px 300px at calc(var(--mouse-x, 50%) - 20%) calc(var(--mouse-y, 50%) + 10%),
+        rgba(255, 107, 107, 0.20) 0%,
+        rgba(138, 43, 226, 0.12) 40%,
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 300px 200px at calc(var(--mouse-x, 50%) + 30%) calc(var(--mouse-y, 50%) - 15%),
+        rgba(78, 205, 196, 0.15) 0%,
+        rgba(255, 107, 107, 0.08) 50%,
+        transparent 75%
+      );
+    animation: liquid-float 10s ease-in-out infinite;
     pointer-events: none;
+    transition: all 0.4s ease-out;
   }
   
   .floating-orb {
