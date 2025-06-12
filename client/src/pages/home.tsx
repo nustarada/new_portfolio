@@ -976,19 +976,20 @@ export default function Home() {
           </Card>
 
           <div className="mt-16 text-center">
-            <div className="flex justify-center space-x-6">
-              <Button variant="ghost" size="icon" className="w-12 h-12 rounded-full neo-card">
-                <Mail className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="w-12 h-12 rounded-full neo-card">
-                <Linkedin className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="w-12 h-12 rounded-full neo-card">
-                <Github className="w-5 h-5" />
-              </Button>
+            <div className="flex justify-center">
+              <a 
+                href="https://www.linkedin.com/in/karan-gadhave/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <Button variant="ghost" size="icon" className="w-12 h-12 rounded-full neo-card group-hover:scale-110 transition-transform duration-300">
+                  <Linkedin className="w-5 h-5 group-hover:text-primary transition-colors duration-300" />
+                </Button>
+              </a>
             </div>
             <p className="mt-6 text-sm text-muted-foreground code-font">
-              karan.gadhave@designer.com • linkedin.com/in/karangadhave • dribbble.com/karangadhave
+              linkedin.com/in/karan-gadhave
             </p>
           </div>
         </div>
