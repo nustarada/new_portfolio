@@ -5,7 +5,7 @@ export function ScrollIndicator() {
   
   return (
     <div 
-      className="cyber-scroll-indicator"
+      className="elegant-scroll-indicator"
       style={{ transform: `scaleX(${scrollProgress / 100})` }}
     />
   );

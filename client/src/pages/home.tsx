@@ -25,59 +25,59 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const portfolioProjects = [
   {
-    title: "E-Commerce Revolution",
-    description: "Complete mobile app redesign that increased conversion by 40%",
-    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["UI Design", "Prototyping"]
+    title: "AI-Powered Design Assistant",
+    description: "Revolutionary design tool that leverages machine learning to automate repetitive tasks and enhance creative workflows",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    tags: ["AI/ML", "Product Design", "Innovation"]
   },
   {
-    title: "Analytics Dashboard",
-    description: "Data visualization platform for enterprise clients",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["Data Viz", "UX Research"]
+    title: "Enterprise Analytics Platform",
+    description: "Comprehensive data visualization suite that transforms complex datasets into actionable business insights",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    tags: ["Data Visualization", "Enterprise UX", "Dashboard Design"]
   },
   {
-    title: "Creative Portfolio",
-    description: "Award-winning portfolio site for a design agency",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["Web Design", "Animation"]
+    title: "Mobile Banking Revolution",
+    description: "Next-generation fintech app that redefined digital banking with intuitive AI-driven user experiences",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    tags: ["Fintech", "Mobile Design", "AI Integration"]
   },
   {
-    title: "Wellness App",
-    description: "Mindfulness app with focus on user retention",
-    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["Mobile", "User Research"]
+    title: "Healthcare Management System",
+    description: "Patient-centric platform that streamlines healthcare workflows through intelligent design and automation",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    tags: ["Healthcare", "System Design", "User Research"]
   },
   {
-    title: "Brand Identity",
-    description: "Complete rebrand for a fintech startup",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["Branding", "Strategy"]
-  },
-  {
-    title: "Design System 2.0",
-    description: "Scalable design system for a SaaS platform",
+    title: "Design System Architecture",
+    description: "Scalable design system foundation that powers consistent experiences across multiple product lines",
     image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["Systems", "Documentation"]
+    tags: ["Design Systems", "Architecture", "Leadership"]
+  },
+  {
+    title: "AI-Enhanced E-commerce",
+    description: "Intelligent shopping platform that personalizes user experiences through advanced machine learning algorithms",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    tags: ["E-commerce", "AI Personalization", "Conversion Optimization"]
   }
 ];
 
 const designSkills = [
-  { skill: "Figma", percentage: 95, color: "cyan" as const },
-  { skill: "Adobe Creative Suite", percentage: 90, color: "pink" as const },
-  { skill: "Sketch", percentage: 85, color: "yellow" as const },
+  { skill: "Design Systems", percentage: 95, color: "indigo" as const },
+  { skill: "User Research", percentage: 92, color: "emerald" as const },
+  { skill: "Prototyping", percentage: 88, color: "gold" as const },
 ];
 
-const prototypingSkills = [
-  { skill: "Framer", percentage: 92, color: "cyan" as const },
-  { skill: "Principle", percentage: 88, color: "pink" as const },
-  { skill: "HTML/CSS", percentage: 80, color: "yellow" as const },
+const technicalSkills = [
+  { skill: "AI/ML Integration", percentage: 85, color: "indigo" as const },
+  { skill: "Data Visualization", percentage: 90, color: "emerald" as const },
+  { skill: "Design Leadership", percentage: 93, color: "gold" as const },
 ];
 
-const researchSkills = [
-  { skill: "User Interviews", percentage: 95, color: "cyan" as const },
-  { skill: "Analytics", percentage: 85, color: "pink" as const },
-  { skill: "A/B Testing", percentage: 90, color: "yellow" as const },
+const managementSkills = [
+  { skill: "Team Leadership", percentage: 94, color: "indigo" as const },
+  { skill: "Strategic Planning", percentage: 89, color: "emerald" as const },
+  { skill: "Cross-functional Collaboration", percentage: 91, color: "gold" as const },
 ];
 
 export default function Home() {
@@ -125,93 +125,90 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen cyber-grid">
+    <div className="min-h-screen sophisticated-grid">
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Cyberpunk background elements */}
-        <div className="absolute inset-0 opacity-20">
+        {/* Floating background elements */}
+        <div className="absolute inset-0 opacity-30">
           <motion.div 
-            className="absolute top-20 left-20 w-40 h-40 border border-neon-cyan/30 rounded-full"
+            className="absolute top-20 left-20 w-32 h-32 rounded-full border border-accent-indigo/20"
             animate={{ 
-              scale: [1, 1.3, 1],
-              rotate: [0, 180, 360]
+              scale: [1, 1.1, 1],
+              rotate: [0, 90, 180, 270, 360]
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.div 
+            className="absolute bottom-32 right-20 w-24 h-24 bg-gradient-to-br from-accent-emerald/10 to-accent-gold/10 rounded-lg"
+            animate={{ 
+              y: [-10, 10, -10],
+              rotate: [0, 5, -5, 0]
             }}
             transition={{ duration: 8, repeat: Infinity }}
           />
           <motion.div 
-            className="absolute bottom-32 right-20 w-32 h-2 bg-gradient-to-r from-neon-pink via-neon-yellow to-transparent"
+            className="absolute top-1/3 right-1/4 w-16 h-16 bg-accent-gold/10 rounded-full"
             animate={{ 
-              scaleX: [0.5, 1.2, 0.5],
-              opacity: [0.3, 0.8, 0.3]
-            }}
-            transition={{ duration: 4, repeat: Infinity }}
-          />
-          <motion.div 
-            className="absolute top-1/3 right-1/4 w-2 h-32 bg-gradient-to-b from-neon-cyan to-transparent"
-            animate={{ 
-              scaleY: [0.5, 1.5, 0.5],
-              opacity: [0.4, 0.9, 0.4]
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3]
             }}
             transition={{ duration: 6, repeat: Infinity }}
           />
         </div>
         
         <motion.div 
-          className="text-center z-10 max-w-5xl mx-auto px-6"
-          initial={{ opacity: 0, y: 50 }}
+          className="text-center z-10 max-w-6xl mx-auto px-6"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.8 }}
         >
           <div className="mb-12">
             <motion.div
               className="mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.2 }}
             >
-              <span className="font-jetbrains text-neon-cyan text-sm tracking-[0.3em] uppercase">
-                {'>> Initializing_Portfolio.exe'}
+              <span className="font-dm-mono text-accent-indigo text-sm tracking-wider uppercase">
+                Senior Product Designer & AI Innovator
               </span>
             </motion.div>
             
             <motion.h1 
-              className="font-righteous text-7xl md:text-9xl font-bold mb-6 animate-neon-glow"
-              initial={{ scale: 0.8, opacity: 0 }}
+              className="font-playfair text-6xl md:text-8xl font-bold mb-8 text-shadow-elegant"
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.4 }}
+              transition={{ duration: 1, delay: 0.3 }}
             >
-              <span className="text-neon-cyan">DIGITAL</span>
+              <span className="gradient-text animate-gradient-shift">Karan</span>
               <br />
-              <span className="text-neon-pink">ARCHITECT</span>
+              <span className="text-foreground">Gadhave</span>
             </motion.h1>
             
             <motion.div 
-              className="font-jetbrains text-lg md:text-xl text-text-secondary mb-8 tracking-wider"
+              className="font-inter text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-4xl mx-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
+              transition={{ delay: 0.6 }}
             >
-              <span className="text-neon-yellow">{'>'}</span> UI/UX_Designer.exe
-              <br />
-              <span className="text-neon-pink">{'>'}</span> Creative_Technologist.exe
-              <br />
-              <span className="text-neon-cyan">{'>'}</span> Digital_Innovator.exe
+              Transforming complex challenges into intuitive digital experiences through 
+              strategic design thinking, AI innovation, and data-driven insights.
             </motion.div>
             
             <motion.div 
               className="flex justify-center space-x-4 mb-10 flex-wrap gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.0 }}
+              transition={{ delay: 0.8 }}
             >
-              <div className="cyber-card px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/30 rounded">
-                <span className="font-jetbrains text-xs text-neon-cyan tracking-wider">DESIGN_SYSTEMS</span>
+              <div className="elegant-card px-6 py-3 bg-card/80 backdrop-blur-elegant rounded-full">
+                <span className="font-inter text-sm font-medium text-accent-indigo">AI Integration</span>
               </div>
-              <div className="cyber-card px-4 py-2 bg-neon-pink/10 border border-neon-pink/30 rounded">
-                <span className="font-jetbrains text-xs text-neon-pink tracking-wider">INTERACTION_DESIGN</span>
+              <div className="elegant-card px-6 py-3 bg-card/80 backdrop-blur-elegant rounded-full">
+                <span className="font-inter text-sm font-medium text-accent-emerald">Design Systems</span>
               </div>
-              <div className="cyber-card px-4 py-2 bg-neon-yellow/10 border border-neon-yellow/30 rounded">
-                <span className="font-jetbrains text-xs text-neon-yellow tracking-wider">PROTOTYPING</span>
+              <div className="elegant-card px-6 py-3 bg-card/80 backdrop-blur-elegant rounded-full">
+                <span className="font-inter text-sm font-medium text-accent-gold">Team Leadership</span>
               </div>
             </motion.div>
           </div>
@@ -220,159 +217,152 @@ export default function Home() {
             className="flex justify-center space-x-6 flex-wrap gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2 }}
+            transition={{ delay: 1.0 }}
           >
             <Button 
               onClick={() => scrollToSection('work')}
-              className="bg-neon-cyan text-dark-bg px-8 py-4 font-jetbrains tracking-wider text-sm hover:bg-neon-cyan/80 transition-all transform hover:scale-105 animate-cyber-pulse cursor-pointer"
+              className="bg-primary text-primary-foreground px-8 py-4 font-inter font-medium text-sm hover:bg-primary/90 transition-all transform hover:scale-105 cursor-pointer"
             >
-              {'>> VIEW_PORTFOLIO'}
+              View Portfolio
             </Button>
             <Button 
               variant="outline"
               onClick={() => scrollToSection('contact')}
-              className="border-2 border-neon-pink text-neon-pink px-8 py-4 font-jetbrains tracking-wider text-sm hover:bg-neon-pink hover:text-dark-bg transition-all cursor-pointer"
+              className="border-2 border-primary text-primary px-8 py-4 font-inter font-medium text-sm hover:bg-primary hover:text-primary-foreground transition-all cursor-pointer"
             >
-              {'>> INITIATE_CONTACT'}
+              Get In Touch
             </Button>
           </motion.div>
         </motion.div>
         
         <motion.div 
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           animate={{ 
-            y: [0, -10, 0],
-            opacity: [0.5, 1, 0.5]
+            y: [0, -8, 0]
           }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="text-2xl text-neon-cyan animate-neon-glow">▼</div>
+          <div className="text-lg text-muted-foreground">↓</div>
         </motion.div>
-        
-        {/* Scanning line effect */}
-        <div className="absolute inset-0 scan-lines opacity-10" />
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 relative bg-dark-surface/30">
+      <section id="about" className="py-24 relative bg-muted/30">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div 
               className="space-y-8"
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
               <div>
                 <motion.div
-                  className="font-jetbrains text-neon-cyan text-sm tracking-[0.2em] uppercase mb-4"
+                  className="font-dm-mono text-accent-indigo text-sm tracking-wider uppercase mb-4"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  {'>> System_Info.exe'}
+                  Professional Profile
                 </motion.div>
-                <h2 className="font-righteous text-5xl md:text-6xl font-bold">
-                  <span className="text-neon-pink">ABOUT</span>
-                  <br />
-                  <span className="text-neon-cyan">PROTOCOL</span>
+                <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6">
+                  Designing the Future of 
+                  <span className="gradient-text"> Digital Experiences</span>
                 </h2>
               </div>
               
-              <div className="space-y-6 text-text-secondary leading-relaxed font-poppins">
+              <div className="space-y-6 text-muted-foreground leading-relaxed font-inter">
                 <p>
-                  [PROFILE_LOADED] I'm a cybernetic UI/UX designer with 6+ years of experience 
-                  crafting digital interfaces that bridge the gap between human intuition 
-                  and machine precision. My neural networks are optimized for user-centered 
-                  design and cutting-edge technological integration.
+                  As a skilled Senior Product Designer with four years of experience, I excel in UI/UX design, 
+                  transforming ideas into intuitive digital products. My expertise spans user research, wireframing, 
+                  design systems, and cutting-edge AI integration.
                 </p>
                 <p>
-                  [SPECIALIZATION_ACTIVE] My core modules include design systems architecture, 
-                  rapid prototyping algorithms, and interaction design protocols. I engineer 
-                  digital experiences that maximize user engagement and conversion rates.
+                  I take a strategic, data-driven approach to problem-solving, consistently delivering high-quality 
+                  results that drive business value. As a UI/UX manager, I lead design teams, manage project timelines, 
+                  and ensure alignment with product goals, making me uniquely positioned to create impactful digital experiences.
                 </p>
               </div>
               
               <div className="grid grid-cols-3 gap-6">
                 <motion.div 
-                  className="cyber-card text-center p-4 bg-neon-cyan/10 border border-neon-cyan/30 rounded-lg"
-                  whileHover={{ scale: 1.05 }}
+                  className="elegant-card text-center p-6 bg-card/80 rounded-lg"
+                  whileHover={{ y: -4 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="text-3xl font-playfair font-bold text-accent-indigo mb-2">4+</div>
+                  <div className="text-xs font-inter text-muted-foreground">Years Experience</div>
+                </motion.div>
+                <motion.div 
+                  className="elegant-card text-center p-6 bg-card/80 rounded-lg"
+                  whileHover={{ y: -4 }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  <div className="text-2xl font-jetbrains font-bold text-neon-cyan mb-1">150+</div>
-                  <div className="text-xs font-jetbrains text-text-secondary tracking-wider">PROJECTS_DEPLOYED</div>
+                  <div className="text-3xl font-playfair font-bold text-accent-emerald mb-2">50+</div>
+                  <div className="text-xs font-inter text-muted-foreground">Projects Delivered</div>
                 </motion.div>
                 <motion.div 
-                  className="cyber-card text-center p-4 bg-neon-pink/10 border border-neon-pink/30 rounded-lg"
-                  whileHover={{ scale: 1.05 }}
+                  className="elegant-card text-center p-6 bg-card/80 rounded-lg"
+                  whileHover={{ y: -4 }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                   viewport={{ once: true }}
                 >
-                  <div className="text-2xl font-jetbrains font-bold text-neon-pink mb-1">6+</div>
-                  <div className="text-xs font-jetbrains text-text-secondary tracking-wider">YEARS_ONLINE</div>
-                </motion.div>
-                <motion.div 
-                  className="cyber-card text-center p-4 bg-neon-yellow/10 border border-neon-yellow/30 rounded-lg"
-                  whileHover={{ scale: 1.05 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="text-2xl font-jetbrains font-bold text-neon-yellow mb-1">50+</div>
-                  <div className="text-xs font-jetbrains text-text-secondary tracking-wider">CLIENTS_SATISFIED</div>
+                  <div className="text-3xl font-playfair font-bold text-accent-gold mb-2">15+</div>
+                  <div className="text-xs font-inter text-muted-foreground">Team Members Led</div>
                 </motion.div>
               </div>
             </motion.div>
             
             <motion.div 
               className="relative"
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="relative cyber-card rounded-xl overflow-hidden">
+              <div className="relative elegant-card rounded-xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-                  alt="Cyberpunk workspace with holographic displays" 
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                  alt="Professional designer working on AI-powered interfaces" 
                   className="w-full h-auto rounded-xl" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/80 via-transparent to-neon-cyan/10"></div>
-                <div className="absolute inset-0 scan-lines opacity-30" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
               </div>
               
-              {/* Floating data elements */}
+              {/* Floating accent elements */}
               <motion.div 
-                className="absolute -top-4 -right-4 w-20 h-20 border border-neon-cyan/50 rounded-full flex items-center justify-center bg-dark-bg/80"
+                className="absolute -top-4 -right-4 w-16 h-16 bg-accent-indigo/10 border border-accent-indigo/30 rounded-full flex items-center justify-center backdrop-blur-md"
                 animate={{ 
-                  rotate: 360,
-                  scale: [1, 1.1, 1]
+                  rotate: [0, 360],
+                  scale: [1, 1.05, 1]
                 }}
                 transition={{ 
-                  rotate: { duration: 10, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 3, repeat: Infinity }
+                  rotate: { duration: 15, repeat: Infinity, ease: "linear" },
+                  scale: { duration: 4, repeat: Infinity }
                 }}
               >
-                <span className="text-neon-cyan text-xs font-jetbrains">ACTIVE</span>
+                <span className="text-accent-indigo text-xs font-dm-mono">AI</span>
               </motion.div>
               
               <motion.div 
-                className="absolute -bottom-4 -left-4 w-16 h-16 bg-neon-pink/20 border border-neon-pink/50 rounded-lg flex items-center justify-center"
+                className="absolute -bottom-4 -left-4 w-12 h-12 bg-accent-emerald/10 border border-accent-emerald/30 rounded-lg flex items-center justify-center backdrop-blur-md"
                 animate={{ 
-                  y: [-5, 5, -5],
-                  opacity: [0.7, 1, 0.7]
+                  y: [-3, 3, -3],
+                  opacity: [0.8, 1, 0.8]
                 }}
-                transition={{ duration: 4, repeat: Infinity }}
+                transition={{ duration: 3, repeat: Infinity }}
               >
-                <span className="text-neon-pink text-xs font-jetbrains">◆</span>
+                <span className="text-accent-emerald text-xs font-dm-mono">UX</span>
               </motion.div>
             </motion.div>
           </div>
@@ -464,39 +454,43 @@ export default function Home() {
               </div>
             </motion.div>
             
-            {/* Prototyping Skills */}
+            {/* Technical Skills */}
             <motion.div 
-              className="bg-dark-surface/50 p-8 rounded-2xl"
+              className="elegant-card p-8 bg-card/80 rounded-xl"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="text-center mb-6">
-                <i className="fas fa-code text-4xl text-vibrant mb-4"></i>
-                <h3 className="font-space text-xl font-bold">Prototyping</h3>
+              <div className="text-center mb-8">
+                <div className="w-12 h-12 bg-accent-emerald/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-accent-emerald text-xl">⚡</span>
+                </div>
+                <h3 className="font-playfair text-xl font-semibold text-foreground">Technical Expertise</h3>
               </div>
-              <div className="space-y-4">
-                {prototypingSkills.map((skill) => (
+              <div className="space-y-6">
+                {technicalSkills.map((skill) => (
                   <SkillBar key={skill.skill} {...skill} />
                 ))}
               </div>
             </motion.div>
             
-            {/* Research Skills */}
+            {/* Management Skills */}
             <motion.div 
-              className="bg-dark-surface/50 p-8 rounded-2xl"
+              className="elegant-card p-8 bg-card/80 rounded-xl"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <div className="text-center mb-6">
-                <i className="fas fa-search text-4xl text-purple mb-4"></i>
-                <h3 className="font-space text-xl font-bold">Research</h3>
+              <div className="text-center mb-8">
+                <div className="w-12 h-12 bg-accent-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-accent-gold text-xl">👥</span>
+                </div>
+                <h3 className="font-playfair text-xl font-semibold text-foreground">Leadership</h3>
               </div>
-              <div className="space-y-4">
-                {researchSkills.map((skill) => (
+              <div className="space-y-6">
+                {managementSkills.map((skill) => (
                   <SkillBar key={skill.skill} {...skill} />
                 ))}
               </div>
