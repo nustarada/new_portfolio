@@ -28,7 +28,12 @@ import {
   Mail,
   Github,
   Linkedin,
-  Download
+  Download,
+  User,
+  Briefcase,
+  MessageSquare,
+  Send,
+  ArrowRight
 } from 'lucide-react';
 
 export default function Home() {
@@ -675,66 +680,132 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <Card className="neo-card">
-            <form 
-              onSubmit={handleSubmit((data) => contactMutation.mutate(data))}
-              className="space-y-6"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Name</label>
-                  <Input 
-                    {...register('name', { required: true })}
-                    placeholder="Your Name"
-                    className="bg-secondary border-border"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
-                  <Input 
-                    {...register('email', { required: true })}
-                    type="email"
-                    placeholder="your@email.com"
-                    className="bg-secondary border-border"
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium mb-2">Project Type</label>
-                <Select>
-                  <SelectTrigger className="bg-secondary border-border">
-                    <SelectValue placeholder="Select project type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="product-design">Product Design</SelectItem>
-                    <SelectItem value="design-system">Design System</SelectItem>
-                    <SelectItem value="ai-integration">AI Integration</SelectItem>
-                    <SelectItem value="consulting">Consulting</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium mb-2">Message</label>
-                <Textarea 
-                  {...register('message', { required: true })}
-                  placeholder="Tell me about your project and goals..."
-                  rows={6}
-                  className="bg-secondary border-border resize-none"
-                />
-              </div>
-              
-              <Button 
-                type="submit" 
-                size="lg" 
-                className="w-full neo-card bg-primary hover:bg-primary/90"
-                disabled={contactMutation.isPending}
+          <Card className="group relative overflow-hidden p-10 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/85 backdrop-blur-xl border-2 border-primary/40 hover:border-primary/60 transition-all duration-700 shadow-2xl shadow-primary/20 rounded-3xl">
+            {/* Background Effects */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-purple-500/10 to-transparent rounded-full blur-2xl" />
+            
+            <div className="relative z-10">
+              <form 
+                onSubmit={handleSubmit((data) => contactMutation.mutate(data))}
+                className="space-y-8"
               >
-                {contactMutation.isPending ? 'Sending...' : 'Send Message'}
-              </Button>
-            </form>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    viewport={{ once: true }}
+                    className="group/field"
+                  >
+                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
+                      <Users className="w-4 h-4 text-primary" />
+                      <span>Full Name</span>
+                    </label>
+                    <Input 
+                      {...register('name', { required: true })}
+                      placeholder="Enter your full name"
+                      className="h-12 bg-white/5 border-2 border-white/10 hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm"
+                    />
+                  </motion.div>
+                  
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="group/field"
+                  >
+                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
+                      <Mail className="w-4 h-4 text-primary" />
+                      <span>Email Address</span>
+                    </label>
+                    <Input 
+                      {...register('email', { required: true })}
+                      type="email"
+                      placeholder="your.email@company.com"
+                      className="h-12 bg-white/5 border-2 border-white/10 hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm"
+                    />
+                  </motion.div>
+                </div>
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  viewport={{ once: true }}
+                >
+                  <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
+                    <Target className="w-4 h-4 text-primary" />
+                    <span>Project Type</span>
+                  </label>
+                  <Select>
+                    <SelectTrigger className="h-12 bg-white/5 border-2 border-white/10 hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white rounded-xl backdrop-blur-sm">
+                      <SelectValue placeholder="What type of project are you working on?" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-slate-900/95 border-white/20 backdrop-blur-xl">
+                      <SelectItem value="product-design" className="text-white hover:bg-primary/20">🎨 Product Design</SelectItem>
+                      <SelectItem value="design-system" className="text-white hover:bg-primary/20">🎯 Design System</SelectItem>
+                      <SelectItem value="ai-integration" className="text-white hover:bg-primary/20">🤖 AI Integration</SelectItem>
+                      <SelectItem value="consulting" className="text-white hover:bg-primary/20">💡 Design Consulting</SelectItem>
+                      <SelectItem value="other" className="text-white hover:bg-primary/20">✨ Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </motion.div>
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  viewport={{ once: true }}
+                >
+                  <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
+                    <Mail className="w-4 h-4 text-primary" />
+                    <span>Project Details</span>
+                  </label>
+                  <Textarea 
+                    {...register('message', { required: true })}
+                    placeholder="Tell me about your project goals, challenges, timeline, and how I can help bring your vision to life..."
+                    rows={6}
+                    className="bg-white/5 border-2 border-white/10 hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 resize-none rounded-xl backdrop-blur-sm"
+                  />
+                </motion.div>
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  viewport={{ once: true }}
+                  className="pt-4"
+                >
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="group/btn relative w-full h-14 bg-gradient-to-r from-primary via-purple-600 to-primary hover:from-primary/90 hover:via-purple-500 hover:to-primary/90 text-white font-semibold text-lg rounded-xl overflow-hidden transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-primary/40 disabled:opacity-50"
+                    disabled={contactMutation.isPending}
+                  >
+                    {/* Button Background Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                    
+                    <div className="relative z-10 flex items-center justify-center space-x-3">
+                      {contactMutation.isPending ? (
+                        <>
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          <span>Sending Message...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Mail className="w-5 h-5" />
+                          <span>Send Message</span>
+                          <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                        </>
+                      )}
+                    </div>
+                  </Button>
+                </motion.div>
+              </form>
+            </div>
           </Card>
 
           <div className="mt-16 text-center">
