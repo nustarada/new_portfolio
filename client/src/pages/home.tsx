@@ -152,8 +152,8 @@ export default function Home() {
       <div 
         className="custom-cursor"
         style={{
-          left: cursorPos.x - 10,
-          top: cursorPos.y - 10,
+          left: cursorPos.x,
+          top: cursorPos.y,
         }}
       />
 
