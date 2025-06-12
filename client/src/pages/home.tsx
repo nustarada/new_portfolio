@@ -211,87 +211,25 @@ export default function Home() {
             transition={{ duration: 1, ease: "easeOut" }}
             className="space-y-8 md:space-y-12"
           >
-            {/* Status Badge with Enhanced Effects */}
+            {/* Status Badge */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: -20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, type: "spring", bounce: 0.4 }}
-              className="flex justify-center relative"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex justify-center"
             >
-              {/* Pulsing Glow Background */}
-              <motion.div 
-                className="absolute inset-0 bg-primary/30 rounded-full blur-lg"
-                animate={{ 
-                  scale: [1, 1.3, 1],
-                  opacity: [0.3, 0.6, 0.3]
-                }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              />
-              
-              {/* Rotating Ring */}
-              <motion.div 
-                className="absolute inset-0 border-2 border-primary/20 rounded-full"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-              />
-              
-              {/* Main Badge */}
               <motion.div
-                whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: "0 0 30px rgba(139, 92, 246, 0.4)"
-                }}
-                className="relative"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <Badge 
                   variant="outline" 
-                  className="text-sm px-6 py-3 border-primary/60 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 backdrop-blur-sm hover:border-primary/80 transition-all duration-300 shadow-lg shadow-primary/25"
+                  className="text-sm px-6 py-3 border-primary/50 bg-primary/20 text-white font-semibold tracking-wider backdrop-blur-sm shadow-lg shadow-primary/25 hover:bg-primary/30 transition-all duration-300"
                 >
-                  <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                    className="mr-2"
-                  >
-                    <Sparkles className="w-4 h-4 text-primary" />
-                  </motion.div>
-                  <motion.span
-                    animate={{ 
-                      background: [
-                        "linear-gradient(45deg, #8b5cf6, #06b6d4, #8b5cf6)",
-                        "linear-gradient(90deg, #06b6d4, #8b5cf6, #06b6d4)",
-                        "linear-gradient(135deg, #8b5cf6, #06b6d4, #8b5cf6)"
-                      ]
-                    }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                    className="bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent font-semibold tracking-wider"
-                  >
-                    AVAILABLE FOR NEW OPPORTUNITIES
-                  </motion.span>
+                  <Sparkles className="w-4 h-4 mr-2 text-primary" />
+                  AVAILABLE FOR NEW OPPORTUNITIES
                 </Badge>
               </motion.div>
-              
-              {/* Floating Particles */}
-              {[...Array(3)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-1 h-1 bg-primary rounded-full"
-                  animate={{
-                    x: [0, 20, -20, 0],
-                    y: [0, -15, 15, 0],
-                    opacity: [0, 1, 0]
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    delay: i * 1.3,
-                    ease: "easeInOut"
-                  }}
-                  style={{
-                    left: `${30 + i * 20}%`,
-                    top: `${20 + i * 10}%`
-                  }}
-                />
-              ))}
             </motion.div>
             
             {/* Name with Bold Display */}
