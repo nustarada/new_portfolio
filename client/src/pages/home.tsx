@@ -344,7 +344,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="lg:col-span-7 space-y-8"
+              className="lg:col-span-7 space-y-6"
             >
               {/* Story Card */}
               <Card className="neo-card p-8 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border-primary/20">
