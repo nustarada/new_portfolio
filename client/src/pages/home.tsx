@@ -10,6 +10,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { Link } from 'wouter';
 import { LiquidGrid } from '@/components/liquid-grid';
+import { MovingRibbon } from '@/components/moving-ribbon';
 import logoPath from '@assets/Logo black_1749713682616.png';
 import { 
   Terminal, 
@@ -316,8 +317,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section Divider */}
-      <div className="section-divider" />
+      {/* Moving Skills Ribbon */}
+      <MovingRibbon />
 
       {/* About Section */}
       <section id="about" className="py-16 relative overflow-hidden">
