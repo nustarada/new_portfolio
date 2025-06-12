@@ -888,53 +888,30 @@ export default function Home() {
 
       {/* Resume Modal */}
       <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
-        <DialogContent className="max-w-4xl w-full h-[90vh] p-0 bg-slate-900/95 border-2 border-primary/40 backdrop-blur-xl">
-          <DialogHeader className="p-6 pb-4 border-b border-primary/20">
-            <div className="flex items-center justify-between">
-              <DialogTitle className="text-2xl font-bold text-white flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-primary/30 to-purple-500/30 rounded-lg flex items-center justify-center">
-                  <User className="w-5 h-5 text-primary" />
-                </div>
-                <span>Karan Gadhave - Resume</span>
-              </DialogTitle>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsResumeOpen(false)}
-                className="text-white/70 hover:text-white hover:bg-white/10 rounded-lg"
-              >
-                <X className="w-5 h-5" />
-              </Button>
-            </div>
+        <DialogContent className="max-w-5xl w-full max-h-[95vh] p-0 bg-slate-900/95 border-2 border-primary/40 backdrop-blur-xl overflow-hidden">
+          <DialogHeader className="p-4 pb-3 border-b border-primary/20">
+            <DialogTitle className="text-xl font-bold text-white flex items-center space-x-3">
+              <div className="w-8 h-8 bg-gradient-to-br from-primary/30 to-purple-500/30 rounded-lg flex items-center justify-center">
+                <User className="w-4 h-4 text-primary" />
+              </div>
+              <span>Karan Gadhave - Resume</span>
+            </DialogTitle>
           </DialogHeader>
           
-          <div className="flex-1 p-6">
+          <div className="w-full h-[calc(95vh-80px)] p-4">
             <div className="w-full h-full bg-white rounded-lg overflow-hidden shadow-2xl">
-              <iframe
-                src={`${resumePdf}#toolbar=0&navpanes=0&scrollbar=0`}
-                className="w-full h-full border-0"
-                title="Karan Gadhave Resume"
-                style={{
-                  pointerEvents: 'auto'
-                }}
-              />
-            </div>
-            
-            <div className="mt-4 p-4 bg-gradient-to-r from-primary/10 to-purple-500/10 rounded-xl border border-primary/20">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
-                    <Download className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-white font-medium">View-Only Mode</p>
-                    <p className="text-white/70 text-sm">This resume is displayed in view-only format</p>
-                  </div>
-                </div>
-                <Badge variant="outline" className="text-primary border-primary/30 bg-primary/10">
-                  PDF Document
-                </Badge>
-              </div>
+              <object
+                data={resumePdf}
+                type="application/pdf"
+                className="w-full h-full"
+                aria-label="Karan Gadhave Resume PDF"
+              >
+                <embed
+                  src={resumePdf}
+                  type="application/pdf"
+                  className="w-full h-full"
+                />
+              </object>
             </div>
           </div>
         </DialogContent>
