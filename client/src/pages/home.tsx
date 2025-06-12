@@ -384,6 +384,65 @@ export default function Home() {
       {/* Moving Skills Ribbon */}
       <MovingRibbon />
 
+      {/* Statistics Section */}
+      <section className="py-16 relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <div className="relative inline-block mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold glow-text relative z-10">ACHIEVEMENTS</h2>
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
+            </div>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              Metrics that showcase my impact and experience in product design and team leadership
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {[
+              { number: '4+', label: 'Years Experience', color: 'from-purple-500 to-pink-500', icon: Clock },
+              { number: '50+', label: 'Projects Delivered', color: 'from-blue-500 to-purple-500', icon: Zap },
+              { number: '15+', label: 'Team Members Led', color: 'from-green-500 to-blue-500', icon: Users }
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="group"
+              >
+                <Card className="relative overflow-hidden text-center p-8 bg-gradient-to-br from-card/80 via-card/60 to-card/40 backdrop-blur-md border border-white/10 hover:border-primary/30 transition-all duration-300">
+                  {/* Background Glow */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <div className={`w-16 h-16 mx-auto bg-gradient-to-r ${stat.color} bg-opacity-20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <stat.icon className="w-8 h-8 text-white" />
+                    </div>
+                    
+                    <div className={`text-5xl md:text-6xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3`}>
+                      {stat.number}
+                    </div>
+                    
+                    <div className="text-base text-white/80 font-medium tracking-wide">
+                      {stat.label}
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section id="about" className="py-20 relative overflow-hidden">
         {/* Background Elements */}
@@ -550,61 +609,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Statistics Section */}
-      <section className="py-16 relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">ACHIEVEMENTS</h2>
-            <p className="text-lg md:text-xl text-foreground opacity-90 max-w-3xl mx-auto font-medium">
-              Metrics that showcase my impact and experience in product design and team leadership
-            </p>
-          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {[
-              { number: '4+', label: 'Years Experience', color: 'from-purple-500 to-pink-500', icon: Clock },
-              { number: '50+', label: 'Projects Delivered', color: 'from-blue-500 to-purple-500', icon: Zap },
-              { number: '15+', label: 'Team Members Led', color: 'from-green-500 to-blue-500', icon: Users }
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="group"
-              >
-                <Card className="relative overflow-hidden text-center p-8 bg-gradient-to-br from-card/80 via-card/60 to-card/40 backdrop-blur-md border border-white/10 hover:border-primary/30 transition-all duration-300">
-                  {/* Background Glow */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                  
-                  {/* Content */}
-                  <div className="relative z-10">
-                    <div className={`w-16 h-16 mx-auto bg-gradient-to-r ${stat.color} bg-opacity-20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <stat.icon className="w-8 h-8 text-white" />
-                    </div>
-                    
-                    <div className={`text-5xl md:text-6xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3`}>
-                      {stat.number}
-                    </div>
-                    
-                    <div className="text-base text-white/80 font-medium tracking-wide">
-                      {stat.label}
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Projects Section */}
       <section id="projects" className="py-16 relative">
