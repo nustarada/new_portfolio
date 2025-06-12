@@ -350,86 +350,133 @@ export default function Home() {
       <div className="section-divider" />
 
       {/* About Section */}
-      <section id="about" className="py-32 relative">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <section id="about" className="py-32 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <h2 className="text-5xl md:text-7xl font-bold mb-6 glow-text">ABOUT ME</h2>
+            <p className="text-xl md:text-2xl text-white opacity-80 max-w-3xl mx-auto">
+              Transforming ideas into exceptional digital experiences through strategic design and innovation
+            </p>
+          </motion.div>
+
+          {/* Main Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            {/* Left Column - Story & Stats */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="lg:col-span-7 space-y-8"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">ABOUT ME</h2>
-              
-              <div className="space-y-6 text-base md:text-lg text-foreground leading-relaxed">
-                <p className="font-medium opacity-90">
-                  With four years of specialized experience in UI/UX design, I transform complex 
-                  challenges into intuitive digital solutions. My approach combines strategic 
-                  design thinking with cutting-edge AI integration to create products that drive 
-                  meaningful business outcomes.
-                </p>
-                
-                <p className="font-medium opacity-90">
-                  As a design leader, I excel in user research, system architecture, and cross-
-                  functional collaboration. I've successfully led teams through product launches, 
-                  managed design systems at scale, and pioneered AI-enhanced design 
-                  workflows that improve efficiency by 40%.
-                </p>
-              </div>
+              {/* Story Card */}
+              <Card className="neo-card p-8 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border-primary/20">
+                <div className="space-y-6 text-lg text-white leading-relaxed">
+                  <p>
+                    With <span className="text-primary font-bold">four years of specialized experience</span> in UI/UX design, 
+                    I transform complex challenges into intuitive digital solutions. My approach combines strategic 
+                    design thinking with cutting-edge AI integration to create products that drive 
+                    meaningful business outcomes.
+                  </p>
+                  
+                  <p>
+                    As a design leader, I excel in user research, system architecture, and cross-
+                    functional collaboration. I've successfully led teams through product launches, 
+                    managed design systems at scale, and pioneered <span className="text-primary font-bold">AI-enhanced design 
+                    workflows that improve efficiency by 40%</span>.
+                  </p>
+                </div>
+              </Card>
 
-              <div className="grid grid-cols-3 gap-8 mt-12">
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">4+</div>
-                  <div className="text-sm text-foreground opacity-80 font-medium">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">50+</div>
-                  <div className="text-sm text-foreground opacity-80 font-medium">Projects Delivered</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">15+</div>
-                  <div className="text-sm text-foreground opacity-80 font-medium">Team Members Led</div>
-                </div>
+              {/* Stats Grid */}
+              <div className="grid grid-cols-3 gap-6">
+                {[
+                  { number: '4+', label: 'Years Experience', color: 'from-purple-500 to-pink-500' },
+                  { number: '50+', label: 'Projects Delivered', color: 'from-blue-500 to-purple-500' },
+                  { number: '15+', label: 'Team Members Led', color: 'from-green-500 to-blue-500' }
+                ].map((stat, index) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05, rotateY: 5 }}
+                  >
+                    <Card className="neo-card text-center p-6 bg-gradient-to-br from-card/60 to-transparent backdrop-blur-sm border-white/10">
+                      <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3`}>
+                        {stat.number}
+                      </div>
+                      <div className="text-sm text-white opacity-80 font-medium tracking-wide">
+                        {stat.label}
+                      </div>
+                    </Card>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
 
+            {/* Right Column - Skills & Philosophy */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              className="lg:col-span-5 space-y-8"
             >
-              <Card className="neo-card">
-                <h3 className="text-xl md:text-2xl font-bold mb-6 text-foreground">Core Expertise</h3>
-                <div className="grid grid-cols-2 gap-4">
+              {/* Core Expertise */}
+              <Card className="neo-card p-8 bg-gradient-to-br from-primary/10 to-transparent backdrop-blur-sm border-primary/30">
+                <h3 className="text-2xl font-bold mb-6 text-white">Core Expertise</h3>
+                <div className="grid grid-cols-1 gap-3">
                   {[
                     'AI Integration', 'Design Systems', 'User Research', 'Team Leadership',
                     'Product Strategy', 'Prototyping', 'Data Visualization', 'Cross-functional Collaboration'
                   ].map((skill, index) => (
                     <motion.div
                       key={skill}
-                      className="flex items-center space-x-2 p-3 rounded-lg bg-secondary/50"
-                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(138, 43, 226, 0.1)' }}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      className="group flex items-center space-x-3 p-4 rounded-xl bg-white/5 hover:bg-primary/20 transition-all duration-300"
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
+                      whileHover={{ x: 5 }}
                     >
-                      <div className="w-2 h-2 bg-primary rounded-full" />
-                      <span className="text-sm font-semibold text-foreground">{skill}</span>
+                      <motion.div 
+                        className="w-3 h-3 bg-gradient-to-r from-primary to-pink-500 rounded-full"
+                        whileHover={{ scale: 1.3, rotate: 180 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                      <span className="text-white font-medium group-hover:text-primary transition-colors">
+                        {skill}
+                      </span>
                     </motion.div>
                   ))}
                 </div>
               </Card>
 
-              <Card className="neo-card">
-                <h3 className="text-xl md:text-2xl font-bold mb-6 text-foreground">Design Philosophy</h3>
-                <p className="text-foreground opacity-90 leading-relaxed font-medium">
-                  Great design is invisible. It seamlessly bridges human needs with 
+              {/* Design Philosophy */}
+              <Card className="neo-card p-8 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border-white/10">
+                <div className="flex items-center mb-6">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
+                    <Sparkles className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Design Philosophy</h3>
+                </div>
+                <blockquote className="text-white leading-relaxed italic text-lg border-l-4 border-primary/50 pl-6">
+                  "Great design is invisible. It seamlessly bridges human needs with 
                   technological possibilities, creating experiences that feel natural, 
-                  intuitive, and delightful. I believe in data-driven decisions, user-
-                  centered approaches, and the power of AI to augment human creativity.
+                  intuitive, and delightful."
+                </blockquote>
+                <p className="text-white/80 mt-4 text-base">
+                  I believe in data-driven decisions, user-centered approaches, and the power of AI to augment human creativity.
                 </p>
               </Card>
             </motion.div>
