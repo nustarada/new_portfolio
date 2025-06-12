@@ -250,6 +250,13 @@
   100% { transform: rotate(360deg); }
 }
 
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 20px rgba(138, 43, 226, 0.2); }
   50% { box-shadow: 0 0 40px rgba(138, 43, 226, 0.4); }

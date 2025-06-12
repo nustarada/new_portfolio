@@ -590,83 +590,94 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">FEATURED PROJECTS</h2>
-            <p className="text-lg md:text-xl text-foreground opacity-90 max-w-3xl mx-auto font-medium">
-              A showcase of innovative solutions spanning AI integration, enterprise platforms,
-              and user-centered design systems.
+            <div className="relative inline-block mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold glow-text relative z-10">FEATURED PROJECTS</h2>
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
+            </div>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              A showcase of innovative solutions spanning AI integration, enterprise platforms, and user-centered design systems.
             </p>
           </motion.div>
 
-          <div className="space-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 100 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-                }`}
+                className="group"
               >
-                <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                  <div className="space-y-8">
-                    <div className="flex items-center space-x-4 mb-2">
-                      <Badge variant="outline" className="text-xs px-3 py-1">
+                <Card className="h-full overflow-hidden bg-gradient-to-br from-card/90 via-card/70 to-card/50 backdrop-blur-md border border-white/15 hover:border-primary/30 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2">
+                  {/* Project Image/Preview */}
+                  <div className="relative aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="flex items-center justify-center h-full">
+                      <Terminal className="w-12 h-12 text-primary/60 group-hover:text-primary transition-colors duration-300" />
+                    </div>
+                    
+                    {/* Category Badge */}
+                    <div className="absolute top-4 left-4">
+                      <Badge variant="outline" className="text-xs px-3 py-1 bg-black/30 backdrop-blur-sm border-white/20 text-white">
                         {project.category}
                       </Badge>
-                      <span className="text-sm text-muted-foreground code-font">
+                    </div>
+                    
+                    {/* Year Badge */}
+                    <div className="absolute top-4 right-4">
+                      <Badge variant="outline" className="text-xs px-3 py-1 bg-black/30 backdrop-blur-sm border-white/20 text-white code-font">
                         {project.year}
-                      </span>
+                      </Badge>
                     </div>
+                  </div>
+
+                  {/* Project Content */}
+                  <div className="p-6 space-y-4">
+                    <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-300 leading-tight">
+                      {project.title}
+                    </h3>
                     
-                    <div className="space-y-6">
-                      <h3 className="text-4xl md:text-5xl font-bold glow-text leading-tight">{project.title}</h3>
-                      
-                      <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                        {project.description}
-                      </p>
-                    </div>
+                    <p className="text-sm text-white/80 leading-relaxed line-clamp-3">
+                      {project.description}
+                    </p>
                     
-                    <div className="flex flex-wrap gap-3 py-2">
-                      {project.tags.map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs px-3 py-1">
+                    {/* Tech Stack Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.slice(0, 3).map((tag) => (
+                        <Badge key={tag} variant="secondary" className="text-xs px-2 py-1 bg-white/10 text-white/80 border-white/20">
                           {tag}
                         </Badge>
                       ))}
+                      {project.tags.length > 3 && (
+                        <Badge variant="secondary" className="text-xs px-2 py-1 bg-white/10 text-white/80 border-white/20">
+                          +{project.tags.length - 3}
+                        </Badge>
+                      )}
                     </div>
                     
-                    <div className="pt-6">
+                    {/* CTA Button */}
+                    <div className="pt-2">
                       <Link href="/case-study">
                         <Button 
-                          size="lg"
+                          size="sm"
                           style={{
-                            background: 'linear-gradient(to right, hsl(262, 83%, 58%), hsl(280, 100%, 70%), hsl(262, 83%, 58%))',
+                            background: 'linear-gradient(to right, hsl(262, 83%, 58%), hsl(280, 100%, 70%))',
                             border: 'none',
-                            boxShadow: '0 10px 30px hsla(262, 83%, 58%, 0.4)'
                           }}
-                          className="group/cta relative overflow-hidden text-white font-bold text-base px-8 py-4 rounded-xl hover:scale-105 transition-all duration-300"
+                          className="group/btn relative overflow-hidden text-white font-semibold text-sm px-4 py-2 rounded-lg hover:scale-105 transition-all duration-300 w-full"
                         >
-                          {/* Shimmer Effect */}
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/cta:translate-x-full transition-transform duration-700" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
                           
-                          <div className="relative z-10 flex items-center space-x-3">
-                            <ArrowUpRight className="w-5 h-5 group-hover/cta:rotate-45 transition-transform duration-300" />
+                          <div className="relative z-10 flex items-center justify-center space-x-2">
                             <span>View Case Study</span>
+                            <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
                           </div>
                         </Button>
                       </Link>
                     </div>
                   </div>
-                </div>
-                
-                <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
-                  <Card className="neo-card p-0 overflow-hidden">
-                    <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                      <Terminal className="w-16 h-16 text-primary/60" />
-                    </div>
-                  </Card>
-                </div>
+                </Card>
               </motion.div>
             ))}
           </div>
