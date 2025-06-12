@@ -7,23 +7,23 @@
 @layer base {
   :root {
     --background: 0 0% 3%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 98%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 95%;
     --primary: 262 83% 58%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 8%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 8%;
-    --muted-foreground: 0 0% 65%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 75%;
     --accent: 262 83% 58%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 15%;
-    --input: 0 0% 8%;
+    --border: 0 0% 18%;
+    --input: 0 0% 10%;
     --ring: 262 83% 58%;
     --radius: 0.75rem;
   }
@@ -45,9 +45,10 @@
   body {
     @apply bg-background text-foreground overflow-x-hidden;
     font-family: 'Space Grotesk', sans-serif;
-    line-height: 1.6;
+    line-height: 1.7;
     background-color: #080808 !important;
-    color: #fafafa !important;
+    color: #f2f2f2 !important;
+    font-weight: 400;
   }
   
   html {
