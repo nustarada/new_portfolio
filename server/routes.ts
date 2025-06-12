@@ -5,14 +5,16 @@ import { insertContactSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
 import nodemailer from "nodemailer";
 
-// Create nodemailer transporter for Gmail SMTP (free)
+// Create nodemailer transporter for custom domain email via GoDaddy
 const createEmailTransporter = () => {
   if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
     return nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtpout.secureserver.net', // GoDaddy SMTP server
+      port: 465, // SSL port
+      secure: true, // Use SSL
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS, // App password for Gmail
+        user: process.env.EMAIL_USER, // Your custom domain email: contact@karnkalaa.in
+        pass: process.env.EMAIL_PASS, // Your email password
       },
     });
   }
@@ -50,8 +52,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (transporter) {
         try {
           const emailContent = {
-            from: process.env.EMAIL_USER,
-            to: 'contact@karnkalaa.in',
+            from: process.env.EMAIL_USER, // This will be contact@karnkalaa.in
+            to: process.env.EMAIL_USER, // Send to yourself
             subject: `New Contact Form: ${validatedData.subject}`,
             html: `
               <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #ffffff;">
