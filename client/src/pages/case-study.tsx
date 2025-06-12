@@ -56,44 +56,44 @@ export default function CaseStudy() {
       {
         phase: "Testing & Refinement",
         duration: "4 weeks",
-        description: "Conducted extensive testing with real teams and iteratively improved the system based on feedback.",
-        deliverables: ["Testing Results", "Performance Metrics", "Training Materials"]
+        description: "Validated AI-powered workflows with design teams, optimized Figma-to-Replit handoffs, and refined automation processes.",
+        deliverables: ["Workflow Validation", "Performance Metrics", "Process Documentation"]
       },
       {
-        phase: "Launch & Adoption",
+        phase: "Launch & Training",
         duration: "3 weeks",
-        description: "Rolled out the system across all teams with comprehensive training and support.",
-        deliverables: ["Rollout Plan", "Training Sessions", "Support Documentation"]
+        description: "Deployed AI design tools across teams with comprehensive training on Figma workflows and Replit prototyping methods.",
+        deliverables: ["Training Materials", "AI Tool Guides", "Adoption Analytics"]
       }
     ],
     keyFeatures: [
       {
-        title: "Smart Component Generation",
-        description: "AI analyzes design patterns and generates contextually appropriate components",
+        title: "AI-Powered Design Generation",
+        description: "Intelligent design assistance using AI tools to accelerate component creation and variations",
         icon: Lightbulb
       },
       {
-        title: "Automated Design Tokens",
-        description: "Dynamic token management that adapts to brand changes across all products",
+        title: "Advanced Figma Workflows",
+        description: "Sophisticated Figma automation and plugin integration for streamlined design operations",
         icon: Target
       },
       {
-        title: "Predictive Layouts",
-        description: "ML-powered suggestions for optimal component arrangements and spacing",
+        title: "Replit Rapid Prototyping",
+        description: "Lightning-fast prototyping using Replit's collaborative environment for design-to-code workflows",
         icon: TrendingUp
       },
       {
-        title: "Real-time Collaboration",
-        description: "Seamless handoff between design and development with live sync",
+        title: "Seamless Tool Integration",
+        description: "Unified workflow connecting AI design tools, Figma, and Replit for maximum efficiency",
         icon: Users
       }
     ],
     outcomes: [
-      "Reduced design-to-development cycle from 2 weeks to 3 days",
-      "Achieved 95% design consistency across all product lines",
-      "Eliminated 80% of design system maintenance overhead",
-      "Increased team productivity by 40% within first quarter",
-      "Generated $2.3M in annual cost savings through efficiency gains"
+      "Accelerated design workflows by 60% using AI-powered design tools",
+      "Streamlined Figma-to-Replit handoffs reducing iteration time by 70%",
+      "Achieved 95% design consistency through intelligent automation",
+      "Eliminated 80% of manual component creation with AI assistance",
+      "Increased team productivity by 40% through integrated tool workflows"
     ]
   };
 
