@@ -572,38 +572,7 @@ export default function Home() {
                 </div>
               </Card>
 
-              {/* Design Philosophy */}
-              <Card className="group relative overflow-hidden p-8 bg-gradient-to-br from-card/90 via-card/70 to-card/50 backdrop-blur-md border border-white/15 hover:border-white/25 transition-all duration-500">
-                {/* Background Elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-2xl" />
-                
-                <div className="relative z-10">
-                  <div className="flex items-center mb-8">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary/25 to-white/20 rounded-xl flex items-center justify-center mr-4 backdrop-blur-sm">
-                      <Sparkles className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white">Design Philosophy</h3>
-                  </div>
-                  
-                  <div className="space-y-6">
-                    <blockquote className="relative">
-                      <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary via-purple-400 to-primary/60 rounded-full"></div>
-                      <p className="text-white/95 leading-relaxed italic text-lg pl-8 font-medium">
-                        "Great design is invisible. It seamlessly bridges human needs with 
-                        technological possibilities, creating experiences that feel natural, 
-                        intuitive, and delightful."
-                      </p>
-                    </blockquote>
-                    
-                    <div className="pl-8 pt-4 border-l border-white/10">
-                      <p className="text-white/85 text-base leading-relaxed">
-                        I harness the power of AI design tools, master Figma's ecosystem, and leverage Replit's capabilities to create innovative, efficient design workflows that deliver exceptional results.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Card>
+
             </motion.div>
           </div>
         </div>
@@ -701,6 +670,65 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Design Philosophy Section */}
+      <section className="py-16 relative">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <div className="relative inline-block mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold glow-text relative z-10">DESIGN PHILOSOPHY</h2>
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
+            </div>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              My approach to creating meaningful and impactful digital experiences
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <Card className="group relative overflow-hidden p-10 bg-gradient-to-br from-card/90 via-card/70 to-card/50 backdrop-blur-md border border-white/15 hover:border-white/25 transition-all duration-500">
+              {/* Background Elements */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-2xl" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/25 to-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                    <Sparkles className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
+                
+                <div className="space-y-8">
+                  <blockquote className="relative text-center">
+                    <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-purple-400 to-primary/60 rounded-full"></div>
+                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium">
+                      "Great design is invisible. It seamlessly bridges human needs with 
+                      technological possibilities, creating experiences that feel natural, 
+                      intuitive, and delightful."
+                    </p>
+                  </blockquote>
+                  
+                  <div className="text-center pt-6 border-t border-white/10">
+                    <p className="text-white/85 text-lg leading-relaxed max-w-2xl mx-auto">
+                      I harness the power of AI design tools, master Figma's ecosystem, and leverage Replit's capabilities to create innovative, efficient design workflows that deliver exceptional results.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
