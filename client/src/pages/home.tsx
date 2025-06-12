@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { Link } from 'wouter';
+import { useToast } from '@/hooks/use-toast';
 import { LiquidGrid } from '@/components/liquid-grid';
 import { MovingRibbon } from '@/components/moving-ribbon';
 import logoPath from '@assets/Logo black_1749713682616.png';
@@ -50,8 +51,9 @@ export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+  const { toast } = useToast();
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const contactMutation = useMutation({
     mutationFn: async (data: any) => {
@@ -60,11 +62,27 @@ export default function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      if (!response.ok) throw new Error('Failed to send message');
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to send message');
+      }
       return response.json();
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
       reset();
+      toast({
+        title: "Message Sent Successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+        duration: 5000,
+      });
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Failed to Send Message",
+        description: error.message || "Please try again later.",
+        variant: "destructive",
+        duration: 5000,
+      });
     },
   });
 
@@ -757,10 +775,11 @@ export default function Home() {
                       <span>Name</span>
                     </label>
                     <Input 
-                      {...register('name', { required: true })}
+                      {...register('name', { required: "Name is required" })}
                       placeholder="Enter your name"
-                      className="h-12 bg-white/5 border-2 border-white/10 hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm"
+                      className={`h-12 bg-white/5 border-2 ${errors.name ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm`}
                     />
+                    {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name.message as string}</p>}
                   </motion.div>
                   
                   <motion.div
@@ -775,11 +794,18 @@ export default function Home() {
                       <span>Email</span>
                     </label>
                     <Input 
-                      {...register('email', { required: true })}
+                      {...register('email', { 
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: "Invalid email address"
+                        }
+                      })}
                       type="email"
                       placeholder="your.email@company.com"
-                      className="h-12 bg-white/5 border-2 border-white/10 hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm"
+                      className={`h-12 bg-white/5 border-2 ${errors.email ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm`}
                     />
+                    {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email.message as string}</p>}
                   </motion.div>
                 </div>
 
@@ -796,10 +822,11 @@ export default function Home() {
                       <span>City, Country</span>
                     </label>
                     <Input 
-                      {...register('location', { required: true })}
+                      {...register('location', { required: "Location is required" })}
                       placeholder="New York, USA"
-                      className="h-12 bg-white/5 border-2 border-white/10 hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm"
+                      className={`h-12 bg-white/5 border-2 ${errors.location ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm`}
                     />
+                    {errors.location && <p className="text-red-400 text-sm mt-1">{errors.location.message as string}</p>}
                   </motion.div>
                   
                   <motion.div
@@ -814,10 +841,11 @@ export default function Home() {
                       <span>Subject</span>
                     </label>
                     <Input 
-                      {...register('subject', { required: true })}
+                      {...register('subject', { required: "Subject is required" })}
                       placeholder="Project inquiry"
-                      className="h-12 bg-white/5 border-2 border-white/10 hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm"
+                      className={`h-12 bg-white/5 border-2 ${errors.subject ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm`}
                     />
+                    {errors.subject && <p className="text-red-400 text-sm mt-1">{errors.subject.message as string}</p>}
                   </motion.div>
                 </div>
                 
