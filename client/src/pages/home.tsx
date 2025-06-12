@@ -184,7 +184,7 @@ export default function Home() {
           </motion.div>
           
           <div className="hidden md:flex items-center space-x-8">
-            {['About', 'Projects', 'Expertise', 'Contact'].map((item) => (
+            {['About', 'Projects', 'Expertise', 'Resume'].map((item) => (
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
