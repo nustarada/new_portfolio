@@ -397,9 +397,9 @@ export default function Home() {
               {/* Stats Grid */}
               <div className="grid grid-cols-3 gap-6">
                 {[
-                  { number: '4+', label: 'Years Experience', color: 'from-purple-500 to-pink-500' },
-                  { number: '50+', label: 'Projects Delivered', color: 'from-blue-500 to-purple-500' },
-                  { number: '15+', label: 'Team Members Led', color: 'from-green-500 to-blue-500' }
+                  { number: '4+', label: 'Years Experience', color: 'from-purple-500 to-pink-500', icon: Clock },
+                  { number: '50+', label: 'Projects Delivered', color: 'from-blue-500 to-purple-500', icon: Zap },
+                  { number: '15+', label: 'Team Members Led', color: 'from-green-500 to-blue-500', icon: Users }
                 ].map((stat, index) => (
                   <motion.div
                     key={stat.label}
@@ -417,7 +417,7 @@ export default function Home() {
                       {/* Content */}
                       <div className="relative z-10 mb-4">
                         <div className={`w-12 h-12 mx-auto bg-gradient-to-r ${stat.color} bg-opacity-20 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
-                          <div className="w-6 h-6 bg-gradient-to-r from-white/80 to-white/60 rounded-full"></div>
+                          <stat.icon className="w-6 h-6 text-white" />
                         </div>
                         
                         <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}>
