@@ -1177,10 +1177,11 @@ export default function Home() {
               href="https://www.linkedin.com/in/karan-gadhave/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group"
+              className="group inline-block touch-manipulation"
+              style={{ WebkitTapHighlightColor: 'transparent' }}
             >
-              <Button variant="ghost" size="icon" className="w-12 h-12 rounded-full neo-card group-hover:scale-110 transition-transform duration-300">
-                <Linkedin className="w-5 h-5 group-hover:text-primary transition-colors duration-300" />
+              <Button variant="ghost" size="icon" className="w-12 h-12 rounded-full neo-card group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
+                <Linkedin className="w-5 h-5 group-hover:text-primary group-active:text-primary transition-colors duration-300" />
               </Button>
             </a>
           </div>
