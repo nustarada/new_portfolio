@@ -888,7 +888,7 @@ export default function Home() {
 
       {/* Resume Modal */}
       <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
-        <DialogContent className="max-w-5xl w-full max-h-[95vh] p-0 bg-slate-900/95 border-2 border-primary/40 backdrop-blur-xl overflow-hidden">
+        <DialogContent className="max-w-6xl w-full max-h-[95vh] p-0 bg-slate-900/95 border-2 border-primary/40 backdrop-blur-xl overflow-hidden">
           <DialogHeader className="p-4 pb-3 border-b border-primary/20">
             <DialogTitle className="text-xl font-bold text-white flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-br from-primary/30 to-purple-500/30 rounded-lg flex items-center justify-center">
@@ -898,20 +898,179 @@ export default function Home() {
             </DialogTitle>
           </DialogHeader>
           
-          <div className="w-full h-[calc(95vh-80px)] p-4">
-            <div className="w-full h-full bg-white rounded-lg overflow-hidden shadow-2xl">
-              <object
-                data={resumePdf}
-                type="application/pdf"
-                className="w-full h-full"
-                aria-label="Karan Gadhave Resume PDF"
-              >
-                <embed
-                  src={resumePdf}
-                  type="application/pdf"
-                  className="w-full h-full"
-                />
-              </object>
+          <div className="w-full h-[calc(95vh-80px)] p-4 bg-white">
+            <div className="w-full h-full bg-white rounded-lg overflow-auto">
+              <div className="max-w-4xl mx-auto p-8 bg-white text-black">
+                <div className="text-center mb-8">
+                  <h1 className="text-4xl font-bold mb-2">Karan Sanjay Gadhave</h1>
+                  <h2 className="text-xl text-gray-600 mb-4">Senior Product / UI/UX Designer</h2>
+                  
+                  <div className="flex justify-center space-x-8 text-sm">
+                    <span>Email: gadhavekaran@gmail.com</span>
+                    <span>Phone: +91 7744074265</span>
+                    <span>LinkedIn: karan-gadhave</span>
+                  </div>
+                </div>
+
+                <hr className="border-gray-300 mb-6" />
+
+                <section className="mb-8">
+                  <h3 className="text-lg font-bold mb-3">Profile Summary:</h3>
+                  <p className="text-sm leading-relaxed">
+                    As a skilled Senior Product Designer with four years of experience, I excel in UI/UX design, transforming ideas into intuitive digital products. My
+                    expertise in user research, wireframing, and design systems ensures effective, user-focused solutions. I take a strategic, data-driven approach to
+                    problem-solving, consistently delivering high-quality results. As a UI/UX manager, I lead design teams, manage project timelines, and ensure
+                    alignment with product goals, making me the ideal candidate to create impactful digital experiences.
+                  </p>
+                </section>
+
+                <section className="mb-8">
+                  <h3 className="text-lg font-bold mb-4">Work Experience:</h3>
+                  
+                  <div className="mb-6">
+                    <div className="flex justify-between items-start mb-2">
+                      <h4 className="font-semibold">Team Pumpkin</h4>
+                      <span className="text-sm text-gray-600">Apr 2022 - Present</span>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-2">UI UX Designer Manager - Remote, India</p>
+                    <div className="text-sm space-y-1">
+                      <p>• Pioneered the design of Acedboard, a project management tool, driving a 35% increase in user satisfaction and a 40% boost in task efficiency</p>
+                      <p>• Led the end-to-end design of Aeroplane, a business-oriented social media platform, achieving a 25% rise in user engagement</p>
+                      <p>• Created cutting-edge health platforms for Healthsignz and MYMEDIC B2B2C Digital Health</p>
+                      <p>• Demonstrated expertise in UI/UX design, user research, and information architecture</p>
+                      <p>• Excelled in managing and mentoring a design team, ensuring delivery of high-impact solutions</p>
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <div className="flex justify-between items-start mb-2">
+                      <h4 className="font-semibold">WeInvest Pepperpenny</h4>
+                      <span className="text-sm text-gray-600">Jun 2021 - Nov 2021</span>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-2">UI UX Designer - Remote, India</p>
+                    <div className="text-sm space-y-1">
+                      <p>• Designed core features for StockMarketBox like broker comparison, market tickers, courses, and blog</p>
+                      <p>• Successfully launched Stockmarketbox.com, boosting online presence</p>
+                      <p>• Created custom illustrations and animations, increasing user engagement by 20%</p>
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <div className="flex justify-between items-start mb-2">
+                      <h4 className="font-semibold">DBM Infotech PVT LTD</h4>
+                      <span className="text-sm text-gray-600">Mar 2021 - Jun 2021</span>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-2">UI UX Designer - Pune, India</p>
+                    <div className="text-sm space-y-1">
+                      <p>• Led the design for Teach Max mobile application</p>
+                      <p>• Worked on various redesign projects from websites to mobile applications</p>
+                    </div>
+                  </div>
+                </section>
+
+                <section className="mb-8">
+                  <h3 className="text-lg font-bold mb-4">Internship Experience:</h3>
+                  
+                  <div className="mb-4">
+                    <div className="flex justify-between items-start mb-2">
+                      <h4 className="font-semibold">Credence Analytics</h4>
+                      <span className="text-sm text-gray-600">Jan 2022 - Mar 2022</span>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-2">UI UX Designer Intern - Remote, India</p>
+                    <div className="text-sm space-y-1">
+                      <p>• Redesigned iDeal, iDeal Wealth and Fund, Mercury, and CashTrea, achieving 30% improvement in user satisfaction</p>
+                      <p>• Redesigned company website, resulting in 47% growth in visitors and 20% increase in lead generation</p>
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <div className="flex justify-between items-start mb-2">
+                      <h4 className="font-semibold">FarmiGO</h4>
+                      <span className="text-sm text-gray-600">Oct 2020 - Dec 2020</span>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-2">UI UX Designer Intern - Remote, India</p>
+                    <div className="text-sm space-y-1">
+                      <p>• Designed both UX and UI with deep focus on enhancing user experience through extensive research</p>
+                      <p>• Applied advanced problem-solving skills to deliver optimal and intuitive design solutions</p>
+                      <p>• Spearheaded the app design process from initial research to high-fidelity prototypes in two months</p>
+                    </div>
+                  </div>
+                </section>
+
+                <section className="mb-8">
+                  <h3 className="text-lg font-bold mb-4">Education:</h3>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h4 className="font-semibold">Bachelor of Arts in History</h4>
+                      <p className="text-sm text-gray-600">Yashwantrao Chavan Maharashtra Open University, Barshi, India</p>
+                    </div>
+                    <span className="text-sm text-gray-600">2016 - 2019</span>
+                  </div>
+                </section>
+
+                <section className="mb-8">
+                  <h3 className="text-lg font-bold mb-4">Certifications:</h3>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span>UX/UI Bootcamp - Designwings UX/UI School</span>
+                      <span className="text-gray-600">Mar 2022</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Complete Web & Mobile Designer - Udemy</span>
+                      <span className="text-gray-600">Feb 2024</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>UI/UX Design - Internshala</span>
+                      <span className="text-gray-600">Aug 2020</span>
+                    </div>
+                  </div>
+                </section>
+
+                <section>
+                  <h3 className="text-lg font-bold mb-4">Skills:</h3>
+                  <div className="grid grid-cols-3 gap-6 text-sm">
+                    <div>
+                      <h4 className="font-semibold mb-2">Design Skills</h4>
+                      <div className="space-y-1">
+                        <p>• Prototyping</p>
+                        <p>• User Experience Design</p>
+                        <p>• Design Strategy</p>
+                        <p>• User Journeys</p>
+                        <p>• UI Design</p>
+                        <p>• UX Design</p>
+                        <p>• User Research</p>
+                        <p>• Typography</p>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Technical Skills</h4>
+                      <div className="space-y-1">
+                        <p>• Figma</p>
+                        <p>• Sketch</p>
+                        <p>• Adobe XD</p>
+                        <p>• Axure RP</p>
+                        <p>• Agile Methodologies</p>
+                        <p>• Visual Design</p>
+                        <p>• Wireframing</p>
+                        <p>• User Testing</p>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Soft Skills</h4>
+                      <div className="space-y-1">
+                        <p>• Strong Leadership</p>
+                        <p>• Coordination Skills</p>
+                        <p>• Adaptability</p>
+                        <p>• Creative Thinking</p>
+                        <p>• Empathy</p>
+                        <p>• Critical Thinking</p>
+                        <p>• Communication</p>
+                        <p>• Time Management</p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
             </div>
           </div>
         </DialogContent>
