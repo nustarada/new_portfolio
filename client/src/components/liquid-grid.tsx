@@ -27,8 +27,8 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
     window.addEventListener('resize', resizeCanvas);
 
     const gridSize = 50;
-    const distortionRadius = 120;
-    const maxDistortion = 25;
+    const distortionRadius = 180;
+    const maxDistortion = 35;
     
     // Smooth interpolation for mouse position
     let currentMouseX = mouseX;
@@ -43,13 +43,28 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
       currentMouseX += (mouseX - currentMouseX) * lerpFactor;
       currentMouseY += (mouseY - currentMouseY) * lerpFactor;
       
-      ctx.clearRect(0, 0, width, height);
-      ctx.strokeStyle = `rgba(138, 43, 226, ${0.2 * intensity})`;
-      ctx.lineWidth = 1;
-
       // Convert percentage to pixels with smoothed values
       const mousePixelX = (currentMouseX / 100) * width;
       const mousePixelY = (currentMouseY / 100) * height;
+      
+      ctx.clearRect(0, 0, width, height);
+      
+      // Add subtle highlight circle around mouse when hovering
+      if (intensity > 0.5) {
+        ctx.beginPath();
+        ctx.arc(mousePixelX, mousePixelY, distortionRadius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(138, 43, 226, ${0.03 * intensity})`;
+        ctx.fill();
+        
+        ctx.beginPath();
+        ctx.arc(mousePixelX, mousePixelY, distortionRadius, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(138, 43, 226, ${0.1 * intensity})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+      
+      ctx.strokeStyle = `rgba(138, 43, 226, ${0.25 * intensity})`;
+      ctx.lineWidth = 1;
 
       // Draw vertical lines with liquid distortion
       for (let x = 0; x <= width; x += gridSize) {
