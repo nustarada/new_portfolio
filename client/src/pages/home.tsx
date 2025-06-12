@@ -511,8 +511,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Expertise Section */}
-      <section id="expertise" className="py-32 relative">
+      {/* Expertise Section - Hidden */}
+      {/* <section id="expertise" className="py-32 relative">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -564,7 +564,7 @@ export default function Home() {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
       <section id="contact" className="py-32 relative">
