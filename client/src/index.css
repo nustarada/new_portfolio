@@ -6,48 +6,48 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
-    --primary: 0 0% 0%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 0%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 0%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 0%;
+    --background: 210 40% 2%;
+    --foreground: 210 40% 98%;
+    --card: 210 40% 3%;
+    --card-foreground: 210 40% 98%;
+    --popover: 210 40% 3%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 210 40% 9%;
+    --secondary: 210 40% 10%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 10%;
+    --muted-foreground: 210 40% 65%;
+    --accent: 210 40% 10%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 40% 18%;
+    --input: 210 40% 18%;
+    --ring: 210 40% 93%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 0 0% 10%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 15%;
-    --input: 0 0% 10%;
-    --ring: 0 0% 85%;
+    --background: 210 40% 2%;
+    --foreground: 210 40% 98%;
+    --card: 210 40% 3%;
+    --card-foreground: 210 40% 98%;
+    --popover: 210 40% 3%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 210 40% 9%;
+    --secondary: 210 40% 10%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 10%;
+    --muted-foreground: 210 40% 65%;
+    --accent: 210 40% 10%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 40% 18%;
+    --input: 210 40% 18%;
+    --ring: 210 40% 93%;
   }
 }
 
@@ -57,206 +57,104 @@
   }
   body {
     @apply bg-background text-foreground dark;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
   html {
-    @apply dark;
+    @apply dark scroll-smooth;
   }
 }
 
 @layer components {
-  .minimal-card {
-    @apply bg-card border border-border backdrop-blur-sm;
-    background-color: hsl(var(--card) / 0.8);
+  .glass-card {
+    @apply bg-card backdrop-blur-xl border border-border;
+    background-color: hsl(var(--card) / 0.5);
     border-color: hsl(var(--border) / 0.5);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   }
   
-  .minimal-card:hover {
-    border-color: hsl(var(--foreground) / 0.3);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  .glass-card:hover {
+    border-color: hsl(var(--border) / 0.8);
+    box-shadow: 0 16px 64px rgba(0, 0, 0, 0.3);
   }
   
-  .geometric-pattern {
-    background-image: 
-      linear-gradient(45deg, transparent 24%, rgba(255, 255, 255, 0.02) 25%, rgba(255, 255, 255, 0.02) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.02) 75%, rgba(255, 255, 255, 0.02) 76%, transparent 77%),
-      linear-gradient(-45deg, transparent 24%, rgba(255, 255, 255, 0.02) 25%, rgba(255, 255, 255, 0.02) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.02) 75%, rgba(255, 255, 255, 0.02) 76%, transparent 77%);
-    background-size: 60px 60px;
+  .gradient-mesh {
+    background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.15) 0%, transparent 50%);
   }
   
-  .text-glow {
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-  }
-  
-  .border-glow {
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
-  }
-  
-  .animate-float {
-    animation: float 8s ease-in-out infinite;
-  }
-  
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out forwards;
-  }
-  
-  .animate-slide-up {
-    animation: slideUp 0.8s ease-out forwards;
-  }
-  
-  .parallax-scroll {
-    transform: translateZ(0);
-    will-change: transform;
-  }
-  
-  .magnetic-hover {
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  
-  .text-reveal {
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .text-reveal::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: currentColor;
-    transform: translateX(-100%);
-    animation: reveal 1.5s ease-out forwards;
-  }
-  
-  .glitch-effect {
-    position: relative;
-    animation: glitch 2s infinite;
-  }
-  
-  .glitch-effect::before,
-  .glitch-effect::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-  }
-  
-  .glitch-effect::before {
-    animation: glitch-top 0.3s infinite linear alternate-reverse;
-    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
-    transform: translate(-2px, -1px);
-    opacity: 0.8;
-  }
-  
-  .glitch-effect::after {
-    animation: glitch-bottom 0.3s infinite linear alternate-reverse;
-    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
-    transform: translate(2px, 1px);
-    opacity: 0.8;
-  }
-  
-  .morphing-blob {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    animation: morph 8s ease-in-out infinite;
-  }
-  
-  .liquid-effect {
-    background: linear-gradient(-45deg, 
-      rgba(255, 255, 255, 0.1),
-      rgba(255, 255, 255, 0.05),
-      rgba(255, 255, 255, 0.1),
-      rgba(255, 255, 255, 0.05)
+  .text-gradient {
+    @apply bg-gradient-to-r from-foreground to-foreground bg-clip-text text-transparent;
+    background-image: linear-gradient(to right, 
+      hsl(var(--foreground)), 
+      hsl(var(--foreground) / 0.8), 
+      hsl(var(--foreground))
     );
-    background-size: 400% 400%;
-    animation: liquidWave 4s ease-in-out infinite;
   }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
+  
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
   }
-  50% {
-    transform: translateY(-15px);
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
   }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+  
+  .grid-dots {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .custom-cursor {
+    @apply fixed w-6 h-6 rounded-full pointer-events-none z-50 mix-blend-difference;
+    background-color: hsl(var(--foreground) / 0.2);
+    transition: all 0.15s ease-out;
   }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
+  
+  .reveal-text {
+    @apply opacity-0 translate-y-8;
+    animation: reveal 0.8s ease-out forwards;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
 }
 
 @keyframes reveal {
   to {
-    transform: translateX(100%);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@keyframes glitch {
-  0%, 100% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
 }
 
-@keyframes glitch-top {
-  0%, 100% { transform: translate(0); }
-  20% { transform: translate(-2px, -2px); }
-  40% { transform: translate(-2px, 2px); }
-  60% { transform: translate(2px, -2px); }
-  80% { transform: translate(2px, 2px); }
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
-@keyframes glitch-bottom {
-  0%, 100% { transform: translate(0); }
-  20% { transform: translate(2px, 2px); }
-  40% { transform: translate(2px, -2px); }
-  60% { transform: translate(-2px, 2px); }
-  80% { transform: translate(-2px, -2px); }
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-@keyframes morph {
-  0%, 100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-  50% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-  }
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
-@keyframes liquidWave {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.animate-pulse-slow {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
 }
 
 /* Typography */
