@@ -599,87 +599,173 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <Card className="h-full overflow-hidden bg-gradient-to-br from-card/90 via-card/70 to-card/50 backdrop-blur-md border border-white/15 hover:border-primary/30 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2">
-                  {/* Project Image/Preview */}
-                  <div className="relative aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          {/* Bento-style Layout */}
+          <div className="space-y-8">
+            {/* Featured Project - Large Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <Card className="relative overflow-hidden bg-gradient-to-br from-card/95 via-card/80 to-card/60 backdrop-blur-xl border-2 border-primary/20 hover:border-primary/40 transition-all duration-700 rounded-3xl">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 lg:p-12">
+                  {/* Project Visual */}
+                  <div className="relative aspect-[4/3] lg:aspect-square bg-gradient-to-br from-primary/30 via-purple-500/20 to-pink-500/30 rounded-2xl overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                     <div className="flex items-center justify-center h-full">
-                      <Terminal className="w-12 h-12 text-primary/60 group-hover:text-primary transition-colors duration-300" />
+                      <Terminal className="w-20 h-20 text-primary/80 group-hover:text-primary group-hover:scale-110 transition-all duration-500" />
                     </div>
                     
-                    {/* Category Badge */}
-                    <div className="absolute top-4 left-4">
-                      <Badge variant="outline" className="text-xs px-3 py-1 bg-black/30 backdrop-blur-sm border-white/20 text-white">
-                        {project.category}
+                    {/* Floating Elements */}
+                    <div className="absolute top-6 left-6">
+                      <Badge className="bg-primary/90 text-white border-0 px-4 py-2 text-sm font-semibold">
+                        Featured
                       </Badge>
                     </div>
-                    
-                    {/* Year Badge */}
-                    <div className="absolute top-4 right-4">
-                      <Badge variant="outline" className="text-xs px-3 py-1 bg-black/30 backdrop-blur-sm border-white/20 text-white code-font">
-                        {project.year}
+                    <div className="absolute top-6 right-6">
+                      <Badge variant="outline" className="bg-black/40 backdrop-blur-sm border-white/20 text-white px-3 py-1">
+                        {projects[0].year}
                       </Badge>
                     </div>
                   </div>
 
                   {/* Project Content */}
-                  <div className="p-6 space-y-4">
-                    <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-300 leading-tight">
-                      {project.title}
-                    </h3>
+                  <div className="flex flex-col justify-center space-y-6">
+                    <div className="space-y-4">
+                      <Badge variant="outline" className="w-fit text-xs px-3 py-1 bg-primary/10 border-primary/30 text-primary">
+                        {projects[0].category}
+                      </Badge>
+                      
+                      <h3 className="text-3xl lg:text-4xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-500">
+                        {projects[0].title}
+                      </h3>
+                      
+                      <p className="text-lg text-white/90 leading-relaxed">
+                        {projects[0].description}
+                      </p>
+                    </div>
                     
-                    <p className="text-sm text-white/80 leading-relaxed line-clamp-3">
-                      {project.description}
-                    </p>
-                    
-                    {/* Tech Stack Tags */}
+                    {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2">
-                      {project.tags.slice(0, 3).map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs px-2 py-1 bg-white/10 text-white/80 border-white/20">
+                      {projects[0].tags.map((tag) => (
+                        <Badge key={tag} variant="secondary" className="bg-white/10 text-white/90 border-white/20 px-3 py-1">
                           {tag}
                         </Badge>
                       ))}
-                      {project.tags.length > 3 && (
-                        <Badge variant="secondary" className="text-xs px-2 py-1 bg-white/10 text-white/80 border-white/20">
-                          +{project.tags.length - 3}
-                        </Badge>
-                      )}
                     </div>
                     
-                    {/* CTA Button */}
-                    <div className="pt-2">
+                    {/* CTA */}
+                    <div className="pt-4">
                       <Link href="/case-study">
                         <Button 
-                          size="sm"
+                          size="lg"
                           style={{
-                            background: 'linear-gradient(to right, hsl(262, 83%, 58%), hsl(280, 100%, 70%))',
+                            background: 'linear-gradient(135deg, hsl(262, 83%, 58%), hsl(280, 100%, 70%), hsl(320, 100%, 65%))',
                             border: 'none',
                           }}
-                          className="group/btn relative overflow-hidden text-white font-semibold text-sm px-4 py-2 rounded-lg hover:scale-105 transition-all duration-300 w-full"
+                          className="group/btn relative overflow-hidden text-white font-bold px-8 py-4 rounded-xl hover:scale-105 transition-all duration-300 shadow-2xl shadow-primary/25"
                         >
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
                           
-                          <div className="relative z-10 flex items-center justify-center space-x-2">
-                            <span>View Case Study</span>
-                            <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
+                          <div className="relative z-10 flex items-center space-x-3">
+                            <span className="text-lg">Explore Case Study</span>
+                            <ArrowUpRight className="w-5 h-5 group-hover/btn:rotate-45 transition-transform duration-300" />
                           </div>
                         </Button>
                       </Link>
                     </div>
                   </div>
-                </Card>
-              </motion.div>
-            ))}
+                </div>
+                
+                {/* Background Effects */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-purple-500/10 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              </Card>
+            </motion.div>
+
+            {/* Secondary Projects - Horizontal Cards */}
+            <div className="space-y-6">
+              {projects.slice(1).map((project, index) => (
+                <motion.div
+                  key={project.title}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group"
+                >
+                  <Card className={`relative overflow-hidden bg-gradient-to-br from-card/80 via-card/60 to-card/40 backdrop-blur-lg border border-white/10 hover:border-primary/30 transition-all duration-500 rounded-2xl ${index % 2 === 0 ? 'hover:translate-x-2' : 'hover:-translate-x-2'}`}>
+                    <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 p-6 ${index % 2 === 1 ? 'md:grid-flow-col-dense' : ''}`}>
+                      {/* Project Visual */}
+                      <div className={`relative aspect-video md:aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl overflow-hidden ${index % 2 === 1 ? 'md:col-start-3' : ''}`}>
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="flex items-center justify-center h-full">
+                          <Terminal className="w-10 h-10 text-primary/60 group-hover:text-primary group-hover:scale-110 transition-all duration-300" />
+                        </div>
+                        
+                        {/* Year Badge */}
+                        <div className="absolute top-3 right-3">
+                          <Badge variant="outline" className="text-xs px-2 py-1 bg-black/30 backdrop-blur-sm border-white/20 text-white code-font">
+                            {project.year}
+                          </Badge>
+                        </div>
+                      </div>
+
+                      {/* Project Content */}
+                      <div className={`md:col-span-2 flex flex-col justify-center space-y-4 ${index % 2 === 1 ? 'md:col-start-1' : ''}`}>
+                        <div className="space-y-3">
+                          <div className="flex items-center space-x-3">
+                            <Badge variant="outline" className="text-xs px-3 py-1 bg-primary/10 border-primary/30 text-primary">
+                              {project.category}
+                            </Badge>
+                          </div>
+                          
+                          <h3 className="text-xl lg:text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300 leading-tight">
+                            {project.title}
+                          </h3>
+                          
+                          <p className="text-white/80 leading-relaxed">
+                            {project.description}
+                          </p>
+                        </div>
+                        
+                        {/* Tech Stack and CTA */}
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                          <div className="flex flex-wrap gap-2">
+                            {project.tags.slice(0, 3).map((tag) => (
+                              <Badge key={tag} variant="secondary" className="text-xs px-2 py-1 bg-white/10 text-white/80 border-white/20">
+                                {tag}
+                              </Badge>
+                            ))}
+                            {project.tags.length > 3 && (
+                              <Badge variant="secondary" className="text-xs px-2 py-1 bg-white/10 text-white/80 border-white/20">
+                                +{project.tags.length - 3}
+                              </Badge>
+                            )}
+                          </div>
+                          
+                          <Link href="/case-study">
+                            <Button 
+                              variant="ghost"
+                              size="sm"
+                              className="group/btn flex-shrink-0 text-primary hover:text-white hover:bg-primary/20 border border-primary/30 hover:border-primary/50 px-4 py-2 rounded-lg transition-all duration-300"
+                            >
+                              <span className="mr-2">View Details</span>
+                              <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Subtle Background Effect */}
+                    <div className={`absolute top-0 ${index % 2 === 0 ? 'right-0' : 'left-0'} w-32 h-32 bg-gradient-to-${index % 2 === 0 ? 'bl' : 'br'} from-primary/5 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
