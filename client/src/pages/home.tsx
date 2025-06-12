@@ -181,8 +181,8 @@ export default function Home() {
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  activeSection === item.toLowerCase() ? 'text-primary' : 'text-muted-foreground'
+                className={`text-sm font-semibold transition-colors hover:text-primary ${
+                  activeSection === item.toLowerCase() ? 'text-primary' : 'text-foreground opacity-80'
                 }`}
                 whileHover={{ y: -2 }}
               >
@@ -218,20 +218,20 @@ export default function Home() {
               </Badge>
             </div>
             
-            <h1 className="text-7xl md:text-9xl font-bold mb-6 leading-none">
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
               <span 
-                className="text-glitch glow-text" 
+                className="text-glitch glow-text block text-sm md:text-base font-medium mb-4" 
                 data-text="SENIOR PRODUCT DESIGNER & AI INNOVATOR"
               >
                 SENIOR PRODUCT DESIGNER & AI INNOVATOR
               </span>
             </h1>
             
-            <div className="text-6xl md:text-8xl font-bold mb-8 glow-text">
+            <div className="text-5xl md:text-7xl font-bold mb-8 glow-text">
               Karan
             </div>
             
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p className="text-lg md:text-xl text-foreground opacity-90 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
               Crafting exceptional digital experiences through strategic design thinking,
               AI innovation, and human-centered solutions.
             </p>
@@ -263,17 +263,17 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold mb-8 glow-text">ABOUT ME</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">ABOUT ME</h2>
               
-              <div className="space-y-6 text-lg text-muted-foreground">
-                <p>
+              <div className="space-y-6 text-base md:text-lg text-foreground leading-relaxed">
+                <p className="font-medium opacity-90">
                   With four years of specialized experience in UI/UX design, I transform complex 
                   challenges into intuitive digital solutions. My approach combines strategic 
                   design thinking with cutting-edge AI integration to create products that drive 
                   meaningful business outcomes.
                 </p>
                 
-                <p>
+                <p className="font-medium opacity-90">
                   As a design leader, I excel in user research, system architecture, and cross-
                   functional collaboration. I've successfully led teams through product launches, 
                   managed design systems at scale, and pioneered AI-enhanced design 
@@ -283,16 +283,16 @@ export default function Home() {
 
               <div className="grid grid-cols-3 gap-8 mt-12">
                 <div className="text-center">
-                  <div className="text-4xl font-bold glow-text mb-2">4+</div>
-                  <div className="text-sm text-muted-foreground code-font">Years Experience</div>
+                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">4+</div>
+                  <div className="text-sm text-foreground opacity-80 font-medium">Years Experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold glow-text mb-2">50+</div>
-                  <div className="text-sm text-muted-foreground code-font">Projects Delivered</div>
+                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">50+</div>
+                  <div className="text-sm text-foreground opacity-80 font-medium">Projects Delivered</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold glow-text mb-2">15+</div>
-                  <div className="text-sm text-muted-foreground code-font">Team Members Led</div>
+                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">15+</div>
+                  <div className="text-sm text-foreground opacity-80 font-medium">Team Members Led</div>
                 </div>
               </div>
             </motion.div>
@@ -305,7 +305,7 @@ export default function Home() {
               className="space-y-6"
             >
               <Card className="neo-card">
-                <h3 className="text-2xl font-bold mb-6 glow-text">Core Expertise</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-6 text-foreground">Core Expertise</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     'AI Integration', 'Design Systems', 'User Research', 'Team Leadership',
@@ -313,7 +313,7 @@ export default function Home() {
                   ].map((skill, index) => (
                     <motion.div
                       key={skill}
-                      className="flex items-center space-x-2 p-3 rounded-lg bg-secondary/30"
+                      className="flex items-center space-x-2 p-3 rounded-lg bg-secondary/50"
                       whileHover={{ scale: 1.05, backgroundColor: 'rgba(138, 43, 226, 0.1)' }}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -321,15 +321,15 @@ export default function Home() {
                       viewport={{ once: true }}
                     >
                       <div className="w-2 h-2 bg-primary rounded-full" />
-                      <span className="text-sm font-medium">{skill}</span>
+                      <span className="text-sm font-semibold text-foreground">{skill}</span>
                     </motion.div>
                   ))}
                 </div>
               </Card>
 
               <Card className="neo-card">
-                <h3 className="text-2xl font-bold mb-6 glow-text">Design Philosophy</h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <h3 className="text-xl md:text-2xl font-bold mb-6 text-foreground">Design Philosophy</h3>
+                <p className="text-foreground opacity-90 leading-relaxed font-medium">
                   Great design is invisible. It seamlessly bridges human needs with 
                   technological possibilities, creating experiences that feel natural, 
                   intuitive, and delightful. I believe in data-driven decisions, user-
@@ -351,8 +351,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-bold mb-6 glow-text">FEATURED PROJECTS</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">FEATURED PROJECTS</h2>
+            <p className="text-lg md:text-xl text-foreground opacity-90 max-w-3xl mx-auto font-medium">
               A showcase of innovative solutions spanning AI integration, enterprise platforms,
               and user-centered design systems.
             </p>
