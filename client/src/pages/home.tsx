@@ -8,6 +8,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
+import { LiquidGrid } from '@/components/liquid-grid';
 import logoPath from '@assets/Logo black_1749711104405.png';
 import { 
   Terminal, 
@@ -31,6 +32,7 @@ export default function Home() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [activeSection, setActiveSection] = useState('');
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
+  const [waveIntensity, setWaveIntensity] = useState(0.3);
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
@@ -66,11 +68,11 @@ export default function Home() {
           const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
           
           setMousePos({ x, y });
+          setWaveIntensity(1);
           heroRef.current.style.setProperty('--mouse-x', `${x}%`);
           heroRef.current.style.setProperty('--mouse-y', `${y}%`);
-          heroRef.current.style.setProperty('--wave-intensity', '1');
         } else {
-          heroRef.current.style.setProperty('--wave-intensity', '0.5');
+          setWaveIntensity(0.3);
         }
       }
     };
@@ -190,7 +192,12 @@ export default function Home() {
 
       {/* Hero Section */}
       <section ref={heroRef} id="hero" className="min-h-screen flex items-center justify-center relative cyber-grid">
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <LiquidGrid 
+          mouseX={mousePos.x} 
+          mouseY={mousePos.y} 
+          intensity={waveIntensity}
+        />
+        <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
