@@ -105,27 +105,27 @@ export default function CaseStudy() {
         style={{ width: progressWidth }}
       />
 
-      {/* Floating Navigation */}
+      {/* Case Study Navigation */}
       <motion.nav 
-        className="fixed top-4 left-4 right-4 z-40 backdrop-blur-lg bg-background/80 border border-border/50 rounded-2xl px-6 py-4"
+        className="fixed top-20 left-4 right-4 z-30 backdrop-blur-lg bg-background/90 border border-border/50 rounded-2xl px-6 py-4"
         style={{ y: headerY }}
       >
         <div className="flex items-center justify-between">
           <Link href="/">
-            <Button variant="ghost" size="sm" className="hover:bg-primary/10">
+            <Button variant="ghost" size="sm" className="hover:bg-primary/10 text-white">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Portfolio
             </Button>
           </Link>
-          <div className="text-sm text-muted-foreground">
-            Case Study: {caseStudyData.title}
+          <div className="text-sm text-white/70 hidden md:block truncate max-w-md">
+            {caseStudyData.title}
           </div>
           <div className="w-24" /> {/* Spacer for balance */}
         </div>
       </motion.nav>
 
       {/* Hero Section with Parallax */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
         {/* Animated Background Grid */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-pink-500/20" />
