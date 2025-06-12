@@ -32,6 +32,7 @@ import {
   Github,
   Linkedin,
   Download,
+  Eye,
   User,
   Briefcase,
   MessageSquare,
@@ -379,7 +380,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover/secondary:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10 flex items-center space-x-2">
-                    <Download className="w-5 h-5" />
+                    <Eye className="w-5 h-5" />
                     <span>Resume</span>
                   </div>
                 </Button>
