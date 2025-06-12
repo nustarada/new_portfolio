@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
+import logoPath from "@assets/Logo black_1749729973781.png";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,7 +43,7 @@ export function Navigation() {
               whileTap={{ scale: 0.95 }}
             >
               <img 
-                src="/attached_assets/Logo black_1749729973781.png" 
+                src={logoPath} 
                 alt="Karan Gadhave Logo" 
                 className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
               />
