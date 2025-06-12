@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Link } from "wouter";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,19 +35,19 @@ export function Navigation() {
       <div className="container mx-auto px-6 py-6">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <motion.div 
-            className="cursor-pointer"
-            onClick={() => scrollToSection('home')}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <img 
-              src="/attached_assets/Logo black_1749713682616.png" 
-              alt="Karan Gadhave Logo" 
-              className="h-8 w-auto brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
-              style={{ filter: 'brightness(0) invert(1)' }}
-            />
-          </motion.div>
+          <Link href="/">
+            <motion.div 
+              className="cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <img 
+                src="/attached_assets/Logo black_1749729973781.png" 
+                alt="Karan Gadhave Logo" 
+                className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
+              />
+            </motion.div>
+          </Link>
           
           {/* Navigation Links */}
           <div className="flex space-x-8">
