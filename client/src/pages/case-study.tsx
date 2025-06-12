@@ -1,13 +1,16 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Calendar, Clock, Users, Target, Lightbulb, TrendingUp, CheckCircle, ExternalLink, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'wouter';
+import logoPath from "@assets/Logo black_1749729973781.png";
 
 export default function CaseStudy() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
@@ -15,6 +18,15 @@ export default function CaseStudy() {
 
   const headerY = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const caseStudyData = {
     title: "Smart Design System Built with AI Tools & Figma",
@@ -107,20 +119,45 @@ export default function CaseStudy() {
 
       {/* Case Study Navigation */}
       <motion.nav 
-        className="fixed top-20 left-4 right-4 z-30 backdrop-blur-lg bg-background/90 border border-border/50 rounded-2xl px-6 py-4"
-        style={{ y: headerY }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled 
+            ? 'backdrop-blur-md bg-background/90 shadow-lg shadow-black/20' 
+            : 'bg-transparent'
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8 }}
       >
-        <div className="flex items-center justify-between">
-          <Link href="/">
-            <Button variant="ghost" size="sm" className="hover:bg-primary/10 text-white">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Portfolio
-            </Button>
-          </Link>
-          <div className="text-sm text-white/70 hidden md:block truncate max-w-md">
-            {caseStudyData.title}
+        <div className="container mx-auto px-6 py-6">
+          <div className="flex justify-between items-center">
+            {/* Logo */}
+            <Link href="/">
+              <motion.div 
+                className="cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <img 
+                  src={logoPath} 
+                  alt="Karan Gadhave Logo" 
+                  className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
+                />
+              </motion.div>
+            </Link>
+            
+            {/* Back to Portfolio Button */}
+            <Link href="/">
+              <motion.button
+                className="font-mono text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 relative group flex items-center space-x-2"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Back to Portfolio</span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+              </motion.button>
+            </Link>
           </div>
-          <div className="w-24" /> {/* Spacer for balance */}
         </div>
       </motion.nav>
 
