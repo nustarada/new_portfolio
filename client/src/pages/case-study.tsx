@@ -117,9 +117,13 @@ export default function CaseStudy() {
               Back to Portfolio
             </Button>
           </Link>
-          <div className="text-sm text-white/70 hidden md:block truncate max-w-md">
-            {caseStudyData.title}
-          </div>
+          <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-300">
+            <img 
+              src="/attached_assets/Logo black_1749713682616.png" 
+              alt="Karan Gadhave Logo" 
+              className="h-8 w-auto filter invert"
+            />
+          </Link>
           <div className="w-24" /> {/* Spacer for balance */}
         </div>
       </motion.nav>
@@ -477,6 +481,22 @@ export default function CaseStudy() {
           </motion.div>
         </div>
       </section>
+
+      {/* Sticky Contact CTA */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <a href="/">
+          <Button 
+            className="group relative overflow-hidden bg-gradient-to-r from-primary via-purple-600 to-primary text-white font-semibold px-6 py-3 rounded-full border-0 hover:scale-105 transition-all duration-300 shadow-2xl shadow-primary/30"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+            
+            <div className="relative z-10 flex items-center space-x-2">
+              <Linkedin className="w-5 h-5" />
+              <span>Contact Me</span>
+            </div>
+          </Button>
+        </a>
+      </div>
 
       {/* Footer */}
       <footer className="py-12 border-t border-border/30">
