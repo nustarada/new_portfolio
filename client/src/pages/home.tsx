@@ -198,225 +198,151 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section ref={heroRef} id="hero" className="min-h-screen relative overflow-hidden cyber-grid pt-20">
+      <section ref={heroRef} id="hero" className="min-h-screen flex items-center justify-center relative cyber-grid pt-24 pb-12">
         <LiquidGrid 
           mouseX={mousePos.x} 
           mouseY={mousePos.y} 
           intensity={waveIntensity}
         />
-        
-        {/* Floating Elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Top Right Logo */}
-          <motion.div 
-            className="absolute top-28 right-8 md:right-16"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            whileHover={{ scale: 1.1, rotate: 5 }}
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-10 w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="space-y-8 md:space-y-10"
           >
-            <div className="relative">
+            {/* Logo at Top */}
+            <motion.div 
+              className="relative flex justify-center"
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              whileHover={{ scale: 1.05 }}
+            >
               <motion.div 
-                className="absolute inset-0 bg-primary/30 rounded-full blur-xl"
+                className="absolute inset-0 bg-primary/20 rounded-full blur-2xl"
                 animate={{ 
-                  scale: [1, 1.3, 1],
-                  opacity: [0.3, 0.7, 0.3]
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.6, 0.3]
                 }}
-                transition={{ duration: 4, repeat: Infinity }}
+                transition={{ duration: 3, repeat: Infinity }}
               />
               <img 
                 src={logoPath} 
                 alt="Karan Gadhave Logo" 
-                className="relative w-14 h-14 md:w-16 md:h-16 opacity-90" 
+                className="relative w-20 h-20 md:w-24 md:h-24 opacity-95" 
               />
-            </div>
-          </motion.div>
-
-          {/* Floating Cards */}
-          <motion.div 
-            className="absolute top-1/3 left-4 md:left-8"
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            whileHover={{ y: -5, rotate: 2 }}
-          >
-            <Card className="neo-card p-3 bg-gradient-to-br from-primary/20 to-transparent backdrop-blur-md border-primary/30 w-40">
-              <div className="text-xl font-bold text-primary mb-1">4+</div>
-              <div className="text-xs text-white/80">Years Experience</div>
-            </Card>
-          </motion.div>
-
-          <motion.div 
-            className="absolute bottom-1/3 right-4 md:right-8"
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            whileHover={{ y: -5, rotate: -2 }}
-          >
-            <Card className="neo-card p-3 bg-gradient-to-br from-card/80 to-transparent backdrop-blur-md border-white/20 w-44">
-              <div className="text-xs text-primary font-medium mb-2">CURRENT STATUS</div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                <span className="text-xs text-white">Available for Projects</span>
-              </div>
-            </Card>
-          </motion.div>
-        </div>
-
-        {/* Main Content */}
-        <div className="min-h-screen flex items-center justify-center px-6 relative z-10 pt-8">
-          <div className="max-w-5xl mx-auto">
+            </motion.div>
+            
+            {/* Status Badge */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2 }}
-              className="text-center space-y-6"
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {/* Status Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="flex justify-center"
+              <Badge variant="outline" className="text-xs px-4 py-2 border-primary/30 mx-auto">
+                <Sparkles className="w-3 h-3 mr-2" />
+                AVAILABLE FOR NEW OPPORTUNITIES
+              </Badge>
+            </motion.div>
+            
+            {/* Main Title with 3D Flip Effect */}
+            <div className="space-y-4">
+              <motion.h1 
+                className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
               >
-                <Badge variant="outline" className="text-xs px-6 py-2 border-primary/40 bg-primary/10 backdrop-blur-sm">
-                  <Sparkles className="w-3 h-3 mr-2" />
-                  AVAILABLE FOR NEW OPPORTUNITIES
-                </Badge>
-              </motion.div>
-
-              {/* Main Title - Staggered Word Animation */}
-              <div className="space-y-1">
-                <motion.div 
-                  className="overflow-hidden"
-                  initial={{ height: 0 }}
-                  animate={{ height: "auto" }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
+                <motion.span 
+                  className="block text-white"
+                  initial={{ opacity: 0, rotateX: -90 }}
+                  animate={{ opacity: 1, rotateX: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
                 >
-                  <motion.h1 
-                    className="text-5xl md:text-6xl lg:text-7xl font-black leading-none tracking-tighter"
-                    initial={{ y: 100 }}
-                    animate={{ y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                  >
-                    <span className="block text-white/20 stroke-text">SENIOR</span>
-                  </motion.h1>
-                </motion.div>
-                
-                <motion.div 
-                  className="overflow-hidden"
-                  initial={{ height: 0 }}
-                  animate={{ height: "auto" }}
-                  transition={{ duration: 0.8, delay: 1 }}
+                  SENIOR
+                </motion.span>
+                <motion.span 
+                  className="block glow-text text-primary"
+                  initial={{ opacity: 0, rotateX: -90 }}
+                  animate={{ opacity: 1, rotateX: 0 }}
+                  transition={{ duration: 0.6, delay: 0.9 }}
                 >
-                  <motion.h1 
-                    className="text-5xl md:text-6xl lg:text-7xl font-black leading-none tracking-tighter -mt-2"
-                    initial={{ y: 100 }}
-                    animate={{ y: 0 }}
-                    transition={{ duration: 0.8, delay: 1.2 }}
-                  >
-                    <span className="block bg-gradient-to-r from-primary via-pink-500 to-primary bg-clip-text text-transparent glow-text">
-                      PRODUCT
-                    </span>
-                  </motion.h1>
-                </motion.div>
-                
-                <motion.div 
-                  className="overflow-hidden"
-                  initial={{ height: 0 }}
-                  animate={{ height: "auto" }}
-                  transition={{ duration: 0.8, delay: 1.4 }}
+                  PRODUCT
+                </motion.span>
+                <motion.span 
+                  className="block text-white"
+                  initial={{ opacity: 0, rotateX: -90 }}
+                  animate={{ opacity: 1, rotateX: 0 }}
+                  transition={{ duration: 0.6, delay: 1.2 }}
                 >
-                  <motion.h1 
-                    className="text-5xl md:text-6xl lg:text-7xl font-black leading-none tracking-tighter -mt-2"
-                    initial={{ y: 100 }}
-                    animate={{ y: 0 }}
-                    transition={{ duration: 0.8, delay: 1.6 }}
-                  >
-                    <span className="block text-white">DESIGNER</span>
-                  </motion.h1>
-                </motion.div>
-              </div>
-
-              {/* Subtitle with expanding line */}
+                  DESIGNER
+                </motion.span>
+              </motion.h1>
+              
               <motion.div 
-                className="flex items-center justify-center gap-6"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 2 }}
+                className="flex items-center justify-center gap-3"
+                initial={{ opacity: 0, scaleX: 0 }}
+                animate={{ opacity: 1, scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 1.5 }}
               >
-                <motion.div 
-                  className="h-px bg-gradient-to-r from-transparent via-primary to-transparent"
-                  initial={{ width: 0 }}
-                  animate={{ width: 120 }}
-                  transition={{ duration: 1, delay: 2.2 }}
-                />
-                <span className="text-xl md:text-2xl font-light text-primary tracking-[0.3em] uppercase">
-                  & AI Innovator
+                <div className="w-12 h-0.5 bg-primary" />
+                <span className="text-lg md:text-xl font-light text-primary tracking-wider">
+                  & AI INNOVATOR
                 </span>
-                <motion.div 
-                  className="h-px bg-gradient-to-r from-transparent via-primary to-transparent"
-                  initial={{ width: 0 }}
-                  animate={{ width: 120 }}
-                  transition={{ duration: 1, delay: 2.2 }}
-                />
+                <div className="w-12 h-0.5 bg-primary" />
               </motion.div>
-
-              {/* Name */}
+            </div>
+            
+            {/* Name with Slide Animation */}
+            <motion.div 
+              className="space-y-2"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 1.8 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-wide">
+                KARAN GADHAVE
+              </h2>
+            </motion.div>
+            
+            {/* Description with Fade Up */}
+            <motion.p 
+              className="text-lg md:text-xl text-white opacity-85 leading-relaxed max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 2.1 }}
+            >
+              Crafting exceptional digital experiences through strategic design thinking and cutting-edge AI integration.
+            </motion.p>
+            
+            {/* Action Buttons with Bounce */}
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 2.4 }}
+            >
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 2.4 }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <h2 className="text-2xl md:text-3xl font-medium text-white/80 tracking-wider">
-                  KARAN GADHAVE
-                </h2>
+                <Button size="lg" className="px-8 py-3 text-base neo-card bg-primary hover:bg-primary/90">
+                  <ArrowUpRight className="w-4 h-4 mr-2" />
+                  View My Work
+                </Button>
               </motion.div>
-
-              {/* Description */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 2.6 }}
-                className="max-w-2xl mx-auto"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <p className="text-lg md:text-xl text-white/70 leading-relaxed">
-                  Crafting exceptional digital experiences through strategic design thinking and cutting-edge AI integration.
-                </p>
-              </motion.div>
-
-              {/* Action Buttons */}
-              <motion.div 
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 2.8 }}
-              >
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Button size="lg" className="px-10 py-4 text-base font-medium bg-primary hover:bg-primary/90 neo-card">
-                    <ArrowUpRight className="w-4 h-4 mr-2" />
-                    View My Work
-                  </Button>
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className="px-10 py-4 text-base font-medium border-white/30 hover:border-primary/50 hover:bg-primary/10 backdrop-blur-sm"
-                  >
-                    <Mail className="w-4 h-4 mr-2" />
-                    Get In Touch
-                  </Button>
-                </motion.div>
+                <Button size="lg" variant="outline" className="px-8 py-3 text-base border-white/20 hover:border-primary/50">
+                  <Mail className="w-4 h-4 mr-2" />
+                  Get In Touch
+                </Button>
               </motion.div>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
