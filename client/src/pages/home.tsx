@@ -8,6 +8,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
+import { Link } from 'wouter';
 import { LiquidGrid } from '@/components/liquid-grid';
 import logoPath from '@assets/Logo black_1749713682616.png';
 import { 
@@ -507,10 +508,12 @@ export default function Home() {
                       ))}
                     </div>
                     
-                    <Button variant="outline" className="morphing-border">
-                      <ArrowUpRight className="w-4 h-4 mr-2" />
-                      View Case Study
-                    </Button>
+                    <Link href="/case-study">
+                      <Button variant="outline" className="morphing-border">
+                        <ArrowUpRight className="w-4 h-4 mr-2" />
+                        View Case Study
+                      </Button>
+                    </Link>
                   </div>
                 </div>
                 
