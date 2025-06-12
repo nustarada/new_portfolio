@@ -22,30 +22,32 @@ export function Navigation() {
 
   return (
     <motion.nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-background/80 backdrop-blur-md border-b border-border/20' 
+          ? 'glass-card border-b border-border/30' 
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4">
+      <div className="container mx-auto px-6 py-6">
         <div className="flex justify-between items-center">
+          {/* Logo */}
           <motion.div 
             className="cursor-pointer"
             onClick={() => scrollToSection('home')}
-            whileHover={{ scale: 1.05, rotate: 5 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <img 
               src="@assets/Logo black_1749711104405.png" 
               alt="Karan Gadhave Logo" 
-              className="h-8 w-auto filter invert"
+              className="h-8 w-auto filter invert opacity-90 hover:opacity-100 transition-opacity"
             />
           </motion.div>
           
+          {/* Navigation Links */}
           <div className="flex space-x-8">
             {[
               { name: 'Home', id: 'home' },
@@ -56,11 +58,12 @@ export function Navigation() {
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="font-mono text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="font-mono text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </motion.button>
             ))}
           </div>
