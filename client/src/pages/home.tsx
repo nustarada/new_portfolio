@@ -1,357 +1,378 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useToast } from "@/hooks/use-toast";
-import { z } from "zod";
-import { useRef, useState, useEffect } from "react";
-
-const contactFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
-  projectType: z.string().min(1, "Please select a project type"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
-
-type ContactFormData = z.infer<typeof contactFormSchema>;
-
-const projects = [
-  {
-    id: 1,
-    title: "AI-Powered Design System",
-    description: "Next-generation design system with AI-driven component generation and automated documentation",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["AI/ML", "Design Systems", "Automation"],
-    year: "2024",
-    category: "Product Design"
-  },
-  {
-    id: 2,
-    title: "Enterprise Analytics Dashboard",
-    description: "Real-time analytics platform processing millions of data points with intuitive visualization",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["Data Visualization", "Enterprise", "Real-time"],
-    year: "2024",
-    category: "Data & Analytics"
-  },
-  {
-    id: 3,
-    title: "Mobile Banking Revolution",
-    description: "Complete mobile banking experience with biometric security and AI-powered financial insights",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["Fintech", "Mobile", "Security"],
-    year: "2023",
-    category: "Mobile App"
-  },
-  {
-    id: 4,
-    title: "Healthcare Platform",
-    description: "Comprehensive healthcare management system with telemedicine capabilities and patient portals",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["Healthcare", "Telemedicine", "Portal"],
-    year: "2023",
-    category: "Web Platform"
-  },
-  {
-    id: 5,
-    title: "E-commerce Intelligence",
-    description: "Smart shopping platform with personalization engine and predictive analytics",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["E-commerce", "Personalization", "Analytics"],
-    year: "2022",
-    category: "E-commerce"
-  },
-  {
-    id: 6,
-    title: "Creative Collaboration Hub",
-    description: "All-in-one creative workspace for distributed teams with real-time collaboration features",
-    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    tags: ["Collaboration", "Creative", "Remote Work"],
-    year: "2022",
-    category: "Productivity"
-  }
-];
+import { useState, useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { useMutation } from '@tanstack/react-query';
+import { useForm } from 'react-hook-form';
+import logoPath from '@assets/Logo black_1749711104405.png';
+import { 
+  Terminal, 
+  Sparkles, 
+  Brain, 
+  Zap, 
+  Code2, 
+  Palette, 
+  Database,
+  Layers,
+  Users,
+  Target,
+  ArrowUpRight,
+  Mail,
+  Github,
+  Linkedin,
+  Download
+} from 'lucide-react';
 
 export default function Home() {
-  const { toast } = useToast();
-  const queryClient = useQueryClient();
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [activeSection, setActiveSection] = useState('');
   const { scrollYProgress } = useScroll();
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  
-  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
-  const categories = ["All", "Product Design", "Data & Analytics", "Mobile App", "Web Platform", "E-commerce", "Productivity"];
-  
-  const filteredProjects = selectedCategory === "All" 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  const form = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      projectType: "",
-      message: "",
-    },
-  });
+  const { register, handleSubmit, reset } = useForm();
 
   const contactMutation = useMutation({
-    mutationFn: async (data: ContactFormData) => {
-      const response = await fetch("/api/contacts", {
-        method: "POST",
+    mutationFn: async (data: any) => {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" },
       });
+      if (!response.ok) throw new Error('Failed to send message');
       return response.json();
     },
     onSuccess: () => {
-      toast({
-        title: "Message sent successfully!",
-        description: "I'll get back to you as soon as possible.",
-      });
-      form.reset();
-      queryClient.invalidateQueries({ queryKey: ["/api/contacts"] });
-    },
-    onError: () => {
-      toast({
-        title: "Failed to send message",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
+      reset();
     },
   });
 
-  const onSubmit = (data: ContactFormData) => {
-    contactMutation.mutate(data);
-  };
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setCursorPos({ x: e.clientX, y: e.clientY });
+    };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    const handleScroll = () => {
+      const sections = ['hero', 'about', 'projects', 'expertise', 'contact'];
+      const scrollPos = window.scrollY + 100;
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const height = element.offsetHeight;
+          if (scrollPos >= offsetTop && scrollPos < offsetTop + height) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const projects = [
+    {
+      title: "AI-Powered Design System",
+      description: "Next-generation design system with AI-driven component generation and automated documentation",
+      image: "/api/placeholder/600/400",
+      tags: ["AI/ML", "Design Systems", "Automation"],
+      year: "2024",
+      category: "Product Design"
+    },
+    {
+      title: "Enterprise Analytics Dashboard",
+      description: "Real-time analytics platform processing millions of data points with intuitive visualization",
+      image: "/api/placeholder/600/400",
+      tags: ["Data Visualization", "Enterprise", "Real-time"],
+      year: "2024",
+      category: "Data & Analytics"
+    },
+    {
+      title: "Mobile Banking Revolution",
+      description: "Complete mobile banking experience with biometric security and AI-powered financial insights",
+      image: "/api/placeholder/600/400",
+      tags: ["Fintech", "Mobile", "Security"],
+      year: "2023",
+      category: "Mobile App"
     }
-  };
+  ];
+
+  const skills = [
+    { name: "AI Integration", level: 95, icon: Brain },
+    { name: "Design Systems", level: 92, icon: Layers },
+    { name: "User Research", level: 88, icon: Users },
+    { name: "Product Strategy", level: 90, icon: Target },
+    { name: "Prototyping", level: 87, icon: Zap },
+    { name: "Data Visualization", level: 85, icon: Database }
+  ];
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-background text-foreground relative overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground cursor-glow relative overflow-hidden">
       {/* Custom Cursor */}
       <div 
         className="custom-cursor"
         style={{
-          left: mousePosition.x - 12,
-          top: mousePosition.y - 12,
+          left: cursorPos.x - 10,
+          top: cursorPos.y - 10,
         }}
       />
-      
-      {/* Hero Section */}
-      <motion.section 
-        id="home" 
-        className="min-h-screen flex items-center justify-center relative"
-        style={{ y, opacity }}
-      >
-        {/* Background gradient mesh */}
-        <div className="absolute inset-0 gradient-mesh opacity-50" />
-        <div className="absolute inset-0 grid-dots opacity-30" />
-        
-        {/* Floating elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div 
-            className="absolute top-20 left-20 w-32 h-32 border border-border/30 rounded-lg animate-spin-slow"
-          />
-          <motion.div 
-            className="absolute bottom-32 right-20 w-24 h-24 border border-border/30 rounded-full animate-float"
-          />
-          <motion.div 
-            className="absolute top-1/2 right-1/3 w-16 h-16 border border-border/30 animate-pulse-slow"
-          />
-        </div>
-        
-        <div className="container mx-auto px-6 text-center z-10">
-          {/* Logo */}
-          <motion.div
-            className="mb-12 flex justify-center"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <img 
-              src="@assets/Logo black_1749711104405.png"
-              alt="Karan Gadhave Logo" 
-              className="h-20 w-auto filter invert opacity-90 hover:opacity-100 transition-opacity"
-            />
-          </motion.div>
-          
-          {/* Title */}
-          <div className="space-y-6 max-w-4xl mx-auto">
-            <motion.div
-              className="reveal-text stagger-1"
-            >
-              <span className="font-mono text-sm tracking-wider text-muted-foreground uppercase">
-                Senior Product Designer & AI Innovator
-              </span>
-            </motion.div>
-            
-            <motion.h1 
-              className="font-inter text-5xl md:text-7xl lg:text-8xl font-bold text-gradient reveal-text stagger-2"
-            >
-              Karan Gadhave
-            </motion.h1>
-            
-            <motion.p 
-              className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed reveal-text stagger-3"
-            >
-              Crafting exceptional digital experiences through strategic design thinking, 
-              AI innovation, and human-centered solutions.
-            </motion.p>
-          </div>
-          
-          {/* CTA Buttons */}
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center mt-12 reveal-text stagger-4"
-          >
-            <Button 
-              onClick={() => scrollToSection('projects')}
-              size="lg"
-              className="hover-lift bg-primary text-primary-foreground font-medium"
-            >
-              View My Work
-            </Button>
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              variant="outline"
-              size="lg"
-              className="hover-lift border-border hover:bg-accent"
-            >
-              Get In Touch
-            </Button>
-          </motion.div>
-        </div>
-      </motion.section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-24 relative">
-        <div className="container mx-auto px-6">
-          {/* Section Header */}
-          <div className="text-center mb-16">
+      {/* Scroll Progress */}
+      <motion.div className="scroll-indicator" style={{ scaleX }} />
+
+      {/* Floating Orbs */}
+      <div className="floating-orb w-64 h-64 top-20 -left-32 opacity-30" />
+      <div className="floating-orb w-96 h-96 top-1/2 -right-48 opacity-20" style={{ animationDelay: '2s' }} />
+      <div className="floating-orb w-48 h-48 bottom-20 left-1/4 opacity-25" style={{ animationDelay: '4s' }} />
+
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/50">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <motion.div 
+            className="flex items-center space-x-3"
+            whileHover={{ scale: 1.05 }}
+          >
+            <img src={logoPath} alt="Karan Gadhave" className="w-8 h-8 invert" />
+            <span className="text-xl font-bold glow-text">Karan Gadhave</span>
+          </motion.div>
+          
+          <div className="hidden md:flex items-center space-x-8">
+            {['About', 'Projects', 'Expertise', 'Contact'].map((item) => (
+              <motion.a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === item.toLowerCase() ? 'text-primary' : 'text-muted-foreground'
+                }`}
+                whileHover={{ y: -2 }}
+              >
+                {item}
+              </motion.a>
+            ))}
+          </div>
+
+          <Button variant="outline" size="sm" className="morphing-border">
+            <Download className="w-4 h-4 mr-2" />
+            Resume
+          </Button>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="hero" className="min-h-screen flex items-center justify-center relative cyber-grid">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <div className="mb-6">
+              <Badge variant="outline" className="text-xs px-3 py-1 mb-4 border-primary/30">
+                <Sparkles className="w-3 h-3 mr-1" />
+                AVAILABLE FOR NEW OPPORTUNITIES
+              </Badge>
+            </div>
+            
+            <h1 className="text-7xl md:text-9xl font-bold mb-6 leading-none">
+              <span 
+                className="text-glitch glow-text" 
+                data-text="SENIOR PRODUCT DESIGNER & AI INNOVATOR"
+              >
+                SENIOR PRODUCT DESIGNER & AI INNOVATOR
+              </span>
+            </h1>
+            
+            <div className="text-6xl md:text-8xl font-bold mb-8 glow-text">
+              Karan
+            </div>
+            
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
+              Crafting exceptional digital experiences through strategic design thinking,
+              AI innovation, and human-centered solutions.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button size="lg" className="px-8 py-4 text-lg neo-card bg-primary hover:bg-primary/90">
+                <ArrowUpRight className="w-5 h-5 mr-2" />
+                View My Work
+              </Button>
+              <Button size="lg" variant="outline" className="px-8 py-4 text-lg morphing-border">
+                <Mail className="w-5 h-5 mr-2" />
+                Get In Touch
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Section Divider */}
+      <div className="section-divider" />
+
+      {/* About Section */}
+      <section id="about" className="py-32 relative">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <motion.div
-              className="reveal-text"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <span className="font-mono text-sm tracking-wider text-muted-foreground uppercase mb-4 block">
-                Featured Work
-              </span>
-              <h2 className="font-inter text-4xl md:text-5xl font-bold text-gradient mb-6">
-                Selected Projects
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                A showcase of innovative solutions spanning AI integration, enterprise platforms, 
-                and user-centered design systems.
-              </p>
+              <h2 className="text-5xl font-bold mb-8 glow-text">ABOUT ME</h2>
+              
+              <div className="space-y-6 text-lg text-muted-foreground">
+                <p>
+                  With four years of specialized experience in UI/UX design, I transform complex 
+                  challenges into intuitive digital solutions. My approach combines strategic 
+                  design thinking with cutting-edge AI integration to create products that drive 
+                  meaningful business outcomes.
+                </p>
+                
+                <p>
+                  As a design leader, I excel in user research, system architecture, and cross-
+                  functional collaboration. I've successfully led teams through product launches, 
+                  managed design systems at scale, and pioneered AI-enhanced design 
+                  workflows that improve efficiency by 40%.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-3 gap-8 mt-12">
+                <div className="text-center">
+                  <div className="text-4xl font-bold glow-text mb-2">4+</div>
+                  <div className="text-sm text-muted-foreground code-font">Years Experience</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold glow-text mb-2">50+</div>
+                  <div className="text-sm text-muted-foreground code-font">Projects Delivered</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold glow-text mb-2">15+</div>
+                  <div className="text-sm text-muted-foreground code-font">Team Members Led</div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <Card className="neo-card">
+                <h3 className="text-2xl font-bold mb-6 glow-text">Core Expertise</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    'AI Integration', 'Design Systems', 'User Research', 'Team Leadership',
+                    'Product Strategy', 'Prototyping', 'Data Visualization', 'Cross-functional Collaboration'
+                  ].map((skill, index) => (
+                    <motion.div
+                      key={skill}
+                      className="flex items-center space-x-2 p-3 rounded-lg bg-secondary/30"
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(138, 43, 226, 0.1)' }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="w-2 h-2 bg-primary rounded-full" />
+                      <span className="text-sm font-medium">{skill}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </Card>
+
+              <Card className="neo-card">
+                <h3 className="text-2xl font-bold mb-6 glow-text">Design Philosophy</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Great design is invisible. It seamlessly bridges human needs with 
+                  technological possibilities, creating experiences that feel natural, 
+                  intuitive, and delightful. I believe in data-driven decisions, user-
+                  centered approaches, and the power of AI to augment human creativity.
+                </p>
+              </Card>
             </motion.div>
           </div>
-          
-          {/* Category Filter */}
-          <motion.div 
-            className="flex flex-wrap gap-3 justify-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-32 relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            className="text-center mb-16"
           >
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full font-mono text-sm transition-all duration-300 ${
-                  selectedCategory === category
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-card border border-border text-muted-foreground hover:text-foreground hover:border-border/80'
+            <h2 className="text-5xl font-bold mb-6 glow-text">FEATURED PROJECTS</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              A showcase of innovative solutions spanning AI integration, enterprise platforms,
+              and user-centered design systems.
+            </p>
+          </motion.div>
+
+          <div className="space-y-32">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
+                  index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
                 }`}
               >
-                {category}
-              </button>
-            ))}
-          </motion.div>
-          
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                className="glass-card rounded-2xl overflow-hidden hover-lift group cursor-pointer"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  duration: 0.6,
-                  delay: index * 0.1
-                }}
-              >
-                {/* Project Image */}
-                <div className="relative overflow-hidden aspect-video">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="text-center text-white">
-                      <div className="w-12 h-12 border-2 border-white rounded-full flex items-center justify-center mx-auto mb-3">
-                        <span className="text-lg">→</span>
-                      </div>
-                      <span className="font-mono text-sm">View Project</span>
+                <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                  <div className="space-y-6">
+                    <div className="flex items-center space-x-4">
+                      <Badge variant="outline" className="text-xs px-3 py-1">
+                        {project.category}
+                      </Badge>
+                      <span className="text-sm text-muted-foreground code-font">
+                        {project.year}
+                      </span>
                     </div>
+                    
+                    <h3 className="text-4xl font-bold glow-text">{project.title}</h3>
+                    
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <Badge key={tag} variant="secondary" className="text-xs">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                    
+                    <Button variant="outline" className="morphing-border">
+                      <ArrowUpRight className="w-4 h-4 mr-2" />
+                      View Case Study
+                    </Button>
                   </div>
                 </div>
                 
-                {/* Project Info */}
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-3">
-                    <h3 className="font-inter text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <span className="font-mono text-xs text-muted-foreground">
-                      {project.year}
-                    </span>
-                  </div>
-                  
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 text-xs font-mono bg-accent/50 text-accent-foreground rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
+                  <Card className="neo-card p-0 overflow-hidden">
+                    <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                      <Terminal className="w-16 h-16 text-primary/60" />
+                    </div>
+                  </Card>
                 </div>
               </motion.div>
             ))}
@@ -359,265 +380,164 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-24 relative">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Content */}
-            <motion.div 
-              className="space-y-8"
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div>
-                <span className="font-mono text-sm tracking-wider text-muted-foreground uppercase mb-4 block">
-                  About Me
-                </span>
-                <h2 className="font-inter text-4xl md:text-5xl font-bold text-gradient mb-6">
-                  Designing Tomorrow's Digital Experiences
-                </h2>
-              </div>
-              
-              <div className="space-y-6 text-muted-foreground leading-relaxed">
-                <p>
-                  With four years of specialized expertise in UI/UX design, I transform complex challenges 
-                  into intuitive digital solutions. My approach combines strategic design thinking with 
-                  cutting-edge AI integration to create products that drive meaningful business outcomes.
-                </p>
-                <p>
-                  As a design leader, I excel in user research, system architecture, and cross-functional 
-                  collaboration. I've successfully led teams through product launches, managed design systems 
-                  at scale, and pioneered AI-enhanced design workflows that improve efficiency by 40%.
-                </p>
-              </div>
-              
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-8 pt-8">
-                {[
-                  { number: "4+", label: "Years Experience" },
-                  { number: "50+", label: "Projects Delivered" },
-                  { number: "15+", label: "Team Members Led" }
-                ].map((stat, index) => (
-                  <motion.div 
-                    key={stat.label}
-                    className="text-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <div className="text-3xl font-bold text-foreground mb-2">{stat.number}</div>
-                    <div className="text-sm font-mono text-muted-foreground">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-            
-            {/* Skills & Philosophy */}
-            <motion.div 
-              className="glass-card p-8 rounded-2xl"
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h3 className="font-inter text-2xl font-semibold text-foreground mb-6">
-                Core Expertise
-              </h3>
-              
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                {[
-                  "AI Integration", "Design Systems", "User Research", "Team Leadership",
-                  "Product Strategy", "Prototyping", "Data Visualization", "Cross-functional Collaboration"
-                ].map((skill, index) => (
-                  <motion.div
-                    key={skill}
-                    className="text-sm font-mono text-muted-foreground py-2 px-3 bg-accent/30 rounded border border-border/30"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                  >
-                    {skill}
-                  </motion.div>
-                ))}
-              </div>
-              
-              <div className="border-t border-border/30 pt-6">
-                <h4 className="font-inter text-lg font-semibold text-foreground mb-4">
-                  Design Philosophy
-                </h4>
-                <p className="text-muted-foreground leading-relaxed">
-                  Great design is invisible. It seamlessly bridges human needs with technological 
-                  possibilities, creating experiences that feel natural, intuitive, and delightful. 
-                  I believe in data-driven decisions, user-centered approaches, and the power of 
-                  AI to augment human creativity.
-                </p>
-              </div>
-            </motion.div>
+      {/* Expertise Section */}
+      <section id="expertise" className="py-32 relative">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl font-bold mb-6 glow-text">EXPERTISE</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {skills.map((skill, index) => {
+              const Icon = skill.icon;
+              return (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="neo-card text-center h-full">
+                    <div className="mb-6">
+                      <div className="w-16 h-16 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                        <Icon className="w-8 h-8 text-primary" />
+                      </div>
+                      <h3 className="text-xl font-bold mb-2">{skill.name}</h3>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-sm">
+                        <span>Proficiency</span>
+                        <span className="code-font text-primary">{skill.level}%</span>
+                      </div>
+                      <div className="w-full bg-secondary rounded-full h-2 overflow-hidden">
+                        <motion.div
+                          className="h-full bg-gradient-to-r from-primary to-primary/60"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1, delay: index * 0.1 }}
+                          viewport={{ once: true }}
+                        />
+                      </div>
+                    </div>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 relative">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            {/* Header */}
-            <motion.div 
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+      <section id="contact" className="py-32 relative">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl font-bold mb-6 glow-text">GET IN TOUCH</h2>
+            <p className="text-xl text-muted-foreground">
+              Ready to collaborate on your next innovative project?
+            </p>
+          </motion.div>
+
+          <Card className="neo-card">
+            <form 
+              onSubmit={handleSubmit((data) => contactMutation.mutate(data))}
+              className="space-y-6"
             >
-              <span className="font-mono text-sm tracking-wider text-muted-foreground uppercase mb-4 block">
-                Let's Connect
-              </span>
-              <h2 className="font-inter text-4xl md:text-5xl font-bold text-gradient mb-6">
-                Ready to Create Something Exceptional?
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Let's discuss how strategic design and AI innovation can transform your next project.
-              </p>
-            </motion.div>
-            
-            {/* Contact Form */}
-            <motion.div
-              className="glass-card p-8 rounded-2xl"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="font-medium text-foreground">Name</FormLabel>
-                          <FormControl>
-                            <Input 
-                              placeholder="Your Name" 
-                              className="bg-background border-border focus:border-primary transition-colors"
-                              {...field} 
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="font-medium text-foreground">Email</FormLabel>
-                          <FormControl>
-                            <Input 
-                              type="email"
-                              placeholder="your@email.com" 
-                              className="bg-background border-border focus:border-primary transition-colors"
-                              {...field} 
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  
-                  <FormField
-                    control={form.control}
-                    name="projectType"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="font-medium text-foreground">Project Type</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger className="bg-background border-border focus:border-primary">
-                              <SelectValue placeholder="Select project type" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="ai-integration">AI Integration</SelectItem>
-                            <SelectItem value="design-systems">Design Systems</SelectItem>
-                            <SelectItem value="product-design">Product Design</SelectItem>
-                            <SelectItem value="user-research">User Research</SelectItem>
-                            <SelectItem value="consultation">Strategic Consultation</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Name</label>
+                  <Input 
+                    {...register('name', { required: true })}
+                    placeholder="Your Name"
+                    className="bg-secondary border-border"
                   />
-                  
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="font-medium text-foreground">Message</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            rows={6}
-                            placeholder="Tell me about your project and goals..." 
-                            className="bg-background border-border focus:border-primary resize-none transition-colors"
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Email</label>
+                  <Input 
+                    {...register('email', { required: true })}
+                    type="email"
+                    placeholder="your@email.com"
+                    className="bg-secondary border-border"
                   />
-                  
-                  <Button 
-                    type="submit" 
-                    disabled={contactMutation.isPending}
-                    className="w-full bg-primary text-primary-foreground py-4 font-medium hover:bg-primary/90 transition-all hover-lift"
-                  >
-                    {contactMutation.isPending ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-              </Form>
-              
-              {/* Contact Info */}
-              <div className="mt-12 pt-8 border-t border-border/30">
-                <div className="grid md:grid-cols-3 gap-8 text-center">
-                  <div>
-                    <div className="font-mono text-xs text-muted-foreground mb-2">EMAIL</div>
-                    <div className="font-medium">karan.gadhave@design.com</div>
-                  </div>
-                  <div>
-                    <div className="font-mono text-xs text-muted-foreground mb-2">LINKEDIN</div>
-                    <div className="font-medium">linkedin.com/in/karangadhave</div>
-                  </div>
-                  <div>
-                    <div className="font-mono text-xs text-muted-foreground mb-2">PORTFOLIO</div>
-                    <div className="font-medium">dribbble.com/karangadhave</div>
-                  </div>
                 </div>
               </div>
-            </motion.div>
+              
+              <div>
+                <label className="block text-sm font-medium mb-2">Project Type</label>
+                <Select>
+                  <SelectTrigger className="bg-secondary border-border">
+                    <SelectValue placeholder="Select project type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="product-design">Product Design</SelectItem>
+                    <SelectItem value="design-system">Design System</SelectItem>
+                    <SelectItem value="ai-integration">AI Integration</SelectItem>
+                    <SelectItem value="consulting">Consulting</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium mb-2">Message</label>
+                <Textarea 
+                  {...register('message', { required: true })}
+                  placeholder="Tell me about your project and goals..."
+                  rows={6}
+                  className="bg-secondary border-border resize-none"
+                />
+              </div>
+              
+              <Button 
+                type="submit" 
+                size="lg" 
+                className="w-full neo-card bg-primary hover:bg-primary/90"
+                disabled={contactMutation.isPending}
+              >
+                {contactMutation.isPending ? 'Sending...' : 'Send Message'}
+              </Button>
+            </form>
+          </Card>
+
+          <div className="mt-16 text-center">
+            <div className="flex justify-center space-x-6">
+              <Button variant="ghost" size="icon" className="w-12 h-12 rounded-full neo-card">
+                <Mail className="w-5 h-5" />
+              </Button>
+              <Button variant="ghost" size="icon" className="w-12 h-12 rounded-full neo-card">
+                <Linkedin className="w-5 h-5" />
+              </Button>
+              <Button variant="ghost" size="icon" className="w-12 h-12 rounded-full neo-card">
+                <Github className="w-5 h-5" />
+              </Button>
+            </div>
+            <p className="mt-6 text-sm text-muted-foreground code-font">
+              karan.gadhave@designer.com • linkedin.com/in/karangadhave • dribbble.com/karangadhave
+            </p>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-16 border-t border-border/30">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="font-inter text-2xl font-bold text-gradient mb-4 md:mb-0">
-              Karan Gadhave
-            </div>
-            <div className="text-center text-muted-foreground font-mono text-sm">
-              © 2024 — Designed with precision and innovation
-            </div>
-          </div>
+      <footer className="py-12 border-t border-border/30">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <p className="text-muted-foreground code-font">
+            © 2024 Karan Gadhave. Designed & developed with passion.
+          </p>
         </div>
       </footer>
     </div>
