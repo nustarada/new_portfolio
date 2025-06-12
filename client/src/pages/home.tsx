@@ -975,21 +975,7 @@ export default function Home() {
             </div>
           </Card>
 
-          <div className="mt-16 text-center">
-            <div className="flex justify-center">
-              <a 
-                href="https://www.linkedin.com/in/karan-gadhave/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="group"
-              >
-                <Button variant="ghost" size="icon" className="w-12 h-12 rounded-full neo-card group-hover:scale-110 transition-transform duration-300">
-                  <Linkedin className="w-5 h-5 group-hover:text-primary transition-colors duration-300" />
-                </Button>
-              </a>
-            </div>
-            
-          </div>
+
         </div>
       </section>
 
@@ -1186,19 +1172,20 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 border-t border-border/30">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="text-muted-foreground code-font mb-4">
-            © 2024 Karan Gadhave. Designed & developed with passion.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            Connect with me on{' '}
+          <div className="flex justify-center mb-6">
             <a 
               href="https://www.linkedin.com/in/karan-gadhave/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-primary hover:text-primary/80 transition-colors duration-300 underline"
+              className="group"
             >
-              LinkedIn
+              <Button variant="ghost" size="icon" className="w-12 h-12 rounded-full neo-card group-hover:scale-110 transition-transform duration-300">
+                <Linkedin className="w-5 h-5 group-hover:text-primary transition-colors duration-300" />
+              </Button>
             </a>
+          </div>
+          <p className="text-muted-foreground code-font">
+            © 2024 Karan Gadhave. Designed & developed with passion.
           </p>
         </div>
       </footer>
