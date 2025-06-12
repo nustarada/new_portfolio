@@ -169,11 +169,10 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <motion.div 
-            className="flex items-center space-x-3"
+            className="flex items-center"
             whileHover={{ scale: 1.05 }}
           >
-            <img src={logoPath} alt="Karan Gadhave" className="w-8 h-8" />
-            <span className="text-xl font-bold glow-text">Karan Gadhave</span>
+            <img src={logoPath} alt="Karan Gadhave" className="w-10 h-10" />
           </motion.div>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -205,55 +204,82 @@ export default function Home() {
           mouseY={mousePos.y} 
           intensity={waveIntensity}
         />
-        <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <div className="mb-6">
-              <Badge variant="outline" className="text-xs px-3 py-1 mb-4 border-primary/30">
-                <Sparkles className="w-3 h-3 mr-1" />
+        <div className="max-w-7xl mx-auto px-6 h-full flex items-center relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
+            {/* Left Side - Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="space-y-8"
+            >
+              <Badge variant="outline" className="text-xs px-4 py-2 border-primary/30 w-fit">
+                <Sparkles className="w-3 h-3 mr-2" />
                 AVAILABLE FOR NEW OPPORTUNITIES
               </Badge>
-            </div>
-            
-            <motion.div 
-              className="flex justify-center mb-8"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            >
-              <img 
-                src={logoPath} 
-                alt="Karan Gadhave Logo" 
-                className="w-20 h-20 md:w-24 md:h-24 opacity-90" 
-              />
+              
+              <div className="space-y-6">
+                <h1 className="text-6xl md:text-8xl font-bold leading-none tracking-tight">
+                  <span className="block text-foreground">SENIOR</span>
+                  <span className="block glow-text">PRODUCT</span>
+                  <span className="block text-foreground">DESIGNER</span>
+                </h1>
+                
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-1 bg-primary"></div>
+                  <span className="text-2xl md:text-3xl font-light text-primary tracking-widest">
+                    & AI INNOVATOR
+                  </span>
+                </div>
+              </div>
+              
+              <p className="text-xl md:text-2xl text-foreground opacity-80 leading-relaxed max-w-lg">
+                Crafting exceptional digital experiences through strategic design thinking and cutting-edge AI integration.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="px-8 py-4 text-lg neo-card bg-primary hover:bg-primary/90">
+                  <ArrowUpRight className="w-5 h-5 mr-2" />
+                  View My Work
+                </Button>
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
+                  <Mail className="w-5 h-5 mr-2" />
+                  Get In Touch
+                </Button>
+              </div>
             </motion.div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight glow-text">
-              SENIOR PRODUCT DESIGNER & AI INNOVATOR
-            </h1>
-            
-            <div className="text-3xl md:text-4xl font-medium mb-8 text-foreground opacity-80">
-              Karan
-            </div>
-            
-            <p className="text-lg md:text-xl text-foreground opacity-90 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
-              Crafting exceptional digital experiences through strategic design thinking,
-              AI innovation, and human-centered solutions.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="px-8 py-4 text-lg neo-card bg-primary hover:bg-primary/90">
-                <ArrowUpRight className="w-5 h-5 mr-2" />
-                View My Work
-              </Button>
-              <Button size="lg" variant="outline" className="px-8 py-4 text-lg morphing-border">
-                <Mail className="w-5 h-5 mr-2" />
-                Get In Touch
-              </Button>
-            </div>
-          </motion.div>
+
+            {/* Right Side - Logo & Name */}
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+              className="flex flex-col items-center justify-center space-y-8 lg:space-y-12"
+            >
+              <motion.div 
+                className="relative"
+                whileHover={{ scale: 1.05, rotate: 2 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              >
+                <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl"></div>
+                <img 
+                  src={logoPath} 
+                  alt="Karan Gadhave Logo" 
+                  className="relative w-32 h-32 md:w-40 md:h-40 opacity-95" 
+                />
+              </motion.div>
+              
+              <div className="text-center space-y-4">
+                <h2 className="text-5xl md:text-6xl font-bold text-foreground tracking-wider">
+                  KARAN
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-primary to-transparent mx-auto"></div>
+                <p className="text-lg md:text-xl text-foreground opacity-60 font-light tracking-widest">
+                  GADHAVE
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
