@@ -370,7 +370,7 @@ export default function Home() {
       </section>
 
       {/* Featured Work Section */}
-      <section id="work" className="py-20 relative">
+      <section id="work" className="py-24 relative">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div 
             className="text-center mb-16"
@@ -380,23 +380,20 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <motion.div
-              className="font-jetbrains text-neon-pink text-sm tracking-[0.2em] uppercase mb-4"
+              className="font-dm-mono text-accent-emerald text-sm tracking-wider uppercase mb-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
             >
-              {'>> Portfolio_Database.exe'}
+              Featured Projects
             </motion.div>
-            <h2 className="font-righteous text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-neon-cyan">PROJECT</span>
-              <br />
-              <span className="text-neon-yellow">ARCHIVE</span>
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              Portfolio <span className="gradient-text">Showcase</span>
             </h2>
-            <p className="text-lg text-text-secondary max-w-3xl mx-auto font-poppins leading-relaxed">
-              [DATA_STREAM_ACTIVE] A neural network of digital experiences crafted to merge 
-              human psychology with cybernetic precision. Each project represents a node 
-              in the expanding matrix of user-centered design.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              A curated collection of innovative projects that demonstrate expertise in AI integration, 
+              design systems, and strategic product development across diverse industries.
             </p>
           </motion.div>
           
@@ -414,12 +411,12 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Background grid effect */}
-        <div className="absolute inset-0 cyber-grid opacity-5" />
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 sophisticated-grid opacity-5" />
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20">
+      <section id="skills" className="py-24 bg-muted/20">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div 
             className="text-center mb-16"
@@ -428,26 +425,39 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-orbitron text-4xl md:text-5xl font-bold mb-4">
-              My <span className="text-electric">Skills</span>
+            <motion.div
+              className="font-dm-mono text-accent-indigo text-sm tracking-wider uppercase mb-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Core Competencies
+            </motion.div>
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              Skills & <span className="gradient-text">Expertise</span>
             </h2>
-            <p className="text-xl text-muted-foreground">Tools and technologies I use to bring ideas to life</p>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              A comprehensive skill set that bridges design, technology, and leadership to deliver exceptional digital experiences
+            </p>
           </motion.div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Design Skills */}
             <motion.div 
-              className="bg-dark-surface/50 p-8 rounded-2xl"
+              className="elegant-card p-8 bg-card/80 rounded-xl"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="text-center mb-6">
-                <i className="fas fa-palette text-4xl text-electric mb-4"></i>
-                <h3 className="font-space text-xl font-bold">Design</h3>
+              <div className="text-center mb-8">
+                <div className="w-12 h-12 bg-accent-indigo/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-accent-indigo text-xl">🎨</span>
+                </div>
+                <h3 className="font-playfair text-xl font-semibold text-foreground">Design Foundation</h3>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {designSkills.map((skill) => (
                   <SkillBar key={skill.skill} {...skill} />
                 ))}
@@ -500,8 +510,8 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-dark-surface/50">
-        <div className="max-w-4xl mx-auto px-6">
+      <section id="contact" className="py-24 bg-muted/30">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div 
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -509,13 +519,24 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-orbitron text-4xl md:text-5xl font-bold mb-4">
-              Let's <span className="text-electric">Connect</span>
+            <motion.div
+              className="font-dm-mono text-accent-gold text-sm tracking-wider uppercase mb-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Let's Collaborate
+            </motion.div>
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              Ready to Create <span className="gradient-text">Something Exceptional?</span>
             </h2>
-            <p className="text-xl text-muted-foreground">Ready to create something amazing together?</p>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Let's discuss how AI-powered design and strategic thinking can transform your next project into a remarkable digital experience.
+            </p>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-16">
             <motion.div 
               className="space-y-8"
               initial={{ opacity: 0, x: -30 }}
@@ -523,41 +544,57 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div>
-                <h3 className="font-space text-2xl font-bold mb-6">Get In Touch</h3>
-                <div className="space-y-4">
+              <div className="elegant-card p-8 bg-card/80 rounded-xl">
+                <h3 className="font-playfair text-2xl font-semibold mb-6 text-foreground">Connect With Me</h3>
+                <div className="space-y-6">
                   <div className="flex items-center space-x-4">
-                    <i className="fas fa-envelope text-electric text-xl"></i>
-                    <span>alex.chen@design.com</span>
+                    <div className="w-12 h-12 bg-accent-indigo/10 rounded-full flex items-center justify-center">
+                      <span className="text-accent-indigo">📧</span>
+                    </div>
+                    <div>
+                      <div className="text-sm text-muted-foreground">Email</div>
+                      <div className="font-inter font-medium">karan.gadhave@design.com</div>
+                    </div>
                   </div>
                   <div className="flex items-center space-x-4">
-                    <i className="fas fa-phone text-vibrant text-xl"></i>
-                    <span>+1 (555) 123-4567</span>
+                    <div className="w-12 h-12 bg-accent-emerald/10 rounded-full flex items-center justify-center">
+                      <span className="text-accent-emerald">💼</span>
+                    </div>
+                    <div>
+                      <div className="text-sm text-muted-foreground">LinkedIn</div>
+                      <div className="font-inter font-medium">linkedin.com/in/karangardhave</div>
+                    </div>
                   </div>
                   <div className="flex items-center space-x-4">
-                    <i className="fas fa-map-marker-alt text-purple text-xl"></i>
-                    <span>San Francisco, CA</span>
+                    <div className="w-12 h-12 bg-accent-gold/10 rounded-full flex items-center justify-center">
+                      <span className="text-accent-gold">🎨</span>
+                    </div>
+                    <div>
+                      <div className="text-sm text-muted-foreground">Portfolio</div>
+                      <div className="font-inter font-medium">dribbble.com/karangardhave</div>
+                    </div>
                   </div>
                 </div>
               </div>
               
-              <div>
-                <h3 className="font-space text-xl font-bold mb-4">Follow Me</h3>
+              <div className="elegant-card p-8 bg-card/80 rounded-xl">
+                <h3 className="font-playfair text-xl font-semibold mb-6 text-foreground">Professional Networks</h3>
                 <div className="flex space-x-4">
                   {[
-                    { icon: "fab fa-dribbble", color: "border-electric/30 hover:bg-electric" },
-                    { icon: "fab fa-behance", color: "border-vibrant/30 hover:bg-vibrant" },
-                    { icon: "fab fa-linkedin", color: "border-purple/30 hover:bg-purple" },
-                    { icon: "fab fa-twitter", color: "border-electric/30 hover:bg-electric" },
+                    { icon: "💼", name: "LinkedIn", color: "bg-accent-indigo/10 hover:bg-accent-indigo/20" },
+                    { icon: "🎨", name: "Dribbble", color: "bg-accent-emerald/10 hover:bg-accent-emerald/20" },
+                    { icon: "🐦", name: "Twitter", color: "bg-accent-gold/10 hover:bg-accent-gold/20" },
+                    { icon: "📸", name: "Instagram", color: "bg-accent-indigo/10 hover:bg-accent-indigo/20" },
                   ].map((social, index) => (
                     <motion.a
                       key={index}
                       href="#"
-                      className={`w-12 h-12 bg-dark-surface border rounded-full flex items-center justify-center hover:text-dark-primary transition-all ${social.color}`}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
+                      className={`w-14 h-14 ${social.color} rounded-full flex items-center justify-center transition-all duration-200`}
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      title={social.name}
                     >
-                      <i className={social.icon}></i>
+                      <span className="text-lg">{social.icon}</span>
                     </motion.a>
                   ))}
                 </div>
@@ -570,98 +607,101 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Name</FormLabel>
-                        <FormControl>
-                          <Input 
-                            placeholder="Your Name" 
-                            className="bg-dark-surface border-muted focus:border-electric"
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input 
-                            type="email"
-                            placeholder="your@email.com" 
-                            className="bg-dark-surface border-muted focus:border-electric"
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="projectType"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Project Type</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <div className="elegant-card p-8 bg-card/80 rounded-xl">
+                <h3 className="font-playfair text-2xl font-semibold mb-6 text-foreground">Start a Conversation</h3>
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="font-inter font-medium">Name</FormLabel>
                           <FormControl>
-                            <SelectTrigger className="bg-dark-surface border-muted focus:border-electric">
-                              <SelectValue placeholder="Select project type" />
-                            </SelectTrigger>
+                            <Input 
+                              placeholder="Your Name" 
+                              className="bg-background border-border focus:border-primary transition-colors"
+                              {...field} 
+                            />
                           </FormControl>
-                          <SelectContent>
-                            <SelectItem value="ui-ux">UI/UX Design</SelectItem>
-                            <SelectItem value="web-design">Web Design</SelectItem>
-                            <SelectItem value="mobile-app">Mobile App</SelectItem>
-                            <SelectItem value="branding">Branding</SelectItem>
-                            <SelectItem value="consultation">Consultation</SelectItem>
-                          </SelectContent>
-                        </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="font-inter font-medium">Email</FormLabel>
+                          <FormControl>
+                            <Input 
+                              type="email"
+                              placeholder="your@email.com" 
+                              className="bg-background border-border focus:border-primary transition-colors"
+                              {...field} 
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="projectType"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="font-inter font-medium">Project Type</FormLabel>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger className="bg-background border-border focus:border-primary">
+                                <SelectValue placeholder="Select project type" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <SelectItem value="ai-integration">AI Integration</SelectItem>
+                              <SelectItem value="design-systems">Design Systems</SelectItem>
+                              <SelectItem value="product-design">Product Design</SelectItem>
+                              <SelectItem value="user-research">User Research</SelectItem>
+                              <SelectItem value="consultation">Strategic Consultation</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="font-inter font-medium">Message</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              rows={4}
+                              placeholder="Tell me about your project..." 
+                              className="bg-background border-border focus:border-primary resize-none transition-colors"
+                              {...field} 
+                            />
+                          </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
                   
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Message</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            rows={4}
-                            placeholder="Tell me about your project..." 
-                            className="bg-dark-surface border-muted focus:border-electric resize-none"
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <Button 
-                    type="submit" 
-                    disabled={contactMutation.isPending}
-                    className="w-full bg-electric text-dark-primary py-3 rounded-lg font-semibold hover:bg-electric/80 transition-all transform hover:scale-105"
-                  >
-                    {contactMutation.isPending ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-              </Form>
+                    <Button 
+                      type="submit" 
+                      disabled={contactMutation.isPending}
+                      className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-inter font-medium hover:bg-primary/90 transition-all transform hover:scale-105"
+                    >
+                      {contactMutation.isPending ? "Sending..." : "Send Message"}
+                    </Button>
+                  </form>
+                </Form>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -671,11 +711,11 @@ export default function Home() {
       <footer className="py-12 border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="font-orbitron text-xl font-bold mb-4 md:mb-0">
-              <span className="text-electric">Alex</span> Chen
+            <div className="font-playfair text-xl font-bold mb-4 md:mb-0">
+              <span className="gradient-text">Karan</span> Gadhave
             </div>
-            <div className="text-center text-muted-foreground">
-              © 2024 Alex Chen. Crafted with passion and precision.
+            <div className="text-center text-muted-foreground font-inter">
+              © 2024 Karan Gadhave. Designed with innovation and precision.
             </div>
           </div>
         </div>
