@@ -2,72 +2,84 @@ import { useEffect } from "react";
 
 export function ParticleBackground() {
   useEffect(() => {
-    const createDataStream = () => {
-      const particle = document.createElement('div');
-      particle.className = 'data-particle';
-      particle.style.left = Math.random() * window.innerWidth + 'px';
-      particle.style.animationDelay = Math.random() * 5 + 's';
-      particle.style.animationDuration = (Math.random() * 5 + 10) + 's';
+    const createFloatingElement = () => {
+      const element = document.createElement('div');
+      element.className = 'floating-element animate-subtle-float';
       
-      // Random neon colors
-      const colors = [
-        'hsl(192, 100%, 67%)',
-        'hsl(326, 100%, 74%)',
-        'hsl(60, 100%, 67%)'
-      ];
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      particle.style.background = `linear-gradient(to bottom, ${color}, transparent)`;
-      particle.style.boxShadow = `0 0 10px ${color}`;
+      // Random geometric shapes
+      const shapes = ['○', '△', '◇', '□', '◎'];
+      const shape = shapes[Math.floor(Math.random() * shapes.length)];
       
-      document.body.appendChild(particle);
+      element.style.position = 'fixed';
+      element.style.left = Math.random() * window.innerWidth + 'px';
+      element.style.top = Math.random() * window.innerHeight + 'px';
+      element.style.fontSize = Math.random() * 20 + 20 + 'px';
+      element.style.color = 'hsl(240, 5.9%, 90%)';
+      element.style.fontFamily = 'DM Mono, monospace';
+      element.style.pointerEvents = 'none';
+      element.style.zIndex = '1';
+      element.style.opacity = '0.08';
+      element.style.animationDelay = Math.random() * 3 + 's';
+      element.textContent = shape;
+      
+      document.body.appendChild(element);
       
       setTimeout(() => {
-        if (document.body.contains(particle)) {
-          document.body.removeChild(particle);
+        if (document.body.contains(element)) {
+          document.body.removeChild(element);
+        }
+      }, 15000);
+    };
+    
+    const createGradientOrb = () => {
+      const orb = document.createElement('div');
+      orb.className = 'floating-element animate-elegant-scale';
+      
+      const colors = [
+        'hsl(231, 48%, 48%)',
+        'hsl(158, 64%, 52%)',
+        'hsl(45, 100%, 72%)'
+      ];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      
+      orb.style.position = 'fixed';
+      orb.style.left = Math.random() * window.innerWidth + 'px';
+      orb.style.top = Math.random() * window.innerHeight + 'px';
+      orb.style.width = Math.random() * 60 + 40 + 'px';
+      orb.style.height = orb.style.width;
+      orb.style.borderRadius = '50%';
+      orb.style.background = `radial-gradient(circle, ${color}20, transparent)`;
+      orb.style.pointerEvents = 'none';
+      orb.style.zIndex = '1';
+      orb.style.opacity = '0.15';
+      orb.style.animationDelay = Math.random() * 4 + 's';
+      
+      document.body.appendChild(orb);
+      
+      setTimeout(() => {
+        if (document.body.contains(orb)) {
+          document.body.removeChild(orb);
         }
       }, 20000);
     };
     
-    const createMatrixCode = () => {
-      const code = document.createElement('div');
-      code.className = 'animate-matrix-rain';
-      code.style.position = 'fixed';
-      code.style.left = Math.random() * window.innerWidth + 'px';
-      code.style.top = '-20px';
-      code.style.color = 'hsl(192, 100%, 67%)';
-      code.style.fontSize = '12px';
-      code.style.fontFamily = 'JetBrains Mono, monospace';
-      code.style.pointerEvents = 'none';
-      code.style.zIndex = '1';
-      code.style.opacity = '0.3';
-      code.textContent = Math.random().toString(36).substring(2, 8).toUpperCase();
-      
-      document.body.appendChild(code);
-      
-      setTimeout(() => {
-        if (document.body.contains(code)) {
-          document.body.removeChild(code);
-        }
-      }, 12000);
-    };
-    
-    // Create initial data streams
-    for (let i = 0; i < 8; i++) {
-      setTimeout(createDataStream, i * 500);
+    // Create initial floating elements
+    for (let i = 0; i < 6; i++) {
+      setTimeout(createFloatingElement, i * 1000);
     }
     
-    // Create initial matrix code
+    // Create initial gradient orbs
     for (let i = 0; i < 3; i++) {
-      setTimeout(createMatrixCode, i * 2000);
+      setTimeout(createGradientOrb, i * 3000);
     }
     
-    // Create data streams periodically
-    const streamInterval = setInterval(createDataStream, 2000);
-    const codeInterval = setInterval(createMatrixCode, 4000);
+    // Create elements periodically
+    const elementInterval = setInterval(createFloatingElement, 8000);
+    const orbInterval = setInterval(createGradientOrb, 12000);
     
     return () => {
-      clearInterval(streamInterval);
-      clearInterval(codeInterval);
+      clearInterval(elementInterval);
+      clearInterval(orbInterval);
     };
   }, []);
   
