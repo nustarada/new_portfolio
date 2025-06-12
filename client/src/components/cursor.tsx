@@ -5,23 +5,23 @@ export function CustomCursor() {
     const cursorDot = document.createElement('div');
     const cursorRing = document.createElement('div');
     
-    cursorDot.className = 'cyber-cursor-dot';
-    cursorRing.className = 'cyber-cursor-ring';
+    cursorDot.className = 'elegant-cursor-dot';
+    cursorRing.className = 'elegant-cursor-ring';
     
     document.body.appendChild(cursorDot);
     document.body.appendChild(cursorRing);
     
     const moveCursor = (e: MouseEvent) => {
-      cursorDot.style.left = e.clientX - 3 + 'px';
-      cursorDot.style.top = e.clientY - 3 + 'px';
+      cursorDot.style.left = e.clientX - 2 + 'px';
+      cursorDot.style.top = e.clientY - 2 + 'px';
       
-      cursorRing.style.left = e.clientX - 16 + 'px';
-      cursorRing.style.top = e.clientY - 16 + 'px';
+      cursorRing.style.left = e.clientX - 12 + 'px';
+      cursorRing.style.top = e.clientY - 12 + 'px';
     };
     
     const handleMouseDown = () => {
-      cursorRing.style.transform = 'scale(0.7)';
-      cursorDot.style.transform = 'scale(1.5)';
+      cursorRing.style.transform = 'scale(0.8)';
+      cursorDot.style.transform = 'scale(1.2)';
     };
     
     const handleMouseUp = () => {
@@ -32,18 +32,18 @@ export function CustomCursor() {
     const handleMouseEnter = (e: Event) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'BUTTON' || target.tagName === 'A' || target.classList.contains('cursor-pointer')) {
-        cursorRing.style.borderColor = 'hsl(326, 100%, 74%)';
-        cursorRing.style.transform = 'scale(1.5)';
-        cursorDot.style.background = 'hsl(326, 100%, 74%)';
+        cursorRing.style.borderColor = 'hsl(231, 48%, 48%)';
+        cursorRing.style.transform = 'scale(1.3)';
+        cursorDot.style.background = 'hsl(231, 48%, 48%)';
       }
     };
     
     const handleMouseLeave = (e: Event) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'BUTTON' || target.tagName === 'A' || target.classList.contains('cursor-pointer')) {
-        cursorRing.style.borderColor = 'hsl(192, 100%, 67%)';
+        cursorRing.style.borderColor = 'hsl(240, 5.9%, 10%)';
         cursorRing.style.transform = 'scale(1)';
-        cursorDot.style.background = 'hsl(192, 100%, 67%)';
+        cursorDot.style.background = 'hsl(240, 5.9%, 10%)';
       }
     };
     
