@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { LiquidGrid } from '@/components/liquid-grid';
-import logoPath from '@assets/Logo black_1749711104405.png';
+import logoPath from '@assets/Logo black_1749713682616.png';
 import { 
   Terminal, 
   Sparkles, 
@@ -227,8 +227,17 @@ export default function Home() {
               </span>
             </h1>
             
-            <div className="text-5xl md:text-7xl font-bold mb-8 glow-text">
-              Karan
+            <div className="flex items-center justify-center gap-6 mb-8">
+              <motion.img 
+                src={logoPath} 
+                alt="Karan Gadhave Logo" 
+                className="w-16 h-16 md:w-20 md:h-20 invert opacity-90" 
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
+              <div className="text-5xl md:text-7xl font-bold glow-text">
+                Karan
+              </div>
             </div>
             
             <p className="text-lg md:text-xl text-foreground opacity-90 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
