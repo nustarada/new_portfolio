@@ -93,6 +93,10 @@
     --wave-intensity: 0.3;
     position: relative;
     overflow: hidden;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(138, 43, 226, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(78, 205, 196, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 40% 70%, rgba(255, 107, 107, 0.02) 0%, transparent 50%);
   }
   
   .cyber-grid canvas {
@@ -103,6 +107,8 @@
     height: 100%;
     pointer-events: none;
     z-index: 1;
+    opacity: 1;
+    mix-blend-mode: screen;
   }
   
 
