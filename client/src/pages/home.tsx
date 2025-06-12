@@ -291,31 +291,49 @@ export default function Home() {
             
             {/* Action Buttons */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6"
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.6 }}
             >
               <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.08, y: -4 }}
                 whileTap={{ scale: 0.95 }}
+                className="group/hero-cta"
               >
-                <Button size="lg" className="px-10 py-3 text-base font-semibold neo-card bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25">
-                  <ArrowUpRight className="w-4 h-4 mr-2" />
-                  View My Work
+                <Button 
+                  size="lg" 
+                  className="relative overflow-hidden px-12 py-6 text-lg font-bold bg-gradient-to-r from-primary via-purple-600 to-primary hover:from-primary/90 hover:via-purple-500 hover:to-primary/90 text-white rounded-2xl shadow-2xl shadow-primary/40 hover:shadow-primary/60 transition-all duration-300"
+                >
+                  {/* Animated Background */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/hero-cta:translate-x-full transition-transform duration-700" />
+                  
+                  {/* Pulsing Ring */}
+                  <div className="absolute inset-0 rounded-2xl border-2 border-white/30 opacity-0 group-hover/hero-cta:opacity-100 group-hover/hero-cta:scale-110 transition-all duration-500" />
+                  
+                  <div className="relative z-10 flex items-center space-x-3">
+                    <ArrowUpRight className="w-6 h-6 group-hover/hero-cta:rotate-45 transition-transform duration-300" />
+                    <span>View My Work</span>
+                  </div>
                 </Button>
               </motion.div>
+              
               <motion.div
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
+                className="group/secondary"
               >
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="px-10 py-3 text-base font-semibold border-2 border-white/30 hover:border-primary/50 hover:bg-primary/10 backdrop-blur-sm"
+                  className="relative overflow-hidden px-10 py-4 text-lg font-semibold border-3 border-primary/60 hover:border-primary text-white hover:bg-primary/20 backdrop-blur-sm rounded-xl transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/30"
                 >
-                  <Mail className="w-4 h-4 mr-2" />
-                  Get In Touch
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover/secondary:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="relative z-10 flex items-center space-x-2">
+                    <Mail className="w-5 h-5" />
+                    <span>Get In Touch</span>
+                  </div>
                 </Button>
               </motion.div>
             </motion.div>
@@ -585,11 +603,19 @@ export default function Home() {
                       ))}
                     </div>
                     
-                    <div className="pt-4">
+                    <div className="pt-6">
                       <Link href="/case-study">
-                        <Button variant="outline" className="morphing-border">
-                          <ArrowUpRight className="w-4 h-4 mr-2" />
-                          View Case Study
+                        <Button 
+                          size="lg"
+                          className="group/cta relative overflow-hidden bg-gradient-to-r from-primary via-purple-600 to-primary hover:from-primary/90 hover:via-purple-500 hover:to-primary/90 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transition-all duration-300"
+                        >
+                          {/* Shimmer Effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/cta:translate-x-full transition-transform duration-700" />
+                          
+                          <div className="relative z-10 flex items-center space-x-3">
+                            <ArrowUpRight className="w-5 h-5 group-hover/cta:rotate-45 transition-transform duration-300" />
+                            <span>View Case Study</span>
+                          </div>
                         </Button>
                       </Link>
                     </div>
@@ -782,23 +808,26 @@ export default function Home() {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="group/btn relative w-full h-14 bg-gradient-to-r from-primary via-purple-600 to-primary hover:from-primary/90 hover:via-purple-500 hover:to-primary/90 text-white font-semibold text-lg rounded-xl overflow-hidden transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-primary/40 disabled:opacity-50"
+                    className="group/btn relative w-full h-16 bg-gradient-to-r from-primary via-purple-600 to-primary hover:from-primary/90 hover:via-purple-500 hover:to-primary/90 text-white font-bold text-xl rounded-2xl overflow-hidden transition-all duration-300 shadow-2xl shadow-primary/40 hover:shadow-primary/60 hover:scale-[1.02] disabled:opacity-50"
                     disabled={contactMutation.isPending}
                   >
-                    {/* Button Background Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                    {/* Shimmer Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                     
-                    <div className="relative z-10 flex items-center justify-center space-x-3">
+                    {/* Pulsing Ring */}
+                    <div className="absolute inset-0 rounded-2xl border-2 border-white/30 opacity-0 group-hover/btn:opacity-100 group-hover/btn:scale-105 transition-all duration-500" />
+                    
+                    <div className="relative z-10 flex items-center justify-center space-x-4">
                       {contactMutation.isPending ? (
                         <>
-                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          <div className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full animate-spin" />
                           <span>Sending Message...</span>
                         </>
                       ) : (
                         <>
-                          <Mail className="w-5 h-5" />
+                          <Mail className="w-6 h-6" />
                           <span>Send Message</span>
-                          <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                          <ArrowUpRight className="w-5 h-5 group-hover/btn:rotate-45 transition-transform duration-300" />
                         </>
                       )}
                     </div>
