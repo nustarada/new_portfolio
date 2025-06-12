@@ -1,0 +1,286 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --background: hsl(0, 0%, 4%);
+  --foreground: hsl(0, 0%, 94%);
+  --muted: hsl(0, 0%, 10%);
+  --muted-foreground: hsl(0, 0%, 55%);
+  --popover: hsl(0, 0%, 6%);
+  --popover-foreground: hsl(0, 0%, 94%);
+  --card: hsl(0, 0%, 6%);
+  --card-foreground: hsl(0, 0%, 94%);
+  --border: hsl(0, 0%, 15%);
+  --input: hsl(0, 0%, 15%);
+  --primary: hsl(142, 100%, 55%);
+  --primary-foreground: hsl(0, 0%, 4%);
+  --secondary: hsl(0, 0%, 10%);
+  --secondary-foreground: hsl(0, 0%, 94%);
+  --accent: hsl(0, 0%, 10%);
+  --accent-foreground: hsl(0, 0%, 94%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(142, 100%, 55%);
+  --radius: 0.5rem;
+  
+  /* Custom theme colors */
+  --electric: hsl(142, 100%, 55%);
+  --vibrant: hsl(17, 100%, 60%);
+  --purple: hsl(258, 90%, 66%);
+  --dark-primary: hsl(0, 0%, 4%);
+  --dark-surface: hsl(0, 0%, 10%);
+  --off-white: hsl(0, 0%, 94%);
+}
+
+.dark {
+  --background: hsl(0, 0%, 4%);
+  --foreground: hsl(0, 0%, 94%);
+  --muted: hsl(0, 0%, 10%);
+  --muted-foreground: hsl(0, 0%, 55%);
+  --popover: hsl(0, 0%, 6%);
+  --popover-foreground: hsl(0, 0%, 94%);
+  --card: hsl(0, 0%, 6%);
+  --card-foreground: hsl(0, 0%, 94%);
+  --border: hsl(0, 0%, 15%);
+  --input: hsl(0, 0%, 15%);
+  --primary: hsl(142, 100%, 55%);
+  --primary-foreground: hsl(0, 0%, 4%);
+  --secondary: hsl(0, 0%, 10%);
+  --secondary-foreground: hsl(0, 0%, 94%);
+  --accent: hsl(0, 0%, 10%);
+  --accent-foreground: hsl(0, 0%, 94%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(142, 100%, 55%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-inter antialiased bg-background text-foreground overflow-x-hidden;
+    cursor: none;
+  }
+}
+
+@layer utilities {
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+  
+  .font-space {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .text-electric {
+    color: hsl(142, 100%, 55%);
+  }
+  
+  .text-vibrant {
+    color: hsl(17, 100%, 60%);
+  }
+  
+  .text-purple {
+    color: hsl(258, 90%, 66%);
+  }
+  
+  .bg-electric {
+    background-color: hsl(142, 100%, 55%);
+  }
+  
+  .bg-vibrant {
+    background-color: hsl(17, 100%, 60%);
+  }
+  
+  .bg-purple {
+    background-color: hsl(258, 90%, 66%);
+  }
+  
+  .bg-dark-primary {
+    background-color: hsl(0, 0%, 4%);
+  }
+  
+  .bg-dark-surface {
+    background-color: hsl(0, 0%, 10%);
+  }
+  
+  .border-electric {
+    border-color: hsl(142, 100%, 55%);
+  }
+  
+  .border-vibrant {
+    border-color: hsl(17, 100%, 60%);
+  }
+  
+  .border-purple {
+    border-color: hsl(258, 90%, 66%);
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  from { 
+    box-shadow: 0 0 20px hsl(142, 100%, 55%);
+    text-shadow: 0 0 20px hsl(142, 100%, 55%);
+  }
+  to { 
+    box-shadow: 0 0 30px hsl(142, 100%, 55%), 0 0 40px hsl(142, 100%, 55%);
+    text-shadow: 0 0 30px hsl(142, 100%, 55%), 0 0 40px hsl(142, 100%, 55%);
+  }
+}
+
+@keyframes particle {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes tilt {
+  0%, 50%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  75% { transform: rotate(-1deg); }
+}
+
+@keyframes glitch-1 {
+  0%, 14%, 15%, 49%, 50%, 99%, 100% { transform: translate(0); }
+  15%, 49% { transform: translate(-2px, -2px); }
+}
+
+@keyframes glitch-2 {
+  0%, 20%, 21%, 62%, 63%, 99%, 100% { transform: translate(0); }
+  21%, 62% { transform: translate(2px, 2px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.animate-particle {
+  animation: particle 20s linear infinite;
+}
+
+.animate-tilt {
+  animation: tilt 10s infinite linear;
+}
+
+.glitch-text {
+  position: relative;
+  color: hsl(142, 100%, 55%);
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  animation: glitch-1 0.5s infinite;
+  color: hsl(17, 100%, 60%);
+  z-index: -1;
+}
+
+.glitch-text::after {
+  animation: glitch-2 0.5s infinite;
+  color: hsl(258, 90%, 66%);
+  z-index: -2;
+}
+
+.portfolio-card {
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.portfolio-card:hover {
+  transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+}
+
+.project-hover-overlay {
+  background: linear-gradient(45deg, hsla(142, 100%, 55%, 0.9), hsla(258, 90%, 66%, 0.9));
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-hover-overlay {
+  opacity: 1;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: hsl(142, 100%, 55%);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease;
+}
+
+.cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 2px solid hsl(142, 100%, 55%);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.1s ease;
+}
+
+.particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: hsl(142, 100%, 55%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particle 20s linear infinite;
+}
+
+.skill-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-progress {
+  transition: width 2s ease-in-out;
+}
+
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, hsl(142, 100%, 55%), hsl(17, 100%, 60%), hsl(258, 90%, 66%));
+  transform-origin: left;
+  z-index: 9999;
+}
