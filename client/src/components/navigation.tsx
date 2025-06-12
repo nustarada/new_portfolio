@@ -49,6 +49,7 @@ export function Navigation() {
           <div className="flex space-x-8">
             {[
               { name: 'Home', id: 'home' },
+              { name: 'Projects', id: 'projects' },
               { name: 'About', id: 'about' },
               { name: 'Contact', id: 'contact' }
             ].map((item) => (
