@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { ArrowLeft, ArrowRight, Calendar, Clock, Users, Target, Lightbulb, TrendingUp, CheckCircle, ExternalLink, Linkedin } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, Clock, Users, Target, Lightbulb, TrendingUp, CheckCircle, ExternalLink, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -121,7 +121,8 @@ export default function CaseStudy() {
             <img 
               src="/attached_assets/Logo black_1749713682616.png" 
               alt="Karan Gadhave Logo" 
-              className="h-8 w-auto filter invert"
+              className="h-8 w-auto brightness-0 invert"
+              style={{ filter: 'brightness(0) invert(1)' }}
             />
           </Link>
           <div className="w-24" /> {/* Spacer for balance */}
@@ -484,14 +485,14 @@ export default function CaseStudy() {
 
       {/* Sticky Contact CTA */}
       <div className="fixed bottom-6 right-6 z-50">
-        <a href="/">
+        <a href="/#contact">
           <Button 
             className="group relative overflow-hidden bg-gradient-to-r from-primary via-purple-600 to-primary text-white font-semibold px-6 py-3 rounded-full border-0 hover:scale-105 transition-all duration-300 shadow-2xl shadow-primary/30"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             
             <div className="relative z-10 flex items-center space-x-2">
-              <Linkedin className="w-5 h-5" />
+              <ExternalLink className="w-5 h-5" />
               <span>Contact Me</span>
             </div>
           </Button>
