@@ -860,11 +860,12 @@ export default function Home() {
                     <span>Project Details</span>
                   </label>
                   <Textarea 
-                    {...register('message', { required: true })}
+                    {...register('message', { required: "Project details are required" })}
                     placeholder="Tell me about your project goals, challenges, timeline, and how I can help bring your vision to life..."
                     rows={6}
-                    className="bg-white/5 border-2 border-white/10 hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 resize-none rounded-xl backdrop-blur-sm"
+                    className={`bg-white/5 border-2 ${errors.message ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 resize-none rounded-xl backdrop-blur-sm`}
                   />
+                  {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message.message as string}</p>}
                 </motion.div>
                 
                 <motion.div

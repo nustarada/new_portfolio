@@ -9,6 +9,7 @@ import { ParticleBackground } from "@/components/particles";
 import { ScrollIndicator } from "@/components/scroll-indicator";
 import Home from "@/pages/home";
 import CaseStudy from "@/pages/case-study";
+import AdminContacts from "@/pages/admin-contacts";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -16,6 +17,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/case-study" component={CaseStudy} />
+      <Route path="/admin/contacts" component={AdminContacts} />
       <Route component={NotFound} />
     </Switch>
   );

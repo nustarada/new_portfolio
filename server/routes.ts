@@ -20,6 +20,25 @@ const createEmailTransporter = () => {
 };
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Admin route to view all contacts
+  app.get("/api/admin/contacts", async (req, res) => {
+    try {
+      const contacts = await storage.getContacts();
+      res.json({
+        success: true,
+        contacts: contacts.reverse(), // Show newest first
+        total: contacts.length
+      });
+    } catch (error: any) {
+      console.error("Error fetching contacts:", error);
+      res.status(500).json({
+        success: false,
+        message: "Failed to fetch contacts",
+        error: error.message
+      });
+    }
+  });
+
   // Contact form submission
   app.post("/api/contact", async (req, res) => {
     try {
