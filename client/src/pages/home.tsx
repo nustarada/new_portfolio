@@ -325,8 +325,8 @@ export default function Home() {
       <section id="about" className="py-20 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-50" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl opacity-50" />
+        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl opacity-60" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500/15 rounded-full blur-3xl opacity-60" />
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Section Header */}
@@ -358,17 +358,20 @@ export default function Home() {
               className="lg:col-span-7 space-y-6"
             >
               {/* Story Card */}
-              <Card className="group relative overflow-hidden p-8 bg-gradient-to-br from-card/90 via-card/80 to-card/60 backdrop-blur-md border border-primary/20 hover:border-primary/40 transition-all duration-500">
+              <Card className="group relative overflow-hidden p-10 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/85 backdrop-blur-xl border-2 border-primary/40 hover:border-primary/80 transition-all duration-500 shadow-2xl shadow-primary/20 rounded-2xl">
                 {/* Card Background Pattern */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-2xl" />
                 
                 <div className="relative z-10 space-y-8">
-                  <div className="flex items-center space-x-3 mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                      <Brain className="w-6 h-6 text-primary" />
+                  <div className="flex items-center space-x-4 mb-8 pb-4 border-b border-primary/20">
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary/30 to-purple-500/30 rounded-2xl flex items-center justify-center backdrop-blur-sm shadow-lg shadow-primary/20">
+                      <Brain className="w-7 h-7 text-primary" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white">My Journey</h3>
+                    <div>
+                      <h3 className="text-3xl font-bold text-white mb-1">My Journey</h3>
+                      <p className="text-primary/80 text-sm">From Vision to Innovation</p>
+                    </div>
                   </div>
                   
                   <div className="space-y-6 text-lg text-white/90 leading-relaxed">
