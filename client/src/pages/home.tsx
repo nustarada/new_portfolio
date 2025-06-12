@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,7 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
-import { apiRequest } from "@/lib/queryClient";
+import { useRef, useState, useEffect } from "react";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -20,9 +20,82 @@ const contactFormSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
+const projects = [
+  {
+    id: 1,
+    title: "AI-Powered Design Assistant",
+    description: "Revolutionary design tool leveraging machine learning to automate workflows and enhance creative processes",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    tags: ["AI/ML", "Product Design", "Innovation"],
+    year: "2024"
+  },
+  {
+    id: 2,
+    title: "Enterprise Analytics Platform",
+    description: "Comprehensive data visualization suite transforming complex datasets into actionable business insights",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    tags: ["Data Visualization", "Enterprise UX", "Dashboard"],
+    year: "2024"
+  },
+  {
+    id: 3,
+    title: "Mobile Banking Revolution",
+    description: "Next-generation fintech app redefining digital banking with intuitive AI-driven experiences",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    tags: ["Fintech", "Mobile Design", "AI Integration"],
+    year: "2023"
+  },
+  {
+    id: 4,
+    title: "Healthcare Management System",
+    description: "Patient-centric platform streamlining healthcare workflows through intelligent design",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    tags: ["Healthcare", "System Design", "User Research"],
+    year: "2023"
+  },
+  {
+    id: 5,
+    title: "Design System Architecture",
+    description: "Scalable design system foundation powering consistent experiences across product lines",
+    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    tags: ["Design Systems", "Architecture", "Leadership"],
+    year: "2022"
+  },
+  {
+    id: 6,
+    title: "E-commerce Intelligence",
+    description: "Smart shopping platform personalizing experiences through advanced machine learning",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    tags: ["E-commerce", "Personalization", "Conversion"],
+    year: "2022"
+  }
+];
+
 export default function Home() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll();
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.3]);
+  const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
+  
+  const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
+  const x = useSpring(0, springConfig);
+  const ySpring = useSpring(0, springConfig);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+      x.set(e.clientX);
+      ySpring.set(e.clientY);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [x, ySpring]);
   
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -72,56 +145,110 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground geometric-pattern">
+    <div ref={containerRef} className="min-h-screen bg-background text-foreground geometric-pattern relative">
+      {/* Custom Cursor */}
+      <motion.div
+        className="fixed w-4 h-4 bg-white rounded-full pointer-events-none z-50 mix-blend-difference"
+        style={{ x, y: ySpring }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      />
+      
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Floating geometric elements */}
-        <div className="absolute inset-0 opacity-20">
+      <motion.section 
+        id="home" 
+        className="min-h-screen flex items-center justify-center relative overflow-hidden"
+        style={{ y, opacity, scale }}
+      >
+        {/* Morphing background blob */}
+        <motion.div 
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 morphing-blob"
+          animate={{ 
+            x: [0, 100, -50, 0],
+            y: [0, -100, 50, 0]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        {/* Interactive geometric elements */}
+        <div className="absolute inset-0 opacity-30">
           <motion.div 
-            className="absolute top-20 left-20 w-32 h-32 border border-foreground/10"
+            className="absolute top-20 left-20 w-32 h-32 border border-foreground/20 magnetic-hover"
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            whileHover={{ scale: 1.2, borderColor: "rgba(255,255,255,0.5)" }}
           />
           <motion.div 
-            className="absolute bottom-32 right-20 w-24 h-24 border border-foreground/10"
+            className="absolute bottom-32 right-20 w-24 h-24 border border-foreground/20 magnetic-hover"
             animate={{ rotate: -360 }}
             transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            whileHover={{ scale: 1.3, borderColor: "rgba(255,255,255,0.5)" }}
           />
           <motion.div 
-            className="absolute top-1/2 right-1/3 w-16 h-16 border border-foreground/10"
+            className="absolute top-1/2 right-1/3 w-16 h-16 border border-foreground/20 liquid-effect"
             animate={{ 
               scale: [1, 1.2, 1],
-              opacity: [0.3, 0.6, 0.3]
+              opacity: [0.3, 0.8, 0.3]
             }}
             transition={{ duration: 4, repeat: Infinity }}
           />
         </div>
         
         <motion.div 
-          className="text-center z-10 max-w-4xl mx-auto px-6"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-center z-10 max-w-5xl mx-auto px-6"
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
         >
+          {/* Logo Integration */}
+          <motion.div
+            className="mb-8 flex justify-center"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+          >
+            <motion.img 
+              src="@assets/Logo black_1749711104405.png"
+              alt="Karan Gadhave Logo" 
+              className="h-24 w-auto filter invert"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            />
+          </motion.div>
+          
           <motion.div
             className="mb-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.5 }}
           >
-            <span className="font-mono text-sm tracking-wider text-muted-foreground uppercase">
+            <span className="font-mono text-sm tracking-wider text-muted-foreground uppercase glitch-effect" data-text="Senior Product Designer">
               Senior Product Designer
             </span>
           </motion.div>
           
           <motion.h1 
-            className="font-inter text-6xl md:text-8xl font-bold mb-8 text-glow"
-            initial={{ scale: 0.9, opacity: 0 }}
+            className="font-inter text-6xl md:text-9xl font-bold mb-8 text-glow text-reveal"
+            initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.5 }}
+            transition={{ duration: 1.5, delay: 0.7 }}
+            whileHover={{ scale: 1.05 }}
           >
-            <span className="block">Karan</span>
-            <span className="block">Gadhave</span>
+            <motion.span 
+              className="block"
+              whileHover={{ x: 10 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              Karan
+            </motion.span>
+            <motion.span 
+              className="block"
+              whileHover={{ x: -10 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              Gadhave
+            </motion.span>
           </motion.h1>
           
           <motion.div 
@@ -164,6 +291,137 @@ export default function Home() {
         >
           <div className="text-lg text-muted-foreground">↓</div>
         </motion.div>
+      </motion.section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-32 relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div 
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              className="font-mono text-sm tracking-wider text-muted-foreground uppercase mb-6"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Selected Works
+            </motion.div>
+            <h2 className="font-inter text-4xl md:text-6xl font-bold text-foreground mb-6 text-glow">
+              Project <span className="glitch-effect" data-text="Showcase">Showcase</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-inter">
+              A collection of innovative projects demonstrating expertise in AI integration, 
+              design systems, and strategic product development.
+            </p>
+          </motion.div>
+          
+          {/* Masonry Grid Layout */}
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                className="break-inside-avoid relative group cursor-pointer"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+              >
+                <div className="minimal-card rounded-2xl overflow-hidden relative">
+                  {/* Project Image */}
+                  <div className="relative overflow-hidden">
+                    <motion.img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-auto object-cover transition-all duration-700"
+                      whileHover={{ scale: 1.1 }}
+                    />
+                    
+                    {/* Overlay Effect */}
+                    <motion.div 
+                      className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                    >
+                      <motion.div
+                        className="text-center"
+                        initial={{ y: 20, opacity: 0 }}
+                        whileHover={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.1 }}
+                      >
+                        <div className="w-16 h-16 border-2 border-white rounded-full flex items-center justify-center mx-auto mb-4">
+                          <span className="text-white text-xl">→</span>
+                        </div>
+                        <div className="font-mono text-sm text-white tracking-wider">
+                          VIEW PROJECT
+                        </div>
+                      </motion.div>
+                    </motion.div>
+                  </div>
+                  
+                  {/* Project Info */}
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-3">
+                      <motion.h3 
+                        className="font-inter text-xl font-semibold text-foreground"
+                        whileHover={{ x: 5 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        {project.title}
+                      </motion.h3>
+                      <span className="font-mono text-xs text-muted-foreground">
+                        {project.year}
+                      </span>
+                    </div>
+                    
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4 font-inter">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, tagIndex) => (
+                        <motion.span
+                          key={tag}
+                          className="px-3 py-1 text-xs font-mono text-muted-foreground border border-border/30 rounded-full"
+                          initial={{ opacity: 0, scale: 0 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ 
+                            delay: (index * 0.1) + (tagIndex * 0.05),
+                            type: "spring",
+                            stiffness: 200
+                          }}
+                          whileHover={{ 
+                            scale: 1.1,
+                            backgroundColor: "rgba(255, 255, 255, 0.1)",
+                            borderColor: "rgba(255, 255, 255, 0.3)"
+                          }}
+                          viewport={{ once: true }}
+                        >
+                          {tag}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Unique corner accents */}
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-white/20" />
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-white/20" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* About Section */}
