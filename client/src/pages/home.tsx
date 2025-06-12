@@ -206,138 +206,136 @@ export default function Home() {
         />
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 100 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="space-y-8 md:space-y-10"
+            className="space-y-8 md:space-y-12"
           >
-            {/* Logo at Top */}
-            <motion.div 
-              className="relative flex justify-center"
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <motion.div 
-                className="absolute inset-0 bg-primary/20 rounded-full blur-2xl"
-                animate={{ 
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.6, 0.3]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              />
-              <img 
-                src={logoPath} 
-                alt="Karan Gadhave Logo" 
-                className="relative w-20 h-20 md:w-24 md:h-24 opacity-95" 
-              />
-            </motion.div>
-            
             {/* Status Badge */}
             <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex justify-center"
             >
-              <Badge variant="outline" className="text-xs px-4 py-2 border-primary/30 mx-auto">
-                <Sparkles className="w-3 h-3 mr-2" />
+              <Badge variant="outline" className="text-sm px-6 py-3 border-primary/40 bg-primary/10 backdrop-blur-sm">
+                <Sparkles className="w-4 h-4 mr-2" />
                 AVAILABLE FOR NEW OPPORTUNITIES
               </Badge>
             </motion.div>
             
-            {/* Main Title with 3D Flip Effect */}
-            <div className="space-y-4">
+            {/* Main Title with Bold Impact */}
+            <div className="space-y-6">
               <motion.h1 
-                className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight"
+                className="text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tighter"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
               >
                 <motion.span 
                   className="block text-white"
-                  initial={{ opacity: 0, rotateX: -90 }}
-                  animate={{ opacity: 1, rotateX: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
                 >
                   SENIOR
                 </motion.span>
                 <motion.span 
-                  className="block glow-text text-primary"
-                  initial={{ opacity: 0, rotateX: -90 }}
-                  animate={{ opacity: 1, rotateX: 0 }}
-                  transition={{ duration: 0.6, delay: 0.9 }}
+                  className="block glow-text"
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.9 }}
                 >
                   PRODUCT
                 </motion.span>
                 <motion.span 
                   className="block text-white"
-                  initial={{ opacity: 0, rotateX: -90 }}
-                  animate={{ opacity: 1, rotateX: 0 }}
-                  transition={{ duration: 0.6, delay: 1.2 }}
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.2 }}
                 >
                   DESIGNER
                 </motion.span>
               </motion.h1>
               
               <motion.div 
-                className="flex items-center justify-center gap-3"
+                className="flex items-center justify-center gap-6"
                 initial={{ opacity: 0, scaleX: 0 }}
                 animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 1.5 }}
+                transition={{ duration: 1, delay: 1.5 }}
               >
-                <div className="w-12 h-0.5 bg-primary" />
-                <span className="text-lg md:text-xl font-light text-primary tracking-wider">
-                  & AI INNOVATOR
+                <motion.div 
+                  className="h-1 bg-gradient-to-r from-transparent via-primary to-transparent"
+                  initial={{ width: 0 }}
+                  animate={{ width: 150 }}
+                  transition={{ duration: 1, delay: 1.7 }}
+                />
+                <span className="text-2xl md:text-3xl font-light text-primary tracking-[0.3em] uppercase">
+                  & AI Innovator
                 </span>
-                <div className="w-12 h-0.5 bg-primary" />
+                <motion.div 
+                  className="h-1 bg-gradient-to-r from-transparent via-primary to-transparent"
+                  initial={{ width: 0 }}
+                  animate={{ width: 150 }}
+                  transition={{ duration: 1, delay: 1.7 }}
+                />
               </motion.div>
             </div>
             
-            {/* Name with Slide Animation */}
+            {/* Name with Prominent Display */}
             <motion.div 
-              className="space-y-2"
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 1.8 }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-wide">
-                KARAN GADHAVE
-              </h2>
-            </motion.div>
-            
-            {/* Description with Fade Up */}
-            <motion.p 
-              className="text-lg md:text-xl text-white opacity-85 leading-relaxed max-w-3xl mx-auto"
+              className="space-y-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 2.1 }}
+              transition={{ duration: 0.8, delay: 1.9 }}
             >
-              Crafting exceptional digital experiences through strategic design thinking and cutting-edge AI integration.
-            </motion.p>
+              <h2 className="text-4xl md:text-5xl font-bold text-white tracking-widest">
+                KARAN GADHAVE
+              </h2>
+              <div className="w-32 h-1 bg-gradient-to-r from-primary to-pink-500 mx-auto rounded-full"></div>
+            </motion.div>
             
-            {/* Action Buttons with Bounce */}
+            {/* Enhanced Description */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 2.2 }}
+              className="max-w-4xl mx-auto space-y-6"
+            >
+              <p className="text-xl md:text-2xl text-white leading-relaxed font-medium">
+                Crafting exceptional digital experiences through strategic design thinking and cutting-edge AI integration.
+              </p>
+              <p className="text-lg text-white/80 leading-relaxed max-w-3xl mx-auto">
+                Transforming complex challenges into intuitive solutions that drive meaningful business outcomes and user delight.
+              </p>
+            </motion.div>
+            
+            {/* Enhanced Action Buttons */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 2.4 }}
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 2.5 }}
             >
               <motion.div
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <Button size="lg" className="px-8 py-3 text-base neo-card bg-primary hover:bg-primary/90">
-                  <ArrowUpRight className="w-4 h-4 mr-2" />
+                <Button size="lg" className="px-12 py-4 text-lg font-semibold neo-card bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25">
+                  <ArrowUpRight className="w-5 h-5 mr-2" />
                   View My Work
                 </Button>
               </motion.div>
               <motion.div
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <Button size="lg" variant="outline" className="px-8 py-3 text-base border-white/20 hover:border-primary/50">
-                  <Mail className="w-4 h-4 mr-2" />
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="px-12 py-4 text-lg font-semibold border-2 border-white/30 hover:border-primary/50 hover:bg-primary/10 backdrop-blur-sm"
+                >
+                  <Mail className="w-5 h-5 mr-2" />
                   Get In Touch
                 </Button>
               </motion.div>
