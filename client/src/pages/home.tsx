@@ -55,25 +55,33 @@ export default function Home() {
   });
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleMouseMove = (e: MouseEvent) => {
-      setCursorPos({ x: e.clientX, y: e.clientY });
-      
-      // Update liquid wave position for hero section
-      if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect();
-        const isInHero = e.clientY >= rect.top && e.clientY <= rect.bottom;
-        
-        if (isInHero) {
-          const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
-          const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setCursorPos({ x: e.clientX, y: e.clientY });
           
-          setMousePos({ x, y });
-          setWaveIntensity(1);
-          heroRef.current.style.setProperty('--mouse-x', `${x}%`);
-          heroRef.current.style.setProperty('--mouse-y', `${y}%`);
-        } else {
-          setWaveIntensity(0.3);
-        }
+          // Update liquid wave position for hero section
+          if (heroRef.current) {
+            const rect = heroRef.current.getBoundingClientRect();
+            const isInHero = e.clientY >= rect.top && e.clientY <= rect.bottom;
+            
+            if (isInHero) {
+              const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+              const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+              
+              setMousePos({ x, y });
+              setWaveIntensity(1);
+              heroRef.current.style.setProperty('--mouse-x', `${x}%`);
+              heroRef.current.style.setProperty('--mouse-y', `${y}%`);
+            } else {
+              setWaveIntensity(0.3);
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
