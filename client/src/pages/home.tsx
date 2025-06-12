@@ -303,7 +303,11 @@ export default function Home() {
               >
                 <Button 
                   size="lg" 
-                  className="relative overflow-hidden px-12 py-6 text-lg font-bold bg-gradient-to-r from-primary via-purple-600 to-primary hover:from-primary/90 hover:via-purple-500 hover:to-primary/90 text-white rounded-2xl shadow-2xl shadow-primary/40 hover:shadow-primary/60 transition-all duration-300"
+                  style={{
+                    background: 'linear-gradient(to right, hsl(262, 83%, 58%), hsl(280, 100%, 70%), hsl(262, 83%, 58%))',
+                    border: 'none'
+                  }}
+                  className="relative overflow-hidden px-12 py-6 text-lg font-bold text-white rounded-2xl shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   {/* Animated Background */}
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/hero-cta:translate-x-full transition-transform duration-700" />
@@ -325,8 +329,12 @@ export default function Home() {
               >
                 <Button 
                   size="lg" 
-                  variant="outline" 
-                  className="relative overflow-hidden px-10 py-4 text-lg font-semibold border-3 border-primary/60 hover:border-primary text-white hover:bg-primary/20 backdrop-blur-sm rounded-xl transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/30"
+                  style={{
+                    background: 'transparent',
+                    border: '2px solid hsl(262, 83%, 58%)',
+                    boxShadow: '0 0 20px hsla(262, 83%, 58%, 0.3)'
+                  }}
+                  className="relative overflow-hidden px-10 py-4 text-lg font-semibold text-white hover:bg-primary/20 backdrop-blur-sm rounded-xl transition-all duration-300 hover:scale-105"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover/secondary:opacity-100 transition-opacity duration-300" />
                   
@@ -607,7 +615,12 @@ export default function Home() {
                       <Link href="/case-study">
                         <Button 
                           size="lg"
-                          className="group/cta relative overflow-hidden bg-gradient-to-r from-primary via-purple-600 to-primary hover:from-primary/90 hover:via-purple-500 hover:to-primary/90 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transition-all duration-300"
+                          style={{
+                            background: 'linear-gradient(to right, hsl(262, 83%, 58%), hsl(280, 100%, 70%), hsl(262, 83%, 58%))',
+                            border: 'none',
+                            boxShadow: '0 10px 30px hsla(262, 83%, 58%, 0.4)'
+                          }}
+                          className="group/cta relative overflow-hidden text-white font-bold text-base px-8 py-4 rounded-xl hover:scale-105 transition-all duration-300"
                         >
                           {/* Shimmer Effect */}
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/cta:translate-x-full transition-transform duration-700" />
@@ -808,7 +821,12 @@ export default function Home() {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="group/btn relative w-full h-16 bg-gradient-to-r from-primary via-purple-600 to-primary hover:from-primary/90 hover:via-purple-500 hover:to-primary/90 text-white font-bold text-xl rounded-2xl overflow-hidden transition-all duration-300 shadow-2xl shadow-primary/40 hover:shadow-primary/60 hover:scale-[1.02] disabled:opacity-50"
+                    style={{
+                      background: 'linear-gradient(to right, hsl(262, 83%, 58%), hsl(280, 100%, 70%), hsl(262, 83%, 58%))',
+                      border: 'none',
+                      boxShadow: '0 15px 40px hsla(262, 83%, 58%, 0.5)'
+                    }}
+                    className="group/btn relative w-full h-16 text-white font-bold text-xl rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02] disabled:opacity-50"
                     disabled={contactMutation.isPending}
                   >
                     {/* Shimmer Effect */}
