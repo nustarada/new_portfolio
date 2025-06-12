@@ -198,7 +198,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section ref={heroRef} id="hero" className="min-h-screen relative overflow-hidden cyber-grid">
+      <section ref={heroRef} id="hero" className="min-h-screen relative overflow-hidden cyber-grid pt-20">
         <LiquidGrid 
           mouseX={mousePos.x} 
           mouseY={mousePos.y} 
@@ -209,7 +209,7 @@ export default function Home() {
         <div className="absolute inset-0 pointer-events-none">
           {/* Top Right Logo */}
           <motion.div 
-            className="absolute top-32 right-8 md:right-16"
+            className="absolute top-28 right-8 md:right-16"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -227,50 +227,50 @@ export default function Home() {
               <img 
                 src={logoPath} 
                 alt="Karan Gadhave Logo" 
-                className="relative w-16 h-16 md:w-20 md:h-20 opacity-90" 
+                className="relative w-14 h-14 md:w-16 md:h-16 opacity-90" 
               />
             </div>
           </motion.div>
 
           {/* Floating Cards */}
           <motion.div 
-            className="absolute top-1/4 left-8 md:left-16"
+            className="absolute top-1/3 left-4 md:left-8"
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
             whileHover={{ y: -5, rotate: 2 }}
           >
-            <Card className="neo-card p-4 bg-gradient-to-br from-primary/20 to-transparent backdrop-blur-md border-primary/30 w-48">
-              <div className="text-2xl font-bold text-primary mb-1">4+</div>
-              <div className="text-sm text-white/80">Years Experience</div>
+            <Card className="neo-card p-3 bg-gradient-to-br from-primary/20 to-transparent backdrop-blur-md border-primary/30 w-40">
+              <div className="text-xl font-bold text-primary mb-1">4+</div>
+              <div className="text-xs text-white/80">Years Experience</div>
             </Card>
           </motion.div>
 
           <motion.div 
-            className="absolute bottom-1/3 right-8 md:right-20"
+            className="absolute bottom-1/3 right-4 md:right-8"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
             whileHover={{ y: -5, rotate: -2 }}
           >
-            <Card className="neo-card p-4 bg-gradient-to-br from-card/80 to-transparent backdrop-blur-md border-white/20 w-52">
+            <Card className="neo-card p-3 bg-gradient-to-br from-card/80 to-transparent backdrop-blur-md border-white/20 w-44">
               <div className="text-xs text-primary font-medium mb-2">CURRENT STATUS</div>
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                <span className="text-sm text-white">Available for Projects</span>
+                <span className="text-xs text-white">Available for Projects</span>
               </div>
             </Card>
           </motion.div>
         </div>
 
         {/* Main Content */}
-        <div className="min-h-screen flex items-center justify-center px-6 relative z-10">
-          <div className="max-w-4xl mx-auto">
+        <div className="min-h-screen flex items-center justify-center px-6 relative z-10 pt-8">
+          <div className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.2 }}
-              className="text-center space-y-8"
+              className="text-center space-y-6"
             >
               {/* Status Badge */}
               <motion.div
@@ -286,7 +286,7 @@ export default function Home() {
               </motion.div>
 
               {/* Main Title - Staggered Word Animation */}
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <motion.div 
                   className="overflow-hidden"
                   initial={{ height: 0 }}
@@ -294,12 +294,12 @@ export default function Home() {
                   transition={{ duration: 0.8, delay: 0.6 }}
                 >
                   <motion.h1 
-                    className="text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-tighter"
+                    className="text-5xl md:text-6xl lg:text-7xl font-black leading-none tracking-tighter"
                     initial={{ y: 100 }}
                     animate={{ y: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                   >
-                    <span className="block text-white/10 stroke-text">SENIOR</span>
+                    <span className="block text-white/20 stroke-text">SENIOR</span>
                   </motion.h1>
                 </motion.div>
                 
@@ -310,12 +310,12 @@ export default function Home() {
                   transition={{ duration: 0.8, delay: 1 }}
                 >
                   <motion.h1 
-                    className="text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-tighter -mt-4"
+                    className="text-5xl md:text-6xl lg:text-7xl font-black leading-none tracking-tighter -mt-2"
                     initial={{ y: 100 }}
                     animate={{ y: 0 }}
                     transition={{ duration: 0.8, delay: 1.2 }}
                   >
-                    <span className="block bg-gradient-to-r from-primary via-pink-500 to-primary bg-clip-text text-transparent">
+                    <span className="block bg-gradient-to-r from-primary via-pink-500 to-primary bg-clip-text text-transparent glow-text">
                       PRODUCT
                     </span>
                   </motion.h1>
@@ -328,7 +328,7 @@ export default function Home() {
                   transition={{ duration: 0.8, delay: 1.4 }}
                 >
                   <motion.h1 
-                    className="text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-tighter -mt-4"
+                    className="text-5xl md:text-6xl lg:text-7xl font-black leading-none tracking-tighter -mt-2"
                     initial={{ y: 100 }}
                     animate={{ y: 0 }}
                     transition={{ duration: 0.8, delay: 1.6 }}
