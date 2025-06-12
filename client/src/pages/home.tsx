@@ -69,9 +69,6 @@ export default function Home() {
           heroRef.current.style.setProperty('--mouse-x', `${x}%`);
           heroRef.current.style.setProperty('--mouse-y', `${y}%`);
           heroRef.current.style.setProperty('--wave-intensity', '1');
-          
-          // Debug log to verify tracking
-          console.log(`Mouse in hero: ${x.toFixed(1)}%, ${y.toFixed(1)}%`);
         } else {
           heroRef.current.style.setProperty('--wave-intensity', '0.5');
         }
