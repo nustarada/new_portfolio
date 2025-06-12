@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 interface SkillBarProps {
   skill: string;
   percentage: number;
-  color: 'electric' | 'vibrant' | 'purple';
+  color: 'cyan' | 'pink' | 'yellow';
 }
 
 export function SkillBar({ skill, percentage, color }: SkillBarProps) {
@@ -29,24 +29,61 @@ export function SkillBar({ skill, percentage, color }: SkillBarProps) {
   }, [skill]);
 
   const colorClasses = {
-    electric: 'bg-electric',
-    vibrant: 'bg-vibrant',
-    purple: 'bg-purple'
+    cyan: 'bg-gradient-to-r from-neon-cyan to-neon-cyan/80',
+    pink: 'bg-gradient-to-r from-neon-pink to-neon-pink/80',
+    yellow: 'bg-gradient-to-r from-neon-yellow to-neon-yellow/80'
+  };
+
+  const glowClasses = {
+    cyan: 'shadow-neon-cyan/50',
+    pink: 'shadow-neon-pink/50',
+    yellow: 'shadow-neon-yellow/50'
   };
 
   return (
-    <div id={`skill-${skill}`} className="skill-bar">
-      <div className="flex justify-between mb-2">
-        <span className="font-medium">{skill}</span>
-        <span className="text-sm text-muted-foreground">{percentage}%</span>
+    <div id={`skill-${skill}`} className="skill-bar-cyber">
+      <div className="flex justify-between mb-3">
+        <span className="font-jetbrains text-sm tracking-wider text-text-primary">{skill}</span>
+        <span className="font-jetbrains text-xs text-neon-cyan">{percentage}%</span>
       </div>
-      <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
+      <div className="skill-bar-cyber h-3 relative">
         <motion.div 
-          className={`skill-progress h-2 rounded-full ${colorClasses[color]}`}
-          initial={{ width: 0 }}
-          animate={{ width: isVisible ? `${percentage}%` : 0 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
+          className={`skill-progress-cyber h-full ${colorClasses[color]} ${glowClasses[color]}`}
+          initial={{ width: 0, boxShadow: "0 0 0 transparent" }}
+          animate={{ 
+            width: isVisible ? `${percentage}%` : 0,
+            boxShadow: isVisible ? "0 0 20px currentColor" : "0 0 0 transparent"
+          }}
+          transition={{ duration: 3, ease: "easeOut", delay: 0.2 }}
         />
+        
+        {/* Data flow animation */}
+        {isVisible && (
+          <motion.div
+            className="absolute top-0 left-0 h-full w-2 bg-white/60 blur-sm"
+            initial={{ x: 0 }}
+            animate={{ x: `${percentage * 4}px` }}
+            transition={{ 
+              duration: 2,
+              ease: "easeOut",
+              delay: 0.5
+            }}
+          />
+        )}
+        
+        {/* Scanning line */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute top-0 left-0 h-full w-px bg-white/80"
+            initial={{ x: 0 }}
+            animate={{ x: isVisible ? `${percentage * 4}px` : 0 }}
+            transition={{ 
+              duration: 3,
+              ease: "easeOut",
+              delay: 0.2
+            }}
+          />
+        </div>
       </div>
     </div>
   );
