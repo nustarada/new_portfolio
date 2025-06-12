@@ -1185,7 +1185,7 @@ export default function Home() {
             </a>
           </div>
           <p className="text-muted-foreground code-font">
-            © 2024 Karan Gadhave. Designed & developed with passion.
+            © 2025 Karan Gadhave. Designed & developed with passion.
           </p>
         </div>
       </footer>
