@@ -198,7 +198,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section ref={heroRef} id="hero" className="min-h-screen flex items-center justify-center relative cyber-grid pt-24 pb-12">
+      <section ref={heroRef} id="hero" className="min-h-screen flex items-center justify-center relative cyber-grid pt-20 pb-8">
         <LiquidGrid 
           mouseX={mousePos.x} 
           mouseY={mousePos.y} 
@@ -209,7 +209,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="space-y-8 md:space-y-12"
+            className="space-y-6 md:space-y-8"
           >
             {/* Status Badge */}
             <motion.div
@@ -319,7 +319,7 @@ export default function Home() {
       <div className="section-divider" />
 
       {/* About Section */}
-      <section id="about" className="py-32 relative overflow-hidden">
+      <section id="about" className="py-16 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           {/* Section Header */}
           <motion.div
@@ -327,7 +327,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-20"
+            className="text-center mb-12"
           >
             <h2 className="text-5xl md:text-7xl font-bold mb-6 glow-text">ABOUT ME</h2>
             <p className="text-xl md:text-2xl text-white opacity-80 max-w-3xl mx-auto">
@@ -454,14 +454,14 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-32 relative">
+      <section id="projects" className="py-16 relative">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">FEATURED PROJECTS</h2>
             <p className="text-lg md:text-xl text-foreground opacity-90 max-w-3xl mx-auto font-medium">
@@ -470,7 +470,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="space-y-32">
+          <div className="space-y-16">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -478,7 +478,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
                   index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
                 }`}
               >
@@ -583,14 +583,14 @@ export default function Home() {
       </section> */}
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 relative">
+      <section id="contact" className="py-16 relative">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-5xl font-bold mb-6 glow-text">GET IN TOUCH</h2>
             <p className="text-xl text-muted-foreground">
