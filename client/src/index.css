@@ -81,6 +81,11 @@
     background-clip: text;
     filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.3));
   }
+
+  .stroke-text {
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3);
+    text-stroke: 2px rgba(255, 255, 255, 0.3);
+  }
   
   .cyber-grid {
     --mouse-x: 50%;
