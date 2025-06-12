@@ -298,7 +298,7 @@ export default function Home() {
               <div className="grid grid-cols-3 gap-6">
                 <motion.div 
                   className="cyber-card text-center p-4 bg-neon-cyan/10 border border-neon-cyan/30 rounded-lg"
-                  whileHover={{ scale: 1.05, glow: true }}
+                  whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
@@ -309,7 +309,7 @@ export default function Home() {
                 </motion.div>
                 <motion.div 
                   className="cyber-card text-center p-4 bg-neon-pink/10 border border-neon-pink/30 rounded-lg"
-                  whileHover={{ scale: 1.05, glow: true }}
+                  whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
@@ -320,7 +320,7 @@ export default function Home() {
                 </motion.div>
                 <motion.div 
                   className="cyber-card text-center p-4 bg-neon-yellow/10 border border-neon-yellow/30 rounded-lg"
-                  whileHover={{ scale: 1.05, glow: true }}
+                  whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
@@ -380,7 +380,7 @@ export default function Home() {
       </section>
 
       {/* Featured Work Section */}
-      <section id="work" className="py-20 bg-dark-surface/50">
+      <section id="work" className="py-20 relative">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div 
             className="text-center mb-16"
@@ -389,11 +389,24 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-orbitron text-4xl md:text-5xl font-bold mb-4">
-              Featured <span className="text-electric">Work</span>
+            <motion.div
+              className="font-jetbrains text-neon-pink text-sm tracking-[0.2em] uppercase mb-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              {'>> Portfolio_Database.exe'}
+            </motion.div>
+            <h2 className="font-righteous text-5xl md:text-6xl font-bold mb-6">
+              <span className="text-neon-cyan">PROJECT</span>
+              <br />
+              <span className="text-neon-yellow">ARCHIVE</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A collection of projects that showcase my approach to solving complex design challenges
+            <p className="text-lg text-text-secondary max-w-3xl mx-auto font-poppins leading-relaxed">
+              [DATA_STREAM_ACTIVE] A neural network of digital experiences crafted to merge 
+              human psychology with cybernetic precision. Each project represents a node 
+              in the expanding matrix of user-centered design.
             </p>
           </motion.div>
           
@@ -410,6 +423,9 @@ export default function Home() {
             ))}
           </div>
         </div>
+        
+        {/* Background grid effect */}
+        <div className="absolute inset-0 cyber-grid opacity-5" />
       </section>
 
       {/* Skills Section */}
