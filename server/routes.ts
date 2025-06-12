@@ -22,6 +22,82 @@ const createEmailTransporter = () => {
 };
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Test email endpoint
+  app.post("/api/test-email", async (req, res) => {
+    try {
+      const transporter = createEmailTransporter();
+      if (!transporter) {
+        return res.status(500).json({
+          success: false,
+          message: "Email configuration not found. Please check EMAIL_USER and EMAIL_PASS environment variables."
+        });
+      }
+
+      const testEmailContent = {
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER,
+        subject: "Test Email - Portfolio Contact Form",
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #ffffff;">
+            <div style="background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%); padding: 30px; border-radius: 12px; text-align: center; margin-bottom: 30px;">
+              <h1 style="color: white; margin: 0; font-size: 28px; font-weight: bold;">🎉 Email Test Successful!</h1>
+              <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">Your contact form email is working perfectly</p>
+            </div>
+            
+            <div style="background: #f8fafc; padding: 25px; border-radius: 12px; margin-bottom: 25px; border-left: 4px solid #8b5cf6;">
+              <h2 style="margin: 0 0 20px 0; color: #1e293b; font-size: 20px;">Test Configuration</h2>
+              <div style="display: grid; gap: 12px;">
+                <p style="margin: 0; padding: 8px 0; border-bottom: 1px solid #e2e8f0;"><strong style="color: #475569;">SMTP Server:</strong> <span style="color: #1e293b;">smtpout.secureserver.net (GoDaddy)</span></p>
+                <p style="margin: 0; padding: 8px 0; border-bottom: 1px solid #e2e8f0;"><strong style="color: #475569;">Port:</strong> <span style="color: #1e293b;">465 (SSL)</span></p>
+                <p style="margin: 0; padding: 8px 0; border-bottom: 1px solid #e2e8f0;"><strong style="color: #475569;">From:</strong> <span style="color: #1e293b;">${process.env.EMAIL_USER}</span></p>
+                <p style="margin: 0; padding: 8px 0;"><strong style="color: #475569;">To:</strong> <span style="color: #1e293b;">${process.env.EMAIL_USER}</span></p>
+              </div>
+            </div>
+            
+            <div style="background: #ffffff; padding: 25px; border: 2px solid #e2e8f0; border-radius: 12px; margin-bottom: 25px;">
+              <h2 style="margin: 0 0 15px 0; color: #1e293b; font-size: 20px;">Next Steps</h2>
+              <div style="background: #f1f5f9; padding: 20px; border-radius: 8px; line-height: 1.8; color: #334155; font-size: 15px;">
+                ✅ Your email configuration is working correctly<br>
+                ✅ Contact form submissions will now be sent to your email<br>
+                ✅ You can start receiving real contact form messages
+              </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); padding: 20px; border-radius: 12px; text-align: center;">
+              <p style="margin: 0; font-size: 14px; color: #64748b;">
+                <strong>Test sent:</strong> ${new Date().toLocaleString('en-US', { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric', 
+                  hour: '2-digit', 
+                  minute: '2-digit',
+                  timeZoneName: 'short'
+                })}
+              </p>
+              <p style="margin: 10px 0 0 0; font-size: 12px; color: #94a3b8;">Portfolio Email Test • Karan Gadhave</p>
+            </div>
+          </div>
+        `,
+      };
+
+      await transporter.sendMail(testEmailContent);
+      
+      res.json({
+        success: true,
+        message: "Test email sent successfully! Check your inbox at " + process.env.EMAIL_USER,
+        timestamp: new Date().toISOString()
+      });
+      
+    } catch (error: any) {
+      console.error('Test email failed:', error);
+      res.status(500).json({
+        success: false,
+        message: "Failed to send test email: " + error.message,
+        error: error.toString()
+      });
+    }
+  });
+
   // Admin route to view all contacts
   app.get("/api/admin/contacts", async (req, res) => {
     try {
@@ -136,6 +212,115 @@ export async function registerRoutes(app: Express): Promise<Server> {
         message: "Failed to fetch contacts" 
       });
     }
+  });
+
+  // Email test page
+  app.get("/test-email", (req, res) => {
+    const html = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Email Test - Portfolio</title>
+        <style>
+          * { margin: 0; padding: 0; box-sizing: border-box; }
+          body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh; padding: 20px; display: flex; align-items: center; justify-content: center;
+          }
+          .container { 
+            max-width: 500px; background: white; border-radius: 12px; padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+          }
+          h1 { color: #2d3748; font-size: 2rem; margin-bottom: 20px; text-align: center; }
+          .test-btn { 
+            width: 100%; background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+            color: white; border: none; padding: 15px; border-radius: 8px; font-size: 16px;
+            cursor: pointer; margin-bottom: 20px; transition: transform 0.2s;
+          }
+          .test-btn:hover { transform: translateY(-2px); }
+          .test-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+          .result { 
+            padding: 15px; border-radius: 8px; margin-top: 15px; display: none;
+          }
+          .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+          .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+          .loading { text-align: center; margin-top: 10px; display: none; }
+          .spinner { 
+            width: 20px; height: 20px; border: 2px solid #f3f3f3; border-top: 2px solid #8b5cf6;
+            border-radius: 50%; animation: spin 1s linear infinite; display: inline-block; margin-right: 10px;
+          }
+          @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <h1>📧 Email Test</h1>
+          <p style="color: #718096; margin-bottom: 25px; text-align: center;">
+            Test your contact form email configuration
+          </p>
+          
+          <button id="testBtn" class="test-btn">Send Test Email</button>
+          
+          <div id="loading" class="loading">
+            <span class="spinner"></span>
+            Sending test email...
+          </div>
+          
+          <div id="result" class="result"></div>
+          
+          <div style="margin-top: 20px; padding: 15px; background: #f7fafc; border-radius: 8px; font-size: 14px; color: #4a5568;">
+            <strong>What this test does:</strong><br>
+            • Connects to GoDaddy SMTP servers<br>
+            • Sends a test email to contact@karnkalaa.in<br>
+            • Verifies your email configuration is working
+          </div>
+        </div>
+
+        <script>
+          document.getElementById('testBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('testBtn');
+            const loading = document.getElementById('loading');
+            const result = document.getElementById('result');
+            
+            btn.disabled = true;
+            loading.style.display = 'block';
+            result.style.display = 'none';
+            
+            try {
+              const response = await fetch('/api/test-email', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({})
+              });
+              
+              const data = await response.json();
+              
+              if (data.success) {
+                result.className = 'result success';
+                result.innerHTML = '✅ ' + data.message;
+              } else {
+                result.className = 'result error';
+                result.innerHTML = '❌ ' + data.message;
+              }
+            } catch (error) {
+              result.className = 'result error';
+              result.innerHTML = '❌ Network error: ' + error.message;
+            }
+            
+            loading.style.display = 'none';
+            result.style.display = 'block';
+            btn.disabled = false;
+          });
+        </script>
+      </body>
+      </html>
+    `;
+    res.send(html);
   });
 
   // Admin interface to view contact submissions
