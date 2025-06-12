@@ -34,11 +34,16 @@ export function Navigation() {
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <motion.div 
-            className="font-inter text-xl font-bold text-foreground cursor-pointer"
+            className="cursor-pointer"
             onClick={() => scrollToSection('home')}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, rotate: 5 }}
+            whileTap={{ scale: 0.95 }}
           >
-            KG
+            <img 
+              src="@assets/Logo black_1749711104405.png" 
+              alt="Karan Gadhave Logo" 
+              className="h-8 w-auto filter invert"
+            />
           </motion.div>
           
           <div className="flex space-x-8">
