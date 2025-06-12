@@ -17,17 +17,17 @@ export default function CaseStudy() {
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   const caseStudyData = {
-    title: "AI-Powered Design System for Enterprise SaaS",
-    subtitle: "Revolutionizing design workflows with intelligent automation",
+    title: "Smart Design System Built with AI Tools & Figma",
+    subtitle: "Leveraging Replit and AI-powered design workflows for enterprise efficiency",
     client: "TechFlow Enterprise",
     duration: "6 months",
     team: "8 designers, 12 developers",
     year: "2024",
     category: "Design System",
-    tags: ["AI Integration", "Design Tokens", "Component Library", "Workflow Automation"],
-    overview: "Led the design and implementation of an AI-powered design system that reduced design-to-development time by 60% while maintaining consistency across 50+ product teams.",
-    challenge: "TechFlow's rapid growth created design inconsistencies across products, with teams spending 40% of their time on repetitive design tasks instead of innovation.",
-    solution: "Developed an intelligent design system with AI-assisted component generation, automated design token management, and predictive layout suggestions.",
+    tags: ["AI Design Tools", "Figma Workflows", "Replit Prototyping", "Design Automation"],
+    overview: "Architected a comprehensive design system using AI-powered design tools, advanced Figma workflows, and Replit-based prototyping that accelerated design processes by 60% across enterprise teams.",
+    challenge: "TechFlow's rapid scaling resulted in fragmented design approaches, with teams manually recreating components and lacking streamlined design-to-code workflows.",
+    solution: "Built an integrated design ecosystem leveraging AI design assistance, Figma's advanced features, and Replit's rapid prototyping capabilities for seamless design-to-development handoffs.",
     metrics: [
       { label: "Design Time Reduced", value: "60%", description: "From ideation to handoff" },
       { label: "Consistency Score", value: "95%", description: "Across all products" },
@@ -42,16 +42,16 @@ export default function CaseStudy() {
         deliverables: ["Research Report", "User Journey Maps", "Current State Analysis"]
       },
       {
-        phase: "AI Strategy & Architecture",
+        phase: "AI Tools & Figma Setup",
         duration: "4 weeks", 
-        description: "Designed the AI integration framework and established the technical foundation for intelligent automation.",
-        deliverables: ["AI Integration Plan", "System Architecture", "Technical Specifications"]
+        description: "Configured AI design tools integration with Figma, established Replit prototyping workflows, and created automation pipelines.",
+        deliverables: ["AI Tool Integration", "Figma Workflow Setup", "Replit Templates"]
       },
       {
-        phase: "Component Development",
+        phase: "Smart Component Library",
         duration: "12 weeks",
-        description: "Built the core component library with AI-powered features and automated testing.",
-        deliverables: ["Component Library", "AI Models", "Documentation Portal"]
+        description: "Developed intelligent component library using AI-assisted design generation and Figma's advanced features for seamless handoffs.",
+        deliverables: ["AI-Enhanced Components", "Figma Design System", "Replit Prototypes"]
       },
       {
         phase: "Testing & Refinement",
