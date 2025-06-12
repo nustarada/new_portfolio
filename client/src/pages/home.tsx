@@ -6,12 +6,14 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { Link } from 'wouter';
 import { LiquidGrid } from '@/components/liquid-grid';
 import { MovingRibbon } from '@/components/moving-ribbon';
 import logoPath from '@assets/Logo black_1749713682616.png';
+import resumePdf from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
 import { 
   Terminal, 
   Sparkles, 
@@ -33,7 +35,8 @@ import {
   Briefcase,
   MessageSquare,
   Send,
-  ArrowRight
+  ArrowRight,
+  X
 } from 'lucide-react';
 
 export default function Home() {
@@ -41,6 +44,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('');
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
   const [waveIntensity, setWaveIntensity] = useState(0.3);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
@@ -184,7 +188,7 @@ export default function Home() {
           </motion.div>
           
           <div className="hidden md:flex items-center space-x-8">
-            {['About', 'Projects', 'Expertise', 'Resume'].map((item) => (
+            {['About', 'Projects', 'Expertise'].map((item) => (
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -196,6 +200,13 @@ export default function Home() {
                 {item}
               </motion.a>
             ))}
+            <motion.button
+              onClick={() => setIsResumeOpen(true)}
+              className="text-sm font-semibold transition-colors hover:text-primary text-foreground opacity-80"
+              whileHover={{ y: -2 }}
+            >
+              Resume
+            </motion.button>
           </div>
 
           <Button variant="outline" size="sm" className="morphing-border">
@@ -329,6 +340,7 @@ export default function Home() {
               >
                 <Button 
                   size="lg" 
+                  onClick={() => setIsResumeOpen(true)}
                   style={{
                     background: 'transparent',
                     border: '2px solid hsl(262, 83%, 58%)',
@@ -339,8 +351,8 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover/secondary:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10 flex items-center space-x-2">
-                    <Mail className="w-5 h-5" />
-                    <span>Contact</span>
+                    <Download className="w-5 h-5" />
+                    <span>Resume</span>
                   </div>
                 </Button>
               </motion.div>
@@ -873,6 +885,60 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Resume Modal */}
+      <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
+        <DialogContent className="max-w-4xl w-full h-[90vh] p-0 bg-slate-900/95 border-2 border-primary/40 backdrop-blur-xl">
+          <DialogHeader className="p-6 pb-4 border-b border-primary/20">
+            <div className="flex items-center justify-between">
+              <DialogTitle className="text-2xl font-bold text-white flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-primary/30 to-purple-500/30 rounded-lg flex items-center justify-center">
+                  <User className="w-5 h-5 text-primary" />
+                </div>
+                <span>Karan Gadhave - Resume</span>
+              </DialogTitle>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsResumeOpen(false)}
+                className="text-white/70 hover:text-white hover:bg-white/10 rounded-lg"
+              >
+                <X className="w-5 h-5" />
+              </Button>
+            </div>
+          </DialogHeader>
+          
+          <div className="flex-1 p-6">
+            <div className="w-full h-full bg-white rounded-lg overflow-hidden shadow-2xl">
+              <iframe
+                src={`${resumePdf}#toolbar=0&navpanes=0&scrollbar=0`}
+                className="w-full h-full border-0"
+                title="Karan Gadhave Resume"
+                style={{
+                  pointerEvents: 'auto'
+                }}
+              />
+            </div>
+            
+            <div className="mt-4 p-4 bg-gradient-to-r from-primary/10 to-purple-500/10 rounded-xl border border-primary/20">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
+                    <Download className="w-4 h-4 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">View-Only Mode</p>
+                    <p className="text-white/70 text-sm">This resume is displayed in view-only format</p>
+                  </div>
+                </div>
+                <Badge variant="outline" className="text-primary border-primary/30 bg-primary/10">
+                  PDF Document
+                </Badge>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Footer */}
       <footer className="py-12 border-t border-border/30">
