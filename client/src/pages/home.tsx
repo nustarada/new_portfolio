@@ -543,9 +543,9 @@ export default function Home() {
                         Innovation Focus
                       </h4>
                       <p className="text-white/80 leading-relaxed">
-                        My expertise in <span className="text-primary font-semibold">Figma workflows, AI design automation, and Replit prototyping</span> 
-                        has enabled me to <span className="bg-primary/20 text-primary px-2 py-1 rounded-lg font-semibold">reduce design cycles by 60%</span> 
-                        while maintaining exceptional quality.
+                        Driven by a <span className="text-primary font-semibold">passion for innovation</span>, I've <span className="text-primary font-semibold">streamlined UI/UX workflows</span> using 
+                        <span className="text-primary font-semibold">AI-powered design approaches</span>—<span className="bg-primary/20 text-primary px-2 py-1 rounded-lg font-semibold">cutting design cycles by 60%</span> 
+                        while delivering <span className="text-primary font-semibold">intuitive, high-impact user experiences</span>.
                       </p>
                     </div>
                   </div>
