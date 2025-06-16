@@ -110,7 +110,7 @@ export default function CaseStudy() {
   };
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-background text-foreground relative">
+    <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture">
       {/* Progress Bar */}
       <motion.div 
         className="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary to-cyan-400 z-50"
@@ -170,7 +170,7 @@ export default function CaseStudy() {
       </motion.nav>
 
       {/* Hero Section with Parallax */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 glass-card grain-texture">
         {/* Animated Background Grid */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-pink-500/20" />
@@ -220,7 +220,7 @@ export default function CaseStudy() {
               <Badge variant="outline" className="text-sm px-4 py-2 border-primary/50 bg-primary/10">
                 {caseStudyData.category}
               </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight grain-texture">
                 <span className="block text-white">{caseStudyData.title.split(' ').slice(0, 2).join(' ')}</span>
                 <span className="block glow-text">{caseStudyData.title.split(' ').slice(2).join(' ')}</span>
               </h1>
@@ -262,7 +262,7 @@ export default function CaseStudy() {
           >
             <div className="lg:col-span-2 space-y-8">
               <div>
-                <h2 className="text-3xl font-bold mb-6 glow-text">Project Overview</h2>
+                <h2 className="text-3xl font-bold mb-6 glow-text grain-texture">Project Overview</h2>
                 <p className="text-lg text-white/90 leading-relaxed">
                   {caseStudyData.overview}
                 </p>
@@ -286,7 +286,7 @@ export default function CaseStudy() {
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold glow-text">Key Metrics</h3>
+              <h3 className="text-2xl font-bold glow-text grain-texture">Key Metrics</h3>
               <div className="space-y-4">
                 {caseStudyData.metrics.map((metric, index) => (
                   <motion.div
@@ -324,7 +324,7 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 glow-text">Design Process</h2>
+            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture">Design Process</h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
               A systematic approach to solving complex design challenges through research, strategy, and iterative development.
             </p>
@@ -394,7 +394,7 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 glow-text">Key Features</h2>
+            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture">Key Features</h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
               Innovative solutions that transformed how teams approach design and development collaboration.
             </p>
