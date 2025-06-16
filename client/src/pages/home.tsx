@@ -207,6 +207,53 @@ export default function Home() {
       <div className="floating-orb w-96 h-96 top-1/2 -right-48 opacity-20" style={{ animationDelay: '2s' }} />
       <div className="floating-orb w-48 h-48 bottom-20 left-1/4 opacity-25" style={{ animationDelay: '4s' }} />
 
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 glass-card grain-texture border-b border-white/20">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <motion.div 
+            className="flex items-center"
+            whileHover={{ scale: 1.05 }}
+          >
+            <img src={logoPath} alt="Karan Gadhave" className="w-10 h-10" />
+          </motion.div>
+          
+          <div className="hidden md:flex items-center space-x-8">
+            {['About', 'Projects'].map((item) => (
+              <motion.a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className={`text-sm font-semibold transition-colors hover:text-primary ${
+                  activeSection === item.toLowerCase() ? 'text-primary' : 'text-foreground opacity-80'
+                }`}
+                whileHover={{ y: -2 }}
+              >
+                {item}
+              </motion.a>
+            ))}
+            <motion.button
+              onClick={() => setIsResumeOpen(true)}
+              className="text-sm font-semibold transition-colors hover:text-primary text-foreground opacity-80"
+              whileHover={{ y: -2 }}
+            >
+              Resume
+            </motion.button>
+          </div>
+
+          <Button 
+            onClick={() => {
+              const contactSection = document.getElementById('contact');
+              contactSection?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="relative group px-6 py-3 bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 hover:from-purple-700 hover:via-violet-700 hover:to-purple-700 text-white font-bold transition-all duration-300 shadow-lg shadow-purple-500/25 border-0"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+            <div className="relative z-10 flex items-center space-x-2">
+              <Mail className="w-4 h-4" />
+              <span>Contact Me</span>
+            </div>
+          </Button>
+        </div>
+      </nav>
 
 
       {/* Hero Section */}
