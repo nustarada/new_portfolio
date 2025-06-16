@@ -547,7 +547,7 @@ export default function Home() {
               ].map((item, index) => (
                 <motion.div
                   key={item.label}
-                  className="flex items-center justify-center space-x-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300"
+                  className="flex items-center justify-center space-x-4 p-6 bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300"
                   initial={{ opacity: 0, x: index === 0 ? -20 : 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
