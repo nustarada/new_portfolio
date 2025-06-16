@@ -440,14 +440,14 @@ export default function Home() {
               { 
                 number: '50+', 
                 label: 'Projects Delivered', 
-                color: 'from-purple-500 to-pink-500', 
+                color: 'from-cyan-400 to-emerald-400', 
                 icon: Zap,
                 description: 'Successful design solutions'
               },
               { 
                 number: '15+', 
                 label: 'Team Members Led', 
-                color: 'from-pink-500 to-orange-500', 
+                color: 'from-emerald-400 to-primary', 
                 icon: Users,
                 description: 'Cross-functional collaboration'
               }
