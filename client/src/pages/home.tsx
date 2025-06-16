@@ -408,7 +408,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <motion.h2 
-              className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-primary to-purple-400 bg-clip-text text-transparent"
+              className="text-4xl md:text-6xl font-black mb-6 text-white glow-text"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -417,7 +417,7 @@ export default function Home() {
               ACHIEVEMENTS
             </motion.h2>
             <motion.div 
-              className="w-32 h-1 bg-gradient-to-r from-primary via-purple-500 to-pink-500 mx-auto rounded-full mb-8"
+              className="w-32 h-1 bg-gradient-to-r from-primary via-cyan-400 to-emerald-400 mx-auto rounded-full mb-8"
               initial={{ width: 0 }}
               whileInView={{ width: 128 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -433,7 +433,7 @@ export default function Home() {
               { 
                 number: '4+', 
                 label: 'Years Experience', 
-                color: 'from-primary to-purple-500', 
+                color: 'from-primary to-cyan-400', 
                 icon: Clock,
                 description: 'Specialized UI/UX expertise'
               },
@@ -580,7 +580,7 @@ export default function Home() {
             className="text-center mb-20"
           >
             <motion.h2 
-              className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-primary to-purple-400 bg-clip-text text-transparent"
+              className="text-4xl md:text-6xl font-black mb-6 text-white glow-text"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -589,7 +589,7 @@ export default function Home() {
               ABOUT ME
             </motion.h2>
             <motion.div 
-              className="w-24 h-1 bg-gradient-to-r from-primary to-purple-500 mx-auto rounded-full mb-8"
+              className="w-24 h-1 bg-gradient-to-r from-primary to-cyan-400 mx-auto rounded-full mb-8"
               initial={{ width: 0 }}
               whileInView={{ width: 96 }}
               transition={{ duration: 0.8, delay: 0.2 }}
