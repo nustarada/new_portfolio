@@ -113,7 +113,7 @@ export default function CaseStudy() {
     <div ref={containerRef} className="min-h-screen bg-background text-foreground relative">
       {/* Progress Bar */}
       <motion.div 
-        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary to-pink-500 z-50"
+        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary to-cyan-400 z-50"
         style={{ width: progressWidth }}
       />
 
@@ -121,8 +121,8 @@ export default function CaseStudy() {
       <motion.nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
-            ? 'backdrop-blur-md bg-background/90 shadow-lg shadow-black/20' 
-            : 'bg-transparent'
+            ? 'glass-intense grain-texture border-b border-white/10 shadow-2xl shadow-primary/20' 
+            : 'glass-card grain-texture'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -133,28 +133,36 @@ export default function CaseStudy() {
             {/* Logo */}
             <Link href="/">
               <motion.div 
-                className="cursor-pointer"
+                className="cursor-pointer flex items-center space-x-3"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <img 
-                  src={logoPath} 
-                  alt="Karan Gadhave Logo" 
-                  className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
-                />
+                <div className="relative">
+                  <img 
+                    src={logoPath} 
+                    alt="Karan Gadhave Logo" 
+                    className="h-10 w-auto filter brightness-0 invert"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-cyan-400/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <span className="text-xl font-bold text-white glow-text">
+                  Karan Gadhave
+                </span>
               </motion.div>
             </Link>
             
             {/* Back to Portfolio Button */}
             <Link href="/">
               <motion.button
-                className="font-mono text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 relative group flex items-center space-x-2"
-                whileHover={{ y: -2 }}
+                className="relative group px-6 py-3 glass-card grain-texture hover:glass-intense border border-primary/30 hover:border-primary/50 text-white font-semibold transition-all duration-300 flex items-center space-x-2"
+                whileHover={{ y: -2, scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <ArrowLeft className="w-4 h-4" />
-                <span>Back to Portfolio</span>
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10 flex items-center space-x-2">
+                  <ArrowLeft className="w-4 h-4" />
+                  <span>Back to Portfolio</span>
+                </div>
               </motion.button>
             </Link>
           </div>
@@ -324,7 +332,7 @@ export default function CaseStudy() {
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-primary via-pink-500 to-primary" />
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-primary via-cyan-400 to-primary" />
 
             <div className="space-y-20">
               {caseStudyData.process.map((phase, index) => (
@@ -519,7 +527,7 @@ export default function CaseStudy() {
       <div className="fixed bottom-6 right-6 z-50">
         <a href="/#contact">
           <Button 
-            className="group relative overflow-hidden bg-gradient-to-r from-primary via-purple-600 to-primary text-white font-semibold px-6 py-3 rounded-full border-0 hover:scale-105 transition-all duration-300 shadow-2xl shadow-primary/30"
+            className="group relative overflow-hidden bg-gradient-to-r from-primary via-cyan-600 to-primary text-white font-semibold px-6 py-3 glass-intense grain-texture border-0 hover:scale-105 transition-all duration-300 shadow-2xl shadow-primary/30"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             
