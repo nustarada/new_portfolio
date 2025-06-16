@@ -82,7 +82,7 @@ export function Navigation() {
               </motion.button>
             ))}
 
-            {/* Case Study Link */}
+            {/* Contact CTA */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -90,13 +90,13 @@ export function Navigation() {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Link
-                href="/case-study"
-                className="relative group px-6 py-3 glass-card grain-texture hover:glass-intense border border-primary/30 hover:border-primary/50 text-white font-semibold transition-all duration-300"
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="relative group px-6 py-3 bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 hover:from-purple-700 hover:via-violet-700 hover:to-purple-700 text-white font-bold transition-all duration-300 shadow-lg shadow-purple-500/25 border-0"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <span className="relative z-10">Case Study</span>
-              </Link>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                <span className="relative z-10">Contact Me</span>
+              </button>
             </motion.div>
           </div>
 
