@@ -208,7 +208,7 @@ export default function Home() {
       <div className="floating-orb w-48 h-48 bottom-20 left-1/4 opacity-25" style={{ animationDelay: '4s' }} />
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/50">
+      <nav className="fixed top-0 left-0 right-0 z-50 glass-card grain-texture border-b border-white/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <motion.div 
             className="flex items-center"
@@ -239,7 +239,7 @@ export default function Home() {
             </motion.button>
           </div>
 
-          <Button variant="outline" size="sm" className="morphing-border">
+          <Button variant="outline" size="sm" className="glass-card hover:glass-intense border-white/20">
             <Mail className="w-4 h-4 mr-2" />
             Contact Me
           </Button>
@@ -273,7 +273,7 @@ export default function Home() {
               >
                 <Badge 
                   variant="outline" 
-                  className="text-sm px-6 py-3 border-primary/50 bg-primary/20 text-white font-semibold tracking-wider backdrop-blur-sm shadow-lg shadow-primary/25 hover:bg-primary/30 transition-all duration-300"
+                  className="text-sm px-6 py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-300"
                 >
                   <Sparkles className="w-4 h-4 mr-2 text-primary" />
                   AVAILABLE FOR NEW OPPORTUNITIES
@@ -291,7 +291,7 @@ export default function Home() {
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-wide leading-tight">
                 KARAN GADHAVE
               </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-primary to-pink-500 mx-auto rounded-full"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto"></div>
             </motion.div>
             
             {/* Title/Role */}
@@ -345,10 +345,10 @@ export default function Home() {
                 <Button 
                   size="lg" 
                   style={{
-                    background: 'linear-gradient(to right, hsl(262, 83%, 58%), hsl(280, 100%, 70%), hsl(262, 83%, 58%))',
+                    background: 'linear-gradient(to right, hsl(185, 84%, 55%), hsl(180, 70%, 50%), hsl(185, 84%, 55%))',
                     border: 'none'
                   }}
-                  className="relative overflow-hidden px-12 py-6 text-lg font-bold text-white rounded-2xl shadow-2xl hover:scale-105 transition-all duration-300"
+                  className="relative overflow-hidden px-12 py-6 text-lg font-bold text-white shadow-2xl hover:scale-105 transition-all duration-300 glass-intense grain-texture"
                 >
                   {/* Animated Background */}
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/hero-cta:translate-x-full transition-transform duration-700" />
@@ -371,12 +371,7 @@ export default function Home() {
                 <Button 
                   size="lg" 
                   onClick={() => setIsResumeOpen(true)}
-                  style={{
-                    background: 'transparent',
-                    border: '2px solid hsl(262, 83%, 58%)',
-                    boxShadow: '0 0 20px hsla(262, 83%, 58%, 0.3)'
-                  }}
-                  className="relative overflow-hidden px-10 py-4 text-lg font-semibold text-white hover:bg-primary/20 backdrop-blur-sm rounded-xl transition-all duration-300 hover:scale-105"
+                  className="relative overflow-hidden px-10 py-4 text-lg font-semibold text-white glass-card grain-texture hover:glass-intense border-primary/50 transition-all duration-300 hover:scale-105"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover/secondary:opacity-100 transition-opacity duration-300" />
                   
@@ -547,7 +542,7 @@ export default function Home() {
               ].map((item, index) => (
                 <motion.div
                   key={item.label}
-                  className="flex items-center justify-center space-x-4 p-6 bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300"
+                  className="flex items-center justify-center space-x-4 p-6 glass-card grain-texture hover:glass-intense transition-all duration-300"
                   initial={{ opacity: 0, x: index === 0 ? -20 : 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
@@ -673,7 +668,7 @@ export default function Home() {
                     ].map((principle, index) => (
                       <motion.div
                         key={principle.title}
-                        className="flex items-start space-x-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-300 border border-white/5"
+                        className="flex items-start space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300"
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
