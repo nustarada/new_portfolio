@@ -488,7 +488,17 @@ export default function Home() {
                     
                     {/* Number Display */}
                     <motion.div 
-                      className={`text-6xl md:text-7xl font-black bg-gradient-to-br ${stat.color} bg-clip-text text-transparent leading-none`}
+                      className={`text-6xl md:text-7xl font-black leading-none`}
+                      style={{
+                        background: `linear-gradient(135deg, ${
+                          stat.color === 'from-primary to-purple-500' ? 'hsl(262, 83%, 58%), hsl(280, 100%, 70%)' :
+                          stat.color === 'from-purple-500 to-pink-500' ? 'hsl(280, 100%, 70%), hsl(330, 81%, 60%)' :
+                          'hsl(330, 81%, 60%), hsl(25, 95%, 53%)'
+                        })`,
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                      }}
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       transition={{ duration: 0.6, delay: index * 0.15 + 0.3 }}
