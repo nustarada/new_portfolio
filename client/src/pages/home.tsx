@@ -1301,7 +1301,7 @@ export default function Home() {
             const contactSection = document.getElementById('contact');
             contactSection?.scrollIntoView({ behavior: 'smooth' });
           }}
-          className="group relative overflow-hidden bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 hover:from-purple-500 hover:via-violet-500 hover:to-purple-500 text-white font-bold px-8 py-4 text-lg border-0 hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50 animate-pulse hover:animate-none"
+          className="group relative overflow-hidden bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 hover:from-purple-500 hover:via-violet-500 hover:to-purple-500 text-white font-bold px-8 py-4 text-lg border-0 hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50"
           style={{
             boxShadow: '0 20px 60px rgba(147, 51, 234, 0.6), 0 0 40px rgba(147, 51, 234, 0.4)'
           }}
