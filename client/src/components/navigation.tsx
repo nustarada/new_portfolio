@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import logoPath from "@assets/Logo black_1749729973781.png";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +22,11 @@ export function Navigation() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Don't render navigation on case study page
+  if (location === '/case-study') {
+    return null;
+  }
 
   return (
     <motion.nav
