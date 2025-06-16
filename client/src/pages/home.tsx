@@ -531,8 +531,9 @@ export default function Home() {
                         Experience & Expertise
                       </h4>
                       <p className="text-white/80 leading-relaxed">
-                        With <span className="text-primary font-semibold">4+ years of specialized experience</span> in UI/UX design, 
-                        I leverage AI-powered tools and modern platforms to create innovative digital solutions that push the boundaries of user experience.
+                        With over <span className="text-primary font-semibold">4 years of specialized experience</span> in <span className="text-primary font-semibold">UI/UX design</span>, 
+                        I craft <span className="text-primary font-semibold">innovative digital solutions</span> that elevate user experiences by harnessing 
+                        <span className="text-primary font-semibold">AI-driven design approaches</span> and <span className="text-primary font-semibold">modern technologies</span>.
                       </p>
                     </div>
                     
