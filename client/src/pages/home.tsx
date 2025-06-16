@@ -1301,12 +1301,15 @@ export default function Home() {
             const contactSection = document.getElementById('contact');
             contactSection?.scrollIntoView({ behavior: 'smooth' });
           }}
-          className="group relative overflow-hidden bg-gradient-to-r from-primary via-purple-600 to-primary text-white font-semibold px-6 py-3 rounded-full border-0 hover:scale-105 transition-all duration-300 shadow-2xl shadow-primary/30"
+          className="group relative overflow-hidden bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 hover:from-purple-500 hover:via-violet-500 hover:to-purple-500 text-white font-bold px-8 py-4 text-lg border-0 hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50 animate-pulse hover:animate-none"
+          style={{
+            boxShadow: '0 20px 60px rgba(147, 51, 234, 0.6), 0 0 40px rgba(147, 51, 234, 0.4)'
+          }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
           
-          <div className="relative z-10 flex items-center space-x-2">
-            <Mail className="w-5 h-5" />
+          <div className="relative z-10 flex items-center space-x-3">
+            <Mail className="w-6 h-6" />
             <span>Contact Me</span>
           </div>
         </Button>
