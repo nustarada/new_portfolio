@@ -22,5 +22,92 @@ export function Navigation() {
     }
   };
 
-  return null;
+  return (
+    <motion.nav
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled 
+          ? 'glass-intense grain-texture border-b border-white/10 shadow-2xl shadow-primary/20' 
+          : 'glass-card grain-texture'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center space-x-3"
+          >
+            <div className="relative">
+              <img 
+                src={logoPath} 
+                alt="Karan Gadhave" 
+                className="h-10 w-auto filter brightness-0 invert"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-cyan-400/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <span className="text-xl font-bold text-white glow-text">
+              Karan Gadhave
+            </span>
+          </motion.div>
+
+          {/* Navigation Links */}
+          <div className="hidden md:flex items-center space-x-8">
+            {[
+              { label: 'About', id: 'about' },
+              { label: 'Projects', id: 'projects' },
+              { label: 'Contact', id: 'contact' }
+            ].map((item, index) => (
+              <motion.button
+                key={item.label}
+                onClick={() => scrollToSection(item.id)}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative group px-4 py-2 text-white/90 hover:text-white font-medium transition-all duration-300"
+              >
+                <div className="absolute inset-0 glass-card grain-texture opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="relative z-10">{item.label}</span>
+                <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-cyan-400 group-hover:w-full group-hover:left-0 transition-all duration-300" />
+              </motion.button>
+            ))}
+
+            {/* Case Study Link */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                href="/case-study"
+                className="relative group px-6 py-3 glass-card grain-texture hover:glass-intense border border-primary/30 hover:border-primary/50 text-white font-semibold transition-all duration-300"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="relative z-10">Case Study</span>
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="md:hidden glass-card grain-texture p-2 border border-white/10 hover:border-primary/30 transition-all duration-300"
+          >
+            <div className="w-6 h-6 flex flex-col justify-center space-y-1">
+              <div className="w-full h-0.5 bg-white transform transition-all duration-300" />
+              <div className="w-full h-0.5 bg-white transform transition-all duration-300" />
+              <div className="w-full h-0.5 bg-white transform transition-all duration-300" />
+            </div>
+          </motion.button>
+        </div>
+      </div>
+    </motion.nav>
+  );
 }
