@@ -10,18 +10,27 @@ const skills = [
   "Problem Solving", "Strategic Planning", "User Experience", "Interface Design"
 ];
 
+const skillIcons = ["✦", "◆", "●", "▲", "◇", "★"];
+
 export function MovingRibbon() {
   return (
-    <div className="relative overflow-hidden py-8 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-y border-primary/20">
+    <div className="relative overflow-hidden py-12 bg-gradient-to-br from-slate-950/90 via-slate-900/70 to-slate-950/90 border-y border-white/10">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent" />
+      </div>
+
       {/* Top ribbon */}
       <motion.div
-        className="flex whitespace-nowrap"
+        className="flex whitespace-nowrap mb-6"
         animate={{ x: [0, -2000] }}
         transition={{
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 60,
+            duration: 45,
             ease: "linear",
           },
         }}
@@ -29,25 +38,36 @@ export function MovingRibbon() {
         {[...skills, ...skills, ...skills].map((skill, index) => (
           <div
             key={`top-${index}`}
-            className="flex items-center mx-8"
+            className="flex items-center mx-6 group"
           >
-            <span className="text-lg md:text-xl font-medium text-white/90 tracking-wide">
-              {skill}
-            </span>
-            <div className="w-2 h-2 bg-primary rounded-full mx-8" />
+            <div className="flex items-center space-x-3 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors duration-300">
+              <span className="text-primary/70 text-sm font-medium">
+                {skillIcons[index % skillIcons.length]}
+              </span>
+              <span className="text-lg md:text-xl font-medium text-white/90 tracking-wide">
+                {skill}
+              </span>
+            </div>
+            <div className="w-3 h-3 bg-gradient-to-r from-primary to-purple-500 rounded-full mx-6 animate-pulse" />
           </div>
         ))}
       </motion.div>
 
+      {/* Middle decorative line */}
+      <div className="relative flex items-center justify-center my-4">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+        <div className="absolute w-4 h-4 bg-gradient-to-r from-primary to-purple-500 rounded-full animate-pulse" />
+      </div>
+
       {/* Bottom ribbon - moving in opposite direction */}
       <motion.div
-        className="flex whitespace-nowrap mt-4"
+        className="flex whitespace-nowrap mt-6"
         animate={{ x: [-2000, 0] }}
         transition={{
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 50,
+            duration: 35,
             ease: "linear",
           },
         }}
@@ -55,19 +75,28 @@ export function MovingRibbon() {
         {[...skills.slice().reverse(), ...skills.slice().reverse(), ...skills.slice().reverse()].map((skill, index) => (
           <div
             key={`bottom-${index}`}
-            className="flex items-center mx-8"
+            className="flex items-center mx-6 group"
           >
-            <span className="text-base md:text-lg font-medium text-white/70 tracking-wide">
-              {skill}
-            </span>
-            <div className="w-1.5 h-1.5 bg-primary/60 rounded-full mx-8" />
+            <div className="flex items-center space-x-3 px-3 py-1.5 rounded-full bg-white/3 backdrop-blur-sm border border-white/5 hover:bg-white/8 transition-colors duration-300">
+              <span className="text-purple-400/60 text-xs font-medium">
+                {skillIcons[(index + 3) % skillIcons.length]}
+              </span>
+              <span className="text-base md:text-lg font-medium text-white/70 tracking-wide">
+                {skill}
+              </span>
+            </div>
+            <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-6 animate-pulse delay-500" />
           </div>
         ))}
       </motion.div>
 
-      {/* Gradient overlays to create fade effect */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
+      {/* Enhanced gradient overlays */}
+      <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent pointer-events-none z-10" />
+      <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-slate-950 via-slate-950/80 to-transparent pointer-events-none z-10" />
+      
+      {/* Top and bottom fade */}
+      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-slate-950/50 to-transparent pointer-events-none z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-slate-950/50 to-transparent pointer-events-none z-10" />
     </div>
   );
 }
