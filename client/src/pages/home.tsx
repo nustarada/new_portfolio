@@ -345,7 +345,7 @@ export default function Home() {
                 <Button 
                   size="lg" 
                   style={{
-                    background: 'linear-gradient(to right, hsl(185, 84%, 55%), hsl(180, 70%, 50%), hsl(185, 84%, 55%))',
+                    background: 'linear-gradient(to right, hsl(280, 100%, 70%), hsl(260, 100%, 75%), hsl(280, 100%, 70%))',
                     border: 'none'
                   }}
                   className="relative overflow-hidden px-12 py-6 text-lg font-bold text-white shadow-2xl hover:scale-105 transition-all duration-300 glass-intense grain-texture"
@@ -823,7 +823,7 @@ export default function Home() {
                   <div className="p-6 pt-0">
                     <Link href="/case-study">
                       <Button 
-                        className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-primary via-purple-600 to-primary text-white font-semibold py-3 border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary/25"
+                        className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 text-white font-semibold py-3 border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-purple-500/25"
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                         
@@ -1105,9 +1105,9 @@ export default function Home() {
                     type="submit" 
                     size="lg" 
                     style={{
-                      background: 'linear-gradient(to right, hsl(185, 84%, 55%), hsl(180, 70%, 50%), hsl(185, 84%, 55%))',
+                      background: 'linear-gradient(to right, hsl(280, 100%, 70%), hsl(260, 100%, 75%), hsl(280, 100%, 70%))',
                       border: 'none',
-                      boxShadow: '0 15px 40px hsla(185, 84%, 55%, 0.5)'
+                      boxShadow: '0 15px 40px hsla(280, 100%, 70%, 0.5)'
                     }}
                     className="group/btn relative w-full h-16 text-white font-bold text-xl glass-intense grain-texture overflow-hidden transition-all duration-300 hover:scale-[1.02] disabled:opacity-50"
                     disabled={contactMutation.isPending}
