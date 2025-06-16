@@ -14,12 +14,12 @@ const skillIcons = ["✦", "◆", "●", "▲", "◇", "★"];
 
 export function MovingRibbon() {
   return (
-    <div className="relative overflow-hidden py-12 bg-gradient-to-br from-slate-950/90 via-slate-900/70 to-slate-950/90 border-y border-white/10">
+    <div className="relative overflow-hidden py-12 glass-card grain-texture border-y border-white/15">
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/8 blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-r from-cyan-400/8 to-emerald-400/8 blur-3xl animate-pulse delay-1000" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/8 to-transparent" />
       </div>
 
       {/* Top ribbon */}
@@ -40,7 +40,7 @@ export function MovingRibbon() {
             key={`top-${index}`}
             className="flex items-center mx-6 group"
           >
-            <div className="flex items-center space-x-3 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors duration-300">
+            <div className="flex items-center space-x-3 px-4 py-2 glass-card hover:glass-intense transition-all duration-300">
               <span className="text-primary/70 text-sm font-medium">
                 {skillIcons[index % skillIcons.length]}
               </span>
@@ -48,7 +48,7 @@ export function MovingRibbon() {
                 {skill}
               </span>
             </div>
-            <div className="w-3 h-3 bg-gradient-to-r from-primary to-purple-500 mx-6 animate-pulse" />
+            <div className="w-3 h-3 bg-gradient-to-r from-primary to-cyan-400 mx-6 animate-pulse" />
           </div>
         ))}
       </motion.div>
@@ -56,7 +56,7 @@ export function MovingRibbon() {
       {/* Middle decorative line */}
       <div className="relative flex items-center justify-center my-4">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        <div className="absolute w-4 h-4 bg-gradient-to-r from-primary to-purple-500 animate-pulse" />
+        <div className="absolute w-4 h-4 bg-gradient-to-r from-primary to-emerald-400 animate-pulse" />
       </div>
 
       {/* Bottom ribbon - moving in opposite direction */}

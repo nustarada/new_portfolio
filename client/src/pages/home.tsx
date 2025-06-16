@@ -568,11 +568,11 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-24 relative overflow-hidden">
         {/* Animated Background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        <div className="absolute inset-0 grain-texture">
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/15 blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-r from-cyan-400/15 to-emerald-400/15 blur-3xl animate-pulse delay-1000" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         </div>
         
         <div className="max-w-6xl mx-auto px-6 relative z-10">
@@ -613,10 +613,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <Card className="relative overflow-hidden bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-2xl border border-white/10 p-12">
+            <Card className="relative overflow-hidden glass-intense grain-texture p-12">
               {/* Subtle Background Effects */}
-              <div className="absolute top-0 left-0 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-2xl" />
+              <div className="absolute top-0 left-0 w-40 h-40 bg-primary/8 blur-3xl" />
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400/8 to-emerald-400/8 blur-2xl" />
               
               <div className="relative z-10 space-y-12">
                 {/* Profile Header */}
@@ -750,7 +750,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="group h-full"
               >
-                <Card className="relative h-full overflow-hidden bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/70 backdrop-blur-xl border-0 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700">
+                <Card className="relative h-full overflow-hidden glass-card grain-texture hover:glass-intense border-0 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-700">
                   {/* Header Section */}
                   <div className="relative p-6 pb-4">
                     <div className="flex items-start justify-between mb-4">
@@ -781,7 +781,7 @@ export default function Home() {
 
                   {/* Visual Section */}
                   <div className="relative px-6 pb-4">
-                    <div className="relative aspect-[16/10] bg-gradient-to-br from-primary/30 via-purple-500/20 to-pink-500/25 overflow-hidden mb-4">
+                    <div className="relative aspect-[16/10] bg-gradient-to-br from-primary/30 via-cyan-400/20 to-emerald-400/25 overflow-hidden mb-4">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                       
                       {/* Central Icon */}
