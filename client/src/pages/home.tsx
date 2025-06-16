@@ -408,7 +408,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <motion.h2 
-              className="text-4xl md:text-6xl font-black mb-6 text-white glow-text"
+              className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-primary to-cyan-400 bg-clip-text text-transparent glow-text"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -580,7 +580,7 @@ export default function Home() {
             className="text-center mb-20"
           >
             <motion.h2 
-              className="text-4xl md:text-6xl font-black mb-6 text-white glow-text"
+              className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-primary to-cyan-400 bg-clip-text text-transparent glow-text"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
