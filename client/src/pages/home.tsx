@@ -784,18 +784,17 @@ export default function Home() {
 
                   {/* CTA Section */}
                   <div className="p-6 pt-0">
-                    <Link href="/case-study">
-                      <Button 
-                        className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 text-white font-semibold py-3 border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-purple-500/25"
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                        
-                        <div className="relative z-10 flex items-center justify-center space-x-2">
-                          <span>Explore Project</span>
-                          <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
-                        </div>
-                      </Button>
-                    </Link>
+                    <Button 
+                      onClick={() => toast({ title: "Coming Soon", description: "Case studies are currently under construction. Stay tuned!" })}
+                      className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 text-white font-semibold py-3 border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-purple-500/25"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                      
+                      <div className="relative z-10 flex items-center justify-center space-x-2">
+                        <span>Explore Project</span>
+                        <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
+                      </div>
+                    </Button>
                   </div>
 
                   {/* Ambient Glow */}
