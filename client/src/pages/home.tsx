@@ -466,21 +466,21 @@ export default function Home() {
                 whileHover={{ scale: 1.02, y: -8 }}
                 className="group"
               >
-                <Card className="relative overflow-hidden text-center p-10 bg-gradient-to-br from-white/8 via-white/4 to-transparent backdrop-blur-2xl border border-white/15 hover:border-primary/40 transition-all duration-500 rounded-3xl h-full">
+                <Card className="relative overflow-hidden text-center p-10 bg-gradient-to-br from-white/8 via-white/4 to-transparent backdrop-blur-2xl border border-white/15 hover:border-primary/40 transition-all duration-500 h-full">
                   {/* Animated Background Effects */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-[0.08] transition-opacity duration-500`} />
                   
                   {/* Floating Particles */}
-                  <div className="absolute top-4 right-4 w-2 h-2 bg-primary/60 rounded-full animate-pulse" />
-                  <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-purple-400/60 rounded-full animate-pulse delay-500" />
-                  <div className="absolute top-1/2 left-4 w-1 h-1 bg-pink-400/50 rounded-full animate-pulse delay-1000" />
+                  <div className="absolute top-4 right-4 w-2 h-2 bg-primary/60 animate-pulse" />
+                  <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-purple-400/60 animate-pulse delay-500" />
+                  <div className="absolute top-1/2 left-4 w-1 h-1 bg-pink-400/50 animate-pulse delay-1000" />
                   
                   {/* Content */}
                   <div className="relative z-10 space-y-6">
                     {/* Icon Container */}
                     <motion.div 
-                      className="w-20 h-20 mx-auto rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20 group-hover:scale-110 transition-all duration-500"
+                      className="w-20 h-20 mx-auto flex items-center justify-center backdrop-blur-sm border border-white/20 group-hover:scale-110 transition-all duration-500"
                       style={{
                         background: `linear-gradient(135deg, ${
                           stat.color === 'from-primary to-purple-500' ? 'rgba(124, 58, 237, 0.2), rgba(168, 85, 247, 0.2)' :
@@ -622,7 +622,7 @@ export default function Home() {
                 {/* Profile Header */}
                 <div className="text-center">
                   <motion.div 
-                    className="w-24 h-24 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-3xl flex items-center justify-center mx-auto mb-8 backdrop-blur-sm border border-white/10"
+                    className="w-24 h-24 bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center mx-auto mb-8 backdrop-blur-sm border border-white/10"
                     whileHover={{ scale: 1.05, rotate: 5 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -639,7 +639,7 @@ export default function Home() {
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-semibold text-white mb-4 flex items-center">
-                        <span className="w-3 h-3 bg-primary rounded-full mr-3"></span>
+                        <span className="w-3 h-3 bg-primary mr-3"></span>
                         Experience & Expertise
                       </h4>
                       <p className="text-white/80 leading-relaxed">
@@ -651,7 +651,7 @@ export default function Home() {
                     
                     <div>
                       <h4 className="text-xl font-semibold text-white mb-4 flex items-center">
-                        <span className="w-3 h-3 bg-purple-400 rounded-full mr-3"></span>
+                        <span className="w-3 h-3 bg-purple-400 mr-3"></span>
                         Innovation Focus
                       </h4>
                       <p className="text-white/80 leading-relaxed">

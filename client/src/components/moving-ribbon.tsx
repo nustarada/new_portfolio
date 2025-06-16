@@ -48,7 +48,7 @@ export function MovingRibbon() {
                 {skill}
               </span>
             </div>
-            <div className="w-3 h-3 bg-gradient-to-r from-primary to-purple-500 rounded-full mx-6 animate-pulse" />
+            <div className="w-3 h-3 bg-gradient-to-r from-primary to-purple-500 mx-6 animate-pulse" />
           </div>
         ))}
       </motion.div>
@@ -56,7 +56,7 @@ export function MovingRibbon() {
       {/* Middle decorative line */}
       <div className="relative flex items-center justify-center my-4">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        <div className="absolute w-4 h-4 bg-gradient-to-r from-primary to-purple-500 rounded-full animate-pulse" />
+        <div className="absolute w-4 h-4 bg-gradient-to-r from-primary to-purple-500 animate-pulse" />
       </div>
 
       {/* Bottom ribbon - moving in opposite direction */}
@@ -77,7 +77,7 @@ export function MovingRibbon() {
             key={`bottom-${index}`}
             className="flex items-center mx-6 group"
           >
-            <div className="flex items-center space-x-3 px-3 py-1.5 rounded-full bg-white/3 backdrop-blur-sm border border-white/5 hover:bg-white/8 transition-colors duration-300">
+            <div className="flex items-center space-x-3 px-3 py-1.5 bg-white/3 backdrop-blur-sm border border-white/5 hover:bg-white/8 transition-colors duration-300">
               <span className="text-purple-400/60 text-xs font-medium">
                 {skillIcons[(index + 3) % skillIcons.length]}
               </span>
@@ -85,7 +85,7 @@ export function MovingRibbon() {
                 {skill}
               </span>
             </div>
-            <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-6 animate-pulse delay-500" />
+            <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 mx-6 animate-pulse delay-500" />
           </div>
         ))}
       </motion.div>
