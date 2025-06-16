@@ -287,7 +287,7 @@ export default function CaseStudy() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="bg-gradient-to-r from-primary/10 to-transparent p-4 rounded-xl border border-primary/20"
+                    className="glass-card grain-texture hover:glass-intense p-4 border border-primary/20 transition-all duration-300"
                   >
                     <div className="text-3xl font-bold text-primary mb-1">
                       {metric.value}

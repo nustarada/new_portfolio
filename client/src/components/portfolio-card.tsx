@@ -17,7 +17,7 @@ export function PortfolioCard({ title, description, image, tags, index }: Portfo
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, duration: 0.6 }}
-      className="project-card elegant-card rounded-xl overflow-hidden relative group cursor-pointer bg-card"
+      className="project-card glass-card grain-texture hover:glass-intense overflow-hidden relative group cursor-pointer transition-all duration-300"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ y: -8 }}
@@ -73,12 +73,12 @@ export function PortfolioCard({ title, description, image, tags, index }: Portfo
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.1 + tagIndex * 0.03 }}
-              className={`px-3 py-1 text-xs font-inter font-medium rounded-full transition-all duration-200 ${
+              className={`px-3 py-1 text-xs font-inter font-medium glass-card grain-texture hover:glass-intense transition-all duration-200 ${
                 tagIndex % 3 === 0 
-                  ? 'bg-accent-indigo/10 text-accent-indigo hover:bg-accent-indigo/20' :
+                  ? 'text-primary border-primary/20' :
                 tagIndex % 3 === 1 
-                  ? 'bg-accent-emerald/10 text-accent-emerald hover:bg-accent-emerald/20' :
-                  'bg-accent-gold/10 text-accent-gold hover:bg-accent-gold/20'
+                  ? 'text-cyan-400 border-cyan-400/20' :
+                  'text-emerald-400 border-emerald-400/20'
               }`}
             >
               {tag}
