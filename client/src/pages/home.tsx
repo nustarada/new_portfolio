@@ -397,11 +397,11 @@ export default function Home() {
       {/* Statistics Section */}
       <section className="py-20 relative overflow-hidden">
         {/* Enhanced Background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-900/90 to-slate-950/95" />
-          <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+        <div className="absolute inset-0 grain-texture">
+          <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95" />
+          <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/20 blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-r from-cyan-400/20 to-emerald-400/20 blur-3xl animate-pulse delay-1000" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -466,15 +466,15 @@ export default function Home() {
                 whileHover={{ scale: 1.02, y: -8 }}
                 className="group"
               >
-                <Card className="relative overflow-hidden text-center p-10 bg-gradient-to-br from-white/8 via-white/4 to-transparent backdrop-blur-2xl border border-white/15 hover:border-primary/40 transition-all duration-500 h-full">
+                <Card className="relative overflow-hidden text-center p-10 glass-card grain-texture hover:glass-intense transition-all duration-500 h-full">
                   {/* Animated Background Effects */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-[0.08] transition-opacity duration-500`} />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-cyan-400/15 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/10 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Floating Particles */}
-                  <div className="absolute top-4 right-4 w-2 h-2 bg-primary/60 animate-pulse" />
-                  <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-purple-400/60 animate-pulse delay-500" />
-                  <div className="absolute top-1/2 left-4 w-1 h-1 bg-pink-400/50 animate-pulse delay-1000" />
+                  <div className="absolute top-4 right-4 w-2 h-2 bg-primary/80 animate-pulse" />
+                  <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-cyan-400/80 animate-pulse delay-500" />
+                  <div className="absolute top-1/2 left-4 w-1 h-1 bg-emerald-400/70 animate-pulse delay-1000" />
                   
                   {/* Content */}
                   <div className="relative z-10 space-y-6">
@@ -483,9 +483,9 @@ export default function Home() {
                       className="w-20 h-20 mx-auto flex items-center justify-center backdrop-blur-sm border border-white/20 group-hover:scale-110 transition-all duration-500"
                       style={{
                         background: `linear-gradient(135deg, ${
-                          stat.color === 'from-primary to-purple-500' ? 'rgba(124, 58, 237, 0.2), rgba(168, 85, 247, 0.2)' :
-                          stat.color === 'from-purple-500 to-pink-500' ? 'rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.2)' :
-                          'rgba(236, 72, 153, 0.2), rgba(251, 146, 60, 0.2)'
+                          stat.color === 'from-primary to-purple-500' ? 'hsla(185, 84%, 55%, 0.25), hsla(285, 85%, 60%, 0.25)' :
+                          stat.color === 'from-purple-500 to-pink-500' ? 'hsla(180, 70%, 50%, 0.25), hsla(170, 60%, 45%, 0.25)' :
+                          'hsla(45, 93%, 70%, 0.25), hsla(25, 95%, 60%, 0.25)'
                         })`
                       }}
                       whileHover={{ rotate: 5 }}
