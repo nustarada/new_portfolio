@@ -207,44 +207,7 @@ export default function Home() {
       <div className="floating-orb w-96 h-96 top-1/2 -right-48 opacity-20" style={{ animationDelay: '2s' }} />
       <div className="floating-orb w-48 h-48 bottom-20 left-1/4 opacity-25" style={{ animationDelay: '4s' }} />
 
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 glass-card grain-texture border-b border-white/20">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <motion.div 
-            className="flex items-center"
-            whileHover={{ scale: 1.05 }}
-          >
-            <img src={logoPath} alt="Karan Gadhave" className="w-10 h-10" />
-          </motion.div>
-          
-          <div className="hidden md:flex items-center space-x-8">
-            {['About', 'Projects'].map((item) => (
-              <motion.a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className={`text-sm font-semibold transition-colors hover:text-primary ${
-                  activeSection === item.toLowerCase() ? 'text-primary' : 'text-foreground opacity-80'
-                }`}
-                whileHover={{ y: -2 }}
-              >
-                {item}
-              </motion.a>
-            ))}
-            <motion.button
-              onClick={() => setIsResumeOpen(true)}
-              className="text-sm font-semibold transition-colors hover:text-primary text-foreground opacity-80"
-              whileHover={{ y: -2 }}
-            >
-              Resume
-            </motion.button>
-          </div>
 
-          <Button variant="outline" size="sm" className="glass-card hover:glass-intense border-white/20">
-            <Mail className="w-4 h-4 mr-2" />
-            Contact Me
-          </Button>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <section ref={heroRef} id="hero" className="min-h-screen flex items-center justify-center relative cyber-grid pt-20 pb-8">
