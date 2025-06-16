@@ -395,61 +395,155 @@ export default function Home() {
       <MovingRibbon />
 
       {/* Statistics Section */}
-      <section className="py-16 relative">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-20 relative overflow-hidden">
+        {/* Enhanced Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-900/80 to-slate-950/90" />
+          <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <div className="relative inline-block mb-6">
-              <h2 className="text-4xl md:text-5xl font-bold glow-text relative z-10">ACHIEVEMENTS</h2>
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
-            </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Metrics that showcase my impact and experience in product design and team leadership
+            <motion.h2 
+              className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-primary to-purple-400 bg-clip-text text-transparent"
+              initial={{ scale: 0.9 }}
+              whileInView={{ scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              ACHIEVEMENTS
+            </motion.h2>
+            <motion.div 
+              className="w-32 h-1 bg-gradient-to-r from-primary via-purple-500 to-pink-500 mx-auto rounded-full mb-8"
+              initial={{ width: 0 }}
+              whileInView={{ width: 128 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            />
+            <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+              Proven impact through innovative design solutions and exceptional team leadership
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { number: '4+', label: 'Years Experience', color: 'from-purple-500 to-pink-500', icon: Clock },
-              { number: '50+', label: 'Projects Delivered', color: 'from-blue-500 to-purple-500', icon: Zap },
-              { number: '15+', label: 'Team Members Led', color: 'from-green-500 to-blue-500', icon: Users }
+              { 
+                number: '4+', 
+                label: 'Years Experience', 
+                color: 'from-primary to-purple-500', 
+                icon: Clock,
+                description: 'Specialized UI/UX expertise'
+              },
+              { 
+                number: '50+', 
+                label: 'Projects Delivered', 
+                color: 'from-purple-500 to-pink-500', 
+                icon: Zap,
+                description: 'Successful design solutions'
+              },
+              { 
+                number: '15+', 
+                label: 'Team Members Led', 
+                color: 'from-pink-500 to-orange-500', 
+                icon: Users,
+                description: 'Cross-functional collaboration'
+              }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.7, delay: index * 0.15 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={{ scale: 1.02, y: -8 }}
                 className="group"
               >
-                <Card className="relative overflow-hidden text-center p-8 bg-gradient-to-br from-card/80 via-card/60 to-card/40 backdrop-blur-md border border-white/10 hover:border-primary/30 transition-all duration-300">
-                  {/* Background Glow */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                <Card className="relative overflow-hidden text-center p-10 bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-2xl border border-white/10 hover:border-primary/30 transition-all duration-500 rounded-3xl h-full">
+                  {/* Animated Background Effects */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500`} />
+                  
+                  {/* Floating Particles */}
+                  <div className="absolute top-4 right-4 w-2 h-2 bg-primary/40 rounded-full animate-pulse" />
+                  <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-purple-400/40 rounded-full animate-pulse delay-500" />
                   
                   {/* Content */}
-                  <div className="relative z-10">
-                    <div className={`w-16 h-16 mx-auto bg-gradient-to-r ${stat.color} bg-opacity-20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <stat.icon className="w-8 h-8 text-white" />
-                    </div>
+                  <div className="relative z-10 space-y-6">
+                    {/* Icon Container */}
+                    <motion.div 
+                      className={`w-20 h-20 mx-auto bg-gradient-to-br ${stat.color} bg-opacity-20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/10 group-hover:scale-110 transition-all duration-500`}
+                      whileHover={{ rotate: 5 }}
+                    >
+                      <stat.icon className="w-10 h-10 text-white" />
+                    </motion.div>
                     
-                    <div className={`text-5xl md:text-6xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3`}>
+                    {/* Number Display */}
+                    <motion.div 
+                      className={`text-6xl md:text-7xl font-black bg-gradient-to-br ${stat.color} bg-clip-text text-transparent leading-none`}
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{ duration: 0.6, delay: index * 0.15 + 0.3 }}
+                      viewport={{ once: true }}
+                    >
                       {stat.number}
-                    </div>
+                    </motion.div>
                     
-                    <div className="text-base text-white/80 font-medium tracking-wide">
-                      {stat.label}
+                    {/* Label and Description */}
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-bold text-white tracking-wide">
+                        {stat.label}
+                      </h3>
+                      <p className="text-white/60 text-sm leading-relaxed">
+                        {stat.description}
+                      </p>
                     </div>
                   </div>
+
+                  {/* Hover Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                 </Card>
               </motion.div>
             ))}
           </div>
+
+          {/* Additional Stats Row */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-16 text-center"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+              {[
+                { metric: '60%', label: 'Faster Design Cycles', icon: '⚡' },
+                { metric: '95%', label: 'Client Satisfaction', icon: '⭐' }
+              ].map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  className="flex items-center justify-center space-x-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300"
+                  initial={{ opacity: 0, x: index === 0 ? -20 : 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <span className="text-3xl">{item.icon}</span>
+                  <div className="text-left">
+                    <div className="text-2xl font-bold text-primary">{item.metric}</div>
+                    <div className="text-white/70 text-sm">{item.label}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
