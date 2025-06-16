@@ -40,7 +40,7 @@ export function MovingRibbon() {
             key={`top-${index}`}
             className="flex items-center mx-6 group"
           >
-            <div className="flex items-center space-x-3 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors duration-300">
+            <div className="flex items-center space-x-3 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors duration-300">
               <span className="text-primary/70 text-sm font-medium">
                 {skillIcons[index % skillIcons.length]}
               </span>
