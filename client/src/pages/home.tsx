@@ -695,7 +695,7 @@ export default function Home() {
                     ].map((skill, index) => (
                       <motion.span
                         key={skill}
-                        className="px-4 py-2 bg-primary/10 border border-primary/20 text-white/90 text-sm font-medium hover:bg-primary/20 transition-colors duration-300"
+                        className="px-4 py-2 glass-card grain-texture text-white/90 text-sm font-medium hover:glass-intense transition-all duration-300"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.4, delay: index * 0.05 }}
@@ -872,7 +872,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Card className="group relative overflow-hidden p-10 bg-gradient-to-br from-card/90 via-card/70 to-card/50 backdrop-blur-md border border-white/15 hover:border-white/25 transition-all duration-500">
+            <Card className="group relative overflow-hidden p-10 glass-intense grain-texture hover:glass-card transition-all duration-500">
               {/* Background Elements */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-2xl" />
@@ -886,7 +886,7 @@ export default function Home() {
                 
                 <div className="space-y-8">
                   <blockquote className="relative text-center">
-                    <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-purple-400 to-primary/60"></div>
+                    <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-400 to-primary/60"></div>
                     <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium">
                       "Great design is invisible. It seamlessly bridges human needs with 
                       technological possibilities, creating experiences that feel natural, 
@@ -977,11 +977,11 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <Card className="group relative overflow-hidden p-10 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/85 backdrop-blur-xl border-2 border-primary/40 hover:border-primary/60 transition-all duration-700 shadow-2xl shadow-primary/20 rounded-3xl">
+          <Card className="group relative overflow-hidden p-10 glass-intense grain-texture hover:glass-card transition-all duration-700 shadow-2xl shadow-primary/20">
             {/* Background Effects */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-purple-500/10 to-transparent rounded-full blur-2xl" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-2xl" />
             
             <div className="relative z-10">
               <form 
@@ -1003,7 +1003,7 @@ export default function Home() {
                     <Input 
                       {...register('name', { required: "Name is required" })}
                       placeholder="Enter your name"
-                      className={`h-12 bg-white/5 border-2 ${errors.name ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm`}
+                      className={`h-12 glass-card grain-texture border-2 ${errors.name ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50`}
                     />
                     {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name.message as string}</p>}
                   </motion.div>
@@ -1029,7 +1029,7 @@ export default function Home() {
                       })}
                       type="email"
                       placeholder="your.email@company.com"
-                      className={`h-12 bg-white/5 border-2 ${errors.email ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm`}
+                      className={`h-12 glass-card grain-texture border-2 ${errors.email ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50`}
                     />
                     {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email.message as string}</p>}
                   </motion.div>
@@ -1050,7 +1050,7 @@ export default function Home() {
                     <Input 
                       {...register('location', { required: "Location is required" })}
                       placeholder="New York, USA"
-                      className={`h-12 bg-white/5 border-2 ${errors.location ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm`}
+                      className={`h-12 glass-card grain-texture border-2 ${errors.location ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50`}
                     />
                     {errors.location && <p className="text-red-400 text-sm mt-1">{errors.location.message as string}</p>}
                   </motion.div>
