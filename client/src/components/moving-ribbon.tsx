@@ -77,7 +77,7 @@ export function MovingRibbon() {
             key={`bottom-${index}`}
             className="flex items-center mx-6 group"
           >
-            <div className="flex items-center space-x-3 px-3 py-1.5 bg-white/3 backdrop-blur-sm border border-white/5 hover:bg-white/8 transition-colors duration-300">
+            <div className="flex items-center space-x-3 px-3 py-1.5 glass-card hover:glass-intense transition-all duration-300">
               <span className="text-purple-400/60 text-xs font-medium">
                 {skillIcons[(index + 3) % skillIcons.length]}
               </span>
@@ -85,7 +85,7 @@ export function MovingRibbon() {
                 {skill}
               </span>
             </div>
-            <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 mx-6 animate-pulse delay-500" />
+            <div className="w-2 h-2 bg-gradient-to-r from-emerald-400 to-cyan-400 mx-6 animate-pulse delay-500" />
           </div>
         ))}
       </motion.div>
