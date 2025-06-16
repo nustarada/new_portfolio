@@ -40,7 +40,8 @@ import {
   ArrowRight,
   X,
   MapPin,
-  FileText
+  FileText,
+  Lightbulb
 } from 'lucide-react';
 
 export default function Home() {
@@ -453,137 +454,222 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl opacity-60" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500/15 rounded-full blur-3xl opacity-60" />
+      <section id="about" className="py-24 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        </div>
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           {/* Section Header */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <div className="relative inline-block">
-              <h2 className="text-5xl md:text-7xl font-bold mb-6 glow-text relative z-10">ABOUT ME</h2>
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
-            </div>
-            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
-              Transforming ideas into exceptional digital experiences through strategic design and innovation
+            <motion.h2 
+              className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-primary to-purple-400 bg-clip-text text-transparent"
+              initial={{ scale: 0.9 }}
+              whileInView={{ scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              ABOUT ME
+            </motion.h2>
+            <motion.div 
+              className="w-24 h-1 bg-gradient-to-r from-primary to-purple-500 mx-auto rounded-full mb-8"
+              initial={{ width: 0 }}
+              whileInView={{ width: 96 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            />
+            <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+              Crafting the future of digital experiences through innovative design and cutting-edge technology
             </p>
           </motion.div>
 
-          {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Main Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             
-            {/* Left Column - Story & Stats */}
+            {/* Profile Card */}
             <motion.div
-              initial={{ opacity: 0, x: -100 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="lg:col-span-7 space-y-6"
+              className="relative"
             >
-              {/* Story Card */}
-              <Card className="group relative overflow-hidden p-10 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/85 backdrop-blur-xl border-2 border-primary/40 hover:border-primary/80 transition-all duration-500 shadow-2xl shadow-primary/20 rounded-2xl">
-                {/* Card Background Pattern */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-2xl" />
+              <Card className="group relative overflow-hidden bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 hover:border-primary/40 transition-all duration-700 rounded-3xl p-8">
+                {/* Animated Border */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
                 
-                <div className="relative z-10 space-y-8">
-                  <div className="flex items-center space-x-4 mb-8 pb-4 border-b border-primary/20">
-                    <div className="w-14 h-14 bg-gradient-to-br from-primary/30 to-purple-500/30 rounded-2xl flex items-center justify-center backdrop-blur-sm shadow-lg shadow-primary/20">
-                      <Brain className="w-7 h-7 text-primary" />
-                    </div>
+                <div className="relative z-10">
+                  {/* Avatar Section */}
+                  <div className="flex items-center space-x-6 mb-8">
+                    <motion.div 
+                      className="relative"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="w-20 h-20 bg-gradient-to-br from-primary/30 to-purple-500/30 rounded-2xl flex items-center justify-center backdrop-blur-sm shadow-2xl shadow-primary/30">
+                        <Brain className="w-10 h-10 text-white" />
+                      </div>
+                      <div className="absolute -inset-2 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-3xl blur-lg opacity-60" />
+                    </motion.div>
+                    
                     <div>
-                      <h3 className="text-3xl font-bold text-white mb-1">My Journey</h3>
-                      <p className="text-primary/80 text-sm">From Vision to Innovation</p>
+                      <h3 className="text-2xl font-bold text-white mb-2">Karan Gadhave</h3>
+                      <p className="text-primary text-lg font-semibold">Senior Product Designer</p>
+                      <p className="text-white/60 text-sm">AI Innovation Specialist</p>
                     </div>
                   </div>
                   
-                  <div className="space-y-6 text-lg text-white/90 leading-relaxed">
-                    <p className="relative">
-                      <span className="absolute -left-4 top-0 w-2 h-2 bg-primary rounded-full"></span>
-                      With <span className="text-primary font-bold bg-primary/10 px-2 py-1 rounded">four years of specialized experience</span> in UI/UX design, 
-                      I leverage cutting-edge AI design tools and platforms to create innovative digital solutions. My expertise spans 
-                      <span className="text-primary font-bold">Figma design workflows, AI-powered design automation, and Replit-based prototyping</span> 
-                      to deliver exceptional user experiences.
+                  {/* Bio */}
+                  <div className="space-y-6 text-white/90 leading-relaxed">
+                    <p className="text-lg">
+                      With <span className="text-primary font-semibold">4+ years of specialized experience</span> in UI/UX design, 
+                      I'm passionate about leveraging AI-powered tools and modern platforms to create 
+                      <span className="text-primary font-semibold"> innovative digital solutions</span> that push the boundaries of user experience.
                     </p>
                     
-                    <p className="relative">
-                      <span className="absolute -left-4 top-0 w-2 h-2 bg-purple-400 rounded-full"></span>
-                      As a design innovator, I specialize in integrating AI tools into design processes, mastering 
-                      <span className="text-primary font-bold">Figma's advanced features, and utilizing Replit for rapid design-to-code workflows</span>. 
-                      This unique approach has enabled me to <span className="text-primary font-bold bg-primary/10 px-2 py-1 rounded">reduce design iteration cycles by 60% 
-                      while maintaining design excellence</span>.
+                    <p className="text-lg">
+                      My expertise in <span className="text-primary font-semibold">Figma workflows, AI design automation, and Replit prototyping</span> 
+                      has enabled me to <span className="bg-primary/20 text-primary px-2 py-1 rounded-lg font-semibold">reduce design cycles by 60%</span> 
+                      while maintaining exceptional quality standards.
                     </p>
                   </div>
                 </div>
               </Card>
-
-
             </motion.div>
 
-            {/* Right Column - Skills & Philosophy */}
+            {/* Skills & Values */}
             <motion.div
-              initial={{ opacity: 0, x: 100 }}
+              initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="lg:col-span-5 space-y-8"
+              className="space-y-6"
             >
-              {/* Core Expertise */}
-              <Card className="group relative overflow-hidden p-8 bg-gradient-to-br from-primary/15 via-primary/10 to-transparent backdrop-blur-md border border-primary/30 hover:border-primary/50 transition-all duration-500">
-                {/* Background Elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-xl" />
+              {/* Skills Grid */}
+              <Card className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-transparent backdrop-blur-xl border border-primary/20 rounded-3xl p-8">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/20 to-transparent rounded-full blur-2xl" />
                 
                 <div className="relative z-10">
                   <div className="flex items-center space-x-3 mb-8">
-                    <div className="w-10 h-10 bg-gradient-to-br from-primary/30 to-purple-500/30 rounded-lg flex items-center justify-center">
-                      <Code2 className="w-5 h-5 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white">Core Expertise</h3>
+                    <Sparkles className="w-6 h-6 text-primary" />
+                    <h3 className="text-2xl font-bold text-white">Core Skills</h3>
                   </div>
                   
-                  <div className="grid grid-cols-1 gap-4">
+                  <div className="grid grid-cols-2 gap-4">
                     {[
-                      'AI Design Tools', 'Figma Mastery', 'Replit Prototyping', 'Design Systems',
-                      'User Research', 'AI-Powered Workflows', 'Rapid Prototyping', 'Design Automation'
+                      { name: 'AI Design Tools', level: 95 },
+                      { name: 'Figma Mastery', level: 98 },
+                      { name: 'Replit Prototyping', level: 90 },
+                      { name: 'Design Systems', level: 92 },
+                      { name: 'User Research', level: 88 },
+                      { name: 'Design Automation', level: 85 }
                     ].map((skill, index) => (
                       <motion.div
-                        key={skill}
-                        className="group/item relative overflow-hidden flex items-center space-x-4 p-4 rounded-xl bg-white/5 hover:bg-primary/15 border border-transparent hover:border-primary/20 transition-all duration-300"
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        key={skill.name}
+                        className="group/skill relative"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         viewport={{ once: true }}
-                        whileHover={{ x: 8 }}
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
-                        <motion.div 
-                          className="relative z-10 w-4 h-4 bg-gradient-to-r from-primary via-purple-400 to-pink-400 rounded-full flex items-center justify-center"
-                          whileHover={{ scale: 1.2, rotate: 90 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <div className="w-2 h-2 bg-white rounded-full opacity-80" />
-                        </motion.div>
-                        <span className="relative z-10 text-white/90 font-medium group-hover/item:text-white transition-colors">
-                          {skill}
-                        </span>
+                        <div className="p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/30 transition-all duration-300">
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-white/90 font-medium text-sm">{skill.name}</span>
+                            <span className="text-primary text-xs font-semibold">{skill.level}%</span>
+                          </div>
+                          <div className="w-full bg-white/10 rounded-full h-1.5 overflow-hidden">
+                            <motion.div
+                              className="h-full bg-gradient-to-r from-primary to-purple-500 rounded-full"
+                              initial={{ width: 0 }}
+                              whileInView={{ width: `${skill.level}%` }}
+                              transition={{ duration: 1, delay: index * 0.1 + 0.5 }}
+                              viewport={{ once: true }}
+                            />
+                          </div>
+                        </div>
                       </motion.div>
                     ))}
                   </div>
                 </div>
               </Card>
 
-
+              {/* Values */}
+              <Card className="relative overflow-hidden bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-transparent backdrop-blur-xl border border-purple-500/20 rounded-3xl p-8">
+                <div className="absolute bottom-0 left-0 w-28 h-28 bg-gradient-to-tr from-purple-500/20 to-transparent rounded-full blur-2xl" />
+                
+                <div className="relative z-10">
+                  <div className="flex items-center space-x-3 mb-6">
+                    <Target className="w-6 h-6 text-purple-400" />
+                    <h3 className="text-2xl font-bold text-white">Design Values</h3>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    {[
+                      { icon: '🎯', title: 'User-Centered', desc: 'Every decision driven by user needs' },
+                      { icon: '⚡', title: 'AI-Powered', desc: 'Leveraging technology for efficiency' },
+                      { icon: '🚀', title: 'Innovation-First', desc: 'Pushing creative boundaries daily' }
+                    ].map((value, index) => (
+                      <motion.div
+                        key={value.title}
+                        className="flex items-start space-x-4 p-3 rounded-xl hover:bg-white/5 transition-colors duration-300"
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <span className="text-2xl">{value.icon}</span>
+                        <div>
+                          <h4 className="text-white font-semibold mb-1">{value.title}</h4>
+                          <p className="text-white/70 text-sm">{value.desc}</p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </Card>
             </motion.div>
           </div>
+
+          {/* Philosophy Quote */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <Card className="relative overflow-hidden bg-gradient-to-r from-primary/10 via-purple-500/10 to-pink-500/10 backdrop-blur-xl border border-white/20 rounded-3xl p-12 max-w-4xl mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-purple-500/5 to-pink-500/5" />
+              
+              <div className="relative z-10">
+                <motion.div
+                  className="w-16 h-16 bg-gradient-to-br from-primary/30 to-purple-500/30 rounded-2xl flex items-center justify-center mx-auto mb-8"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Lightbulb className="w-8 h-8 text-white" />
+                </motion.div>
+                
+                <blockquote className="text-2xl md:text-3xl font-light text-white/95 italic leading-relaxed mb-6">
+                  "Design is not just what it looks like and feels like. 
+                  Design is <span className="text-primary font-semibold">how it works</span> — 
+                  and how it <span className="text-purple-400 font-semibold">transforms lives</span>."
+                </blockquote>
+                
+                <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto" />
+              </div>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
