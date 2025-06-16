@@ -354,11 +354,7 @@ export default function Home() {
               >
                 <Button 
                   size="lg" 
-                  style={{
-                    background: 'linear-gradient(to right, hsl(280, 100%, 70%), hsl(260, 100%, 75%), hsl(280, 100%, 70%))',
-                    border: 'none'
-                  }}
-                  className="relative overflow-hidden px-12 py-6 text-lg font-bold text-white shadow-2xl hover:scale-105 transition-all duration-300 glass-intense grain-texture"
+                  className="relative overflow-hidden px-12 py-6 text-lg font-bold text-white bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 hover:from-purple-700 hover:via-violet-700 hover:to-purple-700 shadow-2xl shadow-purple-500/25 hover:scale-105 transition-all duration-300 border-0"
                 >
                   {/* Animated Background */}
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/hero-cta:translate-x-full transition-transform duration-700" />
@@ -1113,12 +1109,7 @@ export default function Home() {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    style={{
-                      background: 'linear-gradient(to right, hsl(280, 100%, 70%), hsl(260, 100%, 75%), hsl(280, 100%, 70%))',
-                      border: 'none',
-                      boxShadow: '0 15px 40px hsla(280, 100%, 70%, 0.5)'
-                    }}
-                    className="group/btn relative w-full h-16 text-white font-bold text-xl glass-intense grain-texture overflow-hidden transition-all duration-300 hover:scale-[1.02] disabled:opacity-50"
+                    className="group/btn relative w-full h-16 text-white font-bold text-xl bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 hover:from-purple-700 hover:via-violet-700 hover:to-purple-700 shadow-2xl shadow-purple-500/50 overflow-hidden transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 border-0"
                     disabled={contactMutation.isPending}
                   >
                     {/* Shimmer Effect */}
@@ -1349,9 +1340,6 @@ export default function Home() {
             contactSection?.scrollIntoView({ behavior: 'smooth' });
           }}
           className="group relative overflow-hidden bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 hover:from-purple-500 hover:via-violet-500 hover:to-purple-500 text-white font-bold px-8 py-4 text-lg border-0 hover:scale-110 transition-all duration-300 shadow-2xl shadow-purple-500/50"
-          style={{
-            boxShadow: '0 20px 60px rgba(147, 51, 234, 0.6), 0 0 40px rgba(147, 51, 234, 0.4)'
-          }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
           
