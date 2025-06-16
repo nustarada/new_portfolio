@@ -480,10 +480,17 @@ export default function Home() {
                   <div className="relative z-10 space-y-6">
                     {/* Icon Container */}
                     <motion.div 
-                      className={`w-20 h-20 mx-auto bg-gradient-to-br ${stat.color} bg-opacity-20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/10 group-hover:scale-110 transition-all duration-500`}
+                      className="w-20 h-20 mx-auto rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20 group-hover:scale-110 transition-all duration-500"
+                      style={{
+                        background: `linear-gradient(135deg, ${
+                          stat.color === 'from-primary to-purple-500' ? 'rgba(124, 58, 237, 0.2), rgba(168, 85, 247, 0.2)' :
+                          stat.color === 'from-purple-500 to-pink-500' ? 'rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.2)' :
+                          'rgba(236, 72, 153, 0.2), rgba(251, 146, 60, 0.2)'
+                        })`
+                      }}
                       whileHover={{ rotate: 5 }}
                     >
-                      <stat.icon className="w-10 h-10 text-white" />
+                      <stat.icon className="w-10 h-10 text-white drop-shadow-lg" />
                     </motion.div>
                     
                     {/* Number Display */}
