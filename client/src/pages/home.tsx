@@ -613,7 +613,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <Card className="relative overflow-hidden bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-2xl border border-white/10 rounded-3xl p-12">
+            <Card className="relative overflow-hidden bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-2xl border border-white/10 p-12">
               {/* Subtle Background Effects */}
               <div className="absolute top-0 left-0 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
               <div className="absolute bottom-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-2xl" />
@@ -673,7 +673,7 @@ export default function Home() {
                     ].map((principle, index) => (
                       <motion.div
                         key={principle.title}
-                        className="flex items-start space-x-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-300 border border-white/5"
+                        className="flex items-start space-x-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-300 border border-white/5"
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -700,7 +700,7 @@ export default function Home() {
                     ].map((skill, index) => (
                       <motion.span
                         key={skill}
-                        className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-white/90 text-sm font-medium hover:bg-primary/20 transition-colors duration-300"
+                        className="px-4 py-2 bg-primary/10 border border-primary/20 text-white/90 text-sm font-medium hover:bg-primary/20 transition-colors duration-300"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.4, delay: index * 0.05 }}
@@ -750,7 +750,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="group h-full"
               >
-                <Card className="relative h-full overflow-hidden bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/70 backdrop-blur-xl border-0 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 rounded-3xl">
+                <Card className="relative h-full overflow-hidden bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/70 backdrop-blur-xl border-0 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700">
                   {/* Header Section */}
                   <div className="relative p-6 pb-4">
                     <div className="flex items-start justify-between mb-4">
@@ -781,19 +781,19 @@ export default function Home() {
 
                   {/* Visual Section */}
                   <div className="relative px-6 pb-4">
-                    <div className="relative aspect-[16/10] bg-gradient-to-br from-primary/30 via-purple-500/20 to-pink-500/25 rounded-xl overflow-hidden mb-4">
+                    <div className="relative aspect-[16/10] bg-gradient-to-br from-primary/30 via-purple-500/20 to-pink-500/25 overflow-hidden mb-4">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                       
                       {/* Central Icon */}
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="relative">
-                          <div className="w-16 h-16 bg-gradient-to-br from-primary/40 to-purple-500/40 rounded-xl flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
+                          <div className="w-16 h-16 bg-gradient-to-br from-primary/40 to-purple-500/40 flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
                             <Terminal className="w-8 h-8 text-white" />
                           </div>
                           
                           {/* Floating Elements */}
-                          <div className="absolute -top-1 -right-1 w-4 h-4 bg-primary/60 rounded-full animate-pulse" />
-                          <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-purple-500/60 rounded-full animate-pulse delay-300" />
+                          <div className="absolute -top-1 -right-1 w-4 h-4 bg-primary/60 animate-pulse" />
+                          <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-purple-500/60 animate-pulse delay-300" />
                         </div>
                       </div>
                       
@@ -828,7 +828,7 @@ export default function Home() {
                   <div className="p-6 pt-0">
                     <Link href="/case-study">
                       <Button 
-                        className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-primary via-purple-600 to-primary text-white font-semibold py-3 rounded-xl border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary/25"
+                        className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-primary via-purple-600 to-primary text-white font-semibold py-3 border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary/25"
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                         
@@ -884,14 +884,14 @@ export default function Home() {
               
               <div className="relative z-10">
                 <div className="flex items-center justify-center mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/25 to-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/25 to-white/20 flex items-center justify-center backdrop-blur-sm">
                     <Sparkles className="w-8 h-8 text-primary" />
                   </div>
                 </div>
                 
                 <div className="space-y-8">
                   <blockquote className="relative text-center">
-                    <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-purple-400 to-primary/60 rounded-full"></div>
+                    <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-purple-400 to-primary/60"></div>
                     <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium">
                       "Great design is invisible. It seamlessly bridges human needs with 
                       technological possibilities, creating experiences that feel natural, 
