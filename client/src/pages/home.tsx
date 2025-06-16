@@ -398,10 +398,10 @@ export default function Home() {
       <section className="py-20 relative overflow-hidden">
         {/* Enhanced Background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-900/80 to-slate-950/90" />
-          <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-900/90 to-slate-950/95" />
+          <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -466,14 +466,15 @@ export default function Home() {
                 whileHover={{ scale: 1.02, y: -8 }}
                 className="group"
               >
-                <Card className="relative overflow-hidden text-center p-10 bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-2xl border border-white/10 hover:border-primary/30 transition-all duration-500 rounded-3xl h-full">
+                <Card className="relative overflow-hidden text-center p-10 bg-gradient-to-br from-white/8 via-white/4 to-transparent backdrop-blur-2xl border border-white/15 hover:border-primary/40 transition-all duration-500 rounded-3xl h-full">
                   {/* Animated Background Effects */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500`} />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-[0.08] transition-opacity duration-500`} />
                   
                   {/* Floating Particles */}
-                  <div className="absolute top-4 right-4 w-2 h-2 bg-primary/40 rounded-full animate-pulse" />
-                  <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-purple-400/40 rounded-full animate-pulse delay-500" />
+                  <div className="absolute top-4 right-4 w-2 h-2 bg-primary/60 rounded-full animate-pulse" />
+                  <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-purple-400/60 rounded-full animate-pulse delay-500" />
+                  <div className="absolute top-1/2 left-4 w-1 h-1 bg-pink-400/50 rounded-full animate-pulse delay-1000" />
                   
                   {/* Content */}
                   <div className="relative z-10 space-y-6">
