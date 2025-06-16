@@ -251,7 +251,7 @@ export default function CaseStudy() {
       </section>
 
       {/* Overview Section */}
-      <section className="py-20 relative">
+      <section className="py-20 relative glass-card grain-texture">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -315,7 +315,7 @@ export default function CaseStudy() {
       </section>
 
       {/* Process Timeline */}
-      <section className="py-20 relative">
+      <section className="py-20 relative glass-intense grain-texture">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -344,7 +344,7 @@ export default function CaseStudy() {
                   viewport={{ once: true }}
                   className={`flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
                 >
-                  <Card className={`neo-card p-8 max-w-lg ${index % 2 === 0 ? 'mr-8' : 'ml-8'} bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border-primary/20`}>
+                  <Card className={`p-8 max-w-lg ${index % 2 === 0 ? 'mr-8' : 'ml-8'} glass-card grain-texture hover:glass-intense border-primary/20 transition-all duration-300`}>
                     <div className="flex items-center justify-between mb-4">
                       <Badge variant="outline" className="text-xs px-3 py-1 border-primary/50">
                         Phase {index + 1}
@@ -385,7 +385,7 @@ export default function CaseStudy() {
       </section>
 
       {/* Key Features */}
-      <section className="py-20 relative">
+      <section className="py-20 relative glass-card grain-texture">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -413,7 +413,7 @@ export default function CaseStudy() {
                   whileHover={{ scale: 1.02, y: -5 }}
                   className="group"
                 >
-                  <Card className="neo-card p-8 h-full bg-gradient-to-br from-primary/5 to-transparent border-primary/20 group-hover:border-primary/40 transition-all duration-300">
+                  <Card className="p-8 h-full glass-card grain-texture hover:glass-intense border-primary/20 group-hover:border-primary/40 transition-all duration-300">
                     <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                       <Icon className="w-8 h-8 text-primary" />
                     </div>
@@ -434,7 +434,7 @@ export default function CaseStudy() {
       </section>
 
       {/* Outcomes & Impact */}
-      <section className="py-20 relative">
+      <section className="py-20 relative glass-intense grain-texture">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -443,13 +443,13 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 glow-text">Outcomes & Impact</h2>
+            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture">Outcomes & Impact</h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
               Measurable results that demonstrate the transformative power of thoughtful design and AI integration.
             </p>
           </motion.div>
 
-          <Card className="neo-card p-12 bg-gradient-to-br from-green-500/10 via-primary/5 to-transparent border-green-500/30">
+          <Card className="p-12 glass-intense grain-texture hover:glass-card border-green-500/30 transition-all duration-300">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold mb-6 text-green-400">Key Achievements</h3>
@@ -490,7 +490,7 @@ export default function CaseStudy() {
       </section>
 
       {/* Next Steps / CTA */}
-      <section className="py-20 relative">
+      <section className="py-20 relative glass-card grain-texture">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -499,7 +499,7 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-4xl font-bold glow-text">Ready to Transform Your Design Process?</h2>
+            <h2 className="text-4xl font-bold glow-text grain-texture">Ready to Transform Your Design Process?</h2>
             <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
               Let's discuss how AI-powered design systems can revolutionize your team's workflow and drive measurable business results.
             </p>
