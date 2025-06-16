@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  "AI Design Tools", "Figma Mastery", "Replit Prototyping", "Design Systems", 
+  "AI Design Tools", "Figma Mastery", "Advanced Prototyping", "Design Systems", 
   "User Research", "AI-Powered Workflows", "Rapid Prototyping", "Design Automation",
   "Product Strategy", "Cross-functional Leadership", "Data Visualization", 
   "Interaction Design", "Design Thinking", "Agile Methodology", "Brand Identity",
@@ -25,17 +25,17 @@ export function MovingRibbon() {
       {/* Top ribbon */}
       <motion.div
         className="flex whitespace-nowrap mb-6"
-        animate={{ x: [0, -2000] }}
+        animate={{ x: [0, -3000] }}
         transition={{
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 45,
+            duration: 60,
             ease: "linear",
           },
         }}
       >
-        {[...skills, ...skills, ...skills].map((skill, index) => (
+        {[...skills, ...skills, ...skills, ...skills, ...skills].map((skill, index) => (
           <div
             key={`top-${index}`}
             className="flex items-center mx-6 group"
@@ -62,17 +62,17 @@ export function MovingRibbon() {
       {/* Bottom ribbon - moving in opposite direction */}
       <motion.div
         className="flex whitespace-nowrap mt-6"
-        animate={{ x: [-2000, 0] }}
+        animate={{ x: [-3000, 0] }}
         transition={{
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 35,
+            duration: 50,
             ease: "linear",
           },
         }}
       >
-        {[...skills.slice().reverse(), ...skills.slice().reverse(), ...skills.slice().reverse()].map((skill, index) => (
+        {[...skills.slice().reverse(), ...skills.slice().reverse(), ...skills.slice().reverse(), ...skills.slice().reverse(), ...skills.slice().reverse()].map((skill, index) => (
           <div
             key={`bottom-${index}`}
             className="flex items-center mx-6 group"
