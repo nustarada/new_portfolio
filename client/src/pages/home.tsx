@@ -1069,7 +1069,7 @@ export default function Home() {
                     <Input 
                       {...register('subject', { required: "Subject is required" })}
                       placeholder="Project inquiry"
-                      className={`h-12 bg-white/5 border-2 ${errors.subject ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 rounded-xl backdrop-blur-sm`}
+                      className={`h-12 glass-card grain-texture border-2 ${errors.subject ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50`}
                     />
                     {errors.subject && <p className="text-red-400 text-sm mt-1">{errors.subject.message as string}</p>}
                   </motion.div>
@@ -1089,7 +1089,7 @@ export default function Home() {
                     {...register('message', { required: "Project details are required" })}
                     placeholder="Tell me about your project goals, challenges, timeline, and how I can help bring your vision to life..."
                     rows={6}
-                    className={`bg-white/5 border-2 ${errors.message ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 resize-none rounded-xl backdrop-blur-sm`}
+                    className={`glass-card grain-texture border-2 ${errors.message ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 resize-none`}
                   />
                   {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message.message as string}</p>}
                 </motion.div>
@@ -1105,11 +1105,11 @@ export default function Home() {
                     type="submit" 
                     size="lg" 
                     style={{
-                      background: 'linear-gradient(to right, hsl(262, 83%, 58%), hsl(280, 100%, 70%), hsl(262, 83%, 58%))',
+                      background: 'linear-gradient(to right, hsl(185, 84%, 55%), hsl(180, 70%, 50%), hsl(185, 84%, 55%))',
                       border: 'none',
-                      boxShadow: '0 15px 40px hsla(262, 83%, 58%, 0.5)'
+                      boxShadow: '0 15px 40px hsla(185, 84%, 55%, 0.5)'
                     }}
-                    className="group/btn relative w-full h-16 text-white font-bold text-xl rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02] disabled:opacity-50"
+                    className="group/btn relative w-full h-16 text-white font-bold text-xl glass-intense grain-texture overflow-hidden transition-all duration-300 hover:scale-[1.02] disabled:opacity-50"
                     disabled={contactMutation.isPending}
                   >
                     {/* Shimmer Effect */}
@@ -1144,10 +1144,10 @@ export default function Home() {
 
       {/* Resume Modal */}
       <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
-        <DialogContent className="max-w-6xl w-full max-h-[95vh] p-0 bg-slate-900/95 border-2 border-primary/40 backdrop-blur-xl overflow-hidden">
+        <DialogContent className="max-w-6xl w-full max-h-[95vh] p-0 glass-intense grain-texture border-2 border-primary/40 overflow-hidden">
           <DialogHeader className="p-4 pb-3 border-b border-primary/20">
             <DialogTitle className="text-xl font-bold text-white flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary/30 to-purple-500/30 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-primary/30 to-cyan-500/30 flex items-center justify-center">
                 <User className="w-4 h-4 text-primary" />
               </div>
               <span>Karan Gadhave - Resume</span>

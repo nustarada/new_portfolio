@@ -261,14 +261,14 @@ export default function CaseStudy() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <Card className="neo-card p-6 bg-gradient-to-br from-red-500/10 to-transparent border-red-500/30">
+                <Card className="p-6 glass-card grain-texture hover:glass-intense border-red-500/30 transition-all duration-300">
                   <h3 className="text-xl font-bold mb-4 text-red-400">The Challenge</h3>
                   <p className="text-white/80 leading-relaxed">
                     {caseStudyData.challenge}
                   </p>
                 </Card>
 
-                <Card className="neo-card p-6 bg-gradient-to-br from-green-500/10 to-transparent border-green-500/30">
+                <Card className="p-6 glass-card grain-texture hover:glass-intense border-green-500/30 transition-all duration-300">
                   <h3 className="text-xl font-bold mb-4 text-green-400">The Solution</h3>
                   <p className="text-white/80 leading-relaxed">
                     {caseStudyData.solution}
