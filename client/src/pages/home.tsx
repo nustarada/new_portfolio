@@ -280,11 +280,11 @@ export default function Home() {
           <div className="absolute top-[60%] right-[20%] w-24 h-24 bg-gradient-to-r from-emerald-400/25 to-teal-500/25 rounded-full blur-xl animate-pulse delay-1000" />
           <div className="absolute bottom-[30%] left-[25%] w-20 h-20 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-lg animate-pulse delay-2000" />
           
-          {/* Dynamic Lines */}
-          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-60" />
-          <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent opacity-60" />
-          <div className="absolute left-1/4 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent opacity-40" />
-          <div className="absolute right-1/3 top-0 w-px h-full bg-gradient-to-b from-transparent via-emerald-400/20 to-transparent opacity-40" />
+          {/* Dynamic Lines - more subtle */}
+          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent opacity-30" />
+          <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-400/15 to-transparent opacity-30" />
+          <div className="absolute left-1/4 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent opacity-20" />
+          <div className="absolute right-1/3 top-0 w-px h-full bg-gradient-to-b from-transparent via-emerald-400/10 to-transparent opacity-20" />
           
           {/* Grid Intersection Points */}
           <div className="grid-intersection" style={{ top: '25%', left: '25%', animationDelay: '0s' }} />
