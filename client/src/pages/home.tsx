@@ -257,12 +257,45 @@ export default function Home() {
 
 
       {/* Hero Section */}
-      <section ref={heroRef} id="hero" className="min-h-screen flex items-center justify-center relative cyber-grid pt-20 pb-8">
+      <section 
+        ref={heroRef} 
+        id="hero" 
+        className="min-h-screen flex items-center justify-center relative cyber-grid pt-20 pb-8"
+        style={{
+          '--mouse-x': `${mousePos.x}%`,
+          '--mouse-y': `${mousePos.y}%`,
+          '--wave-intensity': waveIntensity
+        } as React.CSSProperties}
+      >
         <LiquidGrid 
           mouseX={mousePos.x} 
           mouseY={mousePos.y} 
           intensity={waveIntensity}
         />
+        
+        {/* Dynamic Grid Overlay */}
+        <div className="absolute inset-0 pointer-events-none z-[1]">
+          {/* Floating Energy Orbs */}
+          <div className="absolute top-[20%] left-[15%] w-32 h-32 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-full blur-2xl animate-pulse" />
+          <div className="absolute top-[60%] right-[20%] w-24 h-24 bg-gradient-to-r from-emerald-400/25 to-teal-500/25 rounded-full blur-xl animate-pulse delay-1000" />
+          <div className="absolute bottom-[30%] left-[25%] w-20 h-20 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-lg animate-pulse delay-2000" />
+          
+          {/* Dynamic Lines */}
+          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-60" />
+          <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent opacity-60" />
+          <div className="absolute left-1/4 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent opacity-40" />
+          <div className="absolute right-1/3 top-0 w-px h-full bg-gradient-to-b from-transparent via-emerald-400/20 to-transparent opacity-40" />
+          
+          {/* Grid Intersection Points */}
+          <div className="grid-intersection" style={{ top: '25%', left: '25%', animationDelay: '0s' }} />
+          <div className="grid-intersection" style={{ top: '25%', right: '33%', animationDelay: '1s' }} />
+          <div className="grid-intersection" style={{ top: '75%', left: '25%', animationDelay: '2s' }} />
+          <div className="grid-intersection" style={{ top: '75%', right: '33%', animationDelay: '0.5s' }} />
+          <div className="grid-intersection" style={{ top: '50%', left: '50%', animationDelay: '1.5s' }} />
+          
+          {/* Scanning Line Effect */}
+          <div className="scan-line" />
+        </div>
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10 w-full">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
