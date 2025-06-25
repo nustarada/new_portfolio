@@ -48,9 +48,7 @@ export default function Home() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [activeSection, setActiveSection] = useState('');
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
-  const [isHoveringText, setIsHoveringText] = useState(false);
-  const [xrayEffect, setXrayEffect] = useState(false);
-  const [textCursorPos, setTextCursorPos] = useState({ x: 50, y: 50 });
+
   const [waveIntensity, setWaveIntensity] = useState(0.3);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
@@ -99,16 +97,6 @@ export default function Home() {
         requestAnimationFrame(() => {
           setCursorPos({ x: e.clientX, y: e.clientY });
           
-          // Update cursor position for X-ray effect
-          const heroText = document.querySelector('.hero-text-hover');
-          if (heroText && xrayEffect) {
-            const rect = heroText.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
-            (heroText as HTMLElement).style.setProperty('--cursor-x', `${x}%`);
-            (heroText as HTMLElement).style.setProperty('--cursor-y', `${y}%`);
-          }
-          
           // Update liquid wave position for hero section
           if (heroRef.current) {
             const rect = heroRef.current.getBoundingClientRect();
@@ -132,18 +120,7 @@ export default function Home() {
       }
     };
 
-    const handleTextHover = () => {
-      setIsHoveringText(true);
-      setXrayEffect(true);
-    };
-    const handleTextLeave = () => {
-      setIsHoveringText(false);
-      setXrayEffect(false);
-    };
 
-    const handleTextMouseMove = (e: MouseEvent) => {
-      // This is now handled in the global mouse move handler
-    };
 
     const handleScroll = () => {
       const sections = ['hero', 'about', 'projects', 'expertise', 'contact'];
@@ -165,19 +142,9 @@ export default function Home() {
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll);
     
-    const heroText = document.querySelector('.hero-text-hover');
-    if (heroText) {
-      heroText.addEventListener('mouseenter', handleTextHover);
-      heroText.addEventListener('mouseleave', handleTextLeave);
-    }
-
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
-      if (heroText) {
-        heroText.removeEventListener('mouseenter', handleTextHover);
-        heroText.removeEventListener('mouseleave', handleTextLeave);
-      }
     };
   }, []);
 
@@ -227,14 +194,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground cursor-glow relative overflow-hidden" style={{ backgroundColor: '#080808', color: '#fafafa' }}>
-      {/* Custom Cursor */}
-      <div 
-        className={`custom-cursor ${isHoveringText ? 'text-hover' : ''}`}
-        style={{
-          left: cursorPos.x,
-          top: cursorPos.y,
-        }}
-      />
+
 
       {/* Scroll Progress */}
       <motion.div className="scroll-indicator" style={{ scaleX }} />
@@ -368,10 +328,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <h1 
-                className={`text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-wide leading-tight hero-text-hover ${xrayEffect ? 'x-ray-effect' : ''}`}
-                data-text="KARAN GADHAVE"
-              >
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-wide leading-tight hero-text-hover">
                 <span className="text-gradient">KARAN GADHAVE</span>
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto"></div>
