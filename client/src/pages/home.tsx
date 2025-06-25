@@ -99,6 +99,16 @@ export default function Home() {
         requestAnimationFrame(() => {
           setCursorPos({ x: e.clientX, y: e.clientY });
           
+          // Update cursor position for X-ray effect
+          const heroText = document.querySelector('.hero-text-hover');
+          if (heroText && xrayEffect) {
+            const rect = heroText.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            (heroText as HTMLElement).style.setProperty('--cursor-x', `${x}%`);
+            (heroText as HTMLElement).style.setProperty('--cursor-y', `${y}%`);
+          }
+          
           // Update liquid wave position for hero section
           if (heroRef.current) {
             const rect = heroRef.current.getBoundingClientRect();
