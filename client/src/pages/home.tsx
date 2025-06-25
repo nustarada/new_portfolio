@@ -49,7 +49,8 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('');
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
   const [isHoveringText, setIsHoveringText] = useState(false);
-  const [showTextStroke, setShowTextStroke] = useState(false);
+  const [xrayEffect, setXrayEffect] = useState(false);
+  const [textCursorPos, setTextCursorPos] = useState({ x: 50, y: 50 });
   const [waveIntensity, setWaveIntensity] = useState(0.3);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
@@ -123,11 +124,23 @@ export default function Home() {
 
     const handleTextHover = () => {
       setIsHoveringText(true);
-      setShowTextStroke(true);
+      setXrayEffect(true);
     };
     const handleTextLeave = () => {
       setIsHoveringText(false);
-      setShowTextStroke(false);
+      setXrayEffect(false);
+    };
+
+    const handleTextMouseMove = (e: MouseEvent) => {
+      const heroText = document.querySelector('.hero-text-hover');
+      if (heroText && xrayEffect) {
+        const rect = heroText.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        setTextCursorPos({ x, y });
+        (heroText as HTMLElement).style.setProperty('--cursor-x', `${x}%`);
+        (heroText as HTMLElement).style.setProperty('--cursor-y', `${y}%`);
+      }
     };
 
     const handleScroll = () => {
@@ -154,6 +167,7 @@ export default function Home() {
     if (heroText) {
       heroText.addEventListener('mouseenter', handleTextHover);
       heroText.addEventListener('mouseleave', handleTextLeave);
+      heroText.addEventListener('mousemove', handleTextMouseMove);
     }
 
     return () => {
@@ -162,6 +176,7 @@ export default function Home() {
       if (heroText) {
         heroText.removeEventListener('mouseenter', handleTextHover);
         heroText.removeEventListener('mouseleave', handleTextLeave);
+        heroText.removeEventListener('mousemove', handleTextMouseMove);
       }
     };
   }, []);
@@ -219,9 +234,7 @@ export default function Home() {
           left: cursorPos.x,
           top: cursorPos.y,
         }}
-      >
-        {isHoveringText && 'KARAN'}
-      </div>
+      />
 
       {/* Scroll Progress */}
       <motion.div className="scroll-indicator" style={{ scaleX }} />
@@ -355,7 +368,10 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <h1 className={`text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-wide leading-tight hero-text-hover ${showTextStroke ? 'text-behind-cursor' : ''}`}>
+              <h1 
+                className={`text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-wide leading-tight hero-text-hover ${xrayEffect ? 'x-ray-effect' : ''}`}
+                data-text="KARAN GADHAVE"
+              >
                 <span className="text-gradient">KARAN GADHAVE</span>
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto"></div>

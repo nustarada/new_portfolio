@@ -388,38 +388,46 @@
   .custom-cursor.text-hover {
     width: 120px;
     height: 120px;
-    background: linear-gradient(135deg, rgba(30, 30, 30, 0.95) 0%, rgba(50, 50, 50, 0.95) 100%);
+    background: transparent;
     border: 2px solid rgba(79, 172, 254, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 900;
-    color: transparent;
-    -webkit-text-stroke: 1.5px rgba(79, 172, 254, 1);
-    text-stroke: 1.5px rgba(79, 172, 254, 1);
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    backdrop-filter: blur(0px);
     box-shadow: 
       0 0 30px rgba(79, 172, 254, 0.3),
       0 0 60px rgba(79, 172, 254, 0.1);
   }
 
-  /* Hero Text Hover Effect */
+  /* X-Ray Effect: Hero text with mask */
   .hero-text-hover {
     position: relative;
     cursor: none;
     transition: all 0.3s ease;
   }
 
-  /* When cursor hovers over text, make text appear as stroke only */
-  .hero-text-hover.text-behind-cursor {
+  /* Create X-ray effect with CSS mask */
+  .hero-text-hover.x-ray-effect::after {
+    content: "KARAN GADHAVE";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    letter-spacing: inherit;
     color: transparent;
     -webkit-text-stroke: 2px rgba(79, 172, 254, 0.9);
     text-stroke: 2px rgba(79, 172, 254, 0.9);
     text-shadow: 
       0 0 10px rgba(79, 172, 254, 0.3),
       0 0 20px rgba(16, 185, 129, 0.2);
+    -webkit-mask: radial-gradient(circle 60px at var(--cursor-x, 50%) var(--cursor-y, 50%), black 100%, transparent 100%);
+    mask: radial-gradient(circle 60px at var(--cursor-x, 50%) var(--cursor-y, 50%), black 100%, transparent 100%);
+    pointer-events: none;
+    z-index: 2;
   }
   
 
