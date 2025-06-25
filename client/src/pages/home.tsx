@@ -48,6 +48,7 @@ export default function Home() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [activeSection, setActiveSection] = useState('');
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
+  const [isHoveringText, setIsHoveringText] = useState(false);
   const [waveIntensity, setWaveIntensity] = useState(0.3);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
@@ -119,6 +120,9 @@ export default function Home() {
       }
     };
 
+    const handleTextHover = () => setIsHoveringText(true);
+    const handleTextLeave = () => setIsHoveringText(false);
+
     const handleScroll = () => {
       const sections = ['hero', 'about', 'projects', 'expertise', 'contact'];
       const scrollPos = window.scrollY + 100;
@@ -138,9 +142,20 @@ export default function Home() {
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll);
+    
+    const heroText = document.querySelector('.hero-text-hover');
+    if (heroText) {
+      heroText.addEventListener('mouseenter', handleTextHover);
+      heroText.addEventListener('mouseleave', handleTextLeave);
+    }
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
+      if (heroText) {
+        heroText.removeEventListener('mouseenter', handleTextHover);
+        heroText.removeEventListener('mouseleave', handleTextLeave);
+      }
     };
   }, []);
 
@@ -192,12 +207,14 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground cursor-glow relative overflow-hidden" style={{ backgroundColor: '#080808', color: '#fafafa' }}>
       {/* Custom Cursor */}
       <div 
-        className="custom-cursor"
+        className={`custom-cursor ${isHoveringText ? 'text-hover' : ''}`}
         style={{
           left: cursorPos.x,
           top: cursorPos.y,
         }}
-      />
+      >
+        {isHoveringText && 'KARAN'}
+      </div>
 
       {/* Scroll Progress */}
       <motion.div className="scroll-indicator" style={{ scaleX }} />
