@@ -388,12 +388,11 @@
   .custom-cursor.text-hover {
     width: 120px;
     height: 120px;
-    background: transparent;
+    background: rgba(0, 0, 0, 0.95);
     border: 2px solid rgba(79, 172, 254, 0.8);
-    backdrop-filter: blur(0px);
     box-shadow: 
-      0 0 30px rgba(79, 172, 254, 0.3),
-      0 0 60px rgba(79, 172, 254, 0.1);
+      0 0 30px rgba(0, 0, 0, 0.5),
+      0 0 60px rgba(0, 0, 0, 0.3);
   }
 
   /* X-Ray Effect: Hero text with mask */
@@ -431,8 +430,8 @@
     letter-spacing: inherit;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 2px rgba(79, 172, 254, 0.9);
-    text-stroke: 2px rgba(79, 172, 254, 0.9);
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+    text-stroke: 2px rgba(255, 255, 255, 0.9);
     -webkit-mask: radial-gradient(circle 60px at var(--cursor-x, 50%) var(--cursor-y, 50%), black 0%, black 60px, transparent 61px);
     mask: radial-gradient(circle 60px at var(--cursor-x, 50%) var(--cursor-y, 50%), black 0%, black 60px, transparent 61px);
     pointer-events: none;
