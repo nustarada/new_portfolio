@@ -142,15 +142,7 @@ export default function Home() {
     };
 
     const handleTextMouseMove = (e: MouseEvent) => {
-      const heroText = document.querySelector('.hero-text-hover');
-      if (heroText && xrayEffect) {
-        const rect = heroText.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        setTextCursorPos({ x, y });
-        (heroText as HTMLElement).style.setProperty('--cursor-x', `${x}%`);
-        (heroText as HTMLElement).style.setProperty('--cursor-y', `${y}%`);
-      }
+      // This is now handled in the global mouse move handler
     };
 
     const handleScroll = () => {
@@ -177,7 +169,6 @@ export default function Home() {
     if (heroText) {
       heroText.addEventListener('mouseenter', handleTextHover);
       heroText.addEventListener('mouseleave', handleTextLeave);
-      heroText.addEventListener('mousemove', handleTextMouseMove);
     }
 
     return () => {
@@ -186,7 +177,6 @@ export default function Home() {
       if (heroText) {
         heroText.removeEventListener('mouseenter', handleTextHover);
         heroText.removeEventListener('mouseleave', handleTextLeave);
-        heroText.removeEventListener('mousemove', handleTextMouseMove);
       }
     };
   }, []);
