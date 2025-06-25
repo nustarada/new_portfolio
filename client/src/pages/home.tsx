@@ -49,6 +49,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('');
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
   const [isHoveringText, setIsHoveringText] = useState(false);
+  const [showTextStroke, setShowTextStroke] = useState(false);
   const [waveIntensity, setWaveIntensity] = useState(0.3);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
@@ -120,8 +121,14 @@ export default function Home() {
       }
     };
 
-    const handleTextHover = () => setIsHoveringText(true);
-    const handleTextLeave = () => setIsHoveringText(false);
+    const handleTextHover = () => {
+      setIsHoveringText(true);
+      setShowTextStroke(true);
+    };
+    const handleTextLeave = () => {
+      setIsHoveringText(false);
+      setShowTextStroke(false);
+    };
 
     const handleScroll = () => {
       const sections = ['hero', 'about', 'projects', 'expertise', 'contact'];
@@ -348,7 +355,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-wide leading-tight hero-text-hover">
+              <h1 className={`text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-wide leading-tight hero-text-hover ${showTextStroke ? 'text-behind-cursor' : ''}`}>
                 <span className="text-gradient">KARAN GADHAVE</span>
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto"></div>
