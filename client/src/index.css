@@ -372,70 +372,14 @@
     opacity: 0.9;
   }
 
-  /* Custom Cursor Circle */
-  .custom-cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: rgba(79, 172, 254, 0.8);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .custom-cursor.text-hover {
-    width: 120px;
-    height: 120px;
-    background: rgba(0, 0, 0, 0.95);
-    border: 2px solid rgba(79, 172, 254, 0.8);
-    box-shadow: 
-      0 0 30px rgba(0, 0, 0, 0.5),
-      0 0 60px rgba(0, 0, 0, 0.3);
-  }
-
-  /* X-Ray Effect: Hero text with mask */
+  /* Hero Text - Normal Static */
   .hero-text-hover {
     position: relative;
-    cursor: none;
     transition: all 0.3s ease;
   }
 
-  /* Create the x-ray effect */
-  .hero-text-hover.x-ray-effect {
-    position: relative;
-  }
-
-  /* Hide original text inside the circle */
-  .hero-text-hover.x-ray-effect .text-gradient {
-    -webkit-mask: radial-gradient(circle 60px at var(--cursor-x, 50%) var(--cursor-y, 50%), transparent 0%, transparent 60px, black 61px);
-    mask: radial-gradient(circle 60px at var(--cursor-x, 50%) var(--cursor-y, 50%), transparent 0%, transparent 60px, black 61px);
-  }
-
-  /* Show stroke text only inside the circle */
-  .hero-text-hover.x-ray-effect::after {
-    content: "KARAN GADHAVE";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: inherit;
-    font-weight: inherit;
-    font-family: inherit;
-    letter-spacing: inherit;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
-    text-stroke: 2px rgba(255, 255, 255, 0.9);
-    -webkit-mask: radial-gradient(circle 60px at var(--cursor-x, 50%) var(--cursor-y, 50%), black 0%, black 60px, transparent 61px);
-    mask: radial-gradient(circle 60px at var(--cursor-x, 50%) var(--cursor-y, 50%), black 0%, black 60px, transparent 61px);
-    pointer-events: none;
-    z-index: 2;
+  .hero-text-hover:hover {
+    transform: scale(1.02);
   }
   
 
