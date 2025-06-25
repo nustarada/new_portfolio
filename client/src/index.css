@@ -403,7 +403,18 @@
     transition: all 0.3s ease;
   }
 
-  /* Create X-ray effect with CSS mask */
+  /* Create the x-ray effect */
+  .hero-text-hover.x-ray-effect {
+    position: relative;
+  }
+
+  /* Hide original text inside the circle */
+  .hero-text-hover.x-ray-effect .text-gradient {
+    -webkit-mask: radial-gradient(circle 60px at var(--cursor-x, 50%) var(--cursor-y, 50%), transparent 0%, transparent 60px, black 61px);
+    mask: radial-gradient(circle 60px at var(--cursor-x, 50%) var(--cursor-y, 50%), transparent 0%, transparent 60px, black 61px);
+  }
+
+  /* Show stroke text only inside the circle */
   .hero-text-hover.x-ray-effect::after {
     content: "KARAN GADHAVE";
     position: absolute;
@@ -419,13 +430,11 @@
     font-family: inherit;
     letter-spacing: inherit;
     color: transparent;
+    -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 2px rgba(79, 172, 254, 0.9);
     text-stroke: 2px rgba(79, 172, 254, 0.9);
-    text-shadow: 
-      0 0 10px rgba(79, 172, 254, 0.3),
-      0 0 20px rgba(16, 185, 129, 0.2);
-    -webkit-mask: radial-gradient(circle 60px at var(--cursor-x, 50%) var(--cursor-y, 50%), black 100%, transparent 100%);
-    mask: radial-gradient(circle 60px at var(--cursor-x, 50%) var(--cursor-y, 50%), black 100%, transparent 100%);
+    -webkit-mask: radial-gradient(circle 60px at var(--cursor-x, 50%) var(--cursor-y, 50%), black 0%, black 60px, transparent 61px);
+    mask: radial-gradient(circle 60px at var(--cursor-x, 50%) var(--cursor-y, 50%), black 0%, black 60px, transparent 61px);
     pointer-events: none;
     z-index: 2;
   }
