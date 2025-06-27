@@ -26,10 +26,10 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const gridSize = 60;
-    const distortionRadius = 180;
-    const maxDistortion = 30;
-    const lerpFactor = 0.1;
+    const gridSize = 80;
+    const distortionRadius = 120;
+    const maxDistortion = 20;
+    const lerpFactor = 0.08;
     
     // Initialize smooth interpolation variables
     let currentMouseX = mouseX || 50;
@@ -51,22 +51,22 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
       
       ctx.clearRect(0, 0, width, height);
       
-      // Add glow effect based on intensity
-      const baseOpacity = 0.15;
-      const glowOpacity = intensity * 0.25;
-      const totalOpacity = Math.min(baseOpacity + glowOpacity, 0.5);
+      // Elegant minimal grid with refined opacity
+      const baseOpacity = 0.08;
+      const activeOpacity = intensity * 0.12;
+      const totalOpacity = Math.min(baseOpacity + activeOpacity, 0.25);
       
-      // Enhanced grid with subtle glow effect
-      ctx.strokeStyle = `rgba(138, 43, 226, ${totalOpacity})`;
-      ctx.lineWidth = 1;
-      ctx.shadowColor = `rgba(138, 43, 226, ${intensity * 0.2})`;
-      ctx.shadowBlur = intensity * 8;
+      // Refined grid with elegant cyan theme
+      ctx.strokeStyle = `rgba(79, 172, 254, ${totalOpacity})`;
+      ctx.lineWidth = 0.8;
+      ctx.shadowColor = `rgba(79, 172, 254, ${intensity * 0.15})`;
+      ctx.shadowBlur = intensity * 4;
 
-      // Draw vertical lines with liquid distortion
+      // Draw elegant minimal vertical lines
       for (let x = 0; x <= width; x += gridSize) {
         ctx.beginPath();
         
-        for (let y = 0; y <= height; y += 4) {
+        for (let y = 0; y <= height; y += 8) {
           const dx = x - mousePixelX;
           const dy = y - mousePixelY;
           const distance = Math.sqrt(dx * dx + dy * dy);
@@ -74,8 +74,8 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
           let distortedX = x;
           
           if (distance < distortionRadius && distance > 0) {
-            const distortionFactor = Math.pow(1 - distance / distortionRadius, 2);
-            const distortion = distortionFactor * maxDistortion * intensity;
+            const distortionFactor = Math.pow(1 - distance / distortionRadius, 3);
+            const distortion = distortionFactor * maxDistortion * intensity * 0.7;
             distortedX = x + (dx / distance) * distortion;
           }
           
@@ -88,11 +88,11 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
         ctx.stroke();
       }
 
-      // Draw horizontal lines with liquid distortion
+      // Draw elegant minimal horizontal lines
       for (let y = 0; y <= height; y += gridSize) {
         ctx.beginPath();
         
-        for (let x = 0; x <= width; x += 4) {
+        for (let x = 0; x <= width; x += 8) {
           const dx = x - mousePixelX;
           const dy = y - mousePixelY;
           const distance = Math.sqrt(dx * dx + dy * dy);
@@ -100,8 +100,8 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
           let distortedY = y;
           
           if (distance < distortionRadius && distance > 0) {
-            const distortionFactor = Math.pow(1 - distance / distortionRadius, 2);
-            const distortion = distortionFactor * maxDistortion * intensity;
+            const distortionFactor = Math.pow(1 - distance / distortionRadius, 3);
+            const distortion = distortionFactor * maxDistortion * intensity * 0.7;
             distortedY = y + (dy / distance) * distortion;
           }
           
@@ -114,62 +114,19 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
         ctx.stroke();
       }
 
-      // Add secondary grid with different color for subtle depth
-      ctx.strokeStyle = `rgba(78, 205, 196, ${totalOpacity * 0.4})`;
-      ctx.lineWidth = 0.8;
-      ctx.shadowColor = `rgba(78, 205, 196, ${intensity * 0.15})`;
-      ctx.shadowBlur = intensity * 5;
+      // Reset shadow for intersection highlights
+      ctx.shadowBlur = 0;
 
-      // Draw secondary vertical lines offset by half grid size
-      for (let x = gridSize / 2; x <= width; x += gridSize) {
-        ctx.beginPath();
+      // Add elegant intersection highlights only at mouse proximity
+      if (intensity > 0.5) {
+        ctx.fillStyle = `rgba(79, 172, 254, ${intensity * 0.3})`;
+        const nearestGridX = Math.round(mousePixelX / gridSize) * gridSize;
+        const nearestGridY = Math.round(mousePixelY / gridSize) * gridSize;
         
-        for (let y = 0; y <= height; y += 6) {
-          const dx = x - mousePixelX;
-          const dy = y - mousePixelY;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          let distortedX = x;
-          
-          if (distance < distortionRadius && distance > 0) {
-            const distortionFactor = Math.pow(1 - distance / distortionRadius, 2);
-            const distortion = distortionFactor * maxDistortion * intensity * 0.5;
-            distortedX = x + (dx / distance) * distortion;
-          }
-          
-          if (y === 0) {
-            ctx.moveTo(distortedX, y);
-          } else {
-            ctx.lineTo(distortedX, y);
-          }
-        }
-        ctx.stroke();
-      }
-
-      // Draw secondary horizontal lines offset by half grid size
-      for (let y = gridSize / 2; y <= height; y += gridSize) {
+        const intersectionSize = 3 + (intensity * 2);
         ctx.beginPath();
-        
-        for (let x = 0; x <= width; x += 6) {
-          const dx = x - mousePixelX;
-          const dy = y - mousePixelY;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          let distortedY = y;
-          
-          if (distance < distortionRadius && distance > 0) {
-            const distortionFactor = Math.pow(1 - distance / distortionRadius, 2);
-            const distortion = distortionFactor * maxDistortion * intensity * 0.5;
-            distortedY = y + (dy / distance) * distortion;
-          }
-          
-          if (x === 0) {
-            ctx.moveTo(x, distortedY);
-          } else {
-            ctx.lineTo(x, distortedY);
-          }
-        }
-        ctx.stroke();
+        ctx.arc(nearestGridX, nearestGridY, intersectionSize, 0, Math.PI * 2);
+        ctx.fill();
       }
 
       animationRef.current = requestAnimationFrame(drawLiquidGrid);

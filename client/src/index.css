@@ -195,13 +195,15 @@
     bottom: 0;
     background: 
       radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-        rgba(79, 172, 254, 0.12) 0%, 
-        rgba(79, 172, 254, 0.06) 25%, 
-        transparent 50%);
+        rgba(79, 172, 254, 0.18) 0%, 
+        rgba(79, 172, 254, 0.08) 30%, 
+        rgba(79, 172, 254, 0.02) 60%,
+        transparent 80%);
     opacity: var(--wave-intensity, 0.3);
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
     z-index: 2;
+    filter: blur(1px);
   }
 
   @keyframes elegantGlow {
