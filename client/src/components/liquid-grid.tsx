@@ -27,9 +27,9 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
     window.addEventListener('resize', resizeCanvas);
 
     const gridSize = 80;
-    const distortionRadius = 120;
-    const maxDistortion = 20;
-    const lerpFactor = 0.08;
+    const distortionRadius = 100;
+    const maxDistortion = 15;
+    const lerpFactor = 0.15;
     
     // Initialize smooth interpolation variables
     let currentMouseX = mouseX || 50;
@@ -74,9 +74,9 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
           let distortedX = x;
           
           if (distance < distortionRadius && distance > 0) {
-            const distortionFactor = Math.pow(1 - distance / distortionRadius, 3);
-            const distortion = distortionFactor * maxDistortion * intensity * 0.7;
-            distortedX = x + (dx / distance) * distortion;
+            const distortionFactor = Math.pow(1 - distance / distortionRadius, 2.5);
+            const distortion = distortionFactor * maxDistortion * intensity * 0.8;
+            distortedX = x + Math.sin((dx / distance) * distortion) * distortion * 0.5;
           }
           
           if (y === 0) {
@@ -100,9 +100,9 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
           let distortedY = y;
           
           if (distance < distortionRadius && distance > 0) {
-            const distortionFactor = Math.pow(1 - distance / distortionRadius, 3);
-            const distortion = distortionFactor * maxDistortion * intensity * 0.7;
-            distortedY = y + (dy / distance) * distortion;
+            const distortionFactor = Math.pow(1 - distance / distortionRadius, 2.5);
+            const distortion = distortionFactor * maxDistortion * intensity * 0.8;
+            distortedY = y + Math.sin((dy / distance) * distortion) * distortion * 0.5;
           }
           
           if (x === 0) {
