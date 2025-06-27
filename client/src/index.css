@@ -148,93 +148,27 @@
     position: relative;
     overflow: hidden;
     background: 
-      /* Enhanced gradient orbs */
-      radial-gradient(circle at 15% 15%, rgba(79, 172, 254, 0.12) 0%, transparent 40%),
-      radial-gradient(circle at 85% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
-      radial-gradient(circle at 70% 80%, rgba(236, 72, 153, 0.06) 0%, transparent 50%),
-      radial-gradient(circle at 25% 75%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
-      /* Dynamic grid pattern - reduced visibility */
-      linear-gradient(0deg, rgba(79, 172, 254, 0.008) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(79, 172, 254, 0.008) 1px, transparent 1px),
-      /* Animated moving gradients - more subtle */
-      linear-gradient(45deg, transparent 48%, rgba(16, 185, 129, 0.015) 49%, rgba(16, 185, 129, 0.015) 51%, transparent 52%),
-      linear-gradient(-45deg, transparent 48%, rgba(236, 72, 153, 0.01) 49%, rgba(236, 72, 153, 0.01) 51%, transparent 52%);
-    background-size: 
-      800px 800px,
-      600px 600px, 
-      900px 900px,
-      700px 700px,
-      50px 50px,
-      50px 50px,
-      100px 100px,
-      120px 120px;
-    background-position:
-      0% 0%,
-      100% 0%,
-      100% 100%,
-      0% 100%,
-      0 0,
-      0 0,
-      0 0,
-      0 0;
-    animation: cyber-grid-flow 20s linear infinite;
+      /* Single elegant gradient centered */
+      radial-gradient(circle at 50% 40%, rgba(79, 172, 254, 0.08) 0%, transparent 60%),
+      /* Subtle base gradient */
+      linear-gradient(135deg, 
+        rgba(4, 4, 6, 1) 0%,
+        rgba(6, 6, 10, 0.98) 40%,
+        rgba(8, 8, 12, 0.96) 60%,
+        rgba(4, 4, 6, 1) 100%
+      );
+    background-size: 100% 100%, 100% 100%;
+    animation: elegantFlow 12s ease-in-out infinite alternate;
   }
 
-  @keyframes cyber-grid-flow {
+  @keyframes elegantFlow {
     0% {
-      background-position:
-        0% 0%,
-        100% 0%,
-        100% 100%,
-        0% 100%,
-        0 0,
-        0 0,
-        0 0,
-        0 0;
-    }
-    25% {
-      background-position:
-        10% 5%,
-        90% 10%,
-        95% 90%,
-        5% 95%,
-        12px 8px,
-        8px 12px,
-        25px 15px,
-        15px 25px;
-    }
-    50% {
-      background-position:
-        20% 10%,
-        80% 20%,
-        90% 80%,
-        10% 90%,
-        25px 15px,
-        15px 25px,
-        50px 30px,
-        30px 50px;
-    }
-    75% {
-      background-position:
-        30% 15%,
-        70% 30%,
-        85% 70%,
-        15% 85%,
-        37px 23px,
-        23px 37px,
-        75px 45px,
-        45px 75px;
+      background-position: 50% 40%, 0% 0%;
+      opacity: 0.95;
     }
     100% {
-      background-position:
-        40% 20%,
-        60% 40%,
-        80% 60%,
-        20% 80%,
-        50px 30px,
-        30px 50px,
-        100px 60px,
-        60px 100px;
+      background-position: 50% 50%, 100% 100%;
+      opacity: 1;
     }
   }
   
@@ -245,31 +179,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 49px,
-        rgba(79, 172, 254, 0.025) 50px,
-        rgba(79, 172, 254, 0.025) 51px,
-        transparent 52px,
-        transparent 99px,
-        rgba(16, 185, 129, 0.02) 100px,
-        rgba(16, 185, 129, 0.02) 101px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 49px,
-        rgba(79, 172, 254, 0.025) 50px,
-        rgba(79, 172, 254, 0.025) 51px,
-        transparent 52px,
-        transparent 99px,
-        rgba(16, 185, 129, 0.02) 100px,
-        rgba(16, 185, 129, 0.02) 101px
-      );
-    opacity: 0.2;
-    animation: grid-pulse 8s ease-in-out infinite;
+    background: linear-gradient(180deg, rgba(79, 172, 254, 0.02) 0%, transparent 30%, transparent 70%, rgba(79, 172, 254, 0.015) 100%);
+    opacity: 0.6;
+    animation: elegantGlow 8s ease-in-out infinite alternate;
     pointer-events: none;
     z-index: 1;
   }
@@ -283,8 +195,8 @@
     bottom: 0;
     background: 
       radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-        rgba(79, 172, 254, 0.15) 0%, 
-        rgba(16, 185, 129, 0.08) 25%, 
+        rgba(79, 172, 254, 0.12) 0%, 
+        rgba(79, 172, 254, 0.06) 25%, 
         transparent 50%);
     opacity: var(--wave-intensity, 0.3);
     transition: opacity 0.3s ease;
@@ -292,15 +204,10 @@
     z-index: 2;
   }
 
-  @keyframes grid-pulse {
-    0%, 100% { 
-      opacity: 0.4;
-      transform: scale(1);
-    }
-    50% { 
-      opacity: 0.6;
-      transform: scale(1.02);
-    }
+  @keyframes elegantGlow {
+    0% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.01); }
+    100% { opacity: 0.5; transform: scale(1); }
   }
 
   /* Enhanced grid intersection points */
