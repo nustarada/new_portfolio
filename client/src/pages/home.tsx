@@ -193,7 +193,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground cursor-glow relative overflow-hidden" style={{ backgroundColor: '#080808', color: '#fafafa' }}>
+    <div className="min-h-screen bg-background text-foreground cursor-glow relative overflow-hidden" style={{ backgroundColor: '#040406', color: '#fafafa' }}>
 
 
       {/* Scroll Progress */}
@@ -270,28 +270,22 @@ export default function Home() {
           intensity={waveIntensity}
         />
         
-        {/* Dynamic Grid Overlay */}
+        {/* Elegant Single Color Background */}
         <div className="absolute inset-0 pointer-events-none z-[1]">
-          {/* Floating Energy Orbs */}
-          <div className="absolute top-[20%] left-[15%] w-32 h-32 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-full blur-2xl animate-pulse" />
-          <div className="absolute top-[60%] right-[20%] w-24 h-24 bg-gradient-to-r from-emerald-400/25 to-teal-500/25 rounded-full blur-xl animate-pulse delay-1000" />
-          <div className="absolute bottom-[30%] left-[25%] w-20 h-20 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-lg animate-pulse delay-2000" />
+          {/* Primary Elegant Glow */}
+          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/12 blur-3xl animate-pulse" />
           
-          {/* Dynamic Lines - more subtle */}
-          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent opacity-30" />
-          <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-400/15 to-transparent opacity-30" />
-          <div className="absolute left-1/4 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent opacity-20" />
-          <div className="absolute right-1/3 top-0 w-px h-full bg-gradient-to-b from-transparent via-emerald-400/10 to-transparent opacity-20" />
+          {/* Subtle Grid Lines */}
+          <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-40" />
+          <div className="absolute bottom-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent opacity-30" />
+          <div className="absolute left-1/3 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/12 to-transparent opacity-25" />
+          <div className="absolute right-1/3 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent opacity-20" />
           
-          {/* Grid Intersection Points */}
-          <div className="grid-intersection" style={{ top: '25%', left: '25%', animationDelay: '0s' }} />
-          <div className="grid-intersection" style={{ top: '25%', right: '33%', animationDelay: '1s' }} />
-          <div className="grid-intersection" style={{ top: '75%', left: '25%', animationDelay: '2s' }} />
-          <div className="grid-intersection" style={{ top: '75%', right: '33%', animationDelay: '0.5s' }} />
-          <div className="grid-intersection" style={{ top: '50%', left: '50%', animationDelay: '1.5s' }} />
-          
-          {/* Scanning Line Effect */}
-          <div className="scan-line" />
+          {/* Elegant Corner Accents */}
+          <div className="absolute top-8 left-8 w-16 h-16 border-l-2 border-t-2 border-primary/30" />
+          <div className="absolute top-8 right-8 w-16 h-16 border-r-2 border-t-2 border-primary/30" />
+          <div className="absolute bottom-8 left-8 w-16 h-16 border-l-2 border-b-2 border-primary/30" />
+          <div className="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 border-primary/30" />
         </div>
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10 w-full">
           <motion.div
@@ -427,12 +421,11 @@ export default function Home() {
 
       {/* Statistics Section */}
       <section className="py-20 relative overflow-hidden">
-        {/* Enhanced Background */}
+        {/* Elegant Background */}
         <div className="absolute inset-0 grain-texture">
-          <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95" />
-          <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/20 blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-r from-cyan-400/20 to-emerald-400/20 blur-3xl animate-pulse delay-1000" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/98 via-background/95 to-background/98" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/15 blur-3xl animate-pulse" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -598,12 +591,11 @@ export default function Home() {
 
       {/* About Section */}
       <section id="about" className="py-24 relative overflow-hidden">
-        {/* Animated Background */}
+        {/* Elegant Background */}
         <div className="absolute inset-0 grain-texture">
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background" />
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/15 blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-r from-cyan-400/15 to-emerald-400/15 blur-3xl animate-pulse delay-1000" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/98 via-background/95 to-background/98" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-primary/12 blur-3xl animate-pulse" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
         </div>
         
         <div className="max-w-6xl mx-auto px-6 relative z-10">
