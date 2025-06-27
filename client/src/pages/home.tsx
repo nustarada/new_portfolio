@@ -275,17 +275,15 @@ export default function Home() {
           {/* Primary Elegant Glow */}
           <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/12 blur-3xl animate-pulse" />
           
-          {/* Subtle Grid Lines */}
-          <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-40" />
-          <div className="absolute bottom-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent opacity-30" />
-          <div className="absolute left-1/3 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/12 to-transparent opacity-25" />
-          <div className="absolute right-1/3 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent opacity-20" />
+          {/* Refined Grid Lines */}
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent opacity-50" />
+          <div className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent opacity-40" />
           
-          {/* Elegant Corner Accents */}
-          <div className="absolute top-8 left-8 w-16 h-16 border-l-2 border-t-2 border-primary/30" />
-          <div className="absolute top-8 right-8 w-16 h-16 border-r-2 border-t-2 border-primary/30" />
-          <div className="absolute bottom-8 left-8 w-16 h-16 border-l-2 border-b-2 border-primary/30" />
-          <div className="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 border-primary/30" />
+          {/* Minimal Corner Accents */}
+          <div className="absolute top-12 left-12 w-12 h-12 border-l border-t border-primary/40" />
+          <div className="absolute top-12 right-12 w-12 h-12 border-r border-t border-primary/40" />
+          <div className="absolute bottom-12 left-12 w-12 h-12 border-l border-b border-primary/40" />
+          <div className="absolute bottom-12 right-12 w-12 h-12 border-r border-b border-primary/40" />
         </div>
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10 w-full">
           <motion.div
