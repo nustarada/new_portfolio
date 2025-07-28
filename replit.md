@@ -100,7 +100,7 @@ This is a full-stack web application built with React/TypeScript frontend and Ex
 
 ```
 Changelog:
-- July 28, 2025. Enhanced CTA colors with playful gradients: updated all CTA buttons to use vibrant, multi-color gradients (cyan-blue-purple, pink-purple-orange, teal-blue-purple, etc.) with dynamic hover effects and enhanced shadows for more engaging, playful user interactions
+- July 28, 2025. Standardized all CTA buttons with consistent dark blue gradient: implemented uniform dark blue gradient (blue-900 via blue-800 to blue-900) with grain texture effect across all buttons website-wide, ensuring visual consistency and professional appearance with subtle hover effects (blue-700 via blue-600 to blue-700)
 - July 28, 2025. Applied blue gradient CTA colors universally: updated all remaining CTA buttons across navigation, home page, project detail page, and case study page to use consistent blue-sky gradient scheme, replacing all purple/violet gradients
 - July 28, 2025. Completed font cleanup: removed all old font references (Bebas Neue, Montserrat, Oswald, Barlow) from code, CSS classes, Tailwind config, and Google Fonts import, ensuring consistent typography system with only Modern Heritage Display and Jost fonts
 - July 28, 2025. Implemented Jost as secondary font: added to Google Fonts import, applied to navigation, descriptions, form labels, body text throughout website while maintaining Modern Heritage Display for headings, creating clean typography hierarchy
