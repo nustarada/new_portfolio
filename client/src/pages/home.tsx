@@ -814,7 +814,7 @@ export default function Home() {
                   </div>
 
                   {/* Hero Image Section */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-64 overflow-hidden">
                     {index === 0 ? (
                       /* FutureFirstFamilies Project Thumbnail */
                       <>
@@ -857,7 +857,7 @@ export default function Home() {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-6 space-y-4">
+                  <div className="p-5 space-y-3">
                     {/* Header */}
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
@@ -896,17 +896,13 @@ export default function Home() {
                         <h4 className="text-xs font-bold text-primary/90 tracking-wider font-accent" style={{ fontFamily: "'Oswald', sans-serif" }}>
                           KEY OUTCOMES
                         </h4>
-                        <div className="space-y-2">
-                          {project.outcomes.slice(0, 2).map((outcome, idx) => (
-                            <div key={idx} className="flex items-start space-x-3">
-                              <div className={`w-2 h-2 ${
-                                index === 0 ? 'bg-primary/80' : 'bg-purple-500/80'
-                              } mt-2 flex-shrink-0`} />
-                              <p className="text-white/70 text-xs leading-relaxed font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                                {outcome}
-                              </p>
-                            </div>
-                          ))}
+                        <div className="flex items-start space-x-3">
+                          <div className={`w-2 h-2 ${
+                            index === 0 ? 'bg-primary/80' : 'bg-purple-500/80'
+                          } mt-1.5 flex-shrink-0`} />
+                          <p className="text-white/70 text-xs leading-relaxed font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                            {project.outcomes[0]}
+                          </p>
                         </div>
                       </div>
                     )}
@@ -917,24 +913,24 @@ export default function Home() {
                         TECH STACK
                       </h4>
                       <div className="flex flex-wrap gap-2">
-                        {project.tags.slice(0, 4).map((tag) => (
+                        {project.tags.slice(0, 3).map((tag) => (
                           <Badge key={tag} variant="secondary" className="bg-white/5 text-white/70 border-white/10 text-xs px-2 py-1 hover:bg-white/10 transition-colors duration-300">
                             {tag}
                           </Badge>
                         ))}
-                        {project.tags.length > 4 && (
+                        {project.tags.length > 3 && (
                           <Badge variant="secondary" className="bg-white/5 text-white/70 border-white/10 text-xs px-2 py-1">
-                            +{project.tags.length - 4}
+                            +{project.tags.length - 3}
                           </Badge>
                         )}
                       </div>
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="pt-4 space-y-3">
+                    <div className="pt-3 space-y-2">
                       {index === 0 && (
                         <Link href="/project/futurefirstfamilies">
-                          <Button className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-primary via-cyan-400 to-primary text-white font-bold py-3 border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary/30">
+                          <Button className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-primary via-cyan-400 to-primary text-white font-bold py-2.5 border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary/30">
                             <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                             <div className="relative z-10 flex items-center justify-center space-x-2">
                               <span>View Case Study</span>
@@ -957,7 +953,7 @@ export default function Home() {
                           index === 0 
                             ? 'border-white/30 text-white hover:bg-white/10 hover:border-white/50' 
                             : 'bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 text-white font-bold border-0 hover:scale-[1.02] shadow-lg shadow-purple-500/30'
-                        } py-3 transition-all duration-300`}
+                        } py-2.5 transition-all duration-300`}
                       >
                         {index !== 0 && (
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
