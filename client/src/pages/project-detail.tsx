@@ -134,13 +134,13 @@ export default function ProjectDetail() {
                 <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
                   {project.category}
                 </Badge>
-                <h1 className="text-4xl md:text-6xl font-black mb-4 glow-text font-display italic" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  {project.title}
+                <h1 className="text-4xl md:text-6xl font-normal mb-4 glow-text font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  {project.title.toUpperCase()}
                 </h1>
-                <p className="text-xl text-primary/80 font-medium mb-6 accent-font" style={{ fontFamily: "'Raleway', sans-serif" }}>
-                  {project.subtitle}
+                <p className="text-xl text-primary/80 font-light mb-6 accent-font" style={{ fontFamily: "'Oswald', sans-serif" }}>
+                  {project.subtitle.toUpperCase()}
                 </p>
-                <p className="text-lg text-white/80 leading-relaxed mb-8 font-body" style={{ fontFamily: "'Crimson Text', serif" }}>
+                <p className="text-lg text-white/80 leading-relaxed mb-8 font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                   {project.detailedDescription}
                 </p>
               </div>
