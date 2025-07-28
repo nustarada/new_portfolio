@@ -86,6 +86,11 @@ export default function ProjectDetail() {
   const projectId = params.id || 'futurefirstfamilies';
   const project = projectsData[projectId];
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (!project) {
     return (
       <div className="min-h-screen bg-background text-white flex items-center justify-center">
