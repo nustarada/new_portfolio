@@ -18,7 +18,8 @@ import {
   Palette,
   Database,
   Zap,
-  TrendingUp
+  TrendingUp,
+  Linkedin
 } from 'lucide-react';
 
 interface ProjectData {
@@ -484,6 +485,28 @@ export default function ProjectDetail() {
           </motion.div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-border/30">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <div className="flex justify-center mb-6">
+            <a 
+              href="https://www.linkedin.com/in/karan-gadhave/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group inline-block touch-manipulation"
+              style={{ WebkitTapHighlightColor: 'transparent' }}
+            >
+              <Button variant="ghost" size="icon" className="w-12 h-12 rounded-full neo-card group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
+                <Linkedin className="w-5 h-5 group-hover:text-primary group-active:text-primary transition-colors duration-300" />
+              </Button>
+            </a>
+          </div>
+          <p className="text-muted-foreground code-font">
+            © 2025 Karan Gadhave. Designed & developed with passion.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
