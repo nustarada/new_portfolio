@@ -881,14 +881,14 @@ export default function Home() {
                     </p>
 
                     {/* Action Buttons */}
-                    <div className="pt-4 space-y-3">
+                    <div className="pt-4">
                       {index === 0 ? (
-                        <>
+                        <div className="grid grid-cols-2 gap-3">
                           <Link href="/project/futurefirstfamilies">
                             <Button className="w-full group/btn relative overflow-hidden cta-button grain-texture text-white font-bold py-3 text-sm border-0 hover:scale-[1.02] transition-all duration-300">
                               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                               <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
-                                <span>View Case Study</span>
+                                <span>Case Study</span>
                                 <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
                               </div>
                             </Button>
@@ -899,11 +899,11 @@ export default function Home() {
                             className="w-full text-white border-white/20 hover:bg-white/10 py-3 text-sm jost-secondary"
                           >
                             <div className="flex items-center justify-center space-x-2">
-                              <span>View Live Website</span>
+                              <span>Live Site</span>
                               <ArrowUpRight className="w-4 h-4" />
                             </div>
                           </Button>
-                        </>
+                        </div>
                       ) : (
                         <Button 
                           onClick={() => {
