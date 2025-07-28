@@ -161,7 +161,7 @@ export default function Home() {
       image: "/api/placeholder/600/400",
       liveUrl: "https://futurefirstfamilies.com/",
       tags: ["Civic Engagement", "Gamification", "React", "UX Research", "Full-Stack"],
-      year: "2024",
+      year: "2025",
       category: "Civic Platform",
       role: "UX Research, Design System, Full Development",
       outcomes: [
@@ -192,7 +192,7 @@ export default function Home() {
       description: "Next-generation design system with AI-driven component generation and automated documentation",
       image: "/api/placeholder/600/400",
       tags: ["AI/ML", "Design Systems", "Automation"],
-      year: "2024",
+      year: "2025",
       category: "Product Design"
     },
     {
@@ -200,7 +200,7 @@ export default function Home() {
       description: "Real-time analytics platform processing millions of data points with intuitive visualization",
       image: "/api/placeholder/600/400",
       tags: ["Data Visualization", "Enterprise", "Real-time"],
-      year: "2024",
+      year: "2025",
       category: "Data & Analytics"
     }
   ];
@@ -258,19 +258,25 @@ export default function Home() {
             </motion.button>
           </div>
 
-          <Button 
-            onClick={() => {
-              const contactSection = document.getElementById('contact');
-              contactSection?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="relative group px-6 py-3 bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 hover:from-blue-700 hover:via-sky-700 hover:to-blue-700 text-white font-bold transition-all duration-300 shadow-lg shadow-blue-500/25 border-0"
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
+            <button
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                contactSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="relative group px-6 py-3 text-white font-bold cta-button grain-texture border-0"
+            >
 
-            <div className="relative z-10 flex items-center space-x-2 jost-secondary">
-              <Mail className="w-4 h-4" />
-              <span>Contact Me</span>
-            </div>
-          </Button>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <div className="relative z-10 flex items-center space-x-2 jost-secondary">
+                <Mail className="w-4 h-4" />
+                <span>Contact Me</span>
+              </div>
+            </button>
+          </motion.div>
         </div>
       </nav>
 
@@ -849,10 +855,10 @@ export default function Home() {
                     )}
                   </div>
 
-                  {/* Content Section */}
-                  <div className="p-4 space-y-2">
+                  {/* Content Section - Simplified */}
+                  <div className="p-6 space-y-4">
                     {/* Header */}
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center justify-between">
                       <Badge className={`${
                         index === 0 
                           ? 'bg-primary/20 text-primary border-primary/30' 
@@ -865,34 +871,40 @@ export default function Home() {
                       </Badge>
                     </div>
 
-                    <div className="space-y-1">
-                      <h3 className="text-xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
-                        {project.title.toUpperCase()}
-                      </h3>
-                      {project.subtitle && (
-                        <p className="text-sm font-medium text-white/70 jost-secondary">
-                          {project.subtitle.toUpperCase()}
-                        </p>
-                      )}
-                    </div>
+                    {/* Title */}
+                    <h3 className="text-2xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
+                      {project.title.toUpperCase()}
+                    </h3>
 
                     {/* Description */}
-                    <p className="text-white/80 leading-relaxed text-sm jost-secondary">
+                    <p className="text-white/80 leading-relaxed text-base jost-secondary line-clamp-3">
                       {project.description}
                     </p>
 
                     {/* Action Buttons */}
-                    <div className="pt-2">
+                    <div className="pt-4 space-y-3">
                       {index === 0 ? (
-                        <Link href="/project/futurefirstfamilies">
-                          <Button className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-primary via-cyan-400 to-primary text-white font-bold py-2 text-sm border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary/30">
-                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                            <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
-                              <span>View Case Study</span>
-                              <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
+                        <>
+                          <Link href="/project/futurefirstfamilies">
+                            <Button className="w-full group/btn relative overflow-hidden cta-button grain-texture text-white font-bold py-3 text-sm border-0 hover:scale-[1.02] transition-all duration-300">
+                              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                              <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
+                                <span>View Case Study</span>
+                                <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
+                              </div>
+                            </Button>
+                          </Link>
+                          <Button 
+                            onClick={() => window.open(project.liveUrl, '_blank')}
+                            variant="outline"
+                            className="w-full text-white border-white/20 hover:bg-white/10 py-3 text-sm jost-secondary"
+                          >
+                            <div className="flex items-center justify-center space-x-2">
+                              <span>View Live Website</span>
+                              <ArrowUpRight className="w-4 h-4" />
                             </div>
                           </Button>
-                        </Link>
+                        </>
                       ) : (
                         <Button 
                           onClick={() => {
@@ -902,7 +914,7 @@ export default function Home() {
                               toast({ title: "Coming Soon", description: "Case studies are currently under construction. Stay tuned!" });
                             }
                           }}
-                          className="w-full group/btn relative overflow-hidden text-white font-bold cta-button grain-texture border-0 hover:scale-[1.02] py-2 text-sm"
+                          className="w-full group/btn relative overflow-hidden text-white font-bold cta-button grain-texture border-0 hover:scale-[1.02] py-3 text-sm"
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                           <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
