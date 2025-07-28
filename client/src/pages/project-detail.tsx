@@ -17,7 +17,8 @@ import {
   Code2,
   Palette,
   Database,
-  Zap
+  Zap,
+  TrendingUp
 } from 'lucide-react';
 
 interface ProjectData {
@@ -365,22 +366,26 @@ export default function ProjectDetail() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {project.outcomes.map((outcome, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="p-8 glass-card grain-texture hover:glass-intense transition-all duration-300 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-blue-500/20 mx-auto mb-4 flex items-center justify-center">
-                    <Trophy className="w-8 h-8 text-primary" />
-                  </div>
-                  <p className="text-white/90 font-medium leading-relaxed">{outcome}</p>
-                </Card>
-              </motion.div>
-            ))}
+            {project.outcomes.map((outcome, index) => {
+              const icons = [Trophy, Target, TrendingUp, Users, CheckCircle, Lightbulb];
+              const IconComponent = icons[index % icons.length];
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="p-8 glass-card grain-texture hover:glass-intense transition-all duration-300 text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-blue-500/20 mx-auto mb-4 flex items-center justify-center">
+                      <IconComponent className="w-8 h-8 text-primary" />
+                    </div>
+                    <p className="text-white/90 font-medium leading-relaxed">{outcome}</p>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
