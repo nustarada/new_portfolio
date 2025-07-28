@@ -340,7 +340,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-wide leading-tight hero-text-hover">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-wide leading-tight hero-text-hover display-font">
                 <span className="text-gradient">KARAN GADHAVE</span>
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto"></div>
@@ -353,7 +353,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight display-font">
                 <span className="text-white">SENIOR </span>
                 <span className="glow-text">PRODUCT DESIGNER</span>
               </h2>
@@ -365,7 +365,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 1 }}
               >
                 <div className="w-16 h-0.5 bg-primary" />
-                <span className="text-xl md:text-2xl font-light text-primary tracking-wider uppercase">
+                <span className="text-xl md:text-2xl font-light text-primary tracking-wider uppercase body-font">
                   & AI Innovator
                 </span>
                 <div className="w-16 h-0.5 bg-primary" />
@@ -377,7 +377,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.3 }}
-              className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto font-medium"
+              className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto font-medium body-font"
             >
               Designing exceptional digital experiences using AI-powered design tools, Figma workflows, and innovative platforms like Replit.
             </motion.p>
@@ -455,7 +455,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <motion.h2 
-              className="text-4xl md:text-6xl font-black mb-6 glow-text"
+              className="text-4xl md:text-6xl font-black mb-6 glow-text display-font"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -470,7 +470,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             />
-            <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed body-font">
               Proven impact through innovative design solutions and exceptional team leadership
             </p>
           </motion.div>
@@ -626,7 +626,7 @@ export default function Home() {
             className="text-center mb-20"
           >
             <motion.h2 
-              className="text-4xl md:text-6xl font-black mb-6 glow-text"
+              className="text-4xl md:text-6xl font-black mb-6 glow-text display-font"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -772,10 +772,10 @@ export default function Home() {
             className="text-center mb-12"
           >
             <div className="relative inline-block mb-6">
-              <h2 className="text-4xl md:text-5xl font-bold glow-text relative z-10">FEATURED PROJECTS</h2>
+              <h2 className="text-4xl md:text-5xl font-bold glow-text relative z-10 display-font">FEATURED PROJECTS</h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
             </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed body-font">
               A showcase of innovative solutions spanning AI integration, enterprise platforms, and user-centered design systems.
             </p>
           </motion.div>
@@ -959,10 +959,10 @@ export default function Home() {
             className="text-center mb-12"
           >
             <div className="relative inline-block mb-6">
-              <h2 className="text-4xl md:text-5xl font-bold glow-text relative z-10">DESIGN PHILOSOPHY</h2>
+              <h2 className="text-4xl md:text-5xl font-bold glow-text relative z-10 display-font">DESIGN PHILOSOPHY</h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
             </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed body-font">
               My approach to creating meaningful and impactful digital experiences
             </p>
           </motion.div>
@@ -1072,8 +1072,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-5xl font-bold mb-6 glow-text">GET IN TOUCH</h2>
-            <p className="text-xl text-muted-foreground">
+            <h2 className="text-5xl font-bold mb-6 glow-text display-font">GET IN TOUCH</h2>
+            <p className="text-xl text-muted-foreground body-font">
               Ready to collaborate on your next innovative project?
             </p>
           </motion.div>
