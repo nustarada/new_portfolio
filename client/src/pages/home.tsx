@@ -241,7 +241,7 @@ export default function Home() {
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className={`text-sm font-semibold transition-colors hover:text-primary ${
+                className={`text-sm font-semibold transition-colors hover:text-primary jost-secondary ${
                   activeSection === item.toLowerCase() ? 'text-primary' : 'text-foreground opacity-80'
                 }`}
                 whileHover={{ y: -2 }}
@@ -251,7 +251,7 @@ export default function Home() {
             ))}
             <motion.button
               onClick={() => setIsResumeOpen(true)}
-              className="text-sm font-semibold transition-colors hover:text-primary text-foreground opacity-80"
+              className="text-sm font-semibold transition-colors hover:text-primary text-foreground opacity-80 jost-secondary"
               whileHover={{ y: -2 }}
             >
               Resume
@@ -266,7 +266,7 @@ export default function Home() {
             className="relative group px-6 py-3 bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 hover:from-purple-700 hover:via-violet-700 hover:to-purple-700 text-white font-bold transition-all duration-300 shadow-lg shadow-purple-500/25 border-0"
           >
 
-            <div className="relative z-10 flex items-center space-x-2">
+            <div className="relative z-10 flex items-center space-x-2 jost-secondary">
               <Mail className="w-4 h-4" />
               <span>Contact Me</span>
             </div>
@@ -327,7 +327,7 @@ export default function Home() {
               >
                 <Badge 
                   variant="outline" 
-                  className="text-sm px-6 py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-300"
+                  className="text-sm px-6 py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-300 jost-secondary"
                 >
                   <Sparkles className="w-4 h-4 mr-2 text-primary" />
                   AVAILABLE FOR NEW OPPORTUNITIES
@@ -379,8 +379,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.3 }}
-              className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto font-normal font-body" 
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
+              className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto font-normal jost-secondary"
             >
               Designing exceptional digital experiences using AI-powered design tools, Figma workflows, and innovative platforms like Replit.
             </motion.p>
@@ -475,7 +474,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             />
-            <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed jost-secondary">
               Proven impact through innovative design solutions and exceptional team leadership
             </p>
           </motion.div>
@@ -563,10 +562,10 @@ export default function Home() {
                     
                     {/* Label and Description */}
                     <div className="space-y-2">
-                      <h3 className="text-xl font-bold text-white tracking-wide">
+                      <h3 className="text-xl font-bold text-white tracking-wide jost-secondary">
                         {stat.label}
                       </h3>
-                      <p className="text-white/60 text-sm leading-relaxed">
+                      <p className="text-white/60 text-sm leading-relaxed jost-secondary">
                         {stat.description}
                       </p>
                     </div>
@@ -602,8 +601,8 @@ export default function Home() {
                 >
                   <span className="text-3xl">{item.icon}</span>
                   <div className="text-left">
-                    <div className="text-2xl font-bold text-primary">{item.metric}</div>
-                    <div className="text-white/70 text-sm">{item.label}</div>
+                    <div className="text-2xl font-bold text-primary jost-secondary">{item.metric}</div>
+                    <div className="text-white/70 text-sm jost-secondary">{item.label}</div>
                   </div>
                 </motion.div>
               ))}
@@ -646,7 +645,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             />
-            <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed jost-secondary">
               Crafting the future of digital experiences through innovative design and cutting-edge technology
             </p>
           </motion.div>
@@ -680,20 +679,20 @@ export default function Home() {
                     />
                   </motion.div>
                   
-                  <h3 className="text-3xl font-bold text-white mb-3">Karan Gadhave</h3>
-                  <p className="text-primary text-xl font-semibold mb-2">Senior Product Designer</p>
-                  <p className="text-white/60">AI Innovation Specialist</p>
+                  <h3 className="text-3xl font-bold text-white mb-3 jost-secondary">Karan Gadhave</h3>
+                  <p className="text-primary text-xl font-semibold mb-2 jost-secondary">Senior Product Designer</p>
+                  <p className="text-white/60 jost-secondary">AI Innovation Specialist</p>
                 </div>
 
                 {/* Bio Content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                   <div className="space-y-6">
                     <div>
-                      <h4 className="text-xl font-semibold text-white mb-4 flex items-center">
+                      <h4 className="text-xl font-semibold text-white mb-4 flex items-center jost-secondary">
                         <span className="w-3 h-3 bg-primary mr-3"></span>
                         Experience & Expertise
                       </h4>
-                      <p className="text-white/80 leading-relaxed">
+                      <p className="text-white/80 leading-relaxed jost-secondary">
                         With over <span className="text-primary font-semibold">4 years of specialized experience</span> in <span className="text-primary font-semibold">UI/UX design</span>, 
                         I craft <span className="text-primary font-semibold">innovative digital solutions</span> that elevate user experiences by harnessing 
                         <span className="text-primary font-semibold">AI-driven design approaches</span> and <span className="text-primary font-semibold">modern technologies</span>.
@@ -701,11 +700,11 @@ export default function Home() {
                     </div>
                     
                     <div>
-                      <h4 className="text-xl font-semibold text-white mb-4 flex items-center">
+                      <h4 className="text-xl font-semibold text-white mb-4 flex items-center jost-secondary">
                         <span className="w-3 h-3 bg-purple-400 mr-3"></span>
                         Innovation Focus
                       </h4>
-                      <p className="text-white/80 leading-relaxed">
+                      <p className="text-white/80 leading-relaxed jost-secondary">
                         Driven by a <span className="text-primary font-semibold">passion for innovation</span>, I've <span className="text-primary font-semibold">streamlined UI/UX workflows</span> using 
                         <span className="text-primary font-semibold">AI-powered design approaches</span>—<span className="bg-primary/20 text-primary px-2 py-1 rounded-lg font-semibold">cutting design cycles by 60%</span> 
                         while delivering <span className="text-primary font-semibold">intuitive, high-impact user experiences</span>.
@@ -715,7 +714,7 @@ export default function Home() {
 
                   {/* Core Values */}
                   <div className="space-y-6">
-                    <h4 className="text-xl font-semibold text-white mb-6">Core Principles</h4>
+                    <h4 className="text-xl font-semibold text-white mb-6 jost-secondary">Core Principles</h4>
                     
                     {[
                       { icon: '🎯', title: 'User-Centered Design', desc: 'Every decision driven by user needs and behaviors' },
@@ -732,8 +731,8 @@ export default function Home() {
                       >
                         <span className="text-2xl flex-shrink-0">{principle.icon}</span>
                         <div>
-                          <h5 className="text-white font-semibold mb-1">{principle.title}</h5>
-                          <p className="text-white/70 text-sm leading-relaxed">{principle.desc}</p>
+                          <h5 className="text-white font-semibold mb-1 jost-secondary">{principle.title}</h5>
+                          <p className="text-white/70 text-sm leading-relaxed jost-secondary">{principle.desc}</p>
                         </div>
                       </motion.div>
                     ))}
@@ -742,7 +741,7 @@ export default function Home() {
 
                 {/* Skills Tags */}
                 <div className="text-center">
-                  <h4 className="text-lg font-semibold text-white mb-6">Specialized Skills</h4>
+                  <h4 className="text-lg font-semibold text-white mb-6 jost-secondary">Specialized Skills</h4>
                   <div className="flex flex-wrap justify-center gap-3">
                     {[
                       'AI Design Tools', 'Figma Mastery', 'Replit Prototyping', 
@@ -751,7 +750,7 @@ export default function Home() {
                     ].map((skill, index) => (
                       <motion.span
                         key={skill}
-                        className="px-4 py-2 glass-card grain-texture text-white/90 text-sm font-medium hover:glass-intense transition-all duration-300"
+                        className="px-4 py-2 glass-card grain-texture text-white/90 text-sm font-medium hover:glass-intense transition-all duration-300 jost-secondary"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.4, delay: index * 0.05 }}
@@ -785,7 +784,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-normal glow-text relative z-10 modern-heritage">FEATURED PROJECTS</h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
             </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
               A showcase of innovative solutions spanning AI integration, enterprise platforms, and user-centered design systems.
             </p>
           </motion.div>
@@ -858,10 +857,10 @@ export default function Home() {
                         index === 0 
                           ? 'bg-primary/20 text-primary border-primary/30' 
                           : 'bg-purple-500/20 text-purple-300 border-purple-500/30'
-                      } text-xs font-semibold px-3 py-1`}>
+                      } text-xs font-semibold px-3 py-1 jost-secondary`}>
                         {project.category}
                       </Badge>
-                      <Badge variant="outline" className="bg-black/20 backdrop-blur-sm border-white/20 text-white/80 text-xs px-2 py-1">
+                      <Badge variant="outline" className="bg-black/20 backdrop-blur-sm border-white/20 text-white/80 text-xs px-2 py-1 jost-secondary">
                         {project.year}
                       </Badge>
                     </div>
@@ -871,14 +870,14 @@ export default function Home() {
                         {project.title.toUpperCase()}
                       </h3>
                       {project.subtitle && (
-                        <p className="text-sm font-medium text-white/70 font-accent" style={{ fontFamily: "'Oswald', sans-serif" }}>
+                        <p className="text-sm font-medium text-white/70 jost-secondary">
                           {project.subtitle.toUpperCase()}
                         </p>
                       )}
                     </div>
 
                     {/* Description */}
-                    <p className="text-white/80 leading-relaxed text-sm font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                    <p className="text-white/80 leading-relaxed text-sm jost-secondary">
                       {project.description}
                     </p>
 
@@ -888,7 +887,7 @@ export default function Home() {
                         <Link href="/project/futurefirstfamilies">
                           <Button className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-primary via-cyan-400 to-primary text-white font-bold py-2 text-sm border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary/30">
                             <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                            <div className="relative z-10 flex items-center justify-center space-x-2">
+                            <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
                               <span>View Case Study</span>
                               <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
                             </div>
@@ -906,7 +905,7 @@ export default function Home() {
                           className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 text-white font-bold border-0 hover:scale-[1.02] shadow-lg shadow-purple-500/30 py-2 text-sm transition-all duration-300"
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                          <div className="relative z-10 flex items-center justify-center space-x-2">
+                          <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
                             <span>{project.liveUrl ? 'View Live Site' : 'Explore Project'}</span>
                             <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
                           </div>
@@ -940,7 +939,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-normal glow-text relative z-10 modern-heritage">DESIGN PHILOSOPHY</h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
             </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
               My approach to creating meaningful and impactful digital experiences
             </p>
           </motion.div>
@@ -966,7 +965,7 @@ export default function Home() {
                 <div className="space-y-8">
                   <blockquote className="relative text-center">
                     <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-400 to-primary/60"></div>
-                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium">
+                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium jost-secondary">
                       "Great design is invisible. It seamlessly bridges human needs with 
                       technological possibilities, creating experiences that feel natural, 
                       intuitive, and delightful."
@@ -974,7 +973,7 @@ export default function Home() {
                   </blockquote>
                   
                   <div className="text-center pt-6 border-t border-white/10">
-                    <p className="text-white/85 text-lg leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-white/85 text-lg leading-relaxed max-w-2xl mx-auto jost-secondary">
                       I harness the power of AI design tools, master Figma's ecosystem, and leverage Replit's capabilities to create innovative, efficient design workflows that deliver exceptional results.
                     </p>
                   </div>
@@ -1051,7 +1050,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <h2 className="text-5xl font-normal mb-6 glow-text modern-heritage">GET IN TOUCH</h2>
-            <p className="text-xl text-muted-foreground font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            <p className="text-xl text-muted-foreground jost-secondary">
               Ready to collaborate on your next innovative project?
             </p>
           </motion.div>
@@ -1075,7 +1074,7 @@ export default function Home() {
                     viewport={{ once: true }}
                     className="group/field"
                   >
-                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
+                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90 jost-secondary">
                       <Users className="w-4 h-4 text-primary" />
                       <span>Name</span>
                     </label>
@@ -1094,7 +1093,7 @@ export default function Home() {
                     viewport={{ once: true }}
                     className="group/field"
                   >
-                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
+                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90 jost-secondary">
                       <Mail className="w-4 h-4 text-primary" />
                       <span>Email</span>
                     </label>
@@ -1122,7 +1121,7 @@ export default function Home() {
                     viewport={{ once: true }}
                     className="group/field"
                   >
-                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
+                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90 jost-secondary">
                       <MapPin className="w-4 h-4 text-primary" />
                       <span>City, Country</span>
                     </label>
@@ -1141,7 +1140,7 @@ export default function Home() {
                     viewport={{ once: true }}
                     className="group/field"
                   >
-                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
+                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90 jost-secondary">
                       <FileText className="w-4 h-4 text-primary" />
                       <span>Subject</span>
                     </label>
@@ -1160,7 +1159,7 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: 0.5 }}
                   viewport={{ once: true }}
                 >
-                  <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90">
+                  <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90 jost-secondary">
                     <MessageSquare className="w-4 h-4 text-primary" />
                     <span>Project Details</span>
                   </label>
@@ -1196,12 +1195,12 @@ export default function Home() {
                       {contactMutation.isPending ? (
                         <>
                           <div className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full animate-spin" />
-                          <span>Sending Message...</span>
+                          <span className="jost-secondary">Sending Message...</span>
                         </>
                       ) : (
                         <>
                           <Mail className="w-6 h-6" />
-                          <span>Send Message</span>
+                          <span className="jost-secondary">Send Message</span>
                           <ArrowUpRight className="w-5 h-5 group-hover/btn:rotate-45 transition-transform duration-300" />
                         </>
                       )}
