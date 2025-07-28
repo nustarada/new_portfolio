@@ -1,0 +1,49 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="statsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#statsGrad)"/>
+  
+  <!-- Header -->
+  <text x="600" y="100" fill="#1a1a2e" font-size="36" font-weight="bold" text-anchor="middle" font-family="Arial">It's Not Just the Hours — It's the Outcome</text>
+  <text x="600" y="140" fill="#666666" font-size="18" text-anchor="middle" font-family="Arial">Different kids. One-size-fits-all system. The fast ones get bored. The slow ones get lost.</text>
+  
+  <!-- Statistics Cards -->
+  <!-- Card 1 -->
+  <rect x="80" y="200" width="320" height="200" fill="#ffffff" rx="12" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="240" y="250" fill="#4fc3f7" font-size="48" font-weight="bold" text-anchor="middle" font-family="Arial">1 in 4</text>
+  <text x="240" y="290" fill="#1a1a2e" font-size="20" font-weight="bold" text-anchor="middle" font-family="Arial">Traditional Lessons</text>
+  <text x="240" y="315" fill="#1a1a2e" font-size="20" font-weight="bold" text-anchor="middle" font-family="Arial">Miss the Mark</text>
+  <text x="240" y="350" fill="#666666" font-size="14" text-anchor="middle" font-family="Arial">Students say traditional lessons fail</text>
+  <text x="240" y="370" fill="#666666" font-size="14" text-anchor="middle" font-family="Arial">to meet their needs</text>
+  
+  <!-- Card 2 -->
+  <rect x="440" y="200" width="320" height="200" fill="#ffffff" rx="12" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="600" y="250" fill="#4fc3f7" font-size="48" font-weight="bold" text-anchor="middle" font-family="Arial">24% / 27%</text>
+  <text x="600" y="290" fill="#1a1a2e" font-size="20" font-weight="bold" text-anchor="middle" font-family="Arial">Academic Gaps in</text>
+  <text x="600" y="315" fill="#1a1a2e" font-size="20" font-weight="bold" text-anchor="middle" font-family="Arial">Math and Reading</text>
+  <text x="600" y="350" fill="#666666" font-size="14" text-anchor="middle" font-family="Arial">Only a quarter are proficient</text>
+  <text x="600" y="370" fill="#666666" font-size="14" text-anchor="middle" font-family="Arial">showing the learning divide</text>
+  
+  <!-- Card 3 -->
+  <rect x="800" y="200" width="320" height="200" fill="#ffffff" rx="12" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="960" y="250" fill="#4fc3f7" font-size="48" font-weight="bold" text-anchor="middle" font-family="Arial">92%</text>
+  <text x="960" y="290" fill="#1a1a2e" font-size="20" font-weight="bold" text-anchor="middle" font-family="Arial">AI's Role in Future</text>
+  <text x="960" y="315" fill="#1a1a2e" font-size="20" font-weight="bold" text-anchor="middle" font-family="Arial">of Learning</text>
+  <text x="960" y="350" fill="#666666" font-size="14" text-anchor="middle" font-family="Arial">School tech leaders agree AI</text>
+  <text x="960" y="370" fill="#666666" font-size="14" text-anchor="middle" font-family="Arial">will have positive impact</text>
+  
+  <!-- Bottom Section -->
+  <text x="600" y="500" fill="#1a1a2e" font-size="28" font-weight="bold" text-anchor="middle" font-family="Arial">But there's a better way here</text>
+  
+  <!-- Method Highlights -->
+  <rect x="300" y="550" width="600" height="180" fill="#4fc3f7" rx="12" opacity="0.1"/>
+  <text x="600" y="590" fill="#1a1a2e" font-size="24" font-weight="bold" text-anchor="middle" font-family="Arial">Revolutionary Learning Method</text>
+  <text x="600" y="630" fill="#4fc3f7" font-size="32" font-weight="bold" text-anchor="middle" font-family="Arial">Double Academic Growth in Just 2 Hours Daily</text>
+  <text x="600" y="670" fill="#666666" font-size="16" text-anchor="middle" font-family="Arial">Personalized to your child's skill level, powered by AI-led mastery-based learning.</text>
+</svg>
