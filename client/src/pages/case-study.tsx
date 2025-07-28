@@ -506,32 +506,35 @@ export default function CaseStudy() {
 
           <div className="grid grid-cols-2 md:grid-cols-2 gap-6 mb-12">
             {[
-              { value: "30%", desc: "increase in completed actions within first month", icon: "🏆" },
-              { value: "4x", desc: "higher user retention vs previous system", icon: "🏆" },
-              { value: "1500+", desc: "parents onboarded in first 3 weeks", icon: "🏆" },
-              { value: "Significant", desc: "improvement in action tracking and admin workflow", icon: "🏆" }
-            ].map((metric, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <Card className="p-8 text-center glass-card grain-texture hover:glass-intense border-green-500/30 group-hover:border-green-500/50 transition-all duration-300">
-                  <div className="w-12 h-12 bg-green-500/20 rounded-xl mx-auto mb-6 flex items-center justify-center group-hover:bg-green-500/30 transition-colors">
-                    <div className="text-2xl">🏆</div>
-                  </div>
-                  <div className="text-3xl md:text-4xl font-black text-green-400 mb-4 modern-heritage">
-                    {metric.value}
-                  </div>
-                  <p className="text-white/80 text-sm leading-relaxed jost-secondary">
-                    {metric.desc}
-                  </p>
-                </Card>
-              </motion.div>
-            ))}
+              { value: "30%", desc: "increase in completed actions within first month", IconComponent: TrendingUp },
+              { value: "4x", desc: "higher user retention vs previous system", IconComponent: Users },
+              { value: "1500+", desc: "parents onboarded in first 3 weeks", IconComponent: Target },
+              { value: "Significant", desc: "improvement in action tracking and admin workflow", IconComponent: CheckCircle }
+            ].map((metric, index) => {
+              const { IconComponent } = metric;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group"
+                >
+                  <Card className="p-8 text-center glass-card grain-texture hover:glass-intense border-green-500/30 group-hover:border-green-500/50 transition-all duration-300">
+                    <div className="w-12 h-12 bg-green-500/20 rounded-xl mx-auto mb-6 flex items-center justify-center group-hover:bg-green-500/30 transition-colors">
+                      <IconComponent className="w-6 h-6 text-green-400" />
+                    </div>
+                    <div className="text-3xl md:text-4xl font-black text-green-400 mb-4 modern-heritage">
+                      {metric.value}
+                    </div>
+                    <p className="text-white/80 text-sm leading-relaxed jost-secondary">
+                      {metric.desc}
+                    </p>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
 
           <Card className="p-12 glass-intense grain-texture hover:glass-card border-green-500/30 transition-all duration-300">
