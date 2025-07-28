@@ -215,7 +215,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground cursor-glow relative overflow-hidden" style={{ backgroundColor: '#040406', color: '#fafafa' }}>
+    <div className="min-h-screen bg-background text-foreground relative overflow-hidden" style={{ backgroundColor: '#040406', color: '#fafafa' }}>
 
 
       {/* Scroll Progress */}

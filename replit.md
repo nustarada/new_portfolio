@@ -100,6 +100,8 @@ This is a full-stack web application built with React/TypeScript frontend and Ex
 
 ```
 Changelog:
+- July 28, 2025. Removed custom cursor functionality completely: deleted cursor component, removed all cursor-related CSS styles, and restored default browser cursor behavior
+- July 28, 2025. Fixed hero section overlap with navbar: increased top padding to pt-32 and adjusted z-index layering
 - July 28, 2025. Optimized project card layout: increased thumbnail size to h-80, removed dark overlay for cleaner image display, significantly reduced content sections (removed key outcomes and tech stack), streamlined to show only essential project information with single button
 - July 28, 2025. Added FutureFirstFamilies project thumbnail image to replace abstract background in first project card, enhancing visual appeal with actual project screenshot
 - July 28, 2025. Replaced Brain icon with actual logo image in About section profile header, applied cyan color filtering to match theme
