@@ -44,7 +44,7 @@ interface ProjectData {
 const projectsData: { [key: string]: ProjectData } = {
   'futurefirstfamilies': {
     title: "FutureFirstFamilies",
-    subtitle: "Gamified Advocacy Platform",
+    subtitle: "Gamified Advocacy Website & Platform",
     description: "A civic engagement platform empowering parents to take monthly actions on educational reform through gamified, user-friendly design tailored for non-tech-savvy users.",
     detailedDescription: "Designed and developed the entire platform from ground up, combining gamification with advocacy to create an engaging experience that increased completed actions by 30% and achieved 4× higher user retention.",
     liveUrl: "https://futurefirstfamilies.com/",
@@ -65,12 +65,12 @@ const projectsData: { [key: string]: ProjectData } = {
       "Simple admin dashboard for content management",
       "Accessibility features including light/dark modes and clean typography"
     ],
-    techStack: ["Figma", "React", "JavaScript", "HubSpot API", "Replit", "Responsive Design", "Accessibility"],
+    techStack: ["Figma", "React", "JavaScript", "HubSpot API", "Responsive Design", "Accessibility"],
     process: [
       "Conducted interviews with advocacy organizers",
       "Created user flows and low-fidelity wireframes", 
       "Designed high-fidelity mockups and reusable design system",
-      "Developed platform using React in Replit",
+      "Developed platform using React with modern tooling",
       "Integrated gamification, referrals, and accessibility features",
       "Tested and refined based on team feedback"
     ],
@@ -159,13 +159,6 @@ export default function ProjectDetail() {
                   <ExternalLink className="w-4 h-4 mr-2" />
                   View Live Site
                 </Button>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.slice(0, 3).map((tag) => (
-                    <Badge key={tag} variant="outline" className="bg-white/5 text-white/70 border-white/20">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
               </div>
             </motion.div>
 
