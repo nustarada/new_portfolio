@@ -186,22 +186,6 @@ export default function Home() {
         "Integrated gamification, referrals, and accessibility features",
         "Tested and refined based on team feedback"
       ]
-    },
-    {
-      title: "AI-Powered Design System",
-      description: "Next-generation design system with AI-driven component generation and automated documentation",
-      image: "/api/placeholder/600/400",
-      tags: ["AI/ML", "Design Systems", "Automation"],
-      year: "2025",
-      category: "Product Design"
-    },
-    {
-      title: "Enterprise Analytics Dashboard", 
-      description: "Real-time analytics platform processing millions of data points with intuitive visualization",
-      image: "/api/placeholder/600/400",
-      tags: ["Data Visualization", "Enterprise", "Real-time"],
-      year: "2025",
-      category: "Data & Analytics"
     }
   ];
 
@@ -806,7 +790,8 @@ export default function Home() {
           </motion.div>
 
           {/* Enhanced Project Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="flex justify-center">
+            <div className="max-w-2xl w-full">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -828,52 +813,18 @@ export default function Home() {
 
                   {/* Hero Image Section */}
                   <div className="relative h-80 overflow-hidden">
-                    {index === 0 ? (
-                      /* FutureFirstFamilies Project Thumbnail */
-                      <img 
-                        src={futureFirstFamiliesThumbnail} 
-                        alt="FutureFirstFamilies Platform" 
-                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                    ) : (
-                      /* Abstract background for other projects */
-                      <>
-                        {/* Dynamic Gradient Background */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/40 via-sky-500/30 to-cyan-500/40 group-hover:scale-110 transition-transform duration-700" />
-                        
-                        {/* Simplified Geometric Shapes */}
-                        <div className="absolute inset-0">
-                          <div className="absolute top-8 right-8 w-16 h-16 bg-blue-500/30 rotate-45 group-hover:rotate-90 transition-transform duration-300" />
-                          <div className="absolute bottom-8 left-8 w-12 h-12 bg-sky-500/30 rounded-full group-hover:scale-110 transition-transform duration-300" />
-                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-cyan-500/40 group-hover:rotate-45 transition-transform duration-300" />
-                        </div>
-
-                        {/* Central Icon */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="relative group-hover:scale-110 transition-transform duration-500">
-                            <div className="w-20 h-20 bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
-                              <Terminal className="w-10 h-10 text-white" />
-                            </div>
-                            {/* Pulsing Ring */}
-                            <div className="absolute inset-0 border-2 border-white/30 animate-pulse group-hover:scale-125 transition-transform duration-500" />
-                          </div>
-                        </div>
-
-                        {/* Overlay Effects */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      </>
-                    )}
+                    <img 
+                      src={futureFirstFamiliesThumbnail} 
+                      alt="FutureFirstFamilies Platform" 
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
                   </div>
 
                   {/* Content Section - Simplified */}
                   <div className="p-6 space-y-4">
                     {/* Header */}
                     <div className="flex items-center justify-between">
-                      <Badge className={`${
-                        index === 0 
-                          ? 'bg-primary/20 text-primary border-primary/30' 
-                          : 'bg-blue-500/20 text-blue-300 border-blue-500/30'
-                      } text-xs font-semibold px-3 py-1 jost-secondary`}>
+                      <Badge className="bg-primary/20 text-primary border-primary/30 text-xs font-semibold px-3 py-1 jost-secondary">
                         {project.category}
                       </Badge>
                       <Badge variant="outline" className="bg-black/20 backdrop-blur-sm border-white/20 text-white/80 text-xs px-2 py-1 jost-secondary">
@@ -893,46 +844,27 @@ export default function Home() {
 
                     {/* Action Buttons */}
                     <div className="pt-4">
-                      {index === 0 ? (
-                        <div className="grid grid-cols-2 gap-3">
-                          <Link href="/project/futurefirstfamilies">
-                            <Button className="w-full group/btn relative overflow-hidden cta-button grain-texture text-white font-bold py-3 text-sm border-0 hover:scale-[1.02] transition-all duration-300">
-                              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                              <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
-                                <span>Case Study</span>
-                                <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
-                              </div>
-                            </Button>
-                          </Link>
-                          <Button 
-                            onClick={() => window.open(project.liveUrl, '_blank')}
-                            variant="outline"
-                            className="w-full text-white border-white/20 hover:bg-white/10 py-3 text-sm jost-secondary"
-                          >
-                            <div className="flex items-center justify-center space-x-2">
-                              <span>Live Site</span>
-                              <ArrowUpRight className="w-4 h-4" />
+                      <div className="grid grid-cols-2 gap-3">
+                        <Link href="/project/futurefirstfamilies">
+                          <Button className="w-full group/btn relative overflow-hidden cta-button grain-texture text-white font-bold py-3 text-sm border-0 hover:scale-[1.02] transition-all duration-300">
+                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                            <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
+                              <span>Case Study</span>
+                              <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
                             </div>
                           </Button>
-                        </div>
-                      ) : (
+                        </Link>
                         <Button 
-                          onClick={() => {
-                            if (project.liveUrl) {
-                              window.open(project.liveUrl, '_blank');
-                            } else {
-                              toast({ title: "Coming Soon", description: "Case studies are currently under construction. Stay tuned!" });
-                            }
-                          }}
-                          className="w-full group/btn relative overflow-hidden text-white font-bold cta-button grain-texture border-0 hover:scale-[1.02] py-3 text-sm"
+                          onClick={() => window.open(project.liveUrl, '_blank')}
+                          variant="outline"
+                          className="w-full text-white border-white/20 hover:bg-white/10 py-3 text-sm jost-secondary"
                         >
-                          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                          <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
-                            <span>{project.liveUrl ? 'View Live Site' : 'Explore Project'}</span>
-                            <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
+                          <div className="flex items-center justify-center space-x-2">
+                            <span>Live Site</span>
+                            <ArrowUpRight className="w-4 h-4" />
                           </div>
                         </Button>
-                      )}
+                      </div>
                     </div>
                   </div>
 
@@ -943,6 +875,7 @@ export default function Home() {
                 </Card>
               </motion.div>
             ))}
+            </div>
           </div>
         </div>
       </section>

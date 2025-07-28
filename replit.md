@@ -100,6 +100,7 @@ This is a full-stack web application built with React/TypeScript frontend and Ex
 
 ```
 Changelog:
+- July 28, 2025. Portfolio cleanup and optimization: removed dummy projects from homepage, leaving only FutureFirstFamilies project displayed in centered layout, updated project detail page with proper typography (Modern Heritage Display for headings, Jost for body text), added scroll-to-top functionality, replaced "Back to Portfolio" button with "Contact Me" button linking to contact form, and simplified conditional rendering logic
 - July 28, 2025. Comprehensive case study page improvements: updated FutureFirstFamilies case study with detailed project information, emphasized Figma design process and HubSpot API integration, added Technology Stack section with modern tools, included "What I Learned" reflection section, and updated all content to reflect gamified advocacy platform specifics
 - July 28, 2025. Enhanced About Me section with personal photo: restructured layout using 5-column grid (2 cols for photo, 3 cols for content), added professional portrait with grayscale-to-color hover effect, moved profile information below photo, and integrated Core Principles within main content flow for better visual hierarchy
 - July 28, 2025. Fixed project CTA button layout: changed FutureFirstFamilies buttons from stacked to side-by-side using grid layout, shortened text to "Case Study" and "Live Site" for better fit, maintained consistent dark blue gradient styling across all buttons
