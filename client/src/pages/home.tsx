@@ -825,12 +825,7 @@ export default function Home() {
                       {project.description}
                     </p>
                     
-                    {project.role && (
-                      <div className="mb-4 p-3 glass-card grain-texture">
-                        <p className="text-xs font-semibold text-primary/90 mb-1">MY ROLE</p>
-                        <p className="text-white/70 text-xs">{project.role}</p>
-                      </div>
-                    )}
+                    
                     
                     {project.outcomes && (
                       <div className="mb-4">
