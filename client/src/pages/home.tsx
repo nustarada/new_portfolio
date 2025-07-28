@@ -785,162 +785,187 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Modern Card Grid Layout */}
+          {/* Enhanced Project Cards */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
                 viewport={{ once: true }}
                 className="group h-full"
               >
-                <Card className="relative h-full overflow-hidden glass-card grain-texture hover:glass-intense border-0 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-700">
-                  {/* Header Section */}
-                  <div className="relative p-6 pb-4">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-3 mb-2">
-                          <div className="text-3xl font-black text-primary/40 code-font">
-                            {String(index + 1).padStart(2, '0')}
-                          </div>
-                          <Badge className="bg-primary/90 text-white border-0 px-2 py-1 text-xs font-semibold">
-                            {project.category}
-                          </Badge>
-                        </div>
-                        
-                        <h3 className="text-xl font-bold text-white leading-tight mb-2 group-hover:text-primary transition-colors duration-300">
-                          {project.title}
-                          {project.subtitle && <span className="block text-sm font-medium text-white/70 mt-1">{project.subtitle}</span>}
-                        </h3>
-                      </div>
-                      
-                      <Badge variant="outline" className="bg-black/30 backdrop-blur-sm border-white/20 text-white code-font text-xs px-2 py-1">
-                        {project.year}
-                      </Badge>
+                <Card className="relative h-full overflow-hidden glass-card grain-texture hover:glass-intense border-0 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.02]">
+                  {/* Project Number Badge */}
+                  <div className="absolute top-4 left-4 z-20">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 backdrop-blur-md border border-white/10 flex items-center justify-center">
+                      <span className="text-lg font-bold text-primary font-mono">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
                     </div>
+                  </div>
+
+                  {/* Hero Image Section */}
+                  <div className="relative h-48 overflow-hidden">
+                    {/* Dynamic Gradient Background */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${
+                      index === 0 
+                        ? 'from-primary/40 via-cyan-400/30 to-emerald-400/40' 
+                        : 'from-purple-500/40 via-violet-500/30 to-indigo-500/40'
+                    } group-hover:scale-110 transition-transform duration-700`} />
                     
-                    <p className="text-white/85 leading-relaxed text-sm mb-4">
+                    {/* Animated Geometric Shapes */}
+                    <div className="absolute inset-0">
+                      <div className={`absolute top-8 right-8 w-16 h-16 ${
+                        index === 0 ? 'bg-primary/30' : 'bg-purple-500/30'
+                      } rotate-45 group-hover:rotate-[225deg] transition-transform duration-700`} />
+                      <div className={`absolute bottom-8 left-8 w-12 h-12 ${
+                        index === 0 ? 'bg-cyan-400/30' : 'bg-violet-500/30'
+                      } rounded-full group-hover:scale-150 transition-transform duration-700`} />
+                      <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 ${
+                        index === 0 ? 'bg-emerald-400/40' : 'bg-indigo-500/40'
+                      } group-hover:rotate-180 transition-transform duration-700`} />
+                    </div>
+
+                    {/* Central Icon */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="relative group-hover:scale-110 transition-transform duration-500">
+                        <div className="w-20 h-20 bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                          {index === 0 ? (
+                            <Heart className="w-10 h-10 text-white" />
+                          ) : (
+                            <Terminal className="w-10 h-10 text-white" />
+                          )}
+                        </div>
+                        {/* Pulsing Ring */}
+                        <div className="absolute inset-0 border-2 border-white/30 animate-pulse group-hover:scale-125 transition-transform duration-500" />
+                      </div>
+                    </div>
+
+                    {/* Overlay Effects */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  </div>
+
+                  {/* Content Section */}
+                  <div className="p-6 space-y-4">
+                    {/* Header */}
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <Badge className={`${
+                          index === 0 
+                            ? 'bg-primary/20 text-primary border-primary/30' 
+                            : 'bg-purple-500/20 text-purple-300 border-purple-500/30'
+                        } text-xs font-semibold px-3 py-1`}>
+                          {project.category}
+                        </Badge>
+                        <Badge variant="outline" className="bg-black/20 backdrop-blur-sm border-white/20 text-white/80 text-xs px-2 py-1">
+                          {project.year}
+                        </Badge>
+                      </div>
+
+                      <div>
+                        <h3 className="text-xl font-bold text-white leading-tight mb-2 group-hover:text-primary transition-colors duration-300 font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                          {project.title.toUpperCase()}
+                        </h3>
+                        {project.subtitle && (
+                          <p className="text-sm font-medium text-white/70 font-accent" style={{ fontFamily: "'Oswald', sans-serif" }}>
+                            {project.subtitle.toUpperCase()}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-white/80 leading-relaxed text-sm font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                       {project.description}
                     </p>
-                    
-                    
-                    
+
+                    {/* Key Outcomes */}
                     {project.outcomes && (
-                      <div className="mb-4">
-                        <p className="text-xs font-semibold text-primary/90 mb-2">KEY OUTCOMES</p>
-                        <div className="space-y-1">
+                      <div className="space-y-2">
+                        <h4 className="text-xs font-bold text-primary/90 tracking-wider font-accent" style={{ fontFamily: "'Oswald', sans-serif" }}>
+                          KEY OUTCOMES
+                        </h4>
+                        <div className="space-y-2">
                           {project.outcomes.slice(0, 2).map((outcome, idx) => (
-                            <div key={idx} className="flex items-start space-x-2">
-                              <div className="w-1 h-1 bg-primary/80 mt-2 flex-shrink-0"></div>
-                              <p className="text-white/70 text-xs leading-relaxed">{outcome}</p>
+                            <div key={idx} className="flex items-start space-x-3">
+                              <div className={`w-2 h-2 ${
+                                index === 0 ? 'bg-primary/80' : 'bg-purple-500/80'
+                              } mt-2 flex-shrink-0`} />
+                              <p className="text-white/70 text-xs leading-relaxed font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                                {outcome}
+                              </p>
                             </div>
                           ))}
                         </div>
                       </div>
                     )}
-                  </div>
 
-                  {/* Visual Section */}
-                  <div className="relative px-6 pb-4">
-                    <div className="relative aspect-[16/10] bg-gradient-to-br from-primary/30 via-cyan-400/20 to-emerald-400/25 overflow-hidden mb-4">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                      
-                      {/* Central Icon */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="relative">
-                          <div className="w-16 h-16 bg-gradient-to-br from-primary/40 to-purple-500/40 flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
-                            {index === 0 ? (
-                              <Heart className="w-8 h-8 text-white" />
-                            ) : (
-                              <Terminal className="w-8 h-8 text-white" />
-                            )}
-                          </div>
-                          
-                          {/* Floating Elements */}
-                          <div className="absolute -top-1 -right-1 w-4 h-4 bg-primary/60 animate-pulse" />
-                          <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-purple-500/60 animate-pulse delay-300" />
-                        </div>
+                    {/* Tech Stack */}
+                    <div className="space-y-2">
+                      <h4 className="text-xs font-bold text-primary/90 tracking-wider font-accent" style={{ fontFamily: "'Oswald', sans-serif" }}>
+                        TECH STACK
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.slice(0, 4).map((tag) => (
+                          <Badge key={tag} variant="secondary" className="bg-white/5 text-white/70 border-white/10 text-xs px-2 py-1 hover:bg-white/10 transition-colors duration-300">
+                            {tag}
+                          </Badge>
+                        ))}
+                        {project.tags.length > 4 && (
+                          <Badge variant="secondary" className="bg-white/5 text-white/70 border-white/10 text-xs px-2 py-1">
+                            +{project.tags.length - 4}
+                          </Badge>
+                        )}
                       </div>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="pt-4 space-y-3">
+                      {index === 0 && (
+                        <Link href="/project/futurefirstfamilies">
+                          <Button className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-primary via-cyan-400 to-primary text-white font-bold py-3 border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary/30">
+                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                            <div className="relative z-10 flex items-center justify-center space-x-2">
+                              <span>View Case Study</span>
+                              <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
+                            </div>
+                          </Button>
+                        </Link>
+                      )}
                       
-                      {/* Grid Overlay */}
-                      <div className="absolute inset-0 opacity-20">
-                        <div className="grid grid-cols-6 h-full">
-                          {[...Array(24)].map((_, i) => (
-                            <div key={i} className="border-r border-b border-white/10" />
-                          ))}
+                      <Button 
+                        onClick={() => {
+                          if (project.liveUrl) {
+                            window.open(project.liveUrl, '_blank');
+                          } else {
+                            toast({ title: "Coming Soon", description: "Case studies are currently under construction. Stay tuned!" });
+                          }
+                        }}
+                        variant={index === 0 ? "outline" : "default"}
+                        className={`w-full group/btn relative overflow-hidden ${
+                          index === 0 
+                            ? 'border-white/30 text-white hover:bg-white/10 hover:border-white/50' 
+                            : 'bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 text-white font-bold border-0 hover:scale-[1.02] shadow-lg shadow-purple-500/30'
+                        } py-3 transition-all duration-300`}
+                      >
+                        {index !== 0 && (
+                          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                        )}
+                        <div className="relative z-10 flex items-center justify-center space-x-2">
+                          <span>{project.liveUrl ? 'View Live Site' : 'Explore Project'}</span>
+                          <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
                         </div>
-                      </div>
+                      </Button>
                     </div>
                   </div>
 
-                  {/* Tech Stack */}
-                  <div className="px-6 pb-4">
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {project.tags.slice(0, 3).map((tag) => (
-                        <Badge key={tag} variant="secondary" className="bg-white/5 text-white/70 border-white/10 text-xs px-2 py-1 hover:bg-white/10 transition-colors duration-300">
-                          {tag}
-                        </Badge>
-                      ))}
-                      {project.tags.length > 3 && (
-                        <Badge variant="secondary" className="bg-white/5 text-white/70 border-white/10 text-xs px-2 py-1">
-                          +{project.tags.length - 3}
-                        </Badge>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* CTA Section */}
-                  <div className="p-6 pt-0 space-y-3">
-                    {/* View Case Study Button */}
-                    {index === 0 && (
-                      <Link href="/project/futurefirstfamilies">
-                        <Button 
-                          className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-primary via-cyan-400 to-primary text-white font-semibold py-3 border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary/25"
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                          
-                          <div className="relative z-10 flex items-center justify-center space-x-2">
-                            <span>View Case Study</span>
-                            <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
-                          </div>
-                        </Button>
-                      </Link>
-                    )}
-                    
-                    {/* Live Site / Coming Soon Button */}
-                    <Button 
-                      onClick={() => {
-                        if (project.liveUrl) {
-                          window.open(project.liveUrl, '_blank');
-                        } else {
-                          toast({ title: "Coming Soon", description: "Case studies are currently under construction. Stay tuned!" });
-                        }
-                      }}
-                      variant={index === 0 ? "outline" : "default"}
-                      className={`w-full group/btn relative overflow-hidden ${
-                        index === 0 
-                          ? 'border-white/20 text-white hover:bg-white/10' 
-                          : 'bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 text-white font-semibold border-0 hover:scale-[1.02] shadow-lg shadow-purple-500/25'
-                      } py-3 transition-all duration-300`}
-                    >
-                      {index !== 0 && (
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                      )}
-                      
-                      <div className="relative z-10 flex items-center justify-center space-x-2">
-                        <span>{project.liveUrl ? 'View Live Site' : 'Explore Project'}</span>
-                        <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
-                      </div>
-                    </Button>
-                  </div>
-
-                  {/* Ambient Glow */}
+                  {/* Enhanced Ambient Effects */}
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                  
-                  {/* Corner Decoration */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/8 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl" />
+                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-purple-500/8 to-transparent rounded-tr-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl" />
                 </Card>
               </motion.div>
             ))}
