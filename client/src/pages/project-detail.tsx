@@ -476,10 +476,10 @@ export default function ProjectDetail() {
                 <ExternalLink className="w-4 h-4 mr-2" />
                 Visit Live Site
               </Button>
-              <Link href="/">
+              <Link href="/#contact">
                 <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Back to Portfolio
+                  <Heart className="w-4 h-4 mr-2" />
+                  Contact Me
                 </Button>
               </Link>
             </div>
