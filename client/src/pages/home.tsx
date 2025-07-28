@@ -14,6 +14,7 @@ import { useToast } from '@/hooks/use-toast';
 import { LiquidGrid } from '@/components/liquid-grid';
 import { MovingRibbon } from '@/components/moving-ribbon';
 import logoPath from '@assets/Logo black_1749713682616.png';
+import logoImage from '@assets/Logo black_1749729973781.png';
 import resumePdf from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
 import { 
   Terminal, 
@@ -672,7 +673,12 @@ export default function Home() {
                     whileHover={{ scale: 1.05, rotate: 5 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Brain className="w-12 h-12 text-primary" />
+                    <img 
+                      src={logoImage} 
+                      alt="Karan Gadhave Logo" 
+                      className="w-12 h-12 object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+                      style={{ filter: 'brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(185deg) brightness(1.2)' }}
+                    />
                   </motion.div>
                   
                   <h3 className="text-3xl font-bold text-white mb-3">Karan Gadhave</h3>
