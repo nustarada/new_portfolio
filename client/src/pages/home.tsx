@@ -16,6 +16,7 @@ import { MovingRibbon } from '@/components/moving-ribbon';
 import logoPath from '@assets/Logo black_1749729973781.png';
 import futureFirstFamiliesThumbnail from '@assets/Screenshot 2025-07-29 at 00.03.25_1753728466090.png';
 import resumePdf from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
+import profilePhoto from '@assets/Snapchat-46456319_1753732781437.jpg';
 import { 
   Terminal, 
   Sparkles, 
@@ -669,29 +670,39 @@ export default function Home() {
               <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400/8 to-emerald-400/8 blur-2xl" />
               
               <div className="relative z-10 space-y-12">
-                {/* Profile Header */}
-                <div className="text-center">
-                  <motion.div 
-                    className="w-24 h-24 bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center mx-auto mb-8 backdrop-blur-sm border border-white/10"
-                    whileHover={{ scale: 1.05, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <img 
-                      src={logoPath} 
-                      alt="Karan Gadhave Logo" 
-                      className="w-12 h-12 object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
-                      style={{ filter: 'brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(185deg) brightness(1.2)' }}
-                    />
-                  </motion.div>
-                  
-                  <h3 className="text-3xl font-bold text-white mb-3 jost-secondary">Karan Gadhave</h3>
-                  <p className="text-primary text-xl font-semibold mb-2 jost-secondary">Senior Product Designer</p>
-                  <p className="text-white/60 jost-secondary">AI Innovation Specialist</p>
-                </div>
+                {/* Bio Content - Restructured with Photo */}
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
+                  {/* Profile Photo */}
+                  <div className="md:col-span-2 flex justify-center">
+                    <motion.div
+                      className="relative group"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="w-64 h-64 relative overflow-hidden bg-gradient-to-br from-primary/20 to-purple-500/20 backdrop-blur-sm border border-white/10">
+                        <img 
+                          src={profilePhoto} 
+                          alt="Karan Gadhave - Senior Product Designer" 
+                          className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500 grayscale group-hover:grayscale-0"
+                        />
+                        {/* Overlay gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      </div>
+                      
+                      {/* Decorative border */}
+                      <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 via-cyan-400/30 to-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10" />
+                      
+                      {/* Profile info overlay */}
+                      <div className="mt-6 text-center">
+                        <h3 className="text-2xl font-bold text-white mb-2 modern-heritage">KARAN GADHAVE</h3>
+                        <p className="text-primary text-lg font-semibold mb-1 jost-secondary">Senior Product Designer</p>
+                        <p className="text-white/60 text-sm jost-secondary">AI Innovation Specialist</p>
+                      </div>
+                    </motion.div>
+                  </div>
 
-                {/* Bio Content */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                  <div className="space-y-6">
+                  {/* Bio Content */}
+                  <div className="md:col-span-3 space-y-8">
                     <div>
                       <h4 className="text-xl font-semibold text-white mb-4 flex items-center jost-secondary">
                         <span className="w-3 h-3 bg-primary mr-3"></span>
@@ -715,32 +726,32 @@ export default function Home() {
                         while delivering <span className="text-primary font-semibold">intuitive, high-impact user experiences</span>.
                       </p>
                     </div>
-                  </div>
 
-                  {/* Core Values */}
-                  <div className="space-y-6">
-                    <h4 className="text-xl font-semibold text-white mb-6 jost-secondary">Core Principles</h4>
-                    
-                    {[
-                      { icon: '🎯', title: 'User-Centered Design', desc: 'Every decision driven by user needs and behaviors' },
-                      { icon: '⚡', title: 'AI-Enhanced Workflow', desc: 'Leveraging technology for maximum efficiency' },
-                      { icon: '🚀', title: 'Innovation-First Mindset', desc: 'Pushing creative boundaries in every project' }
-                    ].map((principle, index) => (
-                      <motion.div
-                        key={principle.title}
-                        className="flex items-start space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300"
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                      >
-                        <span className="text-2xl flex-shrink-0">{principle.icon}</span>
-                        <div>
-                          <h5 className="text-white font-semibold mb-1 jost-secondary">{principle.title}</h5>
-                          <p className="text-white/70 text-sm leading-relaxed jost-secondary">{principle.desc}</p>
-                        </div>
-                      </motion.div>
-                    ))}
+                    {/* Core Values */}
+                    <div className="space-y-4">
+                      <h4 className="text-xl font-semibold text-white mb-4 jost-secondary">Core Principles</h4>
+                      
+                      {[
+                        { icon: '🎯', title: 'User-Centered Design', desc: 'Every decision driven by user needs and behaviors' },
+                        { icon: '⚡', title: 'AI-Enhanced Workflow', desc: 'Leveraging technology for maximum efficiency' },
+                        { icon: '🚀', title: 'Innovation-First Mindset', desc: 'Pushing creative boundaries in every project' }
+                      ].map((principle, index) => (
+                        <motion.div
+                          key={principle.title}
+                          className="flex items-start space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300"
+                          initial={{ opacity: 0, x: 20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5, delay: index * 0.1 }}
+                          viewport={{ once: true }}
+                        >
+                          <span className="text-xl flex-shrink-0">{principle.icon}</span>
+                          <div>
+                            <h5 className="text-white font-semibold mb-1 text-sm jost-secondary">{principle.title}</h5>
+                            <p className="text-white/70 text-xs leading-relaxed jost-secondary">{principle.desc}</p>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 

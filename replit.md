@@ -100,6 +100,8 @@ This is a full-stack web application built with React/TypeScript frontend and Ex
 
 ```
 Changelog:
+- July 28, 2025. Enhanced About Me section with personal photo: restructured layout using 5-column grid (2 cols for photo, 3 cols for content), added professional portrait with grayscale-to-color hover effect, moved profile information below photo, and integrated Core Principles within main content flow for better visual hierarchy
+- July 28, 2025. Fixed project CTA button layout: changed FutureFirstFamilies buttons from stacked to side-by-side using grid layout, shortened text to "Case Study" and "Live Site" for better fit, maintained consistent dark blue gradient styling across all buttons
 - July 28, 2025. Major asset cleanup and performance optimization: removed 52 unused assets (screenshots, duplicate logos, videos, text files) reducing total assets from 55 to 3 essential files only (logo, FutureFirstFamilies thumbnail, resume PDF), improving website loading performance and reducing project size by ~95%
 - July 28, 2025. Standardized all CTA buttons with consistent dark blue gradient: implemented uniform dark blue gradient (blue-900 via blue-800 to blue-900) with grain texture effect across all buttons website-wide, ensuring visual consistency and professional appearance with subtle hover effects (blue-700 via blue-600 to blue-700)
 - July 28, 2025. Applied blue gradient CTA colors universally: updated all remaining CTA buttons across navigation, home page, project detail page, and case study page to use consistent blue-sky gradient scheme, replacing all purple/violet gradients
