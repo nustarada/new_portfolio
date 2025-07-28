@@ -100,6 +100,7 @@ This is a full-stack web application built with React/TypeScript frontend and Ex
 
 ```
 Changelog:
+- July 28, 2025. Completed font cleanup: removed all old font references (Bebas Neue, Montserrat, Oswald, Barlow) from code, CSS classes, Tailwind config, and Google Fonts import, ensuring consistent typography system with only Modern Heritage Display and Jost fonts
 - July 28, 2025. Implemented Jost as secondary font: added to Google Fonts import, applied to navigation, descriptions, form labels, body text throughout website while maintaining Modern Heritage Display for headings, creating clean typography hierarchy
 - July 28, 2025. Updated stat numbers to use Modern Heritage Display font for stronger visual impact and consistency with heading typography
 - July 28, 2025. Changed CTA colors from purple to blue gradient: updated navigation contact button, form submit button, project buttons, and related UI elements to use blue-sky gradient scheme

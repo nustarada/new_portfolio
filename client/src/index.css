@@ -70,16 +70,16 @@
   
   body {
     @apply bg-background text-foreground overflow-x-hidden;
-    font-family: 'Barlow', system-ui, sans-serif !important;
+    font-family: 'Jost', system-ui, sans-serif !important;
     line-height: 1.6;
     background: transparent !important;
     color: #ffffff !important;
     font-weight: 400;
-    cursor: none !important;
+    cursor: auto !important;
   }
   
   * {
-    cursor: none !important;
+    cursor: auto !important;
   }
   
   /* Performance optimizations */
@@ -395,32 +395,7 @@
   letter-spacing: -0.01em;
 }
 
-.display-font {
-  font-family: 'Bebas Neue', sans-serif !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.05em !important;
-  text-transform: uppercase !important;
-}
 
-.body-font {
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.01em !important;
-  line-height: 1.7 !important;
-}
-
-.accent-font {
-  font-family: 'Oswald', sans-serif !important;
-  font-weight: 300 !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-}
-
-.hero-font {
-  font-family: 'Modern Heritage Display', 'Bebas Neue', sans-serif !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.02em !important;
-}
 
 .modern-heritage {
   font-family: 'Modern Heritage Display', serif !important;

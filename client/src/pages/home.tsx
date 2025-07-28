@@ -367,7 +367,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 1 }}
               >
                 <div className="w-16 h-0.5 bg-primary" />
-                <span className="text-xl md:text-2xl font-light text-primary accent-font" style={{ fontFamily: "'Oswald', sans-serif" }}>
+                <span className="text-xl md:text-2xl font-light text-primary jost-secondary">
                   & AI INNOVATOR
                 </span>
                 <div className="w-16 h-0.5 bg-primary" />
@@ -866,7 +866,7 @@ export default function Home() {
                     </div>
 
                     <div className="space-y-1">
-                      <h3 className="text-xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                      <h3 className="text-xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 modern-heritage">
                         {project.title.toUpperCase()}
                       </h3>
                       {project.subtitle && (
