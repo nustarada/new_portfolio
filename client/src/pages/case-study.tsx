@@ -29,83 +29,83 @@ export default function CaseStudy() {
   }, []);
 
   const caseStudyData = {
-    title: "Smart Design System Built with AI Tools & Figma",
-    subtitle: "Leveraging Replit and AI-powered design workflows for enterprise efficiency",
-    client: "TechFlow Enterprise",
-    duration: "6 months",
-    team: "8 designers, 12 developers",
-    year: "2024",
-    category: "Design System",
-    tags: ["AI Design Tools", "Figma Workflows", "Replit Prototyping", "Design Automation"],
-    overview: "Architected a comprehensive design system using AI-powered design tools, advanced Figma workflows, and Replit-based prototyping that accelerated design processes by 60% across enterprise teams.",
-    challenge: "TechFlow's rapid scaling resulted in fragmented design approaches, with teams manually recreating components and lacking streamlined design-to-code workflows.",
-    solution: "Built an integrated design ecosystem leveraging AI design assistance, Figma's advanced features, and Replit's rapid prototyping capabilities for seamless design-to-development handoffs.",
+    title: "FutureFirstFamilies: Gamified Advocacy Platform",
+    subtitle: "Designed with Figma, Built with React, Integrated with HubSpot API",
+    client: "FutureFirstFamilies",
+    duration: "4 months",
+    team: "UI/UX Designer, Full Development Team",
+    year: "2025",
+    category: "Web Platform",
+    tags: ["Figma Design", "React Development", "HubSpot API", "Gamification", "Advocacy Platform"],
+    overview: "Designed and developed a comprehensive gamified advocacy platform using Figma for UI/UX design, React for frontend development, and HubSpot API integration for seamless content management, forms, and blog functionality.",
+    challenge: "Families and children struggled with traditional advocacy platforms that were boring, complex, and failed to engage younger audiences in meaningful advocacy activities.",
+    solution: "Built a gamified advocacy platform with engaging UI/UX designed in Figma, featuring reward systems, interactive challenges, and seamless HubSpot API integration for dynamic content and form management.",
     metrics: [
-      { label: "Design Time Reduced", value: "60%", description: "From ideation to handoff" },
-      { label: "Consistency Score", value: "95%", description: "Across all products" },
-      { label: "Developer Satisfaction", value: "4.8/5", description: "Post-implementation survey" },
-      { label: "Component Reuse", value: "85%", description: "Adoption rate company-wide" }
+      { label: "User Engagement", value: "78%", description: "Increase in platform activity" },
+      { label: "Challenge Completion", value: "65%", description: "Users completing advocacy tasks" },
+      { label: "User Satisfaction", value: "4.7/5", description: "Based on user feedback" },
+      { label: "Content Updates", value: "100%", description: "Automated via HubSpot API" }
     ],
     process: [
       {
         phase: "Discovery & Research",
+        duration: "2 weeks",
+        description: "Conducted user research with families and children to understand advocacy engagement challenges and gamification opportunities.",
+        deliverables: ["User Research Report", "Persona Development", "Journey Mapping"]
+      },
+      {
+        phase: "Design & Prototyping",
+        duration: "6 weeks", 
+        description: "Created comprehensive UI/UX designs in Figma, including wireframes, high-fidelity mockups, and interactive prototypes for the gamified platform.",
+        deliverables: ["Figma Design System", "Interactive Prototypes", "Component Library"]
+      },
+      {
+        phase: "Development & Integration",
+        duration: "8 weeks",
+        description: "Built the React application with gamification features and integrated HubSpot API for dynamic content management, forms, and blog functionality.",
+        deliverables: ["React Application", "HubSpot API Integration", "Gamification System"]
+      },
+      {
+        phase: "Testing & Optimization",
         duration: "3 weeks",
-        description: "Conducted comprehensive audits, user interviews, and competitive analysis to understand pain points.",
-        deliverables: ["Research Report", "User Journey Maps", "Current State Analysis"]
+        description: "Conducted user testing, optimized gamification mechanics, and refined HubSpot API integration for seamless content updates.",
+        deliverables: ["User Testing Results", "Performance Optimization", "API Documentation"]
       },
       {
-        phase: "AI Tools & Figma Setup",
-        duration: "4 weeks", 
-        description: "Configured AI design tools integration with Figma, established Replit prototyping workflows, and created automation pipelines.",
-        deliverables: ["AI Tool Integration", "Figma Workflow Setup", "Replit Templates"]
-      },
-      {
-        phase: "Smart Component Library",
-        duration: "12 weeks",
-        description: "Developed intelligent component library using AI-assisted design generation and Figma's advanced features for seamless handoffs.",
-        deliverables: ["AI-Enhanced Components", "Figma Design System", "Replit Prototypes"]
-      },
-      {
-        phase: "Testing & Refinement",
-        duration: "4 weeks",
-        description: "Validated AI-powered workflows with design teams, optimized Figma-to-Replit handoffs, and refined automation processes.",
-        deliverables: ["Workflow Validation", "Performance Metrics", "Process Documentation"]
-      },
-      {
-        phase: "Launch & Training",
-        duration: "3 weeks",
-        description: "Deployed AI design tools across teams with comprehensive training on Figma workflows and Replit prototyping methods.",
-        deliverables: ["Training Materials", "AI Tool Guides", "Adoption Analytics"]
+        phase: "Launch & Monitoring",
+        duration: "1 week",
+        description: "Deployed the platform with comprehensive monitoring, user onboarding, and ongoing HubSpot content management setup.",
+        deliverables: ["Live Platform", "Analytics Setup", "Content Management Guide"]
       }
     ],
     keyFeatures: [
       {
-        title: "AI-Powered Design Generation",
-        description: "Intelligent design assistance using AI tools to accelerate component creation and variations",
-        icon: Lightbulb
-      },
-      {
-        title: "Advanced Figma Workflows",
-        description: "Sophisticated Figma automation and plugin integration for streamlined design operations",
+        title: "Gamified Engagement System",
+        description: "Points, badges, and challenges that motivate families and children to participate in advocacy activities",
         icon: Target
       },
       {
-        title: "Replit Rapid Prototyping",
-        description: "Lightning-fast prototyping using Replit's collaborative environment for design-to-code workflows",
+        title: "Professional Figma Design",
+        description: "Comprehensive UI/UX design system created in Figma with consistent components and interactive prototypes",
+        icon: Lightbulb
+      },
+      {
+        title: "HubSpot API Integration",
+        description: "Seamless content management with HubSpot API for dynamic forms, blog posts, and automated content updates",
         icon: TrendingUp
       },
       {
-        title: "Seamless Tool Integration",
-        description: "Unified workflow connecting AI design tools, Figma, and Replit for maximum efficiency",
+        title: "Family-Focused Experience",
+        description: "Intuitive interface designed for both parents and children with age-appropriate gamification elements",
         icon: Users
       }
     ],
     outcomes: [
-      "Accelerated design workflows by 60% using AI-powered design tools",
-      "Streamlined Figma-to-Replit handoffs reducing iteration time by 70%",
-      "Achieved 95% design consistency through intelligent automation",
-      "Eliminated 80% of manual component creation with AI assistance",
-      "Increased team productivity by 40% through integrated tool workflows"
+      "Increased user engagement by 78% through gamified advocacy activities",
+      "Achieved 65% task completion rate for advocacy challenges and activities",
+      "Streamlined content management with 100% automated HubSpot API integration",
+      "Delivered comprehensive Figma design system with reusable components",
+      "Created family-friendly platform that bridges generational advocacy gaps"
     ]
   };
 
@@ -473,17 +473,110 @@ export default function CaseStudy() {
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold text-primary">Project Highlights</h3>
                 <div className="space-y-4">
-                  <div className="text-6xl font-black text-primary">60%</div>
-                  <div className="text-xl font-semibold text-white">Faster Design Cycles</div>
-                  <div className="text-white/70">Average time from concept to implementation</div>
+                  <div className="text-6xl font-black text-primary">78%</div>
+                  <div className="text-xl font-semibold text-white">User Engagement Increase</div>
+                  <div className="text-white/70">Through gamified advocacy activities</div>
                 </div>
                 
                 <div className="border-t border-white/10 pt-6">
-                  <div className="text-4xl font-black text-green-400">$2.3M</div>
-                  <div className="text-lg font-semibold text-white">Annual Cost Savings</div>
-                  <div className="text-white/70">Through improved efficiency and automation</div>
+                  <div className="text-4xl font-black text-green-400">4.7/5</div>
+                  <div className="text-lg font-semibold text-white">User Satisfaction Score</div>
+                  <div className="text-white/70">Based on comprehensive user feedback</div>
                 </div>
               </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Technology Stack */}
+      <section className="py-20 relative glass-card grain-texture">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture">Technology Stack</h2>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              Modern technologies and tools carefully selected for optimal performance and user experience
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            {[
+              { name: "React", category: "Frontend" },
+              { name: "TypeScript", category: "Language" },
+              { name: "Figma", category: "Design" },
+              { name: "HubSpot API", category: "CMS" },
+              { name: "Tailwind CSS", category: "Styling" }
+            ].map((tech, index) => (
+              <motion.div
+                key={tech.name}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="group"
+              >
+                <Card className="p-6 text-center glass-card grain-texture hover:glass-intense border-primary/20 group-hover:border-primary/40 transition-all duration-300">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <div className="w-6 h-6 bg-primary rounded opacity-70 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <h3 className="font-bold text-white group-hover:text-primary transition-colors mb-1">
+                    {tech.name}
+                  </h3>
+                  <p className="text-xs text-white/60">
+                    {tech.category}
+                  </p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What I Learned */}
+      <section className="py-20 relative glass-intense grain-texture">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture">What I Learned</h2>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              Key insights and growth opportunities discovered throughout this project
+            </p>
+          </motion.div>
+
+          <Card className="p-12 glass-intense grain-texture hover:glass-card border-cyan-500/30 transition-all duration-500">
+            <div className="relative">
+              <div className="absolute left-4 top-0 w-1 h-full bg-gradient-to-b from-cyan-400 via-primary to-cyan-400 rounded-full" />
+              
+              <blockquote className="pl-12 space-y-6">
+                <p className="text-lg md:text-xl text-white/95 leading-relaxed italic font-medium">
+                  "This project transformed my experience of building for engagement years. Everything from 
+                  utilizing powerful APIs like HubSpot for seamless content management to understanding 
+                  the unique needs of both children and parents in advocacy platforms helped transform 
+                  my world of design."
+                </p>
+                
+                <div className="pt-6 border-t border-white/10">
+                  <p className="text-white/85 text-base leading-relaxed">
+                    Working with Figma's advanced design systems and integrating HubSpot API taught me the 
+                    importance of creating scalable, content-driven platforms. The gamification elements 
+                    required deep understanding of user psychology and family dynamics, pushing me to 
+                    design experiences that engage across different age groups while maintaining the 
+                    serious mission of advocacy work.
+                  </p>
+                </div>
+              </blockquote>
             </div>
           </Card>
         </div>
@@ -499,9 +592,9 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-4xl font-bold glow-text grain-texture">Ready to Transform Your Design Process?</h2>
+            <h2 className="text-4xl font-bold glow-text grain-texture">Ready to see more projects?</h2>
             <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-              Let's discuss how AI-powered design systems can revolutionize your team's workflow and drive measurable business results.
+              Interested in discussing how gamification, Figma design systems, or HubSpot API integration could work for your project?
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
