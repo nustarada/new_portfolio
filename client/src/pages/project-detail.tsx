@@ -134,13 +134,13 @@ export default function ProjectDetail() {
                 <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
                   {project.category}
                 </Badge>
-                <h1 className="text-4xl md:text-6xl font-normal mb-4 glow-text font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                <h1 className="text-4xl md:text-6xl font-normal mb-4 glow-text modern-heritage">
                   {project.title.toUpperCase()}
                 </h1>
-                <p className="text-xl text-primary/80 font-light mb-6 accent-font" style={{ fontFamily: "'Oswald', sans-serif" }}>
+                <p className="text-xl text-primary/80 font-light mb-6 jost-secondary">
                   {project.subtitle.toUpperCase()}
                 </p>
-                <p className="text-lg text-white/80 leading-relaxed mb-8 font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                <p className="text-lg text-white/80 leading-relaxed mb-8 jost-secondary">
                   {project.detailedDescription}
                 </p>
               </div>
@@ -148,7 +148,7 @@ export default function ProjectDetail() {
               <div className="flex flex-wrap gap-4">
                 <Button 
                   onClick={() => window.open(project.liveUrl, '_blank')}
-                  className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold px-8 py-3"
+                  className="bg-gradient-to-r from-blue-600 to-sky-600 hover:from-blue-700 hover:to-sky-700 text-white font-semibold px-8 py-3"
                 >
                   <ExternalLink className="w-4 h-4 mr-2" />
                   View Live Site
@@ -173,11 +173,11 @@ export default function ProjectDetail() {
               <Card className="relative aspect-[4/3] bg-gradient-to-br from-primary/30 via-cyan-400/20 to-emerald-400/25 overflow-hidden glass-card grain-texture">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative">
-                    <div className="w-24 h-24 bg-gradient-to-br from-primary/40 to-purple-500/40 flex items-center justify-center backdrop-blur-sm">
+                    <div className="w-24 h-24 bg-gradient-to-br from-primary/40 to-blue-500/40 flex items-center justify-center backdrop-blur-sm">
                       <Heart className="w-12 h-12 text-white" />
                     </div>
                     <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary/60 animate-pulse" />
-                    <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-purple-500/60 animate-pulse delay-300" />
+                    <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-blue-500/60 animate-pulse delay-300" />
                   </div>
                 </div>
               </Card>
@@ -288,8 +288,8 @@ export default function ProjectDetail() {
             >
               <Card className="p-8 glass-card grain-texture">
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-purple-500/20 flex items-center justify-center mr-4">
-                    <ArrowRight className="w-6 h-6 text-purple-400" />
+                  <div className="w-12 h-12 bg-blue-500/20 flex items-center justify-center mr-4">
+                    <ArrowRight className="w-6 h-6 text-blue-400" />
                   </div>
                   <h3 className="text-xl font-bold text-white">Process</h3>
                 </div>
@@ -374,7 +374,7 @@ export default function ProjectDetail() {
                 viewport={{ once: true }}
               >
                 <Card className="p-8 glass-card grain-texture hover:glass-intense transition-all duration-300 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-purple-500/20 mx-auto mb-4 flex items-center justify-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-blue-500/20 mx-auto mb-4 flex items-center justify-center">
                     <Trophy className="w-8 h-8 text-primary" />
                   </div>
                   <p className="text-white/90 font-medium leading-relaxed">{outcome}</p>

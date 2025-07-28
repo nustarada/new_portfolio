@@ -6,11 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Barlow', 'system-ui', 'sans-serif'],
-        'display': ['Bebas Neue', 'sans-serif'],
-        'body': ['Montserrat', 'sans-serif'],
-        'accent': ['Oswald', 'sans-serif'],
-        'hero': ['Bebas Neue', 'sans-serif'],
+        'sans': ['Jost', 'system-ui', 'sans-serif'],
         'mono': ['Source Code Pro', 'monospace'],
       },
       borderRadius: {
