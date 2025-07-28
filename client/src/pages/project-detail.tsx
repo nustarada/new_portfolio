@@ -468,19 +468,20 @@ export default function ProjectDetail() {
               Ready to see more projects?
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button 
-                onClick={() => window.open(project.liveUrl, '_blank')}
-                className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold px-8 py-3"
-              >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Visit Live Site
-              </Button>
               <Link href="/#contact">
-                <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                <Button className="text-white font-semibold px-8 py-3 cta-button grain-texture">
                   <Heart className="w-4 h-4 mr-2" />
                   Contact Me
                 </Button>
               </Link>
+              <Button 
+                onClick={() => window.open(project.liveUrl, '_blank')}
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/10 px-8 py-3"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Visit Live Site
+              </Button>
             </div>
           </motion.div>
         </div>
