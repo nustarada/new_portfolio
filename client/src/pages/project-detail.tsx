@@ -148,7 +148,7 @@ export default function ProjectDetail() {
               <div className="flex flex-wrap gap-4">
                 <Button 
                   onClick={() => window.open(project.liveUrl, '_blank')}
-                  className="bg-gradient-to-r from-blue-600 to-sky-600 hover:from-blue-700 hover:to-sky-700 text-white font-semibold px-8 py-3"
+                  className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-cyan-400 hover:via-blue-500 hover:to-purple-600 text-white font-semibold px-8 py-3 shadow-lg shadow-purple-500/40 hover:shadow-cyan-500/50 transition-all duration-300"
                 >
                   <ExternalLink className="w-4 h-4 mr-2" />
                   View Live Site
