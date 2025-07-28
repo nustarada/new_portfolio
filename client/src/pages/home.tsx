@@ -892,7 +892,24 @@ export default function Home() {
                   </div>
 
                   {/* CTA Section */}
-                  <div className="p-6 pt-0">
+                  <div className="p-6 pt-0 space-y-3">
+                    {/* View Case Study Button */}
+                    {index === 0 && (
+                      <Link href="/project/futurefirstfamilies">
+                        <Button 
+                          className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-primary via-cyan-400 to-primary text-white font-semibold py-3 border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary/25"
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                          
+                          <div className="relative z-10 flex items-center justify-center space-x-2">
+                            <span>View Case Study</span>
+                            <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
+                          </div>
+                        </Button>
+                      </Link>
+                    )}
+                    
+                    {/* Live Site / Coming Soon Button */}
                     <Button 
                       onClick={() => {
                         if (project.liveUrl) {
@@ -901,9 +918,16 @@ export default function Home() {
                           toast({ title: "Coming Soon", description: "Case studies are currently under construction. Stay tuned!" });
                         }
                       }}
-                      className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 text-white font-semibold py-3 border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-purple-500/25"
+                      variant={index === 0 ? "outline" : "default"}
+                      className={`w-full group/btn relative overflow-hidden ${
+                        index === 0 
+                          ? 'border-white/20 text-white hover:bg-white/10' 
+                          : 'bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 text-white font-semibold border-0 hover:scale-[1.02] shadow-lg shadow-purple-500/25'
+                      } py-3 transition-all duration-300`}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                      {index !== 0 && (
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                      )}
                       
                       <div className="relative z-10 flex items-center justify-center space-x-2">
                         <span>{project.liveUrl ? 'View Live Site' : 'Explore Project'}</span>
