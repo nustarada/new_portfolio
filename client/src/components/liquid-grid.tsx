@@ -26,16 +26,24 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const gridSize = 80;
-    const distortionRadius = 100;
-    const maxDistortion = 15;
-    const lerpFactor = 0.15;
+    const gridSize = 100;
+    const distortionRadius = 80;
+    const maxDistortion = 10;
+    const lerpFactor = 0.1;
     
     // Initialize smooth interpolation variables
     let currentMouseX = mouseX || 50;
     let currentMouseY = mouseY || 50;
+    let lastFrameTime = 0;
+    const targetFPS = 30; // Reduced from 60fps to 30fps
+    const frameInterval = 1000 / targetFPS;
 
-    const drawLiquidGrid = () => {
+    const drawLiquidGrid = (timestamp: number) => {
+      if (timestamp - lastFrameTime < frameInterval) {
+        animationRef.current = requestAnimationFrame(drawLiquidGrid);
+        return;
+      }
+      lastFrameTime = timestamp;
       const width = canvas.offsetWidth;
       const height = canvas.offsetHeight;
       
@@ -66,7 +74,7 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
       for (let x = 0; x <= width; x += gridSize) {
         ctx.beginPath();
         
-        for (let y = 0; y <= height; y += 8) {
+        for (let y = 0; y <= height; y += 12) {
           const dx = x - mousePixelX;
           const dy = y - mousePixelY;
           const distance = Math.sqrt(dx * dx + dy * dy);
@@ -74,9 +82,9 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
           let distortedX = x;
           
           if (distance < distortionRadius && distance > 0) {
-            const distortionFactor = Math.pow(1 - distance / distortionRadius, 2.5);
-            const distortion = distortionFactor * maxDistortion * intensity * 0.8;
-            distortedX = x + Math.sin((dx / distance) * distortion) * distortion * 0.5;
+            const distortionFactor = Math.pow(1 - distance / distortionRadius, 2);
+            const distortion = distortionFactor * maxDistortion * intensity * 0.6;
+            distortedX = x + Math.sin((dx / distance) * distortion) * distortion * 0.3;
           }
           
           if (y === 0) {
@@ -92,7 +100,7 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
       for (let y = 0; y <= height; y += gridSize) {
         ctx.beginPath();
         
-        for (let x = 0; x <= width; x += 8) {
+        for (let x = 0; x <= width; x += 12) {
           const dx = x - mousePixelX;
           const dy = y - mousePixelY;
           const distance = Math.sqrt(dx * dx + dy * dy);
@@ -100,9 +108,9 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
           let distortedY = y;
           
           if (distance < distortionRadius && distance > 0) {
-            const distortionFactor = Math.pow(1 - distance / distortionRadius, 2.5);
-            const distortion = distortionFactor * maxDistortion * intensity * 0.8;
-            distortedY = y + Math.sin((dy / distance) * distortion) * distortion * 0.5;
+            const distortionFactor = Math.pow(1 - distance / distortionRadius, 2);
+            const distortion = distortionFactor * maxDistortion * intensity * 0.6;
+            distortedY = y + Math.sin((dy / distance) * distortion) * distortion * 0.3;
           }
           
           if (x === 0) {
@@ -132,7 +140,7 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
       animationRef.current = requestAnimationFrame(drawLiquidGrid);
     };
 
-    drawLiquidGrid();
+    drawLiquidGrid(0);
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);

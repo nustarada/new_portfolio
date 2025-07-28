@@ -15,11 +15,9 @@ const skillIcons = ["✦", "◆", "●", "▲", "◇", "★"];
 export function MovingRibbon() {
   return (
     <div className="relative overflow-hidden py-12 glass-card grain-texture border-y border-white/15">
-      {/* Background Effects */}
+      {/* Simplified Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/8 blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-r from-cyan-400/8 to-emerald-400/8 blur-3xl animate-pulse delay-1000" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/8 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/4 to-transparent" />
       </div>
 
       {/* Top ribbon */}
@@ -30,7 +28,7 @@ export function MovingRibbon() {
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 60,
+            duration: 80,
             ease: "linear",
           },
         }}
@@ -48,7 +46,7 @@ export function MovingRibbon() {
                 {skill}
               </span>
             </div>
-            <div className="w-3 h-3 bg-gradient-to-r from-primary to-cyan-400 mx-6 animate-pulse" />
+            <div className="w-3 h-3 bg-gradient-to-r from-primary to-cyan-400 mx-6" />
           </div>
         ))}
       </motion.div>
@@ -56,7 +54,7 @@ export function MovingRibbon() {
       {/* Middle decorative line */}
       <div className="relative flex items-center justify-center my-4">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        <div className="absolute w-4 h-4 bg-gradient-to-r from-primary to-emerald-400 animate-pulse" />
+        <div className="absolute w-4 h-4 bg-gradient-to-r from-primary to-emerald-400" />
       </div>
 
       {/* Bottom ribbon - moving in opposite direction */}
@@ -67,7 +65,7 @@ export function MovingRibbon() {
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 50,
+            duration: 70,
             ease: "linear",
           },
         }}
@@ -85,7 +83,7 @@ export function MovingRibbon() {
                 {skill}
               </span>
             </div>
-            <div className="w-2 h-2 bg-gradient-to-r from-emerald-400 to-cyan-400 mx-6 animate-pulse delay-500" />
+            <div className="w-2 h-2 bg-gradient-to-r from-emerald-400 to-cyan-400 mx-6" />
           </div>
         ))}
       </motion.div>
