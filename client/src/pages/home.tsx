@@ -41,7 +41,9 @@ import {
   X,
   MapPin,
   FileText,
-  Lightbulb
+  Lightbulb,
+  Heart,
+  Trophy
 } from 'lucide-react';
 
 export default function Home() {
@@ -150,6 +152,40 @@ export default function Home() {
 
   const projects = [
     {
+      title: "FutureFirstFamilies",
+      subtitle: "Gamified Advocacy Platform",
+      description: "A civic engagement platform empowering parents to take monthly actions on educational reform through gamified, user-friendly design tailored for non-tech-savvy users.",
+      detailedDescription: "Designed and developed the entire platform from ground up, combining gamification with advocacy to create an engaging experience that increased completed actions by 30% and achieved 4× higher user retention.",
+      image: "/api/placeholder/600/400",
+      liveUrl: "https://futurefirstfamilies.com/",
+      tags: ["Civic Engagement", "Gamification", "React", "UX Research", "Full-Stack"],
+      year: "2024",
+      category: "Civic Platform",
+      role: "UX Research, Design System, Full Development",
+      outcomes: [
+        "30% increase in completed actions within first month",
+        "4× higher user retention vs previous system", 
+        "1500+ parents onboarded in first 3 weeks",
+        "Significant improvement in action tracking and admin workflow"
+      ],
+      keyFeatures: [
+        "Combined Monthly Action and Activity Hub into single tab-based experience",
+        "Milestone-based reward system for completing actions",
+        "Referral leaderboard to encourage viral growth",
+        "Simple admin dashboard for content management",
+        "Accessibility features including light/dark modes and clean typography"
+      ],
+      techStack: ["React", "JavaScript", "Replit", "Responsive Design", "Accessibility"],
+      process: [
+        "Conducted interviews with advocacy organizers",
+        "Created user flows and low-fidelity wireframes", 
+        "Designed high-fidelity mockups and reusable design system",
+        "Developed platform using React in Replit",
+        "Integrated gamification, referrals, and accessibility features",
+        "Tested and refined based on team feedback"
+      ]
+    },
+    {
       title: "AI-Powered Design System",
       description: "Next-generation design system with AI-driven component generation and automated documentation",
       image: "/api/placeholder/600/400",
@@ -158,28 +194,12 @@ export default function Home() {
       category: "Product Design"
     },
     {
-      title: "Enterprise Analytics Dashboard",
+      title: "Enterprise Analytics Dashboard", 
       description: "Real-time analytics platform processing millions of data points with intuitive visualization",
       image: "/api/placeholder/600/400",
       tags: ["Data Visualization", "Enterprise", "Real-time"],
       year: "2024",
       category: "Data & Analytics"
-    },
-    {
-      title: "Mobile Banking Revolution",
-      description: "Complete mobile banking experience with biometric security and AI-powered financial insights",
-      image: "/api/placeholder/600/400",
-      tags: ["Fintech", "Mobile", "Security"],
-      year: "2023",
-      category: "Mobile App"
-    },
-    {
-      title: "E-commerce Platform Redesign",
-      description: "Complete UX overhaul for major e-commerce platform, improving conversion rates by 40%",
-      image: "/api/placeholder/600/400",
-      tags: ["E-commerce", "UX Research", "Conversion"],
-      year: "2023",
-      category: "Web Platform"
     }
   ];
 
@@ -787,6 +807,7 @@ export default function Home() {
                         
                         <h3 className="text-xl font-bold text-white leading-tight mb-2 group-hover:text-primary transition-colors duration-300">
                           {project.title}
+                          {project.subtitle && <span className="block text-sm font-medium text-white/70 mt-1">{project.subtitle}</span>}
                         </h3>
                       </div>
                       
@@ -798,6 +819,27 @@ export default function Home() {
                     <p className="text-white/85 leading-relaxed text-sm mb-4">
                       {project.description}
                     </p>
+                    
+                    {project.role && (
+                      <div className="mb-4 p-3 glass-card grain-texture">
+                        <p className="text-xs font-semibold text-primary/90 mb-1">MY ROLE</p>
+                        <p className="text-white/70 text-xs">{project.role}</p>
+                      </div>
+                    )}
+                    
+                    {project.outcomes && (
+                      <div className="mb-4">
+                        <p className="text-xs font-semibold text-primary/90 mb-2">KEY OUTCOMES</p>
+                        <div className="space-y-1">
+                          {project.outcomes.slice(0, 2).map((outcome, idx) => (
+                            <div key={idx} className="flex items-start space-x-2">
+                              <div className="w-1 h-1 bg-primary/80 mt-2 flex-shrink-0"></div>
+                              <p className="text-white/70 text-xs leading-relaxed">{outcome}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Visual Section */}
@@ -809,7 +851,11 @@ export default function Home() {
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="relative">
                           <div className="w-16 h-16 bg-gradient-to-br from-primary/40 to-purple-500/40 flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
-                            <Terminal className="w-8 h-8 text-white" />
+                            {index === 0 ? (
+                              <Heart className="w-8 h-8 text-white" />
+                            ) : (
+                              <Terminal className="w-8 h-8 text-white" />
+                            )}
                           </div>
                           
                           {/* Floating Elements */}
@@ -848,13 +894,19 @@ export default function Home() {
                   {/* CTA Section */}
                   <div className="p-6 pt-0">
                     <Button 
-                      onClick={() => toast({ title: "Coming Soon", description: "Case studies are currently under construction. Stay tuned!" })}
+                      onClick={() => {
+                        if (project.liveUrl) {
+                          window.open(project.liveUrl, '_blank');
+                        } else {
+                          toast({ title: "Coming Soon", description: "Case studies are currently under construction. Stay tuned!" });
+                        }
+                      }}
                       className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 text-white font-semibold py-3 border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-purple-500/25"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                       
                       <div className="relative z-10 flex items-center justify-center space-x-2">
-                        <span>Explore Project</span>
+                        <span>{project.liveUrl ? 'View Live Site' : 'Explore Project'}</span>
                         <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
                       </div>
                     </Button>
