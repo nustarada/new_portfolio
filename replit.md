@@ -100,6 +100,9 @@ This is a full-stack web application built with React/TypeScript frontend and Ex
 
 ```
 Changelog:
+- July 28, 2025. Implemented Jost as secondary font: added to Google Fonts import, applied to navigation, descriptions, form labels, body text throughout website while maintaining Modern Heritage Display for headings, creating clean typography hierarchy
+- July 28, 2025. Updated stat numbers to use Modern Heritage Display font for stronger visual impact and consistency with heading typography
+- July 28, 2025. Changed CTA colors from purple to blue gradient: updated navigation contact button, form submit button, project buttons, and related UI elements to use blue-sky gradient scheme
 - July 28, 2025. Integrated Modern Heritage Display custom font: added @font-face declaration, created modern-heritage CSS class, and applied to all major headings (hero title, section headings) for distinctive typography branding
 - July 28, 2025. Removed custom cursor functionality completely: deleted cursor component, removed all cursor-related CSS styles, and restored default browser cursor behavior
 - July 28, 2025. Fixed hero section overlap with navbar: increased top padding to pt-32 and adjusted z-index layering

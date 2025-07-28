@@ -263,7 +263,7 @@ export default function Home() {
               const contactSection = document.getElementById('contact');
               contactSection?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="relative group px-6 py-3 bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 hover:from-purple-700 hover:via-violet-700 hover:to-purple-700 text-white font-bold transition-all duration-300 shadow-lg shadow-purple-500/25 border-0"
+            className="relative group px-6 py-3 bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 hover:from-blue-700 hover:via-sky-700 hover:to-blue-700 text-white font-bold transition-all duration-300 shadow-lg shadow-blue-500/25 border-0"
           >
 
             <div className="relative z-10 flex items-center space-x-2 jost-secondary">
@@ -541,7 +541,7 @@ export default function Home() {
                     
                     {/* Number Display */}
                     <motion.div 
-                      className={`text-6xl md:text-7xl font-black leading-none`}
+                      className={`text-6xl md:text-7xl font-black leading-none modern-heritage`}
                       style={{
                         background: `linear-gradient(135deg, ${
                           stat.color === 'from-primary to-purple-500' ? 'hsl(262, 83%, 58%), hsl(280, 100%, 70%)' :
@@ -823,13 +823,13 @@ export default function Home() {
                       /* Abstract background for other projects */
                       <>
                         {/* Dynamic Gradient Background */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/40 via-violet-500/30 to-indigo-500/40 group-hover:scale-110 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/40 via-sky-500/30 to-cyan-500/40 group-hover:scale-110 transition-transform duration-700" />
                         
                         {/* Simplified Geometric Shapes */}
                         <div className="absolute inset-0">
-                          <div className="absolute top-8 right-8 w-16 h-16 bg-purple-500/30 rotate-45 group-hover:rotate-90 transition-transform duration-300" />
-                          <div className="absolute bottom-8 left-8 w-12 h-12 bg-violet-500/30 rounded-full group-hover:scale-110 transition-transform duration-300" />
-                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-indigo-500/40 group-hover:rotate-45 transition-transform duration-300" />
+                          <div className="absolute top-8 right-8 w-16 h-16 bg-blue-500/30 rotate-45 group-hover:rotate-90 transition-transform duration-300" />
+                          <div className="absolute bottom-8 left-8 w-12 h-12 bg-sky-500/30 rounded-full group-hover:scale-110 transition-transform duration-300" />
+                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-cyan-500/40 group-hover:rotate-45 transition-transform duration-300" />
                         </div>
 
                         {/* Central Icon */}
@@ -856,7 +856,7 @@ export default function Home() {
                       <Badge className={`${
                         index === 0 
                           ? 'bg-primary/20 text-primary border-primary/30' 
-                          : 'bg-purple-500/20 text-purple-300 border-purple-500/30'
+                          : 'bg-blue-500/20 text-blue-300 border-blue-500/30'
                       } text-xs font-semibold px-3 py-1 jost-secondary`}>
                         {project.category}
                       </Badge>
@@ -902,7 +902,7 @@ export default function Home() {
                               toast({ title: "Coming Soon", description: "Case studies are currently under construction. Stay tuned!" });
                             }
                           }}
-                          className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 text-white font-bold border-0 hover:scale-[1.02] shadow-lg shadow-purple-500/30 py-2 text-sm transition-all duration-300"
+                          className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 text-white font-bold border-0 hover:scale-[1.02] shadow-lg shadow-blue-500/30 py-2 text-sm transition-all duration-300"
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                           <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
@@ -917,7 +917,7 @@ export default function Home() {
                   {/* Enhanced Ambient Effects */}
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                   <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/8 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl" />
-                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-purple-500/8 to-transparent rounded-tr-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl" />
+                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-blue-500/8 to-transparent rounded-tr-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl" />
                 </Card>
               </motion.div>
             ))}
@@ -1182,7 +1182,7 @@ export default function Home() {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="group/btn relative w-full h-16 text-white font-bold text-xl bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 hover:from-purple-700 hover:via-violet-700 hover:to-purple-700 shadow-2xl shadow-purple-500/50 overflow-hidden transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 border-0"
+                    className="group/btn relative w-full h-16 text-white font-bold text-xl bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 hover:from-blue-700 hover:via-sky-700 hover:to-blue-700 shadow-2xl shadow-blue-500/50 overflow-hidden transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 border-0"
                     disabled={contactMutation.isPending}
                   >
                     {/* Shimmer Effect */}
