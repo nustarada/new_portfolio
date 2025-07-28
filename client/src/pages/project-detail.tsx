@@ -20,6 +20,12 @@ import {
   Zap
 } from 'lucide-react';
 
+// Import screenshot assets
+import heroScreenshot from "../assets/fff-hero-screenshot.svg";
+import statsScreenshot from "../assets/fff-stats-screenshot.svg";
+import resultsScreenshot from "../assets/fff-results-screenshot.svg";
+import comparisonScreenshot from "../assets/fff-comparison-screenshot.svg";
+
 interface ProjectData {
   title: string;
   subtitle: string;
@@ -38,6 +44,12 @@ interface ProjectData {
   goal: string;
   solution: string;
   learnings: string;
+  screenshots?: {
+    hero: string;
+    stats: string;
+    results: string;
+    comparison: string;
+  };
 }
 
 const projectsData: { [key: string]: ProjectData } = {
@@ -76,7 +88,13 @@ const projectsData: { [key: string]: ProjectData } = {
     problem: "Parents were overwhelmed by traditional advocacy tools that were text-heavy, form-based, and lacked guidance. This resulted in poor engagement, low action completion rates, and overall frustration.",
     goal: "To create a lightweight, engaging platform where users could take monthly actions easily, track their progress through points and milestones, participate in leaderboards and referral programs, and manage everything from a clean, guided dashboard.",
     solution: "Built a gamified civic engagement platform with intuitive navigation, milestone rewards, and simplified workflows specifically designed for non-tech-savvy users.",
-    learnings: "This project reinforced the importance of building for non-tech-savvy users. Simplifying flows, reducing cognitive load, and gamifying progress can meaningfully boost engagement. It also allowed me to handle full design-to-code execution, sharpening both my design system and front-end skills."
+    learnings: "This project reinforced the importance of building for non-tech-savvy users. Simplifying flows, reducing cognitive load, and gamifying progress can meaningfully boost engagement. It also allowed me to handle full design-to-code execution, sharpening both my design system and front-end skills.",
+    screenshots: {
+      hero: heroScreenshot,
+      stats: statsScreenshot,
+      results: resultsScreenshot,
+      comparison: comparisonScreenshot
+    }
   }
 };
 
@@ -384,6 +402,129 @@ export default function ProjectDetail() {
           </div>
         </div>
       </section>
+
+      {/* Live Website Screenshots */}
+      {project.screenshots && (
+        <section className="py-16 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl font-bold glow-text mb-4 font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>LIVE WEBSITE SHOWCASE</h2>
+              <p className="text-lg text-white/80 max-w-3xl mx-auto font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                Screenshots from the actual FutureFirstFamilies platform showing key features and user flows
+              </p>
+            </motion.div>
+
+            <div className="space-y-16">
+              {/* Hero Section Screenshot */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <h3 className="text-2xl font-bold text-white mb-6 font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>LANDING PAGE DESIGN</h3>
+                <div className="glass-card grain-texture p-4 md:p-8">
+                  <img 
+                    src={project.screenshots.hero} 
+                    alt="FutureFirstFamilies Landing Page"
+                    className="w-full rounded-lg shadow-2xl"
+                  />
+                </div>
+                <p className="text-white/70 mt-4 font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                  Clean, compelling hero section with clear call-to-action and trust indicators
+                </p>
+              </motion.div>
+
+              {/* Statistics Section Screenshot */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <h3 className="text-2xl font-bold text-white mb-6 font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>DATA-DRIVEN MESSAGING</h3>
+                <div className="glass-card grain-texture p-4 md:p-8">
+                  <img 
+                    src={project.screenshots.stats} 
+                    alt="FutureFirstFamilies Statistics Section"
+                    className="w-full rounded-lg shadow-2xl"
+                  />
+                </div>
+                <p className="text-white/70 mt-4 font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                  Compelling statistics highlight the education problem and AI solution
+                </p>
+              </motion.div>
+
+              {/* Results Section Screenshot */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <h3 className="text-2xl font-bold text-white mb-6 font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>MEASURABLE OUTCOMES</h3>
+                <div className="glass-card grain-texture p-4 md:p-8">
+                  <img 
+                    src={project.screenshots.results} 
+                    alt="FutureFirstFamilies Results Section"
+                    className="w-full rounded-lg shadow-2xl"
+                  />
+                </div>
+                <p className="text-white/70 mt-4 font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                  Clear presentation of success metrics and key program benefits
+                </p>
+              </motion.div>
+
+              {/* Comparison Section Screenshot */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <h3 className="text-2xl font-bold text-white mb-6 font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>INTERACTIVE COMPARISON</h3>
+                <div className="glass-card grain-texture p-4 md:p-8">
+                  <img 
+                    src={project.screenshots.comparison} 
+                    alt="FutureFirstFamilies Comparison Section"
+                    className="w-full rounded-lg shadow-2xl"
+                  />
+                </div>
+                <p className="text-white/70 mt-4 font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                  Side-by-side comparison showing traditional vs. 2 Hour Learning approach with clear value proposition
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Live Site CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mt-16"
+            >
+              <Button 
+                onClick={() => window.open(project.liveUrl, '_blank')}
+                className="bg-gradient-to-r from-primary via-cyan-400 to-primary text-white font-semibold px-8 py-4 text-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25"
+              >
+                <ExternalLink className="w-5 h-5 mr-2" />
+                Explore Live Website
+              </Button>
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       {/* Tech Stack */}
       <section className="py-16 relative">
