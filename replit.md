@@ -100,6 +100,7 @@ This is a full-stack web application built with React/TypeScript frontend and Ex
 
 ```
 Changelog:
+- July 28, 2025. Fixed hero CTA functionality: added smooth scroll behavior to "View My Work" button to navigate to projects section, improving user experience and site navigation flow
 - July 28, 2025. Fixed CTA button consistency: swapped button order to make "Contact Me" the primary CTA with consistent dark blue gradient styling, changed "Visit Live Site" to secondary outline button, maintaining uniform brand colors across all pages
 - July 28, 2025. Project detail page improvements: updated FutureFirstFamilies subtitle to "Gamified Advocacy Website & Platform", removed tag badges from hero section for cleaner design, and added missing footer with LinkedIn link for consistent navigation across all pages
 - July 28, 2025. Removed Replit references from project content: eliminated "Replit" from FutureFirstFamilies technology stack across homepage and project detail pages, replaced "Developed platform using React in Replit" with "Developed platform using React with modern tooling" to maintain professional presentation without tool-specific references

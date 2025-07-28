@@ -390,6 +390,10 @@ export default function Home() {
               >
                 <Button 
                   size="lg" 
+                  onClick={() => {
+                    const projectsSection = document.getElementById('projects');
+                    projectsSection?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className="relative overflow-hidden px-12 py-6 text-lg font-bold text-white cta-button grain-texture border-0 hover:scale-105"
                 >
                   {/* Animated Background */}
