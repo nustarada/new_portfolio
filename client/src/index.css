@@ -428,6 +428,12 @@
   letter-spacing: 0.01em !important;
 }
 
+.jost-secondary {
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.01em !important;
+}
+
 
 
 .scroll-indicator {
