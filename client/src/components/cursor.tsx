@@ -32,18 +32,18 @@ export function CustomCursor() {
     const handleMouseEnter = (e: Event) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'BUTTON' || target.tagName === 'A' || target.classList.contains('cursor-pointer')) {
-        cursorRing.style.borderColor = 'hsl(231, 48%, 48%)';
+        cursorRing.style.borderColor = 'hsl(285, 85%, 60%)';
         cursorRing.style.transform = 'scale(1.3)';
-        cursorDot.style.background = 'hsl(231, 48%, 48%)';
+        cursorDot.style.background = 'hsl(285, 85%, 60%)';
       }
     };
     
     const handleMouseLeave = (e: Event) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'BUTTON' || target.tagName === 'A' || target.classList.contains('cursor-pointer')) {
-        cursorRing.style.borderColor = 'hsl(240, 5.9%, 10%)';
+        cursorRing.style.borderColor = 'hsl(185, 84%, 55%)';
         cursorRing.style.transform = 'scale(1)';
-        cursorDot.style.background = 'hsl(240, 5.9%, 10%)';
+        cursorDot.style.background = 'hsl(185, 84%, 55%)';
       }
     };
     
