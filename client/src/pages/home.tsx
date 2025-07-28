@@ -15,6 +15,7 @@ import { LiquidGrid } from '@/components/liquid-grid';
 import { MovingRibbon } from '@/components/moving-ribbon';
 import logoPath from '@assets/Logo black_1749713682616.png';
 import logoImage from '@assets/Logo black_1749729973781.png';
+import futureFirstFamiliesThumbnail from '@assets/Screenshot 2025-07-29 at 00.03.25_1753728466090.png';
 import resumePdf from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
 import { 
   Terminal, 
@@ -814,44 +815,45 @@ export default function Home() {
 
                   {/* Hero Image Section */}
                   <div className="relative h-48 overflow-hidden">
-                    {/* Dynamic Gradient Background */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${
-                      index === 0 
-                        ? 'from-primary/40 via-cyan-400/30 to-emerald-400/40' 
-                        : 'from-purple-500/40 via-violet-500/30 to-indigo-500/40'
-                    } group-hover:scale-110 transition-transform duration-700`} />
-                    
-                    {/* Simplified Geometric Shapes */}
-                    <div className="absolute inset-0">
-                      <div className={`absolute top-8 right-8 w-16 h-16 ${
-                        index === 0 ? 'bg-primary/30' : 'bg-purple-500/30'
-                      } rotate-45 group-hover:rotate-90 transition-transform duration-300`} />
-                      <div className={`absolute bottom-8 left-8 w-12 h-12 ${
-                        index === 0 ? 'bg-cyan-400/30' : 'bg-violet-500/30'
-                      } rounded-full group-hover:scale-110 transition-transform duration-300`} />
-                      <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 ${
-                        index === 0 ? 'bg-emerald-400/40' : 'bg-indigo-500/40'
-                      } group-hover:rotate-45 transition-transform duration-300`} />
-                    </div>
-
-                    {/* Central Icon */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="relative group-hover:scale-110 transition-transform duration-500">
-                        <div className="w-20 h-20 bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
-                          {index === 0 ? (
-                            <Heart className="w-10 h-10 text-white" />
-                          ) : (
-                            <Terminal className="w-10 h-10 text-white" />
-                          )}
+                    {index === 0 ? (
+                      /* FutureFirstFamilies Project Thumbnail */
+                      <>
+                        <img 
+                          src={futureFirstFamiliesThumbnail} 
+                          alt="FutureFirstFamilies Platform" 
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        {/* Overlay for better text readability */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
+                      </>
+                    ) : (
+                      /* Abstract background for other projects */
+                      <>
+                        {/* Dynamic Gradient Background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/40 via-violet-500/30 to-indigo-500/40 group-hover:scale-110 transition-transform duration-700" />
+                        
+                        {/* Simplified Geometric Shapes */}
+                        <div className="absolute inset-0">
+                          <div className="absolute top-8 right-8 w-16 h-16 bg-purple-500/30 rotate-45 group-hover:rotate-90 transition-transform duration-300" />
+                          <div className="absolute bottom-8 left-8 w-12 h-12 bg-violet-500/30 rounded-full group-hover:scale-110 transition-transform duration-300" />
+                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-indigo-500/40 group-hover:rotate-45 transition-transform duration-300" />
                         </div>
-                        {/* Pulsing Ring */}
-                        <div className="absolute inset-0 border-2 border-white/30 animate-pulse group-hover:scale-125 transition-transform duration-500" />
-                      </div>
-                    </div>
 
-                    {/* Overlay Effects */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                        {/* Central Icon */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="relative group-hover:scale-110 transition-transform duration-500">
+                            <div className="w-20 h-20 bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                              <Terminal className="w-10 h-10 text-white" />
+                            </div>
+                            {/* Pulsing Ring */}
+                            <div className="absolute inset-0 border-2 border-white/30 animate-pulse group-hover:scale-125 transition-transform duration-500" />
+                          </div>
+                        </div>
+
+                        {/* Overlay Effects */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      </>
+                    )}
                   </div>
 
                   {/* Content Section */}
