@@ -342,7 +342,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-normal text-white tracking-wide leading-tight hero-text-hover hero-font" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-normal text-white tracking-wide leading-tight hero-text-hover modern-heritage">
                 <span className="text-gradient">KARAN GADHAVE</span>
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto"></div>
@@ -355,7 +355,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-normal leading-tight font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-normal leading-tight modern-heritage">
                 <span className="text-white">SENIOR </span>
                 <span className="glow-text">PRODUCT DESIGNER</span>
               </h2>
@@ -460,8 +460,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <motion.h2 
-              className="text-4xl md:text-6xl font-normal mb-6 glow-text font-display"
-              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+              className="text-4xl md:text-6xl font-normal mb-6 glow-text modern-heritage"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -632,8 +631,7 @@ export default function Home() {
             className="text-center mb-20"
           >
             <motion.h2 
-              className="text-4xl md:text-6xl font-normal mb-6 glow-text font-display"
-              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+              className="text-4xl md:text-6xl font-normal mb-6 glow-text modern-heritage"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -784,7 +782,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <div className="relative inline-block mb-6">
-              <h2 className="text-4xl md:text-5xl font-normal glow-text relative z-10 font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>FEATURED PROJECTS</h2>
+              <h2 className="text-4xl md:text-5xl font-normal glow-text relative z-10 modern-heritage">FEATURED PROJECTS</h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
             </div>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
@@ -939,7 +937,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <div className="relative inline-block mb-6">
-              <h2 className="text-4xl md:text-5xl font-normal glow-text relative z-10 font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>DESIGN PHILOSOPHY</h2>
+              <h2 className="text-4xl md:text-5xl font-normal glow-text relative z-10 modern-heritage">DESIGN PHILOSOPHY</h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
             </div>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
@@ -1052,7 +1050,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-5xl font-normal mb-6 glow-text font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>GET IN TOUCH</h2>
+            <h2 className="text-5xl font-normal mb-6 glow-text modern-heritage">GET IN TOUCH</h2>
             <p className="text-xl text-muted-foreground font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               Ready to collaborate on your next innovative project?
             </p>
