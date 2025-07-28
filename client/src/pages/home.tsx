@@ -400,7 +400,7 @@ export default function Home() {
               >
                 <Button 
                   size="lg" 
-                  className="relative overflow-hidden px-12 py-6 text-lg font-bold text-white bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 hover:from-blue-700 hover:via-blue-600 hover:to-blue-700 shadow-2xl shadow-blue-900/40 hover:shadow-blue-700/50 hover:scale-105 transition-all duration-300 border-0 grain-texture"
+                  className="relative overflow-hidden px-12 py-6 text-lg font-bold text-white cta-button grain-texture border-0 hover:scale-105"
                 >
                   {/* Animated Background */}
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/hero-cta:translate-x-full transition-transform duration-700" />
@@ -902,7 +902,7 @@ export default function Home() {
                               toast({ title: "Coming Soon", description: "Case studies are currently under construction. Stay tuned!" });
                             }
                           }}
-                          className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 hover:from-blue-700 hover:via-blue-600 hover:to-blue-700 text-white font-bold border-0 hover:scale-[1.02] shadow-lg shadow-blue-900/40 hover:shadow-blue-700/50 py-2 text-sm transition-all duration-300 grain-texture"
+                          className="w-full group/btn relative overflow-hidden text-white font-bold cta-button grain-texture border-0 hover:scale-[1.02] py-2 text-sm"
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                           <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
@@ -1182,7 +1182,7 @@ export default function Home() {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="group/btn relative w-full h-16 text-white font-bold text-xl bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 hover:from-blue-700 hover:via-blue-600 hover:to-blue-700 shadow-2xl shadow-blue-900/40 hover:shadow-blue-700/50 overflow-hidden transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 border-0 grain-texture"
+                    className="group/btn relative w-full h-16 text-white font-bold text-xl cta-button grain-texture overflow-hidden hover:scale-[1.02] disabled:opacity-50 border-0"
                     disabled={contactMutation.isPending}
                   >
                     {/* Shimmer Effect */}
@@ -1412,7 +1412,7 @@ export default function Home() {
             const contactSection = document.getElementById('contact');
             contactSection?.scrollIntoView({ behavior: 'smooth' });
           }}
-          className="group relative overflow-hidden bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 hover:from-blue-700 hover:via-blue-600 hover:to-blue-700 text-white font-bold px-8 py-4 text-lg border-0 hover:scale-110 transition-all duration-300 shadow-2xl shadow-blue-900/40 hover:shadow-blue-700/50 grain-texture"
+          className="group relative overflow-hidden text-white font-bold px-8 py-4 text-lg cta-button grain-texture border-0 hover:scale-110"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
           
