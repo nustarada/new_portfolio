@@ -63,19 +63,19 @@ export function ParticleBackground() {
       }, 20000);
     };
     
-    // Create initial floating elements
-    for (let i = 0; i < 6; i++) {
-      setTimeout(createFloatingElement, i * 1000);
-    }
-    
-    // Create initial gradient orbs
+    // Create fewer initial floating elements
     for (let i = 0; i < 3; i++) {
-      setTimeout(createGradientOrb, i * 3000);
+      setTimeout(createFloatingElement, i * 2000);
     }
     
-    // Create elements periodically
-    const elementInterval = setInterval(createFloatingElement, 8000);
-    const orbInterval = setInterval(createGradientOrb, 12000);
+    // Create fewer initial gradient orbs
+    for (let i = 0; i < 2; i++) {
+      setTimeout(createGradientOrb, i * 4000);
+    }
+    
+    // Create elements less frequently
+    const elementInterval = setInterval(createFloatingElement, 15000);
+    const orbInterval = setInterval(createGradientOrb, 20000);
     
     return () => {
       clearInterval(elementInterval);

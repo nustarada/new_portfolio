@@ -50,13 +50,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-      radial-gradient(circle at 25% 25%, hsl(185, 84%, 55%) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, hsl(285, 85%, 60%) 0%, transparent 50%),
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
-    opacity: 0.8;
+    background: 
+      radial-gradient(circle at 30% 30%, hsl(185, 84%, 55%) 0%, transparent 40%),
+      radial-gradient(circle at 70% 70%, hsl(285, 85%, 60%) 0%, transparent 40%);
+    opacity: 0.6;
     pointer-events: none;
     z-index: -1;
+    will-change: transform;
   }
   
   body {
@@ -71,6 +71,24 @@
   
   * {
     cursor: none !important;
+  }
+  
+  /* Performance optimizations */
+  *, *::before, *::after {
+    will-change: auto;
+  }
+  
+  .animate-pulse {
+    animation: none; /* Disable pulse animations for better performance */
+  }
+  
+  /* Reduce motion for better performance */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
   
   html {
@@ -110,7 +128,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    background: rgba(79, 172, 254, 0.01);
     pointer-events: none;
     z-index: 1;
   }
@@ -149,54 +167,19 @@
   .cyber-grid {
     --mouse-x: 50%;
     --mouse-y: 50%;
-    --wave-intensity: 0.3;
+    --wave-intensity: 0.2;
     position: relative;
     overflow: hidden;
     background: 
-      /* Noise texture overlay */
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.31 0 0 0 0 0.67 0 0 0 0 1 0 0 0 0.03 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
-      /* Single elegant gradient centered */
-      radial-gradient(circle at 50% 40%, rgba(79, 172, 254, 0.06) 0%, transparent 60%),
-      /* Subtle base gradient */
+      radial-gradient(circle at 50% 40%, rgba(79, 172, 254, 0.04) 0%, transparent 50%),
       linear-gradient(135deg, 
         rgba(4, 4, 6, 1) 0%,
-        rgba(6, 6, 10, 0.98) 40%,
-        rgba(8, 8, 12, 0.96) 60%,
+        rgba(6, 6, 10, 0.98) 50%,
         rgba(4, 4, 6, 1) 100%
       );
-    background-size: 200px 200px, 100% 100%, 100% 100%;
-    animation: elegantFlow 12s ease-in-out infinite alternate;
-  }
-
-  @keyframes elegantFlow {
-    0% {
-      background-position: 50% 40%, 0% 0%;
-      opacity: 0.95;
-    }
-    100% {
-      background-position: 50% 50%, 100% 100%;
-      opacity: 1;
-    }
+    will-change: transform;
   }
   
-  .cyber-grid::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      /* Additional subtle noise layer */
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='fineDust'%3E%3CfeTurbulence type='turbulence' baseFrequency='1.2' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.31 0 0 0 0 0.67 0 0 0 0 1 0 0 0 0.01 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23fineDust)'/%3E%3C/svg%3E"),
-      linear-gradient(180deg, rgba(79, 172, 254, 0.015) 0%, transparent 30%, transparent 70%, rgba(79, 172, 254, 0.01) 100%);
-    background-size: 100px 100px, 100% 100%;
-    opacity: 0.7;
-    animation: elegantGlow 8s ease-in-out infinite alternate;
-    pointer-events: none;
-    z-index: 1;
-  }
-
   .cyber-grid::after {
     content: '';
     position: absolute;
@@ -205,80 +188,24 @@
     right: 0;
     bottom: 0;
     background: 
-      radial-gradient(circle 200px at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-        rgba(79, 172, 254, 0.15) 0%, 
-        rgba(79, 172, 254, 0.06) 40%, 
-        rgba(79, 172, 254, 0.01) 70%,
-        transparent 100%);
-    opacity: var(--wave-intensity, 0.3);
-    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+        rgba(79, 172, 254, 0.08) 0%, 
+        rgba(79, 172, 254, 0.03) 40%, 
+        transparent 70%);
+    opacity: var(--wave-intensity, 0.2);
+    transition: opacity 0.3s ease;
     pointer-events: none;
     z-index: 2;
-    filter: blur(0.5px);
   }
 
-  @keyframes elegantGlow {
-    0% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.01); }
-    100% { opacity: 0.5; transform: scale(1); }
-  }
-
-  /* Enhanced grid intersection points */
+  /* Simplified grid intersection points */
   .cyber-grid .grid-intersection {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: radial-gradient(circle, rgba(79, 172, 254, 0.8) 0%, transparent 70%);
+    width: 2px;
+    height: 2px;
+    background: rgba(79, 172, 254, 0.6);
     border-radius: 50%;
-    animation: intersection-glow 3s ease-in-out infinite;
-  }
-
-  @keyframes intersection-glow {
-    0%, 100% { 
-      opacity: 0.3;
-      transform: scale(0.8);
-      box-shadow: 0 0 6px rgba(79, 172, 254, 0.4);
-    }
-    50% { 
-      opacity: 0.8;
-      transform: scale(1.2);
-      box-shadow: 0 0 12px rgba(79, 172, 254, 0.6);
-    }
-  }
-
-  /* Scan line effect - more subtle */
-  .cyber-grid .scan-line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, 
-      transparent 0%, 
-      rgba(79, 172, 254, 0.3) 20%, 
-      rgba(16, 185, 129, 0.4) 50%, 
-      rgba(79, 172, 254, 0.3) 80%, 
-      transparent 100%);
-    animation: scan-line-move 12s linear infinite;
     opacity: 0.4;
-    z-index: 4;
-  }
-
-  @keyframes scan-line-move {
-    0% { 
-      top: -2px;
-      opacity: 0;
-    }
-    10% { 
-      opacity: 0.7;
-    }
-    90% { 
-      opacity: 0.7;
-    }
-    100% { 
-      top: 100%;
-      opacity: 0;
-    }
   }
   
   .cyber-grid canvas {
