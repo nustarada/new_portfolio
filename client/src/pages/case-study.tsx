@@ -506,7 +506,7 @@ export default function CaseStudy() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/#contact">
-                <Button size="lg" className="px-8 py-3 text-base font-semibold bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 hover:from-blue-700 hover:via-blue-600 hover:to-blue-700 shadow-lg shadow-blue-900/40 hover:shadow-blue-700/50 border-0 transition-all duration-300 grain-texture">
+                <Button size="lg" className="px-8 py-3 text-base font-semibold cta-button grain-texture border-0">
                   <ExternalLink className="w-4 h-4 mr-2" />
                   Start Your Project
                 </Button>
@@ -527,7 +527,7 @@ export default function CaseStudy() {
       <div className="fixed bottom-6 right-6 z-50">
         <a href="/#contact">
           <Button 
-            className="group relative overflow-hidden bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 hover:from-blue-700 hover:via-blue-600 hover:to-blue-700 text-white font-semibold px-6 py-3 glass-intense grain-texture border-0 hover:scale-105 transition-all duration-300 shadow-2xl shadow-blue-900/40 hover:shadow-blue-700/50"
+            className="group relative overflow-hidden text-white font-semibold px-6 py-3 cta-button glass-intense grain-texture border-0 hover:scale-105"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             
