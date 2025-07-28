@@ -227,7 +227,7 @@ export default function Home() {
       <div className="floating-orb w-48 h-48 bottom-20 left-1/4 opacity-25" style={{ animationDelay: '4s' }} />
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 glass-card grain-texture border-b border-white/20">
+      <nav className="fixed top-0 left-0 right-0 z-[100] glass-card grain-texture border-b border-white/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <motion.div 
             className="flex items-center"
@@ -279,7 +279,7 @@ export default function Home() {
       <section 
         ref={heroRef} 
         id="hero" 
-        className="min-h-screen flex items-center justify-center relative cyber-grid pt-20 pb-8"
+        className="min-h-screen flex items-center justify-center relative cyber-grid pt-32 pb-8"
         style={{
           '--mouse-x': `${mousePos.x}%`,
           '--mouse-y': `${mousePos.y}%`,
@@ -307,7 +307,7 @@ export default function Home() {
           <div className="absolute bottom-12 left-12 w-12 h-12 border-l border-b border-primary/40" />
           <div className="absolute bottom-12 right-12 w-12 h-12 border-r border-b border-primary/40" />
         </div>
-        <div className="max-w-5xl mx-auto px-6 text-center relative z-10 w-full">
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-20 w-full">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
