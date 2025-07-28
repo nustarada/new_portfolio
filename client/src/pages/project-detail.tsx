@@ -65,7 +65,7 @@ const projectsData: { [key: string]: ProjectData } = {
       "Simple admin dashboard for content management",
       "Accessibility features including light/dark modes and clean typography"
     ],
-    techStack: ["React", "JavaScript", "Replit", "Responsive Design", "Accessibility"],
+    techStack: ["Figma", "React", "JavaScript", "HubSpot API", "Replit", "Responsive Design", "Accessibility"],
     process: [
       "Conducted interviews with advocacy organizers",
       "Created user flows and low-fidelity wireframes", 
