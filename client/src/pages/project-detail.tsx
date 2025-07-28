@@ -271,7 +271,7 @@ export default function ProjectDetail() {
                 </div>
                 <p className="text-white/80 text-lg font-medium mb-4">{project.role}</p>
                 <div className="flex flex-wrap gap-2">
-                  {['UX Research', 'Design System', 'Frontend Dev', 'User Testing'].map((skill) => (
+                  {['UI/UX Designer', 'UX Research', 'Design System', 'Frontend Dev', 'User Testing'].map((skill) => (
                     <Badge key={skill} className="bg-primary/10 text-primary/90 border-primary/30">
                       {skill}
                     </Badge>
