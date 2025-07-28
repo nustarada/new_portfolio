@@ -6,11 +6,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
-        'display': ['Playfair Display', 'serif'],
-        'body': ['Crimson Text', 'serif'],
-        'accent': ['Raleway', 'sans-serif'],
-        'mono': ['JetBrains Mono', 'monospace'],
+        'sans': ['Barlow', 'system-ui', 'sans-serif'],
+        'display': ['Bebas Neue', 'sans-serif'],
+        'body': ['Montserrat', 'sans-serif'],
+        'accent': ['Oswald', 'sans-serif'],
+        'hero': ['Bebas Neue', 'sans-serif'],
+        'mono': ['Source Code Pro', 'monospace'],
       },
       borderRadius: {
         lg: "var(--radius)",
