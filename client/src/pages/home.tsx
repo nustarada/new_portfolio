@@ -814,18 +814,14 @@ export default function Home() {
                   </div>
 
                   {/* Hero Image Section */}
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-80 overflow-hidden">
                     {index === 0 ? (
                       /* FutureFirstFamilies Project Thumbnail */
-                      <>
-                        <img 
-                          src={futureFirstFamiliesThumbnail} 
-                          alt="FutureFirstFamilies Platform" 
-                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                        {/* Overlay for better text readability */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
-                      </>
+                      <img 
+                        src={futureFirstFamiliesThumbnail} 
+                        alt="FutureFirstFamilies Platform" 
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
                     ) : (
                       /* Abstract background for other projects */
                       <>
@@ -857,32 +853,30 @@ export default function Home() {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-5 space-y-3">
+                  <div className="p-4 space-y-2">
                     {/* Header */}
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <Badge className={`${
-                          index === 0 
-                            ? 'bg-primary/20 text-primary border-primary/30' 
-                            : 'bg-purple-500/20 text-purple-300 border-purple-500/30'
-                        } text-xs font-semibold px-3 py-1`}>
-                          {project.category}
-                        </Badge>
-                        <Badge variant="outline" className="bg-black/20 backdrop-blur-sm border-white/20 text-white/80 text-xs px-2 py-1">
-                          {project.year}
-                        </Badge>
-                      </div>
+                    <div className="flex items-center justify-between mb-2">
+                      <Badge className={`${
+                        index === 0 
+                          ? 'bg-primary/20 text-primary border-primary/30' 
+                          : 'bg-purple-500/20 text-purple-300 border-purple-500/30'
+                      } text-xs font-semibold px-3 py-1`}>
+                        {project.category}
+                      </Badge>
+                      <Badge variant="outline" className="bg-black/20 backdrop-blur-sm border-white/20 text-white/80 text-xs px-2 py-1">
+                        {project.year}
+                      </Badge>
+                    </div>
 
-                      <div>
-                        <h3 className="text-xl font-bold text-white leading-tight mb-2 group-hover:text-primary transition-colors duration-300 font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                          {project.title.toUpperCase()}
-                        </h3>
-                        {project.subtitle && (
-                          <p className="text-sm font-medium text-white/70 font-accent" style={{ fontFamily: "'Oswald', sans-serif" }}>
-                            {project.subtitle.toUpperCase()}
-                          </p>
-                        )}
-                      </div>
+                    <div className="space-y-1">
+                      <h3 className="text-xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 font-display" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                        {project.title.toUpperCase()}
+                      </h3>
+                      {project.subtitle && (
+                        <p className="text-sm font-medium text-white/70 font-accent" style={{ fontFamily: "'Oswald', sans-serif" }}>
+                          {project.subtitle.toUpperCase()}
+                        </p>
+                      )}
                     </div>
 
                     {/* Description */}
@@ -890,47 +884,11 @@ export default function Home() {
                       {project.description}
                     </p>
 
-                    {/* Key Outcomes */}
-                    {project.outcomes && (
-                      <div className="space-y-2">
-                        <h4 className="text-xs font-bold text-primary/90 tracking-wider font-accent" style={{ fontFamily: "'Oswald', sans-serif" }}>
-                          KEY OUTCOMES
-                        </h4>
-                        <div className="flex items-start space-x-3">
-                          <div className={`w-2 h-2 ${
-                            index === 0 ? 'bg-primary/80' : 'bg-purple-500/80'
-                          } mt-1.5 flex-shrink-0`} />
-                          <p className="text-white/70 text-xs leading-relaxed font-body" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                            {project.outcomes[0]}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Tech Stack */}
-                    <div className="space-y-2">
-                      <h4 className="text-xs font-bold text-primary/90 tracking-wider font-accent" style={{ fontFamily: "'Oswald', sans-serif" }}>
-                        TECH STACK
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.slice(0, 3).map((tag) => (
-                          <Badge key={tag} variant="secondary" className="bg-white/5 text-white/70 border-white/10 text-xs px-2 py-1 hover:bg-white/10 transition-colors duration-300">
-                            {tag}
-                          </Badge>
-                        ))}
-                        {project.tags.length > 3 && (
-                          <Badge variant="secondary" className="bg-white/5 text-white/70 border-white/10 text-xs px-2 py-1">
-                            +{project.tags.length - 3}
-                          </Badge>
-                        )}
-                      </div>
-                    </div>
-
                     {/* Action Buttons */}
-                    <div className="pt-3 space-y-2">
-                      {index === 0 && (
+                    <div className="pt-2">
+                      {index === 0 ? (
                         <Link href="/project/futurefirstfamilies">
-                          <Button className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-primary via-cyan-400 to-primary text-white font-bold py-2.5 border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary/30">
+                          <Button className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-primary via-cyan-400 to-primary text-white font-bold py-2 text-sm border-0 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary/30">
                             <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                             <div className="relative z-10 flex items-center justify-center space-x-2">
                               <span>View Case Study</span>
@@ -938,31 +896,24 @@ export default function Home() {
                             </div>
                           </Button>
                         </Link>
-                      )}
-                      
-                      <Button 
-                        onClick={() => {
-                          if (project.liveUrl) {
-                            window.open(project.liveUrl, '_blank');
-                          } else {
-                            toast({ title: "Coming Soon", description: "Case studies are currently under construction. Stay tuned!" });
-                          }
-                        }}
-                        variant={index === 0 ? "outline" : "default"}
-                        className={`w-full group/btn relative overflow-hidden ${
-                          index === 0 
-                            ? 'border-white/30 text-white hover:bg-white/10 hover:border-white/50' 
-                            : 'bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 text-white font-bold border-0 hover:scale-[1.02] shadow-lg shadow-purple-500/30'
-                        } py-2.5 transition-all duration-300`}
-                      >
-                        {index !== 0 && (
+                      ) : (
+                        <Button 
+                          onClick={() => {
+                            if (project.liveUrl) {
+                              window.open(project.liveUrl, '_blank');
+                            } else {
+                              toast({ title: "Coming Soon", description: "Case studies are currently under construction. Stay tuned!" });
+                            }
+                          }}
+                          className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 text-white font-bold border-0 hover:scale-[1.02] shadow-lg shadow-purple-500/30 py-2 text-sm transition-all duration-300"
+                        >
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                        )}
-                        <div className="relative z-10 flex items-center justify-center space-x-2">
-                          <span>{project.liveUrl ? 'View Live Site' : 'Explore Project'}</span>
-                          <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
-                        </div>
-                      </Button>
+                          <div className="relative z-10 flex items-center justify-center space-x-2">
+                            <span>{project.liveUrl ? 'View Live Site' : 'Explore Project'}</span>
+                            <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
+                          </div>
+                        </Button>
+                      )}
                     </div>
                   </div>
 
