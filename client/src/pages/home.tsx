@@ -866,7 +866,7 @@ export default function Home() {
                     </div>
 
                     <div className="space-y-1">
-                      <h3 className="text-xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 modern-heritage">
+                      <h3 className="text-xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
                         {project.title.toUpperCase()}
                       </h3>
                       {project.subtitle && (
