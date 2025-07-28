@@ -100,6 +100,7 @@ This is a full-stack web application built with React/TypeScript frontend and Ex
 
 ```
 Changelog:
+- July 28, 2025. Added FutureFirstFamilies project with comprehensive case study content
 - June 24, 2025. Initial setup
 ```
 
