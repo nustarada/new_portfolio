@@ -134,13 +134,13 @@ export default function ProjectDetail() {
                 <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
                   {project.category}
                 </Badge>
-                <h1 className="text-4xl md:text-6xl font-black mb-4 glow-text">
+                <h1 className="text-4xl md:text-6xl font-black mb-4 glow-text display-font">
                   {project.title}
                 </h1>
-                <p className="text-xl text-primary/80 font-medium mb-6">
+                <p className="text-xl text-primary/80 font-medium mb-6 body-font">
                   {project.subtitle}
                 </p>
-                <p className="text-lg text-white/80 leading-relaxed mb-8">
+                <p className="text-lg text-white/80 leading-relaxed mb-8 body-font">
                   {project.detailedDescription}
                 </p>
               </div>
