@@ -6,9 +6,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Outfit', 'system-ui', 'sans-serif'],
-        'display': ['Space Grotesk', 'system-ui', 'sans-serif'],
-        'body': ['Poppins', 'system-ui', 'sans-serif'],
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'display': ['Playfair Display', 'serif'],
+        'body': ['Crimson Text', 'serif'],
+        'accent': ['Raleway', 'sans-serif'],
         'mono': ['JetBrains Mono', 'monospace'],
       },
       borderRadius: {
