@@ -400,7 +400,7 @@ export default function Home() {
               >
                 <Button 
                   size="lg" 
-                  className="relative overflow-hidden px-12 py-6 text-lg font-bold text-white bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 hover:from-blue-700 hover:via-sky-700 hover:to-blue-700 shadow-2xl shadow-blue-500/25 hover:scale-105 transition-all duration-300 border-0"
+                  className="relative overflow-hidden px-12 py-6 text-lg font-bold text-white bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:from-pink-400 hover:via-purple-500 hover:to-blue-600 shadow-2xl shadow-purple-500/40 hover:shadow-pink-500/50 hover:scale-105 transition-all duration-300 border-0"
                 >
                   {/* Animated Background */}
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/hero-cta:translate-x-full transition-transform duration-700" />
@@ -902,7 +902,7 @@ export default function Home() {
                               toast({ title: "Coming Soon", description: "Case studies are currently under construction. Stay tuned!" });
                             }
                           }}
-                          className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 text-white font-bold border-0 hover:scale-[1.02] shadow-lg shadow-blue-500/30 py-2 text-sm transition-all duration-300"
+                          className="w-full group/btn relative overflow-hidden bg-gradient-to-r from-rose-400 via-pink-500 to-purple-600 hover:from-orange-400 hover:via-pink-500 hover:to-blue-500 text-white font-bold border-0 hover:scale-[1.02] shadow-lg shadow-pink-500/40 hover:shadow-purple-500/50 py-2 text-sm transition-all duration-300"
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                           <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
@@ -1182,7 +1182,7 @@ export default function Home() {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="group/btn relative w-full h-16 text-white font-bold text-xl bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 hover:from-blue-700 hover:via-sky-700 hover:to-blue-700 shadow-2xl shadow-blue-500/50 overflow-hidden transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 border-0"
+                    className="group/btn relative w-full h-16 text-white font-bold text-xl bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 hover:from-blue-500 hover:via-purple-600 hover:to-pink-500 shadow-2xl shadow-pink-500/50 hover:shadow-purple-500/60 overflow-hidden transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 border-0"
                     disabled={contactMutation.isPending}
                   >
                     {/* Shimmer Effect */}
@@ -1412,7 +1412,7 @@ export default function Home() {
             const contactSection = document.getElementById('contact');
             contactSection?.scrollIntoView({ behavior: 'smooth' });
           }}
-          className="group relative overflow-hidden bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 hover:from-blue-500 hover:via-sky-500 hover:to-blue-500 text-white font-bold px-8 py-4 text-lg border-0 hover:scale-110 transition-all duration-300 shadow-2xl shadow-blue-500/50"
+          className="group relative overflow-hidden bg-gradient-to-r from-emerald-400 via-cyan-500 to-blue-500 hover:from-yellow-400 hover:via-pink-500 hover:to-purple-600 text-white font-bold px-8 py-4 text-lg border-0 hover:scale-110 transition-all duration-300 shadow-2xl shadow-cyan-500/50 hover:shadow-pink-500/60"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
           
