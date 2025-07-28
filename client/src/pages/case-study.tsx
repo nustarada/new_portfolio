@@ -56,13 +56,13 @@ export default function CaseStudy() {
       {
         phase: "Design & Prototyping",
         duration: "6 weeks", 
-        description: "Created comprehensive UI/UX designs in Figma, including wireframes, high-fidelity mockups, and interactive prototypes for the gamified platform.",
+        description: "Created comprehensive UI/UX designs in Figma, including wireframes, high-fidelity mockups, and interactive prototypes. Designed reusable component system for consistent user experience.",
         deliverables: ["Figma Design System", "Interactive Prototypes", "Component Library"]
       },
       {
         phase: "Development & Integration",
         duration: "8 weeks",
-        description: "Built the React application with gamification features and integrated HubSpot API for dynamic content management, forms, and blog functionality.",
+        description: "Developed platform using React in Replit environment. Integrated gamification, referrals, and accessibility features with seamless HubSpot API for forms and blog content management.",
         deliverables: ["React Application", "HubSpot API Integration", "Gamification System"]
       },
       {
@@ -221,10 +221,10 @@ export default function CaseStudy() {
                 {caseStudyData.category}
               </Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight grain-texture">
-                <span className="block text-white">{caseStudyData.title.split(' ').slice(0, 2).join(' ')}</span>
-                <span className="block glow-text">{caseStudyData.title.split(' ').slice(2).join(' ')}</span>
+                <span className="block text-white modern-heritage">{caseStudyData.title.split(':')[0]}:</span>
+                <span className="block glow-text modern-heritage">{caseStudyData.title.split(':')[1]}</span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
                 {caseStudyData.subtitle}
               </p>
             </div>
@@ -260,27 +260,43 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="grid grid-cols-1 lg:grid-cols-3 gap-12"
           >
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-10">
               <div>
-                <h2 className="text-3xl font-bold mb-6 glow-text grain-texture">Project Overview</h2>
-                <p className="text-lg text-white/90 leading-relaxed">
+                <h2 className="text-4xl font-bold mb-8 glow-text grain-texture modern-heritage">PROJECT OVERVIEW</h2>
+                <p className="text-xl text-white/90 leading-relaxed jost-secondary">
                   {caseStudyData.overview}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <Card className="p-6 glass-card grain-texture hover:glass-intense border-red-500/30 transition-all duration-300">
-                  <h3 className="text-xl font-bold mb-4 text-red-400">The Challenge</h3>
-                  <p className="text-white/80 leading-relaxed">
-                    {caseStudyData.challenge}
+                <Card className="p-8 glass-card grain-texture hover:glass-intense border-red-500/30 transition-all duration-300">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mr-4">
+                      <div className="w-6 h-6 bg-red-500 rounded"></div>
+                    </div>
+                    <h3 className="text-2xl font-bold text-red-400 modern-heritage">THE PROBLEM</h3>
+                  </div>
+                  <p className="text-white/80 leading-relaxed text-base jost-secondary">
+                    Parents were overwhelmed by traditional advocacy tools that were text-heavy, form-based, and lacked guidance. This resulted in poor engagement, low action completion rates, and overall frustration.
                   </p>
                 </Card>
 
-                <Card className="p-6 glass-card grain-texture hover:glass-intense border-green-500/30 transition-all duration-300">
-                  <h3 className="text-xl font-bold mb-4 text-green-400">The Solution</h3>
-                  <p className="text-white/80 leading-relaxed">
-                    {caseStudyData.solution}
+                <Card className="p-8 glass-card grain-texture hover:glass-intense border-green-500/30 transition-all duration-300">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mr-4">
+                      <div className="w-6 h-6 bg-green-500 rounded"></div>
+                    </div>
+                    <h3 className="text-2xl font-bold text-green-400 modern-heritage">THE SOLUTION</h3>
+                  </div>
+                  <p className="text-white/80 leading-relaxed text-base jost-secondary mb-4">
+                    Built a gamified civic engagement platform with intuitive navigation, milestone rewards, and simplified workflows specifically designed for non-tech-savvy users.
                   </p>
+                  <div className="pt-4 border-t border-white/10">
+                    <h4 className="text-sm font-bold text-green-400 mb-2 jost-secondary">GOAL</h4>
+                    <p className="text-white/70 text-sm leading-relaxed jost-secondary">
+                      To create a lightweight, engaging platform where users could take monthly actions easily, track their progress through points and milestones, participate in leaderboards and referral programs, and manage everything from a clean, guided dashboard.
+                    </p>
+                  </div>
                 </Card>
               </div>
             </div>
@@ -324,11 +340,50 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture">Design Process</h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              A systematic approach to solving complex design challenges through research, strategy, and iterative development.
+            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture modern-heritage">MY ROLE & PROCESS</h2>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto jost-secondary">
+              Enhanced advocacy from research to deployment
             </p>
           </motion.div>
+
+          <div className="mb-16">
+            <Card className="p-8 glass-card grain-texture border-blue-500/30">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
+                      <Users className="w-6 h-6 text-blue-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-blue-400 modern-heritage">MY ROLE</h3>
+                  </div>
+                  <p className="text-xl text-white mb-4 jost-secondary">UX Research, Design System, Full Development</p>
+                  <div className="flex flex-wrap gap-2">
+                    {["UX Research", "Design System", "Frontend Dev", "User Testing"].map((skill) => (
+                      <Badge key={skill} variant="outline" className="text-sm px-3 py-1 border-blue-400/50 text-blue-400 jost-secondary">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center mr-4">
+                      <ArrowRight className="w-6 h-6 text-cyan-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-cyan-400 modern-heritage">PROCESS</h3>
+                  </div>
+                  <ol className="space-y-3 text-white/80 jost-secondary">
+                    <li className="flex items-center"><span className="text-primary font-bold mr-3">1</span>Conducted interviews with advocacy organizers</li>
+                    <li className="flex items-center"><span className="text-primary font-bold mr-3">2</span>Created user flows and low-fidelity wireframes</li> 
+                    <li className="flex items-center"><span className="text-primary font-bold mr-3">3</span>Designed high-fidelity mockups and reusable design system</li>
+                    <li className="flex items-center"><span className="text-primary font-bold mr-3">4</span>Developed platform using React in Replit</li>
+                    <li className="flex items-center"><span className="text-primary font-bold mr-3">5</span>Integrated gamification, referrals, and accessibility features</li>
+                    <li className="flex items-center"><span className="text-primary font-bold mr-3">6</span>Tested and refined based on team feedback</li>
+                  </ol>
+                </div>
+              </div>
+            </Card>
+          </div>
 
           <div className="relative">
             {/* Timeline Line */}
@@ -345,28 +400,28 @@ export default function CaseStudy() {
                   className={`flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
                 >
                   <Card className={`p-8 max-w-lg ${index % 2 === 0 ? 'mr-8' : 'ml-8'} glass-card grain-texture hover:glass-intense border-primary/20 transition-all duration-300`}>
-                    <div className="flex items-center justify-between mb-4">
-                      <Badge variant="outline" className="text-xs px-3 py-1 border-primary/50">
+                    <div className="flex items-center justify-between mb-6">
+                      <Badge variant="outline" className="text-sm px-4 py-2 border-primary/50 jost-secondary">
                         Phase {index + 1}
                       </Badge>
-                      <span className="text-sm text-primary font-medium">
+                      <span className="text-sm text-primary font-medium jost-secondary">
                         {phase.duration}
                       </span>
                     </div>
                     
-                    <h3 className="text-2xl font-bold mb-4 text-white">
-                      {phase.phase}
+                    <h3 className="text-2xl font-bold mb-4 text-white modern-heritage">
+                      {phase.phase.toUpperCase()}
                     </h3>
                     
-                    <p className="text-white/80 leading-relaxed mb-6">
+                    <p className="text-white/80 leading-relaxed mb-6 text-base jost-secondary">
                       {phase.description}
                     </p>
 
                     <div>
-                      <h4 className="font-semibold text-primary mb-3">Key Deliverables:</h4>
+                      <h4 className="font-semibold text-primary mb-3 text-sm jost-secondary">KEY DELIVERABLES</h4>
                       <ul className="space-y-2">
                         {phase.deliverables.map((deliverable) => (
-                          <li key={deliverable} className="flex items-center text-sm text-white/70">
+                          <li key={deliverable} className="flex items-center text-sm text-white/70 jost-secondary">
                             <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
                             {deliverable}
                           </li>
@@ -394,9 +449,9 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture">Key Features</h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              Innovative solutions that transformed how teams approach design and development collaboration.
+            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture modern-heritage">KEY FEATURES</h2>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto jost-secondary">
+              Innovative solutions that transformed how families engage with advocacy activities
             </p>
           </motion.div>
 
@@ -418,11 +473,11 @@ export default function CaseStudy() {
                       <Icon className="w-8 h-8 text-primary" />
                     </div>
                     
-                    <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors">
-                      {feature.title}
+                    <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors modern-heritage">
+                      {feature.title.toUpperCase()}
                     </h3>
                     
-                    <p className="text-white/70 leading-relaxed">
+                    <p className="text-white/70 leading-relaxed text-base jost-secondary">
                       {feature.description}
                     </p>
                   </Card>
@@ -443,48 +498,59 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture">Outcomes & Impact</h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              Measurable results that demonstrate the transformative power of thoughtful design and AI integration.
+            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture modern-heritage">RESULTS & IMPACT</h2>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto jost-secondary">
+              Quantifiable outcomes that transformed family engagement in advocacy activities
             </p>
           </motion.div>
 
-          <Card className="p-12 glass-intense grain-texture hover:glass-card border-green-500/30 transition-all duration-300">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-2xl font-bold mb-6 text-green-400">Key Achievements</h3>
-                <ul className="space-y-4">
-                  {caseStudyData.outcomes.map((outcome, index) => (
-                    <motion.li
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="flex items-start text-white/90"
-                    >
-                      <CheckCircle className="w-6 h-6 mr-3 text-green-400 flex-shrink-0 mt-0.5" />
-                      <span className="leading-relaxed">{outcome}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-6 mb-12">
+            {[
+              { value: "30%", desc: "increase in completed actions within first month", icon: "🏆" },
+              { value: "4x", desc: "higher user retention vs previous system", icon: "🏆" },
+              { value: "1500+", desc: "parents onboarded in first 3 weeks", icon: "🏆" },
+              { value: "Significant", desc: "improvement in action tracking and admin workflow", icon: "🏆" }
+            ].map((metric, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <Card className="p-8 text-center glass-card grain-texture hover:glass-intense border-green-500/30 group-hover:border-green-500/50 transition-all duration-300">
+                  <div className="w-12 h-12 bg-green-500/20 rounded-xl mx-auto mb-6 flex items-center justify-center group-hover:bg-green-500/30 transition-colors">
+                    <div className="text-2xl">🏆</div>
+                  </div>
+                  <div className="text-3xl md:text-4xl font-black text-green-400 mb-4 modern-heritage">
+                    {metric.value}
+                  </div>
+                  <p className="text-white/80 text-sm leading-relaxed jost-secondary">
+                    {metric.desc}
+                  </p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
 
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-primary">Project Highlights</h3>
-                <div className="space-y-4">
-                  <div className="text-6xl font-black text-primary">78%</div>
-                  <div className="text-xl font-semibold text-white">User Engagement Increase</div>
-                  <div className="text-white/70">Through gamified advocacy activities</div>
-                </div>
-                
-                <div className="border-t border-white/10 pt-6">
-                  <div className="text-4xl font-black text-green-400">4.7/5</div>
-                  <div className="text-lg font-semibold text-white">User Satisfaction Score</div>
-                  <div className="text-white/70">Based on comprehensive user feedback</div>
-                </div>
-              </div>
-            </div>
+          <Card className="p-12 glass-intense grain-texture hover:glass-card border-green-500/30 transition-all duration-300">
+            <h3 className="text-2xl font-bold mb-6 text-green-400 modern-heritage">KEY ACHIEVEMENTS</h3>
+            <ul className="space-y-4">
+              {caseStudyData.outcomes.map((outcome, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-start text-white/90"
+                >
+                  <CheckCircle className="w-6 h-6 mr-3 text-green-400 flex-shrink-0 mt-0.5" />
+                  <span className="leading-relaxed text-base jost-secondary">{outcome}</span>
+                </motion.li>
+              ))}
+            </ul>
           </Card>
         </div>
       </section>
@@ -499,8 +565,8 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture">Technology Stack</h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture modern-heritage">TECHNOLOGY STACK</h2>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto jost-secondary">
               Modern technologies and tools carefully selected for optimal performance and user experience
             </p>
           </motion.div>
@@ -526,10 +592,10 @@ export default function CaseStudy() {
                   <div className="w-12 h-12 bg-primary/10 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <div className="w-6 h-6 bg-primary rounded opacity-70 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <h3 className="font-bold text-white group-hover:text-primary transition-colors mb-1">
+                  <h3 className="font-bold text-white group-hover:text-primary transition-colors mb-1 jost-secondary">
                     {tech.name}
                   </h3>
-                  <p className="text-xs text-white/60">
+                  <p className="text-xs text-white/60 jost-secondary">
                     {tech.category}
                   </p>
                 </Card>
@@ -549,8 +615,8 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture">What I Learned</h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture modern-heritage">WHAT I LEARNED</h2>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto jost-secondary">
               Key insights and growth opportunities discovered throughout this project
             </p>
           </motion.div>
@@ -560,16 +626,16 @@ export default function CaseStudy() {
               <div className="absolute left-4 top-0 w-1 h-full bg-gradient-to-b from-cyan-400 via-primary to-cyan-400 rounded-full" />
               
               <blockquote className="pl-12 space-y-6">
-                <p className="text-lg md:text-xl text-white/95 leading-relaxed italic font-medium">
-                  "This project transformed my experience of building for engagement years. Everything from 
+                <p className="text-lg md:text-xl text-white/95 leading-relaxed italic font-medium jost-secondary">
+                  "This project transformed my experience of building for engagement. Everything from 
                   utilizing powerful APIs like HubSpot for seamless content management to understanding 
                   the unique needs of both children and parents in advocacy platforms helped transform 
-                  my world of design."
+                  my approach to design."
                 </p>
                 
                 <div className="pt-6 border-t border-white/10">
-                  <p className="text-white/85 text-base leading-relaxed">
-                    Working with Figma's advanced design systems and integrating HubSpot API taught me the 
+                  <p className="text-white/85 text-base leading-relaxed jost-secondary">
+                    Working with Figma's advanced design systems and integrating HubSpot API for forms and blog management taught me the 
                     importance of creating scalable, content-driven platforms. The gamification elements 
                     required deep understanding of user psychology and family dynamics, pushing me to 
                     design experiences that engage across different age groups while maintaining the 
@@ -592,8 +658,8 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-4xl font-bold glow-text grain-texture">Ready to see more projects?</h2>
-            <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
+            <h2 className="text-4xl font-bold glow-text grain-texture modern-heritage">READY TO SEE MORE PROJECTS?</h2>
+            <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
               Interested in discussing how gamification, Figma design systems, or HubSpot API integration could work for your project?
             </p>
             
