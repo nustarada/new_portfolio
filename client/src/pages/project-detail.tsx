@@ -90,7 +90,7 @@ export default function ProjectDetail() {
     return (
       <div className="min-h-screen bg-background text-white flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Project Not Found</h1>
+          <h1 className="text-2xl font-bold mb-4 modern-heritage">Project Not Found</h1>
           <Link href="/">
             <Button>Back to Home</Button>
           </Link>
@@ -202,9 +202,9 @@ export default function ProjectDetail() {
                   <div className="w-12 h-12 bg-red-500/20 flex items-center justify-center mr-4">
                     <Target className="w-6 h-6 text-red-400" />
                   </div>
-                  <h2 className="text-2xl font-bold text-white">The Problem</h2>
+                  <h2 className="text-2xl font-bold text-white modern-heritage">The Problem</h2>
                 </div>
-                <p className="text-white/80 leading-relaxed">
+                <p className="text-white/80 leading-relaxed jost-secondary">
                   {project.problem}
                 </p>
               </Card>
@@ -221,14 +221,14 @@ export default function ProjectDetail() {
                   <div className="w-12 h-12 bg-green-500/20 flex items-center justify-center mr-4">
                     <Lightbulb className="w-6 h-6 text-green-400" />
                   </div>
-                  <h2 className="text-2xl font-bold text-white">The Solution</h2>
+                  <h2 className="text-2xl font-bold text-white modern-heritage">The Solution</h2>
                 </div>
-                <p className="text-white/80 leading-relaxed mb-4">
+                <p className="text-white/80 leading-relaxed mb-4 jost-secondary">
                   {project.solution}
                 </p>
                 <div className="pt-4 border-t border-white/10">
                   <h4 className="text-sm font-semibold text-primary mb-2">GOAL</h4>
-                  <p className="text-white/70 text-sm leading-relaxed">
+                  <p className="text-white/70 text-sm leading-relaxed jost-secondary">
                     {project.goal}
                   </p>
                 </div>
@@ -248,8 +248,8 @@ export default function ProjectDetail() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold glow-text mb-4">My Role & Process</h2>
-            <p className="text-lg text-white/80 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold glow-text mb-4 modern-heritage">My Role & Process</h2>
+            <p className="text-lg text-white/80 max-w-3xl mx-auto jost-secondary">
               End-to-end ownership from research to deployment
             </p>
           </motion.div>
@@ -267,9 +267,9 @@ export default function ProjectDetail() {
                   <div className="w-12 h-12 bg-primary/20 flex items-center justify-center mr-4">
                     <Users className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">My Role</h3>
+                  <h3 className="text-xl font-bold text-white modern-heritage">My Role</h3>
                 </div>
-                <p className="text-white/80 text-lg font-medium mb-4">{project.role}</p>
+                <p className="text-white/80 text-lg font-medium mb-4 jost-secondary">{project.role}</p>
                 <div className="flex flex-wrap gap-2">
                   {['UI/UX Designer', 'UX Research', 'Design System', 'Frontend Dev', 'User Testing'].map((skill) => (
                     <Badge key={skill} className="bg-primary/10 text-primary/90 border-primary/30">
@@ -292,7 +292,7 @@ export default function ProjectDetail() {
                   <div className="w-12 h-12 bg-blue-500/20 flex items-center justify-center mr-4">
                     <ArrowRight className="w-6 h-6 text-blue-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Process</h3>
+                  <h3 className="text-xl font-bold text-white modern-heritage">Process</h3>
                 </div>
                 <div className="space-y-3">
                   {project.process.map((step, index) => (
@@ -300,7 +300,7 @@ export default function ProjectDetail() {
                       <div className="w-6 h-6 bg-primary/20 text-primary text-xs font-bold flex items-center justify-center mt-0.5">
                         {index + 1}
                       </div>
-                      <p className="text-white/80 text-sm leading-relaxed flex-1">{step}</p>
+                      <p className="text-white/80 text-sm leading-relaxed flex-1 jost-secondary">{step}</p>
                     </div>
                   ))}
                 </div>
@@ -320,8 +320,8 @@ export default function ProjectDetail() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold glow-text mb-4">Key Features</h2>
-            <p className="text-lg text-white/80 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold glow-text mb-4 modern-heritage">Key Features</h2>
+            <p className="text-lg text-white/80 max-w-3xl mx-auto jost-secondary">
               Innovative solutions designed for maximum user engagement
             </p>
           </motion.div>
@@ -340,7 +340,7 @@ export default function ProjectDetail() {
                     <div className="w-8 h-8 bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-primary" />
                     </div>
-                    <p className="text-white/85 text-sm leading-relaxed">{feature}</p>
+                    <p className="text-white/85 text-sm leading-relaxed jost-secondary">{feature}</p>
                   </div>
                 </Card>
               </motion.div>
@@ -359,8 +359,8 @@ export default function ProjectDetail() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold glow-text mb-4">Results & Impact</h2>
-            <p className="text-lg text-white/80 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold glow-text mb-4 modern-heritage">Results & Impact</h2>
+            <p className="text-lg text-white/80 max-w-3xl mx-auto jost-secondary">
               Measurable outcomes that drove real change
             </p>
           </motion.div>
@@ -381,7 +381,7 @@ export default function ProjectDetail() {
                     <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-blue-500/20 mx-auto mb-4 flex items-center justify-center">
                       <IconComponent className="w-8 h-8 text-primary" />
                     </div>
-                    <p className="text-white/90 font-medium leading-relaxed">{outcome}</p>
+                    <p className="text-white/90 font-medium leading-relaxed jost-secondary">{outcome}</p>
                   </Card>
                 </motion.div>
               );
@@ -400,7 +400,7 @@ export default function ProjectDetail() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold glow-text mb-4">Technology Stack</h2>
+            <h2 className="text-3xl font-bold glow-text mb-4 modern-heritage">Technology Stack</h2>
           </motion.div>
 
           <motion.div
@@ -444,10 +444,10 @@ export default function ProjectDetail() {
                 <div className="w-16 h-16 bg-gradient-to-br from-primary/25 to-white/20 mx-auto mb-4 flex items-center justify-center">
                   <Lightbulb className="w-8 h-8 text-primary" />
                 </div>
-                <h2 className="text-3xl font-bold glow-text mb-4">What I Learned</h2>
+                <h2 className="text-3xl font-bold glow-text mb-4 modern-heritage">What I Learned</h2>
               </div>
               <blockquote className="text-center">
-                <p className="text-white/90 leading-relaxed text-lg italic mb-6">
+                <p className="text-white/90 leading-relaxed text-lg italic mb-6 jost-secondary">
                   "{project.learnings}"
                 </p>
               </blockquote>
@@ -465,7 +465,7 @@ export default function ProjectDetail() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-white mb-8">
+            <h2 className="text-3xl font-bold text-white mb-8 modern-heritage">
               Ready to see more projects?
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
