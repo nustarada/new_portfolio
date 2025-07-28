@@ -92,7 +92,7 @@ export function Navigation() {
             >
               <button
                 onClick={() => scrollToSection('contact')}
-                className="relative group px-6 py-3 bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 hover:from-purple-700 hover:via-violet-700 hover:to-purple-700 text-white font-bold transition-all duration-300 shadow-lg shadow-purple-500/25 border-0"
+                className="relative group px-6 py-3 bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 hover:from-blue-700 hover:via-sky-700 hover:to-blue-700 text-white font-bold transition-all duration-300 shadow-lg shadow-blue-500/25 border-0"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 <span className="relative z-10">Contact Me</span>
