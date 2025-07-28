@@ -177,12 +177,12 @@ export default function Home() {
         "Simple admin dashboard for content management",
         "Accessibility features including light/dark modes and clean typography"
       ],
-      techStack: ["React", "JavaScript", "Replit", "Responsive Design", "Accessibility"],
+      techStack: ["React", "JavaScript", "Responsive Design", "Accessibility"],
       process: [
         "Conducted interviews with advocacy organizers",
         "Created user flows and low-fidelity wireframes", 
         "Designed high-fidelity mockups and reusable design system",
-        "Developed platform using React in Replit",
+        "Developed platform using React with modern tooling",
         "Integrated gamification, referrals, and accessibility features",
         "Tested and refined based on team feedback"
       ]
