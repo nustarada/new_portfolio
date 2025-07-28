@@ -13,8 +13,7 @@ import { Link } from 'wouter';
 import { useToast } from '@/hooks/use-toast';
 import { LiquidGrid } from '@/components/liquid-grid';
 import { MovingRibbon } from '@/components/moving-ribbon';
-import logoPath from '@assets/Logo black_1749713682616.png';
-import logoImage from '@assets/Logo black_1749729973781.png';
+import logoPath from '@assets/Logo black_1749729973781.png';
 import futureFirstFamiliesThumbnail from '@assets/Screenshot 2025-07-29 at 00.03.25_1753728466090.png';
 import resumePdf from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
 import { 
@@ -678,7 +677,7 @@ export default function Home() {
                     transition={{ duration: 0.3 }}
                   >
                     <img 
-                      src={logoImage} 
+                      src={logoPath} 
                       alt="Karan Gadhave Logo" 
                       className="w-12 h-12 object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
                       style={{ filter: 'brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(185deg) brightness(1.2)' }}

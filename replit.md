@@ -100,6 +100,7 @@ This is a full-stack web application built with React/TypeScript frontend and Ex
 
 ```
 Changelog:
+- July 28, 2025. Major asset cleanup and performance optimization: removed 52 unused assets (screenshots, duplicate logos, videos, text files) reducing total assets from 55 to 3 essential files only (logo, FutureFirstFamilies thumbnail, resume PDF), improving website loading performance and reducing project size by ~95%
 - July 28, 2025. Standardized all CTA buttons with consistent dark blue gradient: implemented uniform dark blue gradient (blue-900 via blue-800 to blue-900) with grain texture effect across all buttons website-wide, ensuring visual consistency and professional appearance with subtle hover effects (blue-700 via blue-600 to blue-700)
 - July 28, 2025. Applied blue gradient CTA colors universally: updated all remaining CTA buttons across navigation, home page, project detail page, and case study page to use consistent blue-sky gradient scheme, replacing all purple/violet gradients
 - July 28, 2025. Completed font cleanup: removed all old font references (Bebas Neue, Montserrat, Oswald, Barlow) from code, CSS classes, Tailwind config, and Google Fonts import, ensuring consistent typography system with only Modern Heritage Display and Jost fonts
