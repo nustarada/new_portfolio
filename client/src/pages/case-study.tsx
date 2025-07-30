@@ -11,11 +11,56 @@ export default function CaseStudy() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [performanceMetrics, setPerformanceMetrics] = useState({
+    loadTime: 0,
+    renderTime: 0,
+    totalTime: 0
+  });
   
   useEffect(() => {
+    const startTime = performance.now();
     setIsMobile(window.innerWidth <= 768);
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener('resize', handleResize);
+    
+    // Track page load performance
+    const loadEndTime = performance.now();
+    
+    // Track when rendering is complete
+    setTimeout(() => {
+      const renderEndTime = performance.now();
+      
+      // Get navigation timing for more detailed metrics
+      const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+      const navigationMetrics = navigation ? {
+        dnsLookup: Math.round(navigation.domainLookupEnd - navigation.domainLookupStart),
+        tcpConnect: Math.round(navigation.connectEnd - navigation.connectStart),
+        request: Math.round(navigation.responseStart - navigation.requestStart),
+        response: Math.round(navigation.responseEnd - navigation.responseStart),
+        domProcessing: Math.round(navigation.domContentLoadedEventStart - navigation.responseEnd),
+        domComplete: Math.round(navigation.domComplete - navigation.navigationStart)
+      } : null;
+      
+      setPerformanceMetrics({
+        loadTime: Math.round(loadEndTime - startTime),
+        renderTime: Math.round(renderEndTime - loadEndTime),
+        totalTime: Math.round(renderEndTime - startTime)
+      });
+      
+      // Comprehensive performance logging
+      console.log('Case Study Performance Metrics:', {
+        componentMetrics: {
+          loadTime: Math.round(loadEndTime - startTime) + 'ms',
+          renderTime: Math.round(renderEndTime - loadEndTime) + 'ms',
+          totalTime: Math.round(renderEndTime - startTime) + 'ms'
+        },
+        navigationMetrics,
+        device: isMobile ? 'Mobile' : 'Desktop',
+        userAgent: navigator.userAgent.includes('Mobile') ? 'Mobile Browser' : 'Desktop Browser',
+        timestamp: new Date().toISOString()
+      });
+    }, 100);
+    
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
@@ -132,6 +177,26 @@ export default function CaseStudy() {
         className="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary to-cyan-400 z-50"
         style={{ width: progressWidth }}
       />
+
+      {/* Performance Metrics Display */}
+      {performanceMetrics.totalTime > 0 && (
+        <motion.div 
+          className="fixed bottom-4 right-4 z-50 glass-card grain-texture border border-primary/30 p-3 text-xs"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1 }}
+        >
+          <div className="text-primary font-semibold mb-1">Performance Metrics</div>
+          <div className="text-white/70 space-y-1">
+            <div>Load: {performanceMetrics.loadTime}ms</div>
+            <div>Render: {performanceMetrics.renderTime}ms</div>
+            <div className="border-t border-white/20 pt-1">
+              <div className="text-white font-medium">Total: {performanceMetrics.totalTime}ms</div>
+            </div>
+            <div className="text-xs text-white/50">{isMobile ? 'Mobile' : 'Desktop'}</div>
+          </div>
+        </motion.div>
+      )}
 
       {/* Case Study Navigation */}
       <motion.nav 
