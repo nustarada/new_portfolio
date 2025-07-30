@@ -19,58 +19,39 @@ export default function CaseStudy() {
   
   useEffect(() => {
     const startTime = performance.now();
-    setIsMobile(window.innerWidth <= 768);
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener('resize', handleResize);
     
-    // Track page load performance
-    const loadEndTime = performance.now();
+    // Optimize initial setup
+    const checkMobile = () => window.innerWidth <= 768;
+    setIsMobile(checkMobile());
     
-    // Track when rendering is complete
-    setTimeout(() => {
+    const handleResize = () => setIsMobile(checkMobile());
+    window.addEventListener('resize', handleResize, { passive: true });
+    
+    // Use requestAnimationFrame for better performance
+    requestAnimationFrame(() => {
       const renderEndTime = performance.now();
-      
-      // Get navigation timing for more detailed metrics
-      const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
-      const navigationMetrics = navigation ? {
-        dnsLookup: Math.round(navigation.domainLookupEnd - navigation.domainLookupStart),
-        tcpConnect: Math.round(navigation.connectEnd - navigation.connectStart),
-        request: Math.round(navigation.responseStart - navigation.requestStart),
-        response: Math.round(navigation.responseEnd - navigation.responseStart),
-        domProcessing: Math.round(navigation.domContentLoadedEventStart - navigation.responseEnd),
-        domComplete: Math.round(navigation.domComplete - navigation.fetchStart)
-      } : null;
-      
       setPerformanceMetrics({
-        loadTime: Math.round(loadEndTime - startTime),
-        renderTime: Math.round(renderEndTime - loadEndTime),
+        loadTime: 0,
+        renderTime: Math.round(renderEndTime - startTime),
         totalTime: Math.round(renderEndTime - startTime)
       });
       
-      // Comprehensive performance logging
-      console.log('Case Study Performance Metrics:', {
-        componentMetrics: {
-          loadTime: Math.round(loadEndTime - startTime) + 'ms',
-          renderTime: Math.round(renderEndTime - loadEndTime) + 'ms',
-          totalTime: Math.round(renderEndTime - startTime) + 'ms'
-        },
-        navigationMetrics,
-        device: isMobile ? 'Mobile' : 'Desktop',
-        userAgent: navigator.userAgent.includes('Mobile') ? 'Mobile Browser' : 'Desktop Browser',
-        timestamp: new Date().toISOString()
+      // Simplified logging for better performance
+      console.log('Case Study Load:', {
+        time: Math.round(renderEndTime - startTime) + 'ms',
+        device: checkMobile() ? 'Mobile' : 'Desktop'
       });
-    }, 100);
+    });
     
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
-  // Optimized scroll handling for mobile performance
+  // Simplified scroll handling for better performance
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
 
-  const headerY = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   useEffect(() => {
@@ -252,33 +233,18 @@ export default function CaseStudy() {
 
       {/* Hero Section with Parallax */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 glass-card grain-texture">
-        {/* Optimized Background Grid - Reduced complexity on mobile */}
+        {/* Static Background - Better performance */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-pink-500/20" />
-          {!isMobile && [...Array(10)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-px h-full bg-primary/30"
-              style={{ left: `${(i + 1) * 10}%` }}
-              animate={{ 
-                opacity: [0.1, 0.3, 0.1]
-              }}
-              transition={{ 
-                duration: 4,
-                repeat: Infinity,
-                delay: i * 0.2
-              }}
-            />
-          ))}
+          {!isMobile && (
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 9%, rgba(59, 130, 246, 0.3) 10%, rgba(59, 130, 246, 0.3) 10.5%, transparent 11%)',
+            }} />
+          )}
         </div>
 
         <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="space-y-8"
-          >
+          <div className="space-y-8">
             {/* Project Metadata */}
             <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
@@ -317,29 +283,19 @@ export default function CaseStudy() {
                 </Badge>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
+        {/* Static Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
           <div className="w-px h-16 bg-gradient-to-b from-primary to-transparent" />
-        </motion.div>
+        </div>
       </section>
 
       {/* Overview Section */}
       <section className="py-20 relative glass-card grain-texture">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-12"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-10">
               <div>
                 <h2 className="text-4xl font-bold mb-8 glow-text grain-texture modern-heritage">PROJECT OVERVIEW</h2>
@@ -406,7 +362,7 @@ export default function CaseStudy() {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
