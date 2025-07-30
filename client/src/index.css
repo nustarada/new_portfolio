@@ -459,6 +459,25 @@ a, button, .cursor-pointer {
   button:active {
     transform: scale(0.98);
   }
+  
+  /* Performance optimizations for mobile */
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  .case-study-page {
+    will-change: scroll-position;
+  }
+  
+  /* Reduce motion for better mobile performance */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
 .code-font {

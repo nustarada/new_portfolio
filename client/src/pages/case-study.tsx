@@ -10,7 +10,16 @@ import logoPath from "@assets/Logo black_1749729973781.png";
 export default function CaseStudy() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= 768);
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  // Optimized scroll handling for mobile performance
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
@@ -20,11 +29,18 @@ export default function CaseStudy() {
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -110,7 +126,7 @@ export default function CaseStudy() {
   };
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture">
+    <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture case-study-page">
       {/* Progress Bar */}
       <motion.div 
         className="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary to-cyan-400 z-50"
@@ -171,22 +187,21 @@ export default function CaseStudy() {
 
       {/* Hero Section with Parallax */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 glass-card grain-texture">
-        {/* Animated Background Grid */}
+        {/* Optimized Background Grid - Reduced complexity on mobile */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-pink-500/20" />
-          {[...Array(20)].map((_, i) => (
+          {!isMobile && [...Array(10)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute w-px h-full bg-primary/30"
-              style={{ left: `${(i + 1) * 5}%` }}
+              style={{ left: `${(i + 1) * 10}%` }}
               animate={{ 
-                opacity: [0.1, 0.3, 0.1],
-                scaleY: [1, 1.2, 1]
+                opacity: [0.1, 0.3, 0.1]
               }}
               transition={{ 
-                duration: 3,
+                duration: 4,
                 repeat: Infinity,
-                delay: i * 0.1
+                delay: i * 0.2
               }}
             />
           ))}

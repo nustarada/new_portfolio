@@ -100,6 +100,7 @@ This is a full-stack web application built with React/TypeScript frontend and Ex
 
 ```
 Changelog:
+- July 28, 2025. Major performance optimization: simplified animations, reduced particle complexity, removed pulse effects, added reduced motion support, and limited frame rates to 30fps
 - July 28, 2025. Enhanced mobile case study button: replaced Link component with direct onClick navigation using window.location.href, added explicit tap highlight removal, and enhanced mobile CSS for better touch interaction reliability
 - July 28, 2025. Fixed case study page routing: added missing route for case-study page in App.tsx and updated home page link to point to correct /case-study path, resolving navigation issues
 - July 28, 2025. Fixed mobile "View Case Study" button functionality: added touch-action manipulation, removed tap highlights, and ensured proper mobile button interactions with CSS optimizations for responsive touch handling
