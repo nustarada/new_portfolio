@@ -424,6 +424,30 @@
   50% { box-shadow: 0 0 40px rgba(138, 43, 226, 0.4); }
 }
 
+/* Mobile Touch Optimizations */
+a, button, .cursor-pointer {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* Ensure proper mobile button interaction */
+@media (max-width: 768px) {
+  a[href] {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+  }
+  
+  button {
+    min-height: 44px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
 .code-font {
   font-family: 'JetBrains Mono', monospace;
   letter-spacing: -0.01em;
