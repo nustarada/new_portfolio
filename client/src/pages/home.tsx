@@ -824,50 +824,62 @@ export default function Home() {
                     />
                   </div>
 
-                  {/* Content Section - Simplified */}
-                  <div className="p-6 space-y-4">
-                    {/* Header */}
+                  {/* Enhanced Content Section */}
+                  <div className="p-8 space-y-6">
+                    {/* Header with improved spacing */}
                     <div className="flex items-center justify-between">
-                      <Badge className="bg-primary/20 text-primary border-primary/30 text-xs font-semibold px-3 py-1 jost-secondary">
+                      <Badge className="bg-primary/25 text-primary border-primary/40 text-sm font-semibold px-4 py-2 jost-secondary backdrop-blur-md">
                         {project.category}
                       </Badge>
-                      <Badge variant="outline" className="bg-black/20 backdrop-blur-sm border-white/20 text-white/80 text-xs px-2 py-1 jost-secondary">
+                      <Badge variant="outline" className="bg-black/30 backdrop-blur-md border-white/30 text-white/90 text-sm px-3 py-2 jost-secondary font-medium">
                         {project.year}
                       </Badge>
                     </div>
 
-                    {/* Title */}
-                    <h3 className="text-2xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
-                      {project.title.toUpperCase()}
-                    </h3>
+                    {/* Enhanced Title with better typography */}
+                    <div className="space-y-3">
+                      <h3 className="text-3xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 modern-heritage tracking-wide">
+                        {project.title.toUpperCase()}
+                      </h3>
+                      <div className="w-16 h-1 bg-gradient-to-r from-primary to-cyan-400 group-hover:w-24 transition-all duration-500" />
+                    </div>
 
-                    {/* Description */}
-                    <p className="text-white/80 leading-relaxed text-base jost-secondary line-clamp-3">
+                    {/* Enhanced Description with better spacing */}
+                    <p className="text-white/85 leading-relaxed text-lg jost-secondary line-clamp-3 font-light">
                       {project.description}
                     </p>
 
-                    {/* Action Buttons */}
-                    <div className="pt-4">
-                      <div className="grid grid-cols-2 gap-3">
+                    {/* Tech Stack Preview */}
+                    <div className="flex flex-wrap gap-2">
+                      {['React', 'HubSpot API', 'Figma'].map((tech) => (
+                        <span key={tech} className="text-xs bg-white/10 text-white/70 px-3 py-1 backdrop-blur-sm border border-white/20 jost-secondary font-medium">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Enhanced Action Buttons */}
+                    <div className="pt-6 border-t border-white/10">
+                      <div className="grid grid-cols-2 gap-4">
                         <a 
                           href="/case-study"
-                          className="w-full group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-sm border-0 hover:scale-[1.02] transition-all duration-300 touch-manipulation cursor-pointer block text-center no-underline"
+                          className="w-full group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-base py-4 border-0 hover:scale-[1.02] transition-all duration-300 touch-manipulation cursor-pointer block text-center no-underline shadow-lg hover:shadow-primary/25"
                           style={{ WebkitTapHighlightColor: 'transparent' }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                           <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
                             <span>Case Study</span>
-                            <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
+                            <ArrowUpRight className="w-5 h-5 group-hover/btn:rotate-45 transition-transform duration-300" />
                           </div>
                         </a>
                         <Button 
                           onClick={() => window.open(project.liveUrl, '_blank')}
                           variant="outline"
-                          className="w-full text-white border-white/20 hover:bg-white/10 py-3 text-sm jost-secondary"
+                          className="w-full text-white border-white/30 hover:bg-white/10 hover:border-primary/50 py-4 text-base jost-secondary font-semibold backdrop-blur-sm shadow-lg hover:shadow-white/10 transition-all duration-300"
                         >
                           <div className="flex items-center justify-center space-x-2">
                             <span>Live Site</span>
-                            <ArrowUpRight className="w-4 h-4" />
+                            <ArrowUpRight className="w-5 h-5" />
                           </div>
                         </Button>
                       </div>
