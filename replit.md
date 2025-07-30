@@ -100,6 +100,7 @@ This is a full-stack web application built with React/TypeScript frontend and Ex
 
 ```
 Changelog:
+- July 28, 2025. Fixed case study page routing: added missing route for case-study page in App.tsx and updated home page link to point to correct /case-study path, resolving navigation issues
 - July 28, 2025. Fixed mobile "View Case Study" button functionality: added touch-action manipulation, removed tap highlights, and ensured proper mobile button interactions with CSS optimizations for responsive touch handling
 - July 28, 2025. Fixed hero CTA functionality: added smooth scroll behavior to "View My Work" button to navigate to projects section, improving user experience and site navigation flow
 - July 28, 2025. Fixed CTA button consistency: swapped button order to make "Contact Me" the primary CTA with consistent dark blue gradient styling, changed "Visit Live Site" to secondary outline button, maintaining uniform brand colors across all pages
