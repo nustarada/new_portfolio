@@ -192,10 +192,10 @@ export default function CaseStudy() {
       >
         <div className="container mx-auto px-6 py-6">
           <div className="flex justify-between items-center">
-            {/* Logo */}
+            {/* Logo - Acts as Home Button */}
             <Link href="/">
               <motion.div 
-                className="cursor-pointer flex items-center space-x-3"
+                className="cursor-pointer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -207,9 +207,6 @@ export default function CaseStudy() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-cyan-400/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <span className="text-xl font-bold text-white glow-text">
-                  Karan Gadhave
-                </span>
               </motion.div>
             </Link>
             
@@ -730,7 +727,7 @@ export default function CaseStudy() {
             <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             
             <div className="relative z-10 flex items-center space-x-2">
-              <ExternalLink className="w-5 h-5" />
+              <Mail className="w-5 h-5" />
               <span>Contact Me</span>
             </div>
           </Button>
