@@ -100,6 +100,7 @@ This is a full-stack web application built with React/TypeScript frontend and Ex
 
 ```
 Changelog:
+- July 30, 2025. Fixed project card button responsiveness: improved mobile button layout with stacked design, added proper touch targets (min-height 48px), enhanced responsive typography and spacing, added active states for better mobile interaction feedback
 - July 30, 2025. Enhanced project card design: improved content layout with better spacing, added tech stack preview badges, enhanced typography with Modern Heritage font for titles, added visual dividers and improved button styling with shadows and hover effects
 - July 28, 2025. Major performance optimization: simplified animations, reduced particle complexity, removed pulse effects, added reduced motion support, and limited frame rates to 30fps
 - July 28, 2025. Fixed case study button reliability: replaced Button component with direct anchor link, added proper CSS styling for consistent navigation, and enhanced mobile touch interactions to prevent click event failures
