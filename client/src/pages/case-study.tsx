@@ -11,37 +11,13 @@ export default function CaseStudy() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [performanceMetrics, setPerformanceMetrics] = useState({
-    loadTime: 0,
-    renderTime: 0,
-    totalTime: 0
-  });
-  
   useEffect(() => {
-    const startTime = performance.now();
-    
     // Optimize initial setup
     const checkMobile = () => window.innerWidth <= 768;
     setIsMobile(checkMobile());
     
     const handleResize = () => setIsMobile(checkMobile());
     window.addEventListener('resize', handleResize, { passive: true });
-    
-    // Use requestAnimationFrame for better performance
-    requestAnimationFrame(() => {
-      const renderEndTime = performance.now();
-      setPerformanceMetrics({
-        loadTime: 0,
-        renderTime: Math.round(renderEndTime - startTime),
-        totalTime: Math.round(renderEndTime - startTime)
-      });
-      
-      // Simplified logging for better performance
-      console.log('Case Study Load:', {
-        time: Math.round(renderEndTime - startTime) + 'ms',
-        device: checkMobile() ? 'Mobile' : 'Desktop'
-      });
-    });
     
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -159,25 +135,7 @@ export default function CaseStudy() {
         style={{ width: progressWidth }}
       />
 
-      {/* Performance Metrics Display */}
-      {performanceMetrics.totalTime > 0 && (
-        <motion.div 
-          className="fixed bottom-4 right-4 z-50 glass-card grain-texture border border-primary/30 p-3 text-xs"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-        >
-          <div className="text-primary font-semibold mb-1">Performance Metrics</div>
-          <div className="text-white/70 space-y-1">
-            <div>Load: {performanceMetrics.loadTime}ms</div>
-            <div>Render: {performanceMetrics.renderTime}ms</div>
-            <div className="border-t border-white/20 pt-1">
-              <div className="text-white font-medium">Total: {performanceMetrics.totalTime}ms</div>
-            </div>
-            <div className="text-xs text-white/50">{isMobile ? 'Mobile' : 'Desktop'}</div>
-          </div>
-        </motion.div>
-      )}
+
 
       {/* Case Study Navigation */}
       <motion.nav 
