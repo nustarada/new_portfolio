@@ -445,6 +445,19 @@ a, button, .cursor-pointer {
     min-height: 44px;
     -webkit-appearance: none;
     appearance: none;
+    border: none;
+    outline: none;
+  }
+  
+  .cta-button {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+  }
+  
+  /* Disable problematic interactions on mobile */
+  button:active {
+    transform: scale(0.98);
   }
 }
 
