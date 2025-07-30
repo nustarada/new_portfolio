@@ -146,7 +146,7 @@
     opacity: 0.6;
   }
 
-  /* Standard CTA Button Style */
+  /* Responsive CTA Button Style */
   .cta-button {
     background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1e3a8a 100%) !important;
     border: 1px solid rgba(59, 130, 246, 0.3);
@@ -154,6 +154,25 @@
       0 4px 20px rgba(30, 58, 138, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 56px !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 16px 24px !important;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  
+  @media (min-width: 640px) {
+    .cta-button {
+      width: auto !important;
+      padding: 20px 48px !important;
+      font-size: 18px !important;
+    }
   }
 
   .cta-button:hover {
@@ -162,6 +181,10 @@
       0 6px 30px rgba(29, 78, 216, 0.5),
       inset 0 1px 0 rgba(255, 255, 255, 0.15);
     transform: translateY(-1px);
+  }
+  
+  .cta-button:active {
+    transform: translateY(0px) scale(0.98) !important;
   }
 
   /* Typography Classes */
