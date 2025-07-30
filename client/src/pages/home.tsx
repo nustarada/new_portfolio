@@ -376,9 +376,9 @@ export default function Home() {
             
 
             
-            {/* Action Buttons */}
+            {/* Responsive Action Buttons */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pt-8 w-full max-w-lg mx-auto"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.6 }}
@@ -386,7 +386,7 @@ export default function Home() {
               <motion.div
                 whileHover={{ scale: 1.08, y: -4 }}
                 whileTap={{ scale: 0.95 }}
-                className="group/hero-cta"
+                className="group/hero-cta w-full sm:w-auto"
               >
                 <Button 
                   size="lg" 
@@ -394,16 +394,16 @@ export default function Home() {
                     const projectsSection = document.getElementById('projects');
                     projectsSection?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="relative overflow-hidden px-12 py-6 text-lg font-bold text-white cta-button grain-texture border-0 hover:scale-105"
+                  className="relative overflow-hidden w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-6 text-base sm:text-lg font-bold text-white cta-button grain-texture border-0 hover:scale-105 min-h-[56px] jost-secondary"
                 >
                   {/* Animated Background */}
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/hero-cta:translate-x-full transition-transform duration-700" />
                   
                   {/* Pulsing Ring */}
-                  <div className="absolute inset-0 rounded-2xl border-2 border-white/30 opacity-0 group-hover/hero-cta:opacity-100 group-hover/hero-cta:scale-110 transition-all duration-500" />
+                  <div className="absolute inset-0 border-2 border-white/30 opacity-0 group-hover/hero-cta:opacity-100 group-hover/hero-cta:scale-110 transition-all duration-500" />
                   
-                  <div className="relative z-10 flex items-center space-x-3">
-                    <ArrowUpRight className="w-6 h-6 group-hover/hero-cta:rotate-45 transition-transform duration-300" />
+                  <div className="relative z-10 flex items-center justify-center space-x-2 sm:space-x-3">
+                    <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover/hero-cta:rotate-45 transition-transform duration-300" />
                     <span>View My Work</span>
                   </div>
                 </Button>
@@ -412,17 +412,17 @@ export default function Home() {
               <motion.div
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="group/secondary"
+                className="group/secondary w-full sm:w-auto"
               >
                 <Button 
                   size="lg" 
                   onClick={() => setIsResumeOpen(true)}
-                  className="relative overflow-hidden px-10 py-4 text-lg font-semibold text-white glass-card grain-texture hover:glass-intense border-primary/50 transition-all duration-300 hover:scale-105"
+                  className="relative overflow-hidden w-full sm:w-auto px-6 sm:px-10 py-4 text-base sm:text-lg font-semibold text-white glass-card grain-texture hover:glass-intense border-primary/50 transition-all duration-300 hover:scale-105 min-h-[56px] jost-secondary"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover/secondary:opacity-100 transition-opacity duration-300" />
                   
-                  <div className="relative z-10 flex items-center space-x-2">
-                    <Eye className="w-5 h-5" />
+                  <div className="relative z-10 flex items-center justify-center space-x-2">
+                    <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span>Resume</span>
                   </div>
                 </Button>
