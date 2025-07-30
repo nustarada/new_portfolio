@@ -403,8 +403,8 @@ export default function Home() {
                   <div className="absolute inset-0 border-2 border-white/30 opacity-0 group-hover/hero-cta:opacity-100 group-hover/hero-cta:scale-110 transition-all duration-500" />
                   
                   <div className="relative z-10 flex items-center justify-center space-x-2 sm:space-x-3">
-                    <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover/hero-cta:rotate-45 transition-transform duration-300" />
-                    <span>View My Work</span>
+                    <ArrowUpRight className="w-4 h-4 sm:w-6 sm:h-6 group-hover/hero-cta:rotate-45 transition-transform duration-300" />
+                    <span className="text-sm sm:text-lg font-semibold">View My Work</span>
                   </div>
                 </Button>
               </motion.div>
@@ -423,7 +423,7 @@ export default function Home() {
                   
                   <div className="relative z-10 flex items-center justify-center space-x-2">
                     <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span>Resume</span>
+                    <span className="text-sm sm:text-lg font-medium">Resume</span>
                   </div>
                 </Button>
               </motion.div>
@@ -868,7 +868,7 @@ export default function Home() {
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                           <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
-                            <span>Case Study</span>
+                            <span className="text-sm sm:text-base font-semibold">Case Study</span>
                             <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:rotate-45 transition-transform duration-300" />
                           </div>
                         </a>
@@ -878,7 +878,7 @@ export default function Home() {
                           className="w-full text-white border-white/30 hover:bg-white/10 hover:border-primary/50 py-3 sm:py-4 text-sm sm:text-base jost-secondary font-semibold backdrop-blur-sm shadow-lg hover:shadow-white/10 active:scale-[0.98] transition-all duration-300 min-h-[48px]"
                         >
                           <div className="flex items-center justify-center space-x-2">
-                            <span>Live Site</span>
+                            <span className="text-sm sm:text-base font-medium">Live Site</span>
                             <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
                           </div>
                         </Button>
