@@ -433,6 +433,16 @@ a, button, .cursor-pointer {
   user-select: none;
 }
 
+/* Case Study Button Styling */
+.cta-button.no-underline {
+  text-decoration: none !important;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 /* Ensure proper mobile button interaction */
 @media (max-width: 768px) {
   a[href] {
