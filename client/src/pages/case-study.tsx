@@ -38,7 +38,7 @@ export default function CaseStudy() {
         request: Math.round(navigation.responseStart - navigation.requestStart),
         response: Math.round(navigation.responseEnd - navigation.responseStart),
         domProcessing: Math.round(navigation.domContentLoadedEventStart - navigation.responseEnd),
-        domComplete: Math.round(navigation.domComplete - navigation.navigationStart)
+        domComplete: Math.round(navigation.domComplete - navigation.fetchStart)
       } : null;
       
       setPerformanceMetrics({
