@@ -851,11 +851,11 @@ export default function Home() {
                       <div className="grid grid-cols-2 gap-3">
                         <a 
                           href="/case-study"
-                          className="w-full group/btn relative overflow-hidden cta-button grain-texture text-white font-bold py-3 text-sm border-0 hover:scale-[1.02] transition-all duration-300 touch-manipulation cursor-pointer block text-center no-underline"
+                          className="w-full group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-sm border-0 hover:scale-[1.02] transition-all duration-300 touch-manipulation cursor-pointer block text-center no-underline"
                           style={{ WebkitTapHighlightColor: 'transparent' }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                          <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary py-3">
+                          <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
                             <span>Case Study</span>
                             <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
                           </div>
