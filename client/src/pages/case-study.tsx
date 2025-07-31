@@ -223,9 +223,9 @@ export default function CaseStudy() {
               <Badge variant="outline" className="text-sm px-4 py-2 border-primary/50 bg-primary/10">
                 {caseStudyData.category}
               </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight grain-texture">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
                 <span className="block text-white modern-heritage">{caseStudyData.title.split(':')[0]}:</span>
-                <span className="block glow-text modern-heritage">{caseStudyData.title.split(':')[1]}</span>
+                <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent modern-heritage" style={{ backgroundColor: 'transparent' }}>{caseStudyData.title.split(':')[1]}</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
                 {caseStudyData.subtitle}
@@ -262,10 +262,8 @@ export default function CaseStudy() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-10">
               <div>
-                <h2 className="text-4xl font-bold mb-8 modern-heritage">
-                  <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                    PROJECT OVERVIEW
-                  </span>
+                <h2 className="text-4xl font-bold mb-8 modern-heritage bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent" style={{ backgroundColor: 'transparent' }}>
+                  PROJECT OVERVIEW
                 </h2>
                 <p className="text-xl text-white/90 leading-relaxed jost-secondary">
                   {caseStudyData.overview}
@@ -306,10 +304,8 @@ export default function CaseStudy() {
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold modern-heritage">
-                <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-                  Website Impact
-                </span>
+              <h3 className="text-2xl font-bold modern-heritage bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent" style={{ backgroundColor: 'transparent' }}>
+                Website Impact
               </h3>
               <div className="space-y-4">
                 {caseStudyData.metrics.map((metric, index) => (
@@ -470,10 +466,8 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 modern-heritage">
-              <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
-                WEBSITE FEATURES
-              </span>
+            <h2 className="text-4xl font-bold mb-6 modern-heritage bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent" style={{ backgroundColor: 'transparent' }}>
+              WEBSITE FEATURES
             </h2>
             <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
               Modern design solutions that transformed the advocacy website experience for families
@@ -530,10 +524,8 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 modern-heritage">
-              <span className="bg-gradient-to-r from-rose-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
-                WEBSITE IMPACT
-              </span>
+            <h2 className="text-4xl font-bold mb-6 modern-heritage bg-gradient-to-r from-rose-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent" style={{ backgroundColor: 'transparent' }}>
+              WEBSITE IMPACT
             </h2>
             <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
               Measurable results that demonstrate the success of the modern website design and user experience improvements

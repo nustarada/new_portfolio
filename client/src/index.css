@@ -232,7 +232,13 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-color: transparent !important;
     filter: drop-shadow(0 0 20px hsla(185, 84%, 55%, 0.4));
+  }
+
+  /* Fix all gradient text backgrounds */
+  .bg-clip-text {
+    background-color: transparent !important;
   }
 
   .stroke-text {
