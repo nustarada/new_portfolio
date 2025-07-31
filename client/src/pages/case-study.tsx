@@ -47,17 +47,17 @@ export default function CaseStudy() {
   }, []);
 
   const caseStudyData = {
-    title: "FutureFirstFamilies: Gamified Advocacy Platform",
-    subtitle: "Designed with Figma, Built with React, Integrated with HubSpot API",
+    title: "FutureFirstFamilies: Modern Advocacy Website",
+    subtitle: "Complete Website Design & Development with Advanced User Engagement",
     client: "FutureFirstFamilies",
     duration: "4 months",
-    team: "UI/UX Designer, Full Development Team",
+    team: "Lead Designer & Full-Stack Developer",
     year: "2025",
-    category: "Web Platform",
-    tags: ["Figma Design", "React Development", "HubSpot API", "Gamification", "Advocacy Platform"],
-    overview: "Designed and developed a comprehensive gamified advocacy platform using Figma for UI/UX design, React for frontend development, and HubSpot API integration for seamless content management, forms, and blog functionality.",
-    challenge: "Families and children struggled with traditional advocacy platforms that were boring, complex, and failed to engage younger audiences in meaningful advocacy activities.",
-    solution: "Built a gamified advocacy platform with engaging UI/UX designed in Figma, featuring reward systems, interactive challenges, and seamless HubSpot API integration for dynamic content and form management.",
+    category: "Website Design & Development",
+    tags: ["Website Design", "Figma Prototyping", "React Development", "HubSpot Integration", "User Experience"],
+    overview: "Designed and developed a modern, engaging advocacy website using comprehensive Figma design workflows and React development. The website features gamified user engagement, seamless HubSpot API integration for content management, and a complete design system focused on family-friendly interaction.",
+    challenge: "Traditional advocacy websites were static, boring, and failed to engage families and children in meaningful advocacy activities. The existing online presence lacked modern design principles and user engagement strategies.",
+    solution: "Created a vibrant, interactive advocacy website with gamified elements, modern design aesthetics, and user-centered navigation. Implemented comprehensive Figma design system and developed with React for optimal performance and user experience.",
     metrics: [
       { label: "User Engagement", value: "78%", description: "Increase in platform activity" },
       { label: "Challenge Completion", value: "65%", description: "Users completing advocacy tasks" },
@@ -78,10 +78,10 @@ export default function CaseStudy() {
         deliverables: ["Figma Design System", "Interactive Prototypes", "Component Library"]
       },
       {
-        phase: "Development & Integration",
+        phase: "Website Development",
         duration: "8 weeks",
-        description: "Developed platform using React in Replit environment. Integrated gamification, referrals, and accessibility features with seamless HubSpot API for forms and blog content management.",
-        deliverables: ["React Application", "HubSpot API Integration", "Gamification System"]
+        description: "Developed the website using React with modern development practices. Integrated gamification features, accessibility standards, and seamless HubSpot API for dynamic content and form management.",
+        deliverables: ["React Website", "HubSpot API Integration", "Interactive Features"]
       },
       {
         phase: "Testing & Optimization",
@@ -90,31 +90,31 @@ export default function CaseStudy() {
         deliverables: ["User Testing Results", "Performance Optimization", "API Documentation"]
       },
       {
-        phase: "Launch & Monitoring",
+        phase: "Launch & Optimization",
         duration: "1 week",
-        description: "Deployed the platform with comprehensive monitoring, user onboarding, and ongoing HubSpot content management setup.",
-        deliverables: ["Live Platform", "Analytics Setup", "Content Management Guide"]
+        description: "Launched the website with comprehensive analytics, user tracking, and ongoing HubSpot content management integration for seamless content updates.",
+        deliverables: ["Live Website", "Analytics Integration", "Content Management System"]
       }
     ],
     keyFeatures: [
       {
-        title: "Gamified Engagement System",
-        description: "Points, badges, and challenges that motivate families and children to participate in advocacy activities",
-        icon: Target
-      },
-      {
-        title: "Professional Figma Design",
-        description: "Comprehensive UI/UX design system created in Figma with consistent components and interactive prototypes",
+        title: "Modern Website Design",
+        description: "Contemporary, vibrant design language with engaging visual hierarchy and intuitive user experience designed specifically for advocacy websites",
         icon: Lightbulb
       },
       {
-        title: "HubSpot API Integration",
-        description: "Seamless content management with HubSpot API for dynamic forms, blog posts, and automated content updates",
+        title: "Comprehensive Figma Workflow",
+        description: "Complete design system created in Figma including wireframes, high-fidelity mockups, interactive prototypes, and reusable component library",
+        icon: Target
+      },
+      {
+        title: "HubSpot Content Integration",
+        description: "Seamless website content management through HubSpot API integration for dynamic forms, blog content, and automated website updates",
         icon: TrendingUp
       },
       {
-        title: "Family-Focused Experience",
-        description: "Intuitive interface designed for both parents and children with age-appropriate gamification elements",
+        title: "Family-Centered User Experience",
+        description: "User-friendly website interface designed for families with clear navigation, engaging content presentation, and interactive elements",
         icon: Users
       }
     ],
@@ -186,14 +186,16 @@ export default function CaseStudy() {
         </div>
       </motion.nav>
 
-      {/* Hero Section with Parallax */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 glass-card grain-texture">
-        {/* Static Background - Better performance */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-pink-500/20" />
+      {/* Enhanced Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
+        {/* Vibrant Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900" />
+          <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-transparent to-cyan-900/30" />
+          <div className="absolute inset-0 grain-texture opacity-20" />
           {!isMobile && (
             <div className="absolute inset-0" style={{
-              backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 9%, rgba(59, 130, 246, 0.3) 10%, rgba(59, 130, 246, 0.3) 10.5%, transparent 11%)',
+              backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.3) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.2) 0%, transparent 50%)',
             }} />
           )}
         </div>
@@ -247,45 +249,55 @@ export default function CaseStudy() {
         </div>
       </section>
 
-      {/* Overview Section */}
-      <section className="py-20 relative glass-card grain-texture">
-        <div className="max-w-6xl mx-auto px-6">
+      {/* Enhanced Overview Section */}
+      <section className="py-20 relative">
+        {/* Colorful Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900" />
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 via-transparent to-cyan-900/10" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-10">
               <div>
-                <h2 className="text-4xl font-bold mb-8 glow-text grain-texture modern-heritage">PROJECT OVERVIEW</h2>
+                <h2 className="text-4xl font-bold mb-8 modern-heritage">
+                  <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    PROJECT OVERVIEW
+                  </span>
+                </h2>
                 <p className="text-xl text-white/90 leading-relaxed jost-secondary">
                   {caseStudyData.overview}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <Card className="p-8 glass-card grain-texture hover:glass-intense border-red-500/30 transition-all duration-300">
+                <Card className="p-8 bg-gradient-to-br from-red-500/10 to-pink-500/10 border-red-400/30 hover:border-red-400/50 backdrop-blur-xl transition-all duration-300 hover:scale-105">
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mr-4">
-                      <div className="w-6 h-6 bg-red-500 rounded"></div>
+                    <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-pink-400 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                      <div className="w-6 h-6 bg-white/20 rounded-full"></div>
                     </div>
-                    <h3 className="text-2xl font-bold text-red-400 modern-heritage">THE PROBLEM</h3>
+                    <h3 className="text-2xl font-bold bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent modern-heritage">THE CHALLENGE</h3>
                   </div>
-                  <p className="text-white/80 leading-relaxed text-base jost-secondary">
-                    Parents were overwhelmed by traditional advocacy tools that were text-heavy, form-based, and lacked guidance. This resulted in poor engagement, low action completion rates, and overall frustration.
+                  <p className="text-white/85 leading-relaxed text-base jost-secondary">
+                    Traditional advocacy websites were static, uninspiring, and failed to engage families effectively. Users struggled with complex navigation, dated design, and lack of interactive elements that could motivate continued participation.
                   </p>
                 </Card>
 
-                <Card className="p-8 glass-card grain-texture hover:glass-intense border-green-500/30 transition-all duration-300">
+                <Card className="p-8 bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-400/30 hover:border-green-400/50 backdrop-blur-xl transition-all duration-300 hover:scale-105">
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mr-4">
-                      <div className="w-6 h-6 bg-green-500 rounded"></div>
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-400 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                      <CheckCircle className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-green-400 modern-heritage">THE SOLUTION</h3>
+                    <h3 className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent modern-heritage">THE SOLUTION</h3>
                   </div>
-                  <p className="text-white/80 leading-relaxed text-base jost-secondary mb-4">
-                    Built a gamified civic engagement platform with intuitive navigation, milestone rewards, and simplified workflows specifically designed for non-tech-savvy users.
+                  <p className="text-white/85 leading-relaxed text-base jost-secondary mb-4">
+                    Designed and developed a modern, vibrant advocacy website with gamified elements, intuitive user experience, and engaging visual design that motivates families to participate in advocacy activities.
                   </p>
                   <div className="pt-4 border-t border-white/10">
-                    <h4 className="text-sm font-bold text-green-400 mb-2 jost-secondary">GOAL</h4>
-                    <p className="text-white/70 text-sm leading-relaxed jost-secondary">
-                      To create a lightweight, engaging platform where users could take monthly actions easily, track their progress through points and milestones, participate in leaderboards and referral programs, and manage everything from a clean, guided dashboard.
+                    <h4 className="text-sm font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-2 jost-secondary">WEBSITE GOALS</h4>
+                    <p className="text-white/75 text-sm leading-relaxed jost-secondary">
+                      Create an engaging, user-friendly website where families can easily navigate advocacy resources, track their involvement through interactive features, and participate in community-driven initiatives through a clean, modern interface.
                     </p>
                   </div>
                 </Card>
@@ -293,7 +305,11 @@ export default function CaseStudy() {
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold glow-text grain-texture">Key Metrics</h3>
+              <h3 className="text-2xl font-bold modern-heritage">
+                <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                  Website Impact
+                </span>
+              </h3>
               <div className="space-y-4">
                 {caseStudyData.metrics.map((metric, index) => (
                   <motion.div
@@ -302,15 +318,15 @@ export default function CaseStudy() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="glass-card grain-texture hover:glass-intense p-4 border border-primary/20 transition-all duration-300"
+                    className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-xl border border-blue-400/30 hover:border-blue-400/50 p-6 transition-all duration-300 hover:scale-105 shadow-lg"
                   >
-                    <div className="text-3xl font-bold text-primary mb-1">
+                    <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2 modern-heritage">
                       {metric.value}
                     </div>
-                    <div className="font-medium text-white">
+                    <div className="font-semibold text-white text-lg jost-secondary">
                       {metric.label}
                     </div>
-                    <div className="text-sm text-white/60">
+                    <div className="text-sm text-white/70 jost-secondary">
                       {metric.description}
                     </div>
                   </motion.div>
@@ -321,8 +337,13 @@ export default function CaseStudy() {
         </div>
       </section>
 
-      {/* Process Timeline */}
-      <section className="py-20 relative glass-intense grain-texture">
+      {/* Enhanced Process Timeline */}
+      <section className="py-20 relative">
+        {/* Dynamic Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900" />
+          <div className="absolute inset-0 bg-gradient-to-t from-pink-900/20 via-transparent to-cyan-900/20" />
+        </div>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -430,9 +451,15 @@ export default function CaseStudy() {
         </div>
       </section>
 
-      {/* Key Features */}
-      <section className="py-20 relative glass-card grain-texture">
-        <div className="max-w-6xl mx-auto px-6">
+      {/* Enhanced Key Features */}
+      <section className="py-20 relative">
+        {/* Colorful Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900" />
+          <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 via-transparent to-blue-900/10" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -440,9 +467,13 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture modern-heritage">KEY FEATURES</h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto jost-secondary">
-              Innovative solutions that transformed how families engage with advocacy activities
+            <h2 className="text-4xl font-bold mb-6 modern-heritage">
+              <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+                WEBSITE FEATURES
+              </span>
+            </h2>
+            <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
+              Modern design solutions that transformed the advocacy website experience for families
             </p>
           </motion.div>
 
@@ -459,16 +490,16 @@ export default function CaseStudy() {
                   whileHover={{ scale: 1.02, y: -5 }}
                   className="group"
                 >
-                  <Card className="p-8 h-full glass-card grain-texture hover:glass-intense border-primary/20 group-hover:border-primary/40 transition-all duration-300">
-                    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                      <Icon className="w-8 h-8 text-primary" />
+                  <Card className="p-8 h-full bg-gradient-to-br from-teal-500/10 to-cyan-500/10 border-teal-400/30 hover:border-teal-400/50 backdrop-blur-xl group-hover:scale-105 transition-all duration-300 shadow-lg">
+                    <div className="w-16 h-16 bg-gradient-to-br from-teal-400 to-cyan-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                      <Icon className="w-8 h-8 text-white" />
                     </div>
                     
-                    <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors modern-heritage">
+                    <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent group-hover:from-teal-300 group-hover:to-cyan-300 transition-all duration-300 modern-heritage">
                       {feature.title.toUpperCase()}
                     </h3>
                     
-                    <p className="text-white/70 leading-relaxed text-base jost-secondary">
+                    <p className="text-white/85 leading-relaxed text-base jost-secondary">
                       {feature.description}
                     </p>
                   </Card>
@@ -479,9 +510,15 @@ export default function CaseStudy() {
         </div>
       </section>
 
-      {/* Outcomes & Impact */}
-      <section className="py-20 relative glass-intense grain-texture">
-        <div className="max-w-6xl mx-auto px-6">
+      {/* Enhanced Outcomes & Impact */}
+      <section className="py-20 relative">
+        {/* Vibrant Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-rose-900 via-orange-900 to-yellow-900" />
+          <div className="absolute inset-0 bg-gradient-to-t from-red-900/20 via-transparent to-pink-900/10" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -489,9 +526,13 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture modern-heritage">RESULTS & IMPACT</h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto jost-secondary">
-              Quantifiable outcomes that transformed family engagement in advocacy activities
+            <h2 className="text-4xl font-bold mb-6 modern-heritage">
+              <span className="bg-gradient-to-r from-rose-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
+                WEBSITE IMPACT
+              </span>
+            </h2>
+            <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
+              Measurable results that demonstrate the success of the modern website design and user experience improvements
             </p>
           </motion.div>
 
