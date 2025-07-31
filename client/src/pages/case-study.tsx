@@ -188,14 +188,14 @@ export default function CaseStudy() {
 
       {/* Enhanced Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
-        {/* Vibrant Background */}
+        {/* Dark Background with Colorful Accents */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900" />
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-transparent to-cyan-900/30" />
-          <div className="absolute inset-0 grain-texture opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-900" />
+          <div className="absolute inset-0 bg-gradient-to-t from-blue-950/30 via-transparent to-purple-950/20" />
+          <div className="absolute inset-0 grain-texture opacity-30" />
           {!isMobile && (
             <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.3) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.2) 0%, transparent 50%)',
+              backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.1) 0%, transparent 50%)',
             }} />
           )}
         </div>
@@ -251,10 +251,11 @@ export default function CaseStudy() {
 
       {/* Enhanced Overview Section */}
       <section className="py-20 relative">
-        {/* Colorful Background */}
+        {/* Dark Background with Subtle Color */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900" />
-          <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 via-transparent to-cyan-900/10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-900" />
+          <div className="absolute inset-0 bg-gradient-to-t from-blue-950/20 via-transparent to-cyan-950/10" />
+          <div className="absolute inset-0 grain-texture opacity-20" />
         </div>
         
         <div className="max-w-6xl mx-auto px-6 relative z-10">
@@ -272,7 +273,7 @@ export default function CaseStudy() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <Card className="p-8 bg-gradient-to-br from-red-500/10 to-pink-500/10 border-red-400/30 hover:border-red-400/50 backdrop-blur-xl transition-all duration-300 hover:scale-105">
+                <Card className="p-8 bg-slate-900/80 border-red-400/30 hover:border-red-400/50 backdrop-blur-xl transition-all duration-300 hover:scale-105">
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-pink-400 rounded-xl flex items-center justify-center mr-4 shadow-lg">
                       <div className="w-6 h-6 bg-white/20 rounded-full"></div>
@@ -284,7 +285,7 @@ export default function CaseStudy() {
                   </p>
                 </Card>
 
-                <Card className="p-8 bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-400/30 hover:border-green-400/50 backdrop-blur-xl transition-all duration-300 hover:scale-105">
+                <Card className="p-8 bg-slate-900/80 border-green-400/30 hover:border-green-400/50 backdrop-blur-xl transition-all duration-300 hover:scale-105">
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-400 rounded-xl flex items-center justify-center mr-4 shadow-lg">
                       <CheckCircle className="w-6 h-6 text-white" />
@@ -318,7 +319,7 @@ export default function CaseStudy() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-xl border border-blue-400/30 hover:border-blue-400/50 p-6 transition-all duration-300 hover:scale-105 shadow-lg"
+                    className="bg-slate-900/80 backdrop-blur-xl border border-blue-400/30 hover:border-blue-400/50 p-6 transition-all duration-300 hover:scale-105 shadow-lg"
                   >
                     <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2 modern-heritage">
                       {metric.value}
@@ -339,10 +340,11 @@ export default function CaseStudy() {
 
       {/* Enhanced Process Timeline */}
       <section className="py-20 relative">
-        {/* Dynamic Background */}
+        {/* Dark Background with Subtle Accents */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900" />
-          <div className="absolute inset-0 bg-gradient-to-t from-pink-900/20 via-transparent to-cyan-900/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-900" />
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-950/15 via-transparent to-blue-950/10" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
@@ -453,10 +455,11 @@ export default function CaseStudy() {
 
       {/* Enhanced Key Features */}
       <section className="py-20 relative">
-        {/* Colorful Background */}
+        {/* Dark Background with Teal Accents */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900" />
-          <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 via-transparent to-blue-900/10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950" />
+          <div className="absolute inset-0 bg-gradient-to-t from-teal-950/15 via-transparent to-cyan-950/10" />
+          <div className="absolute inset-0 grain-texture opacity-20" />
         </div>
         
         <div className="max-w-6xl mx-auto px-6 relative z-10">
@@ -490,7 +493,7 @@ export default function CaseStudy() {
                   whileHover={{ scale: 1.02, y: -5 }}
                   className="group"
                 >
-                  <Card className="p-8 h-full bg-gradient-to-br from-teal-500/10 to-cyan-500/10 border-teal-400/30 hover:border-teal-400/50 backdrop-blur-xl group-hover:scale-105 transition-all duration-300 shadow-lg">
+                  <Card className="p-8 h-full bg-slate-900/80 border-teal-400/30 hover:border-teal-400/50 backdrop-blur-xl group-hover:scale-105 transition-all duration-300 shadow-lg">
                     <div className="w-16 h-16 bg-gradient-to-br from-teal-400 to-cyan-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
@@ -512,10 +515,11 @@ export default function CaseStudy() {
 
       {/* Enhanced Outcomes & Impact */}
       <section className="py-20 relative">
-        {/* Vibrant Background */}
+        {/* Dark Background with Warm Accents */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-rose-900 via-orange-900 to-yellow-900" />
-          <div className="absolute inset-0 bg-gradient-to-t from-red-900/20 via-transparent to-pink-900/10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-t from-orange-950/15 via-transparent to-yellow-950/10" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
         <div className="max-w-6xl mx-auto px-6 relative z-10">
