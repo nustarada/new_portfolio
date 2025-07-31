@@ -350,7 +350,7 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture modern-heritage">MY ROLE & PROCESS</h2>
+            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent modern-heritage" style={{ backgroundColor: 'transparent' }}>MY ROLE & PROCESS</h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto jost-secondary">
               Enhanced advocacy from research to deployment
             </p>
@@ -596,7 +596,7 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture modern-heritage">TECHNOLOGY STACK</h2>
+            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-green-400 via-teal-400 to-blue-400 bg-clip-text text-transparent modern-heritage" style={{ backgroundColor: 'transparent' }}>TECHNOLOGY STACK</h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto jost-secondary">
               Modern technologies and tools carefully selected for optimal performance and user experience
             </p>
@@ -646,7 +646,7 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 glow-text grain-texture modern-heritage">WHAT I LEARNED</h2>
+            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent modern-heritage" style={{ backgroundColor: 'transparent' }}>WHAT I LEARNED</h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto jost-secondary">
               Key insights and growth opportunities discovered throughout this project
             </p>
@@ -689,7 +689,7 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-4xl font-bold glow-text grain-texture modern-heritage">READY TO SEE MORE PROJECTS?</h2>
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent modern-heritage" style={{ backgroundColor: 'transparent' }}>READY TO SEE MORE PROJECTS?</h2>
             <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
               Interested in discussing how gamification, Figma design systems, or HubSpot API integration could work for your project?
             </p>
