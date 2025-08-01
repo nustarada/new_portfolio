@@ -461,56 +461,49 @@ export default function CaseStudy() {
             </Card>
           </div>
 
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-primary via-cyan-400 to-primary" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {caseStudyData.process.map((phase, index) => (
+              <motion.div
+                key={phase.phase}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02, y: -5 }}
+                className="group"
+              >
+                <Card className="p-8 h-full glass-card grain-texture hover:glass-intense border-primary/20 group-hover:border-primary/40 transition-all duration-300">
+                  <div className="flex items-center justify-between mb-6">
+                    <Badge variant="outline" className="text-sm px-4 py-2 border-primary/50 jost-secondary">
+                      Phase {index + 1}
+                    </Badge>
+                    <span className="text-sm text-primary font-medium jost-secondary">
+                      {phase.duration}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold mb-4 text-white modern-heritage">
+                    {phase.phase.toUpperCase()}
+                  </h3>
+                  
+                  <p className="text-white/80 leading-relaxed mb-6 text-base jost-secondary">
+                    {phase.description}
+                  </p>
 
-            <div className="space-y-20">
-              {caseStudyData.process.map((phase, index) => (
-                <motion.div
-                  key={phase.phase}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                  className={`flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
-                >
-                  <Card className={`p-8 max-w-lg ${index % 2 === 0 ? 'mr-8' : 'ml-8'} glass-card grain-texture hover:glass-intense border-primary/20 transition-all duration-300`}>
-                    <div className="flex items-center justify-between mb-6">
-                      <Badge variant="outline" className="text-sm px-4 py-2 border-primary/50 jost-secondary">
-                        Phase {index + 1}
-                      </Badge>
-                      <span className="text-sm text-primary font-medium jost-secondary">
-                        {phase.duration}
-                      </span>
-                    </div>
-                    
-                    <h3 className="text-2xl font-bold mb-4 text-white modern-heritage">
-                      {phase.phase.toUpperCase()}
-                    </h3>
-                    
-                    <p className="text-white/80 leading-relaxed mb-6 text-base jost-secondary">
-                      {phase.description}
-                    </p>
-
-                    <div>
-                      <h4 className="font-semibold text-primary mb-3 text-sm jost-secondary">KEY DELIVERABLES</h4>
-                      <ul className="space-y-2">
-                        {phase.deliverables.map((deliverable) => (
-                          <li key={deliverable} className="flex items-center text-sm text-white/70 jost-secondary">
-                            <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
-                            {deliverable}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </Card>
-
-                  {/* Timeline Node */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-background shadow-lg shadow-primary/25" />
-                </motion.div>
-              ))}
-            </div>
+                  <div>
+                    <h4 className="font-semibold text-primary mb-3 text-sm jost-secondary">KEY DELIVERABLES</h4>
+                    <ul className="space-y-2">
+                      {phase.deliverables.map((deliverable) => (
+                        <li key={deliverable} className="flex items-center text-sm text-white/70 jost-secondary">
+                          <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
+                          {deliverable}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
