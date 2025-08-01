@@ -251,7 +251,7 @@ export default function Home() {
                 const contactSection = document.getElementById('contact');
                 contactSection?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="relative group px-6 py-3 text-white font-bold cta-button grain-texture border-0"
+              className="relative group h-10 px-4 text-white font-semibold cta-button grain-texture border-0 text-sm"
             >
 
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
