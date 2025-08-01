@@ -748,7 +748,7 @@ export default function Home() {
                   <h4 className="text-lg font-semibold text-white mb-6 jost-secondary">Specialized Skills</h4>
                   <div className="flex flex-wrap justify-center gap-3">
                     {[
-                      'AI Design Tools', 'Figma Mastery', 'Replit Prototyping', 
+                      'AI Design Tools', 'Figma Mastery', 'Interactive Prototyping', 
                       'Design Systems', 'User Research', 'Design Automation',
                       'Rapid Prototyping', 'Cross-Platform Design'
                     ].map((skill, index) => (
@@ -947,7 +947,7 @@ export default function Home() {
                   
                   <div className="text-center pt-6 border-t border-white/10">
                     <p className="text-white/85 text-lg leading-relaxed max-w-2xl mx-auto jost-secondary">
-                      I harness the power of AI design tools, master Figma's ecosystem, and leverage Replit's capabilities to create innovative, efficient design workflows that deliver exceptional results.
+                      I harness the power of AI design tools, master Figma's ecosystem, and leverage interactive prototyping to create innovative, efficient design workflows that deliver exceptional results.
                     </p>
                   </div>
                 </div>
