@@ -863,7 +863,7 @@ export default function Home() {
                       <div className="flex flex-col sm:grid sm:grid-cols-2 gap-3 sm:gap-4">
                         <a 
                           href="/case-study"
-                          className="w-full group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-sm sm:text-base py-3 sm:py-4 border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer block text-center no-underline shadow-lg hover:shadow-primary/25 min-h-[48px] flex items-center justify-center"
+                          className="w-full group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-sm sm:text-base h-12 sm:h-14 border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer block text-center no-underline shadow-lg hover:shadow-primary/25 flex items-center justify-center"
                           style={{ WebkitTapHighlightColor: 'transparent' }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
@@ -875,7 +875,7 @@ export default function Home() {
                         <Button 
                           onClick={() => window.open(project.liveUrl, '_blank')}
                           variant="outline"
-                          className="w-full text-white border-white/30 hover:bg-white/10 hover:border-primary/50 py-3 sm:py-4 text-sm sm:text-base jost-secondary font-semibold backdrop-blur-sm shadow-lg hover:shadow-white/10 active:scale-[0.98] transition-all duration-300 min-h-[48px]"
+                          className="w-full text-white border-white/30 hover:bg-white/10 hover:border-primary/50 h-12 sm:h-14 text-sm sm:text-base jost-secondary font-semibold backdrop-blur-sm shadow-lg hover:shadow-white/10 active:scale-[0.98] transition-all duration-300"
                         >
                           <div className="flex items-center justify-center space-x-2">
                             <span className="text-sm sm:text-base font-medium">Live Site</span>
