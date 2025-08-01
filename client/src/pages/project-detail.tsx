@@ -469,7 +469,7 @@ export default function ProjectDetail() {
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/#contact">
-                <Button className="text-white font-semibold px-8 py-3 cta-button grain-texture">
+                <Button className="h-12 sm:h-14 text-white font-semibold px-8 cta-button grain-texture">
                   <Heart className="w-4 h-4 mr-2" />
                   Contact Me
                 </Button>
@@ -477,7 +477,7 @@ export default function ProjectDetail() {
               <Button 
                 onClick={() => window.open(project.liveUrl, '_blank')}
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 px-8 py-3"
+                className="h-12 sm:h-14 border-white/20 text-white hover:bg-white/10 px-8"
               >
                 <ExternalLink className="w-4 h-4 mr-2" />
                 Visit Live Site

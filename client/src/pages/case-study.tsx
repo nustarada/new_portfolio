@@ -762,14 +762,14 @@ export default function CaseStudy() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/#contact">
-                <Button size="lg" className="px-8 py-3 text-base font-semibold cta-button grain-texture border-0">
+                <Button size="lg" className="h-12 sm:h-14 px-8 text-base font-semibold cta-button grain-texture border-0">
                   <ExternalLink className="w-4 h-4 mr-2" />
                   Start Your Project
                 </Button>
               </Link>
               
               <Link href="/">
-                <Button size="lg" variant="outline" className="px-8 py-3 text-base font-semibold border-white/30 hover:border-primary/50 hover:bg-primary/10">
+                <Button size="lg" variant="outline" className="h-12 sm:h-14 px-8 text-base font-semibold border-white/30 hover:border-primary/50 hover:bg-primary/10">
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   View More Work
                 </Button>
