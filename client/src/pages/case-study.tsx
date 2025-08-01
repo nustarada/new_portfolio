@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'wouter';
 import logoPath from "@assets/Logo black_1749729973781.png";
+import fffVideoPath from "@assets/FFF website video (video-converter.com)_1754054201797.webm";
 
 export default function CaseStudy() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -331,6 +332,71 @@ export default function CaseStudy() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Video Showcase Section */}
+      <section className="py-20 relative">
+        {/* Dark Background with Gradient */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-t from-cyan-950/20 via-transparent to-purple-950/15" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent modern-heritage" style={{ backgroundColor: 'transparent' }}>
+              WEBSITE IN ACTION
+            </h2>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto jost-secondary">
+              See the FutureFirstFamilies website design and user experience in motion
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <Card className="p-2 glass-card grain-texture border-cyan-400/30 hover:border-cyan-400/50 transition-all duration-300">
+              <div className="relative aspect-video rounded-lg overflow-hidden bg-slate-900/50">
+                <video
+                  className="w-full h-full object-cover rounded-lg"
+                  controls
+                  preload="metadata"
+                  poster=""
+                >
+                  <source src={fffVideoPath} type="video/webm" />
+                  Your browser does not support the video tag.
+                </video>
+                
+                {/* Video overlay for additional styling */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none rounded-lg" />
+              </div>
+            </Card>
+            
+            {/* Video Description */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="mt-8 text-center"
+            >
+              <p className="text-white/70 max-w-2xl mx-auto jost-secondary">
+                Interactive walkthrough showcasing the modern design, user-friendly navigation, and engaging elements that make the FutureFirstFamilies website stand out in the advocacy space.
+              </p>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
