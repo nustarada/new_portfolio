@@ -425,25 +425,25 @@ export default function LiffoCase() {
           </h2>
           
           <div className="grid grid-cols-4 gap-3">
-            <img src={DoctorLabTestImage} alt="Doctor and Lab Services" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
-            <img src={SearchTabImage} alt="Service Search" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
-            <img src={SearchTab1Image} alt="Doctor Search" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
-            <img src={HomeCareImage} alt="Home Care Services" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
+            <img src={DoctorLabTestImage} alt="Doctor and Lab Services" className="w-full" />
+            <img src={SearchTabImage} alt="Service Search" className="w-full" />
+            <img src={SearchTab1Image} alt="Doctor Search" className="w-full" />
+            <img src={HomeCareImage} alt="Home Care Services" className="w-full" />
             
-            <img src={HospitalDetailImage1} alt="Hospital Services" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
-            <img src={HospitalDetailImage2} alt="Hospital Details 2" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
-            <img src={HospitalDetailImage3} alt="Hospital Details 3" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
-            <img src={HospitalDetailImage4} alt="Hospital Details 4" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
+            <img src={HospitalDetailImage1} alt="Hospital Services" className="w-full" />
+            <img src={HospitalDetailImage2} alt="Hospital Details 2" className="w-full" />
+            <img src={HospitalDetailImage3} alt="Hospital Details 3" className="w-full" />
+            <img src={HospitalDetailImage4} alt="Hospital Details 4" className="w-full" />
             
-            <img src={AllServicesImage} alt="All Services" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
-            <img src={EmergencyImage} alt="Emergency Services" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
-            <img src={SymptomsImage} alt="Symptoms" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
-            <img src={LabTestImage} alt="Lab Test Services" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
+            <img src={AllServicesImage} alt="All Services" className="w-full" />
+            <img src={EmergencyImage} alt="Emergency Services" className="w-full" />
+            <img src={SymptomsImage} alt="Symptoms" className="w-full" />
+            <img src={LabTestImage} alt="Lab Test Services" className="w-full" />
             
-            <img src={AppointmentImage} alt="Appointment Booking" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
-            <img src={PrescriptionImage} alt="Prescription Management" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
-            <img src={HealthCardImage} alt="Health Card" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
-            <img src={PharmacyLabTestImage} alt="Pharmacy Services" className="w-full h-48 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
+            <img src={AppointmentImage} alt="Appointment Booking" className="w-full" />
+            <img src={PrescriptionImage} alt="Prescription Management" className="w-full" />
+            <img src={HealthCardImage} alt="Health Card" className="w-full" />
+            <img src={PharmacyLabTestImage} alt="Pharmacy Services" className="w-full" />
           </div>
         </div>
       </section>
