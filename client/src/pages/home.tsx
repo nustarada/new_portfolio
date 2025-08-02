@@ -18,6 +18,7 @@ import futureFirstFamiliesThumbnail from '@assets/Dashboard 2.png';
 import liffoThumbnail from '@assets/Dashboard 1.png';
 import resumePdf from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
 import profilePhoto from '@assets/Dashboard 1.png';
+import LogoImage from '@assets/Logo black_1754170788875.png';
 import { 
   Terminal, 
   Sparkles, 
@@ -1451,7 +1452,12 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 border-t border-border/30">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center items-center space-x-8 mb-6">
+            <img 
+              src={LogoImage} 
+              alt="Karan Gadhave Logo" 
+              className="h-8 w-8 invert opacity-80"
+            />
             <a 
               href="https://www.linkedin.com/in/karan-gadhave/" 
               target="_blank" 

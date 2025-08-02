@@ -21,6 +21,7 @@ import {
   TrendingUp,
   Linkedin
 } from 'lucide-react';
+import LogoImage from "@assets/Logo black_1754170788875.png";
 
 interface ProjectData {
   title: string;
@@ -490,7 +491,12 @@ export default function ProjectDetail() {
       {/* Footer */}
       <footer className="py-12 border-t border-border/30">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center items-center space-x-8 mb-6">
+            <img 
+              src={LogoImage} 
+              alt="Karan Gadhave Logo" 
+              className="h-8 w-8 invert opacity-80"
+            />
             <a 
               href="https://www.linkedin.com/in/karan-gadhave/" 
               target="_blank" 
