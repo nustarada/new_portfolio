@@ -109,7 +109,7 @@ export default function LiffoCase() {
                   <img 
                     src={Dashboard1Image} 
                     alt="Liffo Main Dashboard" 
-                    className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg"
+                    className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900"
                   />
                   <p className="text-xs text-gray-400 text-center">Main Dashboard Overview</p>
                 </div>
@@ -117,7 +117,7 @@ export default function LiffoCase() {
                   <img 
                     src={Dashboard2Image} 
                     alt="Liffo Secondary Dashboard" 
-                    className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg"
+                    className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900"
                   />
                   <p className="text-xs text-gray-400 text-center">Dashboard Details & Navigation</p>
                 </div>
@@ -253,19 +253,19 @@ export default function LiffoCase() {
             <h3 className="text-2xl font-bold mb-6 text-primary">Doctor Search & Service Discovery</h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <img src={DoctorLabTestImage} alt="Doctor and Lab Services" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={DoctorLabTestImage} alt="Doctor and Lab Services" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Doctor & Lab Test Services</p>
               </div>
               <div className="space-y-2">
-                <img src={SearchTabImage} alt="Service Search" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={SearchTabImage} alt="Service Search" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Service Search Interface</p>
               </div>
               <div className="space-y-2">
-                <img src={SearchTab1Image} alt="Doctor Search" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={SearchTab1Image} alt="Doctor Search" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Doctor Search & Booking</p>
               </div>
               <div className="space-y-2">
-                <img src={HomeCareImage} alt="Home Care Services" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={HomeCareImage} alt="Home Care Services" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Home Care Services</p>
               </div>
             </div>
@@ -276,19 +276,19 @@ export default function LiffoCase() {
             <h3 className="text-2xl font-bold mb-6 text-primary">Hospital Information & Services</h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <img src={HospitalDetailImage1} alt="Hospital Services" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={HospitalDetailImage1} alt="Hospital Services" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Hospital Service Overview</p>
               </div>
               <div className="space-y-2">
-                <img src={HospitalDetailImage2} alt="Hospital Details 2" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={HospitalDetailImage2} alt="Hospital Details 2" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Detailed Hospital Information</p>
               </div>
               <div className="space-y-2">
-                <img src={HospitalDetailImage3} alt="Hospital Details 3" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={HospitalDetailImage3} alt="Hospital Details 3" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Hospital Contact & Booking</p>
               </div>
               <div className="space-y-2">
-                <img src={HospitalDetailImage4} alt="Hospital Details 4" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={HospitalDetailImage4} alt="Hospital Details 4" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Complete Hospital Profile</p>
               </div>
             </div>
@@ -299,19 +299,19 @@ export default function LiffoCase() {
             <h3 className="text-2xl font-bold mb-6 text-primary">Comprehensive Service Platform</h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <img src={AllServicesImage} alt="All Services" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={AllServicesImage} alt="All Services" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Complete Service Overview</p>
               </div>
               <div className="space-y-2">
-                <img src={EmergencyImage} alt="Emergency Services" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={EmergencyImage} alt="Emergency Services" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Emergency Response System</p>
               </div>
               <div className="space-y-2">
-                <img src={SymptomsImage} alt="Symptoms" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={SymptomsImage} alt="Symptoms" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Symptom-Based Navigation</p>
               </div>
               <div className="space-y-2">
-                <img src={LabTestImage} alt="Lab Test Services" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={LabTestImage} alt="Lab Test Services" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Lab Test & Pharmacy Services</p>
               </div>
             </div>
@@ -322,19 +322,19 @@ export default function LiffoCase() {
             <h3 className="text-2xl font-bold mb-6 text-primary">Treatment & Care Management</h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <img src={AppointmentImage} alt="Appointment Booking" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={AppointmentImage} alt="Appointment Booking" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Appointment Scheduling</p>
               </div>
               <div className="space-y-2">
-                <img src={PrescriptionImage} alt="Prescription Management" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={PrescriptionImage} alt="Prescription Management" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Digital Prescription System</p>
               </div>
               <div className="space-y-2">
-                <img src={HealthCardImage} alt="Health Card" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={HealthCardImage} alt="Health Card" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Personal Health Profile</p>
               </div>
               <div className="space-y-2">
-                <img src={PharmacyLabTestImage} alt="Pharmacy Services" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={PharmacyLabTestImage} alt="Pharmacy Services" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Pharmacy & Lab Integration</p>
               </div>
             </div>
@@ -345,15 +345,15 @@ export default function LiffoCase() {
             <h3 className="text-2xl font-bold mb-6 text-primary">App Walkthrough & Onboarding</h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <img src={WalkthroughImage1} alt="Walkthrough 1" className="w-full h-64 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={WalkthroughImage1} alt="Walkthrough 1" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Home Care Introduction</p>
               </div>
               <div className="space-y-2">
-                <img src={WalkthroughImage2} alt="Walkthrough 2" className="w-full h-64 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={WalkthroughImage2} alt="Walkthrough 2" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Emergency Support Features</p>
               </div>
               <div className="space-y-2 col-span-2 max-w-md mx-auto">
-                <img src={WalkthroughImage3} alt="Walkthrough 3" className="w-full h-64 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <img src={WalkthroughImage3} alt="Walkthrough 3" className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900" />
                 <p className="text-xs text-gray-400 text-center">Liffo Brand Introduction</p>
               </div>
             </div>
