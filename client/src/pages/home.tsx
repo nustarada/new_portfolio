@@ -15,7 +15,7 @@ import { LiquidGrid } from '@/components/liquid-grid';
 import { MovingRibbon } from '@/components/moving-ribbon';
 import logoPath from '@assets/Logo black_1749729973781.png';
 import futureFirstFamiliesThumbnail from '@assets/Screenshot 2025-07-29 at 00.03.25_1753728466090.png';
-import liffoThumbnail from '@assets/Health card_1754163585906.png';
+import liffoThumbnail from '@assets/Home care services_1754168729618.png';
 import resumePdf from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
 import profilePhoto from '@assets/Snapchat-46456319_1753732781437.jpg';
 import { 
