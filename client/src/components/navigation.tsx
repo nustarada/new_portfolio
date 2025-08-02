@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import logoPath from "@assets/Logo black_1749729973781.png";
+// Logo removed temporarily
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,11 +47,9 @@ export function Navigation() {
             className="flex items-center space-x-3"
           >
             <div className="relative">
-              <img 
-                src={logoPath} 
-                alt="Karan Gadhave" 
-                className="h-10 w-auto filter brightness-0 invert"
-              />
+              <div className="h-10 w-10 bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center text-white font-bold text-lg">
+                K
+              </div>
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-cyan-400/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-300" />
             </div>
             <span className="text-xl font-bold text-white glow-text">

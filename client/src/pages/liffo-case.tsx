@@ -3,19 +3,28 @@ import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/navigation";
 import { useLocation } from "wouter";
 import { useEffect } from "react";
-import WalkthroughImage1 from "@assets/Walkthrough 1_1754168729617.png";
-import WalkthroughImage2 from "@assets/Walkthrough 2_1754168729615.png";
-import WalkthroughImage3 from "@assets/Walkthrough 3_1754168729617.png";
-import HospitalDetailImage1 from "@assets/Hospital Detail Page 1_1754168729618.png";
-import HospitalDetailImage5 from "@assets/Hospital Detail Page 5_1754168729618.png";
-import SearchTabImage from "@assets/Search Tab_1754168729618.png";
-import SearchTab1Image from "@assets/Search Tab-1_1754168729618.png";
-import HomeCareImage from "@assets/Home care services_1754168729618.png";
-import SymptomsImage from "@assets/Symptoms_1754168729619.png";
-import DoctorLabTestImage from "@assets/Doctor Lab Test Serivices_1754168729619.png";
-import PharmacyLabTestImage from "@assets/Pharmacy Lab Test Serivices_1754168729619.png";
-import LabTestImage from "@assets/Lab Test Serivices_1754168729619.png";
-import DashboardImage from "@assets/Screenshot 2025-08-03 at 02.38.41_1754168924385.png";
+import WalkthroughImage1 from "@assets/Walkthrough 1.png";
+import WalkthroughImage2 from "@assets/Walkthrough 2.png";
+import WalkthroughImage3 from "@assets/Walkthrough 3.png";
+import HospitalDetailImage1 from "@assets/Hospital Detail Page 1.png";
+import HospitalDetailImage2 from "@assets/Hospital Detail Page 2.png";
+import HospitalDetailImage3 from "@assets/Hospital Detail Page 3.png";
+import HospitalDetailImage4 from "@assets/Hospital Detail Page 4.png";
+import HospitalDetailImage5 from "@assets/Hospital Detail Page 5.png";
+import SearchTabImage from "@assets/Search Tab.png";
+import SearchTab1Image from "@assets/Search Tab-1.png";
+import HomeCareImage from "@assets/Home care services.png";
+import SymptomsImage from "@assets/Symptoms.png";
+import DoctorLabTestImage from "@assets/Doctor Lab Test Serivices.png";
+import PharmacyLabTestImage from "@assets/Pharmacy Lab Test Serivices.png";
+import LabTestImage from "@assets/Lab Test Serivices.png";
+import AllServicesImage from "@assets/All Services.png";
+import EmergencyImage from "@assets/Emergency.png";
+import AppointmentImage from "@assets/Appointment.png";
+import PrescriptionImage from "@assets/Prescription.png";
+import HealthCardImage from "@assets/Health card.png";
+import Dashboard1Image from "@assets/Dashboard 1.png";
+import Dashboard2Image from "@assets/Dashboard 2.png";
 
 export default function LiffoCase() {
   const [, navigate] = useLocation();
@@ -95,13 +104,23 @@ export default function LiffoCase() {
             </div>
             
             <div className="lg:col-span-2">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-orange-500/20 blur-3xl transform rotate-6"></div>
-                <img 
-                  src={DashboardImage} 
-                  alt="Liffo Dashboard Interface" 
-                  className="relative z-10 w-full max-w-lg mx-auto shadow-2xl border border-white/10 rounded-lg"
-                />
+              <div className="relative space-y-6">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-orange-500/20 blur-3xl transform rotate-3"></div>
+                  <img 
+                    src={Dashboard1Image} 
+                    alt="Liffo Main Dashboard" 
+                    className="relative z-10 w-full max-w-md mx-auto shadow-2xl border border-white/10 rounded-lg"
+                  />
+                </div>
+                <div className="relative ml-8">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 blur-3xl transform -rotate-3"></div>
+                  <img 
+                    src={Dashboard2Image} 
+                    alt="Liffo Secondary Dashboard" 
+                    className="relative z-10 w-full max-w-md mx-auto shadow-2xl border border-white/10 rounded-lg"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -251,14 +270,22 @@ export default function LiffoCase() {
           {/* Hospital Detail & Services Flow */}
           <div className="mb-16">
             <h3 className="text-2xl font-bold mb-8 text-primary">Hospital Information & Services</h3>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="space-y-4">
                 <img src={HospitalDetailImage1} alt="Hospital Services" className="w-full shadow-2xl border border-white/10" />
                 <p className="text-sm text-gray-400 text-center">Hospital Service Overview</p>
               </div>
               <div className="space-y-4">
-                <img src={HospitalDetailImage5} alt="Hospital Details" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Complete Hospital Information</p>
+                <img src={HospitalDetailImage2} alt="Hospital Details 2" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Detailed Hospital Information</p>
+              </div>
+              <div className="space-y-4">
+                <img src={HospitalDetailImage3} alt="Hospital Details 3" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Hospital Contact & Booking</p>
+              </div>
+              <div className="space-y-4">
+                <img src={HospitalDetailImage4} alt="Hospital Details 4" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Complete Hospital Profile</p>
               </div>
             </div>
           </div>
@@ -266,10 +293,14 @@ export default function LiffoCase() {
           {/* Service Categories */}
           <div className="mb-16">
             <h3 className="text-2xl font-bold mb-8 text-primary">Comprehensive Service Platform</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="space-y-4">
-                <img src={HomeCareImage} alt="Home Care Services" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Home Care Services Platform</p>
+                <img src={AllServicesImage} alt="All Services" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Complete Service Overview</p>
+              </div>
+              <div className="space-y-4">
+                <img src={EmergencyImage} alt="Emergency Services" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Emergency Response System</p>
               </div>
               <div className="space-y-4">
                 <img src={SymptomsImage} alt="Symptoms" className="w-full shadow-2xl border border-white/10" />
@@ -278,6 +309,25 @@ export default function LiffoCase() {
               <div className="space-y-4">
                 <img src={LabTestImage} alt="Lab Test Services" className="w-full shadow-2xl border border-white/10" />
                 <p className="text-sm text-gray-400 text-center">Lab Test & Pharmacy Services</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Additional Service Features */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold mb-8 text-primary">Treatment & Care Management</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="space-y-4">
+                <img src={AppointmentImage} alt="Appointment Booking" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Appointment Scheduling</p>
+              </div>
+              <div className="space-y-4">
+                <img src={PrescriptionImage} alt="Prescription Management" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Digital Prescription System</p>
+              </div>
+              <div className="space-y-4">
+                <img src={HealthCardImage} alt="Health Card" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Personal Health Profile</p>
               </div>
             </div>
           </div>
