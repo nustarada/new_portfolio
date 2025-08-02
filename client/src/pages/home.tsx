@@ -15,6 +15,7 @@ import { LiquidGrid } from '@/components/liquid-grid';
 import { MovingRibbon } from '@/components/moving-ribbon';
 import logoPath from '@assets/Logo black_1749729973781.png';
 import futureFirstFamiliesThumbnail from '@assets/Screenshot 2025-07-29 at 00.03.25_1753728466090.png';
+import liffoThumbnail from '@assets/Health card_1754163585906.png';
 import resumePdf from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
 import profilePhoto from '@assets/Snapchat-46456319_1753732781437.jpg';
 import { 
@@ -159,8 +160,9 @@ export default function Home() {
       subtitle: "Gamified Advocacy Platform",
       description: "A civic engagement platform empowering parents to take monthly actions on educational reform through gamified, user-friendly design tailored for non-tech-savvy users.",
       detailedDescription: "Designed and developed the entire platform from ground up, combining gamification with advocacy to create an engaging experience that increased completed actions by 30% and achieved 4× higher user retention.",
-      image: "/api/placeholder/600/400",
+      image: futureFirstFamiliesThumbnail,
       liveUrl: "https://futurefirstfamilies.com/",
+      caseStudyUrl: "/case-study",
       tags: ["Civic Engagement", "Gamification", "React", "UX Research", "Full-Stack"],
       year: "2025",
       category: "Civic Platform",
@@ -186,6 +188,42 @@ export default function Home() {
         "Developed platform using React with modern tooling",
         "Integrated gamification, referrals, and accessibility features",
         "Tested and refined based on team feedback"
+      ]
+    },
+    {
+      title: "Liffo",
+      subtitle: "Emergency Health Services Platform",
+      description: "A unified emergency health services platform providing fast, reliable access to critical healthcare including ambulance booking, doctor consultations, lab tests, and medicine delivery.",
+      detailedDescription: "Led the end-to-end design process for a comprehensive healthcare platform that closes the gap between patients and healthcare providers through emergency-first design principles and comprehensive service integration.",
+      image: liffoThumbnail,
+      liveUrl: "#",
+      caseStudyUrl: "/liffo-case",
+      tags: ["Healthcare", "Emergency Services", "Mobile Design", "UI/UX Design"],
+      year: "2025",
+      category: "Healthcare Platform",
+      role: "Lead Product Designer",
+      outcomes: [
+        "87% faster service booking compared to traditional methods",
+        "95% user satisfaction rate for emergency service accessibility",
+        "60% reduction in time to access healthcare services",
+        "Comprehensive emergency-first design system implementation"
+      ],
+      keyFeatures: [
+        "Real-time ambulance booking with location tracking",
+        "Doctor consultation system with specialist selection",
+        "Premium Elite Doctor services with faster access",
+        "Home care services for post-surgical and chronic care",
+        "Insurance claim filing and tracking integration",
+        "AI-powered chatbot for 24/7 critical help"
+      ],
+      techStack: ["Figma", "React Native", "Node.js", "MongoDB", "Healthcare APIs"],
+      process: [
+        "Conducted user research and competitive analysis",
+        "Created wireframes and interactive prototypes",
+        "Designed comprehensive visual system",
+        "Implemented emergency-first design principles",
+        "Conducted usability testing with healthcare professionals",
+        "Iterated based on user feedback and analytics"
       ]
     }
   ];
@@ -795,8 +833,7 @@ export default function Home() {
           </motion.div>
 
           {/* Enhanced Project Cards */}
-          <div className="flex justify-center">
-            <div className="max-w-2xl w-full">
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -819,8 +856,8 @@ export default function Home() {
                   {/* Hero Image Section */}
                   <div className="relative h-80 overflow-hidden">
                     <img 
-                      src={futureFirstFamiliesThumbnail} 
-                      alt="FutureFirstFamilies Platform" 
+                      src={project.image} 
+                      alt={`${project.title} Platform`} 
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
@@ -852,7 +889,7 @@ export default function Home() {
 
                     {/* Tech Stack Preview */}
                     <div className="flex flex-wrap gap-2">
-                      {['React', 'HubSpot API', 'Figma'].map((tech) => (
+                      {project.techStack.slice(0, 3).map((tech) => (
                         <span key={tech} className="text-xs bg-white/10 text-white/70 px-3 py-1 backdrop-blur-sm border border-white/20 jost-secondary font-medium">
                           {tech}
                         </span>
@@ -863,7 +900,7 @@ export default function Home() {
                     <div className="pt-6 border-t border-white/10">
                       <div className="flex flex-col sm:grid sm:grid-cols-2 gap-3 sm:gap-4">
                         <a 
-                          href="/case-study"
+                          href={project.caseStudyUrl}
                           className="w-full group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-sm sm:text-base h-12 sm:h-14 border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer block text-center no-underline shadow-lg hover:shadow-primary/25 flex items-center justify-center"
                           style={{ WebkitTapHighlightColor: 'transparent' }}
                         >
@@ -873,16 +910,18 @@ export default function Home() {
                             <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:rotate-45 transition-transform duration-300" />
                           </div>
                         </a>
-                        <Button 
-                          onClick={() => window.open(project.liveUrl, '_blank')}
-                          variant="outline"
-                          className="w-full text-white border-white/30 hover:bg-white/10 hover:border-primary/50 h-12 sm:h-14 text-sm sm:text-base jost-secondary font-semibold backdrop-blur-sm shadow-lg hover:shadow-white/10 active:scale-[0.98] transition-all duration-300"
-                        >
-                          <div className="flex items-center justify-center space-x-2">
-                            <span className="text-sm sm:text-base font-medium">Live Site</span>
-                            <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                          </div>
-                        </Button>
+                        {project.liveUrl !== "#" && (
+                          <Button 
+                            onClick={() => window.open(project.liveUrl, '_blank')}
+                            variant="outline"
+                            className="w-full text-white border-white/30 hover:bg-white/10 hover:border-primary/50 h-12 sm:h-14 text-sm sm:text-base jost-secondary font-semibold backdrop-blur-sm shadow-lg hover:shadow-white/10 active:scale-[0.98] transition-all duration-300"
+                          >
+                            <div className="flex items-center justify-center space-x-2">
+                              <span className="text-sm sm:text-base font-medium">Live Site</span>
+                              <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                            </div>
+                          </Button>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -894,7 +933,6 @@ export default function Home() {
                 </Card>
               </motion.div>
             ))}
-            </div>
           </div>
         </div>
       </section>
