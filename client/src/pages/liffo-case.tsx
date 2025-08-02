@@ -3,18 +3,18 @@ import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/navigation";
 import { useLocation } from "wouter";
 import { useEffect } from "react";
-import HealthCardImage from "@assets/Health card_1754163585906.png";
-import AppointmentImage from "@assets/Appointment_1754163585907.png";
-import PrescriptionImage from "@assets/Prescription_1754163585908.png";
-import DoctorListImage from "@assets/Doctor List_1754163585908.png";
-import SpecialisationImage from "@assets/Doctor Specialisation_1754163585908.png";
-import EliteDoctorImage from "@assets/Elite Doctor_1754163585908.png";
-import HospitalDetailImage from "@assets/Hospital Detail Page_1754163585909.png";
-import SymptomsImage from "@assets/Symptoms_1754163585909.png";
-import LabTestImage from "@assets/Lab Test Serivices_1754163585909.png";
-import DoctorLabTestImage from "@assets/Doctor Lab Test Serivices_1754163585910.png";
-import PharmacyLabTestImage from "@assets/Pharmacy Lab Test Serivices_1754163585910.png";
-import AllServicesImage from "@assets/All Services_1754163585910.png";
+import WalkthroughImage1 from "@assets/Walkthrough 1_1754168729617.png";
+import WalkthroughImage2 from "@assets/Walkthrough 2_1754168729615.png";
+import WalkthroughImage3 from "@assets/Walkthrough 3_1754168729617.png";
+import HospitalDetailImage1 from "@assets/Hospital Detail Page 1_1754168729618.png";
+import HospitalDetailImage5 from "@assets/Hospital Detail Page 5_1754168729618.png";
+import SearchTabImage from "@assets/Search Tab_1754168729618.png";
+import SearchTab1Image from "@assets/Search Tab-1_1754168729618.png";
+import HomeCareImage from "@assets/Home care services_1754168729618.png";
+import SymptomsImage from "@assets/Symptoms_1754168729619.png";
+import DoctorLabTestImage from "@assets/Doctor Lab Test Serivices_1754168729619.png";
+import PharmacyLabTestImage from "@assets/Pharmacy Lab Test Serivices_1754168729619.png";
+import LabTestImage from "@assets/Lab Test Serivices_1754168729619.png";
 
 export default function LiffoCase() {
   const [, navigate] = useLocation();
@@ -97,8 +97,8 @@ export default function LiffoCase() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-orange-500/20 blur-3xl transform rotate-6"></div>
                 <img 
-                  src={HealthCardImage} 
-                  alt="Liffo Health Card Interface" 
+                  src={HomeCareImage} 
+                  alt="Liffo Home Care Interface" 
                   className="relative z-10 w-full max-w-md mx-auto shadow-2xl border border-white/10"
                 />
               </div>
@@ -228,36 +228,36 @@ export default function LiffoCase() {
             Design Showcase
           </h2>
           
-          {/* Doctor Services Grid */}
+          {/* Doctor and Search Services Grid */}
           <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-primary">Doctor Consultation System</h3>
+            <h3 className="text-2xl font-bold mb-8 text-primary">Doctor Search & Service Discovery</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="space-y-4">
-                <img src={SpecialisationImage} alt="Doctor Specialisation" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Specialist Selection Interface</p>
+                <img src={DoctorLabTestImage} alt="Doctor and Lab Services" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Doctor & Lab Test Services</p>
               </div>
               <div className="space-y-4">
-                <img src={DoctorListImage} alt="Doctor List" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Doctor Listing with Filters</p>
+                <img src={SearchTabImage} alt="Service Search" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Service Search Interface</p>
               </div>
               <div className="space-y-4">
-                <img src={EliteDoctorImage} alt="Elite Doctor" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Premium Elite Doctor Service</p>
+                <img src={SearchTab1Image} alt="Doctor Search" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Doctor Search & Booking</p>
               </div>
             </div>
           </div>
           
-          {/* Appointment & Prescription Flow */}
+          {/* Hospital Detail & Services Flow */}
           <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-primary">Appointment & Treatment Flow</h3>
+            <h3 className="text-2xl font-bold mb-8 text-primary">Hospital Information & Services</h3>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-4">
-                <img src={AppointmentImage} alt="Appointment" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Appointment Booking Interface</p>
+                <img src={HospitalDetailImage1} alt="Hospital Services" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Hospital Service Overview</p>
               </div>
               <div className="space-y-4">
-                <img src={PrescriptionImage} alt="Prescription" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Digital Prescription Management</p>
+                <img src={HospitalDetailImage5} alt="Hospital Details" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Complete Hospital Information</p>
               </div>
             </div>
           </div>
@@ -265,10 +265,10 @@ export default function LiffoCase() {
           {/* Service Categories */}
           <div className="mb-16">
             <h3 className="text-2xl font-bold mb-8 text-primary">Comprehensive Service Platform</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="space-y-4">
-                <img src={AllServicesImage} alt="All Services" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Complete Service Overview</p>
+                <img src={HomeCareImage} alt="Home Care Services" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Home Care Services Platform</p>
               </div>
               <div className="space-y-4">
                 <img src={SymptomsImage} alt="Symptoms" className="w-full shadow-2xl border border-white/10" />
@@ -276,11 +276,26 @@ export default function LiffoCase() {
               </div>
               <div className="space-y-4">
                 <img src={LabTestImage} alt="Lab Test Services" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Lab Test Booking</p>
+                <p className="text-sm text-gray-400 text-center">Lab Test & Pharmacy Services</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* App Walkthrough */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold mb-8 text-primary">App Walkthrough & Onboarding</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="space-y-4">
+                <img src={WalkthroughImage1} alt="Walkthrough 1" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Home Care Introduction</p>
               </div>
               <div className="space-y-4">
-                <img src={HospitalDetailImage} alt="Hospital Detail" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Hospital Information Portal</p>
+                <img src={WalkthroughImage2} alt="Walkthrough 2" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Emergency Support Features</p>
+              </div>
+              <div className="space-y-4">
+                <img src={WalkthroughImage3} alt="Walkthrough 3" className="w-full shadow-2xl border border-white/10" />
+                <p className="text-sm text-gray-400 text-center">Liffo Brand Introduction</p>
               </div>
             </div>
           </div>
