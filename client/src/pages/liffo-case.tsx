@@ -104,22 +104,22 @@ export default function LiffoCase() {
             </div>
             
             <div className="lg:col-span-2">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
+              <div className="space-y-6">
+                <div className="text-center">
                   <img 
                     src={Dashboard1Image} 
                     alt="Liffo Main Dashboard" 
-                    className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900"
+                    className="w-full max-w-2xl mx-auto shadow-lg border border-white/10 rounded-lg bg-gray-900"
                   />
-                  <p className="text-xs text-gray-400 text-center">Main Dashboard Overview</p>
+                  <p className="text-sm text-gray-400 mt-2">Main Dashboard Overview</p>
                 </div>
-                <div className="space-y-2">
+                <div className="text-center">
                   <img 
                     src={Dashboard2Image} 
                     alt="Liffo Secondary Dashboard" 
-                    className="w-full h-64 object-contain shadow-lg border border-white/10 rounded-lg bg-gray-900"
+                    className="w-full max-w-2xl mx-auto shadow-lg border border-white/10 rounded-lg bg-gray-900"
                   />
-                  <p className="text-xs text-gray-400 text-center">Dashboard Details & Navigation</p>
+                  <p className="text-sm text-gray-400 mt-2">Dashboard Details & Navigation</p>
                 </div>
               </div>
             </div>
