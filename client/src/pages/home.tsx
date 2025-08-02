@@ -1191,8 +1191,8 @@ export default function Home() {
 
       {/* Resume Modal */}
       <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
-        <DialogContent className="max-w-6xl w-[95vw] max-h-[95vh] p-0 glass-intense grain-texture border-2 border-primary/40 overflow-hidden">
-          <DialogHeader className="p-3 sm:p-4 pb-3 border-b border-primary/20">
+        <DialogContent className="max-w-6xl w-[95vw] max-h-[95vh] p-0 glass-intense grain-texture border-2 border-primary/40 overflow-hidden z-[100]">
+          <DialogHeader className="p-3 sm:p-4 pb-3 border-b border-primary/20 relative z-[110]">
             <DialogTitle className="flex items-center justify-between w-full">
               <Button
                 variant="ghost"
