@@ -13,11 +13,11 @@ import { Link } from 'wouter';
 import { useToast } from '@/hooks/use-toast';
 import { LiquidGrid } from '@/components/liquid-grid';
 import { MovingRibbon } from '@/components/moving-ribbon';
-import logoPath from '@assets/Logo black_1749729973781.png';
-import futureFirstFamiliesThumbnail from '@assets/Screenshot 2025-07-29 at 00.03.25_1753728466090.png';
-import liffoThumbnail from '@assets/Screenshot 2025-08-03 at 02.38.41_1754168924385.png';
+import logoPath from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
+import futureFirstFamiliesThumbnail from '@assets/Dashboard 2.png';
+import liffoThumbnail from '@assets/Dashboard 1.png';
 import resumePdf from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
-import profilePhoto from '@assets/Snapchat-46456319_1753732781437.jpg';
+import profilePhoto from '@assets/Dashboard 1.png';
 import { 
   Terminal, 
   Sparkles, 

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'wouter';
-import logoPath from "@assets/Logo black_1749729973781.png";
+import logoPath from "@assets/Dashboard 1.png";
 import fffVideoPath from "@assets/FFF website video (video-converter.com)_1754054201797.webm";
 
 export default function CaseStudy() {
