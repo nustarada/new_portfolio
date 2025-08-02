@@ -37,6 +37,7 @@ import PrescriptionImage from "@assets/Prescription.png";
 import HealthCardImage from "@assets/Health card.png";
 import Dashboard1Image from "@assets/Dashboard 1.png";
 import Dashboard2Image from "@assets/Dashboard 2.png";
+import LogoImage from "@assets/Logo black_1754170788875.png";
 
 export default function LiffoCase() {
   const [, navigate] = useLocation();
@@ -507,8 +508,12 @@ export default function LiffoCase() {
       {/* Footer */}
       <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-white/10">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-gray-400">
-            © 2025 Karan Gadhave. All rights reserved. |{" "}
+          <div className="flex justify-center items-center space-x-8 mb-4">
+            <img 
+              src={LogoImage} 
+              alt="Karan Gadhave Logo" 
+              className="h-6 w-6 invert opacity-80"
+            />
             <a 
               href="https://www.linkedin.com/in/karan-gadhave-ab204a1b4/" 
               target="_blank" 
@@ -517,6 +522,9 @@ export default function LiffoCase() {
             >
               LinkedIn
             </a>
+          </div>
+          <p className="text-gray-400">
+            © 2025 Karan Gadhave. All rights reserved.
           </p>
         </div>
       </footer>
