@@ -15,6 +15,7 @@ import SymptomsImage from "@assets/Symptoms_1754168729619.png";
 import DoctorLabTestImage from "@assets/Doctor Lab Test Serivices_1754168729619.png";
 import PharmacyLabTestImage from "@assets/Pharmacy Lab Test Serivices_1754168729619.png";
 import LabTestImage from "@assets/Lab Test Serivices_1754168729619.png";
+import DashboardImage from "@assets/Screenshot 2025-08-03 at 02.38.41_1754168924385.png";
 
 export default function LiffoCase() {
   const [, navigate] = useLocation();
@@ -97,9 +98,9 @@ export default function LiffoCase() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-orange-500/20 blur-3xl transform rotate-6"></div>
                 <img 
-                  src={HomeCareImage} 
-                  alt="Liffo Home Care Interface" 
-                  className="relative z-10 w-full max-w-md mx-auto shadow-2xl border border-white/10"
+                  src={DashboardImage} 
+                  alt="Liffo Dashboard Interface" 
+                  className="relative z-10 w-full max-w-lg mx-auto shadow-2xl border border-white/10 rounded-lg"
                 />
               </div>
             </div>
