@@ -1191,30 +1191,30 @@ export default function Home() {
 
       {/* Resume Modal */}
       <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
-        <DialogContent className="max-w-6xl w-[95vw] max-h-[calc(95vh-80px)] mt-20 p-0 glass-intense grain-texture border-2 border-primary/40 overflow-hidden">
-          <DialogHeader className="p-3 sm:p-4 pb-3 border-b border-primary/20">
+        <DialogContent className="w-full h-[calc(100vh-64px)] max-w-none top-16 left-0 right-0 translate-x-0 translate-y-0 m-0 p-0 glass-intense grain-texture border-0 border-t border-primary/40 overflow-hidden rounded-none">
+          <DialogHeader className="p-2 sm:p-3 md:p-4 pb-2 sm:pb-3 border-b border-primary/20">
             <DialogTitle className="flex items-center justify-between w-full">
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsResumeOpen(false)}
-                className="w-10 h-10 sm:w-12 sm:h-12 text-white hover:bg-white/20 hover:text-primary transition-colors z-20 flex-shrink-0 bg-black/20 border border-white/20"
+                className="w-8 h-8 sm:w-10 sm:h-10 text-white hover:bg-white/20 hover:text-primary transition-colors flex-shrink-0 bg-black/20 border border-white/20"
               >
-                <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
               
-              <div className="flex items-center space-x-2 sm:space-x-3 flex-1 justify-center">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-primary/30 to-cyan-500/30 flex items-center justify-center">
-                  <User className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+              <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-3 flex-1 justify-center">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-gradient-to-br from-primary/30 to-cyan-500/30 flex items-center justify-center">
+                  <User className="w-3 h-3 sm:w-3 sm:h-3 md:w-4 md:h-4 text-primary" />
                 </div>
-                <span className="text-sm sm:text-base font-bold text-white">Karan Gadhave - Resume</span>
+                <span className="text-xs sm:text-sm md:text-base font-bold text-white">Karan Gadhave - Resume</span>
               </div>
               
-              <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0"></div>
+              <div className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0"></div>
             </DialogTitle>
           </DialogHeader>
           
-          <div className="w-full h-[calc(95vh-140px)] p-2 sm:p-4 bg-white">
+          <div className="w-full h-[calc(100vh-120px)] sm:h-[calc(100vh-128px)] md:h-[calc(100vh-136px)] p-1 sm:p-2 md:p-4 bg-white">
             <div className="w-full h-full bg-white rounded-lg overflow-auto">
               <div className="max-w-4xl mx-auto p-3 sm:p-6 md:p-8 bg-white text-black">
                 <div className="text-center mb-6 sm:mb-8">
