@@ -1190,35 +1190,35 @@ export default function Home() {
 
       {/* Resume Modal */}
       <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
-        <DialogContent className="max-w-6xl w-full max-h-[95vh] p-0 glass-intense grain-texture border-2 border-primary/40 overflow-hidden">
-          <DialogHeader className="p-4 pb-3 border-b border-primary/20">
-            <DialogTitle className="text-xl font-bold text-white flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary/30 to-cyan-500/30 flex items-center justify-center">
-                <User className="w-4 h-4 text-primary" />
+        <DialogContent className="max-w-6xl w-[95vw] max-h-[95vh] p-0 glass-intense grain-texture border-2 border-primary/40 overflow-hidden">
+          <DialogHeader className="p-3 sm:p-4 pb-3 border-b border-primary/20">
+            <DialogTitle className="text-lg sm:text-xl font-bold text-white flex items-center space-x-2 sm:space-x-3">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-primary/30 to-cyan-500/30 flex items-center justify-center">
+                <User className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
               </div>
-              <span>Karan Gadhave - Resume</span>
+              <span className="text-sm sm:text-base">Karan Gadhave - Resume</span>
             </DialogTitle>
           </DialogHeader>
           
-          <div className="w-full h-[calc(95vh-80px)] p-4 bg-white">
+          <div className="w-full h-[calc(95vh-60px)] sm:h-[calc(95vh-80px)] p-2 sm:p-4 bg-white">
             <div className="w-full h-full bg-white rounded-lg overflow-auto">
-              <div className="max-w-4xl mx-auto p-8 bg-white text-black">
-                <div className="text-center mb-8">
-                  <h1 className="text-4xl font-bold mb-2">Karan Sanjay Gadhave</h1>
-                  <h2 className="text-xl text-gray-600 mb-4">Senior Product / UI/UX Designer</h2>
+              <div className="max-w-4xl mx-auto p-3 sm:p-6 md:p-8 bg-white text-black">
+                <div className="text-center mb-6 sm:mb-8">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Karan Sanjay Gadhave</h1>
+                  <h2 className="text-base sm:text-lg md:text-xl text-gray-600 mb-3 sm:mb-4">Senior Product / UI/UX Designer</h2>
                   
-                  <div className="flex justify-center space-x-8 text-sm">
-                    <span>Email: gadhavekaran@gmail.com</span>
+                  <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-8 text-xs sm:text-sm">
+                    <span className="break-all">Email: gadhavekaran@gmail.com</span>
                     <span>Phone: +91 7744074265</span>
                     <span>LinkedIn: karan-gadhave</span>
                   </div>
                 </div>
 
-                <hr className="border-gray-300 mb-6" />
+                <hr className="border-gray-300 mb-4 sm:mb-6" />
 
-                <section className="mb-8">
-                  <h3 className="text-lg font-bold mb-3">Profile Summary:</h3>
-                  <p className="text-sm leading-relaxed">
+                <section className="mb-6 sm:mb-8">
+                  <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-3">Profile Summary:</h3>
+                  <p className="text-xs sm:text-sm leading-relaxed">
                     As a skilled Senior Product Designer with four years of experience, I excel in UI/UX design, transforming ideas into intuitive digital products. My
                     expertise in user research, wireframing, and design systems ensures effective, user-focused solutions. I take a strategic, data-driven approach to
                     problem-solving, consistently delivering high-quality results. As a UI/UX manager, I lead design teams, manage project timelines, and ensure
@@ -1226,16 +1226,16 @@ export default function Home() {
                   </p>
                 </section>
 
-                <section className="mb-8">
-                  <h3 className="text-lg font-bold mb-4">Work Experience:</h3>
+                <section className="mb-6 sm:mb-8">
+                  <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Work Experience:</h3>
                   
-                  <div className="mb-6">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-semibold">Team Pumpkin</h4>
-                      <span className="text-sm text-gray-600">Apr 2022 - Present</span>
+                  <div className="mb-4 sm:mb-6">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                      <h4 className="font-semibold text-sm sm:text-base">Team Pumpkin</h4>
+                      <span className="text-xs sm:text-sm text-gray-600">Apr 2022 - Present</span>
                     </div>
-                    <p className="text-sm text-gray-600 mb-2">UI UX Designer Manager - Remote, India</p>
-                    <div className="text-sm space-y-1">
+                    <p className="text-xs sm:text-sm text-gray-600 mb-2">UI UX Designer Manager - Remote, India</p>
+                    <div className="text-xs sm:text-sm space-y-1">
                       <p>• Pioneered the design of Acedboard, a project management tool, driving a 35% increase in user satisfaction and a 40% boost in task efficiency</p>
                       <p>• Led the end-to-end design of Aeroplane, a business-oriented social media platform, achieving a 25% rise in user engagement</p>
                       <p>• Created cutting-edge health platforms for Healthsignz and MYMEDIC B2B2C Digital Health</p>
@@ -1244,54 +1244,54 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="mb-6">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-semibold">WeInvest Pepperpenny</h4>
-                      <span className="text-sm text-gray-600">Jun 2021 - Nov 2021</span>
+                  <div className="mb-4 sm:mb-6">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                      <h4 className="font-semibold text-sm sm:text-base">WeInvest Pepperpenny</h4>
+                      <span className="text-xs sm:text-sm text-gray-600">Jun 2021 - Nov 2021</span>
                     </div>
-                    <p className="text-sm text-gray-600 mb-2">UI UX Designer - Remote, India</p>
-                    <div className="text-sm space-y-1">
+                    <p className="text-xs sm:text-sm text-gray-600 mb-2">UI UX Designer - Remote, India</p>
+                    <div className="text-xs sm:text-sm space-y-1">
                       <p>• Designed core features for StockMarketBox like broker comparison, market tickers, courses, and blog</p>
                       <p>• Successfully launched Stockmarketbox.com, boosting online presence</p>
                       <p>• Created custom illustrations and animations, increasing user engagement by 20%</p>
                     </div>
                   </div>
 
-                  <div className="mb-6">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-semibold">DBM Infotech PVT LTD</h4>
-                      <span className="text-sm text-gray-600">Mar 2021 - Jun 2021</span>
+                  <div className="mb-4 sm:mb-6">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                      <h4 className="font-semibold text-sm sm:text-base">DBM Infotech PVT LTD</h4>
+                      <span className="text-xs sm:text-sm text-gray-600">Mar 2021 - Jun 2021</span>
                     </div>
-                    <p className="text-sm text-gray-600 mb-2">UI UX Designer - Pune, India</p>
-                    <div className="text-sm space-y-1">
+                    <p className="text-xs sm:text-sm text-gray-600 mb-2">UI UX Designer - Pune, India</p>
+                    <div className="text-xs sm:text-sm space-y-1">
                       <p>• Led the design for Teach Max mobile application</p>
                       <p>• Worked on various redesign projects from websites to mobile applications</p>
                     </div>
                   </div>
                 </section>
 
-                <section className="mb-8">
-                  <h3 className="text-lg font-bold mb-4">Internship Experience:</h3>
+                <section className="mb-6 sm:mb-8">
+                  <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Internship Experience:</h3>
                   
-                  <div className="mb-4">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-semibold">Credence Analytics</h4>
-                      <span className="text-sm text-gray-600">Jan 2022 - Mar 2022</span>
+                  <div className="mb-3 sm:mb-4">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                      <h4 className="font-semibold text-sm sm:text-base">Credence Analytics</h4>
+                      <span className="text-xs sm:text-sm text-gray-600">Jan 2022 - Mar 2022</span>
                     </div>
-                    <p className="text-sm text-gray-600 mb-2">UI UX Designer Intern - Remote, India</p>
-                    <div className="text-sm space-y-1">
+                    <p className="text-xs sm:text-sm text-gray-600 mb-2">UI UX Designer Intern - Remote, India</p>
+                    <div className="text-xs sm:text-sm space-y-1">
                       <p>• Redesigned iDeal, iDeal Wealth and Fund, Mercury, and CashTrea, achieving 30% improvement in user satisfaction</p>
                       <p>• Redesigned company website, resulting in 47% growth in visitors and 20% increase in lead generation</p>
                     </div>
                   </div>
 
-                  <div className="mb-4">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-semibold">FarmiGO</h4>
-                      <span className="text-sm text-gray-600">Oct 2020 - Dec 2020</span>
+                  <div className="mb-3 sm:mb-4">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                      <h4 className="font-semibold text-sm sm:text-base">FarmiGO</h4>
+                      <span className="text-xs sm:text-sm text-gray-600">Oct 2020 - Dec 2020</span>
                     </div>
-                    <p className="text-sm text-gray-600 mb-2">UI UX Designer Intern - Remote, India</p>
-                    <div className="text-sm space-y-1">
+                    <p className="text-xs sm:text-sm text-gray-600 mb-2">UI UX Designer Intern - Remote, India</p>
+                    <div className="text-xs sm:text-sm space-y-1">
                       <p>• Designed both UX and UI with deep focus on enhancing user experience through extensive research</p>
                       <p>• Applied advanced problem-solving skills to deliver optimal and intuitive design solutions</p>
                       <p>• Spearheaded the app design process from initial research to high-fidelity prototypes in two months</p>
@@ -1299,40 +1299,40 @@ export default function Home() {
                   </div>
                 </section>
 
-                <section className="mb-8">
-                  <h3 className="text-lg font-bold mb-4">Education:</h3>
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h4 className="font-semibold">Bachelor of Arts in History</h4>
-                      <p className="text-sm text-gray-600">Yashwantrao Chavan Maharashtra Open University, Barshi, India</p>
+                <section className="mb-6 sm:mb-8">
+                  <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Education:</h3>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
+                    <div className="mb-2 sm:mb-0">
+                      <h4 className="font-semibold text-sm sm:text-base">Bachelor of Arts in History</h4>
+                      <p className="text-xs sm:text-sm text-gray-600">Yashwantrao Chavan Maharashtra Open University, Barshi, India</p>
                     </div>
-                    <span className="text-sm text-gray-600">2016 - 2019</span>
+                    <span className="text-xs sm:text-sm text-gray-600">2016 - 2019</span>
                   </div>
                 </section>
 
-                <section className="mb-8">
-                  <h3 className="text-lg font-bold mb-4">Certifications:</h3>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span>UX/UI Bootcamp - Designwings UX/UI School</span>
+                <section className="mb-6 sm:mb-8">
+                  <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Certifications:</h3>
+                  <div className="space-y-2 text-xs sm:text-sm">
+                    <div className="flex flex-col sm:flex-row sm:justify-between">
+                      <span className="mb-1 sm:mb-0">UX/UI Bootcamp - Designwings UX/UI School</span>
                       <span className="text-gray-600">Mar 2022</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span>Complete Web & Mobile Designer - Udemy</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between">
+                      <span className="mb-1 sm:mb-0">Complete Web & Mobile Designer - Udemy</span>
                       <span className="text-gray-600">Feb 2024</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span>UI/UX Design - Internshala</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between">
+                      <span className="mb-1 sm:mb-0">UI/UX Design - Internshala</span>
                       <span className="text-gray-600">Aug 2020</span>
                     </div>
                   </div>
                 </section>
 
                 <section>
-                  <h3 className="text-lg font-bold mb-4">Skills:</h3>
-                  <div className="grid grid-cols-3 gap-6 text-sm">
+                  <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Skills:</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 text-xs sm:text-sm">
                     <div>
-                      <h4 className="font-semibold mb-2">Design Skills</h4>
+                      <h4 className="font-semibold mb-2 text-sm sm:text-base">Design Skills</h4>
                       <div className="space-y-1">
                         <p>• Prototyping</p>
                         <p>• User Experience Design</p>
@@ -1345,7 +1345,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">Technical Skills</h4>
+                      <h4 className="font-semibold mb-2 text-sm sm:text-base">Technical Skills</h4>
                       <div className="space-y-1">
                         <p>• Figma</p>
                         <p>• Sketch</p>
@@ -1358,7 +1358,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">Soft Skills</h4>
+                      <h4 className="font-semibold mb-2 text-sm sm:text-base">Soft Skills</h4>
                       <div className="space-y-1">
                         <p>• Strong Leadership</p>
                         <p>• Coordination Skills</p>
