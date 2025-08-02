@@ -1192,15 +1192,15 @@ export default function Home() {
       {/* Resume Modal */}
       <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
         <DialogContent className="max-w-6xl w-[95vw] max-h-[95vh] p-0 glass-intense grain-texture border-2 border-primary/40 overflow-hidden">
-          <DialogHeader className="p-3 sm:p-4 pb-3 border-b border-primary/20 relative">
-            <div className="flex items-center justify-between w-full">
+          <DialogHeader className="p-3 sm:p-4 pb-3 border-b border-primary/20">
+            <DialogTitle className="flex items-center justify-between w-full">
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsResumeOpen(false)}
-                className="w-8 h-8 sm:w-10 sm:h-10 text-white hover:bg-white/20 hover:text-primary transition-colors z-10 flex-shrink-0"
+                className="w-10 h-10 sm:w-12 sm:h-12 text-white hover:bg-white/20 hover:text-primary transition-colors z-20 flex-shrink-0 bg-black/20 border border-white/20"
               >
-                <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+                <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6" />
               </Button>
               
               <div className="flex items-center space-x-2 sm:space-x-3 flex-1 justify-center">
@@ -1210,8 +1210,8 @@ export default function Home() {
                 <span className="text-sm sm:text-base font-bold text-white">Karan Gadhave - Resume</span>
               </div>
               
-              <div className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0"></div>
-            </div>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0"></div>
+            </DialogTitle>
           </DialogHeader>
           
           <div className="w-full h-[calc(95vh-60px)] sm:h-[calc(95vh-80px)] p-2 sm:p-4 bg-white">
