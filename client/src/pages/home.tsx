@@ -1193,20 +1193,25 @@ export default function Home() {
       <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
         <DialogContent className="max-w-6xl w-[95vw] max-h-[95vh] p-0 glass-intense grain-texture border-2 border-primary/40 overflow-hidden">
           <DialogHeader className="p-3 sm:p-4 pb-3 border-b border-primary/20 relative">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsResumeOpen(false)}
-              className="absolute left-2 top-2 w-8 h-8 sm:w-10 sm:h-10 text-white hover:bg-white/10 hover:text-primary transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-            </Button>
-            <DialogTitle className="text-lg sm:text-xl font-bold text-white flex items-center justify-center space-x-2 sm:space-x-3 ml-8 sm:ml-10">
-              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-primary/30 to-cyan-500/30 flex items-center justify-center">
-                <User className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+            <div className="flex items-center justify-between w-full">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsResumeOpen(false)}
+                className="w-8 h-8 sm:w-10 sm:h-10 text-white hover:bg-white/20 hover:text-primary transition-colors z-10 flex-shrink-0"
+              >
+                <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+              </Button>
+              
+              <div className="flex items-center space-x-2 sm:space-x-3 flex-1 justify-center">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-primary/30 to-cyan-500/30 flex items-center justify-center">
+                  <User className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+                </div>
+                <span className="text-sm sm:text-base font-bold text-white">Karan Gadhave - Resume</span>
               </div>
-              <span className="text-sm sm:text-base">Karan Gadhave - Resume</span>
-            </DialogTitle>
+              
+              <div className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0"></div>
+            </div>
           </DialogHeader>
           
           <div className="w-full h-[calc(95vh-60px)] sm:h-[calc(95vh-80px)] p-2 sm:p-4 bg-white">
