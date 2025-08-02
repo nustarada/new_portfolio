@@ -249,104 +249,112 @@ export default function LiffoCase() {
           </h2>
           
           {/* Doctor and Search Services Grid */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-primary">Doctor Search & Service Discovery</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="space-y-4">
-                <img src={DoctorLabTestImage} alt="Doctor and Lab Services" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Doctor & Lab Test Services</p>
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-primary">Doctor Search & Service Discovery</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <img src={DoctorLabTestImage} alt="Doctor and Lab Services" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Doctor & Lab Test Services</p>
               </div>
-              <div className="space-y-4">
-                <img src={SearchTabImage} alt="Service Search" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Service Search Interface</p>
+              <div className="space-y-2">
+                <img src={SearchTabImage} alt="Service Search" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Service Search Interface</p>
               </div>
-              <div className="space-y-4">
-                <img src={SearchTab1Image} alt="Doctor Search" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Doctor Search & Booking</p>
+              <div className="space-y-2">
+                <img src={SearchTab1Image} alt="Doctor Search" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Doctor Search & Booking</p>
+              </div>
+              <div className="space-y-2">
+                <img src={HomeCareImage} alt="Home Care Services" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Home Care Services</p>
               </div>
             </div>
           </div>
           
           {/* Hospital Detail & Services Flow */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-primary">Hospital Information & Services</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="space-y-4">
-                <img src={HospitalDetailImage1} alt="Hospital Services" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Hospital Service Overview</p>
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-primary">Hospital Information & Services</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <img src={HospitalDetailImage1} alt="Hospital Services" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Hospital Service Overview</p>
               </div>
-              <div className="space-y-4">
-                <img src={HospitalDetailImage2} alt="Hospital Details 2" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Detailed Hospital Information</p>
+              <div className="space-y-2">
+                <img src={HospitalDetailImage2} alt="Hospital Details 2" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Detailed Hospital Information</p>
               </div>
-              <div className="space-y-4">
-                <img src={HospitalDetailImage3} alt="Hospital Details 3" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Hospital Contact & Booking</p>
+              <div className="space-y-2">
+                <img src={HospitalDetailImage3} alt="Hospital Details 3" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Hospital Contact & Booking</p>
               </div>
-              <div className="space-y-4">
-                <img src={HospitalDetailImage4} alt="Hospital Details 4" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Complete Hospital Profile</p>
+              <div className="space-y-2">
+                <img src={HospitalDetailImage4} alt="Hospital Details 4" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Complete Hospital Profile</p>
               </div>
             </div>
           </div>
           
           {/* Service Categories */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-primary">Comprehensive Service Platform</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="space-y-4">
-                <img src={AllServicesImage} alt="All Services" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Complete Service Overview</p>
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-primary">Comprehensive Service Platform</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <img src={AllServicesImage} alt="All Services" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Complete Service Overview</p>
               </div>
-              <div className="space-y-4">
-                <img src={EmergencyImage} alt="Emergency Services" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Emergency Response System</p>
+              <div className="space-y-2">
+                <img src={EmergencyImage} alt="Emergency Services" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Emergency Response System</p>
               </div>
-              <div className="space-y-4">
-                <img src={SymptomsImage} alt="Symptoms" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Symptom-Based Navigation</p>
+              <div className="space-y-2">
+                <img src={SymptomsImage} alt="Symptoms" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Symptom-Based Navigation</p>
               </div>
-              <div className="space-y-4">
-                <img src={LabTestImage} alt="Lab Test Services" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Lab Test & Pharmacy Services</p>
+              <div className="space-y-2">
+                <img src={LabTestImage} alt="Lab Test Services" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Lab Test & Pharmacy Services</p>
               </div>
             </div>
           </div>
           
           {/* Additional Service Features */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-primary">Treatment & Care Management</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="space-y-4">
-                <img src={AppointmentImage} alt="Appointment Booking" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Appointment Scheduling</p>
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-primary">Treatment & Care Management</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <img src={AppointmentImage} alt="Appointment Booking" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Appointment Scheduling</p>
               </div>
-              <div className="space-y-4">
-                <img src={PrescriptionImage} alt="Prescription Management" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Digital Prescription System</p>
+              <div className="space-y-2">
+                <img src={PrescriptionImage} alt="Prescription Management" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Digital Prescription System</p>
               </div>
-              <div className="space-y-4">
-                <img src={HealthCardImage} alt="Health Card" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Personal Health Profile</p>
+              <div className="space-y-2">
+                <img src={HealthCardImage} alt="Health Card" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Personal Health Profile</p>
+              </div>
+              <div className="space-y-2">
+                <img src={PharmacyLabTestImage} alt="Pharmacy Services" className="w-full h-48 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Pharmacy & Lab Integration</p>
               </div>
             </div>
           </div>
           
           {/* App Walkthrough */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-primary">App Walkthrough & Onboarding</h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="space-y-4">
-                <img src={WalkthroughImage1} alt="Walkthrough 1" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Home Care Introduction</p>
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-primary">App Walkthrough & Onboarding</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <img src={WalkthroughImage1} alt="Walkthrough 1" className="w-full h-64 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Home Care Introduction</p>
               </div>
-              <div className="space-y-4">
-                <img src={WalkthroughImage2} alt="Walkthrough 2" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Emergency Support Features</p>
+              <div className="space-y-2">
+                <img src={WalkthroughImage2} alt="Walkthrough 2" className="w-full h-64 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Emergency Support Features</p>
               </div>
-              <div className="space-y-4">
-                <img src={WalkthroughImage3} alt="Walkthrough 3" className="w-full shadow-2xl border border-white/10" />
-                <p className="text-sm text-gray-400 text-center">Liffo Brand Introduction</p>
+              <div className="space-y-2 col-span-2 max-w-md mx-auto">
+                <img src={WalkthroughImage3} alt="Walkthrough 3" className="w-full h-64 object-cover shadow-lg border border-white/10 rounded-lg" />
+                <p className="text-xs text-gray-400 text-center">Liffo Brand Introduction</p>
               </div>
             </div>
           </div>
