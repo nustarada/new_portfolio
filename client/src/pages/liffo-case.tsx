@@ -6,6 +6,18 @@ import { useEffect } from "react";
 import WalkthroughImage1 from "@assets/Walkthrough 1.png";
 import WalkthroughImage2 from "@assets/Walkthrough 2.png";
 import WalkthroughImage3 from "@assets/Walkthrough 3.png";
+import EliteDoctorImage from "@assets/Elite Doctor_1754170735048.png";
+import DoctorListImage from "@assets/Doctor List_1754170735048.png";
+import DoctorSpecialisationImage from "@assets/Doctor Specialisation_1754170735049.png";
+import HospitalDetailImage6 from "@assets/Hospital Detail Page 4_1754170735053.png";
+import HealthCardImage2 from "@assets/Health card_1754170735053.png";
+import EditProfileImage from "@assets/Edit Profile_1754170735053.png";
+import MyProfileImage from "@assets/My Profile_1754170735053.png";
+import MyLabResultsImage from "@assets/My Lab Results_1754170735054.png";
+import EditPhysicalsImage from "@assets/Edit Physicals_1754170735054.png";
+import HealthDetailsImage from "@assets/Health Details_1754170735054.png";
+import FamilyMedicalHistoryImage from "@assets/Family Medical History_1754170735054.png";
+import SelectImage from "@assets/SELECT_1754170735054.png";
 import HospitalDetailImage1 from "@assets/Hospital Detail Page 1.png";
 import HospitalDetailImage2 from "@assets/Hospital Detail Page 2.png";
 import HospitalDetailImage3 from "@assets/Hospital Detail Page 3.png";
@@ -444,6 +456,21 @@ export default function LiffoCase() {
             <img src={PrescriptionImage} alt="Prescription Management" className="w-full" />
             <img src={HealthCardImage} alt="Health Card" className="w-full" />
             <img src={PharmacyLabTestImage} alt="Pharmacy Services" className="w-full" />
+            
+            <img src={EliteDoctorImage} alt="Elite Doctor" className="w-full" />
+            <img src={DoctorListImage} alt="Doctor List" className="w-full" />
+            <img src={DoctorSpecialisationImage} alt="Doctor Specialisation" className="w-full" />
+            <img src={HospitalDetailImage6} alt="Hospital Detail Page" className="w-full" />
+            
+            <img src={HealthCardImage2} alt="Health Card Details" className="w-full" />
+            <img src={EditProfileImage} alt="Edit Profile" className="w-full" />
+            <img src={MyProfileImage} alt="My Profile" className="w-full" />
+            <img src={MyLabResultsImage} alt="My Lab Results" className="w-full" />
+            
+            <img src={EditPhysicalsImage} alt="Edit Physicals" className="w-full" />
+            <img src={HealthDetailsImage} alt="Health Details" className="w-full" />
+            <img src={FamilyMedicalHistoryImage} alt="Family Medical History" className="w-full" />
+            <img src={SelectImage} alt="Select Options" className="w-full" />
           </div>
         </div>
       </section>
