@@ -276,45 +276,10 @@
     /* Fallback for unsupported browsers */
   }
 
-  /* Project Card Stroke Only */
+  /* Simple Project Card Border */
   .project-card-border {
-    position: relative;
     border: 0.6px solid rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease;
-  }
-
-  .project-card-border::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: conic-gradient(from 0deg, transparent 340deg, #8b5cf6 350deg, #3b82f6 355deg, #ef4444 360deg, transparent 20deg);
-    border-radius: inherit;
-    opacity: 0;
-    z-index: 1;
-    pointer-events: none;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    padding: 1px;
-  }
-
-  .project-card-border:hover {
-    border-color: transparent;
-  }
-
-  .project-card-border:hover::before {
-    opacity: 1;
-    animation: clockwise-border 4s linear infinite;
-  }
-
-  @keyframes clockwise-border {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
   }
 
   .stroke-text {
