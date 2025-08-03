@@ -157,7 +157,7 @@ export default function Home() {
 
   const projects = [
     {
-      title: "FutureFirst Familie",
+      title: "FutureFirst Families",
       subtitle: "Gamified Advocacy Platform",
       description: "A civic engagement platform empowering parents to take monthly actions on educational reform through gamified, user-friendly design tailored for non-tech-savvy users.",
       detailedDescription: "Designed and developed the entire platform from ground up, combining gamification with advocacy to create an engaging experience that increased completed actions by 30% and achieved 4× higher user retention.",
