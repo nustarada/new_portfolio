@@ -855,11 +855,11 @@ export default function Home() {
                   </div>
 
                   {/* Hero Image Section */}
-                  <div className="relative h-80 overflow-hidden">
+                  <div className="relative h-64 overflow-hidden bg-white/5">
                     <img 
                       src={project.image} 
                       alt={`${project.title} Platform`} 
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
 
