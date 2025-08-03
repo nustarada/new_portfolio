@@ -182,6 +182,7 @@ export default function Home() {
         "Accessibility features including light/dark modes and clean typography"
       ],
       techStack: ["React", "JavaScript", "Responsive Design", "Accessibility"],
+      duration: "4 Months",
       process: [
         "Conducted interviews with advocacy organizers",
         "Created user flows and low-fidelity wireframes", 
@@ -218,6 +219,7 @@ export default function Home() {
         "AI-powered chatbot for 24/7 critical help"
       ],
       techStack: ["Figma", "React Native", "Node.js", "MongoDB", "Healthcare APIs"],
+      duration: "6 Months",
       process: [
         "Conducted user research and competitive analysis",
         "Created wireframes and interactive prototypes",
@@ -833,8 +835,8 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Enhanced Project Cards */}
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* Wireframe-Based Project Cards */}
+          <div className="space-y-8 max-w-6xl mx-auto">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -842,84 +844,94 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 viewport={{ once: true }}
-                className="group h-full"
+                className="group"
               >
-                <Card className="relative h-full overflow-hidden glass-card grain-texture hover:glass-intense border-0 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.02]">
-                  {/* Project Number Badge */}
-                  <div className="absolute top-4 left-4 z-20">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 backdrop-blur-md border border-white/10 flex items-center justify-center">
-                      <span className="text-lg font-bold text-primary font-mono">
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Hero Image Section */}
-                  <div className="relative h-64 overflow-hidden bg-white/5">
-                    <img 
-                      src={project.image} 
-                      alt={`${project.title} Platform`} 
-                      className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-
-                  {/* Responsive Content Section */}
-                  <div className="p-6 sm:p-8 space-y-4 sm:space-y-6">
-                    {/* Header with improved spacing */}
-                    <div className="flex items-center justify-between">
-                      <Badge className="bg-primary/25 text-primary border-primary/40 text-sm font-semibold px-4 py-2 jost-secondary backdrop-blur-md">
-                        {project.category}
-                      </Badge>
-                      <Badge variant="outline" className="bg-black/30 backdrop-blur-md border-white/30 text-white/90 text-sm px-3 py-2 jost-secondary font-medium">
-                        {project.year}
-                      </Badge>
+                <Card className="relative overflow-hidden glass-card grain-texture hover:glass-intense border-0 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.01]">
+                  {/* Horizontal Layout: Thumbnail + Content */}
+                  <div className="flex flex-col lg:flex-row">
+                    {/* Left Side - Thumbnail */}
+                    <div className="lg:w-1/2 relative overflow-hidden bg-white/5">
+                      <div className="aspect-[4/3] relative">
+                        <img 
+                          src={project.image} 
+                          alt={`${project.title} Platform`} 
+                          className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+                        />
+                      </div>
                     </div>
 
-                    {/* Responsive Title with better typography */}
-                    <div className="space-y-2 sm:space-y-3">
-                      <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary tracking-wide">
-                        {project.title.toUpperCase()}
-                      </h3>
-                      <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-primary to-cyan-400 group-hover:w-20 sm:group-hover:w-24 transition-all duration-500" />
-                    </div>
+                    {/* Right Side - Content */}
+                    <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-between">
+                      {/* Top Section: Brand Logo */}
+                      <div className="flex justify-between items-start mb-6">
+                        <div className="flex-1">
+                          {/* Project Number Badge */}
+                          <div className="w-10 h-10 bg-gradient-to-br from-primary/20 to-purple-500/20 backdrop-blur-md border border-white/10 flex items-center justify-center mb-4">
+                            <span className="text-sm font-bold text-primary font-mono">
+                              {String(index + 1).padStart(2, '0')}
+                            </span>
+                          </div>
+                        </div>
+                        {/* Brand Logo */}
+                        <div className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                          <img 
+                            src={LogoImage} 
+                            alt="Brand Logo" 
+                            className="w-8 h-8 object-contain opacity-80"
+                          />
+                        </div>
+                      </div>
 
-                    {/* Responsive Description with better spacing */}
-                    <p className="text-white/85 leading-relaxed text-base sm:text-lg jost-secondary line-clamp-3 font-light">
-                      {project.description}
-                    </p>
+                      {/* Project Title and Description */}
+                      <div className="space-y-4 mb-6">
+                        <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
+                          {project.title}
+                        </h3>
+                        <p className="text-white/85 leading-relaxed text-base jost-secondary font-light">
+                          {project.description}
+                        </p>
+                      </div>
 
-                    {/* Tech Stack Preview */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.techStack.slice(0, 3).map((tech) => (
-                        <span key={tech} className="text-xs bg-white/10 text-white/70 px-3 py-1 backdrop-blur-sm border border-white/20 jost-secondary font-medium">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                      {/* Industry and Services Row */}
+                      <div className="grid grid-cols-2 gap-6 mb-6">
+                        <div>
+                          <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">Industry</p>
+                          <p className="text-white font-semibold jost-secondary">{project.category}</p>
+                        </div>
+                        <div>
+                          <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">Services</p>
+                          <p className="text-white font-semibold jost-secondary">Design + Full Stack Development</p>
+                        </div>
+                      </div>
 
-                    {/* Responsive Action Buttons */}
-                    <div className="pt-6 border-t border-white/10">
-                      <div className="flex flex-col sm:grid sm:grid-cols-2 gap-3 sm:gap-4">
+                      {/* Duration */}
+                      <div className="mb-6">
+                        <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">Duration</p>
+                        <p className="text-white font-semibold jost-secondary">{project.duration || "4 Months"}</p>
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="flex flex-col sm:flex-row gap-3">
                         <a 
                           href={project.caseStudyUrl}
-                          className="w-full group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-sm sm:text-base h-12 sm:h-14 border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer block text-center no-underline shadow-lg hover:shadow-primary/25 flex items-center justify-center"
+                          className="flex-1 group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-sm h-12 border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer block text-center no-underline shadow-lg hover:shadow-primary/25 flex items-center justify-center"
                           style={{ WebkitTapHighlightColor: 'transparent' }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                           <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
-                            <span className="text-sm sm:text-base font-semibold">Case Study</span>
-                            <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:rotate-45 transition-transform duration-300" />
+                            <span className="font-semibold">Case Study</span>
+                            <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
                           </div>
                         </a>
                         {project.liveUrl !== "#" && (
                           <Button 
                             onClick={() => window.open(project.liveUrl, '_blank')}
                             variant="outline"
-                            className="w-full text-white border-white/30 hover:bg-white/10 hover:border-primary/50 h-12 sm:h-14 text-sm sm:text-base jost-secondary font-semibold backdrop-blur-sm shadow-lg hover:shadow-white/10 active:scale-[0.98] transition-all duration-300"
+                            className="flex-1 text-white border-white/30 hover:bg-white/10 hover:border-primary/50 h-12 text-sm jost-secondary font-semibold backdrop-blur-sm shadow-lg hover:shadow-white/10 active:scale-[0.98] transition-all duration-300"
                           >
                             <div className="flex items-center justify-center space-x-2">
-                              <span className="text-sm sm:text-base font-medium">Live Site</span>
-                              <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                              <span className="font-medium">Live Site</span>
+                              <ArrowUpRight className="w-4 h-4" />
                             </div>
                           </Button>
                         )}
@@ -930,7 +942,6 @@ export default function Home() {
                   {/* Enhanced Ambient Effects */}
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                   <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/8 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl" />
-                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-blue-500/8 to-transparent rounded-tr-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl" />
                 </Card>
               </motion.div>
             ))}
