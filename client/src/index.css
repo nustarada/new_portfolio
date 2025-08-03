@@ -280,53 +280,30 @@
   .project-card-border {
     position: relative;
     border: 0.6px solid rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
-  }
-
-  .project-card-border::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: conic-gradient(from 0deg, transparent 0deg, transparent 340deg, #8b5cf6 350deg, #3b82f6 360deg, transparent 20deg, transparent 360deg);
-    border-radius: inherit;
-    opacity: 0;
-    z-index: -1;
-  }
-
-  .project-card-border::after {
-    content: '';
-    position: absolute;
-    inset: 0px;
-    background: inherit;
-    border-radius: inherit;
-    z-index: -1;
+    transition: border-width 0.3s ease;
   }
 
   .project-card-border:hover {
     border-width: 1px;
-    border-color: transparent;
+    border-image: conic-gradient(from 0deg, transparent 80%, #8b5cf6, #3b82f6, #ef4444, transparent 20%) 1;
+    animation: rotate-border 4s linear infinite;
   }
 
-  .project-card-border:hover::before {
-    opacity: 1;
-    animation: clockwise-gradient 4s linear;
-  }
-
-  @keyframes clockwise-gradient {
+  @keyframes rotate-border {
     0% {
-      background: conic-gradient(from 0deg, transparent 0deg, transparent 340deg, #8b5cf6 350deg, #3b82f6 360deg, transparent 20deg, transparent 360deg);
+      border-image: conic-gradient(from 0deg, transparent 80%, #8b5cf6, #3b82f6, #ef4444, transparent 20%) 1;
     }
     25% {
-      background: conic-gradient(from 90deg, transparent 0deg, transparent 340deg, #3b82f6 350deg, #ef4444 360deg, transparent 20deg, transparent 360deg);
+      border-image: conic-gradient(from 90deg, transparent 80%, #8b5cf6, #3b82f6, #ef4444, transparent 20%) 1;
     }
     50% {
-      background: conic-gradient(from 180deg, transparent 0deg, transparent 340deg, #ef4444 350deg, #8b5cf6 360deg, transparent 20deg, transparent 360deg);
+      border-image: conic-gradient(from 180deg, transparent 80%, #8b5cf6, #3b82f6, #ef4444, transparent 20%) 1;
     }
     75% {
-      background: conic-gradient(from 270deg, transparent 0deg, transparent 340deg, #8b5cf6 350deg, #3b82f6 360deg, transparent 20deg, transparent 360deg);
+      border-image: conic-gradient(from 270deg, transparent 80%, #8b5cf6, #3b82f6, #ef4444, transparent 20%) 1;
     }
     100% {
-      background: conic-gradient(from 360deg, transparent 0deg, transparent 340deg, #3b82f6 350deg, #8b5cf6 360deg, transparent 20deg, transparent 360deg);
+      border-image: conic-gradient(from 360deg, transparent 80%, #8b5cf6, #3b82f6, #ef4444, transparent 20%) 1;
     }
   }
 
