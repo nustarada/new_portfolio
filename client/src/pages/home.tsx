@@ -877,7 +877,7 @@ export default function Home() {
 
                     {/* Responsive Title with better typography */}
                     <div className="space-y-2 sm:space-y-3">
-                      <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 modern-heritage tracking-wide">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary tracking-wide">
                         {project.title.toUpperCase()}
                       </h3>
                       <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-primary to-cyan-400 group-hover:w-20 sm:group-hover:w-24 transition-all duration-500" />

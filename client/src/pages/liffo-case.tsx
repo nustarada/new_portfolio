@@ -88,7 +88,7 @@ export default function LiffoCase() {
                   <Heart className="w-6 h-6 text-red-400" />
                 </div>
                 <div>
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold modern-heritage mb-2">
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold jost-secondary mb-2">
                     Liffo
                   </h1>
                   <p className="text-lg text-gray-300 font-medium">Emergency Health Services Platform</p>
