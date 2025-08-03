@@ -249,7 +249,7 @@
   }
   
   .glow-text {
-    background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 50%, #0891b2 100%);
+    background: linear-gradient(135deg, #2073ee 0%, #414df6 50%, #742bfd 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -269,42 +269,45 @@
     color: #22d3ee !important; /* Fallback for unsupported browsers */
   }
 
-  /* Project Card Gradient Stroke Animation */
+  /* Project Card Stroke Only */
   .project-card-border {
     position: relative;
-    border: 1px solid transparent;
-    background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
-                linear-gradient(90deg, #8b5cf6, #3b82f6, #ef4444, #8b5cf6) border-box;
-    background-size: 100% 100%, 200% 100%;
-    background-position: 0% 0%, 0% 0%;
+    border: 0.6px solid rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease;
   }
 
+  .project-card-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    background: linear-gradient(90deg, #8b5cf6, #3b82f6, #ef4444, #8b5cf6);
+    background-size: 200% 100%;
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -1;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+  }
+
   .project-card-border:hover {
+    border-width: 1px;
+    border-color: transparent;
+  }
+
+  .project-card-border:hover::before {
+    opacity: 1;
     animation: gradient-stroke-flow 1.2s ease-in-out;
-    filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.3));
   }
 
   @keyframes gradient-stroke-flow {
     0% {
-      background-position: 0% 0%, 0% 0%;
-      filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.2));
-    }
-    25% {
-      background-position: 0% 0%, 50% 0%;
-      filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4));
-    }
-    50% {
-      background-position: 0% 0%, 100% 0%;
-      filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.5));
-    }
-    75% {
-      background-position: 0% 0%, 150% 0%;
-      filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.4));
+      background-position: 0% 0%;
     }
     100% {
-      background-position: 0% 0%, 200% 0%;
-      filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.2));
+      background-position: 200% 0%;
     }
   }
 
