@@ -846,7 +846,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="group"
               >
-                <Card className="relative overflow-hidden glass-card grain-texture hover:glass-intense border-0 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.01]">
+                <Card className="relative overflow-hidden glass-card grain-texture hover:glass-intense border border-white/20 hover:border-transparent hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.01] project-card-border">
                   {/* Horizontal Layout: Thumbnail + Content */}
                   <div className="flex flex-col lg:flex-row">
                     {/* Left Side - Thumbnail */}
