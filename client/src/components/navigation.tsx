@@ -23,8 +23,8 @@ export function Navigation() {
     }
   };
 
-  // Don't render navigation on case study page
-  if (location === '/case-study') {
+  // Don't render navigation on case study pages
+  if (location === '/case-study' || location === '/liffo-case') {
     return null;
   }
 
@@ -44,19 +44,16 @@ export function Navigation() {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-3"
+            className="flex items-center"
           >
             <div className="relative">
               <img 
                 src={LogoImage} 
                 alt="Karan Gadhave Logo" 
-                className="h-10 w-10 object-contain"
+                className="h-12 w-12 object-contain"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-cyan-400/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-300" />
             </div>
-            <span className="text-xl font-bold text-white glow-text">
-              Karan Gadhave
-            </span>
           </motion.div>
 
           {/* Navigation Links */}
