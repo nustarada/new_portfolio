@@ -226,8 +226,8 @@ export default function CaseStudy() {
                 {caseStudyData.category}
               </Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-                <span className="block text-white modern-heritage">{caseStudyData.title.split(':')[0]}:</span>
-                <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent modern-heritage" style={{ backgroundColor: 'transparent' }}>{caseStudyData.title.split(':')[1]}</span>
+                <span className="block text-white jost-secondary">{caseStudyData.title.split(':')[0]}:</span>
+                <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent jost-secondary" style={{ backgroundColor: 'transparent' }}>{caseStudyData.title.split(':')[1]}</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
                 {caseStudyData.subtitle}
