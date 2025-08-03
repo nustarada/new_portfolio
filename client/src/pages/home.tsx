@@ -14,7 +14,7 @@ import { useToast } from '@/hooks/use-toast';
 import { LiquidGrid } from '@/components/liquid-grid';
 import { MovingRibbon } from '@/components/moving-ribbon';
 // Removed old logo PDF import
-import futureFirstFamiliesThumbnail from '@assets/Dashboard 2.png';
+import futureFirstFamiliesThumbnail from '@assets/Screenshot 2025-08-03 at 16.51.12_1754220078781.png';
 import liffoThumbnail from '@assets/Dashboard 1.png';
 import resumePdf from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
 import profilePhoto from '@assets/Dashboard 1.png';
