@@ -48,21 +48,38 @@ export default function LiffoCase() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
-      <Navigation />
-      
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-8">
+      {/* Case Study Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 glass-intense grain-texture border-b border-white/10 shadow-2xl shadow-primary/20">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
+            {/* Logo - Acts as Home Button */}
+            <div onClick={() => navigate("/")} className="cursor-pointer">
+              <div className="relative">
+                <img 
+                  src={LogoImage} 
+                  alt="Karan Gadhave Logo" 
+                  className="h-12 w-12 object-contain hover:scale-105 transition-transform"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-cyan-400/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            </div>
+            
+            {/* Back Button */}
             <Button
               variant="ghost"
               onClick={() => navigate("/")}
-              className="text-white hover:bg-white/10 hover:text-primary transition-colors mb-6"
+              className="text-white hover:bg-white/10 hover:text-primary transition-colors"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Portfolio
             </Button>
           </div>
+        </div>
+      </nav>
+      
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
           
           <div className="grid lg:grid-cols-5 gap-12 items-center">
             <div className="lg:col-span-3">

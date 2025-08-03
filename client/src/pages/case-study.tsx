@@ -161,9 +161,9 @@ export default function CaseStudy() {
               >
                 <div className="relative">
                   <img 
-                    src={logoPath} 
+                    src={LogoImage} 
                     alt="Karan Gadhave Logo" 
-                    className="h-10 w-auto filter brightness-0 invert"
+                    className="h-12 w-12 object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-cyan-400/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-300" />
                 </div>
