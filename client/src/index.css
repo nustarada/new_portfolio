@@ -249,14 +249,7 @@
   }
   
   .glow-text {
-    background: linear-gradient(135deg, hsl(185, 84%, 75%), hsl(285, 85%, 80%), hsl(45, 93%, 85%));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-color: transparent !important;
-    filter: drop-shadow(0 0 20px hsla(185, 84%, 55%, 0.6));
-    /* Fallback for browsers that don't support background-clip */
-    color: hsl(185, 84%, 75%) !important;
+    color: #ffffff !important;
   }
 
   /* Fix all gradient text backgrounds */
@@ -264,15 +257,8 @@
     background-color: transparent !important;
   }
 
-  /* Better visibility text gradient */
   .text-gradient {
-    background: linear-gradient(135deg, #ffffff 0%, hsl(185, 84%, 85%) 50%, #ffffff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Fallback for browsers that don't support background-clip */
     color: #ffffff !important;
-    filter: drop-shadow(0 0 30px hsla(185, 84%, 55%, 0.5));
   }
 
   .stroke-text {
