@@ -13,7 +13,7 @@ import { Link } from 'wouter';
 import { useToast } from '@/hooks/use-toast';
 import { LiquidGrid } from '@/components/liquid-grid';
 import { MovingRibbon } from '@/components/moving-ribbon';
-import logoPath from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
+// Removed old logo PDF import
 import futureFirstFamiliesThumbnail from '@assets/Dashboard 2.png';
 import liffoThumbnail from '@assets/Dashboard 1.png';
 import resumePdf from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
@@ -257,7 +257,7 @@ export default function Home() {
             className="flex items-center"
             whileHover={{ scale: 1.05 }}
           >
-            <img src={logoPath} alt="Karan Gadhave" className="w-10 h-10" />
+            <img src={LogoImage} alt="Karan Gadhave Logo" className="h-16 w-16 object-contain" />
           </motion.div>
           
           <div className="hidden md:flex items-center space-x-8">
