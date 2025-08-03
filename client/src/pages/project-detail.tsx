@@ -495,7 +495,7 @@ export default function ProjectDetail() {
             <img 
               src={LogoImage} 
               alt="Karan Gadhave Logo" 
-              className="h-8 w-8 invert opacity-80"
+              className="h-8 w-8 object-contain opacity-80"
             />
             <a 
               href="https://www.linkedin.com/in/karan-gadhave/" 
