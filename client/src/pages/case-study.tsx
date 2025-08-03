@@ -163,7 +163,7 @@ export default function CaseStudy() {
                   <img 
                     src={LogoImage} 
                     alt="Karan Gadhave Logo" 
-                    className="h-12 w-12 object-contain"
+                    className="h-16 w-16 object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-cyan-400/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-300" />
                 </div>
