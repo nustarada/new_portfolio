@@ -249,7 +249,11 @@
   }
   
   .glow-text {
-    color: #ffffff !important;
+    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #ffffff !important; /* Fallback for unsupported browsers */
   }
 
   /* Fix all gradient text backgrounds */
@@ -258,7 +262,11 @@
   }
 
   .text-gradient {
-    color: #ffffff !important;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #ffffff !important; /* Fallback for unsupported browsers */
   }
 
   .stroke-text {
