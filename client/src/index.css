@@ -254,7 +254,7 @@
   }
 
   .glow-text {
-    background: linear-gradient(135deg, #2073ee 0%, #414df6 50%, #742bfd 100%);
+    background: linear-gradient(135deg, #6966ff 0%, #cb5cff 50%, #d642ff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -287,16 +287,19 @@
     content: '';
     position: absolute;
     inset: -1px;
-    padding: 1px;
-    background: linear-gradient(90deg, #8b5cf6, #3b82f6, #ef4444, #8b5cf6);
-    background-size: 200% 100%;
+    background: conic-gradient(from 0deg, transparent 0deg, transparent 340deg, #8b5cf6 350deg, #3b82f6 360deg, transparent 20deg, transparent 360deg);
     border-radius: inherit;
     opacity: 0;
     z-index: -1;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
+  }
+
+  .project-card-border::after {
+    content: '';
+    position: absolute;
+    inset: 0px;
+    background: inherit;
+    border-radius: inherit;
+    z-index: -1;
   }
 
   .project-card-border:hover {
@@ -306,16 +309,24 @@
 
   .project-card-border:hover::before {
     opacity: 1;
-    animation: gradient-stroke-flow 1.2s ease-in-out;
+    animation: clockwise-gradient 4s linear;
   }
 
-  @keyframes gradient-stroke-flow {
+  @keyframes clockwise-gradient {
     0% {
-      background-position: 0% 0%;
+      background: conic-gradient(from 0deg, transparent 0deg, transparent 340deg, #8b5cf6 350deg, #3b82f6 360deg, transparent 20deg, transparent 360deg);
     }
-
+    25% {
+      background: conic-gradient(from 90deg, transparent 0deg, transparent 340deg, #3b82f6 350deg, #ef4444 360deg, transparent 20deg, transparent 360deg);
+    }
+    50% {
+      background: conic-gradient(from 180deg, transparent 0deg, transparent 340deg, #ef4444 350deg, #8b5cf6 360deg, transparent 20deg, transparent 360deg);
+    }
+    75% {
+      background: conic-gradient(from 270deg, transparent 0deg, transparent 340deg, #8b5cf6 350deg, #3b82f6 360deg, transparent 20deg, transparent 360deg);
+    }
     100% {
-      background-position: 200% 0%;
+      background: conic-gradient(from 360deg, transparent 0deg, transparent 340deg, #3b82f6 350deg, #8b5cf6 360deg, transparent 20deg, transparent 360deg);
     }
   }
 
@@ -351,8 +362,8 @@
         rgba(79, 172, 254, 0.08) 0%,
         rgba(79, 172, 254, 0.03) 40%,
         transparent 70%);
-    opacity: var(--wave-intensity, 0.2);
-    transition: opacity 0.3s ease;
+    opacity: var(--wave-intensity, 0.5);
+    transition: opacity 0.9s ease;
     pointer-events: none;
     z-index: 2;
   }
