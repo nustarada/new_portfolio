@@ -512,7 +512,7 @@ export default function LiffoCase() {
             <img 
               src={LogoImage} 
               alt="Karan Gadhave Logo" 
-              className="h-6 w-6 invert opacity-80"
+              className="h-6 w-6 object-contain opacity-80"
             />
             <a 
               href="https://www.linkedin.com/in/karan-gadhave-ab204a1b4/" 
