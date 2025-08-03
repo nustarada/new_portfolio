@@ -373,7 +373,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-normal text-white tracking-wide leading-tight hero-text-hover modern-heritage">
-                <span className="text-gradient">KARAN GADHAVE</span>
+                <span className="text-white">KARAN GADHAVE</span>
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto"></div>
             </motion.div>
