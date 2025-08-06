@@ -47,7 +47,7 @@ export const CaseStudyNav: React.FC<Props> = ({ sections }) => {
   };
 
   return (
-    <div>
+    <div style={{ position: 'relative', zIndex: 999999 }}>
       {/* Test Red Button - Maximum Visibility */}
       <div
         style={{
