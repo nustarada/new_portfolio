@@ -51,7 +51,8 @@ import {
   MapPin,
   FileText,
   Heart,
-  Trophy
+  Trophy,
+  Award
 } from 'lucide-react';
 
 export default function Home() {
@@ -564,8 +565,8 @@ export default function Home() {
             className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto"
           >
             {[
-              { metric: '60%', label: 'Faster Design Cycles', icon: '⚡' },
-              { metric: '95%', label: 'Client Satisfaction', icon: '⭐' }
+              { metric: '60%', label: 'Faster Design Cycles', icon: Zap, color: 'text-yellow-400' },
+              { metric: '95%', label: 'Client Satisfaction', icon: Award, color: 'text-orange-400' }
             ].map((item, index) => (
               <motion.div
                 key={item.label}
@@ -575,7 +576,9 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <span className="text-2xl">{item.icon}</span>
+                <div className="w-8 h-8 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center">
+                  <item.icon className={`w-4 h-4 ${item.color}`} />
+                </div>
                 <div>
                   <div className="text-xl font-bold text-primary jost-secondary">{item.metric}</div>
                   <div className="text-white/70 text-sm jost-secondary">{item.label}</div>
