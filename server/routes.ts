@@ -10,8 +10,9 @@ const createEmailTransporter = () => {
   if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
     return nodemailer.createTransport({
       host: 'smtpout.secureserver.net', // GoDaddy SMTP server
-      port: 465, // SSL port
-      secure: true, // Use SSL
+      port: 587, // TLS port
+      secure: false, // Use STARTTLS
+      requireTLS: true,
       auth: {
         user: process.env.EMAIL_USER, // Your custom domain email: contact@karnkalaa.in
         pass: process.env.EMAIL_PASS, // Your email password
@@ -25,11 +26,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Test email endpoint
   app.post("/api/test-email", async (req, res) => {
     try {
+      // First, verify transporter creation
       const transporter = createEmailTransporter();
       if (!transporter) {
         return res.status(500).json({
           success: false,
           message: "Email configuration not found. Please check EMAIL_USER and EMAIL_PASS environment variables."
+        });
+      }
+
+      // Test the connection first
+      try {
+        await transporter.verify();
+        console.log('SMTP connection verified successfully');
+      } catch (verifyError: any) {
+        console.error('SMTP verification failed:', verifyError.message);
+        return res.status(500).json({
+          success: false,
+          message: `SMTP connection failed: ${verifyError.message}. Please check your email credentials.`,
+          details: {
+            error: verifyError.message,
+            code: verifyError.code,
+            suggestion: "This usually means wrong password or need for app-specific password. Check GoDaddy email settings."
+          }
         });
       }
 
