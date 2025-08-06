@@ -269,9 +269,7 @@ export default function Home() {
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className={`text-sm font-semibold transition-colors hover:text-primary jost-secondary ${
-                  activeSection === item.toLowerCase() ? 'text-primary' : 'text-foreground opacity-80'
-                }`}
+                className="text-sm font-semibold transition-colors hover:text-primary jost-secondary opacity-80 text-[#ffffff]"
                 whileHover={{ y: -2 }}
               >
                 {item}
