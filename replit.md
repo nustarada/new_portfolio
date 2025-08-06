@@ -4,6 +4,28 @@ This is a high-performance full-stack portfolio website for Karan Gadhave featur
 # User Preferences
 Preferred communication style: Simple, everyday language.
 
+## Typography & Design Standards
+**Established August 2025** - All section headings must follow consistent typography:
+
+### Section Heading Standards
+- **Main Section Headings (h1/h2)**: `text-4xl md:text-5xl font-normal modern-heritage`
+- **Subsection Headings (h3)**: `text-2xl font-bold modern-heritage`
+- **Small Headings (h4)**: `text-xl font-bold modern-heritage`
+- **Supporting Text**: Use `jost-secondary` font class for body text and descriptions
+
+### Color Applications
+- **Primary Color**: Use `text-primary` for accent elements and highlights
+- **Gradient Headers**: Use background gradients with `bg-clip-text text-transparent` for major sections
+- **White Text**: Use `text-white` for main content, `text-white/80` or `text-white/85` for secondary content
+
+### Consistency Requirements
+- All major section headings across the portfolio MUST use `text-4xl md:text-5xl font-normal modern-heritage`
+- Never use `font-bold` for main section headings - always use `font-normal`
+- Always include `modern-heritage` class for headings and `jost-secondary` for body text
+- Maintain consistent spacing: `mb-6` for section headings, `mb-8` for larger gaps
+
+This ensures perfect visual consistency across Home, Case Studies, Admin, and any future pages.
+
 # System Architecture
 
 ## Frontend Architecture

@@ -62,7 +62,7 @@ export default function AdminContacts() {
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-4">Contact Submissions</h1>
+          <h1 className="text-4xl md:text-5xl font-normal text-white mb-4 modern-heritage">Contact Submissions</h1>
           <div className="flex items-center space-x-4">
             <Badge variant="secondary" className="text-lg px-4 py-2">
               Total: {data?.total || 0}
