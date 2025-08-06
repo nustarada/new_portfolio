@@ -5,21 +5,42 @@ import { insertContactSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
 import nodemailer from "nodemailer";
 
-// Create email transporter using GoDaddy SMTP settings
+// Create email transporter with multiple GoDaddy SMTP configurations
 const createEmailTransporter = () => {
   if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-    return nodemailer.createTransport({
-      host: 'smtpout.secureserver.net',
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+    // Try different GoDaddy SMTP configurations
+    const configs = [
+      {
+        name: 'GoDaddy SSL (465)',
+        host: 'smtpout.secureserver.net',
+        port: 465,
+        secure: true,
+        auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
+        tls: { rejectUnauthorized: false }
       },
-      tls: {
-        rejectUnauthorized: false
+      {
+        name: 'GoDaddy TLS (587)',
+        host: 'smtpout.secureserver.net',
+        port: 587,
+        secure: false,
+        requireTLS: true,
+        auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
+        tls: { rejectUnauthorized: false }
+      },
+      {
+        name: 'GoDaddy Alternative (25)',
+        host: 'relay-hosting.secureserver.net',
+        port: 25,
+        secure: false,
+        auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
+        tls: { rejectUnauthorized: false }
       }
-    });
+    ];
+
+    // Use first configuration with logging
+    const config = configs[0];
+    console.log(`Attempting email with: ${config.name} (${config.host}:${config.port})`);
+    return nodemailer.createTransport(config);
   }
   return null;
 };
