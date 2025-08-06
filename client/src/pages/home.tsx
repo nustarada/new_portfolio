@@ -699,39 +699,24 @@ export default function Home() {
               <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400/8 to-emerald-400/8 blur-2xl" />
               
               <div className="relative z-10 space-y-12">
-                {/* Bio Content - Restructured with Photo */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-                  {/* Profile Card - Left Column */}
-                  <div className="lg:col-span-4">
-                    <motion.div
-                      className="sticky top-8"
-                      initial={{ opacity: 0, x: -50 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
-                    >
-                      <Card className="glass-card grain-texture border border-white/20 p-6 text-center hover:glass-intense transition-all duration-500">
-                        <div className="relative group mb-6">
-                          <div className="w-48 h-48 mx-auto relative overflow-hidden bg-gradient-to-br from-primary/20 to-purple-500/20 backdrop-blur-sm border border-white/10">
-                            <img 
-                              src={profilePhoto} 
-                              alt="Karan Gadhave - Senior Product Designer" 
-                              className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500 grayscale group-hover:grayscale-0"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                          </div>
-                          <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 via-cyan-400/30 to-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10" />
-                        </div>
-                        
-                        <h3 className="text-2xl font-bold text-white mb-2 modern-heritage">KARAN GADHAVE</h3>
-                        <p className="text-primary text-lg font-semibold mb-1 jost-secondary">Senior Product Designer</p>
-                        <p className="text-white/60 text-base jost-secondary">AI Innovation Specialist</p>
-                      </Card>
-                    </motion.div>
-                  </div>
+                {/* About Content - Single Column Layout */}
+                <div className="max-w-4xl mx-auto space-y-16">
+                  {/* Header Section */}
+                  <motion.div
+                    className="text-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                  >
+                    <h3 className="text-4xl font-bold text-white mb-4 modern-heritage">KARAN GADHAVE</h3>
+                    <p className="text-primary text-xl font-semibold mb-2 jost-secondary">Senior Product Designer</p>
+                    <p className="text-white/60 text-lg jost-secondary">AI Innovation Specialist</p>
+                    <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto mt-6"></div>
+                  </motion.div>
 
-                  {/* Content - Right Column */}
-                  <div className="lg:col-span-8 space-y-12">
+                  {/* Content Sections */}
+                  <div className="space-y-12">
                     {/* Experience & Expertise */}
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
