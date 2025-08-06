@@ -133,51 +133,29 @@ export default function Home() {
 
 
 
-    let scrollTicking = false;
-    let isScrolling = false;
-    let scrollTimeout: NodeJS.Timeout;
-
     const handleScroll = () => {
-      if (!isScrolling) {
-        document.body.classList.add('scrolling');
-        isScrolling = true;
-      }
-
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        document.body.classList.remove('scrolling');
-        isScrolling = false;
-      }, 150);
-
-      if (!scrollTicking) {
-        requestAnimationFrame(() => {
-          const sections = ['hero', 'about', 'projects', 'expertise', 'contact'];
-          const scrollPos = window.scrollY + 100;
-          
-          for (const section of sections) {
-            const element = document.getElementById(section);
-            if (element) {
-              const offsetTop = element.offsetTop;
-              const height = element.offsetHeight;
-              if (scrollPos >= offsetTop && scrollPos < offsetTop + height) {
-                setActiveSection(section);
-                break;
-              }
-            }
+      const sections = ['hero', 'about', 'projects', 'expertise', 'contact'];
+      const scrollPos = window.scrollY + 100;
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const height = element.offsetHeight;
+          if (scrollPos >= offsetTop && scrollPos < offsetTop + height) {
+            setActiveSection(section);
+            break;
           }
-          scrollTicking = false;
-        });
-        scrollTicking = true;
+        }
       }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
-      clearTimeout(scrollTimeout);
     };
   }, []);
 
@@ -269,7 +247,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden" style={{ backgroundColor: '#040406', color: '#fafafa' }}>
+    <div className="min-h-screen bg-background text-foreground relative overflow-hidden" style={{ backgroundColor: '#040406', color: '#fafafa' }}>
       {/* Scroll Progress */}
       <motion.div className="scroll-indicator" style={{ scaleX }} />
       {/* Floating Orbs */}
@@ -277,7 +255,7 @@ export default function Home() {
       <div className="floating-orb w-96 h-96 top-1/2 -right-48 opacity-20" style={{ animationDelay: '2s' }} />
       <div className="floating-orb w-48 h-48 bottom-20 left-1/4 opacity-25" style={{ animationDelay: '4s' }} />
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 glass-card grain-texture border-b border-white/20" style={{ zIndex: 1000 }}>
+      <nav className="fixed top-0 left-0 right-0 z-[100] glass-card grain-texture border-b border-white/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <motion.div 
             className="flex items-center"
