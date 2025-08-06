@@ -90,13 +90,12 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
       >
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-12 h-12 sm:w-12 sm:h-12 rounded-full bg-primary/95 backdrop-blur-md border-2 border-white/30 hover:scale-105 transition-all duration-300 shadow-xl shadow-primary/40 touch-manipulation"
+          className="w-12 h-12 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-primary/90 to-purple-500/90 backdrop-blur-md border border-white/20 hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25 touch-manipulation"
           size="sm"
           style={{ 
             WebkitTapHighlightColor: 'transparent',
-            position: 'fixed',
-            zIndex: 99999,
-            backgroundColor: 'rgba(59, 130, 246, 0.95)'
+            position: 'relative',
+            zIndex: 9999
           }}
         >
           {isOpen ? (
