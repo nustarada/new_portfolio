@@ -74,12 +74,7 @@ export default function CaseStudy() {
       { label: "Lead Generation", value: "320%", description: "Increase in qualified leads", change: "+320%", trend: "up" },
       { label: "User Retention", value: "167%", description: "Improvement in return visitor rate", change: "+167%", trend: "up" }
     ],
-    performanceMetrics: [
-      { metric: "Page Load Speed", before: "4.2s", after: "1.8s", improvement: "57%" },
-      { metric: "Mobile Responsiveness", before: "72%", after: "98%", improvement: "36%" },
-      { metric: "SEO Score", before: "68", after: "94", improvement: "38%" },
-      { metric: "Accessibility Score", before: "75", after: "96", improvement: "28%" }
-    ],
+
     process: [
       {
         phase: "Discovery & Research",
@@ -741,7 +736,7 @@ export default function CaseStudy() {
             ))}
           </div>
 
-          {/* Performance Comparison */}
+          {/* Technical Achievements */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -750,53 +745,67 @@ export default function CaseStudy() {
           >
             <Card className="p-12 glass-intense grain-texture border-purple-500/30">
               <h3 className="text-3xl font-bold mb-8 text-center text-purple-300 modern-heritage">
-                BEFORE VS AFTER COMPARISON
+                TECHNICAL ACHIEVEMENTS
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {caseStudyData.performanceMetrics.map((metric, index) => (
+                {[
+                  { 
+                    metric: "Page Load Speed", 
+                    value: "1.8s", 
+                    description: "Lightning-fast loading optimized for user experience",
+                    color: "from-blue-400 to-cyan-400"
+                  },
+                  { 
+                    metric: "Mobile Responsiveness", 
+                    value: "98%", 
+                    description: "Perfect cross-device compatibility and touch optimization",
+                    color: "from-green-400 to-emerald-400"
+                  },
+                  { 
+                    metric: "SEO Performance", 
+                    value: "94/100", 
+                    description: "Outstanding search engine optimization and discoverability",
+                    color: "from-purple-400 to-pink-400"
+                  },
+                  { 
+                    metric: "Accessibility Score", 
+                    value: "96/100", 
+                    description: "Inclusive design meeting WCAG guidelines",
+                    color: "from-orange-400 to-red-400"
+                  }
+                ].map((item, index) => (
                   <motion.div
-                    key={metric.metric}
+                    key={item.metric}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     className="text-center space-y-4"
                   >
-                    <h4 className="text-lg font-semibold text-white jost-secondary">
-                      {metric.metric}
+                    <h4 className="text-lg font-semibold text-white mb-4 jost-secondary">
+                      {item.metric}
                     </h4>
                     
-                    {/* Before/After Bars */}
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-white/60 jost-secondary">Before</span>
-                        <span className="text-sm font-bold text-red-400 jost-secondary">{metric.before}</span>
-                      </div>
-                      <div className="w-full bg-red-900/30 h-2 rounded-full">
-                        <div className="h-full bg-red-400 rounded-full" style={{ width: '40%' }} />
-                      </div>
-                      
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-white/60 jost-secondary">After</span>
-                        <span className="text-sm font-bold text-green-400 jost-secondary">{metric.after}</span>
-                      </div>
-                      <div className="w-full bg-green-900/30 h-2 rounded-full">
-                        <motion.div
-                          className="h-full bg-green-400 rounded-full"
-                          initial={{ width: 0 }}
-                          whileInView={{ width: '90%' }}
-                          transition={{ duration: 1.5, delay: index * 0.2 }}
-                          viewport={{ once: true }}
-                        />
-                      </div>
-                      
-                      <div className="text-center">
-                        <Badge variant="outline" className="text-xs px-2 py-1 border-green-400/50 text-green-400 jost-secondary">
-                          +{metric.improvement} improvement
-                        </Badge>
-                      </div>
+                    {/* Achievement Value */}
+                    <div className={`text-4xl font-black bg-gradient-to-r ${item.color} bg-clip-text text-transparent modern-heritage`}>
+                      {item.value}
                     </div>
+                    
+                    {/* Progress Bar */}
+                    <div className="w-full bg-white/10 h-3 rounded-full overflow-hidden">
+                      <motion.div
+                        className={`h-full bg-gradient-to-r ${item.color}`}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '95%' }}
+                        transition={{ duration: 1.5, delay: index * 0.2 }}
+                        viewport={{ once: true }}
+                      />
+                    </div>
+                    
+                    <p className="text-white/70 text-sm leading-relaxed jost-secondary">
+                      {item.description}
+                    </p>
                   </motion.div>
                 ))}
               </div>
