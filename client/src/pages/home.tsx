@@ -293,7 +293,7 @@ export default function Home() {
                 const contactSection = document.getElementById('contact');
                 contactSection?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="relative group h-10 px-4 text-white font-semibold cta-button grain-texture border-0 text-sm"
+              className="relative group h-10 px-4 text-white font-semibold cta-button border-0 text-sm"
             >
               <div className="relative z-10 flex items-center space-x-2 jost-secondary">
                 <Mail className="w-4 h-4" />
