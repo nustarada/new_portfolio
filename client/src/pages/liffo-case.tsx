@@ -145,22 +145,22 @@ const LiffoCaseStudy = () => {
         benefits: ["Reduced emergency response time", "Critical health info sharing", "Location-based service matching"]
       },
       {
-        title: "Doctor Discovery & Specialization",
-        description: "Comprehensive specialist directory with real-time availability, ratings, and booking system",
-        image: Screen21,
-        benefits: ["Easy specialist discovery", "Real-time availability", "Integrated booking system"]
+        title: "Comprehensive Services Directory",
+        description: "Complete healthcare service categorization including lab tests, pharmacy, and specialist consultations",
+        image: Screen6,
+        benefits: ["Easy service discovery", "Real-time availability", "Integrated booking system"]
       },
       {
-        title: "Complete Health Profile Management",
-        description: "Centralized health records, lab results, family history, and personal health data management",
+        title: "Symptom-Based Consultation",
+        description: "Smart symptom checker connecting patients with appropriate specialists and emergency services",
+        image: Screen10,
+        benefits: ["Accurate symptom assessment", "Quick specialist matching", "Emergency escalation"]
+      },
+      {
+        title: "Complete Health Management",
+        description: "Centralized health records, appointment scheduling, prescription management, and family health tracking",
         image: Screen31,
         benefits: ["Comprehensive health tracking", "Family health management", "Secure data storage"]
-      },
-      {
-        title: "Advanced Search & Hospital Services",
-        description: "Smart search functionality with detailed hospital information and comprehensive care options",
-        image: Screen23,
-        benefits: ["Intelligent search results", "Detailed hospital profiles", "Comprehensive care options"]
       }
     ],
     
