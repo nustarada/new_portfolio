@@ -355,13 +355,7 @@ const LiffoCaseStudy = () => {
   return (
     <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture liffo-case-study">
       {/* Case Study Navigation */}
-      <CaseStudyNavigation sections={navigationSections} />
-      
-      {/* Progress Bar */}
-      <motion.div 
-        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-red-500 to-orange-500 z-50"
-        style={{ width: progressWidth }}
-      />
+      <CaseStudyNavigation sections={navigationSections} progressBarColors="from-red-500 to-orange-500" />
 
       {/* Navigation */}
       <motion.nav 
