@@ -588,25 +588,24 @@ export default function Home() {
         </div>
       </section>
       {/* About Section */}
-      <section id="about" className="py-24 relative overflow-hidden">
+      <section id="about" className="py-12 relative overflow-hidden">
         {/* Elegant Background */}
         <div className="absolute inset-0 grain-texture">
           <div className="absolute inset-0 bg-gradient-to-br from-background/98 via-background/95 to-background/98" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-primary/12 blur-3xl animate-pulse" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/10 blur-3xl animate-pulse" />
         </div>
         
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-20"
+            className="text-center mb-10"
           >
             <motion.h2 
-              className="text-4xl md:text-6xl font-normal mb-6 glow-text modern-heritage"
+              className="text-3xl md:text-4xl font-normal mb-4 glow-text modern-heritage"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -614,159 +613,126 @@ export default function Home() {
             >
               ABOUT ME
             </motion.h2>
-            <motion.div 
-              className="w-24 h-1 bg-gradient-to-r from-primary to-cyan-400 mx-auto mb-8"
-              initial={{ width: 0 }}
-              whileInView={{ width: 96 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            />
-            <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed jost-secondary">
-              Crafting the future of digital experiences through innovative design and cutting-edge technology
+            <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
+              Crafting innovative digital experiences through AI-enhanced design workflows
             </p>
           </motion.div>
 
-          {/* Main Content - Single Column */}
+          {/* Main Content */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
           >
-            <Card className="relative overflow-hidden glass-intense grain-texture p-12">
-              {/* Subtle Background Effects */}
-              <div className="absolute top-0 left-0 w-40 h-40 bg-primary/8 blur-3xl" />
-              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400/8 to-emerald-400/8 blur-2xl" />
+            <Card className="relative overflow-hidden glass-intense grain-texture p-8">
+              {/* Background Effects */}
+              <div className="absolute top-0 left-0 w-32 h-32 bg-primary/6 blur-3xl" />
+              <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-400/6 to-emerald-400/6 blur-2xl" />
               
-              <div className="relative z-10 space-y-12">
-                {/* About Content - Single Column Layout */}
-                <div className="max-w-4xl mx-auto space-y-16">
-                  {/* Header Section */}
-                  <motion.div
-                    className="text-center"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                  >
-                    <h3 className="text-4xl font-bold text-white mb-4 modern-heritage">KARAN GADHAVE</h3>
-                    <p className="text-primary text-xl font-semibold mb-2 jost-secondary">Senior Product Designer</p>
-                    <p className="text-white/60 text-lg jost-secondary">AI Innovation Specialist</p>
-                    <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto mt-6"></div>
-                  </motion.div>
+              <div className="relative z-10 space-y-8">
+                {/* Profile Header */}
+                <motion.div
+                  className="text-center mb-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
+                >
+                  <h3 className="text-2xl font-bold text-white mb-2 modern-heritage">KARAN GADHAVE</h3>
+                  <p className="text-primary text-lg font-semibold jost-secondary">Senior Product Designer & AI Innovation Specialist</p>
+                </motion.div>
 
-                  {/* Content Sections */}
-                  <div className="space-y-12">
-                    {/* Experience & Expertise */}
+                {/* Content Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  {/* Left Column */}
+                  <div className="space-y-6">
+                    {/* Experience */}
                     <motion.div
-                      initial={{ opacity: 0, y: 30 }}
+                      initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.1 }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <h4 className="text-2xl font-bold text-white mb-6 flex items-center jost-secondary">
-                        <Briefcase className="w-6 h-6 text-primary mr-3" />
+                      <h4 className="text-lg font-bold text-white mb-3 flex items-center jost-secondary">
+                        <Briefcase className="w-5 h-5 text-primary mr-2" />
                         Experience & Expertise
                       </h4>
-                      <p className="text-white/80 leading-relaxed text-lg jost-secondary">
-                        With over <span className="text-primary font-semibold">4 years of specialized experience</span> in <span className="text-primary font-semibold">UI/UX design</span>, 
-                        I craft <span className="text-primary font-semibold">innovative digital solutions</span> that elevate user experiences by harnessing 
-                        <span className="text-primary font-semibold">AI-driven design approaches</span> and <span className="text-primary font-semibold">modern technologies</span>.
+                      <p className="text-white/80 leading-relaxed text-base jost-secondary">
+                        <span className="text-primary font-semibold">4+ years</span> of specialized <span className="text-primary font-semibold">UI/UX design</span> experience, 
+                        crafting innovative digital solutions through <span className="text-primary font-semibold">AI-driven design approaches</span>.
                       </p>
                     </motion.div>
-                    
-                    {/* Subtle Separator */}
-                    <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-8" />
 
-                    {/* Innovation Focus */}
+                    {/* Innovation */}
                     <motion.div
-                      initial={{ opacity: 0, y: 30 }}
+                      initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
                       viewport={{ once: true }}
                     >
-                      <h4 className="text-2xl font-bold text-white mb-6 flex items-center jost-secondary">
-                        <Lightbulb className="w-6 h-6 text-purple-400 mr-3" />
+                      <h4 className="text-lg font-bold text-white mb-3 flex items-center jost-secondary">
+                        <Lightbulb className="w-5 h-5 text-purple-400 mr-2" />
                         Innovation Focus
                       </h4>
-                      <p className="text-white/80 leading-relaxed text-lg jost-secondary">
-                        Driven by a <span className="text-primary font-semibold">passion for innovation</span>, I've <span className="text-primary font-semibold">streamlined UI/UX workflows</span> using 
-                        <span className="text-primary font-semibold">AI-powered design approaches</span>—<span className="bg-primary/20 text-primary px-3 py-1.5 rounded-lg font-semibold">cutting design cycles by 60%</span> 
-                        while delivering <span className="text-primary font-semibold">intuitive, high-impact user experiences</span>.
+                      <p className="text-white/80 leading-relaxed text-base jost-secondary">
+                        Streamlined workflows using <span className="text-primary font-semibold">AI-powered design approaches</span>, achieving 
+                        <span className="bg-primary/20 text-primary px-2 py-1 ml-1 font-semibold">60% faster design cycles</span>.
                       </p>
                     </motion.div>
+                  </div>
 
-                    {/* Subtle Separator */}
-                    <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-8" />
-
-                    {/* Core Principles */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.3 }}
-                      viewport={{ once: true }}
-                    >
-                      <h4 className="text-2xl font-bold text-white mb-6 jost-secondary">Core Principles</h4>
-                      
-                      <div className="space-y-6">
-                        {[
-                          { icon: Target, title: 'User-Centered Design', desc: 'Every decision driven by user needs and behaviors', color: 'text-cyan-400' },
-                          { icon: Zap, title: 'AI-Enhanced Workflow', desc: 'Leveraging technology for maximum efficiency', color: 'text-yellow-400' },
-                          { icon: Rocket, title: 'Innovation-First Mindset', desc: 'Pushing creative boundaries in every project', color: 'text-purple-400' }
-                        ].map((principle, index) => (
-                          <motion.div
-                            key={principle.title}
-                            className="group relative flex items-center space-x-6 p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10"
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                            viewport={{ once: true }}
-                            whileHover={{ scale: 1.02 }}
-                          >
-                            <div className={`flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 group-hover:scale-110 transition-transform duration-300`}>
-                              <principle.icon className={`w-6 h-6 ${principle.color} group-hover:scale-110 transition-transform duration-300`} />
-                            </div>
-                            <div className="flex-1">
-                              <h5 className="text-white font-bold mb-2 text-lg jost-secondary group-hover:text-primary transition-colors duration-300">{principle.title}</h5>
-                              <p className="text-white/80 text-base leading-relaxed jost-secondary">{principle.desc}</p>
-                            </div>
-                            {/* Subtle gradient overlay on hover */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
+                  {/* Right Column - Core Principles */}
+                  <div className="space-y-4">
+                    <h4 className="text-lg font-bold text-white mb-4 jost-secondary">Core Principles</h4>
+                    {[
+                      { icon: Target, title: 'User-Centered Design', desc: 'Decisions driven by user needs', color: 'text-cyan-400' },
+                      { icon: Zap, title: 'AI-Enhanced Workflow', desc: 'Technology for maximum efficiency', color: 'text-yellow-400' },
+                      { icon: Rocket, title: 'Innovation-First', desc: 'Pushing creative boundaries', color: 'text-purple-400' }
+                    ].map((principle, index) => (
+                      <motion.div
+                        key={principle.title}
+                        className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <div className="w-8 h-8 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center">
+                          <principle.icon className={`w-4 h-4 ${principle.color}`} />
+                        </div>
+                        <div>
+                          <h5 className="text-white font-semibold text-sm jost-secondary">{principle.title}</h5>
+                          <p className="text-white/70 text-xs jost-secondary">{principle.desc}</p>
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
                 </div>
 
                 {/* Skills Section */}
                 <motion.div
-                  className="mt-16"
-                  initial={{ opacity: 0, y: 30 }}
+                  className="mt-8 pt-6 border-t border-white/10"
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  <h4 className="text-2xl font-bold text-white mb-10 text-center jost-secondary">Specialized Skills</h4>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-5xl mx-auto">
+                  <h4 className="text-lg font-bold text-white mb-4 text-center jost-secondary">Specialized Skills</h4>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {[
-                      'AI Design Tools', 'Figma Mastery', 'Interactive Prototyping', 
-                      'Design Systems', 'User Research', 'Design Automation',
-                      'Rapid Prototyping', 'Cross-Platform Design'
+                      'AI Design Tools', 'Figma Mastery', 'Interactive Prototyping', 'Design Systems',
+                      'User Research', 'Design Automation', 'Rapid Prototyping', 'Cross-Platform Design'
                     ].map((skill, index) => (
                       <motion.div
                         key={skill}
-                        className="group relative px-5 py-4 glass-card grain-texture text-white/90 text-sm font-semibold hover:glass-intense transition-all duration-500 jost-secondary text-center border border-white/10 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10"
-                        initial={{ opacity: 0, scale: 0.8 }}
+                        className="px-3 py-2 glass-card grain-texture text-white/90 text-xs font-medium hover:glass-intense transition-all duration-300 jost-secondary text-center border border-white/10 hover:border-primary/30"
+                        initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.4, delay: index * 0.05 }}
+                        transition={{ duration: 0.3, delay: index * 0.03 }}
                         viewport={{ once: true }}
-                        whileHover={{ scale: 1.08, y: -2 }}
                       >
-                        <div className="relative z-10">{skill}</div>
-                        {/* Subtle glow effect on hover */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        {skill}
                       </motion.div>
                     ))}
                   </div>
