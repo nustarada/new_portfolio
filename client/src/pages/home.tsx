@@ -887,16 +887,15 @@ export default function Home() {
                           </div>
                         </div>
                         {/* Project Logo */}
-                        <div className="bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center p-2" style={{
-                          width: project.title === "FutureFirst Families" ? "80px" : "64px",
-                          height: project.title === "FutureFirst Families" ? "48px" : "32px"
-                        }}>
-                          <img 
-                            src={project.logo} 
-                            alt={`${project.title} Logo`} 
-                            className="w-full h-full object-contain opacity-90"
-                          />
-                        </div>
+                        <img 
+                          src={project.logo} 
+                          alt={`${project.title} Logo`} 
+                          className="object-contain opacity-90"
+                          style={{
+                            width: project.title === "FutureFirst Families" ? "120px" : "96px",
+                            height: project.title === "FutureFirst Families" ? "72px" : "48px"
+                          }}
+                        />
                       </div>
 
                       {/* Project Title and Description */}
