@@ -75,8 +75,7 @@ const LiffoCaseStudy = () => {
     title: "Liffo: Emergency Health Services Platform",
     subtitle: "Comprehensive healthcare platform prioritizing emergency ambulance booking, elite doctors, and home care services, followed by routine consultations and medical supply purchasing",
     category: "Mobile Health Platform Design",
-    year: "2024",
-    duration: "8 weeks",
+    duration: "13 weeks",
     team: "Solo Designer",
     client: "Liffo Health Services",
     role: "Lead Product Designer & UX Researcher",
@@ -392,10 +391,6 @@ const LiffoCaseStudy = () => {
             {/* Project Metadata */}
             <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                {caseStudyData.year}
-              </div>
-              <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4" />
                 {caseStudyData.duration}
               </div>
@@ -481,10 +476,6 @@ const LiffoCaseStudy = () => {
                   <div className="flex justify-between">
                     <span className="text-white/70 jost-secondary">Duration</span>
                     <span className="text-white font-semibold jost-secondary">{caseStudyData.duration}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-white/70 jost-secondary">Year</span>
-                    <span className="text-white font-semibold jost-secondary">{caseStudyData.year}</span>
                   </div>
                 </div>
               </Card>

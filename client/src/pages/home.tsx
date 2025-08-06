@@ -183,7 +183,7 @@ export default function Home() {
         "Accessibility features including light/dark modes and clean typography"
       ],
       techStack: ["React", "JavaScript", "Responsive Design", "Accessibility"],
-      duration: "4 Months",
+      duration: "4 Weeks",
       process: [
         "Conducted interviews with advocacy organizers",
         "Created user flows and low-fidelity wireframes", 
@@ -220,7 +220,7 @@ export default function Home() {
         "AI-powered chatbot for 24/7 critical help"
       ],
       techStack: ["Figma", "React Native", "Node.js", "MongoDB", "Healthcare APIs"],
-      duration: "6 Months",
+      duration: "13 Weeks",
       process: [
         "Conducted user research and competitive analysis",
         "Created wireframes and interactive prototypes",
