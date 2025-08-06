@@ -167,7 +167,7 @@ export default function Home() {
       detailedDescription: "Designed and developed the entire platform from ground up, combining gamification with advocacy to create an engaging experience that increased completed actions by 30% and achieved 4× higher user retention.",
       image: futureFirstFamiliesThumbnail,
       logo: fffLogo,
-      liveUrl: "https://futurefirstfamilies.com/",
+      liveUrl: "https://www.futurefirstfamilies.com/",
       caseStudyUrl: "/case-study",
       tags: ["Civic Engagement", "Gamification", "React", "UX Research", "Full-Stack"],
       year: "2025",
