@@ -48,28 +48,60 @@ export const CaseStudyNav: React.FC<Props> = ({ sections }) => {
 
   return (
     <div>
-      {/* Navigation Button */}
+      {/* Test Red Button - Maximum Visibility */}
+      <div
+        style={{
+          position: 'fixed',
+          bottom: '100px',
+          right: '20px',
+          width: '80px',
+          height: '80px',
+          backgroundColor: '#FF0000',
+          borderRadius: '50%',
+          zIndex: 999999,
+          display: 'block',
+          border: '4px solid white',
+          boxShadow: '0 0 30px rgba(255, 0, 0, 0.8)',
+          fontSize: '14px',
+          color: 'white',
+          fontWeight: 'bold',
+          textAlign: 'center',
+          lineHeight: '72px',
+          pointerEvents: 'auto'
+        }}
+      >
+        RED TEST
+      </div>
+
+      {/* Navigation Button - Enhanced Visibility */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          console.log('NAVIGATION BUTTON CLICKED!');
+          setIsOpen(!isOpen);
+        }}
         style={{
           position: 'fixed',
           bottom: '20px',
           right: '20px',
-          width: '60px',
-          height: '60px',
+          width: '70px',
+          height: '70px',
           borderRadius: '50%',
           backgroundColor: '#3B82F6',
-          border: '2px solid white',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
-          zIndex: 10000,
+          border: '4px solid white',
+          boxShadow: '0 8px 30px rgba(59, 130, 246, 0.8)',
+          zIndex: 999999,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           cursor: 'pointer',
-          color: 'white'
+          color: 'white',
+          fontSize: '16px',
+          fontWeight: 'bold',
+          pointerEvents: 'auto',
+          transform: 'translateZ(0)'
         }}
       >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
+        {isOpen ? <X size={28} /> : <Menu size={28} />}
       </button>
 
       {/* Navigation Menu */}

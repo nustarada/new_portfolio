@@ -65,6 +65,9 @@
     color: #ffffff !important;
     font-weight: 400;
     cursor: auto !important;
+    position: relative !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
   }
 
   * {
