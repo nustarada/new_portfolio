@@ -21,6 +21,7 @@ export const ViewportNav = () => {
           zIndex: 2147483647, // Maximum z-index value
           pointerEvents: 'auto'
         }}
+        data-testid="case-study-nav-button"
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -137,4 +138,4 @@ export const ViewportNav = () => {
 
   // Render to document.body using a portal to escape any relative positioning contexts
   return mounted ? createPortal(navigationContent, document.body) : null;
-};
+};console.log('ViewportNav component loaded and should be visible');
