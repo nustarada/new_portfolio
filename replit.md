@@ -26,6 +26,31 @@ Preferred communication style: Simple, everyday language.
 
 This ensures perfect visual consistency across Home, Case Studies, Admin, and any future pages.
 
+## Case Study Page Architecture Standards
+**Established August 2025** - All case study pages must follow these structural requirements:
+
+### Container Class Naming
+- Use unique descriptive class names for each case study page container
+- Examples: `liffo-case-study`, `future-first-case-study`, `[project-name]-case-study`
+- **NEVER use generic `case-study-page` class** - this has problematic CSS rules that break fixed positioning
+
+### Component Structure Order
+1. Case Study Navigation component (`<CaseStudyNavigation sections={navigationSections} />`)
+2. Progress Bar with branded colors (`z-[9999]`)
+3. Main Navigation bar (`z-50`)
+4. Page content sections
+
+### Z-Index Hierarchy
+- Progress Bar: `z-[9999]` (highest priority)
+- Case Study Navigation: `z-[9998]` (below progress bar)
+- Navigation Backdrop: `z-[9997]` (below navigation elements)  
+- Main Navigation: `z-50` (below case study elements)
+
+### Fixed Positioning Requirements
+- Avoid CSS rules that create new stacking contexts: `transform: translateZ(0)`, `contain: layout style paint`
+- Use consistent positioning classes: `fixed right-4 bottom-6 sm:right-6`
+- Ensure navigation components are positioned relative to viewport, not page content
+
 # System Architecture
 
 ## Frontend Architecture
