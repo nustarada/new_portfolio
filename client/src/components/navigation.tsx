@@ -91,7 +91,6 @@ export function Navigation() {
                 onClick={() => scrollToSection('contact')}
                 className="relative group px-6 py-3 text-white font-bold cta-button border-0"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 <span className="relative z-10">Contact Me</span>
               </button>
             </motion.div>
