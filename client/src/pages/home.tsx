@@ -243,16 +243,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden" style={{ backgroundColor: '#040406', color: '#fafafa' }}>
-
-
       {/* Scroll Progress */}
       <motion.div className="scroll-indicator" style={{ scaleX }} />
-
       {/* Floating Orbs */}
       <div className="floating-orb w-64 h-64 top-20 -left-32 opacity-30" />
       <div className="floating-orb w-96 h-96 top-1/2 -right-48 opacity-20" style={{ animationDelay: '2s' }} />
       <div className="floating-orb w-48 h-48 bottom-20 left-1/4 opacity-25" style={{ animationDelay: '4s' }} />
-
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-[100] glass-card grain-texture border-b border-white/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -304,8 +300,6 @@ export default function Home() {
           </motion.div>
         </div>
       </nav>
-
-
       {/* Hero Section */}
       <section 
         ref={heroRef} 
@@ -472,10 +466,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* Moving Skills Ribbon */}
       <MovingRibbon />
-
       {/* Statistics Section */}
       <section className="py-20 relative overflow-hidden">
         {/* Elegant Background */}
@@ -645,7 +637,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* About Section */}
       <section id="about" className="py-24 relative overflow-hidden">
         {/* Elegant Background */}
@@ -835,9 +826,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
-
-
       {/* Projects Section */}
       <section id="projects" className="py-16 relative">
         <div className="max-w-7xl mx-auto px-6">
@@ -922,7 +910,7 @@ export default function Home() {
                         </div>
                         <div>
                           <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">Services</p>
-                          <p className="text-white font-semibold jost-secondary">Design + Full Stack Development</p>
+                          <p className="text-white font-semibold jost-secondary">Design</p>
                         </div>
                       </div>
 
@@ -975,7 +963,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Design Philosophy Section */}
       <section className="py-16 relative">
         <div className="max-w-4xl mx-auto px-6">
@@ -1034,7 +1021,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* Expertise Section - Hidden */}
       {/* <section id="expertise" className="py-32 relative">
         <div className="max-w-6xl mx-auto px-6">
@@ -1089,7 +1075,6 @@ export default function Home() {
           </div>
         </div>
       </section> */}
-
       {/* Contact Section */}
       <section id="contact" className="py-16 relative">
         <div className="max-w-4xl mx-auto px-6">
@@ -1265,7 +1250,6 @@ export default function Home() {
 
         </div>
       </section>
-
       {/* Resume Modal */}
       <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
         <DialogContent className="w-full h-[calc(100vh-64px)] max-w-none top-16 left-0 right-0 translate-x-0 translate-y-0 m-0 p-0 glass-intense grain-texture border-0 border-t border-primary/40 overflow-hidden rounded-none">
@@ -1468,7 +1452,6 @@ export default function Home() {
           </div>
         </DialogContent>
       </Dialog>
-
       {/* Sticky Contact CTA */}
       <div className="fixed bottom-6 right-6 z-50">
         <Button 
@@ -1486,7 +1469,6 @@ export default function Home() {
           </div>
         </Button>
       </div>
-
       {/* Footer */}
       <footer className="py-12 border-t border-border/30">
         <div className="max-w-6xl mx-auto px-6 text-center">
