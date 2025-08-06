@@ -825,25 +825,20 @@ export default function Home() {
                   <h4 className="text-2xl font-bold text-white mb-10 text-center jost-secondary">Specialized Skills</h4>
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-5xl mx-auto">
                     {[
-                      { name: 'AI Design Tools', color: 'from-cyan-500/20 to-blue-500/20' }, 
-                      { name: 'Figma Mastery', color: 'from-purple-500/20 to-pink-500/20' }, 
-                      { name: 'Interactive Prototyping', color: 'from-green-500/20 to-emerald-500/20' }, 
-                      { name: 'Design Systems', color: 'from-orange-500/20 to-red-500/20' }, 
-                      { name: 'User Research', color: 'from-indigo-500/20 to-purple-500/20' }, 
-                      { name: 'Design Automation', color: 'from-teal-500/20 to-cyan-500/20' },
-                      { name: 'Rapid Prototyping', color: 'from-yellow-500/20 to-orange-500/20' }, 
-                      { name: 'Cross-Platform Design', color: 'from-rose-500/20 to-pink-500/20' }
+                      'AI Design Tools', 'Figma Mastery', 'Interactive Prototyping', 
+                      'Design Systems', 'User Research', 'Design Automation',
+                      'Rapid Prototyping', 'Cross-Platform Design'
                     ].map((skill, index) => (
                       <motion.div
-                        key={skill.name}
-                        className={`group relative px-5 py-4 glass-card grain-texture text-white/90 text-sm font-semibold hover:glass-intense transition-all duration-500 jost-secondary text-center border border-white/10 hover:border-primary/30 bg-gradient-to-br ${skill.color} hover:shadow-lg hover:shadow-primary/10`}
+                        key={skill}
+                        className="group relative px-5 py-4 glass-card grain-texture text-white/90 text-sm font-semibold hover:glass-intense transition-all duration-500 jost-secondary text-center border border-white/10 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.4, delay: index * 0.05 }}
                         viewport={{ once: true }}
                         whileHover={{ scale: 1.08, y: -2 }}
                       >
-                        <div className="relative z-10">{skill.name}</div>
+                        <div className="relative z-10">{skill}</div>
                         {/* Subtle glow effect on hover */}
                         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </motion.div>
