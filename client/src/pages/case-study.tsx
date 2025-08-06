@@ -53,6 +53,7 @@ const CaseStudyPage = () => {
     subtitle: "Modern advocacy website with gamified elements, HubSpot API integration, and family-focused user experience",
     category: "Web Design & Development",
     duration: "4 weeks",
+    year: "2024",
     team: "Solo Project",
     client: "FutureFirstFamilies Organization",
     role: "Lead Designer & Developer",

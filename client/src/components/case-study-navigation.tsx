@@ -81,7 +81,7 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
 
       {/* Navigation Toggle Button */}
       <motion.div
-        className="fixed right-6 top-20 z-40"
+        className="fixed right-6 bottom-6 z-40"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1 }}
@@ -118,7 +118,7 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 300, scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed right-6 top-36 w-80 bg-gradient-to-br from-slate-900/95 via-purple-900/90 to-slate-900/95 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl shadow-primary/20 z-40"
+              className="fixed right-6 bottom-20 w-80 max-h-96 overflow-y-auto bg-gradient-to-br from-slate-900/95 via-purple-900/90 to-slate-900/95 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl shadow-primary/20 z-40"
             >
               <div className="p-6">
                 {/* Header */}
