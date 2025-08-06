@@ -26,6 +26,7 @@ const CaseStudyPage = () => {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
     handleResize();
+    window.scrollTo(0, 0); // Scroll to top on component mount
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -843,6 +844,23 @@ const CaseStudyPage = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-white/10">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p className="text-white/60 mb-4 jost-secondary">
+            Designed and developed by Karan Gadhave
+          </p>
+          <a 
+            href="https://linkedin.com/in/karan-gadhave" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white/80 hover:text-white transition-colors jost-secondary"
+          >
+            Connect on LinkedIn
+          </a>
+        </div>
+      </footer>
     </div>
   );
 };

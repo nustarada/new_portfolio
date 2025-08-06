@@ -52,6 +52,7 @@ const LiffoCaseStudy = () => {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
     handleResize();
+    window.scrollTo(0, 0); // Scroll to top on component mount
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -592,11 +593,12 @@ const LiffoCaseStudy = () => {
               DESIGN SHOWCASE
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Key interface designs and user experience solutions
+              Comprehensive interface designs for emergency healthcare platform
             </p>
           </motion.div>
 
-          <div className="space-y-16">
+          {/* Categorized Design Showcase */}
+          <div className="space-y-16 mb-16">
             {caseStudyData.designShowcase.map((showcase, index) => (
               <motion.div
                 key={showcase.category}
@@ -636,6 +638,53 @@ const LiffoCaseStudy = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Complete Interface Gallery */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Card className="p-8 glass-card grain-texture border-purple-500/30">
+              <h3 className="text-2xl font-bold mb-6 text-purple-400 modern-heritage text-center">
+                COMPLETE INTERFACE GALLERY
+              </h3>
+              <p className="text-white/85 mb-8 text-center jost-secondary">
+                Comprehensive view of all designed interfaces across the healthcare platform
+              </p>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {[
+                  DoctorLabTestImage, SearchTabImage, HomeCareImage, SymptomsImage,
+                  AllServicesImage, EmergencyImage, AppointmentImage, PrescriptionImage,
+                  EliteDoctorImage, DoctorListImage, DoctorSpecialisationImage, HospitalDetailImage,
+                  HealthCardImage, EditProfileImage, MyProfileImage, MyLabResultsImage,
+                  EditPhysicalsImage, HealthDetailsImage, FamilyMedicalHistoryImage, SelectImage,
+                  Dashboard1Image, Dashboard2Image, WalkthroughImage1, WalkthroughImage2,
+                  WalkthroughImage3, AllServicesImage, HomeCareImage, SymptomsImage,
+                  DoctorLabTestImage, SearchTabImage, EmergencyImage, AppointmentImage
+                ].map((image, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.08, y: -5 }}
+                    className="relative overflow-hidden bg-white/5 border border-white/10 hover:border-purple-400/50 transition-all duration-300 aspect-[9/16]"
+                  >
+                    <img 
+                      src={image} 
+                      alt={`Interface ${index + 1}`}
+                      className="w-full h-full object-cover hover:object-contain transition-all duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                  </motion.div>
+                ))}
+              </div>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
@@ -945,6 +994,23 @@ const LiffoCaseStudy = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-white/10">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p className="text-white/60 mb-4 jost-secondary">
+            Designed and developed by Karan Gadhave
+          </p>
+          <a 
+            href="https://linkedin.com/in/karan-gadhave" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white/80 hover:text-white transition-colors jost-secondary"
+          >
+            Connect on LinkedIn
+          </a>
+        </div>
+      </footer>
     </div>
   );
 };
