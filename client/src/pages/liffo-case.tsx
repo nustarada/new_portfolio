@@ -615,7 +615,74 @@ const LiffoCaseStudy = () => {
         </div>
       </section>
 
-      {/* 5. Design Showcase */}
+      {/* 5. Key Features */}
+      <section className="py-20 relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 modern-heritage bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent">
+              KEY FEATURES
+            </h2>
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
+              Core functionality designed for emergency healthcare scenarios
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {caseStudyData.keyFeatures.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-8 glass-card grain-texture border-orange-500/30 h-full">
+                  <div className="mb-6">
+                    <img 
+                      src={feature.image} 
+                      alt={feature.title}
+                      className="w-full h-64 object-contain bg-white/5 border border-white/10"
+                    />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-4 text-orange-300 modern-heritage">
+                    {feature.title}
+                  </h3>
+                  
+                  <p className="text-white/85 leading-relaxed mb-6 jost-secondary">
+                    {feature.description}
+                  </p>
+                  
+                  <div>
+                    <h4 className="text-sm font-bold text-orange-400 mb-3 jost-secondary">KEY BENEFITS</h4>
+                    <ul className="space-y-2">
+                      {feature.benefits.map((benefit, idx) => (
+                        <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
+                          <CheckCircle className="w-4 h-4 text-orange-400 mr-2 flex-shrink-0" />
+                          {benefit}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Design Showcase */}
       <section className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
@@ -634,7 +701,7 @@ const LiffoCaseStudy = () => {
               DESIGN SHOWCASE
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Comprehensive interface designs for emergency healthcare platform
+              Complete visual documentation of all 34 interface designs - organized by user journey and functionality
             </p>
           </motion.div>
 
@@ -719,74 +786,22 @@ const LiffoCaseStudy = () => {
                 ))}
               </div>
             </Card>
+            
+            {/* Continue Reading Indicator */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-center mt-12"
+            >
+              <div className="inline-flex items-center space-x-2 text-purple-400/80 text-sm jost-secondary">
+                <div className="w-8 h-px bg-purple-400/60"></div>
+                <span>Continue reading for impact metrics, tech insights & learnings</span>
+                <div className="w-8 h-px bg-purple-400/60"></div>
+              </div>
+            </motion.div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* 6. Key Features Deep Dive */}
-      <section className="py-20 relative">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-950/30 via-gray-900 to-slate-950" />
-          <div className="absolute inset-0 grain-texture opacity-25" />
-        </div>
-        
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 modern-heritage bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent">
-              KEY FEATURES
-            </h2>
-            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Core functionality designed for emergency healthcare scenarios
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {caseStudyData.keyFeatures.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card className="p-8 glass-card grain-texture border-orange-500/30 h-full">
-                  <div className="mb-6">
-                    <img 
-                      src={feature.image} 
-                      alt={feature.title}
-                      className="w-full h-64 object-contain bg-white/5 border border-white/10"
-                    />
-                  </div>
-                  
-                  <h3 className="text-xl font-bold mb-4 text-orange-300 modern-heritage">
-                    {feature.title}
-                  </h3>
-                  
-                  <p className="text-white/85 leading-relaxed mb-6 jost-secondary">
-                    {feature.description}
-                  </p>
-                  
-                  <div>
-                    <h4 className="text-sm font-bold text-orange-400 mb-3 jost-secondary">KEY BENEFITS</h4>
-                    <ul className="space-y-2">
-                      {feature.benefits.map((benefit, idx) => (
-                        <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
-                          <CheckCircle className="w-4 h-4 text-orange-400 mr-2 flex-shrink-0" />
-                          {benefit}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
