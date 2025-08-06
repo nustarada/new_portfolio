@@ -59,16 +59,15 @@ const LiffoCaseStudy = () => {
 
   // Define navigation sections for Liffo case study
   const navigationSections = [
-    { id: 'overview', title: 'Project Overview', color: 'from-blue-400 to-teal-400' },
-    { id: 'challenge', title: 'The Challenge', color: 'from-red-400 to-yellow-400' },
-    { id: 'approach', title: 'Design Approach', color: 'from-purple-400 to-pink-400' },
-    { id: 'research', title: 'User Research', color: 'from-green-400 to-teal-400' },
+    { id: 'overview', title: 'Overview & Problem', color: 'from-blue-400 to-teal-400' },
     { id: 'personas', title: 'User Personas', color: 'from-orange-400 to-red-400' },
-    { id: 'information', title: 'Information Architecture', color: 'from-cyan-400 to-blue-400' },
-    { id: 'wireframes', title: 'Wireframes & Prototyping', color: 'from-purple-400 to-cyan-400' },
-    { id: 'visual', title: 'Visual Design', color: 'from-pink-400 to-purple-400' },
-    { id: 'screens', title: 'Final Screens', color: 'from-green-400 to-cyan-400' },
-    { id: 'testing', title: 'User Testing', color: 'from-yellow-400 to-orange-400' },
+    { id: 'research', title: 'User Journey', color: 'from-green-400 to-teal-400' },
+    { id: 'approach', title: 'The Design Solution', color: 'from-purple-400 to-pink-400' },
+    { id: 'wireframes', title: 'Key Features', color: 'from-purple-400 to-cyan-400' },
+    { id: 'screens', title: 'Design Showcase', color: 'from-green-400 to-cyan-400' },
+    { id: 'testing', title: 'Results & Impact', color: 'from-yellow-400 to-orange-400' },
+    { id: 'visual', title: 'Design Principles', color: 'from-pink-400 to-purple-400' },
+    { id: 'information', title: 'Tools & Technology', color: 'from-cyan-400 to-blue-400' },
     { id: 'learnings', title: 'Key Learnings', color: 'from-red-400 to-pink-400' }
   ];
 

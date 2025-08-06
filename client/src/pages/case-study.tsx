@@ -26,8 +26,8 @@ const CaseStudyPage = () => {
     { id: 'showcase', title: 'Website Showcase', color: 'from-cyan-400 to-pink-400' },
     { id: 'challenge', title: 'The Challenge', color: 'from-red-400 to-yellow-400' },
     { id: 'solution', title: 'The Solution', color: 'from-green-400 to-teal-400' },
-    { id: 'process', title: 'Design Process', color: 'from-purple-400 to-red-400' },
-    { id: 'hubspot', title: 'HubSpot Integration', color: 'from-orange-400 to-red-400' },
+    { id: 'process', title: 'Design & Development Process', color: 'from-purple-400 to-red-400' },
+    { id: 'hubspot', title: 'HubSpot Integration Results', color: 'from-orange-400 to-red-400' },
     { id: 'results', title: 'Results & Impact', color: 'from-green-400 to-cyan-400' },
     { id: 'technology', title: 'Technology Stack', color: 'from-blue-400 to-purple-400' },
     { id: 'learnings', title: 'Key Learnings', color: 'from-yellow-400 to-red-400' }
