@@ -847,11 +847,12 @@ const CaseStudyPage = () => {
                   Start Your Project
                 </Button>
               </Link>
-              <Link href="/">
+              <a href="https://www.futurefirstfamilies.com" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="lg" className="h-12 sm:h-14 px-8 text-base font-semibold border-white/20 hover:border-white/40 hover:bg-white/5">
-                  View More Projects
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Live Site
                 </Button>
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>
