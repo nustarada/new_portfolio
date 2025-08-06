@@ -655,7 +655,7 @@ export default function Home() {
                       viewport={{ once: true }}
                     >
                       <h4 className="text-lg font-bold text-white mb-3 flex items-center jost-secondary">
-                        <Briefcase className="w-5 h-5 text-primary mr-2" />
+                        <Briefcase className="w-5 h-5 text-cyan-400 mr-2" />
                         Experience & Expertise
                       </h4>
                       <p className="text-white/80 leading-relaxed text-base jost-secondary">
