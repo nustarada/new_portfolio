@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import LogoImage from '@assets/Logo black_1754170788875.png';
 
-// Import properly numbered Liffo screens (1-12 from first batch)
+// Import all 34 properly numbered Liffo screens
 import Screen1 from "@assets/1. Walkthrough 1_1754469198499.png";
 import Screen2 from "@assets/2. Walkthrough 2_1754469198505.png";
 import Screen3 from "@assets/3. Walkthrough 3_1754469198505.png";
@@ -20,6 +20,28 @@ import Screen9 from "@assets/9. Doctor Lab Test Serivices_1754469198506.png";
 import Screen10 from "@assets/10. Symptoms_1754469198506.png";
 import Screen11 from "@assets/11. Emergency_1754469198506.png";
 import Screen12 from "@assets/12. Emergency Expanded_1754469198507.png";
+import Screen13 from "@assets/13. Emergency Hospital List_1754469198507.png";
+import Screen14 from "@assets/14. Home care services_1754469198507.png";
+import Screen15 from "@assets/15. Hospital Detail Page 5_1754469198507.png";
+import Screen16 from "@assets/16. Hospital Detail Page 1_1754469198507.png";
+import Screen17 from "@assets/17. Hospital Detail Page 2_1754469198507.png";
+import Screen18 from "@assets/18. Hospital Detail Page 3_1754469198507.png";
+import Screen19 from "@assets/19. Hospital Detail Page 4_1754469198507.png";
+import Screen20 from "@assets/20. Elite Doctor_1754469198508.png";
+import Screen21 from "@assets/21. Doctor Specialisation_1754469216926.png";
+import Screen22 from "@assets/22. Doctor List_1754469216927.png";
+import Screen23 from "@assets/23. Search Tab_1754469216928.png";
+import Screen24 from "@assets/24. Search Tab_1754469216928.png";
+import Screen25 from "@assets/25. My Profile_1754469216929.png";
+import Screen26 from "@assets/26. Edit Profile_1754469216929.png";
+import Screen27 from "@assets/27. Appointment_1754469216929.png";
+import Screen28 from "@assets/28. Prescription_1754469216929.png";
+import Screen29 from "@assets/29. My Lab Results_1754469216929.png";
+import Screen30 from "@assets/30. Edit Physicals_1754469216930.png";
+import Screen31 from "@assets/31. Health Details_1754469216930.png";
+import Screen32 from "@assets/32. Family Medical History_1754469216930.png";
+import Screen33 from "@assets/33. Dropdown_1754469216930.png";
+import Screen34 from "@assets/34. Health card_1754469216930.png";
 
 // Keep some legacy imports for backward compatibility until all 34 screens are available
 import WalkthroughImage1 from "@assets/Walkthrough 1.png";
