@@ -5,6 +5,7 @@ import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, 
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { CaseStudyNavigation } from '@/components/case-study-navigation';
 import LogoImage from '@assets/Logo black_1754170788875.png';
 import fffVideoPath from "@assets/FFF website video (video-converter.com)_1754054201797.webm";
 
@@ -18,6 +19,19 @@ const CaseStudyPage = () => {
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
+  // Define navigation sections
+  const navigationSections = [
+    { id: 'overview', title: 'Project Overview', color: 'from-blue-400 to-teal-400' },
+    { id: 'showcase', title: 'Website Showcase', color: 'from-cyan-400 to-pink-400' },
+    { id: 'challenge', title: 'The Challenge', color: 'from-red-400 to-yellow-400' },
+    { id: 'solution', title: 'The Solution', color: 'from-green-400 to-teal-400' },
+    { id: 'process', title: 'Design Process', color: 'from-purple-400 to-red-400' },
+    { id: 'hubspot', title: 'HubSpot Integration', color: 'from-orange-400 to-red-400' },
+    { id: 'results', title: 'Results & Impact', color: 'from-green-400 to-cyan-400' },
+    { id: 'technology', title: 'Technology Stack', color: 'from-blue-400 to-purple-400' },
+    { id: 'learnings', title: 'Key Learnings', color: 'from-yellow-400 to-red-400' }
+  ];
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -148,6 +162,9 @@ const CaseStudyPage = () => {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture case-study-page">
+      {/* Case Study Navigation */}
+      <CaseStudyNavigation sections={navigationSections} />
+      
       {/* Progress Bar */}
       <motion.div 
         className="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary to-cyan-400 z-50"
@@ -240,7 +257,7 @@ const CaseStudyPage = () => {
       </section>
 
       {/* 1. Project Overview */}
-      <section className="py-20 relative">
+      <section id="overview" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-900" />
           <div className="absolute inset-0 grain-texture opacity-20" />
@@ -312,7 +329,7 @@ const CaseStudyPage = () => {
       </section>
 
       {/* Website Showcase Video */}
-      <section className="py-20 relative">
+      <section id="showcase" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-15" />
@@ -421,7 +438,7 @@ const CaseStudyPage = () => {
       </section>
 
       {/* 2. Problem Statement */}
-      <section className="py-20 relative">
+      <section id="challenge" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-red-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -477,7 +494,7 @@ const CaseStudyPage = () => {
       </section>
 
       {/* 3. Solution */}
-      <section className="py-20 relative">
+      <section id="solution" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -533,7 +550,7 @@ const CaseStudyPage = () => {
       </section>
 
       {/* 4. Design & Development Process */}
-      <section className="py-20 relative">
+      <section id="process" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -601,7 +618,7 @@ const CaseStudyPage = () => {
       </section>
 
       {/* 5. HubSpot Integration Results */}
-      <section className="py-20 relative">
+      <section id="hubspot" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-orange-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -657,7 +674,7 @@ const CaseStudyPage = () => {
       </section>
 
       {/* 6. Results & Impact */}
-      <section className="py-20 relative">
+      <section id="results" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -707,7 +724,7 @@ const CaseStudyPage = () => {
       </section>
 
       {/* 7. Technology Stack */}
-      <section className="py-20 relative">
+      <section id="technology" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -757,7 +774,7 @@ const CaseStudyPage = () => {
       </section>
 
       {/* 8. Key Learnings */}
-      <section className="py-20 relative">
+      <section id="learnings" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-yellow-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />

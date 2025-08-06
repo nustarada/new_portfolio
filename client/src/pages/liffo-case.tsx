@@ -5,6 +5,7 @@ import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, 
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { CaseStudyNavigation } from '@/components/case-study-navigation';
 import LogoImage from '@assets/Logo black_1754170788875.png';
 
 // Import all 34 properly numbered Liffo screens
@@ -55,6 +56,21 @@ const LiffoCaseStudy = () => {
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
+  // Define navigation sections for Liffo case study
+  const navigationSections = [
+    { id: 'overview', title: 'Project Overview', color: 'from-blue-400 to-teal-400' },
+    { id: 'challenge', title: 'The Challenge', color: 'from-red-400 to-yellow-400' },
+    { id: 'approach', title: 'Design Approach', color: 'from-purple-400 to-pink-400' },
+    { id: 'research', title: 'User Research', color: 'from-green-400 to-teal-400' },
+    { id: 'personas', title: 'User Personas', color: 'from-orange-400 to-red-400' },
+    { id: 'information', title: 'Information Architecture', color: 'from-cyan-400 to-blue-400' },
+    { id: 'wireframes', title: 'Wireframes & Prototyping', color: 'from-purple-400 to-cyan-400' },
+    { id: 'visual', title: 'Visual Design', color: 'from-pink-400 to-purple-400' },
+    { id: 'screens', title: 'Final Screens', color: 'from-green-400 to-cyan-400' },
+    { id: 'testing', title: 'User Testing', color: 'from-yellow-400 to-orange-400' },
+    { id: 'learnings', title: 'Key Learnings', color: 'from-red-400 to-pink-400' }
+  ];
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -339,6 +355,9 @@ const LiffoCaseStudy = () => {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture liffo-case-study">
+      {/* Case Study Navigation */}
+      <CaseStudyNavigation sections={navigationSections} />
+      
       {/* Progress Bar */}
       <motion.div 
         className="fixed top-0 left-0 h-1 bg-gradient-to-r from-red-500 to-orange-500 z-50"
@@ -431,7 +450,7 @@ const LiffoCaseStudy = () => {
       </section>
 
       {/* 1. Overview & Problem */}
-      <section className="py-20 relative">
+      <section id="overview" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-900" />
           <div className="absolute inset-0 grain-texture opacity-20" />
@@ -534,7 +553,7 @@ const LiffoCaseStudy = () => {
       </section>
 
       {/* 2. Personas */}
-      <section className="py-20 relative">
+      <section id="personas" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -624,7 +643,7 @@ const LiffoCaseStudy = () => {
       </section>
 
       {/* 3. User Journey */}
-      <section className="py-20 relative">
+      <section id="research" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -712,7 +731,7 @@ const LiffoCaseStudy = () => {
       </section>
 
       {/* 4. Solution & Process */}
-      <section className="py-20 relative">
+      <section id="approach" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -823,7 +842,7 @@ const LiffoCaseStudy = () => {
       </section>
 
       {/* 5. Key Features */}
-      <section className="py-20 relative">
+      <section id="wireframes" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-orange-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -890,7 +909,7 @@ const LiffoCaseStudy = () => {
       </section>
 
       {/* 6. Design Showcase */}
-      <section className="py-20 relative">
+      <section id="screens" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -1013,7 +1032,7 @@ const LiffoCaseStudy = () => {
       </section>
 
       {/* 7. Results & Impact */}
-      <section className="py-20 relative">
+      <section id="testing" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -1063,7 +1082,7 @@ const LiffoCaseStudy = () => {
       </section>
 
       {/* 8. Design Principles */}
-      <section className="py-20 relative">
+      <section id="visual" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -1119,7 +1138,7 @@ const LiffoCaseStudy = () => {
       </section>
 
       {/* 9. Tools & Technology */}
-      <section className="py-20 relative">
+      <section id="information" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -1169,7 +1188,7 @@ const LiffoCaseStudy = () => {
       </section>
 
       {/* 10. Key Learnings */}
-      <section className="py-20 relative">
+      <section id="learnings" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-yellow-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
