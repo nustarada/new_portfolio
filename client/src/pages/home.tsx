@@ -409,9 +409,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.3 }}
               className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto font-normal jost-secondary"
-            >
-              Designing exceptional digital experiences using AI-powered design tools, Figma workflows, and innovative platforms like Replit.
-            </motion.p>
+            >Designing exceptional digital experiences with Figma, enhanced by AI tools like Replit, Lovable, and more.</motion.p>
             
 
             
