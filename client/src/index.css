@@ -91,18 +91,63 @@
     will-change: auto;
   }
 
-  .animate-pulse {
-    animation: none;
-    /* Disable pulse animations for better performance */
+  /* GPU acceleration for smooth animations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
-  /* Reduce motion for better performance */
+  /* Optimized scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @supports (scroll-behavior: smooth) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
-    * {
+    *,
+    *::before,
+    *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
     }
+    
+    .motion-reduce {
+      transform: none !important;
+      animation: none !important;
+    }
+  }
+
+  /* Optimize fonts */
+  @font-face {
+    font-family: 'Jost';
+    font-display: swap;
+    font-weight: 300 800;
+  }
+
+  /* Image optimization */
+  img {
+    content-visibility: auto;
+    contain: layout style paint;
+  }
+
+  /* Canvas optimization */
+  canvas {
+    will-change: transform;
+    image-rendering: optimizeSpeed;
+  }
+
+  /* Intersection observer performance */
+  .lazy-load {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 500px;
   }
 
   html {
