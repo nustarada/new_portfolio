@@ -799,25 +799,25 @@ const LiffoCaseStudy = () => {
                       <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4">
                         <span className="text-purple-400 font-bold jost-secondary">{index + 1}</span>
                       </div>
-                      <Badge variant="outline" className="text-xs px-2 py-1 border-purple-400/50 text-purple-400 jost-secondary">
+                      <Badge variant="outline" className="text-sm px-3 py-1.5 border-purple-400/50 text-purple-400 jost-secondary">
                         {phase.duration}
                       </Badge>
                     </div>
                     
-                    <h4 className="text-lg font-bold mb-3 text-purple-300 modern-heritage">
+                    <h4 className="text-xl font-bold mb-4 text-purple-300 modern-heritage">
                       {phase.phase}
                     </h4>
                     
-                    <p className="text-white/85 leading-relaxed mb-4 text-base jost-secondary">
+                    <p className="text-white/85 leading-relaxed mb-6 text-lg jost-secondary">
                       {phase.description}
                     </p>
                     
                     <div>
-                      <h5 className="text-sm font-bold text-purple-400 mb-3 jost-secondary">DELIVERABLES</h5>
+                      <h5 className="text-base font-bold text-purple-400 mb-4 jost-secondary">DELIVERABLES</h5>
                       <ul className="space-y-2">
                         {phase.deliverables.map((deliverable, idx) => (
-                          <li key={idx} className="text-sm text-white/80 flex items-center jost-secondary">
-                            <div className="w-2 h-2 bg-purple-400 rounded-full mr-3 flex-shrink-0" />
+                          <li key={idx} className="text-base text-white/80 flex items-center jost-secondary">
+                            <div className="w-2.5 h-2.5 bg-purple-400 rounded-full mr-3 flex-shrink-0" />
                             {deliverable}
                           </li>
                         ))}
