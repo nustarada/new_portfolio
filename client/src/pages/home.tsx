@@ -133,29 +133,51 @@ export default function Home() {
 
 
 
+    let scrollTicking = false;
+    let isScrolling = false;
+    let scrollTimeout: NodeJS.Timeout;
+
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'projects', 'expertise', 'contact'];
-      const scrollPos = window.scrollY + 100;
-      
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPos >= offsetTop && scrollPos < offsetTop + height) {
-            setActiveSection(section);
-            break;
+      if (!isScrolling) {
+        document.body.classList.add('scrolling');
+        isScrolling = true;
+      }
+
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        document.body.classList.remove('scrolling');
+        isScrolling = false;
+      }, 150);
+
+      if (!scrollTicking) {
+        requestAnimationFrame(() => {
+          const sections = ['hero', 'about', 'projects', 'expertise', 'contact'];
+          const scrollPos = window.scrollY + 100;
+          
+          for (const section of sections) {
+            const element = document.getElementById(section);
+            if (element) {
+              const offsetTop = element.offsetTop;
+              const height = element.offsetHeight;
+              if (scrollPos >= offsetTop && scrollPos < offsetTop + height) {
+                setActiveSection(section);
+                break;
+              }
+            }
           }
-        }
+          scrollTicking = false;
+        });
+        scrollTicking = true;
       }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
     };
   }, []);
 

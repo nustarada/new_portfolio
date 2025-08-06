@@ -47,7 +47,7 @@ export function SkillBar({ skill, percentage, color }: SkillBarProps) {
           animate={{ 
             width: isVisible ? `${percentage}%` : 0
           }}
-          transition={{ duration: 2, ease: "easeOut", delay: 0.3 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
         />
         
         {/* Subtle progress indicator */}
