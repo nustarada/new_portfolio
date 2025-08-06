@@ -393,7 +393,7 @@ const LiffoCaseStudy = () => {
   };
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture liffo-case-study">
+    <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture liffo-case-study" style={{ position: 'relative' }}>
       {/* Case Study Navigation */}
       <CaseStudyNavigation sections={navigationSections} />
       

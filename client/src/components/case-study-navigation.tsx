@@ -72,7 +72,7 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
   };
 
   return (
-    <div className="case-study-navigation">
+    <div className="case-study-navigation" style={{ position: 'relative', zIndex: 999999 }}>
       {/* Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-black/20 backdrop-blur-sm z-50">
         <motion.div
@@ -91,7 +91,8 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
         style={{ 
           zIndex: 999999, 
           position: 'fixed',
-          pointerEvents: 'auto'
+          pointerEvents: 'auto',
+          isolation: 'isolate'
         }}
       >
         <Button

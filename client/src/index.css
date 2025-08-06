@@ -58,7 +58,7 @@
   }
 
   body {
-    @apply bg-background text-foreground overflow-x-hidden;
+    @apply bg-background text-foreground;
     font-family: 'Jost', system-ui, sans-serif !important;
     line-height: 1.6;
     background: hsl(220, 27%, 3%) !important;
@@ -86,8 +86,6 @@
 
   /* Force hardware acceleration for smooth scrolling */
   html {
-    overflow-x: hidden;
-    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
   }
 
