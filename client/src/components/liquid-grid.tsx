@@ -13,20 +13,20 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
   const isVisible = useRef(true);
   
   // Throttle mouse position updates to reduce computation
-  const throttledMouseX = useThrottle(mouseX, 16); // ~60fps
-  const throttledMouseY = useThrottle(mouseY, 16);
-  const debouncedIntensity = useDebounce(intensity, 100);
+  const throttledMouseX = useThrottle(mouseX, 20); // Slightly reduced frequency for better performance
+  const throttledMouseY = useThrottle(mouseY, 20);
+  const debouncedIntensity = useDebounce(intensity, 150); // Increased debounce for smoother transitions
 
   // Memoize static values
   const config = useMemo(() => ({
-    gridSize: 120, // Increased for better performance
-    distortionRadius: 80,
-    maxDistortion: 10,
-    lerpFactor: 0.12,
-    targetFPS: 24, // Reduced from 30fps to 24fps for better performance
-    baseOpacity: 0.06,
-    activeOpacity: 0.08,
-    lineWidth: 0.6
+    gridSize: 140, // Further increased for better performance
+    distortionRadius: 70, // Reduced radius for less computation
+    maxDistortion: 8, // Reduced distortion for smoother animation
+    lerpFactor: 0.1, // Smoother interpolation
+    targetFPS: 30, // Optimized FPS
+    baseOpacity: 0.05,
+    activeOpacity: 0.07,
+    lineWidth: 0.5
   }), []);
 
   const resizeCanvas = useCallback(() => {
@@ -36,18 +36,25 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     
-    // Use lower DPI for better performance on high-DPI displays
-    const dpr = Math.min(window.devicePixelRatio, 2);
-    canvas.width = canvas.offsetWidth * dpr;
-    canvas.height = canvas.offsetHeight * dpr;
+    // Use optimal DPI for performance balance
+    const dpr = Math.min(window.devicePixelRatio, 1.5);
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
     ctx.scale(dpr, dpr);
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
   }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
+    const ctx = canvas.getContext('2d', { 
+      alpha: true, 
+      desynchronized: true,
+      willReadFrequently: false 
+    });
     if (!ctx) return;
 
     resizeCanvas();
@@ -93,7 +100,7 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
       for (let x = 0; x <= width; x += config.gridSize) {
         ctx.beginPath();
         
-        for (let y = 0; y <= height; y += 12) {
+        for (let y = 0; y <= height; y += 15) {
           const dx = x - mousePixelX;
           const dy = y - mousePixelY;
           const distance = Math.sqrt(dx * dx + dy * dy);
@@ -119,7 +126,7 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
       for (let y = 0; y <= height; y += config.gridSize) {
         ctx.beginPath();
         
-        for (let x = 0; x <= width; x += 12) {
+        for (let x = 0; x <= width; x += 15) {
           const dx = x - mousePixelX;
           const dy = y - mousePixelY;
           const distance = Math.sqrt(dx * dx + dy * dy);
