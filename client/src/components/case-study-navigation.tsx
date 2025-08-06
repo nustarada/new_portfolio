@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Eye } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 interface NavigationSection {
   id: string;
@@ -70,55 +69,99 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
 
   return (
     <>
-      {/* Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-black/20 backdrop-blur-sm z-50">
-        <motion.div
-          className="h-full bg-gradient-to-r from-primary via-cyan-400 to-purple-400"
-          style={{ width: `${scrollProgress}%` }}
-          transition={{ type: 'spring', stiffness: 400, damping: 40 }}
-        />
+      {/* Test Button - Ultra High Z-Index */}
+      <div 
+        style={{
+          position: 'fixed',
+          bottom: '80px',
+          right: '24px',
+          zIndex: 99999,
+          background: 'red',
+          width: '60px',
+          height: '60px',
+          borderRadius: '50%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 0 20px rgba(255, 0, 0, 0.8)',
+          pointerEvents: 'auto'
+        }}
+      >
+        <span style={{ color: 'white', fontWeight: 'bold' }}>TEST</span>
       </div>
 
-      {/* Navigation Toggle Button */}
-      <motion.div
-        className="fixed right-6 bottom-6 z-40"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1 }}
+      {/* Floating Navigation Button - Ultra High Z-Index */}
+      <div 
+        style={{
+          position: 'fixed',
+          bottom: '24px',
+          right: '24px',
+          zIndex: 99999,
+          pointerEvents: 'auto'
+        }}
       >
-        <Button
+        <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-12 h-12 rounded-full bg-gradient-to-r from-primary/90 to-purple-500/90 backdrop-blur-md border border-white/20 hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25"
-          size="sm"
+          style={{
+            width: '64px',
+            height: '64px',
+            background: 'linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%)',
+            borderRadius: '50%',
+            border: 'none',
+            boxShadow: '0 8px 32px rgba(59, 130, 246, 0.8), 0 0 0 2px rgba(255, 255, 255, 0.2)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            transition: 'transform 0.2s ease',
+            pointerEvents: 'auto'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
         >
           {isOpen ? (
-            <X className="w-5 h-5 text-white" />
+            <X style={{ width: '28px', height: '28px', color: 'white' }} />
           ) : (
-            <Menu className="w-5 h-5 text-white" />
+            <Menu style={{ width: '28px', height: '28px', color: 'white' }} />
           )}
-        </Button>
-      </motion.div>
+        </button>
+      </div>
 
       {/* Navigation Panel */}
       <AnimatePresence>
         {isOpen && (
           <>
             {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30"
+            <div
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998]"
               onClick={() => setIsOpen(false)}
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                zIndex: 9998
+              }}
             />
             
             {/* Navigation Menu */}
-            <motion.div
-              initial={{ opacity: 0, x: 300, scale: 0.9 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: 300, scale: 0.9 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed right-6 bottom-20 w-80 max-h-96 overflow-y-auto bg-gradient-to-br from-slate-900/95 via-purple-900/90 to-slate-900/95 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl shadow-primary/20 z-40"
+            <div
+              style={{ 
+                position: 'fixed',
+                bottom: '100px',
+                right: '24px',
+                zIndex: 99998,
+                width: '320px',
+                maxHeight: '70vh',
+                overflowY: 'auto',
+                background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 58, 138, 0.95))',
+                backdropFilter: 'blur(20px)',
+                border: '2px solid rgba(255, 255, 255, 0.3)',
+                borderRadius: '12px',
+                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.8)',
+                pointerEvents: 'auto'
+              }}
             >
               <div className="p-6">
                 {/* Header */}
@@ -189,7 +232,7 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </>
         )}
       </AnimatePresence>

@@ -5,7 +5,7 @@ import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, 
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { CaseStudyNavigation } from '@/components/case-study-navigation';
+import { ViewportNav } from '@/components/viewport-nav';
 import LogoImage from '@assets/Logo black_1754170788875.png';
 import fffVideoPath from "@assets/FFF website video (video-converter.com)_1754054201797.webm";
 
@@ -34,10 +34,34 @@ const CaseStudyPage = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    let ticking = false;
+    let isScrolling = false;
+    let scrollTimeout: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      if (!isScrolling) {
+        document.body.classList.add('scrolling');
+        isScrolling = true;
+      }
+
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        document.body.classList.remove('scrolling');
+        isScrolling = false;
+      }, 150);
+
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleResize);
     handleResize();
     window.scrollTo(0, 0); // Scroll to top on component mount
@@ -45,6 +69,7 @@ const CaseStudyPage = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
+      clearTimeout(scrollTimeout);
     };
   }, []);
 
@@ -162,23 +187,24 @@ const CaseStudyPage = () => {
   };
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture case-study-page">
+    <div ref={containerRef} className="min-h-screen bg-background text-foreground grain-texture case-study-page">
       {/* Case Study Navigation */}
-      <CaseStudyNavigation sections={navigationSections} />
+      <ViewportNav />
       
       {/* Progress Bar */}
       <motion.div 
-        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary to-cyan-400 z-50"
-        style={{ width: progressWidth }}
+        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary to-cyan-400"
+        style={{ width: progressWidth, zIndex: 1001 }}
       />
 
       {/* Navigation */}
       <motion.nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
           isScrolled 
             ? 'glass-intense grain-texture border-b border-white/10 shadow-2xl shadow-primary/20' 
             : 'glass-card grain-texture'
         }`}
+        style={{ zIndex: 1000 }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8 }}
