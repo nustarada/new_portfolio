@@ -43,32 +43,7 @@ import Screen32 from "@assets/32. Family Medical History_1754469216930.png";
 import Screen33 from "@assets/33. Dropdown_1754469216930.png";
 import Screen34 from "@assets/34. Health card_1754469216930.png";
 
-// Keep some legacy imports for backward compatibility until all 34 screens are available
-import WalkthroughImage1 from "@assets/Walkthrough 1.png";
-import WalkthroughImage2 from "@assets/Walkthrough 2.png";
-import WalkthroughImage3 from "@assets/Walkthrough 3.png";
-import EliteDoctorImage from "@assets/Elite Doctor_1754170735048.png";
-import DoctorListImage from "@assets/Doctor List_1754170735048.png";
-import DoctorSpecialisationImage from "@assets/Doctor Specialisation_1754170735049.png";
-import HospitalDetailImage from "@assets/Hospital Detail Page 4_1754170735053.png";
-import HealthCardImage from "@assets/Health card_1754170735053.png";
-import EditProfileImage from "@assets/Edit Profile_1754170735053.png";
-import MyProfileImage from "@assets/My Profile_1754170735053.png";
-import MyLabResultsImage from "@assets/My Lab Results_1754170735054.png";
-import EditPhysicalsImage from "@assets/Edit Physicals_1754170735054.png";
-import HealthDetailsImage from "@assets/Health Details_1754170735054.png";
-import FamilyMedicalHistoryImage from "@assets/Family Medical History_1754170735054.png";
-import SelectImage from "@assets/SELECT_1754170735054.png";
-import SearchTabImage from "@assets/Search Tab.png";
-import HomeCareImage from "@assets/Home care services.png";
-import SymptomsImage from "@assets/Symptoms.png";
-import DoctorLabTestImage from "@assets/Doctor Lab Test Serivices.png";
-import AllServicesImage from "@assets/All Services.png";
-import EmergencyImage from "@assets/Emergency.png";
-import AppointmentImage from "@assets/Appointment.png";
-import PrescriptionImage from "@assets/Prescription.png";
-import Dashboard1Image from "@assets/Dashboard 1.png";
-import Dashboard2Image from "@assets/Dashboard 2.png";
+
 
 const LiffoCaseStudy = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -170,22 +145,22 @@ const LiffoCaseStudy = () => {
         benefits: ["Reduced emergency response time", "Critical health info sharing", "Location-based service matching"]
       },
       {
-        title: "Comprehensive Services Directory",
-        description: "Complete healthcare service categorization including lab tests, pharmacy, and specialist consultations",
-        image: Screen6,
-        benefits: ["Easy service discovery", "Real-time availability", "Integrated booking system"]
+        title: "Doctor Discovery & Specialization",
+        description: "Comprehensive specialist directory with real-time availability, ratings, and booking system",
+        image: Screen21,
+        benefits: ["Easy specialist discovery", "Real-time availability", "Integrated booking system"]
       },
       {
-        title: "Symptom-Based Consultation",
-        description: "Smart symptom checker connecting patients with appropriate specialists and emergency services",
-        image: Screen10,
-        benefits: ["Accurate symptom assessment", "Quick specialist matching", "Emergency escalation"]
+        title: "Complete Health Profile Management",
+        description: "Centralized health records, lab results, family history, and personal health data management",
+        image: Screen31,
+        benefits: ["Comprehensive health tracking", "Family health management", "Secure data storage"]
       },
       {
-        title: "Lab & Pharmacy Services",
-        description: "Streamlined lab test booking and pharmacy services with home delivery options",
-        image: Screen7,
-        benefits: ["Convenient test booking", "Prescription management", "Home delivery services"]
+        title: "Advanced Search & Hospital Services",
+        description: "Smart search functionality with detailed hospital information and comprehensive care options",
+        image: Screen23,
+        benefits: ["Intelligent search results", "Detailed hospital profiles", "Comprehensive care options"]
       }
     ],
     
@@ -201,14 +176,44 @@ const LiffoCaseStudy = () => {
         images: [Screen4, Screen5]
       },
       {
-        category: "Healthcare Services Directory",
+        category: "Healthcare Services Directory", 
         description: "Comprehensive service categorization including lab tests, pharmacy, and doctor consultations",
         images: [Screen6, Screen7, Screen8, Screen9]
       },
       {
-        category: "Emergency Services & Symptoms",
-        description: "Critical emergency access with symptom-based consultation and expanded emergency options",
-        images: [Screen10, Screen11, Screen12]
+        category: "Emergency & Critical Care",
+        description: "Emergency services, symptom checker, hospital listings, and home care options",
+        images: [Screen10, Screen11, Screen12, Screen13, Screen14]
+      },
+      {
+        category: "Hospital & Healthcare Facilities",
+        description: "Detailed hospital information with comprehensive facility details and service offerings",
+        images: [Screen15, Screen16, Screen17, Screen18, Screen19]
+      },
+      {
+        category: "Doctor Discovery & Specialization",
+        description: "Elite doctor profiles, specialization categories, and comprehensive doctor listings",
+        images: [Screen20, Screen21, Screen22]
+      },
+      {
+        category: "Search & Discovery",
+        description: "Advanced search functionality for nursing services, specialists, and healthcare providers",
+        images: [Screen23, Screen24]
+      },
+      {
+        category: "Profile Management",
+        description: "Complete user profile system with personal information and emergency contact management",
+        images: [Screen25, Screen26]
+      },
+      {
+        category: "Appointment & Medical Records",
+        description: "Appointment scheduling, prescription management, and comprehensive lab results tracking",
+        images: [Screen27, Screen28, Screen29]
+      },
+      {
+        category: "Health Data & History",
+        description: "Physical health tracking, detailed health records, family medical history, and health card system",
+        images: [Screen30, Screen31, Screen32, Screen33, Screen34]
       }
     ],
     
@@ -692,14 +697,11 @@ const LiffoCaseStudy = () => {
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {[
-                  DoctorLabTestImage, SearchTabImage, HomeCareImage, SymptomsImage,
-                  AllServicesImage, EmergencyImage, AppointmentImage, PrescriptionImage,
-                  EliteDoctorImage, DoctorListImage, DoctorSpecialisationImage, HospitalDetailImage,
-                  HealthCardImage, EditProfileImage, MyProfileImage, MyLabResultsImage,
-                  EditPhysicalsImage, HealthDetailsImage, FamilyMedicalHistoryImage, SelectImage,
-                  Dashboard1Image, Dashboard2Image, WalkthroughImage1, WalkthroughImage2,
-                  WalkthroughImage3, AllServicesImage, HomeCareImage, SymptomsImage,
-                  DoctorLabTestImage, SearchTabImage, EmergencyImage, AppointmentImage
+                  Screen1, Screen2, Screen3, Screen4, Screen5, Screen6, Screen7, Screen8,
+                  Screen9, Screen10, Screen11, Screen12, Screen13, Screen14, Screen15, Screen16,
+                  Screen17, Screen18, Screen19, Screen20, Screen21, Screen22, Screen23, Screen24,
+                  Screen25, Screen26, Screen27, Screen28, Screen29, Screen30, Screen31, Screen32,
+                  Screen33, Screen34
                 ].map((image, index) => (
                   <motion.div
                     key={index}
@@ -712,7 +714,7 @@ const LiffoCaseStudy = () => {
                   >
                     <img 
                       src={image} 
-                      alt={`Interface ${index + 1}`}
+                      alt={`Liffo Healthcare Interface ${index + 1} of 34`}
                       className="w-full h-full object-cover hover:object-contain transition-all duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
