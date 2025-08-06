@@ -590,11 +590,11 @@ const LiffoCaseStudy = () => {
                     
                     <div className="space-y-4">
                       <div>
-                        <h4 className="text-sm font-bold text-blue-400 mb-2 jost-secondary">GOALS</h4>
-                        <ul className="space-y-1">
+                        <h4 className="text-base font-bold text-blue-400 mb-3 jost-secondary">GOALS</h4>
+                        <ul className="space-y-2">
                           {persona.goals.map((goal, idx) => (
-                            <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
-                              <Target className="w-3 h-3 text-blue-400 mr-2 flex-shrink-0" />
+                            <li key={idx} className="text-base text-white/80 flex items-start jost-secondary">
+                              <Target className="w-4 h-4 text-blue-400 mr-3 flex-shrink-0 mt-0.5" />
                               {goal}
                             </li>
                           ))}
@@ -602,20 +602,20 @@ const LiffoCaseStudy = () => {
                       </div>
                       
                       <div>
-                        <h4 className="text-sm font-bold text-red-400 mb-2 jost-secondary">PAIN POINTS</h4>
-                        <ul className="space-y-1">
+                        <h4 className="text-base font-bold text-red-400 mb-3 jost-secondary">PAIN POINTS</h4>
+                        <ul className="space-y-2">
                           {persona.painPoints.map((pain, idx) => (
-                            <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
-                              <AlertCircle className="w-3 h-3 text-red-400 mr-2 flex-shrink-0" />
+                            <li key={idx} className="text-base text-white/80 flex items-start jost-secondary">
+                              <AlertCircle className="w-4 h-4 text-red-400 mr-3 flex-shrink-0 mt-0.5" />
                               {pain}
                             </li>
                           ))}
                         </ul>
                       </div>
                       
-                      <div className="flex justify-between items-center pt-2">
-                        <span className="text-xs text-white/60 jost-secondary">Tech Comfort</span>
-                        <span className={`text-xs font-semibold px-2 py-1 rounded ${
+                      <div className="flex justify-between items-center pt-4">
+                        <span className="text-sm text-white/70 jost-secondary">Tech Comfort</span>
+                        <span className={`text-sm font-semibold px-3 py-1.5 rounded ${
                           persona.techComfort === 'High' ? 'bg-green-500/20 text-green-400' :
                           persona.techComfort === 'Medium' ? 'bg-yellow-500/20 text-yellow-400' :
                           'bg-red-500/20 text-red-400'
@@ -677,11 +677,11 @@ const LiffoCaseStudy = () => {
                     
                     <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
                       <div>
-                        <h4 className="text-sm font-bold text-white/90 mb-3 jost-secondary">ACTIONS</h4>
+                        <h4 className="text-base font-bold text-white/90 mb-3 jost-secondary">ACTIONS</h4>
                         <ul className="space-y-2">
                           {phase.actions.map((action, idx) => (
-                            <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
-                              <ArrowRight className="w-3 h-3 text-purple-400 mr-2 flex-shrink-0" />
+                            <li key={idx} className="text-base text-white/80 flex items-start jost-secondary">
+                              <ArrowRight className="w-4 h-4 text-purple-400 mr-3 flex-shrink-0 mt-0.5" />
                               {action}
                             </li>
                           ))}
@@ -689,11 +689,11 @@ const LiffoCaseStudy = () => {
                       </div>
                       
                       <div>
-                        <h4 className="text-sm font-bold text-white/90 mb-3 jost-secondary">EMOTIONS</h4>
+                        <h4 className="text-base font-bold text-white/90 mb-3 jost-secondary">EMOTIONS</h4>
                         <ul className="space-y-2">
                           {phase.emotions.map((emotion, idx) => (
-                            <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
-                              <Heart className="w-3 h-3 text-pink-400 mr-2 flex-shrink-0" />
+                            <li key={idx} className="text-base text-white/80 flex items-start jost-secondary">
+                              <Heart className="w-4 h-4 text-pink-400 mr-3 flex-shrink-0 mt-0.5" />
                               {emotion}
                             </li>
                           ))}
@@ -701,11 +701,11 @@ const LiffoCaseStudy = () => {
                       </div>
                       
                       <div>
-                        <h4 className="text-sm font-bold text-white/90 mb-3 jost-secondary">OPPORTUNITIES</h4>
+                        <h4 className="text-base font-bold text-white/90 mb-3 jost-secondary">OPPORTUNITIES</h4>
                         <ul className="space-y-2">
                           {phase.opportunities.map((opportunity, idx) => (
-                            <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
-                              <Lightbulb className="w-3 h-3 text-yellow-400 mr-2 flex-shrink-0" />
+                            <li key={idx} className="text-base text-white/80 flex items-start jost-secondary">
+                              <Lightbulb className="w-4 h-4 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
                               {opportunity}
                             </li>
                           ))}
@@ -808,16 +808,16 @@ const LiffoCaseStudy = () => {
                       {phase.phase}
                     </h4>
                     
-                    <p className="text-white/85 leading-relaxed mb-4 text-sm jost-secondary">
+                    <p className="text-white/85 leading-relaxed mb-4 text-base jost-secondary">
                       {phase.description}
                     </p>
                     
                     <div>
-                      <h5 className="text-xs font-bold text-purple-400 mb-2 jost-secondary">DELIVERABLES</h5>
-                      <ul className="space-y-1">
+                      <h5 className="text-sm font-bold text-purple-400 mb-3 jost-secondary">DELIVERABLES</h5>
+                      <ul className="space-y-2">
                         {phase.deliverables.map((deliverable, idx) => (
-                          <li key={idx} className="text-xs text-white/70 flex items-center jost-secondary">
-                            <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2" />
+                          <li key={idx} className="text-sm text-white/80 flex items-center jost-secondary">
+                            <div className="w-2 h-2 bg-purple-400 rounded-full mr-3 flex-shrink-0" />
                             {deliverable}
                           </li>
                         ))}
@@ -881,11 +881,11 @@ const LiffoCaseStudy = () => {
                   </p>
                   
                   <div>
-                    <h4 className="text-sm font-bold text-orange-400 mb-3 jost-secondary">KEY BENEFITS</h4>
+                    <h4 className="text-base font-bold text-orange-400 mb-3 jost-secondary">KEY BENEFITS</h4>
                     <ul className="space-y-2">
                       {feature.benefits.map((benefit, idx) => (
-                        <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
-                          <CheckCircle className="w-4 h-4 text-orange-400 mr-2 flex-shrink-0" />
+                        <li key={idx} className="text-base text-white/80 flex items-start jost-secondary">
+                          <CheckCircle className="w-4 h-4 text-orange-400 mr-3 flex-shrink-0 mt-0.5" />
                           {benefit}
                         </li>
                       ))}
@@ -1011,10 +1011,10 @@ const LiffoCaseStudy = () => {
               viewport={{ once: true }}
               className="text-center mt-12"
             >
-              <div className="inline-flex items-center space-x-2 text-purple-400/80 text-sm jost-secondary">
-                <div className="w-8 h-px bg-purple-400/60"></div>
+              <div className="inline-flex items-center space-x-3 text-purple-400/80 text-base jost-secondary">
+                <div className="w-12 h-px bg-purple-400/60"></div>
                 <span>Continue reading for impact metrics, tech insights & learnings</span>
-                <div className="w-8 h-px bg-purple-400/60"></div>
+                <div className="w-12 h-px bg-purple-400/60"></div>
               </div>
             </motion.div>
           </motion.div>
@@ -1164,10 +1164,10 @@ const LiffoCaseStudy = () => {
                   <div className="w-12 h-12 bg-blue-500/20 rounded-xl mx-auto mb-4 flex items-center justify-center">
                     <div className="w-6 h-6 bg-blue-400 rounded opacity-70" />
                   </div>
-                  <h3 className="font-bold text-white mb-1 jost-secondary">
+                  <h3 className="font-bold text-white mb-2 jost-secondary text-base">
                     {tech.name}
                   </h3>
-                  <p className="text-xs text-white/60 jost-secondary">
+                  <p className="text-sm text-white/70 jost-secondary">
                     {tech.category}
                   </p>
                 </Card>
