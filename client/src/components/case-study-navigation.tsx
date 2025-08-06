@@ -12,26 +12,17 @@ interface NavigationSection {
 interface CaseStudyNavigationProps {
   sections: NavigationSection[];
   currentSection?: string;
-  progressBarColors?: string;
 }
 
 export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
   sections,
-  currentSection = '',
-  progressBarColors = 'from-primary via-cyan-400 to-purple-400'
+  currentSection = ''
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(currentSection);
-  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Calculate scroll progress
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      setScrollProgress(scrolled);
-
       // Update active section based on scroll position
       const sectionElements = sections.map(section => ({
         ...section,
@@ -72,15 +63,6 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
 
   return (
     <>
-      {/* Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-black/20 backdrop-blur-sm z-[9999]">
-        <motion.div
-          className={`h-full bg-gradient-to-r ${progressBarColors}`}
-          style={{ width: `${scrollProgress}%` }}
-          transition={{ type: 'spring', stiffness: 400, damping: 40 }}
-        />
-      </div>
-
       {/* Navigation Toggle Button */}
       <motion.div
         className="fixed right-4 bottom-6 sm:right-6 z-[9999]"
@@ -181,20 +163,7 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
                   ))}
                 </div>
 
-                {/* Progress Info */}
-                <div className="mt-6 pt-4 border-t border-white/10">
-                  <div className="flex justify-between items-center text-sm text-white/60 jost-secondary">
-                    <span>Reading Progress</span>
-                    <span className="font-bold text-primary">{Math.round(scrollProgress)}%</span>
-                  </div>
-                  <div className="mt-2 h-2 bg-white/10 rounded-full overflow-hidden">
-                    <motion.div
-                      className="h-full bg-gradient-to-r from-primary to-purple-400 rounded-full"
-                      style={{ width: `${scrollProgress}%` }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 40 }}
-                    />
-                  </div>
-                </div>
+
               </div>
             </motion.div>
           </>
