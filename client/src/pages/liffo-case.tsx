@@ -7,7 +7,21 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import LogoImage from '@assets/Logo black_1754170788875.png';
 
-// Import all Liffo images
+// Import properly numbered Liffo screens (1-12 from first batch)
+import Screen1 from "@assets/1. Walkthrough 1_1754469198499.png";
+import Screen2 from "@assets/2. Walkthrough 2_1754469198505.png";
+import Screen3 from "@assets/3. Walkthrough 3_1754469198505.png";
+import Screen4 from "@assets/4. Dashboard 1_1754469198505.png";
+import Screen5 from "@assets/5. Dashboard 2_1754469198505.png";
+import Screen6 from "@assets/6. All Services_1754469198506.png";
+import Screen7 from "@assets/7. Lab Test Serivices_1754469198506.png";
+import Screen8 from "@assets/8. Pharmacy Lab Test Serivices_1754469198506.png";
+import Screen9 from "@assets/9. Doctor Lab Test Serivices_1754469198506.png";
+import Screen10 from "@assets/10. Symptoms_1754469198506.png";
+import Screen11 from "@assets/11. Emergency_1754469198506.png";
+import Screen12 from "@assets/12. Emergency Expanded_1754469198507.png";
+
+// Keep some legacy imports for backward compatibility until all 34 screens are available
 import WalkthroughImage1 from "@assets/Walkthrough 1.png";
 import WalkthroughImage2 from "@assets/Walkthrough 2.png";
 import WalkthroughImage3 from "@assets/Walkthrough 3.png";
@@ -130,49 +144,49 @@ const LiffoCaseStudy = () => {
       {
         title: "Emergency Services Hub",
         description: "Instant access to emergency medical services with GPS location sharing and critical health information",
-        image: EmergencyImage,
+        image: Screen11,
         benefits: ["Reduced emergency response time", "Critical health info sharing", "Location-based service matching"]
       },
       {
-        title: "Specialist Directory",
-        description: "Comprehensive directory of medical specialists with real-time availability, ratings, and booking",
-        image: DoctorSpecialisationImage,
-        benefits: ["Easy specialist discovery", "Real-time availability", "Integrated booking system"]
+        title: "Comprehensive Services Directory",
+        description: "Complete healthcare service categorization including lab tests, pharmacy, and specialist consultations",
+        image: Screen6,
+        benefits: ["Easy service discovery", "Real-time availability", "Integrated booking system"]
       },
       {
-        title: "Health Records Management",
-        description: "Centralized platform for managing personal and family health records, lab results, and medical history",
-        image: HealthDetailsImage,
-        benefits: ["Comprehensive health tracking", "Family health management", "Secure data storage"]
+        title: "Symptom-Based Consultation",
+        description: "Smart symptom checker connecting patients with appropriate specialists and emergency services",
+        image: Screen10,
+        benefits: ["Accurate symptom assessment", "Quick specialist matching", "Emergency escalation"]
       },
       {
-        title: "Appointment & Prescription Hub",
-        description: "Streamlined appointment booking and prescription management with automated reminders",
-        image: AppointmentImage,
-        benefits: ["Simplified booking process", "Prescription tracking", "Automated reminders"]
+        title: "Lab & Pharmacy Services",
+        description: "Streamlined lab test booking and pharmacy services with home delivery options",
+        image: Screen7,
+        benefits: ["Convenient test booking", "Prescription management", "Home delivery services"]
       }
     ],
     
     designShowcase: [
       {
         category: "Onboarding Experience",
-        description: "Simplified 3-step onboarding focused on emergency preparedness",
-        images: [WalkthroughImage1, WalkthroughImage2, WalkthroughImage3]
+        description: "Simplified 3-step onboarding focused on emergency preparedness and home care services",
+        images: [Screen1, Screen2, Screen3]
       },
       {
         category: "Core Dashboard",
-        description: "Clean, accessible dashboard prioritizing emergency access and health overview",
-        images: [Dashboard1Image, Dashboard2Image]
+        description: "Clean, accessible dashboard prioritizing emergency access and health overview with featured services",
+        images: [Screen4, Screen5]
       },
       {
-        category: "Healthcare Services",
-        description: "Comprehensive service directory with intuitive categorization",
-        images: [AllServicesImage, HomeCareImage, SymptomsImage]
+        category: "Healthcare Services Directory",
+        description: "Comprehensive service categorization including lab tests, pharmacy, and doctor consultations",
+        images: [Screen6, Screen7, Screen8, Screen9]
       },
       {
-        category: "Profile & Health Management", 
-        description: "Detailed health profile management with family tracking capabilities",
-        images: [MyProfileImage, EditProfileImage, HealthCardImage]
+        category: "Emergency Services & Symptoms",
+        description: "Critical emergency access with symptom-based consultation and expanded emergency options",
+        images: [Screen10, Screen11, Screen12]
       }
     ],
     
