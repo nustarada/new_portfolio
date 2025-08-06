@@ -1359,11 +1359,12 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 border-t border-border/30">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <div className="flex justify-center items-center space-x-8 mb-6">
+          {/* Logo and Social - Better Mobile Layout */}
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 mb-8">
             <img 
               src={LogoImage} 
               alt="Karan Gadhave Logo" 
-              className="h-16 w-16 object-contain opacity-90"
+              className="h-12 w-12 sm:h-16 sm:w-16 object-contain opacity-90"
             />
             <a 
               href="https://www.linkedin.com/in/karan-gadhave/" 
@@ -1372,12 +1373,15 @@ export default function Home() {
               className="group inline-block touch-manipulation"
               style={{ WebkitTapHighlightColor: 'transparent' }}
             >
-              <Button variant="ghost" size="icon" className="w-12 h-12 rounded-full neo-card group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
-                <Linkedin className="w-5 h-5 group-hover:text-primary group-active:text-primary transition-colors duration-300" />
+              <Button variant="ghost" size="icon" className="w-12 h-12 sm:w-14 sm:h-14 rounded-full neo-card group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
+                <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-primary group-active:text-primary transition-colors duration-300" />
               </Button>
             </a>
           </div>
-          <p className="text-muted-foreground code-font">© 2025 Karn Kalaa. Designed & developed with passion.</p>
+          {/* Copyright Text - Better Mobile Typography */}
+          <p className="text-muted-foreground code-font text-sm sm:text-base leading-relaxed px-4">
+            © 2025 Karn Kalaa. Designed & developed with passion.
+          </p>
         </div>
       </footer>
     </div>
