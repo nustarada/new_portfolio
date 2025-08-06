@@ -507,7 +507,7 @@ const LiffoCaseStudy = () => {
             className="mb-12"
           >
             <Card className="p-12 glass-card grain-texture border-red-500/30">
-              <h3 className="text-3xl font-bold mb-8 text-center text-red-400 modern-heritage">THE HEALTHCARE CHALLENGE</h3>
+              <h3 className="text-4xl md:text-5xl font-normal mb-8 text-center text-red-400 modern-heritage">THE HEALTHCARE CHALLENGE</h3>
               <p className="text-xl text-white/90 leading-relaxed mb-8 jost-secondary">
                 {caseStudyData.problem.description}
               </p>
@@ -773,7 +773,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="mt-16"
           >
-            <h3 className="text-3xl font-bold mb-8 text-center text-purple-300 modern-heritage">
+            <h3 className="text-4xl md:text-5xl font-normal mb-8 text-center text-purple-300 modern-heritage">
               DESIGN PROCESS
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -961,7 +961,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
           >
             <Card className="p-8 glass-card grain-texture border-purple-500/30">
-              <h3 className="text-2xl font-bold mb-6 text-purple-400 modern-heritage text-center">
+              <h3 className="text-4xl md:text-5xl font-normal mb-6 text-purple-400 modern-heritage text-center">
                 COMPLETE INTERFACE GALLERY
               </h3>
               <p className="text-white/85 mb-8 text-center jost-secondary">
