@@ -473,24 +473,23 @@ export default function Home() {
       {/* Moving Skills Ribbon */}
       <MovingRibbon />
       {/* Statistics Section */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-12 relative overflow-hidden">
         {/* Elegant Background */}
         <div className="absolute inset-0 grain-texture">
           <div className="absolute inset-0 bg-gradient-to-br from-background/98 via-background/95 to-background/98" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/15 blur-3xl animate-pulse" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/12 blur-3xl animate-pulse" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
             <motion.h2 
-              className="text-4xl md:text-6xl font-normal mb-6 glow-text modern-heritage"
+              className="text-3xl md:text-4xl font-normal mb-4 glow-text modern-heritage"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -498,146 +497,93 @@ export default function Home() {
             >
               ACHIEVEMENTS
             </motion.h2>
-            <motion.div 
-              className="w-32 h-1 bg-gradient-to-r from-primary via-cyan-400 to-emerald-400 mx-auto mb-8"
-              initial={{ width: 0 }}
-              whileInView={{ width: 128 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            />
-            <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed jost-secondary">
+            <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
               Proven impact through innovative design solutions and exceptional team leadership
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {/* Compact Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {[
               { 
                 number: '4+', 
                 label: 'Years Experience', 
-                color: 'from-primary to-purple-500', 
-                icon: Clock,
-                description: 'Specialized UI/UX expertise'
+                description: 'Specialized UI/UX expertise',
+                icon: Clock
               },
               { 
                 number: '50+', 
                 label: 'Projects Delivered', 
-                color: 'from-purple-500 to-pink-500', 
-                icon: Zap,
-                description: 'Successful design solutions'
+                description: 'Successful design solutions',
+                icon: Zap
               },
               { 
                 number: '15+', 
                 label: 'Team Members Led', 
-                color: 'from-pink-500 to-orange-500', 
-                icon: Users,
-                description: 'Cross-functional collaboration'
+                description: 'Cross-functional collaboration',
+                icon: Users
               }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.7, delay: index * 0.15 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02, y: -8 }}
                 className="group"
               >
-                <Card className="relative overflow-hidden text-center p-10 glass-card grain-texture hover:glass-intense transition-all duration-500 h-full">
-                  {/* Animated Background Effects */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-cyan-400/15 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/10 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  {/* Floating Particles */}
-                  <div className="absolute top-4 right-4 w-2 h-2 bg-primary/80 animate-pulse" />
-                  <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-cyan-400/80 animate-pulse delay-500" />
-                  <div className="absolute top-1/2 left-4 w-1 h-1 bg-emerald-400/70 animate-pulse delay-1000" />
+                <Card className="relative overflow-hidden p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
+                  {/* Background Effects */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-cyan-400/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Content */}
-                  <div className="relative z-10 space-y-6">
-                    {/* Icon Container */}
-                    <motion.div 
-                      className="w-20 h-20 mx-auto flex items-center justify-center backdrop-blur-sm border border-white/20 group-hover:scale-110 transition-all duration-500"
-                      style={{
-                        background: `linear-gradient(135deg, ${
-                          stat.color === 'from-primary to-purple-500' ? 'hsla(185, 84%, 55%, 0.25), hsla(285, 85%, 60%, 0.25)' :
-                          stat.color === 'from-purple-500 to-pink-500' ? 'hsla(180, 70%, 50%, 0.25), hsla(170, 60%, 45%, 0.25)' :
-                          'hsla(45, 93%, 70%, 0.25), hsla(25, 95%, 60%, 0.25)'
-                        })`
-                      }}
-                      whileHover={{ rotate: 5 }}
-                    >
-                      <stat.icon className="w-10 h-10 text-white drop-shadow-lg" />
-                    </motion.div>
+                  <div className="relative z-10 flex items-center space-x-4">
+                    {/* Icon */}
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <stat.icon className="w-6 h-6 text-primary" />
+                    </div>
                     
-                    {/* Number Display */}
-                    <motion.div 
-                      className={`text-6xl md:text-7xl font-black leading-none modern-heritage`}
-                      style={{
-                        background: `linear-gradient(135deg, ${
-                          stat.color === 'from-primary to-purple-500' ? 'hsl(262, 83%, 58%), hsl(280, 100%, 70%)' :
-                          stat.color === 'from-purple-500 to-pink-500' ? 'hsl(280, 100%, 70%), hsl(330, 81%, 60%)' :
-                          'hsl(330, 81%, 60%), hsl(25, 95%, 53%)'
-                        })`,
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text'
-                      }}
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      transition={{ duration: 0.6, delay: index * 0.15 + 0.3 }}
-                      viewport={{ once: true }}
-                    >
-                      {stat.number}
-                    </motion.div>
-                    
-                    {/* Label and Description */}
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-bold text-white tracking-wide jost-secondary">
-                        {stat.label}
-                      </h3>
-                      <p className="text-white/60 text-sm leading-relaxed jost-secondary">
-                        {stat.description}
-                      </p>
+                    {/* Stats Content */}
+                    <div className="flex-1">
+                      <div className="flex items-baseline space-x-3 mb-1">
+                        <span className="text-3xl font-black text-primary modern-heritage">{stat.number}</span>
+                        <h3 className="text-white font-bold text-base jost-secondary">{stat.label}</h3>
+                      </div>
+                      <p className="text-white/60 text-sm jost-secondary">{stat.description}</p>
                     </div>
                   </div>
-
-                  {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                 </Card>
               </motion.div>
             ))}
           </div>
 
-          {/* Additional Stats Row */}
+          {/* Compact Additional Stats */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="mt-16 text-center"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-              {[
-                { metric: '60%', label: 'Faster Design Cycles', icon: '⚡' },
-                { metric: '95%', label: 'Client Satisfaction', icon: '⭐' }
-              ].map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  className="flex items-center justify-center space-x-4 p-6 glass-card grain-texture hover:glass-intense transition-all duration-300"
-                  initial={{ opacity: 0, x: index === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <span className="text-3xl">{item.icon}</span>
-                  <div className="text-left">
-                    <div className="text-2xl font-bold text-primary jost-secondary">{item.metric}</div>
-                    <div className="text-white/70 text-sm jost-secondary">{item.label}</div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            {[
+              { metric: '60%', label: 'Faster Design Cycles', icon: '⚡' },
+              { metric: '95%', label: 'Client Satisfaction', icon: '⭐' }
+            ].map((item, index) => (
+              <motion.div
+                key={item.label}
+                className="flex items-center space-x-3 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
+                initial={{ opacity: 0, x: index === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <span className="text-2xl">{item.icon}</span>
+                <div>
+                  <div className="text-xl font-bold text-primary jost-secondary">{item.metric}</div>
+                  <div className="text-white/70 text-sm jost-secondary">{item.label}</div>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
