@@ -54,6 +54,21 @@ const LiffoCaseStudy = () => {
   });
 
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+  // Performance-optimized animation variants
+  const fastFadeIn = {
+    initial: { opacity: 0 },
+    whileInView: { opacity: 1 },
+    transition: { duration: 0.3 },
+    viewport: { once: true, margin: "-20%" }
+  };
+
+  const quickSlideUp = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.4 },
+    viewport: { once: true, margin: "-20%" }
+  };
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -72,10 +87,34 @@ const LiffoCaseStudy = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    let ticking = false;
+    let isScrolling = false;
+    let scrollTimeout: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      if (!isScrolling) {
+        document.body.classList.add('scrolling');
+        isScrolling = true;
+      }
+
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        document.body.classList.remove('scrolling');
+        isScrolling = false;
+      }, 150);
+
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleResize);
     handleResize();
     window.scrollTo(0, 0); // Scroll to top on component mount
@@ -83,6 +122,7 @@ const LiffoCaseStudy = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
+      clearTimeout(scrollTimeout);
     };
   }, []);
 
