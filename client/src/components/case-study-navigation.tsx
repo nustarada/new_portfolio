@@ -20,13 +20,8 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(currentSection);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-    
     const handleScroll = () => {
       // Update active section based on scroll position
       const sectionElements = sections.map(section => ({
@@ -51,13 +46,7 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
     };
 
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Set initial state
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [sections]);
 
   const scrollToSection = (sectionId: string) => {
@@ -76,25 +65,17 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
     <>
       {/* Navigation Toggle Button */}
       <motion.div
-        className="fixed right-4 bottom-6 sm:right-6 z-[9999]"
+        className="fixed right-4 bottom-6 sm:right-6 z-40"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1 }}
-        style={{ 
-          position: 'fixed',
-          right: isMobile ? '1rem' : '1.5rem',
-          bottom: '1.5rem',
-          zIndex: 9999
-        }}
       >
         <Button
           onClick={() => setIsOpen(!isOpen)}
           className="w-12 h-12 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-primary/90 to-purple-500/90 backdrop-blur-md border border-white/20 hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25 touch-manipulation"
           size="sm"
           style={{ 
-            WebkitTapHighlightColor: 'transparent',
-            position: 'relative',
-            zIndex: 9999
+            WebkitTapHighlightColor: 'transparent'
           }}
         >
           {isOpen ? (
@@ -114,7 +95,7 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9997]"
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30"
               onClick={() => setIsOpen(false)}
             />
             
@@ -124,13 +105,7 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 300, scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed right-2 bottom-20 sm:right-6 w-72 sm:w-80 max-h-96 overflow-y-auto bg-gradient-to-br from-slate-900/95 via-purple-900/90 to-slate-900/95 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl shadow-primary/20 z-[9998]"
-              style={{ 
-                position: 'fixed',
-                right: isMobile ? '0.5rem' : '1.5rem',
-                bottom: '5rem',
-                zIndex: 9998
-              }}
+              className="fixed right-2 bottom-20 sm:right-6 w-72 sm:w-80 max-h-96 overflow-y-auto bg-gradient-to-br from-slate-900/95 via-purple-900/90 to-slate-900/95 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl shadow-primary/20 z-35"
             >
               <div className="p-6">
                 {/* Header */}
@@ -185,8 +160,6 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
                     </motion.button>
                   ))}
                 </div>
-
-
               </div>
             </motion.div>
           </>
