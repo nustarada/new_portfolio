@@ -73,7 +73,7 @@ const LiffoCaseStudy = () => {
 
   const caseStudyData = {
     title: "Liffo: Emergency Health Services Platform",
-    subtitle: "Comprehensive mobile health platform connecting patients with emergency medical services, specialists, and healthcare providers",
+    subtitle: "Comprehensive healthcare platform prioritizing emergency ambulance booking, elite doctors, and home care services, followed by routine consultations and medical supply purchasing",
     category: "Mobile Health Platform Design",
     year: "2024",
     duration: "8 weeks",
@@ -82,103 +82,103 @@ const LiffoCaseStudy = () => {
     role: "Lead Product Designer & UX Researcher",
     tags: ["Mobile Design", "Healthcare UX", "Emergency Services", "User Research", "Figma", "Prototyping"],
     
-    overview: "Liffo addresses the critical gap in emergency healthcare accessibility by providing a unified platform that connects patients with immediate medical services. The design focuses on intuitive navigation during high-stress situations while maintaining comprehensive healthcare management features.",
+    overview: "Liffo is a comprehensive healthcare platform prioritizing emergency medical services, followed by doctor consultations and medical product purchases. The platform provides immediate ambulance booking, elite emergency doctors, home care services, routine medical consultations, and integrated medical supply procurement - all designed for intuitive navigation during high-stress emergency situations.",
 
     personas: [
       {
-        name: "Dr. Sarah Chen",
-        role: "Emergency Room Physician",
-        age: "34",
-        goals: ["Quick access to patient records", "Efficient emergency protocol management", "Streamlined communication with medical team"],
-        painPoints: ["Time-consuming data entry", "Difficulty accessing patient history quickly", "Communication delays during emergencies"],
-        techComfort: "High",
-        description: "Experienced ER doctor who needs instant access to critical patient information during high-stress situations"
-      },
-      {
-        name: "Maria Rodriguez",
-        role: "Working Mother",
-        age: "29",
-        goals: ["Find nearby healthcare services quickly", "Book appointments for family", "Access medical records on-the-go"],
-        painPoints: ["Long wait times for appointments", "Difficulty finding specialized care", "Managing multiple family health records"],
+        name: "Emergency Patient - Sarah Kim",
+        role: "Construction Site Manager",
+        age: "35",
+        goals: ["Immediate ambulance booking during workplace accidents", "Quick access to elite emergency doctors", "Rapid hospital coordination for trauma cases"],
+        painPoints: ["Delayed emergency response", "Difficulty finding available emergency services", "Complex emergency booking processes during high-stress situations"],
         techComfort: "Medium",
-        description: "Busy parent juggling work and family health needs, requiring efficient healthcare management solutions"
+        description: "Site manager who needs instant access to emergency medical services for workplace incidents, prioritizing speed and reliability during critical situations"
       },
       {
-        name: "Robert Thompson",
-        role: "Senior Citizen",
-        age: "68",
-        goals: ["Simple access to health services", "Emergency contact availability", "Clear medication tracking"],
-        painPoints: ["Complex digital interfaces", "Small text and buttons", "Remembering multiple passwords"],
+        name: "Chronic Care Patient - Robert Chen",
+        role: "Retiree with Diabetes",
+        age: "67",
+        goals: ["Schedule home care nursing services", "Book regular doctor consultations", "Purchase medical supplies and medications"],
+        painPoints: ["Managing multiple healthcare appointments", "Difficulty coordinating home care services", "Tracking medication refills and medical supplies"],
         techComfort: "Low",
-        description: "Retired individual with chronic health conditions needing accessible, simplified healthcare management"
+        description: "Senior patient requiring comprehensive healthcare management including emergency services, regular medical consultations, and ongoing home care support"
       },
       {
-        name: "Alex Kumar",
-        role: "Healthcare Administrator",
-        age: "42",
-        goals: ["Efficient patient flow management", "Resource allocation optimization", "Data-driven decision making"],
-        painPoints: ["Fragmented system integration", "Manual reporting processes", "Inefficient resource utilization"],
+        name: "Family Healthcare Manager - Priya Sharma",
+        role: "Working Mother",
+        age: "31",
+        goals: ["Emergency services for family accidents", "Book routine doctor appointments for children", "Purchase family medical supplies and prescriptions"],
+        painPoints: ["Coordinating healthcare for multiple family members", "Finding available doctors quickly", "Managing healthcare expenses and medical purchases"],
         techComfort: "High",
-        description: "Hospital administrator focused on operational efficiency and improving patient care through technology"
+        description: "Tech-savvy mother managing comprehensive healthcare needs for her family, from emergency situations to routine care and medical supply procurement"
+      },
+      {
+        name: "Healthcare Professional - Dr. Alex Patel",
+        role: "Family Medicine Physician",
+        age: "28",
+        goals: ["Coordinate emergency patient transfers", "Manage appointment bookings efficiently", "Recommend medical products to patients"],
+        painPoints: ["Inefficient patient referral systems", "Limited emergency service coordination", "Difficulty tracking patient medical supply needs"],
+        techComfort: "High",
+        description: "Young physician who uses Liffo to coordinate patient care across emergency services, regular consultations, and medical supply recommendations"
       }
     ],
 
     userJourney: {
       phases: [
         {
-          phase: "Health Concern Discovery",
-          actions: ["Feels symptoms", "Searches for information", "Assesses severity"],
-          emotions: ["Worried", "Uncertain", "Anxious"],
-          touchpoints: ["Symptom checker", "Health articles", "Emergency indicators"],
-          opportunities: ["Provide clear emergency indicators", "Offer symptom guidance", "Reduce anxiety through clear information"]
+          phase: "Emergency Response",
+          actions: ["Recognizes medical emergency", "Opens Liffo app", "Books ambulance/emergency transport", "Coordinates with elite emergency doctors", "Arranges immediate hospital services"],
+          emotions: ["Panic", "Urgent", "Desperate", "Relieved"],
+          touchpoints: ["Emergency button", "Ambulance booking", "Elite doctor access", "Hospital coordination", "Real-time tracking"],
+          opportunities: ["One-tap emergency access", "GPS-based ambulance dispatch", "Direct elite doctor consultation", "Automated hospital coordination"]
         },
         {
-          phase: "Healthcare Provider Search",
-          actions: ["Searches for doctors", "Compares options", "Checks availability"],
-          emotions: ["Hopeful", "Confused", "Frustrated"],
-          touchpoints: ["Doctor listings", "Specialization filters", "Reviews & ratings"],
-          opportunities: ["Simplify search filters", "Provide clear provider information", "Show real-time availability"]
+          phase: "Home Care Services",
+          actions: ["Assesses home care needs", "Selects nursing services", "Books physiotherapy/occupational therapy", "Schedules chronic care management", "Arranges post-surgical support"],
+          emotions: ["Concerned", "Hopeful", "Reassured", "Supported"],
+          touchpoints: ["Home care directory", "Service selection", "Caregiver profiles", "Scheduling interface", "Progress monitoring"],
+          opportunities: ["Comprehensive care matching", "Qualified caregiver verification", "Flexible scheduling options", "Integrated care coordination"]
         },
         {
-          phase: "Appointment Booking",
-          actions: ["Selects provider", "Chooses time slot", "Confirms appointment"],
-          emotions: ["Relieved", "Confident", "Satisfied"],
-          touchpoints: ["Booking interface", "Calendar integration", "Confirmation messages"],
-          opportunities: ["Streamline booking flow", "Provide instant confirmation", "Offer appointment reminders"]
+          phase: "Doctor Consultation Booking",
+          actions: ["Browses doctor specializations", "Reviews doctor profiles and ratings", "Checks availability", "Books routine appointments", "Manages follow-up consultations"],
+          emotions: ["Analytical", "Confident", "Satisfied", "Trusting"],
+          touchpoints: ["Doctor discovery", "Specialization filters", "Booking calendar", "Appointment management", "Consultation history"],
+          opportunities: ["Smart doctor recommendations", "Real-time availability", "Seamless booking experience", "Integrated health records"]
         },
         {
-          phase: "Treatment & Follow-up",
-          actions: ["Attends appointment", "Receives prescription", "Tracks progress"],
-          emotions: ["Informed", "Cared for", "Improved"],
-          touchpoints: ["Digital prescriptions", "Progress tracking", "Follow-up reminders"],
-          opportunities: ["Integrate digital prescriptions", "Provide progress tracking", "Automate follow-up care"]
+          phase: "Medical Product Purchase",
+          actions: ["Searches for medications/supplies", "Compares prices and options", "Reviews product information", "Places orders", "Tracks delivery and refills"],
+          emotions: ["Practical", "Economical", "Convenient", "Secure"],
+          touchpoints: ["Product catalog", "Price comparison", "Shopping cart", "Payment gateway", "Delivery tracking"],
+          opportunities: ["Prescription integration", "Automated refill reminders", "Bulk purchase discounts", "Fast delivery options"]
         }
       ]
     },
     
     problem: {
       title: "The Challenge",
-      description: "Emergency healthcare access is fragmented, time-consuming, and often confusing during critical moments. Patients struggle to find appropriate care, book appointments, access medical records, and communicate with healthcare providers efficiently.",
+      description: "Emergency healthcare access is critically fragmented, with patients struggling to coordinate immediate ambulance services, emergency doctors, and hospital care during life-threatening situations. Beyond emergencies, patients face challenges accessing home care services, booking routine consultations, and purchasing medical supplies through disconnected systems.",
       painPoints: [
-        "Fragmented healthcare services across multiple platforms",
-        "Difficulty finding appropriate specialists during emergencies",
-        "Poor mobile experience for healthcare apps",
-        "Lack of comprehensive health record management",
-        "Complex navigation during high-stress medical situations",
-        "Limited integration between different healthcare services"
+        "Critical delays in emergency ambulance booking and hospital coordination",
+        "Limited access to elite emergency doctors during critical situations", 
+        "Fragmented home care services including nursing, physiotherapy, and chronic care",
+        "Difficulty coordinating post-surgical and specialized home care support",
+        "Complex doctor booking systems with poor availability visibility",
+        "Disconnected medical supply purchasing with no prescription integration"
       ]
     },
     
     solution: {
       title: "The Solution",
-      description: "Designed a comprehensive mobile-first healthcare platform that unifies emergency services, specialist consultations, health records, and appointment management in a single, intuitive interface optimized for both emergency and routine healthcare needs.",
+      description: "Designed a comprehensive mobile-first healthcare platform that prioritizes emergency medical services as the primary feature, followed by integrated doctor booking and medical product purchases. The unified interface ensures immediate access to critical services while maintaining seamless navigation for routine healthcare needs.",
       features: [
-        "One-tap emergency service access with location-based provider matching",
-        "Comprehensive specialist directory with real-time availability",
-        "Integrated health records and medical history management",
-        "Streamlined appointment booking and prescription management",
-        "Family health profiles and medical history tracking",
-        "Intuitive navigation optimized for high-stress situations"
+        "Priority 1: One-tap emergency ambulance booking with GPS dispatch",
+        "Immediate access to elite emergency doctors for critical consultations",
+        "Comprehensive home care services: nursing, physiotherapy, chronic care management",
+        "Post-surgical care coordination and specialized therapy booking",
+        "Priority 2: Streamlined doctor discovery and appointment booking system",
+        "Priority 3: Integrated medical supply purchasing with prescription sync"
       ]
     },
     
@@ -211,28 +211,28 @@ const LiffoCaseStudy = () => {
     
     keyFeatures: [
       {
-        title: "Emergency Services Hub",
-        description: "Instant access to emergency medical services with GPS location sharing and critical health information",
+        title: "Emergency Ambulance Booking",
+        description: "One-tap emergency ambulance dispatch with GPS location sharing, real-time tracking, and immediate hospital coordination for critical medical situations",
         image: Screen11,
-        benefits: ["Reduced emergency response time", "Critical health info sharing", "Location-based service matching"]
+        benefits: ["Instant ambulance dispatch", "GPS-based location sharing", "Real-time emergency tracking", "Hospital pre-notification"]
       },
       {
-        title: "Comprehensive Services Directory",
-        description: "Complete healthcare service categorization including lab tests, pharmacy, and specialist consultations",
-        image: Screen6,
-        benefits: ["Easy service discovery", "Real-time availability", "Integrated booking system"]
+        title: "Elite Emergency Doctor Access",
+        description: "Direct access to premium emergency physicians for urgent consultations, trauma care coordination, and critical medical decision support",
+        image: Screen20,
+        benefits: ["24/7 elite doctor availability", "Urgent consultation access", "Trauma care specialists", "Critical decision support"]
       },
       {
-        title: "Symptom-Based Consultation",
-        description: "Smart symptom checker connecting patients with appropriate specialists and emergency services",
-        image: Screen10,
-        benefits: ["Accurate symptom assessment", "Quick specialist matching", "Emergency escalation"]
+        title: "Comprehensive Home Care Services",
+        description: "Complete home healthcare ecosystem including short-term nursing, post-surgical care, chronic disease management, physiotherapy, and occupational therapy",
+        image: Screen14,
+        benefits: ["Professional nursing services", "Post-surgical home care", "Chronic disease management", "Specialized therapy services"]
       },
       {
-        title: "Complete Health Management",
-        description: "Centralized health records, appointment scheduling, prescription management, and family health tracking",
-        image: Screen31,
-        benefits: ["Comprehensive health tracking", "Family health management", "Secure data storage"]
+        title: "Doctor Booking & Medical Supplies",
+        description: "Integrated platform for routine doctor appointments, specialist consultations, and medical product purchases with prescription synchronization",
+        image: Screen27,
+        benefits: ["Streamlined doctor booking", "Specialist consultations", "Medical supply integration", "Prescription sync"]
       }
     ],
     
@@ -253,8 +253,8 @@ const LiffoCaseStudy = () => {
         images: [Screen6, Screen7, Screen8, Screen9]
       },
       {
-        category: "Emergency & Critical Care",
-        description: "Emergency services, symptom checker, hospital listings, and home care options",
+        category: "Emergency Services & Home Care",
+        description: "Priority 1: Emergency ambulance booking, symptom checker, hospital coordination, and comprehensive home care services including nursing, physiotherapy, and chronic care management",
         images: [Screen10, Screen11, Screen12, Screen13, Screen14]
       },
       {
@@ -263,8 +263,8 @@ const LiffoCaseStudy = () => {
         images: [Screen15, Screen16, Screen17, Screen18, Screen19]
       },
       {
-        category: "Doctor Discovery & Specialization",
-        description: "Elite doctor profiles, specialization categories, and comprehensive doctor listings",
+        category: "Doctor Discovery & Consultation Booking",
+        description: "Priority 2: Elite doctor profiles, specialization categories, comprehensive doctor listings, and streamlined appointment booking system",
         images: [Screen20, Screen21, Screen22]
       },
       {
@@ -278,8 +278,8 @@ const LiffoCaseStudy = () => {
         images: [Screen25, Screen26]
       },
       {
-        category: "Appointment & Medical Records",
-        description: "Appointment scheduling, prescription management, and comprehensive lab results tracking",
+        category: "Appointments & Medical Supply Integration",
+        description: "Priority 3: Appointment scheduling, digital prescription management, lab results tracking, and integrated medical product purchasing with automated refill systems",
         images: [Screen27, Screen28, Screen29]
       },
       {
@@ -290,33 +290,33 @@ const LiffoCaseStudy = () => {
     ],
     
     results: [
-      { metric: "Emergency Response Time", value: "40%", description: "Reduction in time to access emergency services" },
-      { metric: "User Task Completion", value: "89%", description: "Success rate for primary healthcare tasks" },
-      { metric: "User Satisfaction", value: "4.8/5", description: "Average rating from healthcare professionals and patients" },
-      { metric: "Healthcare Provider Adoption", value: "156%", description: "Increase in provider platform registration" },
-      { metric: "Appointment Booking Efficiency", value: "67%", description: "Improvement in booking completion time" },
-      { metric: "Health Record Accuracy", value: "95%", description: "Data accuracy in health record management" }
+      { metric: "Emergency Ambulance Dispatch", value: "65%", description: "Faster ambulance booking and dispatch through one-tap emergency access" },
+      { metric: "Home Care Service Coordination", value: "78%", description: "Improvement in nursing, physiotherapy, and chronic care scheduling" },
+      { metric: "Elite Doctor Access", value: "4.9/5", description: "User satisfaction rating for emergency doctor consultations" },
+      { metric: "Routine Appointment Efficiency", value: "82%", description: "Faster doctor booking and consultation scheduling" },
+      { metric: "Medical Supply Integration", value: "91%", description: "Success rate for prescription-linked product purchases" },
+      { metric: "Platform Adoption", value: "203%", description: "Increase in emergency services and home care provider registration" }
     ],
     
     designPrinciples: [
       {
-        principle: "Emergency-First Design",
-        description: "Every interface element prioritizes quick access to emergency services",
+        principle: "Emergency-First Architecture",
+        description: "One-tap access to ambulance booking and elite emergency doctors takes absolute priority in every interface design decision",
         icon: Shield
       },
       {
-        principle: "Accessibility & Clarity",
-        description: "Clear visual hierarchy and accessible design for all users and stress levels",
-        icon: Heart
-      },
-      {
-        principle: "Comprehensive Care",
-        description: "Unified platform covering all aspects of healthcare management",
+        principle: "Service Hierarchy Clarity",
+        description: "Clear visual distinction between Priority 1 (Emergency & Home Care), Priority 2 (Doctor Booking), and Priority 3 (Medical Supplies)",
         icon: Target
       },
       {
-        principle: "Mobile-Optimized",
-        description: "Mobile-first approach ensuring optimal performance on all devices",
+        principle: "High-Stress Usability",
+        description: "Interface design optimized for users in critical situations with large touch targets and minimal cognitive load",
+        icon: Heart
+      },
+      {
+        principle: "Comprehensive Care Integration",
+        description: "Seamless flow from emergency response through home care services to routine healthcare management",
         icon: Smartphone
       }
     ],
