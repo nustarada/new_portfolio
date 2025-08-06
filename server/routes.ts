@@ -5,49 +5,22 @@ import { insertContactSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
 import nodemailer from "nodemailer";
 
-// Create nodemailer transporter with fallback SMTP configurations
+// Create nodemailer transporter using exact Apple Mail settings
 const createEmailTransporter = () => {
   if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-    // Multiple SMTP configurations to try
-    const configs = [
-      {
-        name: 'GoDaddy TLS',
-        host: 'smtpout.secureserver.net',
-        port: 587,
-        secure: false,
-        requireTLS: true,
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
-        },
+    console.log('Using Apple Mail SMTP settings: smtpout.secureserver.net:465 SSL');
+    return nodemailer.createTransport({
+      host: 'smtpout.secureserver.net', // GoDaddy SMTP server (from Apple Mail)
+      port: 465, // SSL port (from Apple Mail)
+      secure: true, // Use SSL (from Apple Mail)
+      auth: {
+        user: process.env.EMAIL_USER, // contact@karnkalaa.in
+        pass: process.env.EMAIL_PASS, // Email password
       },
-      {
-        name: 'Domain SMTP',
-        host: `mail.${process.env.EMAIL_USER.split('@')[1]}`, // mail.karnkalaa.in
-        port: 587,
-        secure: false,
-        requireTLS: true,
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
-        },
-      },
-      {
-        name: 'Generic SMTP',
-        host: `smtp.${process.env.EMAIL_USER.split('@')[1]}`, // smtp.karnkalaa.in
-        port: 587,
-        secure: false,
-        requireTLS: true,
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
-        },
+      tls: {
+        rejectUnauthorized: false // Accept self-signed certificates
       }
-    ];
-    
-    // Use first config and log which one we're trying
-    console.log(`Attempting SMTP connection with: ${configs[0].name} (${configs[0].host}:${configs[0].port})`);
-    return nodemailer.createTransport(configs[0]);
+    });
   }
   return null;
 };
