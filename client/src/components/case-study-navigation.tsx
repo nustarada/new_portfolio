@@ -20,8 +20,13 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(currentSection);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    
     const handleScroll = () => {
       // Update active section based on scroll position
       const sectionElements = sections.map(section => ({
@@ -46,7 +51,13 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Set initial state
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, [sections]);
 
   const scrollToSection = (sectionId: string) => {
@@ -69,6 +80,12 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1 }}
+        style={{ 
+          position: 'fixed',
+          right: isMobile ? '1rem' : '1.5rem',
+          bottom: '1.5rem',
+          zIndex: 9999
+        }}
       >
         <Button
           onClick={() => setIsOpen(!isOpen)}
@@ -108,6 +125,12 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
               exit={{ opacity: 0, x: 300, scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               className="fixed right-2 bottom-20 sm:right-6 w-72 sm:w-80 max-h-96 overflow-y-auto bg-gradient-to-br from-slate-900/95 via-purple-900/90 to-slate-900/95 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl shadow-primary/20 z-[9998]"
+              style={{ 
+                position: 'fixed',
+                right: isMobile ? '0.5rem' : '1.5rem',
+                bottom: '5rem',
+                zIndex: 9998
+              }}
             >
               <div className="p-6">
                 {/* Header */}
