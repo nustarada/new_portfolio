@@ -630,17 +630,7 @@ export default function Home() {
               <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-400/6 to-emerald-400/6 blur-2xl" />
               
               <div className="relative z-10 space-y-8">
-                {/* Profile Header */}
-                <motion.div
-                  className="text-center mb-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  viewport={{ once: true }}
-                >
-                  <h3 className="text-2xl font-bold text-white mb-2 modern-heritage">KARAN GADHAVE</h3>
-                  <p className="text-primary text-lg font-semibold jost-secondary">Senior Product Designer & AI Innovation Specialist</p>
-                </motion.div>
+                
 
                 {/* Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
