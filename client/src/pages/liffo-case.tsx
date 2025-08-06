@@ -5,7 +5,7 @@ import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, 
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { CaseStudyNavigation } from '@/components/case-study-navigation';
+import { CaseStudyNav } from '@/components/case-study-nav';
 import LogoImage from '@assets/Logo black_1754170788875.png';
 
 // Import all 34 properly numbered Liffo screens
@@ -395,7 +395,7 @@ const LiffoCaseStudy = () => {
   return (
     <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture liffo-case-study" style={{ position: 'relative' }}>
       {/* Case Study Navigation */}
-      <CaseStudyNavigation sections={navigationSections} />
+      <CaseStudyNav sections={navigationSections} />
       
       {/* Progress Bar */}
       <motion.div 
