@@ -656,7 +656,7 @@ const LiffoCaseStudy = () => {
                     {showcase.description}
                   </p>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                     {showcase.images.map((image, imgIndex) => (
                       <motion.div
                         key={imgIndex}
@@ -664,14 +664,18 @@ const LiffoCaseStudy = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: imgIndex * 0.1 }}
                         viewport={{ once: true }}
-                        whileHover={{ scale: 1.05 }}
-                        className="relative overflow-hidden bg-white/5 border border-white/10 hover:border-blue-400/50 transition-all duration-300"
+                        whileHover={{ scale: 1.08, y: -5 }}
+                        className="relative overflow-hidden bg-white/5 border border-white/20 hover:border-blue-400/70 transition-all duration-300 aspect-[9/16] group cursor-pointer"
                       >
                         <img 
                           src={image} 
-                          alt={`${showcase.category} ${imgIndex + 1}`}
-                          className="w-full h-auto object-contain"
+                          alt={`${showcase.category} Screen ${imgIndex + 1}`}
+                          className="w-full h-full object-contain group-hover:object-cover transition-all duration-500"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute bottom-2 left-2 bg-blue-600/90 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold">
+                          {showcase.category}
+                        </div>
                       </motion.div>
                     ))}
                   </div>
@@ -695,7 +699,7 @@ const LiffoCaseStudy = () => {
                 Comprehensive view of all designed interfaces across the healthcare platform
               </p>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 {[
                   Screen1, Screen2, Screen3, Screen4, Screen5, Screen6, Screen7, Screen8,
                   Screen9, Screen10, Screen11, Screen12, Screen13, Screen14, Screen15, Screen16,
@@ -707,17 +711,20 @@ const LiffoCaseStudy = () => {
                     key={index}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    transition={{ duration: 0.4, delay: index * 0.03 }}
                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.08, y: -5 }}
-                    className="relative overflow-hidden bg-white/5 border border-white/10 hover:border-purple-400/50 transition-all duration-300 aspect-[9/16]"
+                    whileHover={{ scale: 1.1, y: -8 }}
+                    className="relative overflow-hidden bg-white/5 border border-white/20 hover:border-purple-400/70 transition-all duration-300 aspect-[9/16] cursor-pointer group"
                   >
                     <img 
                       src={image} 
-                      alt={`Liffo Healthcare Interface ${index + 1} of 34`}
-                      className="w-full h-full object-cover hover:object-contain transition-all duration-300"
+                      alt={`Screen ${index + 1}: Liffo Healthcare Interface`}
+                      className="w-full h-full object-contain group-hover:object-cover transition-all duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-2 left-2 bg-purple-600/90 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold">
+                      {index + 1} / 34
+                    </div>
                   </motion.div>
                 ))}
               </div>
