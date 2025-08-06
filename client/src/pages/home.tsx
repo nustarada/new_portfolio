@@ -489,7 +489,7 @@ export default function Home() {
             className="text-center mb-10"
           >
             <motion.h2 
-              className="text-3xl md:text-4xl font-normal mb-4 glow-text modern-heritage"
+              className="text-4xl md:text-5xl font-normal mb-4 glow-text modern-heritage"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -605,7 +605,7 @@ export default function Home() {
             className="text-center mb-10"
           >
             <motion.h2 
-              className="text-3xl md:text-4xl font-normal mb-4 glow-text modern-heritage"
+              className="text-4xl md:text-5xl font-normal mb-4 glow-text modern-heritage"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
