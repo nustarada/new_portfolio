@@ -74,7 +74,7 @@
     @apply bg-background text-foreground overflow-x-hidden;
     font-family: 'Jost', system-ui, sans-serif !important;
     line-height: 1.6;
-    background: transparent !important;
+    background: hsl(220, 27%, 3%) !important;
     color: #ffffff !important;
     font-weight: 400;
     cursor: auto !important;
@@ -152,6 +152,26 @@
 
   html {
     scroll-behavior: smooth;
+    background: hsl(220, 27%, 3%) !important;
+  }
+
+  /* Ensure all page content maintains dark background */
+  * {
+    background-color: transparent;
+  }
+  
+  /* Force dark background for any potential white areas */
+  .liffo-case-study,
+  .case-study,
+  main,
+  section {
+    background-color: transparent !important;
+  }
+  
+  /* Override any component backgrounds that might be white */
+  [class*="bg-white"],
+  [style*="background: white"],
+  [style*="background-color: white"] {
     background: transparent !important;
   }
 
