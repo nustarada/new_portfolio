@@ -864,15 +864,11 @@ export default function Home() {
                   {/* Horizontal Layout: Thumbnail + Content */}
                   <div className="flex flex-col lg:flex-row">
                     {/* Left Side - Thumbnail */}
-                    <div className="lg:w-1/2 relative overflow-hidden bg-white/5">
-                      <div className="aspect-[4/3] relative">
-                        <img 
-                          src={project.image} 
-                          alt={`${project.title} Platform`} 
-                          className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
-                        />
-                      </div>
-                    </div>
+                    <img 
+                      src={project.image} 
+                      alt={`${project.title} Platform`} 
+                      className="lg:w-1/2 aspect-square object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
 
                     {/* Right Side - Content */}
                     <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-between">
