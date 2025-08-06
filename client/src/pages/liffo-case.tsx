@@ -465,10 +465,11 @@ const LiffoCaseStudy = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="h-full"
             >
-              <Card className="p-8 glass-card grain-texture border-red-500/30">
+              <Card className="p-8 glass-card grain-texture border-red-500/30 h-full flex flex-col">
                 <h3 className="text-2xl font-bold mb-6 text-red-400 modern-heritage">PROJECT DETAILS</h3>
-                <div className="space-y-4">
+                <div className="space-y-4 flex-grow">
                   <div className="flex justify-between">
                     <span className="text-white/70 jost-secondary">Client</span>
                     <span className="text-white font-semibold jost-secondary">{caseStudyData.client}</span>
@@ -495,10 +496,11 @@ const LiffoCaseStudy = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="h-full"
             >
-              <Card className="p-8 glass-card grain-texture border-orange-500/30">
+              <Card className="p-8 glass-card grain-texture border-orange-500/30 h-full flex flex-col">
                 <h3 className="text-2xl font-bold mb-6 text-orange-400 modern-heritage">OVERVIEW</h3>
-                <p className="text-white/85 leading-relaxed text-lg jost-secondary">
+                <p className="text-white/85 leading-relaxed text-lg jost-secondary flex-grow">
                   {caseStudyData.overview}
                 </p>
               </Card>
