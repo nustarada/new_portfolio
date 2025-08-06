@@ -69,11 +69,11 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
   };
 
   return (
-    <>
+    <div className="case-study-navigation">
       {/* Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-black/20 backdrop-blur-sm z-50">
         <motion.div
-          className="h-full bg-gradient-to-r from-primary via-cyan-400 to-purple-400"
+          className="h-full bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400"
           style={{ width: `${scrollProgress}%` }}
           transition={{ type: 'spring', stiffness: 400, damping: 40 }}
         />
@@ -81,20 +81,21 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
 
       {/* Navigation Toggle Button */}
       <motion.div
-        className="fixed right-6 bottom-6 z-40"
+        className="fixed right-4 bottom-4 md:right-6 md:bottom-6 z-[100]"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1 }}
+        transition={{ delay: 0.5 }}
+        style={{ zIndex: 100 }}
       >
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-12 h-12 rounded-full bg-gradient-to-r from-primary/90 to-purple-500/90 backdrop-blur-md border border-white/20 hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25"
+          className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-blue-500/90 to-purple-500/90 backdrop-blur-md border-2 border-white/30 hover:scale-105 transition-all duration-300 shadow-2xl shadow-blue-500/30 hover:shadow-blue-500/50"
           size="sm"
         >
           {isOpen ? (
-            <X className="w-5 h-5 text-white" />
+            <X className="w-6 h-6 md:w-7 md:h-7 text-white" />
           ) : (
-            <Menu className="w-5 h-5 text-white" />
+            <Menu className="w-6 h-6 md:w-7 md:h-7 text-white" />
           )}
         </Button>
       </motion.div>
@@ -108,8 +109,9 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90]"
               onClick={() => setIsOpen(false)}
+              style={{ zIndex: 90 }}
             />
             
             {/* Navigation Menu */}
@@ -118,7 +120,8 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 300, scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed right-6 bottom-20 w-80 max-h-96 overflow-y-auto bg-gradient-to-br from-slate-900/95 via-purple-900/90 to-slate-900/95 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl shadow-primary/20 z-40"
+              className="fixed right-4 bottom-20 md:right-6 md:bottom-24 w-[320px] md:w-80 max-h-[70vh] overflow-y-auto bg-gradient-to-br from-slate-900/98 via-blue-900/95 to-slate-900/98 backdrop-blur-xl border-2 border-white/30 rounded-xl shadow-2xl shadow-blue-500/25 z-[95]"
+              style={{ zIndex: 95 }}
             >
               <div className="p-6">
                 {/* Header */}
@@ -193,6 +196,6 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
           </>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 };
