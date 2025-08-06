@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'wouter';
-import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, ArrowLeft, Lightbulb, Heart, Smartphone, Shield, Award, Zap, TestTube, Palette, Code } from 'lucide-react';
+import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, ArrowLeft, Lightbulb, Heart, Smartphone, Shield, Award, Zap, TestTube, Palette, Code, User, AlertCircle, ArrowRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -83,6 +83,78 @@ const LiffoCaseStudy = () => {
     tags: ["Mobile Design", "Healthcare UX", "Emergency Services", "User Research", "Figma", "Prototyping"],
     
     overview: "Liffo addresses the critical gap in emergency healthcare accessibility by providing a unified platform that connects patients with immediate medical services. The design focuses on intuitive navigation during high-stress situations while maintaining comprehensive healthcare management features.",
+
+    personas: [
+      {
+        name: "Dr. Sarah Chen",
+        role: "Emergency Room Physician",
+        age: "34",
+        goals: ["Quick access to patient records", "Efficient emergency protocol management", "Streamlined communication with medical team"],
+        painPoints: ["Time-consuming data entry", "Difficulty accessing patient history quickly", "Communication delays during emergencies"],
+        techComfort: "High",
+        description: "Experienced ER doctor who needs instant access to critical patient information during high-stress situations"
+      },
+      {
+        name: "Maria Rodriguez",
+        role: "Working Mother",
+        age: "29",
+        goals: ["Find nearby healthcare services quickly", "Book appointments for family", "Access medical records on-the-go"],
+        painPoints: ["Long wait times for appointments", "Difficulty finding specialized care", "Managing multiple family health records"],
+        techComfort: "Medium",
+        description: "Busy parent juggling work and family health needs, requiring efficient healthcare management solutions"
+      },
+      {
+        name: "Robert Thompson",
+        role: "Senior Citizen",
+        age: "68",
+        goals: ["Simple access to health services", "Emergency contact availability", "Clear medication tracking"],
+        painPoints: ["Complex digital interfaces", "Small text and buttons", "Remembering multiple passwords"],
+        techComfort: "Low",
+        description: "Retired individual with chronic health conditions needing accessible, simplified healthcare management"
+      },
+      {
+        name: "Alex Kumar",
+        role: "Healthcare Administrator",
+        age: "42",
+        goals: ["Efficient patient flow management", "Resource allocation optimization", "Data-driven decision making"],
+        painPoints: ["Fragmented system integration", "Manual reporting processes", "Inefficient resource utilization"],
+        techComfort: "High",
+        description: "Hospital administrator focused on operational efficiency and improving patient care through technology"
+      }
+    ],
+
+    userJourney: {
+      phases: [
+        {
+          phase: "Health Concern Discovery",
+          actions: ["Feels symptoms", "Searches for information", "Assesses severity"],
+          emotions: ["Worried", "Uncertain", "Anxious"],
+          touchpoints: ["Symptom checker", "Health articles", "Emergency indicators"],
+          opportunities: ["Provide clear emergency indicators", "Offer symptom guidance", "Reduce anxiety through clear information"]
+        },
+        {
+          phase: "Healthcare Provider Search",
+          actions: ["Searches for doctors", "Compares options", "Checks availability"],
+          emotions: ["Hopeful", "Confused", "Frustrated"],
+          touchpoints: ["Doctor listings", "Specialization filters", "Reviews & ratings"],
+          opportunities: ["Simplify search filters", "Provide clear provider information", "Show real-time availability"]
+        },
+        {
+          phase: "Appointment Booking",
+          actions: ["Selects provider", "Chooses time slot", "Confirms appointment"],
+          emotions: ["Relieved", "Confident", "Satisfied"],
+          touchpoints: ["Booking interface", "Calendar integration", "Confirmation messages"],
+          opportunities: ["Streamline booking flow", "Provide instant confirmation", "Offer appointment reminders"]
+        },
+        {
+          phase: "Treatment & Follow-up",
+          actions: ["Attends appointment", "Receives prescription", "Tracks progress"],
+          emotions: ["Informed", "Cared for", "Improved"],
+          touchpoints: ["Digital prescriptions", "Progress tracking", "Follow-up reminders"],
+          opportunities: ["Integrate digital prescriptions", "Provide progress tracking", "Automate follow-up care"]
+        }
+      ]
+    },
     
     problem: {
       title: "The Challenge",
@@ -363,7 +435,7 @@ const LiffoCaseStudy = () => {
         </div>
       </section>
 
-      {/* 1. Project Overview */}
+      {/* 1. Overview & Problem */}
       <section className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-900" />
@@ -379,7 +451,7 @@ const LiffoCaseStudy = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 modern-heritage bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
-              PROJECT OVERVIEW
+              OVERVIEW & PROBLEM
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Understanding the healthcare challenge and defining the design strategy
@@ -432,45 +504,22 @@ const LiffoCaseStudy = () => {
               </Card>
             </motion.div>
           </div>
-        </div>
-      </section>
 
-      {/* 2. Problem Statement */}
-      <section className="py-20 relative">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-red-950/30 via-gray-900 to-slate-950" />
-          <div className="absolute inset-0 grain-texture opacity-25" />
-        </div>
-        
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          {/* Problem Statement */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 modern-heritage bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
-              THE HEALTHCARE CHALLENGE
-            </h2>
-            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Identifying critical gaps in emergency healthcare accessibility
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
             className="mb-12"
           >
             <Card className="p-12 glass-card grain-texture border-red-500/30">
+              <h3 className="text-3xl font-bold mb-8 text-center text-red-400 modern-heritage">THE HEALTHCARE CHALLENGE</h3>
               <p className="text-xl text-white/90 leading-relaxed mb-8 jost-secondary">
                 {caseStudyData.problem.description}
               </p>
               
-              <h3 className="text-2xl font-bold mb-6 text-red-400 modern-heritage">KEY PAIN POINTS</h3>
+              <h4 className="text-2xl font-bold mb-6 text-red-400 modern-heritage">KEY PAIN POINTS</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {caseStudyData.problem.painPoints.map((point, index) => (
                   <motion.div
@@ -491,7 +540,185 @@ const LiffoCaseStudy = () => {
         </div>
       </section>
 
-      {/* 3. Solution */}
+      {/* 2. Personas */}
+      <section className="py-20 relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 modern-heritage bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              USER PERSONAS
+            </h2>
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
+              Four key user groups driving healthcare platform design decisions
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {caseStudyData.personas.map((persona, index) => (
+              <motion.div
+                key={persona.name}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-8 glass-card grain-texture border-blue-500/30 h-full">
+                  <div className="space-y-6">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center">
+                        <User className="w-8 h-8 text-blue-400" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-blue-300 modern-heritage">{persona.name}</h3>
+                        <p className="text-white/70 jost-secondary">{persona.role}, {persona.age}</p>
+                      </div>
+                    </div>
+                    
+                    <p className="text-white/85 leading-relaxed jost-secondary">{persona.description}</p>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="text-sm font-bold text-blue-400 mb-2 jost-secondary">GOALS</h4>
+                        <ul className="space-y-1">
+                          {persona.goals.map((goal, idx) => (
+                            <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
+                              <Target className="w-3 h-3 text-blue-400 mr-2 flex-shrink-0" />
+                              {goal}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h4 className="text-sm font-bold text-red-400 mb-2 jost-secondary">PAIN POINTS</h4>
+                        <ul className="space-y-1">
+                          {persona.painPoints.map((pain, idx) => (
+                            <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
+                              <AlertCircle className="w-3 h-3 text-red-400 mr-2 flex-shrink-0" />
+                              {pain}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div className="flex justify-between items-center pt-2">
+                        <span className="text-xs text-white/60 jost-secondary">Tech Comfort</span>
+                        <span className={`text-xs font-semibold px-2 py-1 rounded ${
+                          persona.techComfort === 'High' ? 'bg-green-500/20 text-green-400' :
+                          persona.techComfort === 'Medium' ? 'bg-yellow-500/20 text-yellow-400' :
+                          'bg-red-500/20 text-red-400'
+                        }`}>
+                          {persona.techComfort}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. User Journey */}
+      <section className="py-20 relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 modern-heritage bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent">
+              USER JOURNEY
+            </h2>
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
+              Mapping the complete healthcare experience from concern to care
+            </p>
+          </motion.div>
+
+          <div className="space-y-8">
+            {caseStudyData.userJourney.phases.map((phase, index) => (
+              <motion.div
+                key={phase.phase}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-8 glass-card grain-texture border-purple-500/30">
+                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                    <div className="lg:col-span-1">
+                      <div className="flex items-center space-x-3 mb-4">
+                        <div className="w-8 h-8 bg-purple-500/20 rounded-full flex items-center justify-center text-purple-400 font-bold text-sm">
+                          {index + 1}
+                        </div>
+                        <h3 className="text-lg font-bold text-purple-300 modern-heritage">{phase.phase}</h3>
+                      </div>
+                    </div>
+                    
+                    <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div>
+                        <h4 className="text-sm font-bold text-white/90 mb-3 jost-secondary">ACTIONS</h4>
+                        <ul className="space-y-2">
+                          {phase.actions.map((action, idx) => (
+                            <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
+                              <ArrowRight className="w-3 h-3 text-purple-400 mr-2 flex-shrink-0" />
+                              {action}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h4 className="text-sm font-bold text-white/90 mb-3 jost-secondary">EMOTIONS</h4>
+                        <ul className="space-y-2">
+                          {phase.emotions.map((emotion, idx) => (
+                            <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
+                              <Heart className="w-3 h-3 text-pink-400 mr-2 flex-shrink-0" />
+                              {emotion}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h4 className="text-sm font-bold text-white/90 mb-3 jost-secondary">OPPORTUNITIES</h4>
+                        <ul className="space-y-2">
+                          {phase.opportunities.map((opportunity, idx) => (
+                            <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
+                              <Lightbulb className="w-3 h-3 text-yellow-400 mr-2 flex-shrink-0" />
+                              {opportunity}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Solution & Process */}
       <section className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
@@ -526,7 +753,7 @@ const LiffoCaseStudy = () => {
                 {caseStudyData.solution.description}
               </p>
               
-              <h3 className="text-2xl font-bold mb-6 text-green-400 modern-heritage">KEY FEATURES</h3>
+              <h3 className="text-2xl font-bold mb-6 text-green-400 modern-heritage">SOLUTION FEATURES</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {caseStudyData.solution.features.map((feature, index) => (
                   <motion.div
@@ -544,74 +771,61 @@ const LiffoCaseStudy = () => {
               </div>
             </Card>
           </motion.div>
-        </div>
-      </section>
-
-      {/* 4. Design Process */}
-      <section className="py-20 relative">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
-          <div className="absolute inset-0 grain-texture opacity-25" />
-        </div>
-        
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          
+          {/* Design Process */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="mt-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 modern-heritage bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent">
+            <h3 className="text-3xl font-bold mb-8 text-center text-purple-300 modern-heritage">
               DESIGN PROCESS
-            </h2>
-            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Research-driven approach to healthcare platform design
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {caseStudyData.process.map((phase, index) => (
-              <motion.div
-                key={phase.phase}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card className="p-8 glass-card grain-texture border-purple-500/30 h-full">
-                  <div className="flex items-center mb-4">
-                    <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4">
-                      <span className="text-purple-400 font-bold jost-secondary">{index + 1}</span>
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {caseStudyData.process.map((phase, index) => (
+                <motion.div
+                  key={phase.phase}
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="p-6 glass-card grain-texture border-purple-500/30 h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4">
+                        <span className="text-purple-400 font-bold jost-secondary">{index + 1}</span>
+                      </div>
+                      <Badge variant="outline" className="text-xs px-2 py-1 border-purple-400/50 text-purple-400 jost-secondary">
+                        {phase.duration}
+                      </Badge>
                     </div>
-                    <Badge variant="outline" className="text-xs px-2 py-1 border-purple-400/50 text-purple-400 jost-secondary">
-                      {phase.duration}
-                    </Badge>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold mb-4 text-purple-300 modern-heritage">
-                    {phase.phase}
-                  </h3>
-                  
-                  <p className="text-white/85 leading-relaxed mb-6 jost-secondary">
-                    {phase.description}
-                  </p>
-                  
-                  <div>
-                    <h4 className="text-sm font-bold text-purple-400 mb-2 jost-secondary">DELIVERABLES</h4>
-                    <ul className="space-y-1">
-                      {phase.deliverables.map((deliverable, idx) => (
-                        <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
-                          <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2" />
-                          {deliverable}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+                    
+                    <h4 className="text-lg font-bold mb-3 text-purple-300 modern-heritage">
+                      {phase.phase}
+                    </h4>
+                    
+                    <p className="text-white/85 leading-relaxed mb-4 text-sm jost-secondary">
+                      {phase.description}
+                    </p>
+                    
+                    <div>
+                      <h5 className="text-xs font-bold text-purple-400 mb-2 jost-secondary">DELIVERABLES</h5>
+                      <ul className="space-y-1">
+                        {phase.deliverables.map((deliverable, idx) => (
+                          <li key={idx} className="text-xs text-white/70 flex items-center jost-secondary">
+                            <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2" />
+                            {deliverable}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
