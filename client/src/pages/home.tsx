@@ -43,10 +43,11 @@ import {
   Send,
   ArrowRight,
   ArrowLeft,
+  Rocket,
+  Lightbulb,
   X,
   MapPin,
   FileText,
-  Lightbulb,
   Heart,
   Trophy
 } from 'lucide-react';
@@ -699,102 +700,127 @@ export default function Home() {
               
               <div className="relative z-10 space-y-12">
                 {/* Bio Content - Restructured with Photo */}
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
-                  {/* Profile Photo */}
-                  <div className="md:col-span-2 flex justify-center">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                  {/* Profile Card - Left Column */}
+                  <div className="lg:col-span-4">
                     <motion.div
-                      className="relative group"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
+                      className="sticky top-8"
+                      initial={{ opacity: 0, x: -50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8 }}
+                      viewport={{ once: true }}
                     >
-                      <div className="w-64 h-64 relative overflow-hidden bg-gradient-to-br from-primary/20 to-purple-500/20 backdrop-blur-sm border border-white/10">
-                        <img 
-                          src={profilePhoto} 
-                          alt="Karan Gadhave - Senior Product Designer" 
-                          className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500 grayscale group-hover:grayscale-0"
-                        />
-                        {/* Overlay gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      </div>
-                      
-                      {/* Decorative border */}
-                      <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 via-cyan-400/30 to-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10" />
-                      
-                      {/* Profile info overlay */}
-                      <div className="mt-6 text-center">
+                      <Card className="glass-card grain-texture border border-white/20 p-6 text-center hover:glass-intense transition-all duration-500">
+                        <div className="relative group mb-6">
+                          <div className="w-48 h-48 mx-auto relative overflow-hidden bg-gradient-to-br from-primary/20 to-purple-500/20 backdrop-blur-sm border border-white/10">
+                            <img 
+                              src={profilePhoto} 
+                              alt="Karan Gadhave - Senior Product Designer" 
+                              className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500 grayscale group-hover:grayscale-0"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          </div>
+                          <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 via-cyan-400/30 to-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10" />
+                        </div>
+                        
                         <h3 className="text-2xl font-bold text-white mb-2 modern-heritage">KARAN GADHAVE</h3>
                         <p className="text-primary text-lg font-semibold mb-1 jost-secondary">Senior Product Designer</p>
-                        <p className="text-white/60 text-sm jost-secondary">AI Innovation Specialist</p>
-                      </div>
+                        <p className="text-white/60 text-base jost-secondary">AI Innovation Specialist</p>
+                      </Card>
                     </motion.div>
                   </div>
 
-                  {/* Bio Content */}
-                  <div className="md:col-span-3 space-y-8">
-                    <div>
-                      <h4 className="text-xl font-semibold text-white mb-4 flex items-center jost-secondary">
-                        <span className="w-3 h-3 bg-primary mr-3"></span>
+                  {/* Content - Right Column */}
+                  <div className="lg:col-span-8 space-y-8">
+                    {/* Experience & Expertise */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <h4 className="text-2xl font-bold text-white mb-6 flex items-center jost-secondary">
+                        <Briefcase className="w-6 h-6 text-primary mr-3" />
                         Experience & Expertise
                       </h4>
-                      <p className="text-white/80 leading-relaxed jost-secondary">
+                      <p className="text-white/80 leading-relaxed text-lg jost-secondary">
                         With over <span className="text-primary font-semibold">4 years of specialized experience</span> in <span className="text-primary font-semibold">UI/UX design</span>, 
                         I craft <span className="text-primary font-semibold">innovative digital solutions</span> that elevate user experiences by harnessing 
                         <span className="text-primary font-semibold">AI-driven design approaches</span> and <span className="text-primary font-semibold">modern technologies</span>.
                       </p>
-                    </div>
+                    </motion.div>
                     
-                    <div>
-                      <h4 className="text-xl font-semibold text-white mb-4 flex items-center jost-secondary">
-                        <span className="w-3 h-3 bg-purple-400 mr-3"></span>
+                    {/* Innovation Focus */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      viewport={{ once: true }}
+                    >
+                      <h4 className="text-2xl font-bold text-white mb-6 flex items-center jost-secondary">
+                        <Lightbulb className="w-6 h-6 text-purple-400 mr-3" />
                         Innovation Focus
                       </h4>
-                      <p className="text-white/80 leading-relaxed jost-secondary">
+                      <p className="text-white/80 leading-relaxed text-lg jost-secondary">
                         Driven by a <span className="text-primary font-semibold">passion for innovation</span>, I've <span className="text-primary font-semibold">streamlined UI/UX workflows</span> using 
-                        <span className="text-primary font-semibold">AI-powered design approaches</span>—<span className="bg-primary/20 text-primary px-2 py-1 rounded-lg font-semibold">cutting design cycles by 60%</span> 
+                        <span className="text-primary font-semibold">AI-powered design approaches</span>—<span className="bg-primary/20 text-primary px-3 py-1.5 rounded-lg font-semibold">cutting design cycles by 60%</span> 
                         while delivering <span className="text-primary font-semibold">intuitive, high-impact user experiences</span>.
                       </p>
-                    </div>
+                    </motion.div>
 
-                    {/* Core Values */}
-                    <div className="space-y-4">
-                      <h4 className="text-xl font-semibold text-white mb-4 jost-secondary">Core Principles</h4>
+                    {/* Core Principles */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      viewport={{ once: true }}
+                    >
+                      <h4 className="text-2xl font-bold text-white mb-6 jost-secondary">Core Principles</h4>
                       
-                      {[
-                        { icon: '🎯', title: 'User-Centered Design', desc: 'Every decision driven by user needs and behaviors' },
-                        { icon: '⚡', title: 'AI-Enhanced Workflow', desc: 'Leveraging technology for maximum efficiency' },
-                        { icon: '🚀', title: 'Innovation-First Mindset', desc: 'Pushing creative boundaries in every project' }
-                      ].map((principle, index) => (
-                        <motion.div
-                          key={principle.title}
-                          className="flex items-start space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300"
-                          initial={{ opacity: 0, x: 20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.1 }}
-                          viewport={{ once: true }}
-                        >
-                          <span className="text-xl flex-shrink-0">{principle.icon}</span>
-                          <div>
-                            <h5 className="text-white font-semibold mb-1 text-sm jost-secondary">{principle.title}</h5>
-                            <p className="text-white/70 text-xs leading-relaxed jost-secondary">{principle.desc}</p>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
+                      <div className="space-y-4">
+                        {[
+                          { icon: Target, title: 'User-Centered Design', desc: 'Every decision driven by user needs and behaviors' },
+                          { icon: Zap, title: 'AI-Enhanced Workflow', desc: 'Leveraging technology for maximum efficiency' },
+                          { icon: Rocket, title: 'Innovation-First Mindset', desc: 'Pushing creative boundaries in every project' }
+                        ].map((principle, index) => (
+                          <motion.div
+                            key={principle.title}
+                            className="flex items-start space-x-4 p-6 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10"
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                            viewport={{ once: true }}
+                          >
+                            <principle.icon className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                            <div>
+                              <h5 className="text-white font-semibold mb-2 text-base jost-secondary">{principle.title}</h5>
+                              <p className="text-white/70 text-base leading-relaxed jost-secondary">{principle.desc}</p>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
                   </div>
                 </div>
 
-                {/* Skills Tags */}
-                <div className="text-center">
-                  <h4 className="text-lg font-semibold text-white mb-6 jost-secondary">Specialized Skills</h4>
-                  <div className="flex flex-wrap justify-center gap-3">
+                {/* Skills Section */}
+                <motion.div
+                  className="mt-12"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  viewport={{ once: true }}
+                >
+                  <h4 className="text-2xl font-bold text-white mb-8 text-center jost-secondary">Specialized Skills</h4>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 max-w-4xl mx-auto">
                     {[
                       'AI Design Tools', 'Figma Mastery', 'Interactive Prototyping', 
                       'Design Systems', 'User Research', 'Design Automation',
                       'Rapid Prototyping', 'Cross-Platform Design'
                     ].map((skill, index) => (
-                      <motion.span
+                      <motion.div
                         key={skill}
-                        className="px-4 py-2 glass-card grain-texture text-white/90 text-sm font-medium hover:glass-intense transition-all duration-300 jost-secondary"
+                        className="px-4 py-3 glass-card grain-texture text-white/90 text-sm font-medium hover:glass-intense transition-all duration-300 jost-secondary text-center border border-white/10"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.4, delay: index * 0.05 }}
@@ -802,10 +828,10 @@ export default function Home() {
                         whileHover={{ scale: 1.05 }}
                       >
                         {skill}
-                      </motion.span>
+                      </motion.div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               </div>
             </Card>
           </motion.div>
