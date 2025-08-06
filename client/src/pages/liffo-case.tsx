@@ -5,7 +5,7 @@ import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, 
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { SimpleNav } from '@/components/simple-nav';
+import { ViewportNav } from '@/components/viewport-nav';
 import LogoImage from '@assets/Logo black_1754170788875.png';
 
 // Import all 34 properly numbered Liffo screens
@@ -397,7 +397,7 @@ const LiffoCaseStudy = () => {
 
 
       {/* Case Study Navigation */}
-      <SimpleNav />
+      <ViewportNav />
       
       {/* Progress Bar */}
       <motion.div 
