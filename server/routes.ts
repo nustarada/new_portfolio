@@ -5,19 +5,49 @@ import { insertContactSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
 import nodemailer from "nodemailer";
 
-// Create nodemailer transporter for Apple Mail (iCloud SMTP)
+// Create nodemailer transporter with fallback SMTP configurations
 const createEmailTransporter = () => {
   if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-    return nodemailer.createTransport({
-      host: 'smtp.mail.me.com', // iCloud SMTP server
-      port: 587, // TLS port
-      secure: false, // Use STARTTLS
-      requireTLS: true,
-      auth: {
-        user: process.env.EMAIL_USER, // Your custom domain email: contact@karnkalaa.in
-        pass: process.env.EMAIL_PASS, // Your email password or app-specific password
+    // Multiple SMTP configurations to try
+    const configs = [
+      {
+        name: 'GoDaddy TLS',
+        host: 'smtpout.secureserver.net',
+        port: 587,
+        secure: false,
+        requireTLS: true,
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
       },
-    });
+      {
+        name: 'Domain SMTP',
+        host: `mail.${process.env.EMAIL_USER.split('@')[1]}`, // mail.karnkalaa.in
+        port: 587,
+        secure: false,
+        requireTLS: true,
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      },
+      {
+        name: 'Generic SMTP',
+        host: `smtp.${process.env.EMAIL_USER.split('@')[1]}`, // smtp.karnkalaa.in
+        port: 587,
+        secure: false,
+        requireTLS: true,
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      }
+    ];
+    
+    // Use first config and log which one we're trying
+    console.log(`Attempting SMTP connection with: ${configs[0].name} (${configs[0].host}:${configs[0].port})`);
+    return nodemailer.createTransport(configs[0]);
   }
   return null;
 };
@@ -47,7 +77,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
             <div style="background: #f8fafc; padding: 25px; border-radius: 12px; margin-bottom: 25px; border-left: 4px solid #8b5cf6;">
               <h2 style="margin: 0 0 20px 0; color: #1e293b; font-size: 20px;">Test Configuration</h2>
               <div style="display: grid; gap: 12px;">
-                <p style="margin: 0; padding: 8px 0; border-bottom: 1px solid #e2e8f0;"><strong style="color: #475569;">SMTP Server:</strong> <span style="color: #1e293b;">smtpout.secureserver.net (GoDaddy)</span></p>
+                <p style="margin: 0; padding: 8px 0; border-bottom: 1px solid #e2e8f0;"><strong style="color: #475569;">SMTP Server:</strong> <span style="color: #1e293b;">smtpout.secureserver.net (GoDaddy SSL)</span></p>
                 <p style="margin: 0; padding: 8px 0; border-bottom: 1px solid #e2e8f0;"><strong style="color: #475569;">Port:</strong> <span style="color: #1e293b;">465 (SSL)</span></p>
                 <p style="margin: 0; padding: 8px 0; border-bottom: 1px solid #e2e8f0;"><strong style="color: #475569;">From:</strong> <span style="color: #1e293b;">${process.env.EMAIL_USER}</span></p>
                 <p style="margin: 0; padding: 8px 0;"><strong style="color: #475569;">To:</strong> <span style="color: #1e293b;">${process.env.EMAIL_USER}</span></p>
