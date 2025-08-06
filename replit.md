@@ -1,5 +1,5 @@
 # Overview
-This is a high-performance full-stack portfolio website for Karan Gadhave featuring modern design, optimized animations, and comprehensive performance monitoring. The application uses PostgreSQL database with Drizzle ORM and includes performance-optimized components with lazy loading, throttling, and GPU acceleration.
+This is a high-performance full-stack portfolio website for Karan Gadhave featuring modern design and optimized animations. The application uses PostgreSQL database with Drizzle ORM and includes performance-optimized components with lazy loading, animation throttling, and GPU acceleration for smooth user experience.
 
 # User Preferences
 Preferred communication style: Simple, everyday language.

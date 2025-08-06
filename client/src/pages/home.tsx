@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { PerformanceMonitor } from '@/components/performance-monitor';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -1090,15 +1089,6 @@ export default function Home() {
           </div>
         </div>
       </section> */}
-
-      {/* Performance Analysis Section - Development Only */}
-      {import.meta.env.DEV && (
-        <section className="py-16 relative">
-          <div className="max-w-6xl mx-auto px-6">
-            <PerformanceMonitor />
-          </div>
-        </section>
-      )}
 
       {/* Contact Section */}
       <section id="contact" className="py-16 relative">
