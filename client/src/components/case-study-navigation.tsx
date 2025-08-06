@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Eye } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 interface NavigationSection {
   id: string;
@@ -21,9 +20,6 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(currentSection);
   const [scrollProgress, setScrollProgress] = useState(0);
-  
-  // Debug logging
-  console.log('CaseStudyNavigation rendered with sections:', sections.length);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,62 +68,49 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
   };
 
   return (
-    <div className="case-study-navigation" style={{ position: 'relative', zIndex: 999999 }}>
-      {/* Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-black/20 backdrop-blur-sm z-50">
-        <motion.div
-          className="h-full bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400"
-          style={{ width: `${scrollProgress}%` }}
-          transition={{ type: 'spring', stiffness: 400, damping: 40 }}
-        />
-      </div>
-
-      {/* Navigation Toggle Button */}
-      <motion.div
-        className="fixed right-4 bottom-4 md:right-6 md:bottom-6"
-        initial={{ opacity: 1, scale: 1 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0 }}
-        style={{ 
-          zIndex: 999999, 
+    <>
+      {/* Floating Navigation Button - Simple Implementation */}
+      <div 
+        className="fixed bottom-6 right-6 z-[9999]"
+        style={{
           position: 'fixed',
-          pointerEvents: 'auto',
-          isolation: 'isolate'
+          bottom: '24px',
+          right: '24px',
+          zIndex: 9999
         }}
       >
-        <Button
-          onClick={() => {
-            console.log('Navigation button clicked!');
-            setIsOpen(!isOpen);
-          }}
-          className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-blue-500/90 to-purple-500/90 backdrop-blur-md border-2 border-white/30 hover:scale-105 transition-all duration-300 shadow-2xl shadow-blue-500/30 hover:shadow-blue-500/50"
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full shadow-2xl hover:scale-105 transition-transform duration-200 flex items-center justify-center"
           style={{
-            zIndex: 999999,
-            visibility: 'visible',
-            display: 'flex'
+            background: 'linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%)',
+            boxShadow: '0 8px 32px rgba(59, 130, 246, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)',
           }}
-          size="sm"
         >
           {isOpen ? (
-            <X className="w-6 h-6 md:w-7 md:h-7 text-white" />
+            <X className="w-7 h-7 text-white" />
           ) : (
-            <Menu className="w-6 h-6 md:w-7 md:h-7 text-white" />
+            <Menu className="w-7 h-7 text-white" />
           )}
-        </Button>
-      </motion.div>
+        </button>
+      </div>
 
       {/* Navigation Panel */}
       <AnimatePresence>
         {isOpen && (
           <>
             {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90]"
+            <div
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998]"
               onClick={() => setIsOpen(false)}
-              style={{ zIndex: 90 }}
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                zIndex: 9998
+              }}
             />
             
             {/* Navigation Menu */}
@@ -136,9 +119,16 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 300, scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed right-4 bottom-20 md:right-6 md:bottom-24 w-[320px] md:w-80 max-h-[70vh] overflow-y-auto bg-gradient-to-br from-slate-900/98 via-blue-900/95 to-slate-900/98 backdrop-blur-xl border-2 border-white/30 rounded-xl shadow-2xl shadow-blue-500/25"
+              className="fixed bottom-28 right-6 w-80 max-h-[70vh] overflow-y-auto rounded-xl shadow-2xl z-[9998]"
               style={{ 
-                zIndex: 999998
+                position: 'fixed',
+                bottom: '112px',
+                right: '24px',
+                zIndex: 9998,
+                background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 58, 138, 0.9))',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5)'
               }}
             >
               <div className="p-6">
@@ -214,6 +204,6 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
           </>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 };
