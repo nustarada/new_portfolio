@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'wouter';
-import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, ArrowLeft, Lightbulb, Heart, Smartphone, Shield, Award, Zap, TestTube, Palette, Code, User, AlertCircle, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, ArrowLeft, Lightbulb, Heart, Smartphone, Shield, Award, Zap, TestTube, Palette, Code, User, AlertCircle, ArrowRight, Linkedin } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -1253,19 +1253,29 @@ const LiffoCaseStudy = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-white/10">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-white/60 mb-4 jost-secondary">
-            Designed and developed by Karan Gadhave
+      <footer className="py-12 border-t border-border/30">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <div className="flex justify-center items-center space-x-8 mb-6">
+            <img 
+              src={LogoImage} 
+              alt="Karan Gadhave Logo" 
+              className="h-16 w-16 object-contain opacity-90"
+            />
+            <a 
+              href="https://www.linkedin.com/in/karan-gadhave/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group inline-block touch-manipulation"
+              style={{ WebkitTapHighlightColor: 'transparent' }}
+            >
+              <Button variant="ghost" size="icon" className="w-12 h-12 rounded-full neo-card group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
+                <Linkedin className="w-5 h-5 group-hover:text-primary group-active:text-primary transition-colors duration-300" />
+              </Button>
+            </a>
+          </div>
+          <p className="text-muted-foreground code-font">
+            © 2025 Karan Gadhave. Designed & developed with passion.
           </p>
-          <a 
-            href="https://linkedin.com/in/karan-gadhave" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-white/80 hover:text-white transition-colors jost-secondary"
-          >
-            Connect on LinkedIn
-          </a>
         </div>
       </footer>
     </div>
