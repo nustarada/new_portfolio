@@ -164,13 +164,7 @@ const CaseStudyPage = () => {
   return (
     <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture case-study-page">
       {/* Case Study Navigation */}
-      <CaseStudyNavigation sections={navigationSections} />
-      
-      {/* Progress Bar */}
-      <motion.div 
-        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary to-cyan-400 z-50"
-        style={{ width: progressWidth }}
-      />
+      <CaseStudyNavigation sections={navigationSections} progressBarColors="from-primary to-cyan-400" />
 
       {/* Navigation */}
       <motion.nav 

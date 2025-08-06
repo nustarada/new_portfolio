@@ -12,11 +12,13 @@ interface NavigationSection {
 interface CaseStudyNavigationProps {
   sections: NavigationSection[];
   currentSection?: string;
+  progressBarColors?: string;
 }
 
 export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
   sections,
-  currentSection = ''
+  currentSection = '',
+  progressBarColors = 'from-primary via-cyan-400 to-purple-400'
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(currentSection);
@@ -73,7 +75,7 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
       {/* Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-black/20 backdrop-blur-sm z-50">
         <motion.div
-          className="h-full bg-gradient-to-r from-primary via-cyan-400 to-purple-400"
+          className={`h-full bg-gradient-to-r ${progressBarColors}`}
           style={{ width: `${scrollProgress}%` }}
           transition={{ type: 'spring', stiffness: 400, damping: 40 }}
         />
