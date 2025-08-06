@@ -963,7 +963,7 @@ export default function Home() {
 
                   {/* Enhanced Ambient Effects */}
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                  <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/8 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl" />
+                  
                 </Card>
               </motion.div>
             ))}
