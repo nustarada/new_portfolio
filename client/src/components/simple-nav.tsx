@@ -6,31 +6,42 @@ export const SimpleNav = () => {
 
   return (
     <>
-      {/* Main Navigation Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
+      {/* Main Navigation Button - Fixed to Viewport */}
+      <div
         style={{
           position: 'fixed',
           bottom: '30px',
           right: '30px',
-          width: '60px',
-          height: '60px',
-          borderRadius: '50%',
-          backgroundColor: '#3B82F6',
-          border: '3px solid white',
-          color: 'white',
-          fontSize: '20px',
-          cursor: 'pointer',
           zIndex: 999999,
-          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.5)'
+          pointerEvents: 'auto'
         }}
       >
-        {isOpen ? '✕' : '☰'}
-      </button>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          style={{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            backgroundColor: '#3B82F6',
+            border: '3px solid white',
+            color: 'white',
+            fontSize: '20px',
+            cursor: 'pointer',
+            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            outline: 'none'
+          }}
+        >
+          {isOpen ? '✕' : '☰'}
+        </button>
+      </div>
 
       {/* Menu Panel */}
       {isOpen && (
         <>
+          {/* Backdrop */}
           <div
             onClick={() => setIsOpen(false)}
             style={{
@@ -43,6 +54,8 @@ export const SimpleNav = () => {
               zIndex: 999998
             }}
           />
+          
+          {/* Menu Panel - Fixed to Viewport */}
           <div
             style={{
               position: 'fixed',
@@ -57,7 +70,8 @@ export const SimpleNav = () => {
               border: '1px solid rgba(255, 255, 255, 0.2)',
               padding: '20px',
               zIndex: 999999,
-              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.6)'
+              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.6)',
+              transform: 'translateZ(0)'
             }}
           >
             <h3 style={{ color: 'white', marginBottom: '16px', fontSize: '18px', fontWeight: 'bold' }}>
