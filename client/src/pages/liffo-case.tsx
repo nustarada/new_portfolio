@@ -394,43 +394,7 @@ const LiffoCaseStudy = () => {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture liffo-case-study" style={{ position: 'relative', overflow: 'visible' }}>
-      {/* Debug Overlay - To test button visibility */}
-      <div 
-        style={{
-          position: 'fixed',
-          top: '10px',
-          right: '10px',
-          backgroundColor: 'rgba(255, 255, 255, 0.9)',
-          padding: '10px',
-          borderRadius: '5px',
-          zIndex: 999999,
-          fontSize: '12px',
-          color: 'black'
-        }}
-      >
-        DEBUG: Navigation should be visible
-      </div>
 
-      {/* Simple Fixed Button Test */}
-      <div
-        style={{
-          position: 'fixed',
-          bottom: '200px',
-          right: '50px',
-          width: '100px',
-          height: '100px',
-          backgroundColor: 'lime',
-          zIndex: 999999,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '14px',
-          fontWeight: 'bold',
-          color: 'black'
-        }}
-      >
-        LIME TEST
-      </div>
 
       {/* Case Study Navigation */}
       <SimpleNav />
