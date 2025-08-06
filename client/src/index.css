@@ -48,27 +48,36 @@
   }
 
   #root {
-    background: 
-      radial-gradient(circle at 30% 30%, hsla(185, 84%, 55%, 0.05) 0%, transparent 40%),
-      radial-gradient(circle at 70% 70%, hsla(285, 85%, 60%, 0.05) 0%, transparent 40%),
-      linear-gradient(135deg, hsl(220, 27%, 3%) 0%, hsl(220, 25%, 5%) 100%);
+    background: linear-gradient(135deg, hsl(220, 27%, 3%) 0%, hsl(220, 25%, 5%) 100%);
     color: #fafafa !important;
     min-height: 100vh;
     position: relative;
-    overflow-x: hidden;
+  }
+
+  #root::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(circle at 30% 30%, hsl(185, 84%, 55%) 0%, transparent 40%),
+      radial-gradient(circle at 70% 70%, hsl(285, 85%, 60%) 0%, transparent 40%);
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: -1;
+    will-change: transform;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
     font-family: 'Jost', system-ui, sans-serif !important;
     line-height: 1.6;
-    background: hsl(220, 27%, 3%) !important;
+    background: transparent !important;
     color: #ffffff !important;
     font-weight: 400;
     cursor: auto !important;
-    position: relative !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
   }
 
   * {
@@ -80,25 +89,6 @@
   *::before,
   *::after {
     will-change: auto;
-  }
-
-  /* Optimize animations for 60fps */
-  * {
-    animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* Force hardware acceleration for smooth scrolling */
-  html {
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* Optimize viewport rendering */
-  body {
-    transform: translateZ(0);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeSpeed;
   }
 
   /* GPU acceleration for smooth animations */
@@ -162,75 +152,6 @@
 
   html {
     scroll-behavior: smooth;
-    background: hsl(220, 27%, 3%) !important;
-  }
-
-  /* Ensure all page content maintains dark background */
-  * {
-    background-color: transparent;
-  }
-  
-  /* Force dark background for any potential white areas */
-  .liffo-case-study,
-  .case-study,
-  main,
-  section {
-    background-color: transparent !important;
-    contain: layout style paint;
-    will-change: auto;
-  }
-
-  /* Optimize section rendering */
-  section {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-  }
-
-  /* Optimize motion elements */
-  [class*="motion"],
-  .motion-element {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    will-change: transform, opacity;
-  }
-
-  /* Reduce motion during scrolling for better performance */
-  .scrolling [data-framer-motion-animate] {
-    animation: none !important;
-    transition: none !important;
-  }
-
-  /* Optimize specific performance-heavy elements */
-  .scrolling .grain-texture::before {
-    opacity: 0.1 !important;
-  }
-
-  /* Improve rendering during scroll */
-  * {
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-  }
-
-  /* Disable expensive effects during scrolling */
-  .scrolling .glass-card,
-  .scrolling .glass-intense {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-
-  /* Re-enable effects when scrolling stops */
-  .glass-card {
-    transition: backdrop-filter 0.3s ease;
-  }
-
-  .glass-intense {
-    transition: backdrop-filter 0.3s ease;
-  }
-  
-  /* Override any component backgrounds that might be white */
-  [class*="bg-white"],
-  [style*="background: white"],
-  [style*="background-color: white"] {
     background: transparent !important;
   }
 
@@ -243,8 +164,6 @@
     box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transform: translateZ(0);
-    will-change: transform;
   }
 
   .glass-intense {
@@ -255,13 +174,10 @@
     box-shadow:
       0 12px 40px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    transform: translateZ(0);
-    will-change: transform;
   }
 
   .grain-texture {
     position: relative;
-    transform: translateZ(0);
   }
 
   .grain-texture::before {
@@ -272,13 +188,12 @@
     right: 0;
     bottom: 0;
     background:
-      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-      linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%);
+      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
     pointer-events: none;
     z-index: 1;
-    opacity: 0.3;
-    transform: translateZ(0);
+    opacity: 0.6;
   }
 
   /* Responsive CTA Button Style */

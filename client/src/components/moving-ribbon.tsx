@@ -22,13 +22,13 @@ export function MovingRibbon() {
 
       {/* Top ribbon */}
       <motion.div
-        className="flex whitespace-nowrap mb-6 motion-element"
+        className="flex whitespace-nowrap mb-6"
         animate={{ x: [0, -3000] }}
         transition={{
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 60,
+            duration: 80,
             ease: "linear",
           },
         }}
@@ -59,13 +59,13 @@ export function MovingRibbon() {
 
       {/* Bottom ribbon - moving in opposite direction */}
       <motion.div
-        className="flex whitespace-nowrap mt-6 motion-element"
+        className="flex whitespace-nowrap mt-6"
         animate={{ x: [-3000, 0] }}
         transition={{
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 50,
+            duration: 70,
             ease: "linear",
           },
         }}
