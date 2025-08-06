@@ -1259,11 +1259,6 @@ const LiffoCaseStudy = () => {
                   Start Your Project
                 </Button>
               </Link>
-              <Link href="/">
-                <Button variant="outline" size="lg" className="h-12 sm:h-14 px-8 text-base font-semibold border-white/20 hover:border-white/40 hover:bg-white/5">
-                  View More Projects
-                </Button>
-              </Link>
             </div>
           </motion.div>
         </div>
