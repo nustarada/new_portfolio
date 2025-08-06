@@ -1355,23 +1355,7 @@ export default function Home() {
           </div>
         </DialogContent>
       </Dialog>
-      {/* Sticky Contact CTA */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <Button 
-          onClick={() => {
-            const contactSection = document.getElementById('contact');
-            contactSection?.scrollIntoView({ behavior: 'smooth' });
-          }}
-          className="group relative overflow-hidden text-white font-bold px-8 py-4 text-lg cta-button grain-texture border-0 hover:scale-110"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-          
-          <div className="relative z-10 flex items-center space-x-3">
-            <Mail className="w-6 h-6" />
-            <span>Contact Me</span>
-          </div>
-        </Button>
-      </div>
+      
       {/* Footer */}
       <footer className="py-12 border-t border-border/30">
         <div className="max-w-6xl mx-auto px-6 text-center">
