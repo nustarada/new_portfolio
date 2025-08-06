@@ -95,6 +95,19 @@
   .gpu-accelerated {
     transform: translateZ(0);
     backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Optimize compositing layers */
+  .animate-element {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
+
+  /* Optimize heavy elements */
+  .heavy-element {
+    contain: layout style paint;
+    content-visibility: auto;
   }
 
   /* Optimized scrolling */
@@ -136,18 +149,51 @@
   img {
     content-visibility: auto;
     contain: layout style paint;
+    image-rendering: optimizeQuality;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Lazy loaded images */
+  img[loading="lazy"] {
+    contain-intrinsic-size: 1px 400px;
   }
 
   /* Canvas optimization */
   canvas {
     will-change: transform;
     image-rendering: optimizeSpeed;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
   /* Intersection observer performance */
   .lazy-load {
     content-visibility: auto;
     contain-intrinsic-size: 1px 500px;
+  }
+
+  /* Optimize text rendering */
+  .text-optimized {
+    text-rendering: optimizeSpeed;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Reduce paint operations */
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Optimize flex layouts */
+  .flex-optimized {
+    contain: layout style;
   }
 
   html {
@@ -164,6 +210,10 @@
     box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    contain: layout style paint;
+    will-change: transform;
   }
 
   .glass-intense {
