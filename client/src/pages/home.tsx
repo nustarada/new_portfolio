@@ -887,11 +887,14 @@ export default function Home() {
                           </div>
                         </div>
                         {/* Project Logo */}
-                        <div className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                        <div className="bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center p-2" style={{
+                          width: project.title === "FutureFirst Families" ? "80px" : "64px",
+                          height: project.title === "FutureFirst Families" ? "48px" : "32px"
+                        }}>
                           <img 
                             src={project.logo} 
                             alt={`${project.title} Logo`} 
-                            className="w-8 h-8 object-contain opacity-80"
+                            className="w-full h-full object-contain opacity-90"
                           />
                         </div>
                       </div>
