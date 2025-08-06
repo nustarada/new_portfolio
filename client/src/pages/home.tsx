@@ -731,7 +731,7 @@ export default function Home() {
                   </div>
 
                   {/* Content - Right Column */}
-                  <div className="lg:col-span-8 space-y-8">
+                  <div className="lg:col-span-8 space-y-12">
                     {/* Experience & Expertise */}
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
@@ -750,6 +750,9 @@ export default function Home() {
                       </p>
                     </motion.div>
                     
+                    {/* Subtle Separator */}
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-8" />
+
                     {/* Innovation Focus */}
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
@@ -768,6 +771,9 @@ export default function Home() {
                       </p>
                     </motion.div>
 
+                    {/* Subtle Separator */}
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-8" />
+
                     {/* Core Principles */}
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
@@ -777,25 +783,30 @@ export default function Home() {
                     >
                       <h4 className="text-2xl font-bold text-white mb-6 jost-secondary">Core Principles</h4>
                       
-                      <div className="space-y-4">
+                      <div className="space-y-6">
                         {[
-                          { icon: Target, title: 'User-Centered Design', desc: 'Every decision driven by user needs and behaviors' },
-                          { icon: Zap, title: 'AI-Enhanced Workflow', desc: 'Leveraging technology for maximum efficiency' },
-                          { icon: Rocket, title: 'Innovation-First Mindset', desc: 'Pushing creative boundaries in every project' }
+                          { icon: Target, title: 'User-Centered Design', desc: 'Every decision driven by user needs and behaviors', color: 'text-cyan-400' },
+                          { icon: Zap, title: 'AI-Enhanced Workflow', desc: 'Leveraging technology for maximum efficiency', color: 'text-yellow-400' },
+                          { icon: Rocket, title: 'Innovation-First Mindset', desc: 'Pushing creative boundaries in every project', color: 'text-purple-400' }
                         ].map((principle, index) => (
                           <motion.div
                             key={principle.title}
-                            className="flex items-start space-x-4 p-6 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10"
+                            className="group relative flex items-center space-x-6 p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10"
                             initial={{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                             viewport={{ once: true }}
+                            whileHover={{ scale: 1.02 }}
                           >
-                            <principle.icon className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                            <div>
-                              <h5 className="text-white font-semibold mb-2 text-base jost-secondary">{principle.title}</h5>
-                              <p className="text-white/70 text-base leading-relaxed jost-secondary">{principle.desc}</p>
+                            <div className={`flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 group-hover:scale-110 transition-transform duration-300`}>
+                              <principle.icon className={`w-6 h-6 ${principle.color} group-hover:scale-110 transition-transform duration-300`} />
                             </div>
+                            <div className="flex-1">
+                              <h5 className="text-white font-bold mb-2 text-lg jost-secondary group-hover:text-primary transition-colors duration-300">{principle.title}</h5>
+                              <p className="text-white/80 text-base leading-relaxed jost-secondary">{principle.desc}</p>
+                            </div>
+                            {/* Subtle gradient overlay on hover */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                           </motion.div>
                         ))}
                       </div>
@@ -805,29 +816,36 @@ export default function Home() {
 
                 {/* Skills Section */}
                 <motion.div
-                  className="mt-12"
+                  className="mt-16"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
                   viewport={{ once: true }}
                 >
-                  <h4 className="text-2xl font-bold text-white mb-8 text-center jost-secondary">Specialized Skills</h4>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 max-w-4xl mx-auto">
+                  <h4 className="text-2xl font-bold text-white mb-10 text-center jost-secondary">Specialized Skills</h4>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-5xl mx-auto">
                     {[
-                      'AI Design Tools', 'Figma Mastery', 'Interactive Prototyping', 
-                      'Design Systems', 'User Research', 'Design Automation',
-                      'Rapid Prototyping', 'Cross-Platform Design'
+                      { name: 'AI Design Tools', color: 'from-cyan-500/20 to-blue-500/20' }, 
+                      { name: 'Figma Mastery', color: 'from-purple-500/20 to-pink-500/20' }, 
+                      { name: 'Interactive Prototyping', color: 'from-green-500/20 to-emerald-500/20' }, 
+                      { name: 'Design Systems', color: 'from-orange-500/20 to-red-500/20' }, 
+                      { name: 'User Research', color: 'from-indigo-500/20 to-purple-500/20' }, 
+                      { name: 'Design Automation', color: 'from-teal-500/20 to-cyan-500/20' },
+                      { name: 'Rapid Prototyping', color: 'from-yellow-500/20 to-orange-500/20' }, 
+                      { name: 'Cross-Platform Design', color: 'from-rose-500/20 to-pink-500/20' }
                     ].map((skill, index) => (
                       <motion.div
-                        key={skill}
-                        className="px-4 py-3 glass-card grain-texture text-white/90 text-sm font-medium hover:glass-intense transition-all duration-300 jost-secondary text-center border border-white/10"
+                        key={skill.name}
+                        className={`group relative px-5 py-4 glass-card grain-texture text-white/90 text-sm font-semibold hover:glass-intense transition-all duration-500 jost-secondary text-center border border-white/10 hover:border-primary/30 bg-gradient-to-br ${skill.color} hover:shadow-lg hover:shadow-primary/10`}
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.4, delay: index * 0.05 }}
                         viewport={{ once: true }}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.08, y: -2 }}
                       >
-                        {skill}
+                        <div className="relative z-10">{skill.name}</div>
+                        {/* Subtle glow effect on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </motion.div>
                     ))}
                   </div>
