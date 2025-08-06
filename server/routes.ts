@@ -5,20 +5,18 @@ import { insertContactSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
 import nodemailer from "nodemailer";
 
-// Create nodemailer transporter for custom domain email via GoDaddy
+// Create nodemailer transporter for Apple Mail (iCloud SMTP)
 const createEmailTransporter = () => {
   if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-    return nodemailer.createTransporter({
-      host: 'smtpout.secureserver.net', // GoDaddy SMTP server
-      port: 465, // SSL port
-      secure: true, // Use SSL
+    return nodemailer.createTransport({
+      host: 'smtp.mail.me.com', // iCloud SMTP server
+      port: 587, // TLS port
+      secure: false, // Use STARTTLS
+      requireTLS: true,
       auth: {
         user: process.env.EMAIL_USER, // Your custom domain email: contact@karnkalaa.in
-        pass: process.env.EMAIL_PASS, // Your email password
+        pass: process.env.EMAIL_PASS, // Your email password or app-specific password
       },
-      tls: {
-        rejectUnauthorized: false // Accept self-signed certificates
-      }
     });
   }
   return null;
