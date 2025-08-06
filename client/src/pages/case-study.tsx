@@ -183,15 +183,15 @@ const CaseStudyPage = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
-          <div className="flex justify-between items-center">
-            <Link href="/">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+          <div className="flex justify-between items-center w-full">
+            <Link href="/" className="flex-shrink-0">
               <motion.div className="cursor-pointer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <img src={LogoImage} alt="Karan Gadhave Logo" className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 object-contain" />
               </motion.div>
             </Link>
             
-            <Link href="/">
+            <Link href="/" className="flex-shrink-0 ml-4">
               <motion.button
                 className="relative group px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 glass-card grain-texture hover:glass-intense border border-primary/30 hover:border-primary/50 text-white font-semibold transition-all duration-300 flex items-center space-x-1.5 sm:space-x-2 text-sm sm:text-base whitespace-nowrap"
                 whileHover={{ y: -2, scale: 1.05 }}
