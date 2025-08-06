@@ -15,9 +15,9 @@ import { LiquidGrid } from '@/components/liquid-grid';
 import { MovingRibbon } from '@/components/moving-ribbon';
 // Removed old logo PDF import
 import futureFirstFamiliesThumbnail from '@assets/Screenshot 2025-08-03 at 16.51.12_1754220078781.png';
-import liffoThumbnail from '@assets/Dashboard 1.png';
+import liffoThumbnail from '@assets/4. Dashboard 1_1754469198505.png';
 import resumePdf from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
-import profilePhoto from '@assets/Dashboard 1.png';
+import profilePhoto from '@assets/4. Dashboard 1_1754469198505.png';
 import LogoImage from '@assets/Logo black_1754170788875.png';
 import { 
   Terminal, 
