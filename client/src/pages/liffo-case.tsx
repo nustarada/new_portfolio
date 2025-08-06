@@ -5,7 +5,7 @@ import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, 
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ViewportNav } from '@/components/viewport-nav';
+import { CaseStudyNavigation } from '@/components/case-study-navigation';
 import LogoImage from '@assets/Logo black_1754170788875.png';
 
 // Import all 34 properly numbered Liffo screens
@@ -54,21 +54,6 @@ const LiffoCaseStudy = () => {
   });
 
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-
-  // Performance-optimized animation variants
-  const fastFadeIn = {
-    initial: { opacity: 0 },
-    whileInView: { opacity: 1 },
-    transition: { duration: 0.3 },
-    viewport: { once: true, margin: "-20%" }
-  };
-
-  const quickSlideUp = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    transition: { duration: 0.4 },
-    viewport: { once: true, margin: "-20%" }
-  };
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -87,34 +72,10 @@ const LiffoCaseStudy = () => {
   ];
 
   useEffect(() => {
-    let ticking = false;
-    let isScrolling = false;
-    let scrollTimeout: NodeJS.Timeout;
-
-    const handleScroll = () => {
-      if (!isScrolling) {
-        document.body.classList.add('scrolling');
-        isScrolling = true;
-      }
-
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        document.body.classList.remove('scrolling');
-        isScrolling = false;
-      }, 150);
-
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 50);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
     handleResize();
     window.scrollTo(0, 0); // Scroll to top on component mount
@@ -122,7 +83,6 @@ const LiffoCaseStudy = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
-      clearTimeout(scrollTimeout);
     };
   }, []);
 
@@ -393,26 +353,23 @@ const LiffoCaseStudy = () => {
   };
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-background text-foreground grain-texture liffo-case-study" style={{ overflow: 'visible' }}>
-
-
+    <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture liffo-case-study">
       {/* Case Study Navigation */}
-      <ViewportNav />
+      <CaseStudyNavigation sections={navigationSections} />
       
       {/* Progress Bar */}
       <motion.div 
-        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-red-500 to-orange-500"
-        style={{ width: progressWidth, zIndex: 1001 }}
+        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-red-500 to-orange-500 z-50"
+        style={{ width: progressWidth }}
       />
 
       {/* Navigation */}
       <motion.nav 
-        className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
             ? 'glass-intense grain-texture border-b border-white/10 shadow-2xl shadow-red-500/20' 
             : 'glass-card grain-texture'
         }`}
-        style={{ zIndex: 1000 }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8 }}
@@ -439,7 +396,7 @@ const LiffoCaseStudy = () => {
       </motion.nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-32">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-900" />
           <div className="absolute inset-0 bg-gradient-to-t from-red-950/30 via-transparent to-orange-950/20" />

@@ -27,7 +27,7 @@ const pageVariants = {
 const pageTransition = {
   type: 'tween',
   ease: 'anticipate',
-  duration: 0.3
+  duration: 0.6
 };
 
 export function PageTransition({ children, className = '' }: PageTransitionProps) {
@@ -77,18 +77,20 @@ export const staggerItem = {
   }
 };
 
-// Smooth scroll reveal animation - optimized for performance
+// Smooth scroll reveal animation
 export const scrollReveal = {
   hidden: {
     opacity: 0,
-    y: 20
+    y: 60,
+    scale: 0.9
   },
   visible: {
     opacity: 1,
     y: 0,
+    scale: 1,
     transition: {
-      duration: 0.3,
-      ease: "easeOut"
+      duration: 0.8,
+      ease: [0.6, -0.05, 0.01, 0.99]
     }
   }
 };
