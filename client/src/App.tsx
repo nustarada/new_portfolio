@@ -11,7 +11,7 @@ import Home from "@/pages/home";
 import ProjectDetail from "@/pages/project-detail";
 import CaseStudy from "@/pages/case-study";
 import LiffoCase from "./pages/liffo-case";
-import AdminContacts from "@/pages/admin-contacts";
+
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -21,7 +21,7 @@ function Router() {
       <Route path="/project/:id" component={ProjectDetail} />
       <Route path="/case-study" component={CaseStudy} />
       <Route path="/liffo-case" component={LiffoCase} />
-      <Route path="/admin/contacts" component={AdminContacts} />
+
       <Route component={NotFound} />
     </Switch>
   );
