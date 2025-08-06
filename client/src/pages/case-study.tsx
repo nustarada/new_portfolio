@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import LogoImage from '@assets/Logo black_1754170788875.png';
+import fffVideoPath from "@assets/FFF website video (video-converter.com)_1754054201797.webm";
 
 const CaseStudyPage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -311,6 +312,115 @@ const CaseStudyPage = () => {
               </Card>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Website Showcase Video */}
+      <section className="py-20 relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 grain-texture opacity-15" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 modern-heritage bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              WEBSITE SHOWCASE
+            </h2>
+            <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
+              Complete walkthrough of the FutureFirstFamilies website showing design, functionality, and user experience
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <Card className="p-8 glass-card grain-texture border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-500">
+              <div className="relative overflow-hidden bg-black/50 border border-white/10">
+                <video
+                  className="w-full h-auto"
+                  controls
+                  preload="metadata"
+                  poster="/api/placeholder/800/450"
+                >
+                  <source src={fffVideoPath} type="video/webm" />
+                  Your browser does not support the video tag.
+                </video>
+                
+                {/* Video Overlay for Loading */}
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-500/10 pointer-events-none" />
+              </div>
+              
+              <div className="mt-6 text-center">
+                <h3 className="text-xl font-bold text-cyan-400 mb-2 modern-heritage">
+                  Complete Website Demonstration
+                </h3>
+                <p className="text-white/75 jost-secondary">
+                  Interactive walkthrough showcasing the gamified advocacy platform, user experience, and HubSpot integration features
+                </p>
+              </div>
+            </Card>
+          </motion.div>
+
+          {/* Video Features */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
+            {[
+              { 
+                title: "User Experience", 
+                description: "Smooth navigation and family-friendly interface design",
+                icon: Users 
+              },
+              { 
+                title: "Interactive Features", 
+                description: "Gamified elements and engaging user interactions",
+                icon: Target 
+              },
+              { 
+                title: "Responsive Design", 
+                description: "Optimized experience across all devices and screen sizes",
+                icon: Smartphone 
+              }
+            ].map((feature, index) => {
+              const { icon: IconComponent } = feature;
+              return (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="p-6 glass-card grain-texture border-white/10 hover:border-cyan-400/30 transition-all duration-300 text-center">
+                    <div className="w-12 h-12 bg-cyan-500/20 rounded-xl mx-auto mb-4 flex items-center justify-center">
+                      <IconComponent className="w-6 h-6 text-cyan-400" />
+                    </div>
+                    <h4 className="text-lg font-semibold text-white mb-2 jost-secondary">
+                      {feature.title}
+                    </h4>
+                    <p className="text-white/70 text-sm jost-secondary">
+                      {feature.description}
+                    </p>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </section>
 
