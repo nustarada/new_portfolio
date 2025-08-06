@@ -38,8 +38,7 @@ const CaseStudyPage = () => {
     title: "FutureFirstFamilies: Gamified Advocacy Website & Platform",
     subtitle: "Modern advocacy website with gamified elements, HubSpot API integration, and family-focused user experience",
     category: "Web Design & Development",
-    year: "2024",
-    duration: "6 weeks",
+    duration: "4 weeks",
     team: "Solo Project",
     client: "FutureFirstFamilies Organization",
     role: "Lead Designer & Developer",
@@ -200,10 +199,6 @@ const CaseStudyPage = () => {
           <div className="space-y-8">
             {/* Project Metadata */}
             <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                {caseStudyData.year}
-              </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4" />
                 {caseStudyData.duration}
