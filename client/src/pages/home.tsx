@@ -295,8 +295,6 @@ export default function Home() {
               }}
               className="relative group h-10 px-4 text-white font-semibold cta-button grain-texture border-0 text-sm"
             >
-
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
               <div className="relative z-10 flex items-center space-x-2 jost-secondary">
                 <Mail className="w-4 h-4" />
                 <span>Contact Me</span>
