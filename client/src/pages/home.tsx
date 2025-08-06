@@ -925,10 +925,10 @@ export default function Home() {
                           <Button 
                             onClick={() => window.open(project.liveUrl, '_blank')}
                             variant="outline"
-                            className="flex-1 text-white border-white/30 hover:bg-white/10 hover:border-primary/50 h-12 text-sm jost-secondary font-semibold backdrop-blur-sm shadow-lg hover:shadow-white/10 active:scale-[0.98] transition-all duration-300"
+                            className="flex-1 text-white border-white/30 hover:bg-white/10 hover:border-primary/50 h-12 text-sm jost-secondary font-semibold backdrop-blur-sm shadow-lg hover:shadow-white/10 active:scale-[0.98] transition-all duration-300 min-h-[48px]"
                           >
-                            <div className="flex items-center justify-center space-x-2">
-                              <span className="font-medium">Live Site</span>
+                            <div className="flex items-center justify-center space-x-2 h-full">
+                              <span className="font-semibold">Live Site</span>
                               <ArrowUpRight className="w-4 h-4" />
                             </div>
                           </Button>
