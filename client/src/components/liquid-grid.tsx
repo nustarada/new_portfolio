@@ -19,14 +19,14 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
 
   // Memoize static values
   const config = useMemo(() => ({
-    gridSize: 120, // Increased for better performance
-    distortionRadius: 80,
-    maxDistortion: 10,
-    lerpFactor: 0.12,
-    targetFPS: 24, // Reduced from 30fps to 24fps for better performance
-    baseOpacity: 0.06,
-    activeOpacity: 0.08,
-    lineWidth: 0.6
+    gridSize: 140, // Increased for better performance
+    distortionRadius: 70,
+    maxDistortion: 8,
+    lerpFactor: 0.15,
+    targetFPS: 20, // Further reduced for better performance
+    baseOpacity: 0.05,
+    activeOpacity: 0.07,
+    lineWidth: 0.5
   }), []);
 
   const resizeCanvas = useCallback(() => {
@@ -47,16 +47,32 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
+    const ctx = canvas.getContext('2d', { 
+      alpha: true, 
+      desynchronized: true,
+      willReadFrequently: false
+    });
     if (!ctx) return;
 
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
+    // Visibility detection for performance
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible.current = entry.isIntersecting;
+      },
+      { rootMargin: '100px' }
+    );
+    observer.observe(canvas);
+
     // Initialize smooth interpolation variables
     let currentMouseX = throttledMouseX || 50;
     let currentMouseY = throttledMouseY || 50;
     let lastFrameTime = 0;
+    let lastMouseX = currentMouseX;
+    let lastMouseY = currentMouseY;
+    let isMouseStationary = false;
     const frameInterval = 1000 / config.targetFPS;
 
     const drawLiquidGrid = (timestamp: number) => {
@@ -65,14 +81,34 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
         return;
       }
       lastFrameTime = timestamp;
+      
+      // Skip rendering if not visible
+      if (!isVisible.current) {
+        animationRef.current = requestAnimationFrame(drawLiquidGrid);
+        return;
+      }
       const width = canvas.offsetWidth;
       const height = canvas.offsetHeight;
       
       if (width === 0 || height === 0) return;
       
+      // Check if mouse is stationary for performance
+      const mouseDeltaX = Math.abs(throttledMouseX - lastMouseX);
+      const mouseDeltaY = Math.abs(throttledMouseY - lastMouseY);
+      isMouseStationary = mouseDeltaX < 1 && mouseDeltaY < 1 && debouncedIntensity < 0.1;
+      
+      // Skip some frames when mouse is stationary
+      if (isMouseStationary && timestamp % 3 !== 0) {
+        animationRef.current = requestAnimationFrame(drawLiquidGrid);
+        return;
+      }
+      
       // Smooth interpolation for cursor movement
       currentMouseX += (throttledMouseX - currentMouseX) * config.lerpFactor;
       currentMouseY += (throttledMouseY - currentMouseY) * config.lerpFactor;
+      
+      lastMouseX = throttledMouseX;
+      lastMouseY = throttledMouseY;
       
       // Convert percentage to pixels with smoothed values
       const mousePixelX = (currentMouseX / 100) * width;
@@ -163,6 +199,7 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
+      observer.disconnect();
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
