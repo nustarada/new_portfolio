@@ -69,28 +69,60 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
 
   return (
     <>
-      {/* Floating Navigation Button - Simple Implementation */}
+      {/* Test Button - Ultra High Z-Index */}
       <div 
-        className="fixed bottom-6 right-6 z-[9999]"
+        style={{
+          position: 'fixed',
+          bottom: '80px',
+          right: '24px',
+          zIndex: 99999,
+          background: 'red',
+          width: '60px',
+          height: '60px',
+          borderRadius: '50%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 0 20px rgba(255, 0, 0, 0.8)',
+          pointerEvents: 'auto'
+        }}
+      >
+        <span style={{ color: 'white', fontWeight: 'bold' }}>TEST</span>
+      </div>
+
+      {/* Floating Navigation Button - Ultra High Z-Index */}
+      <div 
         style={{
           position: 'fixed',
           bottom: '24px',
           right: '24px',
-          zIndex: 9999
+          zIndex: 99999,
+          pointerEvents: 'auto'
         }}
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full shadow-2xl hover:scale-105 transition-transform duration-200 flex items-center justify-center"
           style={{
+            width: '64px',
+            height: '64px',
             background: 'linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%)',
-            boxShadow: '0 8px 32px rgba(59, 130, 246, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+            borderRadius: '50%',
+            border: 'none',
+            boxShadow: '0 8px 32px rgba(59, 130, 246, 0.8), 0 0 0 2px rgba(255, 255, 255, 0.2)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            transition: 'transform 0.2s ease',
+            pointerEvents: 'auto'
           }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
         >
           {isOpen ? (
-            <X className="w-7 h-7 text-white" />
+            <X style={{ width: '28px', height: '28px', color: 'white' }} />
           ) : (
-            <Menu className="w-7 h-7 text-white" />
+            <Menu style={{ width: '28px', height: '28px', color: 'white' }} />
           )}
         </button>
       </div>
@@ -114,21 +146,21 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
             />
             
             {/* Navigation Menu */}
-            <motion.div
-              initial={{ opacity: 0, x: 300, scale: 0.9 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: 300, scale: 0.9 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed bottom-28 right-6 w-80 max-h-[70vh] overflow-y-auto rounded-xl shadow-2xl z-[9998]"
+            <div
               style={{ 
                 position: 'fixed',
-                bottom: '112px',
+                bottom: '100px',
                 right: '24px',
-                zIndex: 9998,
-                background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 58, 138, 0.9))',
+                zIndex: 99998,
+                width: '320px',
+                maxHeight: '70vh',
+                overflowY: 'auto',
+                background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 58, 138, 0.95))',
                 backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5)'
+                border: '2px solid rgba(255, 255, 255, 0.3)',
+                borderRadius: '12px',
+                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.8)',
+                pointerEvents: 'auto'
               }}
             >
               <div className="p-6">
@@ -200,7 +232,7 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </>
         )}
       </AnimatePresence>
