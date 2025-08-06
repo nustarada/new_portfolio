@@ -35,8 +35,8 @@ export function Navigation() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'glass-intense grain-texture border-b border-white/10 shadow-2xl shadow-primary/20' 
-          : 'glass-card grain-texture'
+          ? 'glass-intense border-b border-white/10 shadow-2xl shadow-primary/20' 
+          : 'glass-card'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
@@ -84,8 +84,6 @@ export function Navigation() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
             >
               <button
                 onClick={() => scrollToSection('contact')}
