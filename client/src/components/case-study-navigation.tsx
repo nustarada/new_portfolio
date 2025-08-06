@@ -79,26 +79,33 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
         />
       </div>
 
-      {/* Navigation Toggle Button */}
-      <motion.div
-        className="fixed right-4 bottom-4 md:right-6 md:bottom-6 z-[100]"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5 }}
-        style={{ zIndex: 100 }}
+      {/* Navigation Toggle Button - Simplified and Guaranteed Visible */}
+      <div
+        className="fixed right-4 bottom-4 md:right-6 md:bottom-6"
+        style={{ 
+          zIndex: 999999, 
+          position: 'fixed',
+          right: '1rem',
+          bottom: '1rem'
+        }}
       >
-        <Button
+        <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-blue-500/90 to-purple-500/90 backdrop-blur-md border-2 border-white/30 hover:scale-105 transition-all duration-300 shadow-2xl shadow-blue-500/30 hover:shadow-blue-500/50"
-          size="sm"
+          className="w-16 h-16 rounded-full bg-blue-600 hover:bg-blue-700 border-4 border-white shadow-2xl flex items-center justify-center transition-all duration-200 hover:scale-105"
+          style={{
+            background: 'linear-gradient(135deg, #3B82F6, #8B5CF6)',
+            border: '2px solid rgba(255, 255, 255, 0.3)',
+            boxShadow: '0 10px 25px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+            zIndex: 999999
+          }}
         >
           {isOpen ? (
-            <X className="w-6 h-6 md:w-7 md:h-7 text-white" />
+            <X className="w-8 h-8 text-white" />
           ) : (
-            <Menu className="w-6 h-6 md:w-7 md:h-7 text-white" />
+            <Menu className="w-8 h-8 text-white" />
           )}
-        </Button>
-      </motion.div>
+        </button>
+      </div>
 
       {/* Navigation Panel */}
       <AnimatePresence>
@@ -120,8 +127,14 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 300, scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed right-4 bottom-20 md:right-6 md:bottom-24 w-[320px] md:w-80 max-h-[70vh] overflow-y-auto bg-gradient-to-br from-slate-900/98 via-blue-900/95 to-slate-900/98 backdrop-blur-xl border-2 border-white/30 rounded-xl shadow-2xl shadow-blue-500/25 z-[95]"
-              style={{ zIndex: 95 }}
+              className="fixed right-4 bottom-24 md:right-6 md:bottom-28 w-[320px] md:w-80 max-h-[70vh] overflow-y-auto rounded-xl shadow-2xl"
+              style={{ 
+                zIndex: 999998,
+                background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 58, 138, 0.95), rgba(15, 23, 42, 0.98))',
+                backdropFilter: 'blur(20px)',
+                border: '2px solid rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)'
+              }}
             >
               <div className="p-6">
                 {/* Header */}
