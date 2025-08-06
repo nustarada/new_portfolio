@@ -922,16 +922,17 @@ export default function Home() {
                           </div>
                         </a>
                         {project.liveUrl !== "#" && (
-                          <Button 
+                          <button 
                             onClick={() => window.open(project.liveUrl, '_blank')}
-                            variant="outline"
-                            className="flex-1 text-white border-white/30 hover:bg-white/10 hover:border-primary/50 h-12 text-sm jost-secondary font-semibold backdrop-blur-sm shadow-lg hover:shadow-white/10 active:scale-[0.98] transition-all duration-300 min-h-[48px]"
+                            className="flex-1 group/btn relative overflow-hidden text-white font-bold text-sm h-12 border border-white/30 hover:bg-white/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-white/10 flex items-center justify-center"
+                            style={{ WebkitTapHighlightColor: 'transparent' }}
                           >
-                            <div className="flex items-center justify-center space-x-2 h-full">
+                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                            <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
                               <span className="font-semibold">Live Site</span>
-                              <ArrowUpRight className="w-4 h-4" />
+                              <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
                             </div>
-                          </Button>
+                          </button>
                         )}
                       </div>
                     </div>
