@@ -664,18 +664,13 @@ const LiffoCaseStudy = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: imgIndex * 0.1 }}
                         viewport={{ once: true }}
-                        whileHover={{ scale: 1.08, y: -5 }}
-                        className="relative overflow-hidden bg-white/5 border border-white/20 hover:border-blue-400/70 transition-all duration-300 aspect-[9/16] group cursor-pointer"
+                        className="relative overflow-hidden bg-white/5 border border-white/20 aspect-[9/16]"
                       >
                         <img 
                           src={image} 
                           alt={`${showcase.category} Screen ${imgIndex + 1}`}
-                          className="w-full h-full object-contain group-hover:object-cover transition-all duration-500"
+                          className="w-full h-full object-contain"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        <div className="absolute bottom-2 left-2 bg-blue-600/90 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold">
-                          {showcase.category}
-                        </div>
                       </motion.div>
                     ))}
                   </div>
@@ -713,18 +708,13 @@ const LiffoCaseStudy = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4, delay: index * 0.03 }}
                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.1, y: -8 }}
-                    className="relative overflow-hidden bg-white/5 border border-white/20 hover:border-purple-400/70 transition-all duration-300 aspect-[9/16] cursor-pointer group"
+                    className="relative overflow-hidden bg-white/5 border border-white/20 aspect-[9/16]"
                   >
                     <img 
                       src={image} 
                       alt={`Screen ${index + 1}: Liffo Healthcare Interface`}
-                      className="w-full h-full object-contain group-hover:object-cover transition-all duration-500"
+                      className="w-full h-full object-contain"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-2 left-2 bg-purple-600/90 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold">
-                      {index + 1} / 34
-                    </div>
                   </motion.div>
                 ))}
               </div>
