@@ -19,6 +19,8 @@ import liffoThumbnail from '@assets/4. Dashboard 1_1754469198505.png';
 import resumePdf from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
 import profilePhoto from '@assets/4. Dashboard 1_1754469198505.png';
 import LogoImage from '@assets/Logo black_1754170788875.png';
+import fffLogo from '@assets/FFF_Logo_1754475239613.png';
+import liffoLogo from '@assets/Liffo_logo_1754475239620.png';
 import { 
   Terminal, 
   Sparkles, 
@@ -163,6 +165,7 @@ export default function Home() {
       description: "A civic engagement platform empowering parents to take monthly actions on educational reform through gamified, user-friendly design tailored for non-tech-savvy users.",
       detailedDescription: "Designed and developed the entire platform from ground up, combining gamification with advocacy to create an engaging experience that increased completed actions by 30% and achieved 4× higher user retention.",
       image: futureFirstFamiliesThumbnail,
+      logo: fffLogo,
       liveUrl: "https://futurefirstfamilies.com/",
       caseStudyUrl: "/case-study",
       tags: ["Civic Engagement", "Gamification", "React", "UX Research", "Full-Stack"],
@@ -199,6 +202,7 @@ export default function Home() {
       description: "A unified emergency health services platform providing fast, reliable access to critical healthcare including ambulance booking, doctor consultations, lab tests, and medicine delivery.",
       detailedDescription: "Led the end-to-end design process for a comprehensive healthcare platform that closes the gap between patients and healthcare providers through emergency-first design principles and comprehensive service integration.",
       image: liffoThumbnail,
+      logo: liffoLogo,
       liveUrl: "#",
       caseStudyUrl: "/liffo-case",
       tags: ["Healthcare", "Emergency Services", "Mobile Design", "UI/UX Design"],
@@ -882,11 +886,11 @@ export default function Home() {
                             </span>
                           </div>
                         </div>
-                        {/* Brand Logo */}
+                        {/* Project Logo */}
                         <div className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
                           <img 
-                            src={LogoImage} 
-                            alt="Brand Logo" 
+                            src={project.logo} 
+                            alt={`${project.title} Logo`} 
                             className="w-8 h-8 object-contain opacity-80"
                           />
                         </div>
