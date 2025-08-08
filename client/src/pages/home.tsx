@@ -330,7 +330,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold text-white tracking-wide leading-tight hero-text-hover modern-heritage">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-semibold text-white tracking-wide leading-tight hero-text-hover modern-heritage whitespace-nowrap">
               <span className="text-white">KARAN GADHAVE</span>
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto"></div>
