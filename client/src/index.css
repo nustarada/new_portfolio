@@ -752,3 +752,22 @@ button,
   transform-origin: left;
   z-index: 100;
 }
+
+/* Resume Modal Styles - Remove default dialog overlay and position correctly */
+[data-radix-dialog-overlay] {
+  background-color: transparent !important;
+}
+
+/* Resume modal specific positioning */
+.resume-modal [data-radix-dialog-content] {
+  position: fixed !important;
+  top: 80px !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: calc(100vh - 80px) !important;
+  max-width: none !important;
+  transform: none !important;
+  margin: 0 !important;
+}
