@@ -857,40 +857,49 @@ const CaseStudyPage = () => {
       {/* Footer */}
       <footer className="py-12 border-t border-border/30">
         <div className="container mx-auto px-4 text-center">
-          {/* Logo and Social - Side by Side Layout */}
-          <div className="flex flex-row justify-center items-center gap-8 mb-8 w-full">
-            <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16">
-              <Link href="/#hero">
-                <motion.div 
-                  className="cursor-pointer touch-manipulation w-12 h-12 sm:w-16 sm:w-16 rounded-full neo-card flex items-center justify-center transition-transform duration-300"
-                  whileHover={{ scale: 1.1 }} 
-                  whileTap={{ scale: 0.95 }}
-                  style={{ WebkitTapHighlightColor: 'transparent' }}
-                >
-                  <img 
-                    src={LogoImage} 
-                    alt="Karan Gadhave Logo" 
-                    className="w-6 h-6 sm:w-8 sm:h-8 object-contain object-center opacity-90"
-                  />
-                </motion.div>
-              </Link>
-            </div>
-            <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16">
-              <a 
-                href="https://www.linkedin.com/in/karan-gadhave/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="group touch-manipulation"
+          {/* Logo and LinkedIn Icons */}
+          <div className="flex justify-center items-center gap-6 mb-8">
+            {/* Logo */}
+            <Link href="/#hero">
+              <motion.div 
+                className="block"
+                whileHover={{ scale: 1.05, opacity: 0.8 }} 
+                whileTap={{ scale: 0.95 }}
                 style={{ WebkitTapHighlightColor: 'transparent' }}
               >
-                <div className="w-12 h-12 sm:w-16 sm:w-16 rounded-full neo-card flex items-center justify-center group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
-                  <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-primary group-active:text-primary transition-colors duration-300" />
-                </div>
-              </a>
-            </div>
+                <img 
+                  src={LogoImage} 
+                  alt="Karan Gadhave Logo" 
+                  className="w-12 h-12 sm:w-16 sm:h-16 object-contain opacity-90 cursor-pointer"
+                />
+              </motion.div>
+            </Link>
+            
+            {/* LinkedIn Icon */}
+            <a 
+              href="https://www.linkedin.com/in/karan-gadhave/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block"
+              style={{ WebkitTapHighlightColor: 'transparent' }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.1 }} 
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="w-12 h-12 sm:w-16 sm:h-16 rounded-full neo-card cursor-pointer"
+                >
+                  <Linkedin className="w-6 h-6 sm:w-8 sm:h-8 hover:text-primary transition-colors duration-300" />
+                </Button>
+              </motion.div>
+            </a>
           </div>
-          {/* Copyright Text - Better Mobile Typography */}
-          <p className="text-muted-foreground code-font text-sm sm:text-base leading-relaxed text-center">
+          
+          {/* Copyright */}
+          <p className="text-muted-foreground code-font text-sm sm:text-base leading-relaxed">
             © 2025 Karn Kalaa. Designed & developed with passion.
           </p>
         </div>
