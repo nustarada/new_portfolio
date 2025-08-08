@@ -1306,17 +1306,6 @@ export default function Home() {
                   </div>
                 </section>
 
-                {/* Download PDF Button */}
-                <div className="text-center mb-6 sm:mb-8">
-                  <Button
-                    onClick={() => window.open(resumePdf, '_blank')}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 text-sm"
-                  >
-                    <Download className="w-4 h-4 mr-2" />
-                    Download PDF Resume
-                  </Button>
-                </div>
-
                 <section>
                   <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Skills:</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 text-xs sm:text-sm">
