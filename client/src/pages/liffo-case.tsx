@@ -1258,32 +1258,38 @@ const LiffoCaseStudy = () => {
       <footer className="py-12 border-t border-border/30">
         <div className="container mx-auto px-4 text-center">
           {/* Logo and Social - Side by Side Layout */}
-          <div className="flex flex-row justify-center items-center gap-6 mb-8 w-full">
-            <Link href="/#hero">
-              <motion.div 
-                className="cursor-pointer touch-manipulation flex items-center justify-center"
-                whileHover={{ scale: 1.05 }} 
-                whileTap={{ scale: 0.95 }}
+          <div className="flex flex-row justify-center items-center gap-8 mb-8 w-full">
+            <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16">
+              <Link href="/#hero">
+                <motion.div 
+                  className="group cursor-pointer touch-manipulation flex items-center justify-center w-full h-full"
+                  whileHover={{ scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }}
+                  style={{ WebkitTapHighlightColor: 'transparent' }}
+                >
+                  <Button variant="ghost" size="icon" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full neo-card group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
+                    <img 
+                      src={LogoImage} 
+                      alt="Karan Gadhave Logo" 
+                      className="w-5 h-5 sm:w-6 sm:h-6 object-contain object-center opacity-90"
+                    />
+                  </Button>
+                </motion.div>
+              </Link>
+            </div>
+            <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16">
+              <a 
+                href="https://www.linkedin.com/in/karan-gadhave/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group touch-manipulation flex items-center justify-center w-full h-full"
                 style={{ WebkitTapHighlightColor: 'transparent' }}
               >
-                <img 
-                  src={LogoImage} 
-                  alt="Karan Gadhave Logo" 
-                  className="h-12 w-12 sm:h-16 sm:w-16 object-contain object-center opacity-90"
-                />
-              </motion.div>
-            </Link>
-            <a 
-              href="https://www.linkedin.com/in/karan-gadhave/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group inline-block touch-manipulation"
-              style={{ WebkitTapHighlightColor: 'transparent' }}
-            >
-              <Button variant="ghost" size="icon" className="w-12 h-12 sm:w-14 sm:h-14 rounded-full neo-card group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
-                <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-primary group-active:text-primary transition-colors duration-300" />
-              </Button>
-            </a>
+                <Button variant="ghost" size="icon" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full neo-card group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
+                  <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-primary group-active:text-primary transition-colors duration-300" />
+                </Button>
+              </a>
+            </div>
           </div>
           {/* Copyright Text - Better Mobile Typography */}
           <p className="text-muted-foreground code-font text-sm sm:text-base leading-relaxed text-center">
