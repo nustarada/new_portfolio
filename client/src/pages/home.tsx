@@ -337,133 +337,124 @@ export default function Home() {
           <div className="absolute bottom-12 right-12 w-12 h-12 border-r border-b border-primary/40" />
         </div>
         <div className="max-w-5xl mx-auto px-6 text-center relative z-20 w-full">
+          {/* Status Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="space-y-6 md:space-y-8"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex justify-center mb-6 md:mb-8"
           >
-            {/* Status Badge */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex justify-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <Badge 
+                variant="outline" 
+                className="text-sm px-6 py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-300 jost-secondary"
               >
-                <Badge 
-                  variant="outline" 
-                  className="text-sm px-6 py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-300 jost-secondary"
-                >
-                  <Sparkles className="w-4 h-4 mr-2 text-primary" />
-                  AVAILABLE FOR NEW OPPORTUNITIES
-                </Badge>
-              </motion.div>
+                <Sparkles className="w-4 h-4 mr-2 text-primary" />
+                AVAILABLE FOR NEW OPPORTUNITIES
+              </Badge>
+            </motion.div>
+          </motion.div>
+          
+          {/* Name with Bold Display */}
+          <motion.div 
+            className="space-y-4 mb-6 md:mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-normal text-white tracking-wide leading-tight hero-text-hover modern-heritage">
+              <span className="text-white">KARAN GADHAVE</span>
+            </h1>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto"></div>
+          </motion.div>
+          
+          {/* Title/Role */}
+          <motion.div 
+            className="space-y-3 mb-6 md:mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-normal leading-tight modern-heritage">
+              <span className="text-white">SENIOR </span>
+              <span className="glow-text">PRODUCT DESIGNER</span>
+            </h2>
+            
+            <motion.div 
+              className="flex items-center justify-center gap-4"
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 1 }}
+            >
+              <div className="w-16 h-0.5 bg-primary" />
+              <span className="text-xl md:text-2xl font-light text-primary jost-secondary">
+                & AI INNOVATOR
+              </span>
+              <div className="w-16 h-0.5 bg-primary" />
+            </motion.div>
+          </motion.div>
+          
+          {/* Compact Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.3 }}
+            className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto font-normal jost-secondary mb-8"
+          >Designing exceptional digital experiences with Figma, enhanced by AI tools like Replit, Lovable, and more.</motion.p>
+          
+          {/* Responsive Action Buttons */}
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pt-8 w-full max-w-lg mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.6 }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.08, y: -4 }}
+              whileTap={{ scale: 0.95 }}
+              className="group/hero-cta w-full sm:w-auto"
+            >
+              <Button 
+                size="lg" 
+                onClick={() => {
+                  const projectsSection = document.getElementById('projects');
+                  projectsSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="relative overflow-hidden w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-6 text-base sm:text-lg font-bold text-white cta-button grain-texture border-0 hover:scale-105 min-h-[56px] jost-secondary"
+              >
+                {/* Animated Background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/hero-cta:translate-x-full transition-transform duration-700" />
+                
+                {/* Pulsing Ring */}
+                <div className="absolute inset-0 border-2 border-white/30 opacity-0 group-hover/hero-cta:opacity-100 group-hover/hero-cta:scale-110 transition-all duration-500" />
+                
+                <div className="relative z-10 flex items-center justify-center space-x-2 sm:space-x-3">
+                  <ArrowUpRight className="w-4 h-4 sm:w-6 sm:h-6 group-hover/hero-cta:rotate-45 transition-transform duration-300" />
+                  <span className="text-sm sm:text-lg font-semibold">View My Work</span>
+                </div>
+              </Button>
             </motion.div>
             
-            {/* Name with Bold Display */}
-            <motion.div 
-              className="space-y-4"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="group/secondary w-full sm:w-auto"
             >
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-normal text-white tracking-wide leading-tight hero-text-hover modern-heritage">
-                <span className="text-white">KARAN GADHAVE</span>
-              </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto"></div>
-            </motion.div>
-            
-            {/* Title/Role */}
-            <motion.div 
-              className="space-y-3"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-            >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-normal leading-tight modern-heritage">
-                <span className="text-white">SENIOR </span>
-                <span className="glow-text">PRODUCT DESIGNER</span>
-              </h2>
-              
-              <motion.div 
-                className="flex items-center justify-center gap-4"
-                initial={{ opacity: 0, scaleX: 0 }}
-                animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 1 }}
+              <Button 
+                size="lg" 
+                onClick={() => setIsResumeOpen(true)}
+                className="relative overflow-hidden w-full sm:w-auto px-6 sm:px-10 py-4 text-base sm:text-lg font-semibold text-white glass-card grain-texture hover:glass-intense border-primary/50 transition-all duration-300 hover:scale-105 min-h-[56px] jost-secondary"
               >
-                <div className="w-16 h-0.5 bg-primary" />
-                <span className="text-xl md:text-2xl font-light text-primary jost-secondary">
-                  & AI INNOVATOR
-                </span>
-                <div className="w-16 h-0.5 bg-primary" />
-              </motion.div>
-            </motion.div>
-            
-            {/* Compact Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.3 }}
-              className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto font-normal jost-secondary"
-            >Designing exceptional digital experiences with Figma, enhanced by AI tools like Replit, Lovable, and more.</motion.p>
-            
-
-            
-            {/* Responsive Action Buttons */}
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pt-8 w-full max-w-lg mx-auto"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.6 }}
-            >
-              <motion.div
-                whileHover={{ scale: 1.08, y: -4 }}
-                whileTap={{ scale: 0.95 }}
-                className="group/hero-cta w-full sm:w-auto"
-              >
-                <Button 
-                  size="lg" 
-                  onClick={() => {
-                    const projectsSection = document.getElementById('projects');
-                    projectsSection?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="relative overflow-hidden w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-6 text-base sm:text-lg font-bold text-white cta-button grain-texture border-0 hover:scale-105 min-h-[56px] jost-secondary"
-                >
-                  {/* Animated Background */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/hero-cta:translate-x-full transition-transform duration-700" />
-                  
-                  {/* Pulsing Ring */}
-                  <div className="absolute inset-0 border-2 border-white/30 opacity-0 group-hover/hero-cta:opacity-100 group-hover/hero-cta:scale-110 transition-all duration-500" />
-                  
-                  <div className="relative z-10 flex items-center justify-center space-x-2 sm:space-x-3">
-                    <ArrowUpRight className="w-4 h-4 sm:w-6 sm:h-6 group-hover/hero-cta:rotate-45 transition-transform duration-300" />
-                    <span className="text-sm sm:text-lg font-semibold">View My Work</span>
-                  </div>
-                </Button>
-              </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="group/secondary w-full sm:w-auto"
-              >
-                <Button 
-                  size="lg" 
-                  onClick={() => setIsResumeOpen(true)}
-                  className="relative overflow-hidden w-full sm:w-auto px-6 sm:px-10 py-4 text-base sm:text-lg font-semibold text-white glass-card grain-texture hover:glass-intense border-primary/50 transition-all duration-300 hover:scale-105 min-h-[56px] jost-secondary"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover/secondary:opacity-100 transition-opacity duration-300" />
-                  
-                  <div className="relative z-10 flex items-center justify-center space-x-2">
-                    <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className="text-sm sm:text-lg font-medium">Resume</span>
-                  </div>
-                </Button>
-              </motion.div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover/secondary:opacity-100 transition-opacity duration-300" />
+                
+                <div className="relative z-10 flex items-center justify-center space-x-2">
+                  <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="text-sm sm:text-lg font-medium">Resume</span>
+                </div>
+              </Button>
             </motion.div>
           </motion.div>
         </div>
