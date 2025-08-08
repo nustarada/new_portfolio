@@ -697,18 +697,18 @@ const CaseStudyPage = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <Card className="p-6 text-center glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-300 h-80 flex flex-col justify-between">
-                  <div className="flex flex-col items-center">
-                    <div className="text-3xl md:text-4xl font-black text-green-400 mb-3 modern-heritage">
+                <Card className="p-6 text-center glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-300 h-80 flex flex-col">
+                  <div className="flex flex-col items-center flex-1 justify-center">
+                    <div className="text-3xl md:text-4xl font-black text-green-400 mb-2 modern-heritage">
                       {result.value}
                     </div>
-                    <h3 className="text-lg font-semibold text-white mb-4 jost-secondary">
+                    <h3 className="text-lg font-semibold text-white mb-6 jost-secondary">
                       {result.metric}
                     </h3>
+                    <p className="text-white/70 text-sm leading-relaxed jost-secondary text-center">
+                      {result.description}
+                    </p>
                   </div>
-                  <p className="text-white/70 text-sm leading-relaxed jost-secondary text-center">
-                    {result.description}
-                  </p>
                 </Card>
               </motion.div>
             ))}
