@@ -1115,13 +1115,13 @@ export default function Home() {
                       <span className="text-xs sm:text-sm text-gray-600">Apr 2022 - Present</span>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-600 mb-2">UI UX Designer Manager - Remote, India</p>
-                    <div className="text-xs sm:text-sm space-y-1">
-                      <p>• Pioneered the design of Acedboard, a project management tool, driving a 35% increase in user satisfaction and a 40% boost in task efficiency through innovative, user-centric design</p>
-                      <p>• Led the end-to-end design of Aeroplane, a business-oriented social media platform, achieving a 25% rise in user engagement and a 20% improvement in task completion with optimized workflows and streamlined interfaces</p>
-                      <p>• Solely created and designed cutting-edge health platforms for Healthsignz and MYMEDIC B2B2C Digital Health, delivering seamless web and mobile experiences</p>
-                      <p>• Demonstrated deep expertise in UI/UX design, user research, and information architecture, crafting intuitive wireframes, interactive prototypes, and cohesive user journeys</p>
-                      <p>• Excelled in managing and mentoring a design team, ensuring the delivery of high-impact, user-focused solutions within strict deadlines</p>
-                    </div>
+                    <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
+                      <li className="leading-relaxed">Pioneered the design of Acedboard, a project management tool, driving a 35% increase in user satisfaction and a 40% boost in task efficiency through innovative, user-centric design</li>
+                      <li className="leading-relaxed">Led the end-to-end design of Aeroplane, a business-oriented social media platform, achieving a 25% rise in user engagement and a 20% improvement in task completion with optimized workflows and streamlined interfaces</li>
+                      <li className="leading-relaxed">Solely created and designed cutting-edge health platforms for Healthsignz and MYMEDIC B2B2C Digital Health, delivering seamless web and mobile experiences</li>
+                      <li className="leading-relaxed">Demonstrated deep expertise in UI/UX design, user research, and information architecture, crafting intuitive wireframes, interactive prototypes, and cohesive user journeys</li>
+                      <li className="leading-relaxed">Excelled in managing and mentoring a design team, ensuring the delivery of high-impact, user-focused solutions within strict deadlines</li>
+                    </ul>
                   </div>
 
                   <div className="mb-4 sm:mb-6">
@@ -1130,11 +1130,11 @@ export default function Home() {
                       <span className="text-xs sm:text-sm text-gray-600">Jun 2021 - Nov 2021</span>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-600 mb-2">UI UX Designer - Remote, India</p>
-                    <div className="text-xs sm:text-sm space-y-1">
-                      <p>• Designed core features for StockMarketBox like broker comparison, market tickers, courses, and blog</p>
-                      <p>• Successfully launched Stockmarketbox.com, boosting online presence</p>
-                      <p>• Created custom illustrations and animations, increasing user engagement by 20%, and designed 30+ mobile trading app interfaces in 3 months</p>
-                    </div>
+                    <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
+                      <li className="leading-relaxed">Designed core features for StockMarketBox like broker comparison, market tickers, courses, and blog</li>
+                      <li className="leading-relaxed">Successfully launched Stockmarketbox.com, boosting online presence</li>
+                      <li className="leading-relaxed">Created custom illustrations and animations, increasing user engagement by 20%, and designed 30+ mobile trading app interfaces in 3 months</li>
+                    </ul>
                   </div>
 
                   <div className="mb-4 sm:mb-6">
@@ -1143,10 +1143,10 @@ export default function Home() {
                       <span className="text-xs sm:text-sm text-gray-600">Mar 2021 - Jun 2021</span>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-600 mb-2">UI UX Designer - Pune, India</p>
-                    <div className="text-xs sm:text-sm space-y-1">
-                      <p>• Led the design for Teach Max mobile application</p>
-                      <p>• Worked on various redesign projects from websites to mobile application including company website</p>
-                    </div>
+                    <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
+                      <li className="leading-relaxed">Led the design for Teach Max mobile application</li>
+                      <li className="leading-relaxed">Worked on various redesign projects from websites to mobile application including company website</li>
+                    </ul>
                   </div>
                 </section>
 
@@ -1159,10 +1159,10 @@ export default function Home() {
                       <span className="text-xs sm:text-sm text-gray-600">Jan 2022 - Mar 2022</span>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-600 mb-2">UI UX Designer Intern - Remote, India</p>
-                    <div className="text-xs sm:text-sm space-y-1">
-                      <p>• Redesigned iDeal, iDeal Wealth and Fund, Mercury, and CashTrea, achieving a 30% improvement in user satisfaction and a 25% increase in usability</p>
-                      <p>• Redesigned company website, resulting in a 47% growth in visitors and a 20% increase in lead generation</p>
-                    </div>
+                    <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
+                      <li className="leading-relaxed">Redesigned iDeal, iDeal Wealth and Fund, Mercury, and CashTrea, achieving a 30% improvement in user satisfaction and a 25% increase in usability</li>
+                      <li className="leading-relaxed">Redesigned company website, resulting in a 47% growth in visitors and a 20% increase in lead generation</li>
+                    </ul>
                   </div>
 
                   <div className="mb-3 sm:mb-4">
@@ -1171,12 +1171,12 @@ export default function Home() {
                       <span className="text-xs sm:text-sm text-gray-600">Oct 2020 - Dec 2020</span>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-600 mb-2">UI UX Designer Intern - Remote, India</p>
-                    <div className="text-xs sm:text-sm space-y-1">
-                      <p>• Designed both UX and UI with a deep focus on enhancing user experience through extensive research and 20 user interviews, ensuring data-driven design decisions</p>
-                      <p>• Applied advanced problem-solving skills to deliver optimal and intuitive design solutions, addressing user pain points effectively</p>
-                      <p>• Spearheaded the app design process from initial research to high-fidelity prototypes in just two months, showcasing agility and expertise in fast-paced environments</p>
-                      <p>• Conducted comprehensive research, including user interviews and feedback analysis, to inform a seamless and user-friendly product experience</p>
-                    </div>
+                    <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
+                      <li className="leading-relaxed">Designed both UX and UI with a deep focus on enhancing user experience through extensive research and 20 user interviews, ensuring data-driven design decisions</li>
+                      <li className="leading-relaxed">Applied advanced problem-solving skills to deliver optimal and intuitive design solutions, addressing user pain points effectively</li>
+                      <li className="leading-relaxed">Spearheaded the app design process from initial research to high-fidelity prototypes in just two months, showcasing agility and expertise in fast-paced environments</li>
+                      <li className="leading-relaxed">Conducted comprehensive research, including user interviews and feedback analysis, to inform a seamless and user-friendly product experience</li>
+                    </ul>
                   </div>
                 </section>
 
@@ -1214,49 +1214,49 @@ export default function Home() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 text-xs sm:text-sm">
                     <div>
                       <h4 className="font-semibold mb-2 text-sm sm:text-base">Design Skills</h4>
-                      <div className="space-y-1">
-                        <p>• Prototyping</p>
-                        <p>• User Experience Design</p>
-                        <p>• Design Strategy</p>
-                        <p>• User Journeys</p>
-                        <p>• UI Design</p>
-                        <p>• UX Design</p>
-                        <p>• User Flows</p>
-                        <p>• User Research</p>
-                        <p>• Information Architecture</p>
-                        <p>• Typography</p>
-                        <p>• Wireframing</p>
-                        <p>• Heuristic Analysis</p>
-                        <p>• A/B Testing</p>
-                        <p>• User Testing</p>
-                        <p>• User Research and Analysis</p>
-                      </div>
+                      <ul className="space-y-1 list-disc list-inside pl-0">
+                        <li>Prototyping</li>
+                        <li>User Experience Design</li>
+                        <li>Design Strategy</li>
+                        <li>User Journeys</li>
+                        <li>UI Design</li>
+                        <li>UX Design</li>
+                        <li>User Flows</li>
+                        <li>User Research</li>
+                        <li>Information Architecture</li>
+                        <li>Typography</li>
+                        <li>Wireframing</li>
+                        <li>Heuristic Analysis</li>
+                        <li>A/B Testing</li>
+                        <li>User Testing</li>
+                        <li>User Research and Analysis</li>
+                      </ul>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-2 text-sm sm:text-base">Technical Skills</h4>
-                      <div className="space-y-1">
-                        <p>• Figma</p>
-                        <p>• Sketch</p>
-                        <p>• Adobe XD</p>
-                        <p>• Axure RP</p>
-                        <p>• Agile Methodologies</p>
-                        <p>• Visual and UI Design Skills</p>
-                        <p>• Wireframing</p>
-                        <p>• User Testing</p>
-                      </div>
+                      <ul className="space-y-1 list-disc list-inside pl-0">
+                        <li>Figma</li>
+                        <li>Sketch</li>
+                        <li>Adobe XD</li>
+                        <li>Axure RP</li>
+                        <li>Agile Methodologies</li>
+                        <li>Visual and UI Design Skills</li>
+                        <li>Wireframing</li>
+                        <li>User Testing</li>
+                      </ul>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-2 text-sm sm:text-base">Soft Skills</h4>
-                      <div className="space-y-1">
-                        <p>• Strong Leadership</p>
-                        <p>• Coordination Skills</p>
-                        <p>• Capable of adapting to any environments</p>
-                        <p>• Creative and efficient individual</p>
-                        <p>• Empathy</p>
-                        <p>• Critical Thinking</p>
-                        <p>• Communication & Collaboration</p>
-                        <p>• Time Management</p>
-                      </div>
+                      <ul className="space-y-1 list-disc list-inside pl-0">
+                        <li>Strong Leadership</li>
+                        <li>Coordination Skills</li>
+                        <li>Capable of adapting to any environments</li>
+                        <li>Creative and efficient individual</li>
+                        <li>Empathy</li>
+                        <li>Critical Thinking</li>
+                        <li>Communication & Collaboration</li>
+                        <li>Time Management</li>
+                      </ul>
                     </div>
                   </div>
                 </section>
