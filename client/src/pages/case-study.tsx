@@ -162,7 +162,7 @@ const CaseStudyPage = () => {
   };
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture future-first-case-study">
+    <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture fff-case-study">
       {/* Case Study Navigation */}
       <CaseStudyNavigation sections={navigationSections} />
       {/* Progress Bar */}
