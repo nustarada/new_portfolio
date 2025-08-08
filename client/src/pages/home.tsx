@@ -308,7 +308,7 @@ export default function Home() {
       <section 
         ref={heroRef} 
         id="hero" 
-        className="min-h-screen flex items-center justify-center relative cyber-grid pt-32 pb-8"
+        className="min-h-screen flex items-center justify-center relative cyber-grid pt-40 pb-8"
         style={{
           '--mouse-x': `${mousePos.x}%`,
           '--mouse-y': `${mousePos.y}%`,
