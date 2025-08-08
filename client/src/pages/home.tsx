@@ -959,7 +959,7 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-2xl" />
             
             <div className="relative z-10 text-center">
-              <div className="space-y-8">
+              <div className="space-y-12">
                 {/* Email Contact */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -968,11 +968,11 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="group/contact"
                 >
-                  <div className="text-center p-6 glass-card grain-texture border border-white/10 hover:border-primary/30 transition-all duration-300">
-                    <p className="text-sm font-semibold text-white/70 mb-2 jost-secondary">Email</p>
+                  <div className="space-y-3">
+                    <p className="text-lg font-semibold text-white/70 jost-secondary">Email</p>
                     <a 
                       href="mailto:gadhavekaran@gmail.com"
-                      className="text-lg md:text-xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary inline-block"
+                      className="text-2xl md:text-3xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary inline-block"
                       style={{ wordBreak: 'keep-all', whiteSpace: 'nowrap' }}
                     >
                       gadhavekaran@gmail.com
@@ -988,11 +988,11 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="group/contact"
                 >
-                  <div className="text-center p-6 glass-card grain-texture border border-white/10 hover:border-primary/30 transition-all duration-300">
-                    <p className="text-sm font-semibold text-white/70 mb-2 jost-secondary">Phone Number</p>
+                  <div className="space-y-3">
+                    <p className="text-lg font-semibold text-white/70 jost-secondary">Phone Number</p>
                     <a 
                       href="tel:+917744074265"
-                      className="text-lg md:text-xl font-bold text-white hover:text-cyan-400 transition-colors duration-300 jost-secondary"
+                      className="text-2xl md:text-3xl font-bold text-white hover:text-cyan-400 transition-colors duration-300 jost-secondary"
                     >
                       +91 7744074265
                     </a>
@@ -1005,9 +1005,9 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                   viewport={{ once: true }}
-                  className="pt-4"
+                  className="pt-8"
                 >
-                  <p className="text-white/80 text-lg leading-relaxed jost-secondary">
+                  <p className="text-white/80 text-xl leading-relaxed jost-secondary">
                     Let's discuss your next project and bring your ideas to life!
                   </p>
                 </motion.div>
