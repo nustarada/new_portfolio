@@ -215,25 +215,26 @@ const CaseStudyPage = () => {
         <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
           <div className="space-y-8">
             {/* Project Metadata */}
-            <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-white/70">
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                {caseStudyData.duration}
+                <Clock className="w-4 h-4 text-primary" />
+                <span className="jost-secondary">{caseStudyData.duration}</span>
               </div>
+              <div className="w-px h-4 bg-white/30"></div>
               <div className="flex items-center gap-2">
-                <Users className="w-4 h-4" />
-                {caseStudyData.team}
+                <Users className="w-4 h-4 text-primary" />
+                <span className="jost-secondary">{caseStudyData.team}</span>
               </div>
             </div>
 
             {/* Main Title */}
-            <div className="space-y-4">
-              <Badge variant="outline" className="text-sm px-4 py-2 border-primary/50 bg-primary/10">
+            <div className="space-y-6">
+              <Badge variant="outline" className="text-sm px-4 py-2 border-primary/50 bg-primary/10 jost-secondary">
                 {caseStudyData.category}
               </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight space-y-2">
                 <span className="block text-white modern-heritage">FutureFirstFamilies:</span>
-                <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent modern-heritage">Gamified Advocacy Platform</span>
+                <span className="block text-white modern-heritage">Gamified Advocacy Platform</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
                 {caseStudyData.subtitle}
@@ -241,9 +242,9 @@ const CaseStudyPage = () => {
             </div>
 
             {/* Tags */}
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="flex flex-wrap justify-center gap-3 pt-4">
               {caseStudyData.tags.map((tag) => (
-                <Badge key={tag} variant="secondary" className="text-xs">
+                <Badge key={tag} variant="secondary" className="text-sm px-3 py-1 jost-secondary">
                   {tag}
                 </Badge>
               ))}
