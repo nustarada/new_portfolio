@@ -277,7 +277,7 @@ export default function Home() {
       <section 
         ref={heroRef} 
         id="hero" 
-        className="min-h-screen flex items-center justify-center relative pt-40 pb-8"
+        className="min-h-screen flex items-center justify-center relative cyber-grid pt-40 pb-8"
         style={{
           '--mouse-x': `${mousePos.x}%`,
           '--mouse-y': `${mousePos.y}%`,
@@ -289,6 +289,22 @@ export default function Home() {
           mouseY={mousePos.y} 
           intensity={waveIntensity}
         />
+        
+        {/* Elegant Single Color Background */}
+        <div className="absolute inset-0 pointer-events-none z-[1]">
+          {/* Primary Elegant Glow */}
+          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/12 blur-3xl animate-pulse" />
+          
+          {/* Refined Grid Lines */}
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent opacity-50" />
+          <div className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent opacity-40" />
+          
+          {/* Minimal Corner Accents - Mobile Optimized */}
+          <div className="absolute top-32 left-6 md:top-28 md:left-12 w-8 h-8 md:w-12 md:h-12 border-l border-t border-primary/40" />
+          <div className="absolute top-32 right-6 md:top-28 md:right-12 w-8 h-8 md:w-12 md:h-12 border-r border-t border-primary/40" />
+          <div className="absolute bottom-2 left-6 md:bottom-12 md:left-12 w-8 h-8 md:w-12 md:h-12 border-l border-b border-primary/40" />
+          <div className="absolute bottom-2 right-6 md:bottom-12 md:right-12 w-8 h-8 md:w-12 md:h-12 border-r border-b border-primary/40" />
+        </div>
         <div className="max-w-5xl mx-auto px-8 md:px-6 text-center relative z-20 w-full">
           {/* Status Badge */}
           <motion.div
