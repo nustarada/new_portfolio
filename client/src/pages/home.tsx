@@ -1273,7 +1273,7 @@ export default function Home() {
       </Dialog>
       {/* Footer */}
       <footer className="py-12 border-t border-border/30">
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
           {/* Logo and Social - Better Mobile Layout */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 mb-8">
             <a 
@@ -1300,9 +1300,11 @@ export default function Home() {
             </a>
           </div>
           {/* Copyright Text - Better Mobile Typography */}
-          <p className="text-muted-foreground code-font text-sm sm:text-base leading-relaxed px-4">
-            © 2025 Karn Kalaa. Designed & developed with passion.
-          </p>
+          <div className="w-full flex justify-center">
+            <p className="text-muted-foreground code-font text-sm sm:text-base leading-relaxed text-center max-w-full">
+              © 2025 Karn Kalaa. Designed & developed with passion.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
