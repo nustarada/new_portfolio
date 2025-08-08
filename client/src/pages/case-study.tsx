@@ -271,7 +271,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
               PROJECT OVERVIEW
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -343,7 +343,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
               WEBSITE SHOWCASE
             </h2>
             <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
@@ -452,7 +452,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
               THE CHALLENGE
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -508,7 +508,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
               THE SOLUTION
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -564,7 +564,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
               DESIGN & DEVELOPMENT PROCESS
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -632,7 +632,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage bg-gradient-to-r from-orange-400 via-yellow-400 to-red-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
               HUBSPOT INTEGRATION RESULTS
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -688,7 +688,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage bg-gradient-to-r from-green-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
               RESULTS & IMPACT
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -738,7 +738,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
               TECHNOLOGY STACK
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -788,7 +788,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
               KEY LEARNINGS
             </h2>
             <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
