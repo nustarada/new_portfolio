@@ -1275,35 +1275,29 @@ export default function Home() {
       <footer className="py-12 border-t border-border/30">
         <div className="container mx-auto px-4 text-center">
           {/* Logo and LinkedIn Icons */}
-          <div className="flex justify-center items-center gap-6 mb-8">
-            {/* Logo */}
+          <div className="flex justify-center items-center gap-8 mb-8">
+            {/* Logo with Circle Background */}
             <a 
               href="#hero" 
-              className="block hover:opacity-80 transition-opacity duration-300"
+              className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full neo-card hover:scale-105 transition-all duration-300 cursor-pointer"
               style={{ WebkitTapHighlightColor: 'transparent' }}
             >
               <img 
                 src={LogoImage} 
                 alt="Karan Gadhave Logo" 
-                className="w-12 h-12 sm:w-16 sm:h-16 object-contain opacity-90"
+                className="w-7 h-7 sm:w-8 sm:h-8 object-contain opacity-90"
               />
             </a>
             
-            {/* LinkedIn Icon */}
+            {/* LinkedIn with Circle Background */}
             <a 
               href="https://www.linkedin.com/in/karan-gadhave/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="block hover:scale-110 transition-transform duration-300"
+              className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full neo-card hover:scale-105 transition-all duration-300 cursor-pointer"
               style={{ WebkitTapHighlightColor: 'transparent' }}
             >
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="w-12 h-12 sm:w-16 sm:h-16 rounded-full neo-card hover:scale-110 cursor-pointer"
-              >
-                <Linkedin className="w-6 h-6 sm:w-8 sm:h-8 hover:text-primary transition-colors duration-300" />
-              </Button>
+              <Linkedin className="w-7 h-7 sm:w-8 sm:h-8 text-white hover:text-primary transition-colors duration-300" />
             </a>
           </div>
           
