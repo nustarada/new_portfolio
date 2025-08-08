@@ -13,6 +13,7 @@ import { Link } from 'wouter';
 import { useToast } from '@/hooks/use-toast';
 import { LiquidGrid } from '@/components/liquid-grid';
 import { MovingRibbon } from '@/components/moving-ribbon';
+import ResumeSection from '@/components/resume-section';
 // Removed old logo PDF import
 import futureFirstFamiliesThumbnail from '@assets/FutureFirstFamilies_thumbnail_1754478108591.png';
 import liffoThumbnail from '@assets/Liffo_thumbnail_1754478108594.png';
@@ -275,13 +276,13 @@ export default function Home() {
                 {item}
               </motion.a>
             ))}
-            <motion.button
-              onClick={() => setIsResumeOpen(true)}
+            <motion.a
+              href="#resume"
               className="text-sm font-semibold transition-colors hover:text-primary text-foreground opacity-80 jost-secondary"
               whileHover={{ y: -2 }}
             >
               Resume
-            </motion.button>
+            </motion.a>
           </div>
 
           <motion.div
@@ -978,6 +979,10 @@ export default function Home() {
           </div>
         </div>
       </section> */}
+      
+      {/* Resume Section */}
+      <ResumeSection />
+      
       {/* Contact Section */}
       <section id="contact" className="py-16 relative">
         <div className="max-w-4xl mx-auto px-6">
