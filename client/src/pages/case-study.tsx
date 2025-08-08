@@ -230,7 +230,7 @@ const CaseStudyPage = () => {
                 {caseStudyData.category}
               </Badge>
               <div className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight space-y-2">
-                <h1 className="block text-white modern-heritage mb-2">FutureFirstFamilies:</h1>
+                <h1 className="block text-white modern-heritage mb-2">FutureFirst Families</h1>
                 <h2 className="block text-white modern-heritage text-[58px]">Where Families Drive Change.</h2>
               </div>
               <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
