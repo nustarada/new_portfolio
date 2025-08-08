@@ -815,7 +815,7 @@ export default function Home() {
                         </div>
                         <div>
                           <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">Services</p>
-                          <p className="text-white font-semibold jost-secondary">Design</p>
+                          <p className="text-white font-semibold jost-secondary">Web Design & Development</p>
                         </div>
                       </div>
 
@@ -980,7 +980,6 @@ export default function Home() {
           </div>
         </div>
       </section> */}
-      
       {/* Contact Section */}
       <section id="contact" className="py-16 relative">
         <div className="max-w-4xl mx-auto px-6">
@@ -1269,7 +1268,6 @@ export default function Home() {
           </div>
         </DialogContent>
       </Dialog>
-      
       {/* Footer */}
       <footer className="py-12 border-t border-border/30">
         <div className="max-w-6xl mx-auto px-6 text-center">
