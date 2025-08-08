@@ -356,13 +356,11 @@ const LiffoCaseStudy = () => {
     <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture liffo-case-study">
       {/* Case Study Navigation */}
       <CaseStudyNavigation sections={navigationSections} />
-      
       {/* Progress Bar */}
       <motion.div 
         className="fixed top-0 left-0 h-1 bg-gradient-to-r from-red-500 to-orange-500 z-[9999]"
         style={{ width: progressWidth }}
       />
-
       {/* Navigation */}
       <motion.nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -394,7 +392,6 @@ const LiffoCaseStudy = () => {
           </div>
         </div>
       </motion.nav>
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
         <div className="absolute inset-0">
@@ -423,7 +420,7 @@ const LiffoCaseStudy = () => {
                 {caseStudyData.category}
               </Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-                <span className="block text-white modern-heritage">Liffo:</span>
+                <span className="block text-white modern-heritage">Liffo</span>
                 <span className="block bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent modern-heritage">Emergency Health Platform</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
@@ -446,7 +443,6 @@ const LiffoCaseStudy = () => {
           <div className="w-px h-16 bg-gradient-to-b from-red-500 to-transparent" />
         </div>
       </section>
-
       {/* 1. Overview & Problem */}
       <section id="overview" className="py-20 relative">
         <div className="absolute inset-0">
@@ -549,7 +545,6 @@ const LiffoCaseStudy = () => {
           </motion.div>
         </div>
       </section>
-
       {/* 2. Personas */}
       <section id="personas" className="py-20 relative">
         <div className="absolute inset-0">
@@ -639,7 +634,6 @@ const LiffoCaseStudy = () => {
           </div>
         </div>
       </section>
-
       {/* 3. User Journey */}
       <section id="research" className="py-20 relative">
         <div className="absolute inset-0">
@@ -727,7 +721,6 @@ const LiffoCaseStudy = () => {
           </div>
         </div>
       </section>
-
       {/* 4. Solution & Process */}
       <section id="approach" className="py-20 relative">
         <div className="absolute inset-0">
@@ -838,7 +831,6 @@ const LiffoCaseStudy = () => {
           </motion.div>
         </div>
       </section>
-
       {/* 5. Key Features */}
       <section id="wireframes" className="py-20 relative">
         <div className="absolute inset-0">
@@ -905,7 +897,6 @@ const LiffoCaseStudy = () => {
           </div>
         </div>
       </section>
-
       {/* 6. Design Showcase */}
       <section id="screens" className="py-20 relative">
         <div className="absolute inset-0">
@@ -1028,7 +1019,6 @@ const LiffoCaseStudy = () => {
           </motion.div>
         </div>
       </section>
-
       {/* 7. Results & Impact */}
       <section id="testing" className="py-20 relative">
         <div className="absolute inset-0">
@@ -1081,7 +1071,6 @@ const LiffoCaseStudy = () => {
           </div>
         </div>
       </section>
-
       {/* 8. Design Principles */}
       <section id="visual" className="py-20 relative">
         <div className="absolute inset-0">
@@ -1137,7 +1126,6 @@ const LiffoCaseStudy = () => {
           </div>
         </div>
       </section>
-
       {/* 9. Tools & Technology */}
       <section id="information" className="py-20 relative">
         <div className="absolute inset-0">
@@ -1189,7 +1177,6 @@ const LiffoCaseStudy = () => {
           </div>
         </div>
       </section>
-
       {/* 10. Key Learnings */}
       <section id="learnings" className="py-20 relative">
         <div className="absolute inset-0">
@@ -1234,7 +1221,6 @@ const LiffoCaseStudy = () => {
           </Card>
         </div>
       </section>
-
       {/* 11. Call to Action */}
       <section className="py-20 relative">
         <div className="absolute inset-0">
@@ -1268,7 +1254,6 @@ const LiffoCaseStudy = () => {
           </motion.div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="py-12 border-t border-border/30">
         <div className="max-w-6xl mx-auto px-6 text-center">
