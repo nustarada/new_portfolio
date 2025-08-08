@@ -17,7 +17,7 @@ import ResumeSection from '@/components/resume-section';
 // Removed old logo PDF import
 import futureFirstFamiliesThumbnail from '@assets/FutureFirstFamilies_thumbnail_1754478108591.png';
 import liffoThumbnail from '@assets/Liffo_thumbnail_1754478108594.png';
-import resumePdf from '@assets/Karan_Gadhave_CV_1749719107819.pdf';
+import resumePdf from '@assets/Karan Gadhave CV_1754656812100.pdf';
 import profilePhoto from '@assets/4. Dashboard 1_1754469198505.png';
 import LogoImage from '@assets/Logo black_1754170788875.png';
 import fffLogo from '@assets/FFF_Logo_1754475239613.png';
@@ -276,13 +276,13 @@ export default function Home() {
                 {item}
               </motion.a>
             ))}
-            <motion.a
-              href="#resume"
+            <motion.button
+              onClick={() => setIsResumeOpen(true)}
               className="text-sm font-semibold transition-colors hover:text-primary text-foreground opacity-80 jost-secondary"
               whileHover={{ y: -2 }}
             >
               Resume
-            </motion.a>
+            </motion.button>
           </div>
 
           <motion.div
@@ -980,9 +980,6 @@ export default function Home() {
         </div>
       </section> */}
       
-      {/* Resume Section */}
-      <ResumeSection />
-      
       {/* Contact Section */}
       <section id="contact" className="py-16 relative">
         <div className="max-w-4xl mx-auto px-6">
@@ -1202,10 +1199,7 @@ export default function Home() {
                 <section className="mb-6 sm:mb-8">
                   <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-3">Profile Summary:</h3>
                   <p className="text-xs sm:text-sm leading-relaxed">
-                    As a skilled Senior Product Designer with four years of experience, I excel in UI/UX design, transforming ideas into intuitive digital products. My
-                    expertise in user research, wireframing, and design systems ensures effective, user-focused solutions. I take a strategic, data-driven approach to
-                    problem-solving, consistently delivering high-quality results. As a UI/UX manager, I lead design teams, manage project timelines, and ensure
-                    alignment with product goals, making me the ideal candidate to create impactful digital experiences.
+                    Lead Product Designer with expertise in crafting intuitive UI/UX for web and mobile platforms. Skilled in using AI-driven design tools to accelerate workflows and improve user research. Proficient in Vibe coding to design and develop interactive, high-fidelity prototypes and production ready products. Passionate about building elegant, user-focused digital products that balance form and function.
                   </p>
                 </section>
 
@@ -1219,11 +1213,11 @@ export default function Home() {
                     </div>
                     <p className="text-xs sm:text-sm text-gray-600 mb-2">UI UX Designer Manager - Remote, India</p>
                     <div className="text-xs sm:text-sm space-y-1">
-                      <p>• Pioneered the design of Acedboard, a project management tool, driving a 35% increase in user satisfaction and a 40% boost in task efficiency</p>
-                      <p>• Led the end-to-end design of Aeroplane, a business-oriented social media platform, achieving a 25% rise in user engagement</p>
-                      <p>• Created cutting-edge health platforms for Healthsignz and MYMEDIC B2B2C Digital Health</p>
-                      <p>• Demonstrated expertise in UI/UX design, user research, and information architecture</p>
-                      <p>• Excelled in managing and mentoring a design team, ensuring delivery of high-impact solutions</p>
+                      <p>• Pioneered the design of Acedboard, a project management tool, driving a 35% increase in user satisfaction and a 40% boost in task efficiency through innovative, user-centric design</p>
+                      <p>• Led the end-to-end design of Aeroplane, a business-oriented social media platform, achieving a 25% rise in user engagement and a 20% improvement in task completion with optimized workflows and streamlined interfaces</p>
+                      <p>• Solely created and designed cutting-edge health platforms for Healthsignz and MYMEDIC B2B2C Digital Health, delivering seamless web and mobile experiences</p>
+                      <p>• Demonstrated deep expertise in UI/UX design, user research, and information architecture, crafting intuitive wireframes, interactive prototypes, and cohesive user journeys</p>
+                      <p>• Excelled in managing and mentoring a design team, ensuring the delivery of high-impact, user-focused solutions within strict deadlines</p>
                     </div>
                   </div>
 
@@ -1236,7 +1230,7 @@ export default function Home() {
                     <div className="text-xs sm:text-sm space-y-1">
                       <p>• Designed core features for StockMarketBox like broker comparison, market tickers, courses, and blog</p>
                       <p>• Successfully launched Stockmarketbox.com, boosting online presence</p>
-                      <p>• Created custom illustrations and animations, increasing user engagement by 20%</p>
+                      <p>• Created custom illustrations and animations, increasing user engagement by 20%, and designed 30+ mobile trading app interfaces in 3 months</p>
                     </div>
                   </div>
 
@@ -1263,8 +1257,8 @@ export default function Home() {
                     </div>
                     <p className="text-xs sm:text-sm text-gray-600 mb-2">UI UX Designer Intern - Remote, India</p>
                     <div className="text-xs sm:text-sm space-y-1">
-                      <p>• Redesigned iDeal, iDeal Wealth and Fund, Mercury, and CashTrea, achieving 30% improvement in user satisfaction</p>
-                      <p>• Redesigned company website, resulting in 47% growth in visitors and 20% increase in lead generation</p>
+                      <p>• Redesigned iDeal, iDeal Wealth and Fund, Mercury, and CashTrea, achieving a 30% improvement in user satisfaction and a 25% increase in usability</p>
+                      <p>• Redesigned company website, resulting in a 47% growth in visitors and a 20% increase in lead generation</p>
                     </div>
                   </div>
 
@@ -1275,9 +1269,10 @@ export default function Home() {
                     </div>
                     <p className="text-xs sm:text-sm text-gray-600 mb-2">UI UX Designer Intern - Remote, India</p>
                     <div className="text-xs sm:text-sm space-y-1">
-                      <p>• Designed both UX and UI with deep focus on enhancing user experience through extensive research</p>
-                      <p>• Applied advanced problem-solving skills to deliver optimal and intuitive design solutions</p>
-                      <p>• Spearheaded the app design process from initial research to high-fidelity prototypes in two months</p>
+                      <p>• Designed both UX and UI with a deep focus on enhancing user experience through extensive research and 20 user interviews, ensuring data-driven design decisions</p>
+                      <p>• Applied advanced problem-solving skills to deliver optimal and intuitive design solutions, addressing user pain points effectively</p>
+                      <p>• Spearheaded the app design process from initial research to high-fidelity prototypes in just two months, showcasing agility and expertise in fast-paced environments</p>
+                      <p>• Conducted comprehensive research, including user interviews and feedback analysis, to inform a seamless and user-friendly product experience</p>
                     </div>
                   </div>
                 </section>
@@ -1311,6 +1306,17 @@ export default function Home() {
                   </div>
                 </section>
 
+                {/* Download PDF Button */}
+                <div className="text-center mb-6 sm:mb-8">
+                  <Button
+                    onClick={() => window.open(resumePdf, '_blank')}
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 text-sm"
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    Download PDF Resume
+                  </Button>
+                </div>
+
                 <section>
                   <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Skills:</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 text-xs sm:text-sm">
@@ -1323,8 +1329,14 @@ export default function Home() {
                         <p>• User Journeys</p>
                         <p>• UI Design</p>
                         <p>• UX Design</p>
+                        <p>• User Flows</p>
                         <p>• User Research</p>
+                        <p>• Information Architecture</p>
                         <p>• Typography</p>
+                        <p>• Wireframing</p>
+                        <p>• Heuristic Analysis</p>
+                        <p>• A/B Testing</p>
+                        <p>• User Testing</p>
                       </div>
                     </div>
                     <div>
