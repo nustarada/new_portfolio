@@ -165,13 +165,11 @@ const CaseStudyPage = () => {
     <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture future-first-case-study">
       {/* Case Study Navigation */}
       <CaseStudyNavigation sections={navigationSections} />
-      
       {/* Progress Bar */}
       <motion.div 
         className="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary to-cyan-400 z-[9999]"
         style={{ width: progressWidth }}
       />
-
       {/* Navigation */}
       <motion.nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -203,7 +201,6 @@ const CaseStudyPage = () => {
           </div>
         </div>
       </motion.nav>
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
         <div className="absolute inset-0">
@@ -234,7 +231,7 @@ const CaseStudyPage = () => {
               </Badge>
               <div className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight space-y-2">
                 <h1 className="block text-white modern-heritage mb-2">FutureFirstFamilies:</h1>
-                <h2 className="block text-white modern-heritage">Gamified Advocacy Platform</h2>
+                <h2 className="block text-white modern-heritage text-[58px]">Where Families Drive Change.</h2>
               </div>
               <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
                 {caseStudyData.subtitle}
@@ -256,7 +253,6 @@ const CaseStudyPage = () => {
           <div className="w-px h-16 bg-gradient-to-b from-primary to-transparent" />
         </div>
       </section>
-
       {/* 1. Project Overview */}
       <section id="overview" className="py-20 relative">
         <div className="absolute inset-0">
@@ -328,7 +324,6 @@ const CaseStudyPage = () => {
           </div>
         </div>
       </section>
-
       {/* Website Showcase Video */}
       <section id="showcase" className="py-20 relative">
         <div className="absolute inset-0">
@@ -437,7 +432,6 @@ const CaseStudyPage = () => {
           </motion.div>
         </div>
       </section>
-
       {/* 2. Problem Statement */}
       <section id="challenge" className="py-20 relative">
         <div className="absolute inset-0">
@@ -493,7 +487,6 @@ const CaseStudyPage = () => {
           </motion.div>
         </div>
       </section>
-
       {/* 3. Solution */}
       <section id="solution" className="py-20 relative">
         <div className="absolute inset-0">
@@ -549,7 +542,6 @@ const CaseStudyPage = () => {
           </motion.div>
         </div>
       </section>
-
       {/* 4. Design & Development Process */}
       <section id="process" className="py-20 relative">
         <div className="absolute inset-0">
@@ -617,7 +609,6 @@ const CaseStudyPage = () => {
           </div>
         </div>
       </section>
-
       {/* 5. HubSpot Integration Results */}
       <section id="hubspot" className="py-20 relative">
         <div className="absolute inset-0">
@@ -673,7 +664,6 @@ const CaseStudyPage = () => {
           </div>
         </div>
       </section>
-
       {/* 6. Results & Impact */}
       <section id="results" className="py-20 relative">
         <div className="absolute inset-0">
@@ -723,7 +713,6 @@ const CaseStudyPage = () => {
           </div>
         </div>
       </section>
-
       {/* 7. Technology Stack */}
       <section id="technology" className="py-20 relative">
         <div className="absolute inset-0">
@@ -775,7 +764,6 @@ const CaseStudyPage = () => {
           </div>
         </div>
       </section>
-
       {/* 8. Key Learnings */}
       <section id="learnings" className="py-20 relative">
         <div className="absolute inset-0">
@@ -820,7 +808,6 @@ const CaseStudyPage = () => {
           </Card>
         </div>
       </section>
-
       {/* 9. Call to Action */}
       <section className="py-20 relative">
         <div className="absolute inset-0">
@@ -860,7 +847,6 @@ const CaseStudyPage = () => {
           </motion.div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="py-12 border-t border-border/30">
         <div className="max-w-6xl mx-auto px-6 text-center">
