@@ -1278,13 +1278,13 @@ export default function Home() {
           <div className="flex flex-row justify-center items-center gap-6 mb-8 w-full">
             <a 
               href="#hero" 
-              className="cursor-pointer touch-manipulation hover:opacity-80 transition-opacity duration-300"
+              className="cursor-pointer touch-manipulation hover:opacity-80 transition-opacity duration-300 flex items-center justify-center"
               style={{ WebkitTapHighlightColor: 'transparent' }}
             >
               <img 
                 src={LogoImage} 
                 alt="Karan Gadhave Logo" 
-                className="h-12 w-12 sm:h-16 sm:w-16 object-contain opacity-90"
+                className="h-12 w-12 sm:h-16 sm:w-16 object-contain object-center opacity-90"
               />
             </a>
             <a 

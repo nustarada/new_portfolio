@@ -1261,7 +1261,7 @@ const LiffoCaseStudy = () => {
           <div className="flex flex-row justify-center items-center gap-6 mb-8 w-full">
             <Link href="/#hero">
               <motion.div 
-                className="cursor-pointer touch-manipulation"
+                className="cursor-pointer touch-manipulation flex items-center justify-center"
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
                 style={{ WebkitTapHighlightColor: 'transparent' }}
@@ -1269,7 +1269,7 @@ const LiffoCaseStudy = () => {
                 <img 
                   src={LogoImage} 
                   alt="Karan Gadhave Logo" 
-                  className="h-12 w-12 sm:h-16 sm:w-16 object-contain opacity-90"
+                  className="h-12 w-12 sm:h-16 sm:w-16 object-contain object-center opacity-90"
                 />
               </motion.div>
             </Link>
