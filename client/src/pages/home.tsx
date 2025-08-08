@@ -968,19 +968,15 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="group/contact"
                 >
-                  <div className="flex items-center space-x-4 p-6 glass-card grain-texture border border-white/10 hover:border-primary/30 transition-all duration-300">
-                    <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="text-left min-w-0 flex-1">
-                      <p className="text-sm font-semibold text-white/70 mb-1 jost-secondary">Email</p>
-                      <a 
-                        href="mailto:gadhavekaran@gmail.com"
-                        className="text-lg md:text-xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary break-all"
-                      >
-                        gadhavekaran@gmail.com
-                      </a>
-                    </div>
+                  <div className="text-center p-6 glass-card grain-texture border border-white/10 hover:border-primary/30 transition-all duration-300">
+                    <p className="text-sm font-semibold text-white/70 mb-2 jost-secondary">Email</p>
+                    <a 
+                      href="mailto:gadhavekaran@gmail.com"
+                      className="text-lg md:text-xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary inline-block"
+                      style={{ wordBreak: 'keep-all', whiteSpace: 'nowrap' }}
+                    >
+                      gadhavekaran@gmail.com
+                    </a>
                   </div>
                 </motion.div>
 
@@ -992,19 +988,14 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="group/contact"
                 >
-                  <div className="flex items-center space-x-4 p-6 glass-card grain-texture border border-white/10 hover:border-primary/30 transition-all duration-300">
-                    <div className="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-6 h-6 text-cyan-400" />
-                    </div>
-                    <div className="text-left min-w-0 flex-1">
-                      <p className="text-sm font-semibold text-white/70 mb-1 jost-secondary">Phone Number</p>
-                      <a 
-                        href="tel:+917744074265"
-                        className="text-lg md:text-xl font-bold text-white hover:text-cyan-400 transition-colors duration-300 jost-secondary whitespace-nowrap"
-                      >
-                        +91 7744074265
-                      </a>
-                    </div>
+                  <div className="text-center p-6 glass-card grain-texture border border-white/10 hover:border-primary/30 transition-all duration-300">
+                    <p className="text-sm font-semibold text-white/70 mb-2 jost-secondary">Phone Number</p>
+                    <a 
+                      href="tel:+917744074265"
+                      className="text-lg md:text-xl font-bold text-white hover:text-cyan-400 transition-colors duration-300 jost-secondary"
+                    >
+                      +91 7744074265
+                    </a>
                   </div>
                 </motion.div>
 
