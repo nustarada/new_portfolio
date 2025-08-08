@@ -885,7 +885,7 @@ const CaseStudyPage = () => {
           </div>
           {/* Copyright Text - Better Mobile Typography */}
           <p className="text-muted-foreground code-font text-sm sm:text-base leading-relaxed px-4">
-            © 2025 Karan Gadhave. Designed & developed with passion.
+            © 2025 Karn Kalaa. Designed & developed with passion.
           </p>
         </div>
       </footer>
