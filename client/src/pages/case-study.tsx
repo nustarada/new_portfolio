@@ -706,7 +706,7 @@ const CaseStudyPage = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <Card className="p-6 text-center glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-300 h-72 flex flex-col">
+                <Card className="p-6 text-center glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-300 h-80 flex flex-col">
                   <div className="text-3xl md:text-4xl font-black text-green-400 mb-3 modern-heritage">
                     {result.value}
                   </div>
