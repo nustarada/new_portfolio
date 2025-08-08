@@ -1279,14 +1279,16 @@ export default function Home() {
             <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16">
               <a 
                 href="#hero" 
-                className="group touch-manipulation flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full neo-card hover:scale-110 active:scale-95 transition-transform duration-300 cursor-pointer"
+                className="group touch-manipulation hover:opacity-80 transition-opacity duration-300"
                 style={{ WebkitTapHighlightColor: 'transparent' }}
               >
-                <img 
-                  src={LogoImage} 
-                  alt="Karan Gadhave Logo" 
-                  className="w-5 h-5 sm:w-6 sm:h-6 object-contain object-center opacity-90"
-                />
+                <div className="w-12 h-12 sm:w-16 sm:w-16 rounded-full neo-card flex items-center justify-center group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
+                  <img 
+                    src={LogoImage} 
+                    alt="Karan Gadhave Logo" 
+                    className="w-6 h-6 sm:w-8 sm:h-8 object-contain object-center opacity-90"
+                  />
+                </div>
               </a>
             </div>
             <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16">
@@ -1294,12 +1296,12 @@ export default function Home() {
                 href="https://www.linkedin.com/in/karan-gadhave/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group touch-manipulation flex items-center justify-center w-full h-full"
+                className="group touch-manipulation"
                 style={{ WebkitTapHighlightColor: 'transparent' }}
               >
-                <Button variant="ghost" size="icon" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full neo-card group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
+                <div className="w-12 h-12 sm:w-16 sm:w-16 rounded-full neo-card flex items-center justify-center group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
                   <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-primary group-active:text-primary transition-colors duration-300" />
-                </Button>
+                </div>
               </a>
             </div>
           </div>

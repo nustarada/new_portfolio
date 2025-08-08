@@ -862,7 +862,7 @@ const CaseStudyPage = () => {
             <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16">
               <Link href="/#hero">
                 <motion.div 
-                  className="cursor-pointer touch-manipulation flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full neo-card transition-transform duration-300"
+                  className="cursor-pointer touch-manipulation w-12 h-12 sm:w-16 sm:w-16 rounded-full neo-card flex items-center justify-center transition-transform duration-300"
                   whileHover={{ scale: 1.1 }} 
                   whileTap={{ scale: 0.95 }}
                   style={{ WebkitTapHighlightColor: 'transparent' }}
@@ -870,7 +870,7 @@ const CaseStudyPage = () => {
                   <img 
                     src={LogoImage} 
                     alt="Karan Gadhave Logo" 
-                    className="w-5 h-5 sm:w-6 sm:h-6 object-contain object-center opacity-90"
+                    className="w-6 h-6 sm:w-8 sm:h-8 object-contain object-center opacity-90"
                   />
                 </motion.div>
               </Link>
@@ -880,12 +880,12 @@ const CaseStudyPage = () => {
                 href="https://www.linkedin.com/in/karan-gadhave/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group touch-manipulation flex items-center justify-center w-full h-full"
+                className="group touch-manipulation"
                 style={{ WebkitTapHighlightColor: 'transparent' }}
               >
-                <Button variant="ghost" size="icon" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full neo-card group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
+                <div className="w-12 h-12 sm:w-16 sm:w-16 rounded-full neo-card flex items-center justify-center group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
                   <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-primary group-active:text-primary transition-colors duration-300" />
-                </Button>
+                </div>
               </a>
             </div>
           </div>
