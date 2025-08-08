@@ -511,36 +511,54 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Compact Additional Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto"
-          >
+          {/* Additional Stats - Second Row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {[
-              { metric: '60%', label: 'Faster Design Cycles', icon: Zap, color: 'text-yellow-400' },
-              { metric: '95%', label: 'Client Satisfaction', icon: Award, color: 'text-orange-400' }
-            ].map((item, index) => (
+              { 
+                number: '60%', 
+                label: 'Faster Design Cycles', 
+                description: 'AI-enhanced workflow efficiency',
+                icon: Zap
+              },
+              { 
+                number: '95%', 
+                label: 'Client Satisfaction', 
+                description: 'Consistent project success rate',
+                icon: Award
+              }
+            ].map((stat, index) => (
               <motion.div
-                key={item.label}
-                className="flex items-center space-x-3 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
-                initial={{ opacity: 0, x: index === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                key={stat.label}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                 viewport={{ once: true }}
+                className="group"
               >
-                <div className="w-8 h-8 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center">
-                  <item.icon className={`w-4 h-4 ${item.color}`} />
-                </div>
-                <div>
-                  <div className="text-xl font-bold text-primary jost-secondary">{item.metric}</div>
-                  <div className="text-white/70 text-sm jost-secondary">{item.label}</div>
-                </div>
+                <Card className="relative overflow-hidden p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30 h-full">
+                  {/* Background Effects */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-cyan-400/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Content */}
+                  <div className="relative z-10 flex items-center space-x-4">
+                    {/* Icon */}
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <stat.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    
+                    {/* Stats Content */}
+                    <div className="flex-1">
+                      <div className="flex items-baseline space-x-3 mb-1">
+                        <span className="text-3xl font-black text-primary modern-heritage">{stat.number}</span>
+                        <h3 className="text-white font-bold text-base jost-secondary">{stat.label}</h3>
+                      </div>
+                      <p className="text-white/60 text-sm jost-secondary">{stat.description}</p>
+                    </div>
+                  </div>
+                </Card>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
       {/* About Section */}
