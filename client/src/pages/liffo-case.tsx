@@ -400,7 +400,7 @@ const LiffoCaseStudy = () => {
           <div className="absolute inset-0 grain-texture opacity-30" />
         </div>
 
-        <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <div className="space-y-8">
             {/* Project Metadata */}
             <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
@@ -419,11 +419,11 @@ const LiffoCaseStudy = () => {
               <Badge variant="outline" className="text-sm px-4 py-2 border-red-500/50 bg-red-500/10">
                 {caseStudyData.category}
               </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-                <span className="block text-white modern-heritage">Liffo</span>
-                <span className="block bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent modern-heritage text-[58px]">Emergency Health Platform</span>
+              <h1 className="space-y-2">
+                <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white modern-heritage leading-tight">Liffo</span>
+                <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent modern-heritage leading-tight">Emergency Health<br className="hidden sm:inline" /> Platform</span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
                 {caseStudyData.subtitle}
               </p>
             </div>
@@ -1042,7 +1042,7 @@ const LiffoCaseStudy = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {caseStudyData.results.map((result, index) => (
               <motion.div
                 key={result.metric}
@@ -1052,15 +1052,15 @@ const LiffoCaseStudy = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02, y: -2 }}
               >
-                <Card className="p-6 text-center glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-300">
+                <Card className="p-4 sm:p-6 text-center glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-300 h-full">
                   <div className="space-y-3">
-                    <div className="text-4xl md:text-5xl font-black text-green-400 modern-heritage leading-none">
+                    <div className="text-3xl sm:text-4xl md:text-5xl font-black text-green-400 modern-heritage leading-none">
                       {result.value}
                     </div>
-                    <h3 className="text-lg font-semibold text-white jost-secondary">
+                    <h3 className="text-base sm:text-lg font-semibold text-white jost-secondary">
                       {result.metric}
                     </h3>
-                    <div className="h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent my-4"></div>
+                    <div className="h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent my-3 sm:my-4"></div>
                     <p className="text-white/70 text-sm leading-relaxed jost-secondary">
                       {result.description}
                     </p>

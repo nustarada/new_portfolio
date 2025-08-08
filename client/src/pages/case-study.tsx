@@ -209,7 +209,7 @@ const CaseStudyPage = () => {
           <div className="absolute inset-0 grain-texture opacity-30" />
         </div>
 
-        <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <div className="space-y-8">
             {/* Project Metadata */}
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-white/70">
@@ -229,11 +229,15 @@ const CaseStudyPage = () => {
               <Badge variant="outline" className="text-sm px-4 py-2 border-primary/50 bg-primary/10 jost-secondary">
                 {caseStudyData.category}
               </Badge>
-              <div className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight space-y-2">
-                <h1 className="block text-white modern-heritage mb-2">FutureFirst Families</h1>
-                <h2 className="block text-white modern-heritage text-[58px]">Where Families Drive Change.</h2>
+              <div className="space-y-2">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white modern-heritage leading-tight">
+                  FutureFirstFamilies
+                </h1>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white modern-heritage leading-tight">
+                  Where Families<br className="hidden sm:inline" /> Drive Change.
+                </h2>
               </div>
-              <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
                 {caseStudyData.subtitle}
               </p>
             </div>
@@ -687,7 +691,7 @@ const CaseStudyPage = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {caseStudyData.results.map((result, index) => (
               <motion.div
                 key={result.metric}
@@ -697,15 +701,15 @@ const CaseStudyPage = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02, y: -2 }}
               >
-                <Card className="p-6 text-center glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-300">
+                <Card className="p-4 sm:p-6 text-center glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-300 h-full">
                   <div className="space-y-3">
-                    <div className="text-4xl md:text-5xl font-black text-green-400 modern-heritage leading-none">
+                    <div className="text-3xl sm:text-4xl md:text-5xl font-black text-green-400 modern-heritage leading-none">
                       {result.value}
                     </div>
-                    <h3 className="text-lg font-semibold text-white jost-secondary">
+                    <h3 className="text-base sm:text-lg font-semibold text-white jost-secondary">
                       {result.metric}
                     </h3>
-                    <div className="h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent my-4"></div>
+                    <div className="h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent my-3 sm:my-4"></div>
                     <p className="text-white/70 text-sm leading-relaxed jost-secondary">
                       {result.description}
                     </p>
