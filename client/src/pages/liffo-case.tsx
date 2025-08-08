@@ -1270,13 +1270,11 @@ const LiffoCaseStudy = () => {
                     whileTap={{ scale: 0.95 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
-                      <img 
-                        src={LogoImage} 
-                        alt="Logo" 
-                        className="w-7 h-7 object-contain"
-                      />
-                    </div>
+                    <img 
+                      src={LogoImage} 
+                      alt="Logo" 
+                      className="w-10 h-10 object-contain"
+                    />
                   </motion.div>
                 </Link>
               </div>
@@ -1294,9 +1292,7 @@ const LiffoCaseStudy = () => {
                     whileTap={{ scale: 0.95 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
-                      <Linkedin className="w-6 h-6 text-white group-hover:text-blue-300 transition-colors duration-300" />
-                    </div>
+                    <Linkedin className="w-9 h-9 text-white group-hover:text-blue-300 transition-colors duration-300" />
                   </motion.div>
                 </a>
               </div>

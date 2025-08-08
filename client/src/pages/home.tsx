@@ -1282,13 +1282,11 @@ export default function Home() {
               <div className="flex-shrink-0">
                 <a href="#hero" className="block group">
                   <div className="w-20 h-20 bg-gradient-to-br from-violet-600/30 to-indigo-600/30 rounded-full border-2 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
-                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
-                      <img 
-                        src={LogoImage} 
-                        alt="Logo" 
-                        className="w-7 h-7 object-contain"
-                      />
-                    </div>
+                    <img 
+                      src={LogoImage} 
+                      alt="Logo" 
+                      className="w-10 h-10 object-contain"
+                    />
                   </div>
                 </a>
               </div>
@@ -1302,9 +1300,7 @@ export default function Home() {
                   className="block group"
                 >
                   <div className="w-20 h-20 bg-gradient-to-br from-violet-600/30 to-indigo-600/30 rounded-full border-2 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
-                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
-                      <Linkedin className="w-6 h-6 text-white group-hover:text-blue-300 transition-colors duration-300" />
-                    </div>
+                    <Linkedin className="w-9 h-9 text-white group-hover:text-blue-300 transition-colors duration-300" />
                   </div>
                 </a>
               </div>
