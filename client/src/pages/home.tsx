@@ -1,16 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { useMutation } from '@tanstack/react-query';
-import { useForm } from 'react-hook-form';
+
 import { Link } from 'wouter';
-import { useToast } from '@/hooks/use-toast';
+
 import { LiquidGrid } from '@/components/liquid-grid';
 import { MovingRibbon } from '@/components/moving-ribbon';
 import ResumeSection from '@/components/resume-section';
@@ -53,6 +50,7 @@ import {
   FileText,
   Heart,
   Trophy,
+  Phone,
   Award
 } from 'lucide-react';
 
@@ -66,40 +64,7 @@ export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
-  const { toast } = useToast();
 
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
-
-  const contactMutation = useMutation({
-    mutationFn: async (data: any) => {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.message || 'Failed to send message');
-      }
-      return response.json();
-    },
-    onSuccess: (data) => {
-      reset();
-      toast({
-        title: "Message Sent Successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-        duration: 5000,
-      });
-    },
-    onError: (error: any) => {
-      toast({
-        title: "Failed to Send Message",
-        description: error.message || "Please try again later.",
-        variant: "destructive",
-        duration: 5000,
-      });
-    },
-  });
 
   useEffect(() => {
     let ticking = false;
@@ -993,153 +958,69 @@ export default function Home() {
             <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-2xl" />
             
-            <div className="relative z-10">
-              <form 
-                onSubmit={handleSubmit((data) => contactMutation.mutate(data))}
-                className="space-y-8"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    viewport={{ once: true }}
-                    className="group/field"
-                  >
-                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90 jost-secondary">
-                      <Users className="w-4 h-4 text-primary" />
-                      <span>Name</span>
-                    </label>
-                    <Input 
-                      {...register('name', { required: "Name is required" })}
-                      placeholder="Enter your name"
-                      className={`h-12 glass-card grain-texture border-2 ${errors.name ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50`}
-                    />
-                    {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name.message as string}</p>}
-                  </motion.div>
-                  
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    className="group/field"
-                  >
-                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90 jost-secondary">
-                      <Mail className="w-4 h-4 text-primary" />
-                      <span>Email</span>
-                    </label>
-                    <Input 
-                      {...register('email', { 
-                        required: "Email is required",
-                        pattern: {
-                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                          message: "Invalid email address"
-                        }
-                      })}
-                      type="email"
-                      placeholder="your.email@company.com"
-                      className={`h-12 glass-card grain-texture border-2 ${errors.email ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50`}
-                    />
-                    {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email.message as string}</p>}
-                  </motion.div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    viewport={{ once: true }}
-                    className="group/field"
-                  >
-                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90 jost-secondary">
-                      <MapPin className="w-4 h-4 text-primary" />
-                      <span>City, Country</span>
-                    </label>
-                    <Input 
-                      {...register('location', { required: "Location is required" })}
-                      placeholder="New York, USA"
-                      className={`h-12 glass-card grain-texture border-2 ${errors.location ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50`}
-                    />
-                    {errors.location && <p className="text-red-400 text-sm mt-1">{errors.location.message as string}</p>}
-                  </motion.div>
-                  
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    viewport={{ once: true }}
-                    className="group/field"
-                  >
-                    <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90 jost-secondary">
-                      <FileText className="w-4 h-4 text-primary" />
-                      <span>Subject</span>
-                    </label>
-                    <Input 
-                      {...register('subject', { required: "Subject is required" })}
-                      placeholder="Project inquiry"
-                      className={`h-12 glass-card grain-texture border-2 ${errors.subject ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50`}
-                    />
-                    {errors.subject && <p className="text-red-400 text-sm mt-1">{errors.subject.message as string}</p>}
-                  </motion.div>
-                </div>
-                
+            <div className="relative z-10 text-center">
+              <div className="space-y-8">
+                {/* Email Contact */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
                   viewport={{ once: true }}
+                  className="group/contact"
                 >
-                  <label className="flex items-center space-x-2 text-sm font-semibold mb-3 text-white/90 jost-secondary">
-                    <MessageSquare className="w-4 h-4 text-primary" />
-                    <span>Project Details</span>
-                  </label>
-                  <Textarea 
-                    {...register('message', { required: "Project details are required" })}
-                    placeholder="Tell me about your project goals, challenges, timeline, and how I can help bring your vision to life..."
-                    rows={6}
-                    className={`glass-card grain-texture border-2 ${errors.message ? 'border-red-500' : 'border-white/10'} hover:border-primary/30 focus:border-primary/50 transition-all duration-300 text-white placeholder:text-white/50 resize-none`}
-                  />
-                  {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message.message as string}</p>}
+                  <div className="flex items-center justify-center space-x-4 p-6 glass-card grain-texture border border-white/10 hover:border-primary/30 transition-all duration-300">
+                    <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                      <Mail className="w-6 h-6 text-primary" />
+                    </div>
+                    <div className="text-left">
+                      <p className="text-sm font-semibold text-white/70 mb-1 jost-secondary">Email</p>
+                      <a 
+                        href="mailto:gadhavekaran@gmail.com"
+                        className="text-xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary"
+                      >
+                        gadhavekaran@gmail.com
+                      </a>
+                    </div>
+                  </div>
                 </motion.div>
-                
+
+                {/* Phone Contact */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className="group/contact"
+                >
+                  <div className="flex items-center justify-center space-x-4 p-6 glass-card grain-texture border border-white/10 hover:border-primary/30 transition-all duration-300">
+                    <div className="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center">
+                      <Phone className="w-6 h-6 text-cyan-400" />
+                    </div>
+                    <div className="text-left">
+                      <p className="text-sm font-semibold text-white/70 mb-1 jost-secondary">Phone Number</p>
+                      <a 
+                        href="tel:+917744074265"
+                        className="text-xl font-bold text-white hover:text-cyan-400 transition-colors duration-300 jost-secondary"
+                      >
+                        +91 7744074265
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Call to Action */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
                   viewport={{ once: true }}
                   className="pt-4"
                 >
-                  <Button 
-                    type="submit" 
-                    size="lg" 
-                    className="group/btn relative w-full h-16 text-white font-bold text-xl cta-button grain-texture overflow-hidden hover:scale-[1.02] disabled:opacity-50 border-0"
-                    disabled={contactMutation.isPending}
-                  >
-                    {/* Shimmer Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                    
-                    {/* Pulsing Ring */}
-                    <div className="absolute inset-0 rounded-2xl border-2 border-white/30 opacity-0 group-hover/btn:opacity-100 group-hover/btn:scale-105 transition-all duration-500" />
-                    
-                    <div className="relative z-10 flex items-center justify-center space-x-4">
-                      {contactMutation.isPending ? (
-                        <>
-                          <div className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full animate-spin" />
-                          <span className="jost-secondary">Sending Message...</span>
-                        </>
-                      ) : (
-                        <>
-                          <Mail className="w-6 h-6" />
-                          <span className="jost-secondary">Send Message</span>
-                          <ArrowUpRight className="w-5 h-5 group-hover/btn:rotate-45 transition-transform duration-300" />
-                        </>
-                      )}
-                    </div>
-                  </Button>
+                  <p className="text-white/80 text-lg leading-relaxed jost-secondary">
+                    Let's discuss your next project and bring your ideas to life!
+                  </p>
                 </motion.div>
-              </form>
+              </div>
             </div>
           </Card>
 
