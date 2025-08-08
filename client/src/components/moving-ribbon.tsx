@@ -13,6 +13,10 @@ const skills = [
 const skillIcons = ["✦", "◆", "●", "▲", "◇", "★"];
 
 export function MovingRibbon() {
+  // Create single skill set with unique items to avoid duplicates
+  const topSkills = skills.slice(0, 14);
+  const bottomSkills = skills.slice(14);
+
   return (
     <div className="relative overflow-hidden py-12 glass-card grain-texture border-y border-white/15">
       {/* Simplified Background Effects */}
@@ -20,23 +24,13 @@ export function MovingRibbon() {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/4 to-transparent" />
       </div>
 
-      {/* Top ribbon */}
-      <motion.div
-        className="flex whitespace-nowrap mb-6"
-        animate={{ x: [0, -2000] }}
-        transition={{
-          x: {
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 40,
-            ease: "linear",
-          },
-        }}
-      >
-        {[...skills, ...skills, ...skills].map((skill, index) => (
+      {/* Top ribbon - using CSS animation for smooth movement */}
+      <div className="flex whitespace-nowrap mb-6 animate-scroll-left">
+        {/* Create seamless loop with duplicated content */}
+        {[...topSkills, ...topSkills].map((skill, index) => (
           <div
             key={`top-${index}`}
-            className="flex items-center mx-4 group"
+            className="flex items-center mx-4 group flex-shrink-0"
           >
             <div className="flex items-center space-x-3 px-4 py-2 glass-card hover:glass-intense transition-all duration-300">
               <span className="text-primary/70 text-sm font-medium">
@@ -49,7 +43,7 @@ export function MovingRibbon() {
             <div className="w-2 h-2 bg-gradient-to-r from-primary to-cyan-400 mx-4 transform rotate-45" />
           </div>
         ))}
-      </motion.div>
+      </div>
 
       {/* Middle decorative line */}
       <div className="relative flex items-center justify-center my-4">
@@ -58,22 +52,12 @@ export function MovingRibbon() {
       </div>
 
       {/* Bottom ribbon - moving in opposite direction */}
-      <motion.div
-        className="flex whitespace-nowrap mt-6"
-        animate={{ x: [-2000, 0] }}
-        transition={{
-          x: {
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 40,
-            ease: "linear",
-          },
-        }}
-      >
-        {[...skills.slice().reverse(), ...skills.slice().reverse(), ...skills.slice().reverse()].map((skill, index) => (
+      <div className="flex whitespace-nowrap mt-6 animate-scroll-right">
+        {/* Create seamless loop with duplicated content */}
+        {[...bottomSkills, ...bottomSkills].map((skill, index) => (
           <div
             key={`bottom-${index}`}
-            className="flex items-center mx-4 group"
+            className="flex items-center mx-4 group flex-shrink-0"
           >
             <div className="flex items-center space-x-3 px-4 py-2 glass-card hover:glass-intense transition-all duration-300">
               <span className="text-primary/70 text-sm font-medium">
@@ -86,7 +70,7 @@ export function MovingRibbon() {
             <div className="w-2 h-2 bg-gradient-to-r from-primary to-cyan-400 mx-4 transform rotate-45" />
           </div>
         ))}
-      </motion.div>
+      </div>
 
       {/* Enhanced gradient overlays */}
       <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent pointer-events-none z-10" />
