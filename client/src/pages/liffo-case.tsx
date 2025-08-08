@@ -1062,7 +1062,7 @@ const LiffoCaseStudy = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <Card className="p-8 text-center glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-300 h-80 flex flex-col justify-between">
+                <Card className="p-8 text-center glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-300 h-64 flex flex-col justify-between">
                   <div className="flex-1 flex flex-col justify-center">
                     <div className="text-3xl md:text-4xl font-black text-green-400 modern-heritage mb-3">
                       {result.value}
