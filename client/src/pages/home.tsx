@@ -1157,7 +1157,7 @@ export default function Home() {
       </section>
       {/* Resume Modal */}
       <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
-        <DialogContent className="resume-modal fixed w-full h-[calc(100vh-80px)] max-w-none top-20 left-0 right-0 translate-x-0 translate-y-0 m-0 p-0 glass-intense grain-texture border-0 border-t border-primary/40 overflow-hidden rounded-none z-[60]">
+        <DialogContent className="resume-modal fixed w-full h-[calc(100vh-120px)] max-w-none top-[120px] left-0 right-0 translate-x-0 translate-y-0 m-0 p-0 glass-intense grain-texture border-0 border-t border-primary/40 overflow-hidden rounded-none z-[60]">
           <DialogHeader className="p-2 sm:p-3 md:p-4 pb-2 sm:pb-3 border-b border-primary/20">
             <DialogTitle className="flex items-center justify-between w-full">
               <Button
