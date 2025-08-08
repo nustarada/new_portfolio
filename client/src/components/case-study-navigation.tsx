@@ -72,7 +72,7 @@ export const CaseStudyNavigation: React.FC<CaseStudyNavigationProps> = ({
       >
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-12 h-12 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-primary/90 to-purple-500/90 backdrop-blur-md border border-white/20 hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25 touch-manipulation"
+          className="w-12 h-12 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-slate-900 via-primary to-purple-600 backdrop-blur-xl border-2 border-white/30 hover:border-white/50 hover:scale-105 transition-all duration-300 shadow-2xl shadow-primary/40 hover:shadow-primary/60 touch-manipulation"
           size="sm"
           style={{ 
             WebkitTapHighlightColor: 'transparent'
