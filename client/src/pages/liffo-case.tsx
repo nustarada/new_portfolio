@@ -421,7 +421,7 @@ const LiffoCaseStudy = () => {
               </Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
                 <span className="block text-white modern-heritage">Liffo</span>
-                <span className="block bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent modern-heritage">Emergency Health Platform</span>
+                <span className="block bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent modern-heritage text-[58px]">Emergency Health Platform</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
                 {caseStudyData.subtitle}
