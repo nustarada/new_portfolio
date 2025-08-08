@@ -519,8 +519,8 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <Card className="p-12 glass-card grain-texture border-red-500/30">
-              <h3 className="text-4xl md:text-5xl font-semibold mb-8 text-center text-red-400 modern-heritage">THE HEALTHCARE CHALLENGE</h3>
+            <Card className="p-6 sm:p-8 lg:p-12 glass-card grain-texture border-red-500/30">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 sm:mb-8 text-center text-red-400 modern-heritage">THE HEALTHCARE CHALLENGE</h3>
               <p className="text-xl text-white/90 leading-relaxed mb-8 jost-secondary">
                 {caseStudyData.problem.description}
               </p>
@@ -552,7 +552,7 @@ const LiffoCaseStudy = () => {
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -568,7 +568,7 @@ const LiffoCaseStudy = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {caseStudyData.personas.map((persona, index) => (
               <motion.div
                 key={persona.name}
@@ -577,15 +577,15 @@ const LiffoCaseStudy = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-8 glass-card grain-texture border-blue-500/30 h-full">
-                  <div className="space-y-6">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center">
-                        <User className="w-8 h-8 text-blue-400" />
+                <Card className="p-4 sm:p-6 lg:p-8 glass-card grain-texture border-blue-500/30 h-full">
+                  <div className="space-y-4 sm:space-y-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto sm:mx-0">
+                        <User className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />
                       </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-blue-300 modern-heritage">{persona.name}</h3>
-                        <p className="text-white/70 jost-secondary">{persona.role}, {persona.age}</p>
+                      <div className="text-center sm:text-left">
+                        <h3 className="text-lg sm:text-xl font-bold text-blue-300 modern-heritage leading-tight">{persona.name}</h3>
+                        <p className="text-sm sm:text-base text-white/70 jost-secondary">{persona.role}, {persona.age}</p>
                       </div>
                     </div>
                     
