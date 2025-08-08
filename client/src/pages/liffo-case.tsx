@@ -1262,18 +1262,16 @@ const LiffoCaseStudy = () => {
             <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16">
               <Link href="/#hero">
                 <motion.div 
-                  className="group cursor-pointer touch-manipulation flex items-center justify-center w-full h-full"
-                  whileHover={{ scale: 1.05 }} 
+                  className="cursor-pointer touch-manipulation flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full neo-card transition-transform duration-300"
+                  whileHover={{ scale: 1.1 }} 
                   whileTap={{ scale: 0.95 }}
                   style={{ WebkitTapHighlightColor: 'transparent' }}
                 >
-                  <Button variant="ghost" size="icon" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full neo-card group-hover:scale-110 group-active:scale-95 transition-transform duration-300 cursor-pointer">
-                    <img 
-                      src={LogoImage} 
-                      alt="Karan Gadhave Logo" 
-                      className="w-5 h-5 sm:w-6 sm:h-6 object-contain object-center opacity-90"
-                    />
-                  </Button>
+                  <img 
+                    src={LogoImage} 
+                    alt="Karan Gadhave Logo" 
+                    className="w-5 h-5 sm:w-6 sm:h-6 object-contain object-center opacity-90"
+                  />
                 </motion.div>
               </Link>
             </div>
