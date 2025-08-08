@@ -89,7 +89,7 @@ const LiffoCaseStudy = () => {
   const caseStudyData = {
     title: "Liffo: Emergency Health Services Platform",
     subtitle: "Comprehensive healthcare platform prioritizing emergency ambulance booking, elite doctors, and home care services, followed by routine consultations and medical supply purchasing",
-    category: "Mobile Health Platform Design",
+    category: "Mobile App Design",
     duration: "13 weeks",
     team: "Solo Designer",
     client: "Liffo Health Services",
