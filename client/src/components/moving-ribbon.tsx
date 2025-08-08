@@ -23,30 +23,30 @@ export function MovingRibbon() {
       {/* Top ribbon */}
       <motion.div
         className="flex whitespace-nowrap mb-6"
-        animate={{ x: [0, -3000] }}
+        animate={{ x: [0, -2000] }}
         transition={{
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 80,
+            duration: 40,
             ease: "linear",
           },
         }}
       >
-        {[...skills, ...skills, ...skills, ...skills, ...skills].map((skill, index) => (
+        {[...skills, ...skills, ...skills].map((skill, index) => (
           <div
             key={`top-${index}`}
-            className="flex items-center mx-6 group"
+            className="flex items-center mx-4 group"
           >
             <div className="flex items-center space-x-3 px-4 py-2 glass-card hover:glass-intense transition-all duration-300">
               <span className="text-primary/70 text-sm font-medium">
                 {skillIcons[index % skillIcons.length]}
               </span>
-              <span className="text-lg md:text-xl font-medium text-white/90 tracking-wide">
+              <span className="text-lg md:text-xl font-medium text-white/90 tracking-wide jost-secondary">
                 {skill}
               </span>
             </div>
-            <div className="w-3 h-3 bg-gradient-to-r from-primary to-cyan-400 mx-6" />
+            <div className="w-2 h-2 bg-gradient-to-r from-primary to-cyan-400 mx-4 transform rotate-45" />
           </div>
         ))}
       </motion.div>
@@ -60,30 +60,30 @@ export function MovingRibbon() {
       {/* Bottom ribbon - moving in opposite direction */}
       <motion.div
         className="flex whitespace-nowrap mt-6"
-        animate={{ x: [-3000, 0] }}
+        animate={{ x: [-2000, 0] }}
         transition={{
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 70,
+            duration: 40,
             ease: "linear",
           },
         }}
       >
-        {[...skills.slice().reverse(), ...skills.slice().reverse(), ...skills.slice().reverse(), ...skills.slice().reverse(), ...skills.slice().reverse()].map((skill, index) => (
+        {[...skills.slice().reverse(), ...skills.slice().reverse(), ...skills.slice().reverse()].map((skill, index) => (
           <div
             key={`bottom-${index}`}
-            className="flex items-center mx-6 group"
+            className="flex items-center mx-4 group"
           >
-            <div className="flex items-center space-x-3 px-3 py-1.5 glass-card hover:glass-intense transition-all duration-300">
-              <span className="text-purple-400/60 text-xs font-medium">
+            <div className="flex items-center space-x-3 px-4 py-2 glass-card hover:glass-intense transition-all duration-300">
+              <span className="text-primary/70 text-sm font-medium">
                 {skillIcons[(index + 3) % skillIcons.length]}
               </span>
-              <span className="text-base md:text-lg font-medium text-white/70 tracking-wide">
+              <span className="text-lg md:text-xl font-medium text-white/90 tracking-wide jost-secondary">
                 {skill}
               </span>
             </div>
-            <div className="w-2 h-2 bg-gradient-to-r from-emerald-400 to-cyan-400 mx-6" />
+            <div className="w-2 h-2 bg-gradient-to-r from-primary to-cyan-400 mx-4 transform rotate-45" />
           </div>
         ))}
       </motion.div>
