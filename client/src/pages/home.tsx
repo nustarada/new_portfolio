@@ -333,8 +333,8 @@ export default function Home() {
           {/* Minimal Corner Accents - Mobile Optimized */}
           <div className="absolute top-32 left-6 md:top-28 md:left-12 w-8 h-8 md:w-12 md:h-12 border-l border-t border-primary/40" />
           <div className="absolute top-32 right-6 md:top-28 md:right-12 w-8 h-8 md:w-12 md:h-12 border-r border-t border-primary/40" />
-          <div className="absolute bottom-24 left-6 md:bottom-12 md:left-12 w-8 h-8 md:w-12 md:h-12 border-l border-b border-primary/40" />
-          <div className="absolute bottom-24 right-6 md:bottom-12 md:right-12 w-8 h-8 md:w-12 md:h-12 border-r border-b border-primary/40" />
+          <div className="absolute bottom-2 left-6 md:bottom-12 md:left-12 w-8 h-8 md:w-12 md:h-12 border-l border-b border-primary/40" />
+          <div className="absolute bottom-2 right-6 md:bottom-12 md:right-12 w-8 h-8 md:w-12 md:h-12 border-r border-b border-primary/40" />
         </div>
         <div className="max-w-5xl mx-auto px-8 md:px-6 text-center relative z-20 w-full">
           {/* Status Badge */}
