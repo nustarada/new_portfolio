@@ -19,8 +19,8 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/project/:id" component={ProjectDetail} />
-      <Route path="/case-study" component={CaseStudy} />
-      <Route path="/liffo-case" component={LiffoCase} />
+      <Route path="/fff-case-study" component={CaseStudy} />
+      <Route path="/liffo-case-study" component={LiffoCase} />
 
       <Route component={NotFound} />
     </Switch>
