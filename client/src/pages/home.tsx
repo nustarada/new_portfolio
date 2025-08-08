@@ -1093,14 +1093,8 @@ export default function Home() {
             <div className="w-full h-full bg-white rounded-lg overflow-auto">
               <div className="max-w-4xl mx-auto p-3 sm:p-6 md:p-8 bg-white text-black">
                 <div className="text-center mb-6 sm:mb-8">
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Karan Sanjay Gadhave</h1>
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Karan Gadhave</h1>
                   <h2 className="text-base sm:text-lg md:text-xl text-gray-600 mb-3 sm:mb-4">Senior Product / UI/UX Designer</h2>
-                  
-                  <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-8 text-xs sm:text-sm">
-                    <span className="break-all">Email: gadhavekaran@gmail.com</span>
-                    <span>Phone: +91 7744074265</span>
-                    <span>LinkedIn: karan-gadhave</span>
-                  </div>
                 </div>
 
                 <hr className="border-gray-300 mb-4 sm:mb-6" />
@@ -1151,7 +1145,7 @@ export default function Home() {
                     <p className="text-xs sm:text-sm text-gray-600 mb-2">UI UX Designer - Pune, India</p>
                     <div className="text-xs sm:text-sm space-y-1">
                       <p>• Led the design for Teach Max mobile application</p>
-                      <p>• Worked on various redesign projects from websites to mobile applications</p>
+                      <p>• Worked on various redesign projects from websites to mobile application including company website</p>
                     </div>
                   </div>
                 </section>
@@ -1235,6 +1229,7 @@ export default function Home() {
                         <p>• Heuristic Analysis</p>
                         <p>• A/B Testing</p>
                         <p>• User Testing</p>
+                        <p>• User Research and Analysis</p>
                       </div>
                     </div>
                     <div>
@@ -1245,7 +1240,7 @@ export default function Home() {
                         <p>• Adobe XD</p>
                         <p>• Axure RP</p>
                         <p>• Agile Methodologies</p>
-                        <p>• Visual Design</p>
+                        <p>• Visual and UI Design Skills</p>
                         <p>• Wireframing</p>
                         <p>• User Testing</p>
                       </div>
@@ -1255,11 +1250,11 @@ export default function Home() {
                       <div className="space-y-1">
                         <p>• Strong Leadership</p>
                         <p>• Coordination Skills</p>
-                        <p>• Adaptability</p>
-                        <p>• Creative Thinking</p>
+                        <p>• Capable of adapting to any environments</p>
+                        <p>• Creative and efficient individual</p>
                         <p>• Empathy</p>
                         <p>• Critical Thinking</p>
-                        <p>• Communication</p>
+                        <p>• Communication & Collaboration</p>
                         <p>• Time Management</p>
                       </div>
                     </div>
