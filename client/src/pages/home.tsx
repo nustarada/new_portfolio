@@ -330,13 +330,13 @@ export default function Home() {
           <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent opacity-50" />
           <div className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent opacity-40" />
           
-          {/* Minimal Corner Accents */}
-          <div className="absolute top-28 left-12 w-12 h-12 border-l border-t border-primary/40" />
-          <div className="absolute top-28 right-12 w-12 h-12 border-r border-t border-primary/40" />
-          <div className="absolute bottom-12 left-12 w-12 h-12 border-l border-b border-primary/40" />
-          <div className="absolute bottom-12 right-12 w-12 h-12 border-r border-b border-primary/40" />
+          {/* Minimal Corner Accents - Mobile Optimized */}
+          <div className="absolute top-32 left-6 md:top-28 md:left-12 w-8 h-8 md:w-12 md:h-12 border-l border-t border-primary/40" />
+          <div className="absolute top-32 right-6 md:top-28 md:right-12 w-8 h-8 md:w-12 md:h-12 border-r border-t border-primary/40" />
+          <div className="absolute bottom-20 left-6 md:bottom-12 md:left-12 w-8 h-8 md:w-12 md:h-12 border-l border-b border-primary/40" />
+          <div className="absolute bottom-20 right-6 md:bottom-12 md:right-12 w-8 h-8 md:w-12 md:h-12 border-r border-b border-primary/40" />
         </div>
-        <div className="max-w-5xl mx-auto px-6 text-center relative z-20 w-full">
+        <div className="max-w-5xl mx-auto px-8 md:px-6 text-center relative z-20 w-full">
           {/* Status Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
