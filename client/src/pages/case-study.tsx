@@ -232,10 +232,10 @@ const CaseStudyPage = () => {
               <Badge variant="outline" className="text-sm px-4 py-2 border-primary/50 bg-primary/10 jost-secondary">
                 {caseStudyData.category}
               </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight space-y-2">
-                <span className="block text-white modern-heritage">FutureFirstFamilies:</span>
-                <span className="block text-white modern-heritage">Gamified Advocacy Platform</span>
-              </h1>
+              <div className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight space-y-2">
+                <h1 className="block text-white modern-heritage mb-2">FutureFirstFamilies:</h1>
+                <h2 className="block text-white modern-heritage">Gamified Advocacy Platform</h2>
+              </div>
               <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
                 {caseStudyData.subtitle}
               </p>
