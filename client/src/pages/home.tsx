@@ -51,7 +51,9 @@ import {
   Heart,
   Trophy,
   Phone,
-  Award
+  Award,
+  Folder,
+  Package
 } from 'lucide-react';
 
 export default function Home() {
@@ -467,19 +469,22 @@ export default function Home() {
                   number: '4+', 
                   label: 'Years Experience', 
                   description: 'Specialized UI/UX expertise',
-                  icon: Clock
+                  icon: Clock,
+                  iconColor: 'text-blue-400'
                 },
                 { 
                   number: '50+', 
                   label: 'Projects Delivered', 
                   description: 'Successful design solutions',
-                  icon: Zap
+                  icon: Folder,
+                  iconColor: 'text-green-400'
                 },
                 { 
                   number: '15+', 
                   label: 'Team Members Led', 
                   description: 'Cross-functional collaboration',
-                  icon: Users
+                  icon: Users,
+                  iconColor: 'text-purple-400'
                 }
               ].map((stat, index) => (
                 <motion.div
@@ -499,7 +504,7 @@ export default function Home() {
                       {/* Mobile: Vertical Layout */}
                       <div className="block sm:hidden text-center space-y-3">
                         <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
-                          <stat.icon className="w-6 h-6 text-primary" />
+                          <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                         </div>
                         <div>
                           <span className="text-2xl sm:text-3xl font-black text-primary modern-heritage block">{stat.number}</span>
@@ -511,7 +516,7 @@ export default function Home() {
                       {/* Tablet & Desktop: Horizontal Layout */}
                       <div className="hidden sm:flex items-center space-x-4">
                         <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                          <stat.icon className="w-6 h-6 text-primary" />
+                          <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                         </div>
                         <div className="flex-1">
                           <div className="flex items-baseline space-x-3 mb-1">
@@ -534,13 +539,15 @@ export default function Home() {
                   number: '60%', 
                   label: 'Faster Design Cycles', 
                   description: 'AI-enhanced workflow efficiency',
-                  icon: Zap
+                  icon: Zap,
+                  iconColor: 'text-yellow-400'
                 },
                 { 
                   number: '95%', 
                   label: 'Client Satisfaction', 
                   description: 'Consistent project success rate',
-                  icon: Award
+                  icon: Award,
+                  iconColor: 'text-orange-400'
                 }
               ].map((stat, index) => (
                 <motion.div
@@ -560,7 +567,7 @@ export default function Home() {
                       {/* Mobile: Vertical Layout */}
                       <div className="block sm:hidden text-center space-y-3">
                         <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
-                          <stat.icon className="w-6 h-6 text-primary" />
+                          <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                         </div>
                         <div>
                           <span className="text-2xl sm:text-3xl font-black text-primary modern-heritage block">{stat.number}</span>
@@ -572,7 +579,7 @@ export default function Home() {
                       {/* Tablet & Desktop: Horizontal Layout */}
                       <div className="hidden sm:flex items-center space-x-4">
                         <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                          <stat.icon className="w-6 h-6 text-primary" />
+                          <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                         </div>
                         <div className="flex-1">
                           <div className="flex items-baseline space-x-3 mb-1">
