@@ -8,10 +8,16 @@ Preferred communication style: Simple, everyday language.
 **Established August 2025** - All section headings must follow consistent typography:
 
 ### Section Heading Standards
-- **Main Section Headings (h1/h2)**: `text-4xl md:text-5xl font-normal modern-heritage`
-- **Subsection Headings (h3)**: `text-2xl font-bold modern-heritage`
-- **Small Headings (h4)**: `text-xl font-bold modern-heritage`
+- **Main Section Headings (h1/h2)**: `text-4xl md:text-5xl font-semibold modern-heritage`
+- **Subsection Headings (h3)**: `text-2xl font-semibold modern-heritage`
+- **Small Headings (h4)**: `text-xl font-semibold modern-heritage`
 - **Supporting Text**: Use `jost-secondary` font class for body text and descriptions
+
+### Typography Update (August 8, 2025)
+- **Primary Font**: Replaced Modern Heritage Display with Mona Sans SemiBold Wide for all headings
+- **Font Weight**: Updated from `font-normal` to `font-semibold` to match new font characteristics  
+- **Letter Spacing**: Increased to 0.02em for better readability with the new wide font
+- **Consistency Applied**: All major section headings across Home, Case Studies, and Liffo case study pages now use uniform `font-semibold` styling
 
 ### Color Applications
 - **Primary Color**: Use `text-primary` for accent elements and highlights
@@ -19,10 +25,11 @@ Preferred communication style: Simple, everyday language.
 - **White Text**: Use `text-white` for main content, `text-white/80` or `text-white/85` for secondary content
 
 ### Consistency Requirements
-- All major section headings across the portfolio MUST use `text-4xl md:text-5xl font-normal modern-heritage`
-- Never use `font-bold` for main section headings - always use `font-normal`
+- All major section headings across the portfolio MUST use `text-4xl md:text-5xl font-semibold modern-heritage`
+- Always use `font-semibold` for main section headings to match Mona Sans SemiBold Wide characteristics
 - Always include `modern-heritage` class for headings and `jost-secondary` for body text
 - Maintain consistent spacing: `mb-6` for section headings, `mb-8` for larger gaps
+- **CRITICAL**: Never use `font-normal` for any heading elements - all headings use `font-semibold`
 
 This ensures perfect visual consistency across Home, Case Studies, Admin, and any future pages.
 
