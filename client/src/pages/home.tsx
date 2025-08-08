@@ -139,6 +139,7 @@ export default function Home() {
       year: "2025",
       category: "Civic Platform",
       role: "UX Research, Design System, Full Development",
+      services: "Web Design & Development",
       outcomes: [
         "30% increase in completed actions within first month",
         "4× higher user retention vs previous system", 
@@ -176,6 +177,7 @@ export default function Home() {
       year: "2025",
       category: "Healthcare Platform",
       role: "Lead Product Designer",
+      services: "Mobile App Design",
       outcomes: [
         "87% faster service booking compared to traditional methods",
         "95% user satisfaction rate for emergency service accessibility",
@@ -815,7 +817,7 @@ export default function Home() {
                         </div>
                         <div>
                           <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">Services</p>
-                          <p className="text-white font-semibold jost-secondary">Web Design & Development</p>
+                          <p className="text-white font-semibold jost-secondary">{project.services}</p>
                         </div>
                       </div>
 
