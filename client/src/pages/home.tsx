@@ -277,7 +277,7 @@ export default function Home() {
       <section 
         ref={heroRef} 
         id="hero" 
-        className="min-h-screen flex items-center justify-center relative cyber-grid pt-40 pb-8"
+        className="min-h-screen flex items-center justify-center relative cyber-grid pt-40 pb-8 group"
         style={{
           '--mouse-x': `${mousePos.x}%`,
           '--mouse-y': `${mousePos.y}%`,
@@ -290,17 +290,15 @@ export default function Home() {
           intensity={waveIntensity}
         />
         
-        {/* Enhanced Grid Background */}
-        <div className="absolute inset-0 pointer-events-none z-[1]">
-          {/* Enhanced Grid Lines - More Visible */}
-          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
-          <div className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/50 to-transparent" />
+        {/* Subtle Grid Background - Hover Interactive */}
+        <div className="absolute inset-0 pointer-events-none z-[1] group-hover:opacity-100 transition-opacity duration-500">
+          {/* Main Grid Lines - Hidden on mobile, visible on hover for desktop */}
+          <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="hidden md:block absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           
-          {/* Additional Grid Lines */}
-          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-          <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-          <div className="absolute left-1/4 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/25 to-transparent" />
-          <div className="absolute left-3/4 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/25 to-transparent" />
+          {/* Mobile - Very subtle grid */}
+          <div className="md:hidden absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/5 to-transparent" />
+          <div className="md:hidden absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/3 to-transparent" />
 
         </div>
         <div className="max-w-5xl mx-auto px-8 md:px-6 text-center relative z-20 w-full">

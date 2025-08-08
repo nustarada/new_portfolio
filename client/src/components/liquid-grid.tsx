@@ -19,14 +19,14 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
 
   // Memoize static values
   const config = useMemo(() => ({
-    gridSize: 140, // Increased for better performance
+    gridSize: 60, // Smaller grid boxes
     distortionRadius: 70,
     maxDistortion: 8,
     lerpFactor: 0.15,
     targetFPS: 20, // Further reduced for better performance
-    baseOpacity: 0.15, // Increased for better visibility
-    activeOpacity: 0.25, // Increased for better visibility
-    lineWidth: 1 // Increased line width
+    baseOpacity: 0.02, // Very subtle base opacity
+    activeOpacity: 0.12, // Visible on hover
+    lineWidth: 0.5 // Thinner lines
   }), []);
 
   const resizeCanvas = useCallback(() => {
