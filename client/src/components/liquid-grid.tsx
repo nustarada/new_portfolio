@@ -24,9 +24,9 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
     maxDistortion: 8,
     lerpFactor: 0.15,
     targetFPS: 20, // Further reduced for better performance
-    baseOpacity: 0.05,
-    activeOpacity: 0.07,
-    lineWidth: 0.5
+    baseOpacity: 0.15, // Increased for better visibility
+    activeOpacity: 0.25, // Increased for better visibility
+    lineWidth: 1 // Increased line width
   }), []);
 
   const resizeCanvas = useCallback(() => {
