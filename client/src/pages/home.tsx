@@ -331,8 +331,8 @@ export default function Home() {
           <div className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent opacity-40" />
           
           {/* Minimal Corner Accents */}
-          <div className="absolute top-12 left-12 w-12 h-12 border-l border-t border-primary/40" />
-          <div className="absolute top-12 right-12 w-12 h-12 border-r border-t border-primary/40" />
+          <div className="absolute top-28 left-12 w-12 h-12 border-l border-t border-primary/40" />
+          <div className="absolute top-28 right-12 w-12 h-12 border-r border-t border-primary/40" />
           <div className="absolute bottom-12 left-12 w-12 h-12 border-l border-b border-primary/40" />
           <div className="absolute bottom-12 right-12 w-12 h-12 border-r border-b border-primary/40" />
         </div>
