@@ -291,7 +291,10 @@ export default function Home() {
         />
         
         {/* Subtle Grid Background - Hover Interactive */}
-        <div className="absolute inset-0 pointer-events-none z-[1] group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute inset-0 pointer-events-none z-[1]">
+          {/* Hover Glow Effect */}
+          <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          
           {/* Main Grid Lines - Hidden on mobile, visible on hover for desktop */}
           <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="hidden md:block absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
