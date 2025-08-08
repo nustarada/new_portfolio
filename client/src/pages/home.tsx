@@ -1273,37 +1273,53 @@ export default function Home() {
       </Dialog>
       {/* Footer */}
       <footer className="py-16 border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <div className="flex items-center justify-center space-x-12 mb-10">
-            
-            <a href="#hero" className="group">
-              <div className="relative w-16 h-16 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full border border-white/20 flex items-center justify-center hover:border-white/40 transition-all duration-500 hover:scale-110">
-                <img 
-                  src={LogoImage} 
-                  alt="KG Logo" 
-                  className="w-9 h-9 object-contain filter brightness-110"
-                />
+        <div className="max-w-4xl mx-auto px-6">
+          
+          <div className="flex items-center justify-center mb-10">
+            <div className="flex items-center space-x-16">
+              
+              {/* Logo Circle */}
+              <div className="flex-shrink-0">
+                <a href="#hero" className="block group">
+                  <div className="w-20 h-20 bg-gradient-to-br from-violet-600/30 to-indigo-600/30 rounded-full border-2 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
+                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
+                      <img 
+                        src={LogoImage} 
+                        alt="Logo" 
+                        className="w-6 h-6 object-contain brightness-125"
+                      />
+                    </div>
+                  </div>
+                </a>
               </div>
-            </a>
 
-            <a 
-              href="https://www.linkedin.com/in/karan-gadhave/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group"
-            >
-              <div className="relative w-16 h-16 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full border border-white/20 flex items-center justify-center hover:border-white/40 transition-all duration-500 hover:scale-110">
-                <Linkedin className="w-8 h-8 text-white group-hover:text-blue-400 transition-colors duration-300" />
+              {/* LinkedIn Circle */}
+              <div className="flex-shrink-0">
+                <a 
+                  href="https://www.linkedin.com/in/karan-gadhave/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
+                  <div className="w-20 h-20 bg-gradient-to-br from-violet-600/30 to-indigo-600/30 rounded-full border-2 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
+                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
+                      <Linkedin className="w-6 h-6 text-white group-hover:text-blue-300 transition-colors duration-300" />
+                    </div>
+                  </div>
+                </a>
               </div>
-            </a>
 
+            </div>
           </div>
           
-          <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8"></div>
+          <div className="w-32 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto mb-8"></div>
           
-          <p className="text-white/60 font-light tracking-wide text-sm">
-            © 2025 Karn Kalaa. Designed & developed with passion.
-          </p>
+          <div className="text-center">
+            <p className="text-white/70 text-sm font-light tracking-wider">
+              © 2025 Karn Kalaa. Designed & developed with passion.
+            </p>
+          </div>
+          
         </div>
       </footer>
     </div>
