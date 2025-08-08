@@ -706,7 +706,7 @@ const CaseStudyPage = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <Card className="p-6 text-center glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-300 h-56 flex flex-col">
+                <Card className="p-6 text-center glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-300 h-64 flex flex-col">
                   <div className="text-3xl md:text-4xl font-black text-green-400 mb-3 modern-heritage">
                     {result.value}
                   </div>
@@ -756,7 +756,7 @@ const CaseStudyPage = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <Card className="p-6 text-center glass-card grain-texture border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 h-40 flex flex-col justify-between">
+                <Card className="p-6 text-center glass-card grain-texture border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 h-48 flex flex-col justify-between">
                   <div className="flex-1 flex flex-col items-center justify-center">
                     <div className="w-12 h-12 bg-blue-500/20 rounded-xl mx-auto mb-4 flex items-center justify-center">
                       <div className="w-6 h-6 bg-blue-400 rounded opacity-70" />
