@@ -21,7 +21,7 @@ import {
   TrendingUp,
   Linkedin
 } from 'lucide-react';
-import LogoImage from "@assets/Logo black_1754170788875.png";
+import LogoImage from "@assets/Logo white_1754674219191.png";
 
 interface ProjectData {
   title: string;
