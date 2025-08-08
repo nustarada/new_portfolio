@@ -1275,11 +1275,17 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 text-center">
           {/* Logo and Social - Better Mobile Layout */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 mb-8">
-            <img 
-              src={LogoImage} 
-              alt="Karan Gadhave Logo" 
-              className="h-12 w-12 sm:h-16 sm:w-16 object-contain opacity-90"
-            />
+            <a 
+              href="#hero" 
+              className="cursor-pointer touch-manipulation hover:opacity-80 transition-opacity duration-300"
+              style={{ WebkitTapHighlightColor: 'transparent' }}
+            >
+              <img 
+                src={LogoImage} 
+                alt="Karan Gadhave Logo" 
+                className="h-12 w-12 sm:h-16 sm:w-16 object-contain opacity-90"
+              />
+            </a>
             <a 
               href="https://www.linkedin.com/in/karan-gadhave/" 
               target="_blank" 

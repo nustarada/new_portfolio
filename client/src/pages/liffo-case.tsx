@@ -1271,11 +1271,20 @@ const LiffoCaseStudy = () => {
         <div className="max-w-6xl mx-auto px-6 text-center">
           {/* Logo and Social - Better Mobile Layout */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 mb-8">
-            <img 
-              src={LogoImage} 
-              alt="Karan Gadhave Logo" 
-              className="h-12 w-12 sm:h-16 sm:w-16 object-contain opacity-90"
-            />
+            <Link href="/#hero">
+              <motion.div 
+                className="cursor-pointer touch-manipulation"
+                whileHover={{ scale: 1.05 }} 
+                whileTap={{ scale: 0.95 }}
+                style={{ WebkitTapHighlightColor: 'transparent' }}
+              >
+                <img 
+                  src={LogoImage} 
+                  alt="Karan Gadhave Logo" 
+                  className="h-12 w-12 sm:h-16 sm:w-16 object-contain opacity-90"
+                />
+              </motion.div>
+            </Link>
             <a 
               href="https://www.linkedin.com/in/karan-gadhave/" 
               target="_blank" 
