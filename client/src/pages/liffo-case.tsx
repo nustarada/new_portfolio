@@ -1257,8 +1257,8 @@ const LiffoCaseStudy = () => {
       {/* Footer */}
       <footer className="py-12 border-t border-border/30">
         <div className="container mx-auto px-4 text-center">
-          {/* Logo and Social - Better Mobile Layout */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 mb-8 w-full">
+          {/* Logo and Social - Side by Side Layout */}
+          <div className="flex flex-row justify-center items-center gap-6 mb-8 w-full">
             <Link href="/#hero">
               <motion.div 
                 className="cursor-pointer touch-manipulation"
