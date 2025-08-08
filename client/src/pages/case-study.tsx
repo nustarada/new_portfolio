@@ -691,24 +691,25 @@ const CaseStudyPage = () => {
             {caseStudyData.results.map((result, index) => (
               <motion.div
                 key={result.metric}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={{ scale: 1.02, y: -2 }}
               >
-                <Card className="p-8 text-center glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-300 h-64 flex flex-col justify-between">
-                  <div className="flex-1 flex flex-col justify-center">
-                    <div className="text-3xl md:text-4xl font-black text-green-400 modern-heritage mb-3">
+                <Card className="p-6 text-center glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-300">
+                  <div className="space-y-3">
+                    <div className="text-4xl md:text-5xl font-black text-green-400 modern-heritage leading-none">
                       {result.value}
                     </div>
                     <h3 className="text-lg font-semibold text-white jost-secondary">
                       {result.metric}
                     </h3>
+                    <div className="h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent my-4"></div>
+                    <p className="text-white/70 text-sm leading-relaxed jost-secondary">
+                      {result.description}
+                    </p>
                   </div>
-                  <p className="text-white/70 text-sm leading-relaxed jost-secondary text-center">
-                    {result.description}
-                  </p>
                 </Card>
               </motion.div>
             ))}
