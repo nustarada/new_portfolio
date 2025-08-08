@@ -8,7 +8,7 @@ Preferred communication style: Simple, everyday language.
 **Established August 2025** - All section headings must follow consistent typography:
 
 ### Section Heading Standards
-- **Main Section Headings (h1/h2)**: `text-4xl md:text-5xl font-semibold modern-heritage`
+- **Main Section Headings (h1/h2)**: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold modern-heritage text-white`
 - **Subsection Headings (h3)**: `text-2xl font-semibold modern-heritage`
 - **Small Headings (h4)**: `text-xl font-semibold modern-heritage`
 - **Supporting Text**: Use `jost-secondary` font class for body text and descriptions
@@ -25,14 +25,16 @@ Preferred communication style: Simple, everyday language.
 - **Section Headers**: Use `text-white` for all major section headings (no gradient backgrounds)
 - **White Text**: Use `text-white` for main content, `text-white/80` or `text-white/85` for secondary content
 
-### Consistency Requirements
-- All major section headings across the portfolio MUST use `text-4xl md:text-5xl font-semibold modern-heritage text-white`
+### Consistency Requirements (Updated August 8, 2025)
+- All major section headings across the portfolio MUST use `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold modern-heritage text-white`
+- **Mobile-First Responsive**: All headings scale from `text-2xl` on mobile to `lg:text-5xl` on large screens
 - Always use `font-semibold` for main section headings to match Mona Sans SemiBold Wide characteristics
 - Always use `text-white` for section headings (no gradient backgrounds)
 - Always include `modern-heritage` class for headings and `jost-secondary` for body text
 - Maintain consistent spacing: `mb-6` for section headings, `mb-8` for larger gaps
 - **CRITICAL**: Never use `font-normal` for any heading elements - all headings use `font-semibold`
 - **CRITICAL**: Never use gradient text backgrounds - all headings use clean `text-white`
+- **CRITICAL**: All headings must include full responsive breakpoints for optimal mobile experience
 
 This ensures perfect visual consistency across Home, Case Studies, Admin, and any future pages.
 

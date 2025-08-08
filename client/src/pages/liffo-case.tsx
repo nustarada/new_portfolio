@@ -458,7 +458,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               OVERVIEW & PROBLEM
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -560,7 +560,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               USER PERSONAS
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -649,7 +649,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               USER JOURNEY
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -736,7 +736,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               THE DESIGN SOLUTION
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -846,7 +846,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               KEY FEATURES
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -912,7 +912,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               DESIGN SHOWCASE
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -1034,7 +1034,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               RESULTS & IMPACT
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -1086,7 +1086,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               DESIGN PRINCIPLES
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -1141,7 +1141,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               TOOLS & TECHNOLOGY
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -1192,7 +1192,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               KEY LEARNINGS
             </h2>
             <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">

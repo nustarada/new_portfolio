@@ -272,7 +272,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               PROJECT OVERVIEW
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -343,7 +343,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               WEBSITE SHOWCASE
             </h2>
             <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
@@ -451,7 +451,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               THE CHALLENGE
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -506,7 +506,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               THE SOLUTION
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -561,7 +561,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               DESIGN & DEVELOPMENT PROCESS
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -628,7 +628,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               HUBSPOT INTEGRATION RESULTS
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -683,7 +683,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               RESULTS & IMPACT
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -735,7 +735,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               TECHNOLOGY STACK
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -786,7 +786,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 modern-heritage text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 modern-heritage text-white">
               KEY LEARNINGS
             </h2>
             <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
