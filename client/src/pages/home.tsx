@@ -290,15 +290,27 @@ export default function Home() {
           intensity={waveIntensity}
         />
         
-        {/* Elegant Single Color Background */}
+        {/* Enhanced Background Effects */}
         <div className="absolute inset-0 pointer-events-none z-[1]">
-          {/* Primary Elegant Glow */}
-          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/12 blur-3xl animate-pulse" />
+          {/* Primary Elegant Glow - Enhanced */}
+          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-primary/20 blur-3xl animate-pulse" />
           
-          {/* Refined Grid Lines */}
-          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent opacity-50" />
-          <div className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent opacity-40" />
+          {/* Secondary Glow */}
+          <div className="absolute top-2/3 left-1/4 w-[600px] h-[300px] bg-cyan-400/15 blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/4 right-1/4 w-[500px] h-[250px] bg-purple-400/10 blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
           
+          {/* Enhanced Grid Lines */}
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-70" />
+          <div className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/35 to-transparent opacity-60" />
+          
+          {/* Additional Grid Lines */}
+          <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-40" />
+          <div className="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent opacity-30" />
+          
+          {/* Subtle Particle Effects */}
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary/60 rounded-full blur-sm animate-pulse" />
+          <div className="absolute top-3/4 right-1/3 w-1 h-1 bg-cyan-400/50 rounded-full blur-sm animate-pulse" style={{ animationDelay: '0.5s' }} />
+          <div className="absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-purple-400/40 rounded-full blur-sm animate-pulse" style={{ animationDelay: '1.5s' }} />
 
         </div>
         <div className="max-w-5xl mx-auto px-8 md:px-6 text-center relative z-20 w-full">
