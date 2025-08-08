@@ -1067,11 +1067,11 @@ const LiffoCaseStudy = () => {
                     <div className="text-3xl md:text-4xl font-black text-green-400 mb-2 modern-heritage">
                       {result.value}
                     </div>
-                    <h3 className="text-base font-semibold text-white mb-2 jost-secondary">
+                    <h3 className="text-lg font-semibold text-white mb-2 jost-secondary">
                       {result.metric}
                     </h3>
                   </div>
-                  <p className="text-white/70 text-xs leading-tight jost-secondary line-clamp-3">
+                  <p className="text-white/70 text-sm leading-relaxed jost-secondary">
                     {result.description}
                   </p>
                 </Card>
@@ -1170,16 +1170,16 @@ const LiffoCaseStudy = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <Card className="p-4 text-center glass-card grain-texture border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 h-40 flex flex-col justify-between">
+                <Card className="p-6 text-center glass-card grain-texture border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 h-40 flex flex-col justify-between">
                   <div className="flex-1 flex flex-col items-center justify-center">
-                    <div className="w-10 h-10 bg-blue-500/20 rounded-xl mb-3 flex items-center justify-center">
-                      <div className="w-5 h-5 bg-blue-400 rounded opacity-70" />
+                    <div className="w-12 h-12 bg-blue-500/20 rounded-xl mx-auto mb-4 flex items-center justify-center">
+                      <div className="w-6 h-6 bg-blue-400 rounded opacity-70" />
                     </div>
-                    <h3 className="font-bold text-white text-sm jost-secondary leading-tight">
+                    <h3 className="font-bold text-white mb-2 jost-secondary text-base">
                       {tech.name}
                     </h3>
                   </div>
-                  <p className="text-xs text-white/60 jost-secondary mt-2">
+                  <p className="text-sm text-white/70 jost-secondary">
                     {tech.category}
                   </p>
                 </Card>
