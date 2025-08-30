@@ -49,40 +49,41 @@ const CaseStudyPage = () => {
   }, []);
 
   const caseStudyData = {
-    title: "FutureFirstFamilies: Gamified Advocacy Website & Platform",
-    subtitle: "Modern advocacy website with gamified elements, HubSpot API integration, and family-focused user experience",
+    title: "FutureFirstFamilies: AI-Enhanced Learning Platform",
+    subtitle: "Modern AI learning platform with gamified elements, HubSpot API integration, and personalized educational experiences",
     category: "Web Design & Development",
     duration: "4 weeks",
     year: "2024",
     team: "Solo Project",
     client: "FutureFirstFamilies Organization",
     role: "Lead Designer & Developer",
-    tags: ["React", "TypeScript", "Figma", "HubSpot API", "Tailwind CSS", "User Experience"],
+    tags: ["React", "TypeScript", "Figma", "HubSpot API", "Tailwind CSS", "AI Learning"],
     
     // Standard Case Study Sections
-    overview: "FutureFirstFamilies needed a modern, engaging website to replace their outdated platform and better connect with families participating in advocacy activities. The challenge was creating a user-friendly interface that could motivate continued engagement while managing content efficiently through API integration.",
+    overview: "FutureFirstFamilies needed a modern, engaging AI learning platform to replace their outdated system and better connect with families through personalized educational experiences. The challenge was creating a user-friendly interface that could leverage AI to adapt content and motivate continued learning while managing educational content efficiently through API integration.",
     
     problem: {
       title: "The Challenge",
-      description: "Traditional advocacy websites were static, uninspiring, and failed to engage families effectively. The existing platform had poor user experience, outdated design, and manual content management that hindered growth and participation.",
+      description: "Traditional learning platforms were static, one-size-fits-all, and failed to engage families effectively in personalized education. The existing platform had poor user experience, outdated design, and manual content management that hindered learning progress and family participation.",
       painPoints: [
-        "Low user engagement and participation rates",
-        "Outdated, non-responsive design affecting mobile users",
-        "Manual content management creating bottlenecks",
-        "Lack of interactive elements to motivate families",
-        "Poor navigation making resources hard to find"
+        "Low user engagement and learning completion rates",
+        "Outdated, non-responsive design affecting mobile learners",
+        "Manual content management creating educational bottlenecks",
+        "Lack of personalized AI-driven learning experiences",
+        "Poor navigation making educational resources hard to find"
       ]
     },
     
     solution: {
       title: "The Solution",
-      description: "Designed and developed a modern, vibrant advocacy website with gamified elements, intuitive user experience, and seamless HubSpot API integration for automated content management and improved family engagement.",
+      description: "Designed and developed a modern, AI-enhanced learning platform with gamified elements, personalized educational experiences, and seamless HubSpot API integration for automated content management and improved family learning outcomes.",
       features: [
         "Responsive, mobile-first design optimized for all devices",
-        "Gamified elements to encourage continued participation",
+        "AI-driven personalized learning paths and content adaptation",
+        "Gamified elements to encourage continued learning progress",
         "HubSpot API integration for automated content management",
-        "Intuitive navigation and family-friendly interface",
-        "Interactive features and engaging visual design"
+        "Intuitive navigation and family-friendly learning interface",
+        "Interactive features and engaging educational design"
       ]
     },
     
@@ -154,10 +155,10 @@ const CaseStudyPage = () => {
     ],
     
     learnings: [
-      "Importance of gamification in advocacy platforms to maintain user engagement",
-      "How API integration can streamline content management and reduce manual work",
-      "The value of family-centered design thinking in creating inclusive experiences",
-      "Benefits of comprehensive Figma design systems for scalable projects"
+      "Importance of AI-driven personalization in learning platforms to maintain user engagement",
+      "How API integration can streamline educational content management and reduce manual work",
+      "The value of family-centered design thinking in creating inclusive learning experiences",
+      "Benefits of comprehensive Figma design systems for scalable educational projects"
     ]
   };
 

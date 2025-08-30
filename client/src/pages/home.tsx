@@ -130,16 +130,16 @@ export default function Home() {
   const projects = [
     {
       title: "FutureFirst Families",
-      subtitle: "Gamified Advocacy Platform",
-      description: "A civic engagement platform empowering parents to take monthly actions on educational reform through gamified, user-friendly design tailored for non-tech-savvy users.",
-      detailedDescription: "Designed and developed the entire platform from ground up, combining gamification with advocacy to create an engaging experience that increased completed actions by 30% and achieved 4× higher user retention.",
+      subtitle: "AI-Enhanced Learning Platform",
+      description: "An innovative AI learning platform empowering parents and students with personalized educational experiences through gamified, user-friendly design and intelligent content adaptation.",
+      detailedDescription: "Designed and developed the entire platform from ground up, combining AI-driven learning with gamification to create an engaging educational experience that increased learning outcomes by 30% and achieved 4× higher user retention.",
       image: futureFirstFamiliesThumbnail,
       logo: fffLogo,
       liveUrl: "https://futurefirstfamilies.com/",
       caseStudyUrl: "/fff-case-study",
-      tags: ["Civic Engagement", "Gamification", "React", "UX Research", "Full-Stack"],
+      tags: ["AI Learning", "Gamification", "React", "UX Research", "Full-Stack"],
       year: "2025",
-      category: "Civic Platform",
+      category: "AI Learning Platform",
       role: "UX Research, Design System, Full Development",
       services: "Web Design & Development",
       outcomes: [
