@@ -5,6 +5,7 @@ import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, 
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { CaseStudyNavigation } from '@/components/case-study-navigation';
 import LogoImage from '@assets/Logo white_1754674219191.png';
 import homepageDesign from "@assets/Homepage (Wordpress)_1756635142322.png";
@@ -22,6 +23,7 @@ const TwoHourLearningCaseStudy = () => {
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [openModal, setOpenModal] = useState<string | null>(null);
 
   // Define navigation sections
   const navigationSections = [
@@ -352,10 +354,18 @@ const TwoHourLearningCaseStudy = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="p-6 glass-card grain-texture border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-500">
-                <div className="relative overflow-hidden bg-black/50 border border-white/10 mb-4">
+              <Card 
+                className="p-6 glass-card grain-texture border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-500 cursor-pointer group"
+                onClick={() => setOpenModal('homepage')}
+              >
+                <div className="relative overflow-hidden bg-black/50 border border-white/10 mb-4 group-hover:scale-105 transition-transform duration-300">
                   <img src={homepageDesign} alt="Homepage WordPress Design" className="w-full h-auto" />
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-500/10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-lg">
+                      <p className="text-white text-sm font-medium">Click to view full design</p>
+                    </div>
+                  </div>
                 </div>
                 <div className="text-center">
                   <h3 className="text-xl font-bold text-cyan-400 mb-2 druk-wide-medium">
@@ -375,10 +385,18 @@ const TwoHourLearningCaseStudy = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="p-6 glass-card grain-texture border-blue-500/30 hover:border-blue-400/50 transition-all duration-500">
-                <div className="relative overflow-hidden bg-black/50 border border-white/10 mb-4">
+              <Card 
+                className="p-6 glass-card grain-texture border-blue-500/30 hover:border-blue-400/50 transition-all duration-500 cursor-pointer group"
+                onClick={() => setOpenModal('persona1')}
+              >
+                <div className="relative overflow-hidden bg-black/50 border border-white/10 mb-4 group-hover:scale-105 transition-transform duration-300">
                   <img src={persona1Design} alt="Persona 1 HubSpot Design" className="w-full h-auto" />
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-cyan-500/10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-lg">
+                      <p className="text-white text-sm font-medium">Click to view full design</p>
+                    </div>
+                  </div>
                 </div>
                 <div className="text-center">
                   <h3 className="text-xl font-bold text-blue-400 mb-2 druk-wide-medium">
@@ -398,10 +416,18 @@ const TwoHourLearningCaseStudy = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <Card className="p-6 glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-500">
-                <div className="relative overflow-hidden bg-black/50 border border-white/10 mb-4">
+              <Card 
+                className="p-6 glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-500 cursor-pointer group"
+                onClick={() => setOpenModal('persona2')}
+              >
+                <div className="relative overflow-hidden bg-black/50 border border-white/10 mb-4 group-hover:scale-105 transition-transform duration-300">
                   <img src={persona2Design} alt="Persona 2 HubSpot Design" className="w-full h-auto" />
                   <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-teal-500/10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-lg">
+                      <p className="text-white text-sm font-medium">Click to view full design</p>
+                    </div>
+                  </div>
                 </div>
                 <div className="text-center">
                   <h3 className="text-xl font-bold text-green-400 mb-2 druk-wide-medium">
@@ -421,10 +447,18 @@ const TwoHourLearningCaseStudy = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <Card className="p-6 glass-card grain-texture border-purple-500/30 hover:border-purple-400/50 transition-all duration-500">
-                <div className="relative overflow-hidden bg-black/50 border border-white/10 mb-4">
+              <Card 
+                className="p-6 glass-card grain-texture border-purple-500/30 hover:border-purple-400/50 transition-all duration-500 cursor-pointer group"
+                onClick={() => setOpenModal('persona3')}
+              >
+                <div className="relative overflow-hidden bg-black/50 border border-white/10 mb-4 group-hover:scale-105 transition-transform duration-300">
                   <img src={persona3Design} alt="Persona 3 HubSpot Design" className="w-full h-auto" />
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-lg">
+                      <p className="text-white text-sm font-medium">Click to view full design</p>
+                    </div>
+                  </div>
                 </div>
                 <div className="text-center">
                   <h3 className="text-xl font-bold text-purple-400 mb-2 druk-wide-medium">
@@ -437,6 +471,83 @@ const TwoHourLearningCaseStudy = () => {
               </Card>
             </motion.div>
           </div>
+
+          {/* Design Modals */}
+          <Dialog open={openModal === 'homepage'} onOpenChange={() => setOpenModal(null)}>
+            <DialogContent className="max-w-4xl w-full h-[90vh] bg-background/95 border-cyan-500/30">
+              <DialogHeader>
+                <DialogTitle className="text-xl font-bold text-cyan-400 druk-wide-medium">
+                  Homepage (WordPress) - Full Design
+                </DialogTitle>
+              </DialogHeader>
+              <div className="flex-1 overflow-auto">
+                <div className="relative bg-white rounded-lg">
+                  <img 
+                    src={homepageDesign} 
+                    alt="Homepage WordPress Design - Full View" 
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
+
+          <Dialog open={openModal === 'persona1'} onOpenChange={() => setOpenModal(null)}>
+            <DialogContent className="max-w-4xl w-full h-[90vh] bg-background/95 border-blue-500/30">
+              <DialogHeader>
+                <DialogTitle className="text-xl font-bold text-blue-400 druk-wide-medium">
+                  Persona 1 (HubSpot) - Full Design
+                </DialogTitle>
+              </DialogHeader>
+              <div className="flex-1 overflow-auto">
+                <div className="relative bg-white rounded-lg">
+                  <img 
+                    src={persona1Design} 
+                    alt="Persona 1 HubSpot Design - Full View" 
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
+
+          <Dialog open={openModal === 'persona2'} onOpenChange={() => setOpenModal(null)}>
+            <DialogContent className="max-w-4xl w-full h-[90vh] bg-background/95 border-green-500/30">
+              <DialogHeader>
+                <DialogTitle className="text-xl font-bold text-green-400 druk-wide-medium">
+                  Persona 2 (HubSpot) - Full Design
+                </DialogTitle>
+              </DialogHeader>
+              <div className="flex-1 overflow-auto">
+                <div className="relative bg-white rounded-lg">
+                  <img 
+                    src={persona2Design} 
+                    alt="Persona 2 HubSpot Design - Full View" 
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
+
+          <Dialog open={openModal === 'persona3'} onOpenChange={() => setOpenModal(null)}>
+            <DialogContent className="max-w-4xl w-full h-[90vh] bg-background/95 border-purple-500/30">
+              <DialogHeader>
+                <DialogTitle className="text-xl font-bold text-purple-400 druk-wide-medium">
+                  Persona 3 (HubSpot) - Full Design
+                </DialogTitle>
+              </DialogHeader>
+              <div className="flex-1 overflow-auto">
+                <div className="relative bg-white rounded-lg">
+                  <img 
+                    src={persona3Design} 
+                    alt="Persona 3 HubSpot Design - Full View" 
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </section>
       {/* 3. Design Strategy */}
