@@ -8,33 +8,37 @@ Preferred communication style: Simple, everyday language.
 **Established August 2025** - All section headings must follow consistent typography:
 
 ### Section Heading Standards
-- **Main Section Headings (h1/h2)**: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold modern-heritage text-white`
-- **Subsection Headings (h3)**: `text-2xl font-semibold modern-heritage`
-- **Small Headings (h4)**: `text-xl font-semibold modern-heritage`
+- **Main Section Headings (h1/h2)**: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold druk-wide-medium text-white`
+- **Subsection Headings (h3)**: `text-2xl font-semibold druk-wide-medium`
+- **Small Headings (h4)**: `text-xl font-semibold druk-wide-medium`
 - **Supporting Text**: Use `jost-secondary` font class for body text and descriptions
 
-### Typography Update (August 8, 2025)
-- **Primary Font**: Replaced Modern Heritage Display with Mona Sans SemiBold Wide for all headings
-- **Font Weight**: Updated from `font-normal` to `font-semibold` to match new font characteristics  
-- **Letter Spacing**: Increased to 0.02em for better readability with the new wide font
-- **Text Color**: Changed all section headings from gradient backgrounds to clean `text-white` styling
-- **Consistency Applied**: All major section headings across Home, Case Studies, and Liffo case study pages now use uniform `font-semibold text-white` styling
+### Typography Update (August 31, 2025)
+- **Complete Migration**: Successfully migrated from Modern Heritage Display to Druk Wide Medium font across entire portfolio
+- **Primary Font**: All section headings now use Druk Wide Medium (`druk-wide-medium` class)
+- **Font Weight**: Maintained `font-semibold` weight for optimal readability with the new condensed wide font
+- **Letter Spacing**: Consistent 0.02em letter spacing applied across all headings
+- **Text Color**: Clean `text-white` styling maintained for all major section headings
+- **Scope**: Typography migration completed across Home page, Case Studies page, and Liffo case study page
+- **Statistics**: Achievement numbers in statistics section also updated to use Druk Wide Medium font
+- **Consistency**: All major headings now use `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold druk-wide-medium text-white`
 
 ### Color Applications
 - **Primary Color**: Use `text-primary` for accent elements and highlights
 - **Section Headers**: Use `text-white` for all major section headings (no gradient backgrounds)
 - **White Text**: Use `text-white` for main content, `text-white/80` or `text-white/85` for secondary content
 
-### Consistency Requirements (Updated August 8, 2025)
-- All major section headings across the portfolio MUST use `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold modern-heritage text-white`
+### Consistency Requirements (Updated August 31, 2025)
+- All major section headings across the portfolio MUST use `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold druk-wide-medium text-white`
 - **Mobile-First Responsive**: All headings scale from `text-2xl` on mobile to `lg:text-5xl` on large screens
-- Always use `font-semibold` for main section headings to match Mona Sans SemiBold Wide characteristics
+- Always use `font-semibold` for main section headings to match Druk Wide Medium characteristics
 - Always use `text-white` for section headings (no gradient backgrounds)
-- Always include `modern-heritage` class for headings and `jost-secondary` for body text
+- Always include `druk-wide-medium` class for headings and `jost-secondary` for body text
 - Maintain consistent spacing: `mb-6` for section headings, `mb-8` for larger gaps
 - **CRITICAL**: Never use `font-normal` for any heading elements - all headings use `font-semibold`
 - **CRITICAL**: Never use gradient text backgrounds - all headings use clean `text-white`
 - **CRITICAL**: All headings must include full responsive breakpoints for optimal mobile experience
+- **CRITICAL**: Never use `modern-heritage` class - migration to `druk-wide-medium` is complete
 
 This ensures perfect visual consistency across Home, Case Studies, Admin, and any future pages.
 

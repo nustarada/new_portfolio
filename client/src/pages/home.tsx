@@ -517,7 +517,7 @@ export default function Home() {
                           <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                         </div>
                         <div>
-                          <span className="text-2xl sm:text-3xl font-black text-primary modern-heritage block">{stat.number}</span>
+                          <span className="text-2xl sm:text-3xl font-black text-primary druk-wide-medium block">{stat.number}</span>
                           <h3 className="text-white font-bold text-sm sm:text-base jost-secondary mt-1">{stat.label}</h3>
                           <p className="text-white/60 text-xs sm:text-sm jost-secondary mt-1">{stat.description}</p>
                         </div>
@@ -530,7 +530,7 @@ export default function Home() {
                         </div>
                         <div className="flex-1">
                           <div className="flex items-baseline space-x-3 mb-1">
-                            <span className="text-2xl lg:text-3xl font-black text-primary modern-heritage">{stat.number}</span>
+                            <span className="text-2xl lg:text-3xl font-black text-primary druk-wide-medium">{stat.number}</span>
                             <h3 className="text-white font-bold text-sm lg:text-base jost-secondary">{stat.label}</h3>
                           </div>
                           <p className="text-white/60 text-xs lg:text-sm jost-secondary">{stat.description}</p>
@@ -580,7 +580,7 @@ export default function Home() {
                           <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                         </div>
                         <div>
-                          <span className="text-2xl sm:text-3xl font-black text-primary modern-heritage block">{stat.number}</span>
+                          <span className="text-2xl sm:text-3xl font-black text-primary druk-wide-medium block">{stat.number}</span>
                           <h3 className="text-white font-bold text-sm sm:text-base jost-secondary mt-1">{stat.label}</h3>
                           <p className="text-white/60 text-xs sm:text-sm jost-secondary mt-1">{stat.description}</p>
                         </div>
@@ -593,7 +593,7 @@ export default function Home() {
                         </div>
                         <div className="flex-1">
                           <div className="flex items-baseline space-x-3 mb-1">
-                            <span className="text-2xl lg:text-3xl font-black text-primary modern-heritage">{stat.number}</span>
+                            <span className="text-2xl lg:text-3xl font-black text-primary druk-wide-medium">{stat.number}</span>
                             <h3 className="text-white font-bold text-sm lg:text-base jost-secondary">{stat.label}</h3>
                           </div>
                           <p className="text-white/60 text-xs lg:text-sm jost-secondary">{stat.description}</p>
