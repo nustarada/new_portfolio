@@ -231,7 +231,7 @@ const TwoHourLearningCaseStudy = () => {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white druk-wide-medium leading-tight">
                   2 Hour Learning
                 </h1>
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white druk-wide-medium leading-tight">
+                <h2 className="text-lg font-semibold text-white druk-wide-medium leading-tight">
                   Landing Page Design System
                 </h2>
               </div>
