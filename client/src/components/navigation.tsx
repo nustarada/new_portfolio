@@ -50,7 +50,7 @@ export function Navigation() {
               <img 
                 src={LogoImage} 
                 alt="Karan Gadhave Logo" 
-                className="h-20 w-20 object-contain"
+                className="h-24 w-24 object-contain"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-cyan-400/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-300" />
             </div>
