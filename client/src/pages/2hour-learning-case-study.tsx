@@ -60,7 +60,7 @@ const TwoHourLearningCaseStudy = () => {
     title: "2 Hour Learning: Educational Landing Page System",
     subtitle: "Comprehensive landing page design system targeting multiple educational personas with conversion-focused layouts and strategic messaging",
     category: "Landing Page Design & Strategy",
-    duration: "6 weeks",
+    duration: "4 weeks",
     year: "2025",
     team: "Solo Project",
     client: "2 Hour Learning",
