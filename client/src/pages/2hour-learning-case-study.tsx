@@ -12,6 +12,10 @@ import homepageDesign from "@assets/Homepage (Wordpress)_1756635142322.png";
 import persona1Design from "@assets/Persona 1 (Hubspot)_1756635142323.png";
 import persona2Design from "@assets/Persona 2 (Hubspot)_1756635142324.png";
 import persona3Design from "@assets/Persona 3 (Hubspot)_1756635142324.png";
+import homepageThumbnail from "@assets/Homepage Thumbnail_1756635908006.png";
+import persona1Thumbnail from "@assets/Persona 1 Thumbnail_1756635908006.png";
+import persona2Thumbnail from "@assets/Persona 2 Thumbnail_1756635908006.png";
+import persona3Thumbnail from "@assets/Persona 3 Thumbnail_1756635908004.png";
 
 const TwoHourLearningCaseStudy = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -355,15 +359,14 @@ const TwoHourLearningCaseStudy = () => {
               viewport={{ once: true }}
             >
               <Card 
-                className="p-6 glass-card grain-texture border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-500 cursor-pointer group"
+                className="p-4 glass-card grain-texture border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-500 cursor-pointer group"
                 onClick={() => setOpenModal('homepage')}
               >
-                <div className="relative overflow-hidden bg-black/50 border border-white/10 mb-4 group-hover:scale-105 transition-transform duration-300">
-                  <img src={homepageDesign} alt="Homepage WordPress Design" className="w-full h-auto" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-500/10 pointer-events-none" />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-lg">
-                      <p className="text-white text-sm font-medium">Click to view full design</p>
+                <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
+                  <img src={homepageThumbnail} alt="Homepage WordPress Design" className="w-full h-auto rounded-lg" />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-lg">
+                      <p className="text-white text-xs font-medium">Click to view full design</p>
                     </div>
                   </div>
                 </div>
@@ -386,15 +389,14 @@ const TwoHourLearningCaseStudy = () => {
               viewport={{ once: true }}
             >
               <Card 
-                className="p-6 glass-card grain-texture border-blue-500/30 hover:border-blue-400/50 transition-all duration-500 cursor-pointer group"
+                className="p-4 glass-card grain-texture border-blue-500/30 hover:border-blue-400/50 transition-all duration-500 cursor-pointer group"
                 onClick={() => setOpenModal('persona1')}
               >
-                <div className="relative overflow-hidden bg-black/50 border border-white/10 mb-4 group-hover:scale-105 transition-transform duration-300">
-                  <img src={persona1Design} alt="Persona 1 HubSpot Design" className="w-full h-auto" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-cyan-500/10 pointer-events-none" />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-lg">
-                      <p className="text-white text-sm font-medium">Click to view full design</p>
+                <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
+                  <img src={persona1Thumbnail} alt="Persona 1 HubSpot Design" className="w-full h-auto rounded-lg" />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-lg">
+                      <p className="text-white text-xs font-medium">Click to view full design</p>
                     </div>
                   </div>
                 </div>
@@ -417,15 +419,14 @@ const TwoHourLearningCaseStudy = () => {
               viewport={{ once: true }}
             >
               <Card 
-                className="p-6 glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-500 cursor-pointer group"
+                className="p-4 glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-500 cursor-pointer group"
                 onClick={() => setOpenModal('persona2')}
               >
-                <div className="relative overflow-hidden bg-black/50 border border-white/10 mb-4 group-hover:scale-105 transition-transform duration-300">
-                  <img src={persona2Design} alt="Persona 2 HubSpot Design" className="w-full h-auto" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-teal-500/10 pointer-events-none" />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-lg">
-                      <p className="text-white text-sm font-medium">Click to view full design</p>
+                <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
+                  <img src={persona2Thumbnail} alt="Persona 2 HubSpot Design" className="w-full h-auto rounded-lg" />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-lg">
+                      <p className="text-white text-xs font-medium">Click to view full design</p>
                     </div>
                   </div>
                 </div>
@@ -448,15 +449,14 @@ const TwoHourLearningCaseStudy = () => {
               viewport={{ once: true }}
             >
               <Card 
-                className="p-6 glass-card grain-texture border-purple-500/30 hover:border-purple-400/50 transition-all duration-500 cursor-pointer group"
+                className="p-4 glass-card grain-texture border-purple-500/30 hover:border-purple-400/50 transition-all duration-500 cursor-pointer group"
                 onClick={() => setOpenModal('persona3')}
               >
-                <div className="relative overflow-hidden bg-black/50 border border-white/10 mb-4 group-hover:scale-105 transition-transform duration-300">
-                  <img src={persona3Design} alt="Persona 3 HubSpot Design" className="w-full h-auto" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/10 pointer-events-none" />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-lg">
-                      <p className="text-white text-sm font-medium">Click to view full design</p>
+                <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
+                  <img src={persona3Thumbnail} alt="Persona 3 HubSpot Design" className="w-full h-auto rounded-lg" />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-lg">
+                      <p className="text-white text-xs font-medium">Click to view full design</p>
                     </div>
                   </div>
                 </div>
