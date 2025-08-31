@@ -16,7 +16,7 @@ import futureFirstFamiliesThumbnail from '@assets/FutureFirstFamilies_thumbnail_
 import liffoThumbnail from '@assets/Liffo_thumbnail_1754478108594.png';
 import resumePdf from '@assets/Karan Gadhave CV_1754656812100.pdf';
 import profilePhoto from '@assets/4. Dashboard 1_1754469198505.png';
-import LogoImage from '@assets/Logo white_1756619679749.png';
+import LogoImage from '@assets/Logo white_1754674219191.png';
 import fffLogo from '@assets/FFF_Logo_1754475239613.png';
 import liffoLogo from '@assets/Liffo_logo_1754475239620.png';
 import { 
@@ -231,7 +231,7 @@ export default function Home() {
             className="flex items-center"
             whileHover={{ scale: 1.05 }}
           >
-            <img src={LogoImage} alt="Karan Gadhave Logo" className="h-32 w-32 object-contain" />
+            <img src={LogoImage} alt="Karan Gadhave Logo" className="h-16 w-16 object-contain" />
           </motion.div>
           
           <div className="hidden md:flex items-center space-x-8 text-[#ffffff]">

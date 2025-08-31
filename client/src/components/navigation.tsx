@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import LogoImage from "@assets/Logo white_1756619679749.png";
+import LogoImage from "@assets/Logo white_1754674219191.png";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,7 +50,7 @@ export function Navigation() {
               <img 
                 src={LogoImage} 
                 alt="Karan Gadhave Logo" 
-                className="h-32 w-32 object-contain"
+                className="h-16 w-16 object-contain"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-cyan-400/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-300" />
             </div>
