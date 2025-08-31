@@ -370,7 +370,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.3 }}
-            className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto font-normal jost-secondary mb-8"
+            className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto font-normal jost-secondary mb-8"
           >Designing exceptional digital experiences with Figma, enhanced by AI tools like Replit, Lovable, and more.</motion.p>
           
           {/* Responsive Action Buttons */}
