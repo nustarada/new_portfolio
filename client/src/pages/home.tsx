@@ -346,7 +346,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight modern-heritage">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight modern-heritage">
               <span className="text-white">SENIOR </span>
               <span className="glow-text">PRODUCT DESIGNER</span>
             </h2>
