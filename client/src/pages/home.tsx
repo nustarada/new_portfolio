@@ -898,7 +898,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <div className="relative inline-block mb-6">
-              <h2 className="text-4xl md:text-5xl font-normal glow-text relative z-10 modern-heritage">DESIGN PHILOSOPHY</h2>
+              <h2 className="text-4xl md:text-5xl font-semibold glow-text relative z-10 druk-wide-medium">DESIGN PHILOSOPHY</h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
             </div>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
