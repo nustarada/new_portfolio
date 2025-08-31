@@ -323,10 +323,11 @@ export default function Home() {
               >
                 <Badge 
                   variant="outline" 
-                  className="text-sm px-6 py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-300 jost-secondary cursor-pointer"
+                  className="text-sm px-6 py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-300 jost-secondary cursor-pointer group"
                 >
                   <Sparkles className="w-4 h-4 mr-2 text-primary" />
                   POWERED BY PITCHCRAFT
+                  <ArrowRight className="w-4 h-4 ml-2 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1" />
                 </Badge>
               </a>
             </motion.div>
