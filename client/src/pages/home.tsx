@@ -333,7 +333,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-white tracking-wide leading-tight hero-text-hover flex justify-center">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold text-white tracking-wide leading-tight hero-text-hover flex justify-center">
               <span className="text-white space-grotesk-wide">KARN KALAA</span>
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto"></div>
