@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { CaseStudyNavigation } from '@/components/case-study-navigation';
-import LogoImage from '@assets/Logo white_1756619443616.png';
+import LogoImage from '@assets/Logo white_1756619679749.png';
 import fffVideoPath from "@assets/FFF website video (video-converter.com)_1754054201797.webm";
 
 const CaseStudyPage = () => {
