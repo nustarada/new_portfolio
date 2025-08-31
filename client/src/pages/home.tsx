@@ -333,8 +333,8 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold text-white tracking-wide leading-tight hero-text-hover modern-heritage md:whitespace-nowrap">
-              <span className="text-white">KARAN<br className="block md:hidden" /> GADHAVE</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold text-white tracking-wide leading-tight hero-text-hover md:whitespace-nowrap">
+              <span className="text-white space-grotesk-wide">KARAN<br className="block md:hidden" /> GADHAVE</span>
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto"></div>
           </motion.div>
