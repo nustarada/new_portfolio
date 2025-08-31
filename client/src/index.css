@@ -731,13 +731,18 @@ button,
 
 .space-grotesk-wide {
   font-family: 'Work Sans', 'Anton', sans-serif !important;
-  font-weight: 900 !important;
+  font-weight: 600 !important;
   letter-spacing: 0.02em !important;
   font-stretch: ultra-expanded !important;
-  transform: scaleX(1.8) scaleY(0.95) !important;
-  line-height: 0.9 !important;
+  transform: scaleX(1.5) scaleY(0.98) !important;
+  line-height: 0.95 !important;
   text-transform: uppercase !important;
   display: inline-block !important;
+  width: 60vw !important;
+  max-width: 60vw !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 
