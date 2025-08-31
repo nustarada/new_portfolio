@@ -399,8 +399,8 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.7 }}
           >
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight druk-wide-medium">
-              <span className="text-white">SENIOR </span>
-              <span className="glow-text">PRODUCT DESIGNER</span>
+              <span className="text-white">CREATIVE </span>
+              <span className="glow-text">DIRECTOR</span>
             </h2>
             
             <motion.div 
@@ -411,7 +411,7 @@ export default function Home() {
             >
               <div className="w-16 h-0.5 bg-primary" />
               <span className="text-xl md:text-2xl font-light text-primary jost-secondary">
-                & AI INNOVATOR
+                & DESIGN STRATEGIST
               </span>
               <div className="w-16 h-0.5 bg-primary" />
             </motion.div>
