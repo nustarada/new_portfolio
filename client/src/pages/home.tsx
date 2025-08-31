@@ -1327,7 +1327,7 @@ export default function Home() {
           
           <div className="text-center">
             <p className="text-white/70 text-sm font-light tracking-wider">
-              © 2025 Karn Kalaa. Designed & developed with passion.
+              © 2025 Karn Kalaa powered by pitchcraft.global. Designed & developed with passion.
             </p>
           </div>
           
