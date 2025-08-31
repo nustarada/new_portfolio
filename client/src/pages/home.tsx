@@ -345,7 +345,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold text-white tracking-wide leading-tight hero-text-hover flex justify-center">
-              <span className="text-blue-500 druk-wide-medium blend-mode-overlay">KARN KALAA</span>
+              <span className="text-gray-200 druk-wide-medium blend-mode-overlay">KARN KALAA</span>
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto"></div>
           </motion.div>
