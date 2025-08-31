@@ -350,7 +350,7 @@ const TwoHourLearningCaseStudy = () => {
           </motion.div>
 
           {/* Design Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
             {/* Homepage Design */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -359,23 +359,23 @@ const TwoHourLearningCaseStudy = () => {
               viewport={{ once: true }}
             >
               <Card 
-                className="p-4 glass-card grain-texture border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-500 cursor-pointer group"
+                className="p-3 glass-card grain-texture border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-500 cursor-pointer group"
                 onClick={() => setOpenModal('homepage')}
               >
-                <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
+                <div className="relative overflow-hidden rounded-lg mb-2 group-hover:scale-105 transition-transform duration-300">
                   <img src={homepageThumbnail} alt="Homepage WordPress Design" className="w-full h-auto rounded-lg" />
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-lg">
-                      <p className="text-white text-xs font-medium">Click to view full design</p>
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-2 py-1 rounded">
+                      <p className="text-white text-xs font-medium">Click to view</p>
                     </div>
                   </div>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-xl font-bold text-cyan-400 mb-2 druk-wide-medium">
+                  <h3 className="text-lg font-bold text-cyan-400 mb-1 druk-wide-medium">
                     Homepage (WordPress)
                   </h3>
-                  <p className="text-white/75 text-sm jost-secondary">
-                    Comprehensive overview targeting general audience with multiple conversion paths
+                  <p className="text-white/75 text-xs jost-secondary">
+                    Comprehensive overview targeting general audience
                   </p>
                 </div>
               </Card>
@@ -389,23 +389,23 @@ const TwoHourLearningCaseStudy = () => {
               viewport={{ once: true }}
             >
               <Card 
-                className="p-4 glass-card grain-texture border-blue-500/30 hover:border-blue-400/50 transition-all duration-500 cursor-pointer group"
+                className="p-3 glass-card grain-texture border-blue-500/30 hover:border-blue-400/50 transition-all duration-500 cursor-pointer group"
                 onClick={() => setOpenModal('persona1')}
               >
-                <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
+                <div className="relative overflow-hidden rounded-lg mb-2 group-hover:scale-105 transition-transform duration-300">
                   <img src={persona1Thumbnail} alt="Persona 1 HubSpot Design" className="w-full h-auto rounded-lg" />
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-lg">
-                      <p className="text-white text-xs font-medium">Click to view full design</p>
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-2 py-1 rounded">
+                      <p className="text-white text-xs font-medium">Click to view</p>
                     </div>
                   </div>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-xl font-bold text-blue-400 mb-2 druk-wide-medium">
+                  <h3 className="text-lg font-bold text-blue-400 mb-1 druk-wide-medium">
                     Persona 1 (HubSpot)
                   </h3>
-                  <p className="text-white/75 text-sm jost-secondary">
-                    AI-powered personalized learning targeting students and parents
+                  <p className="text-white/75 text-xs jost-secondary">
+                    AI-powered learning targeting students
                   </p>
                 </div>
               </Card>
@@ -419,23 +419,23 @@ const TwoHourLearningCaseStudy = () => {
               viewport={{ once: true }}
             >
               <Card 
-                className="p-4 glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-500 cursor-pointer group"
+                className="p-3 glass-card grain-texture border-green-500/30 hover:border-green-400/50 transition-all duration-500 cursor-pointer group"
                 onClick={() => setOpenModal('persona2')}
               >
-                <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
+                <div className="relative overflow-hidden rounded-lg mb-2 group-hover:scale-105 transition-transform duration-300">
                   <img src={persona2Thumbnail} alt="Persona 2 HubSpot Design" className="w-full h-auto rounded-lg" />
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-lg">
-                      <p className="text-white text-xs font-medium">Click to view full design</p>
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-2 py-1 rounded">
+                      <p className="text-white text-xs font-medium">Click to view</p>
                     </div>
                   </div>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-xl font-bold text-green-400 mb-2 druk-wide-medium">
+                  <h3 className="text-lg font-bold text-green-400 mb-1 druk-wide-medium">
                     Persona 2 (HubSpot)
                   </h3>
-                  <p className="text-white/75 text-sm jost-secondary">
-                    Better outcomes and planning efficiency for educators and teachers
+                  <p className="text-white/75 text-xs jost-secondary">
+                    Better outcomes for educators
                   </p>
                 </div>
               </Card>
@@ -449,23 +449,23 @@ const TwoHourLearningCaseStudy = () => {
               viewport={{ once: true }}
             >
               <Card 
-                className="p-4 glass-card grain-texture border-purple-500/30 hover:border-purple-400/50 transition-all duration-500 cursor-pointer group"
+                className="p-3 glass-card grain-texture border-purple-500/30 hover:border-purple-400/50 transition-all duration-500 cursor-pointer group"
                 onClick={() => setOpenModal('persona3')}
               >
-                <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
+                <div className="relative overflow-hidden rounded-lg mb-2 group-hover:scale-105 transition-transform duration-300">
                   <img src={persona3Thumbnail} alt="Persona 3 HubSpot Design" className="w-full h-auto rounded-lg" />
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-lg">
-                      <p className="text-white text-xs font-medium">Click to view full design</p>
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-2 py-1 rounded">
+                      <p className="text-white text-xs font-medium">Click to view</p>
                     </div>
                   </div>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-xl font-bold text-purple-400 mb-2 druk-wide-medium">
+                  <h3 className="text-lg font-bold text-purple-400 mb-1 druk-wide-medium">
                     Persona 3 (HubSpot)
                   </h3>
-                  <p className="text-white/75 text-sm jost-secondary">
-                    Revolutionary school model targeting institutions and administrators
+                  <p className="text-white/75 text-xs jost-secondary">
+                    Revolutionary school model for institutions
                   </p>
                 </div>
               </Card>
