@@ -1034,11 +1034,11 @@ export default function Home() {
                   <div className="space-y-3">
                     <p className="text-lg font-semibold text-white/70 jost-secondary">Email</p>
                     <a 
-                      href="mailto:gadhavekaran@gmail.com"
+                      href="mailto:hello@pitchcraft.global"
                       className="text-2xl md:text-3xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary inline-block"
                       style={{ wordBreak: 'keep-all', whiteSpace: 'nowrap' }}
                     >
-                      gadhavekaran@gmail.com
+                      HELLO@PITCHCRAFT.GLOBAL
                     </a>
                   </div>
                 </motion.div>
