@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 
-import { ParticleBackground } from "@/components/particles";
+
 import { ScrollIndicator } from "@/components/scroll-indicator";
 import Home from "@/pages/home";
 import ProjectDetail from "@/pages/project-detail";
@@ -32,7 +32,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <div className="dark">
-          <ParticleBackground />
+
           <ScrollIndicator />
 
           <Toaster />
