@@ -20,7 +20,7 @@ import LogoImage from '@assets/Logo white_1754674219191.png';
 import fffLogo from '@assets/FFF_Logo_1754475239613.png';
 import liffoLogo from '@assets/Liffo_logo_1754475239620.png';
 import linkedinLogo from '@assets/linkedin 1_1756620179383.png';
-import twoHourLearningThumbnail from '@assets/Homepage (Wordpress)_1756635142322.png';
+import twoHourLearningThumbnail from '@assets/2hl thumbnail_1756637673905.png';
 import { 
   Terminal, 
   Sparkles, 
