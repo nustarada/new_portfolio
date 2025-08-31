@@ -231,7 +231,7 @@ export default function Home() {
             className="flex items-center"
             whileHover={{ scale: 1.05 }}
           >
-            <img src={LogoImage} alt="Karan Gadhave Logo" className="h-16 w-16 object-contain" />
+            <img src={LogoImage} alt="Karan Gadhave Logo" className="h-32 w-32 object-contain" />
           </motion.div>
           
           <div className="hidden md:flex items-center space-x-8 text-[#ffffff]">
