@@ -232,7 +232,7 @@ const TwoHourLearningCaseStudy = () => {
                   2 Hour Learning
                 </h1>
                 <h2 className="text-lg font-semibold text-white druk-wide-medium leading-tight">
-                  Landing Page Design System
+                  Persona-Driven Lead Generation
                 </h2>
               </div>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
