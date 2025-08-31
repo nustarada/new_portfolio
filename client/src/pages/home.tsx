@@ -237,7 +237,7 @@ export default function Home() {
         "Data-driven testimonials and social proof elements"
       ],
       techStack: ["Figma", "HubSpot", "WordPress", "Responsive Design"],
-      duration: "6 Weeks",
+      duration: "4 Weeks",
       process: [
         "Analyzed target personas and conversion requirements",
         "Created wireframes and user journey mapping",
