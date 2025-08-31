@@ -21,6 +21,7 @@ import fffLogo from '@assets/FFF_Logo_1754475239613.png';
 import liffoLogo from '@assets/Liffo_logo_1754475239620.png';
 import linkedinLogo from '@assets/linkedin 1_1756620179383.png';
 import twoHourLearningThumbnail from '@assets/2hl thumbnail_1756637673905.png';
+import twoHourLearningLogo from '@assets/2HL Logo_1756637716101.png';
 import { 
   Terminal, 
   Sparkles, 
@@ -213,7 +214,7 @@ export default function Home() {
       description: "A comprehensive landing page design system for 2 Hour Learning featuring targeted designs for different educational personas including students, educators, and institutions.",
       detailedDescription: "Created a cohesive set of 4 specialized landing pages targeting different segments of the education market, each optimized for specific user personas and conversion goals while maintaining brand consistency and visual excellence.",
       image: twoHourLearningThumbnail,
-      logo: undefined,
+      logo: twoHourLearningLogo,
       liveUrl: "https://2hourlearning.com/",
       caseStudyUrl: "/2hour-learning-case-study",
       tags: ["Landing Pages", "Education", "Conversion Design", "HubSpot", "WordPress"],
