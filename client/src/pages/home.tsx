@@ -323,12 +323,14 @@ export default function Home() {
               >
                 <Badge 
                   variant="outline" 
-                  className="text-sm px-6 py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-500 jost-secondary cursor-pointer group overflow-hidden relative"
+                  className="text-sm py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-500 jost-secondary cursor-pointer group relative overflow-hidden"
                 >
-                  <div className="flex items-center transition-all duration-500 group-hover:pr-6">
+                  <div className="flex items-center px-6 group-hover:px-6 transition-all duration-500">
                     <Sparkles className="w-4 h-4 mr-2 text-primary flex-shrink-0" />
                     <span className="whitespace-nowrap">POWERED BY PITCHCRAFT</span>
-                    <ArrowRight className="w-4 h-4 ml-2 text-primary opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-[-100%] group-hover:translate-x-0 flex-shrink-0" />
+                    <div className="w-0 group-hover:w-6 transition-all duration-500 overflow-hidden">
+                      <ArrowRight className="w-4 h-4 ml-2 text-primary opacity-0 group-hover:opacity-100 transition-all duration-500 flex-shrink-0" />
+                    </div>
                   </div>
                 </Badge>
               </a>
