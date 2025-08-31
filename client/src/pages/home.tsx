@@ -221,9 +221,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden" style={{ backgroundColor: '#040406', color: '#fafafa' }}>
       {/* Scroll Progress */}
       <motion.div className="scroll-indicator" style={{ scaleX }} />
-      {/* Floating Orbs */}
-      <div className="floating-orb w-64 h-64 top-20 -left-32 opacity-30" />
-      <div className="floating-orb w-96 h-96 top-1/2 -right-48 opacity-20" style={{ animationDelay: '2s' }} />
+
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-[100] glass-card grain-texture border-b border-white/20">
