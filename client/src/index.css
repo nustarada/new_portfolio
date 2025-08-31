@@ -738,8 +738,8 @@ button,
   line-height: 0.95 !important;
   text-transform: uppercase !important;
   display: inline-block !important;
-  width: 60vw !important;
-  max-width: 60vw !important;
+  width: 75vw !important;
+  max-width: 75vw !important;
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
