@@ -730,7 +730,7 @@ button,
 }
 
 .space-grotesk-wide {
-  font-family: 'Work Sans', 'Anton', sans-serif !important;
+  font-family: 'Space Grotesk', sans-serif !important;
   font-weight: 600 !important;
   letter-spacing: 0.02em !important;
   font-stretch: ultra-expanded !important;
@@ -743,6 +743,7 @@ button,
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
+  font-variation-settings: 'wdth' 200 !important;
 }
 
 
