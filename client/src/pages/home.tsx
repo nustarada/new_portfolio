@@ -20,6 +20,7 @@ import LogoImage from '@assets/Logo white_1754674219191.png';
 import fffLogo from '@assets/FFF_Logo_1754475239613.png';
 import liffoLogo from '@assets/Liffo_logo_1754475239620.png';
 import linkedinLogo from '@assets/linkedin 1_1756620179383.png';
+import twoHourLearningThumbnail from '@assets/Homepage (Wordpress)_1756635142322.png';
 import { 
   Terminal, 
   Sparkles, 
@@ -204,6 +205,45 @@ export default function Home() {
         "Implemented emergency-first design principles",
         "Conducted usability testing with healthcare professionals",
         "Iterated based on user feedback and analytics"
+      ]
+    },
+    {
+      title: "2 Hour Learning",
+      subtitle: "Educational Landing Page System",
+      description: "A comprehensive landing page design system for 2 Hour Learning featuring targeted designs for different educational personas including students, educators, and institutions.",
+      detailedDescription: "Created a cohesive set of 4 specialized landing pages targeting different segments of the education market, each optimized for specific user personas and conversion goals while maintaining brand consistency and visual excellence.",
+      image: twoHourLearningThumbnail,
+      logo: undefined,
+      liveUrl: "https://2hourlearning.com/",
+      caseStudyUrl: "/2hour-learning-case-study",
+      tags: ["Landing Pages", "Education", "Conversion Design", "HubSpot", "WordPress"],
+      year: "2025",
+      category: "Landing Page Design",
+      role: "Lead UI/UX Designer",
+      services: "Landing Page Design & Strategy",
+      outcomes: [
+        "4 targeted landing pages for different personas",
+        "Consistent brand experience across all touchpoints",
+        "Optimized conversion funnels for each user type",
+        "Strategic messaging tailored to specific audiences"
+      ],
+      keyFeatures: [
+        "Persona-driven design approach for students, educators, and institutions",
+        "Consistent blue brand palette with professional typography",
+        "Conversion-optimized layouts with strategic CTAs",
+        "Responsive design system across all 4 pages",
+        "Integration with HubSpot and WordPress platforms",
+        "Data-driven testimonials and social proof elements"
+      ],
+      techStack: ["Figma", "HubSpot", "WordPress", "Responsive Design"],
+      duration: "6 Weeks",
+      process: [
+        "Analyzed target personas and conversion requirements",
+        "Created wireframes and user journey mapping",
+        "Designed comprehensive visual system and brand guidelines",
+        "Developed high-fidelity designs for all 4 landing pages",
+        "Optimized for conversion with strategic messaging and CTAs",
+        "Delivered production-ready designs for development"
       ]
     }
   ];
