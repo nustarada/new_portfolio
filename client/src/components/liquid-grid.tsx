@@ -24,8 +24,8 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
     maxDistortion: 8,
     lerpFactor: 0.15,
     targetFPS: 20, // Further reduced for better performance
-    baseOpacity: 0.15, // More visible base opacity
-    activeOpacity: 0.35, // Clearly visible on hover
+    baseOpacity: 0.45, // More visible base opacity
+    activeOpacity: 0.45, // Clearly visible on hover
     lineWidth: 0.5 // Thinner lines
   }), []);
 
