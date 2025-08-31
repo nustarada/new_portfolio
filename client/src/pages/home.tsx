@@ -224,7 +224,7 @@ export default function Home() {
       {/* Floating Orbs */}
       <div className="floating-orb w-64 h-64 top-20 -left-32 opacity-30" />
       <div className="floating-orb w-96 h-96 top-1/2 -right-48 opacity-20" style={{ animationDelay: '2s' }} />
-      <div className="floating-orb w-48 h-48 bottom-20 left-1/4 opacity-25" style={{ animationDelay: '4s' }} />
+
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-[100] glass-card grain-texture border-b border-white/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
