@@ -1054,7 +1054,9 @@ export default function Home() {
                   <div className="space-y-3">
                     <p className="text-lg font-semibold text-white/70 jost-secondary">Phone Number</p>
                     <a 
-                      href="tel:+917744074265"
+                      href="https://wa.me/917744074265"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-2xl md:text-3xl font-bold text-white hover:text-cyan-400 transition-colors duration-300 jost-secondary"
                     >
                       +91 7744074265
