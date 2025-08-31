@@ -1301,13 +1301,17 @@ export default function Home() {
               {/* LinkedIn Circle */}
               <div className="flex-shrink-0">
                 <a 
-                  href="https://www.linkedin.com/in/karan-gadhave/" 
+                  href="https://www.linkedin.com/in/karn-kalaa/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="block group"
                 >
                   <div className="w-20 h-20 bg-gradient-to-br from-violet-600/30 to-indigo-600/30 rounded-full border-2 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
-                    <Linkedin className="w-9 h-9 text-white group-hover:text-blue-300 transition-colors duration-300" />
+                    <img 
+                      src="/attached_assets/linkedin 1_1756620179383.png" 
+                      alt="LinkedIn" 
+                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300"
+                    />
                   </div>
                 </a>
               </div>
