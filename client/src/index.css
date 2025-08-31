@@ -731,7 +731,8 @@ button,
   font-weight: 700 !important;
   letter-spacing: normal !important;
   font-stretch: ultra-expanded !important;
-  transform: scaleX(1.6) !important;
+  font-variation-settings: 'wdth' 200 !important;
+  transform: scaleX(1.2) !important;
 }
 
 
