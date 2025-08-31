@@ -309,6 +309,10 @@
     font-weight: 500 !important;
     letter-spacing: 0.02em;
   }
+
+  .blend-mode-overlay {
+    mix-blend-mode: overlay;
+  }
 }
 
 @layer components {
