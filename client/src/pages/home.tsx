@@ -316,13 +316,20 @@ export default function Home() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Badge 
-                variant="outline" 
-                className="text-sm px-6 py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-300 jost-secondary"
+              <a 
+                href="https://www.pitchcraft.global/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block"
               >
-                <Sparkles className="w-4 h-4 mr-2 text-primary" />
-                AVAILABLE FOR NEW OPPORTUNITIES
-              </Badge>
+                <Badge 
+                  variant="outline" 
+                  className="text-sm px-6 py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-300 jost-secondary cursor-pointer"
+                >
+                  <Sparkles className="w-4 h-4 mr-2 text-primary" />
+                  POWERED BY PITCHCRAFT
+                </Badge>
+              </a>
             </motion.div>
           </motion.div>
           
