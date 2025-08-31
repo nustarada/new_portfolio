@@ -400,7 +400,7 @@ export default function Home() {
           >
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight druk-wide-medium">
               <span className="text-white">CREATIVE </span>
-              <span className="glow-text">DIRECTOR</span>
+              <span className="glow-text">SOLUTIONS</span>
             </h2>
             
             <motion.div 
@@ -411,7 +411,7 @@ export default function Home() {
             >
               <div className="w-16 h-0.5 bg-primary" />
               <span className="text-xl md:text-2xl font-light text-primary jost-secondary">
-                & DESIGN STRATEGIST
+                & DESIGN SERVICES
               </span>
               <div className="w-16 h-0.5 bg-primary" />
             </motion.div>
