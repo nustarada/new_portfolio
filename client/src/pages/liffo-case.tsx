@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { CaseStudyNavigation } from '@/components/case-study-navigation';
-import LogoImage from '@assets/Logo white_1754674219191.png';
+import LogoImage from '@assets/Logo white_1756619443616.png';
 
 // Import all 34 properly numbered Liffo screens
 import Screen1 from "@assets/1. Walkthrough 1_1754469198499.png";

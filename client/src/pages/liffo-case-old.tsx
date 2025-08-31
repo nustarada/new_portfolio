@@ -37,7 +37,7 @@ import PrescriptionImage from "@assets/Prescription.png";
 import HealthCardImage from "@assets/Health card.png";
 import Dashboard1Image from "@assets/Dashboard 1.png";
 import Dashboard2Image from "@assets/Dashboard 2.png";
-import LogoImage from "@assets/Logo black_1754170788875.png";
+import LogoImage from "@assets/Logo white_1756619443616.png";
 
 export default function LiffoCase() {
   const [, navigate] = useLocation();

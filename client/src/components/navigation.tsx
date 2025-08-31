@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import LogoImage from "@assets/Logo white_1754674219191.png";
+import LogoImage from "@assets/Logo white_1756619443616.png";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
