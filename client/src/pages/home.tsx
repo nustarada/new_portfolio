@@ -266,7 +266,8 @@ export default function Home() {
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-[100] glass-card grain-texture border-b border-white/20">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center relative">
+          {/* Logo - Left */}
           <motion.div 
             className="flex items-center"
             whileHover={{ scale: 1.05 }}
@@ -274,7 +275,8 @@ export default function Home() {
             <img src={LogoImage} alt="Karan Gadhave Logo" className="h-16 w-16 object-contain" />
           </motion.div>
           
-          <div className="hidden md:flex items-center space-x-8 text-[#ffffff]">
+          {/* Navigation - Center */}
+          <div className="hidden md:flex items-center space-x-8 text-[#ffffff] absolute left-1/2 transform -translate-x-1/2">
             {['About', 'Projects'].map((item) => (
               <motion.a
                 key={item}
@@ -294,7 +296,9 @@ export default function Home() {
             </motion.button>
           </div>
 
+          {/* Contact Button - Right */}
           <motion.div
+            className="ml-auto"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
