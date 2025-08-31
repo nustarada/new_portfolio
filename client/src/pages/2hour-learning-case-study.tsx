@@ -227,7 +227,7 @@ const TwoHourLearningCaseStudy = () => {
               <Badge variant="outline" className="text-sm px-4 py-2 border-primary/50 bg-primary/10 jost-secondary">
                 {caseStudyData.category}
               </Badge>
-              <div className="space-y-2">
+              <div className="space-y-4">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white druk-wide-medium leading-tight">
                   2 Hour Learning
                 </h1>
