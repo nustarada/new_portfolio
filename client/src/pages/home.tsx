@@ -323,11 +323,13 @@ export default function Home() {
               >
                 <Badge 
                   variant="outline" 
-                  className="text-sm px-6 py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-300 jost-secondary cursor-pointer group"
+                  className="text-sm px-6 py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-500 jost-secondary cursor-pointer group overflow-hidden relative"
                 >
-                  <Sparkles className="w-4 h-4 mr-2 text-primary" />
-                  POWERED BY PITCHCRAFT
-                  <ArrowRight className="w-4 h-4 ml-2 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1" />
+                  <div className="flex items-center transition-all duration-500 group-hover:pr-6">
+                    <Sparkles className="w-4 h-4 mr-2 text-primary flex-shrink-0" />
+                    <span className="whitespace-nowrap">POWERED BY PITCHCRAFT</span>
+                    <ArrowRight className="w-4 h-4 ml-2 text-primary opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-[-100%] group-hover:translate-x-0 flex-shrink-0" />
+                  </div>
                 </Badge>
               </a>
             </motion.div>
