@@ -357,7 +357,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight modern-heritage">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight druk-wide-medium">
               <span className="text-white">SENIOR </span>
               <span className="glow-text">PRODUCT DESIGNER</span>
             </h2>
@@ -457,7 +457,7 @@ export default function Home() {
             className="text-center mb-10"
           >
             <motion.h2 
-              className="text-4xl md:text-5xl font-semibold mb-4 text-white modern-heritage"
+              className="text-4xl md:text-5xl font-semibold mb-4 text-white druk-wide-medium"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -625,7 +625,7 @@ export default function Home() {
             className="text-center mb-10"
           >
             <motion.h2 
-              className="text-4xl md:text-5xl font-semibold mb-4 text-white modern-heritage"
+              className="text-4xl md:text-5xl font-semibold mb-4 text-white druk-wide-medium"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -763,7 +763,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <div className="relative inline-block mb-6">
-              <h2 className="text-4xl md:text-5xl font-semibold text-white relative z-10 modern-heritage">FEATURED PROJECTS</h2>
+              <h2 className="text-4xl md:text-5xl font-semibold text-white relative z-10 druk-wide-medium">FEATURED PROJECTS</h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
             </div>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
@@ -1009,7 +1009,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-5xl font-semibold mb-6 text-white modern-heritage">GET IN TOUCH</h2>
+            <h2 className="text-5xl font-semibold mb-6 text-white druk-wide-medium">GET IN TOUCH</h2>
             <p className="text-xl text-muted-foreground jost-secondary">
               Ready to collaborate on your next innovative project?
             </p>
