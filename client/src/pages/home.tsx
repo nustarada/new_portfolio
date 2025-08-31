@@ -402,23 +402,11 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight druk-wide-medium">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight druk-wide-medium whitespace-nowrap">
               <span className="text-white">DESIGN </span>
               <span className="glow-text">STUDIO</span>
+              <span className="text-primary font-light jost-secondary"> & CREATIVE SOLUTIONS</span>
             </h2>
-            
-            <motion.div 
-              className="flex items-center justify-center gap-4"
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 1 }}
-            >
-              <div className="w-16 h-0.5 bg-primary" />
-              <span className="text-xl md:text-2xl font-light text-primary jost-secondary">
-                & CREATIVE SOLUTIONS
-              </span>
-              <div className="w-16 h-0.5 bg-primary" />
-            </motion.div>
           </motion.div>
           
           {/* Compact Description */}
