@@ -684,116 +684,57 @@ export default function Home() {
               <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-400/6 to-emerald-400/6 blur-2xl" />
               
               <div className="relative z-10 space-y-8">
-                {/* Profile Section */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  viewport={{ once: true }}
-                  className="text-center mb-8"
-                >
-                  <div className="flex flex-col items-center space-y-4">
+                {/* Content Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                  {/* Left Column - Name and Photo */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="flex flex-col items-center space-y-6"
+                  >
                     {/* Photo Placeholder */}
-                    <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-full border-2 border-white/20 flex items-center justify-center">
-                      <User className="w-12 h-12 text-primary" />
+                    <div className="w-32 h-32 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-full border-2 border-white/20 flex items-center justify-center">
+                      <User className="w-16 h-16 text-primary" />
                     </div>
                     {/* Name */}
-                    <h3 className="text-2xl md:text-3xl font-bold text-white druk-wide-medium">
+                    <h3 className="text-2xl md:text-3xl font-bold text-white druk-wide-medium text-center">
                       Karan Gadhave
                     </h3>
-                  </div>
-                </motion.div>
+                    {/* Title */}
+                    <p className="text-lg text-primary font-semibold jost-secondary text-center">
+                      Senior Product & UI/UX Designer
+                    </p>
+                  </motion.div>
 
-                {/* Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  {/* Left Column */}
-                  <div className="space-y-4">
+                  {/* Right Column - About Summary */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    viewport={{ once: true }}
+                    className="space-y-6"
+                  >
                     <h4 className="text-lg font-bold text-white mb-4 flex items-center jost-secondary">
                       <User className="w-5 h-5 text-cyan-400 mr-2" />
-                      About & Expertise
+                      About Me
                     </h4>
                     
-                    {/* Experience Card */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.1 }}
-                      viewport={{ once: true }}
-                      className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
-                    >
-                      <div className="w-8 h-8 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 flex items-center justify-center">
-                        <Briefcase className="w-4 h-4 text-cyan-400" />
-                      </div>
-                      <div>
-                        <h5 className="text-white font-semibold text-sm jost-secondary">4+ Years Experience</h5>
-                        <p className="text-white/70 text-xs jost-secondary">Specialized UI/UX design expertise</p>
-                      </div>
-                    </motion.div>
-
-                    {/* Innovation Card */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
-                      viewport={{ once: true }}
-                      className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
-                    >
-                      <div className="w-8 h-8 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 flex items-center justify-center">
-                        <Lightbulb className="w-4 h-4 text-purple-400" />
-                      </div>
-                      <div>
-                        <h5 className="text-white font-semibold text-sm jost-secondary">AI-Powered Workflow</h5>
-                        <p className="text-white/70 text-xs jost-secondary">60% faster design cycles</p>
-                      </div>
-                    </motion.div>
-
-                    {/* Additional Achievement Card */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      viewport={{ once: true }}
-                      className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
-                    >
-                      <div className="w-8 h-8 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 flex items-center justify-center">
-                        <Rocket className="w-4 h-4 text-emerald-400" />
-                      </div>
-                      <div>
-                        <h5 className="text-white font-semibold text-sm jost-secondary">Innovation-First Approach</h5>
-                        <p className="text-white/70 text-xs jost-secondary">Pushing creative boundaries</p>
-                      </div>
-                    </motion.div>
-                  </div>
-
-                  {/* Right Column - Core Principles */}
-                  <div className="space-y-4">
-                    <h4 className="text-lg font-bold text-white mb-4 flex items-center jost-secondary">
-                      <Shield className="w-5 h-5 text-emerald-400 mr-2" />
-                      Core Principles
-                    </h4>
-                    {[
-                      { icon: Target, title: 'User-Centered Design', desc: 'Decisions driven by user needs', color: 'text-cyan-400' },
-                      { icon: Zap, title: 'AI-Enhanced Workflow', desc: 'Technology for maximum efficiency', color: 'text-yellow-400' },
-                      { icon: Rocket, title: 'Innovation-First', desc: 'Pushing creative boundaries', color: 'text-purple-400' }
-                    ].map((principle, index) => (
-                      <motion.div
-                        key={principle.title}
-                        className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                        viewport={{ once: true }}
-                      >
-                        <div className="w-8 h-8 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center">
-                          <principle.icon className={`w-4 h-4 ${principle.color}`} />
-                        </div>
-                        <div>
-                          <h5 className="text-white font-semibold text-sm jost-secondary">{principle.title}</h5>
-                          <p className="text-white/70 text-xs jost-secondary">{principle.desc}</p>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
+                    <div className="space-y-4">
+                      <p className="text-white/85 leading-relaxed text-base jost-secondary">
+                        I'm a passionate UI/UX designer with <span className="text-primary font-semibold">4+ years of specialized experience</span> in crafting innovative digital solutions. My expertise lies in combining traditional design principles with <span className="text-primary font-semibold">AI-driven design approaches</span> to create exceptional user experiences.
+                      </p>
+                      
+                      <p className="text-white/85 leading-relaxed text-base jost-secondary">
+                        Through streamlined workflows and cutting-edge design tools, I've achieved <span className="bg-primary/20 text-primary px-2 py-1 font-semibold">60% faster design cycles</span> while maintaining the highest quality standards. I believe in <span className="text-primary font-semibold">user-centered design</span> that pushes creative boundaries and delivers measurable business results.
+                      </p>
+                      
+                      <p className="text-white/85 leading-relaxed text-base jost-secondary">
+                        My approach focuses on innovation-first thinking, leveraging technology for maximum efficiency, and ensuring every decision is driven by user needs and business objectives.
+                      </p>
+                    </div>
+                  </motion.div>
                 </div>
 
                 {/* Skills Section */}
