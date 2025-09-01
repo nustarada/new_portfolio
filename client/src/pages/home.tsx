@@ -707,7 +707,7 @@ export default function Home() {
                 {/* Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   {/* Left Column */}
-                  <div className="space-y-6">
+                  <div className="space-y-6 text-center">
                     {/* Experience */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
