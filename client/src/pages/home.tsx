@@ -402,7 +402,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight druk-wide-medium whitespace-nowrap">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight druk-wide-medium">
               <span className="text-white">DESIGN </span>
               <span className="glow-text">STUDIO</span>
               <span className="text-primary font-light jost-secondary"> & CREATIVE SOLUTIONS</span>
