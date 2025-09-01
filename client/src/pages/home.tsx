@@ -707,39 +707,61 @@ export default function Home() {
                 {/* Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   {/* Left Column */}
-                  <div className="space-y-6 text-center">
-                    {/* Experience */}
+                  <div className="space-y-4">
+                    <h4 className="text-lg font-bold text-white mb-4 flex items-center justify-center jost-secondary">
+                      <User className="w-5 h-5 text-cyan-400 mr-2" />
+                      About & Expertise
+                    </h4>
+                    
+                    {/* Experience Card */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
                       viewport={{ once: true }}
+                      className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
                     >
-                      <h4 className="text-lg font-bold text-white mb-3 flex items-center justify-center jost-secondary">
-                        <Briefcase className="w-5 h-5 text-cyan-400 mr-2" />
-                        Experience & Expertise
-                      </h4>
-                      <p className="text-white/80 leading-relaxed text-base jost-secondary">
-                        <span className="text-primary font-semibold">4+ years</span> of specialized <span className="text-primary font-semibold">UI/UX design</span> experience, 
-                        crafting innovative digital solutions through <span className="text-primary font-semibold">AI-driven design approaches</span>.
-                      </p>
+                      <div className="w-8 h-8 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 flex items-center justify-center">
+                        <Briefcase className="w-4 h-4 text-cyan-400" />
+                      </div>
+                      <div>
+                        <h5 className="text-white font-semibold text-sm jost-secondary">4+ Years Experience</h5>
+                        <p className="text-white/70 text-xs jost-secondary">Specialized UI/UX design expertise</p>
+                      </div>
                     </motion.div>
 
-                    {/* Innovation */}
+                    {/* Innovation Card */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
                       viewport={{ once: true }}
+                      className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
                     >
-                      <h4 className="text-lg font-bold text-white mb-3 flex items-center justify-center jost-secondary">
-                        <Lightbulb className="w-5 h-5 text-purple-400 mr-2" />
-                        Innovation Focus
-                      </h4>
-                      <p className="text-white/80 leading-relaxed text-base jost-secondary">
-                        Streamlined workflows using <span className="text-primary font-semibold">AI-powered design approaches</span>, achieving 
-                        <span className="bg-primary/20 text-primary px-2 py-1 ml-1 font-semibold">60% faster design cycles</span>.
-                      </p>
+                      <div className="w-8 h-8 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 flex items-center justify-center">
+                        <Lightbulb className="w-4 h-4 text-purple-400" />
+                      </div>
+                      <div>
+                        <h5 className="text-white font-semibold text-sm jost-secondary">AI-Powered Workflow</h5>
+                        <p className="text-white/70 text-xs jost-secondary">60% faster design cycles</p>
+                      </div>
+                    </motion.div>
+
+                    {/* Additional Achievement Card */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                      viewport={{ once: true }}
+                      className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
+                    >
+                      <div className="w-8 h-8 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 flex items-center justify-center">
+                        <Rocket className="w-4 h-4 text-emerald-400" />
+                      </div>
+                      <div>
+                        <h5 className="text-white font-semibold text-sm jost-secondary">Innovation-First Approach</h5>
+                        <p className="text-white/70 text-xs jost-secondary">Pushing creative boundaries</p>
+                      </div>
                     </motion.div>
                   </div>
 
