@@ -715,7 +715,7 @@ export default function Home() {
                       transition={{ duration: 0.5, delay: 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <h4 className="text-lg font-bold text-white mb-3 flex items-center jost-secondary">
+                      <h4 className="text-lg font-bold text-white mb-3 flex items-center justify-center jost-secondary">
                         <Briefcase className="w-5 h-5 text-cyan-400 mr-2" />
                         Experience & Expertise
                       </h4>
@@ -732,7 +732,7 @@ export default function Home() {
                       transition={{ duration: 0.5, delay: 0.2 }}
                       viewport={{ once: true }}
                     >
-                      <h4 className="text-lg font-bold text-white mb-3 flex items-center jost-secondary">
+                      <h4 className="text-lg font-bold text-white mb-3 flex items-center justify-center jost-secondary">
                         <Lightbulb className="w-5 h-5 text-purple-400 mr-2" />
                         Innovation Focus
                       </h4>
@@ -745,7 +745,7 @@ export default function Home() {
 
                   {/* Right Column - Core Principles */}
                   <div className="space-y-4">
-                    <h4 className="text-lg font-bold text-white mb-4 flex items-center jost-secondary">
+                    <h4 className="text-lg font-bold text-white mb-4 flex items-center justify-center jost-secondary">
                       <Shield className="w-5 h-5 text-emerald-400 mr-2" />
                       Core Principles
                     </h4>
