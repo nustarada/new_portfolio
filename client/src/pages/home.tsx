@@ -523,7 +523,7 @@ export default function Home() {
                   iconColor: 'text-green-400'
                 },
                 { 
-                  number: '15+', 
+                  number: '8+', 
                   label: 'Team Members Led', 
                   description: 'Cross-functional collaboration',
                   icon: Users,
