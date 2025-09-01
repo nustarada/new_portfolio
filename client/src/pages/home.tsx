@@ -683,7 +683,25 @@ export default function Home() {
               <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-400/6 to-emerald-400/6 blur-2xl" />
               
               <div className="relative z-10 space-y-8">
-                
+                {/* Profile Section */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
+                  className="text-center mb-8"
+                >
+                  <div className="flex flex-col items-center space-y-4">
+                    {/* Photo Placeholder */}
+                    <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-full border-2 border-white/20 flex items-center justify-center">
+                      <User className="w-12 h-12 text-primary" />
+                    </div>
+                    {/* Name */}
+                    <h3 className="text-2xl md:text-3xl font-bold text-white druk-wide-medium">
+                      Karan Gadhave
+                    </h3>
+                  </div>
+                </motion.div>
 
                 {/* Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
