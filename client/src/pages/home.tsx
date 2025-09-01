@@ -506,140 +506,81 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Responsive Achievement Stats */}
-          <div className="space-y-6">
-            {/* Mobile: Single column layout */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              {[
-                { 
-                  number: '4+', 
-                  label: 'Years Experience', 
-                  description: 'Specialized UI/UX expertise',
-                  icon: Clock,
-                  iconColor: 'text-blue-400'
-                },
-                { 
-                  number: '50+', 
-                  label: 'Projects Delivered', 
-                  description: 'Successful design solutions',
-                  icon: Folder,
-                  iconColor: 'text-green-400'
-                },
-                { 
-                  number: '8+', 
-                  label: 'Team Members Led', 
-                  description: 'Cross-functional collaboration',
-                  icon: Users,
-                  iconColor: 'text-purple-400'
-                }
-              ].map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group"
-                >
-                  <Card className="relative overflow-hidden p-4 sm:p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30 h-full">
-                    {/* Background Effects */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-cyan-400/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    {/* Content - Responsive Layout */}
-                    <div className="relative z-10">
-                      {/* Mobile: Vertical Layout */}
-                      <div className="block sm:hidden text-center space-y-3">
-                        <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
-                          <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
-                        </div>
-                        <div>
-                          <span className="text-2xl sm:text-3xl font-black text-primary druk-wide-medium block">{stat.number}</span>
-                          <h3 className="text-white font-bold text-sm sm:text-base jost-secondary mt-1">{stat.label}</h3>
-                          <p className="text-white/60 text-xs sm:text-sm jost-secondary mt-1">{stat.description}</p>
-                        </div>
+          {/* Achievement Stats - 2x2 Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {[
+              { 
+                number: '50+', 
+                label: 'Projects Delivered', 
+                description: 'Successful design solutions',
+                icon: Folder,
+                iconColor: 'text-green-400'
+              },
+              { 
+                number: '8+', 
+                label: 'Team Members Led', 
+                description: 'Cross-functional collaboration',
+                icon: Users,
+                iconColor: 'text-purple-400'
+              },
+              { 
+                number: '60%', 
+                label: 'Faster Design Cycles', 
+                description: 'AI-enhanced workflow efficiency',
+                icon: Zap,
+                iconColor: 'text-yellow-400'
+              },
+              { 
+                number: '95%', 
+                label: 'Client Satisfaction', 
+                description: 'Consistent project success rate',
+                icon: Award,
+                iconColor: 'text-orange-400'
+              }
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <Card className="relative overflow-hidden p-4 sm:p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30 h-full">
+                  {/* Background Effects */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-cyan-400/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Content - Responsive Layout */}
+                  <div className="relative z-10">
+                    {/* Mobile: Vertical Layout */}
+                    <div className="block sm:hidden text-center space-y-3">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
+                        <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                       </div>
-
-                      {/* Tablet & Desktop: Horizontal Layout */}
-                      <div className="hidden sm:flex items-center space-x-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                          <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-baseline space-x-3 mb-1">
-                            <span className="text-2xl lg:text-3xl font-black text-primary druk-wide-medium">{stat.number}</span>
-                            <h3 className="text-white font-bold text-sm lg:text-base jost-secondary">{stat.label}</h3>
-                          </div>
-                          <p className="text-white/60 text-xs lg:text-sm jost-secondary">{stat.description}</p>
-                        </div>
+                      <div>
+                        <span className="text-2xl sm:text-3xl font-black text-primary druk-wide-medium block">{stat.number}</span>
+                        <h3 className="text-white font-bold text-sm sm:text-base jost-secondary mt-1">{stat.label}</h3>
+                        <p className="text-white/60 text-xs sm:text-sm jost-secondary mt-1">{stat.description}</p>
                       </div>
                     </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
 
-            {/* Additional Stats - Responsive Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
-              {[
-                { 
-                  number: '60%', 
-                  label: 'Faster Design Cycles', 
-                  description: 'AI-enhanced workflow efficiency',
-                  icon: Zap,
-                  iconColor: 'text-yellow-400'
-                },
-                { 
-                  number: '95%', 
-                  label: 'Client Satisfaction', 
-                  description: 'Consistent project success rate',
-                  icon: Award,
-                  iconColor: 'text-orange-400'
-                }
-              ].map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group"
-                >
-                  <Card className="relative overflow-hidden p-4 sm:p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30 h-full">
-                    {/* Background Effects */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-cyan-400/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    {/* Content - Responsive Layout */}
-                    <div className="relative z-10">
-                      {/* Mobile: Vertical Layout */}
-                      <div className="block sm:hidden text-center space-y-3">
-                        <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
-                          <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
-                        </div>
-                        <div>
-                          <span className="text-2xl sm:text-3xl font-black text-primary druk-wide-medium block">{stat.number}</span>
-                          <h3 className="text-white font-bold text-sm sm:text-base jost-secondary mt-1">{stat.label}</h3>
-                          <p className="text-white/60 text-xs sm:text-sm jost-secondary mt-1">{stat.description}</p>
-                        </div>
+                    {/* Tablet & Desktop: Horizontal Layout */}
+                    <div className="hidden sm:flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                       </div>
-
-                      {/* Tablet & Desktop: Horizontal Layout */}
-                      <div className="hidden sm:flex items-center space-x-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                          <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
+                      <div className="flex-1">
+                        <div className="flex items-baseline space-x-3 mb-1">
+                          <span className="text-2xl lg:text-3xl font-black text-primary druk-wide-medium">{stat.number}</span>
+                          <h3 className="text-white font-bold text-sm lg:text-base jost-secondary">{stat.label}</h3>
                         </div>
-                        <div className="flex-1">
-                          <div className="flex items-baseline space-x-3 mb-1">
-                            <span className="text-2xl lg:text-3xl font-black text-primary druk-wide-medium">{stat.number}</span>
-                            <h3 className="text-white font-bold text-sm lg:text-base jost-secondary">{stat.label}</h3>
-                          </div>
-                          <p className="text-white/60 text-xs lg:text-sm jost-secondary">{stat.description}</p>
-                        </div>
+                        <p className="text-white/60 text-xs lg:text-sm jost-secondary">{stat.description}</p>
                       </div>
                     </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
