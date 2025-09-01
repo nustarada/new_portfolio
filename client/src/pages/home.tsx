@@ -43,6 +43,7 @@ import {
   User,
   Briefcase,
   MessageSquare,
+  Shield,
   Send,
   ArrowRight,
   ArrowLeft,
@@ -744,7 +745,10 @@ export default function Home() {
 
                   {/* Right Column - Core Principles */}
                   <div className="space-y-4">
-                    <h4 className="text-lg font-bold text-white mb-4 jost-secondary">Core Principles</h4>
+                    <h4 className="text-lg font-bold text-white mb-4 flex items-center jost-secondary">
+                      <Shield className="w-5 h-5 text-emerald-400 mr-2" />
+                      Core Principles
+                    </h4>
                     {[
                       { icon: Target, title: 'User-Centered Design', desc: 'Decisions driven by user needs', color: 'text-cyan-400' },
                       { icon: Zap, title: 'AI-Enhanced Workflow', desc: 'Technology for maximum efficiency', color: 'text-yellow-400' },
