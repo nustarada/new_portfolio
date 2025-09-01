@@ -1056,7 +1056,7 @@ export default function Home() {
             
             <div className="relative z-10 text-center">
               <div className="space-y-12">
-                {/* Email Contact */}
+                {/* Personal Email Contact */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1065,7 +1065,27 @@ export default function Home() {
                   className="group/contact"
                 >
                   <div className="space-y-3">
-                    <p className="text-lg font-semibold text-white/70 jost-secondary">Email</p>
+                    <p className="text-lg font-semibold text-white/70 jost-secondary">Personal Email</p>
+                    <a 
+                      href="mailto:gadhavekaran@gmail.com"
+                      className="text-2xl md:text-3xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary inline-block"
+                      style={{ wordBreak: 'keep-all', whiteSpace: 'nowrap' }}
+                    >
+                      gadhavekaran@gmail.com
+                    </a>
+                  </div>
+                </motion.div>
+
+                {/* Business Email Contact */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.15 }}
+                  viewport={{ once: true }}
+                  className="group/contact"
+                >
+                  <div className="space-y-3">
+                    <p className="text-lg font-semibold text-white/70 jost-secondary">Business Email</p>
                     <a 
                       href="mailto:hello@pitchcraft.global"
                       className="text-2xl md:text-3xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary inline-block"
