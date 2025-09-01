@@ -680,31 +680,96 @@ export default function Home() {
                   </motion.div>
                 </div>
 
-                {/* Expertise & Principles Grid - 2x2 Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {[
-                    { icon: Grid, title: 'Design Systems', desc: 'Scalable component libraries', color: 'text-blue-400', bgColor: 'from-blue-500/20 to-indigo-500/20' },
-                    { icon: Layers, title: 'Interactive Prototyping', desc: 'High-fidelity user testing', color: 'text-purple-400', bgColor: 'from-purple-500/20 to-pink-500/20' },
-                    { icon: Search, title: 'User Research', desc: 'Data-driven design decisions', color: 'text-emerald-400', bgColor: 'from-emerald-500/20 to-teal-500/20' },
-                    { icon: Target, title: 'User-Centered Design', desc: 'Decisions driven by user needs', color: 'text-cyan-400', bgColor: 'from-cyan-500/20 to-blue-500/20' }
-                  ].map((item, index) => (
+                {/* Content Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  {/* Left Column - Expertise */}
+                  <div className="space-y-4">
+                    <h4 className="text-lg font-bold text-white mb-4 flex items-center jost-secondary">
+                      <Briefcase className="w-5 h-5 text-cyan-400 mr-2" />
+                      Expertise
+                    </h4>
+                    
+                    {/* Design Systems Card */}
                     <motion.div
-                      key={item.title}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
                       viewport={{ once: true }}
                       className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
                     >
-                      <div className={`w-8 h-8 bg-gradient-to-br ${item.bgColor} border border-white/10 flex items-center justify-center`}>
-                        <item.icon className={`w-4 h-4 ${item.color}`} />
+                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 border border-white/10 flex items-center justify-center">
+                        <Grid className="w-4 h-4 text-blue-400" />
                       </div>
                       <div>
-                        <h5 className="text-white font-semibold text-sm jost-secondary">{item.title}</h5>
-                        <p className="text-white/70 text-xs jost-secondary">{item.desc}</p>
+                        <h5 className="text-white font-semibold text-sm jost-secondary">Design Systems</h5>
+                        <p className="text-white/70 text-xs jost-secondary">Scalable component libraries</p>
                       </div>
                     </motion.div>
-                  ))}
+
+                    {/* Prototyping Card */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                      viewport={{ once: true }}
+                      className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
+                    >
+                      <div className="w-8 h-8 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 flex items-center justify-center">
+                        <Layers className="w-4 h-4 text-purple-400" />
+                      </div>
+                      <div>
+                        <h5 className="text-white font-semibold text-sm jost-secondary">Interactive Prototyping</h5>
+                        <p className="text-white/70 text-xs jost-secondary">High-fidelity user testing</p>
+                      </div>
+                    </motion.div>
+
+                    {/* Research Card */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                      viewport={{ once: true }}
+                      className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
+                    >
+                      <div className="w-8 h-8 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-white/10 flex items-center justify-center">
+                        <Search className="w-4 h-4 text-emerald-400" />
+                      </div>
+                      <div>
+                        <h5 className="text-white font-semibold text-sm jost-secondary">User Research</h5>
+                        <p className="text-white/70 text-xs jost-secondary">Data-driven design decisions</p>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* Right Column - Core Principles */}
+                  <div className="space-y-4">
+                    <h4 className="text-lg font-bold text-white mb-4 flex items-center jost-secondary">
+                      <Shield className="w-5 h-5 text-emerald-400 mr-2" />
+                      Core Principles
+                    </h4>
+                    {[
+                      { icon: Target, title: 'User-Centered Design', desc: 'Decisions driven by user needs', color: 'text-cyan-400' },
+                      { icon: Zap, title: 'AI-Enhanced Workflow', desc: 'Technology for maximum efficiency', color: 'text-yellow-400' },
+                      { icon: Rocket, title: 'Innovation-First', desc: 'Pushing creative boundaries', color: 'text-purple-400' }
+                    ].map((principle, index) => (
+                      <motion.div
+                        key={principle.title}
+                        className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <div className="w-8 h-8 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center">
+                          <principle.icon className={`w-4 h-4 ${principle.color}`} />
+                        </div>
+                        <div>
+                          <h5 className="text-white font-semibold text-sm jost-secondary">{principle.title}</h5>
+                          <p className="text-white/70 text-xs jost-secondary">{principle.desc}</p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Skills Section */}
