@@ -1055,65 +1055,76 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-2xl" />
             
             <div className="relative z-10 text-center">
-              <div className="space-y-12">
-                {/* Personal Email Contact */}
+              <div className="space-y-16">
+                {/* UI/UX Design Services */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                   viewport={{ once: true }}
-                  className="group/contact"
+                  className="group/service"
                 >
-                  <div className="space-y-3">
-                    <p className="text-lg font-semibold text-white/70 jost-secondary">Personal Email</p>
-                    <a 
-                      href="mailto:gadhavekaran@gmail.com"
-                      className="text-2xl md:text-3xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary inline-block"
-                      style={{ wordBreak: 'keep-all', whiteSpace: 'nowrap' }}
-                    >
-                      gadhavekaran@gmail.com
-                    </a>
+                  <h3 className="text-xl md:text-2xl font-semibold text-primary mb-6 jost-secondary">
+                    For UI/UX Design
+                  </h3>
+                  <div className="space-y-6">
+                    <div className="space-y-3">
+                      <p className="text-lg font-semibold text-white/70 jost-secondary">Email</p>
+                      <a 
+                        href="mailto:gadhavekaran@gmail.com"
+                        className="text-xl md:text-2xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary inline-block"
+                        style={{ wordBreak: 'keep-all', whiteSpace: 'nowrap' }}
+                      >
+                        gadhavekaran@gmail.com
+                      </a>
+                    </div>
+                    <div className="space-y-3">
+                      <p className="text-lg font-semibold text-white/70 jost-secondary">Phone Number</p>
+                      <a 
+                        href="https://wa.me/917744074265"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xl md:text-2xl font-bold text-white hover:text-cyan-400 transition-colors duration-300 jost-secondary"
+                      >
+                        +91 7744074265
+                      </a>
+                    </div>
                   </div>
                 </motion.div>
 
-                {/* Business Email Contact */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.15 }}
-                  viewport={{ once: true }}
-                  className="group/contact"
-                >
-                  <div className="space-y-3">
-                    <p className="text-lg font-semibold text-white/70 jost-secondary">Business Email</p>
-                    <a 
-                      href="mailto:hello@pitchcraft.global"
-                      className="text-2xl md:text-3xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary inline-block"
-                      style={{ wordBreak: 'keep-all', whiteSpace: 'nowrap' }}
-                    >
-                      hello@pitchcraft.global
-                    </a>
-                  </div>
-                </motion.div>
-
-                {/* Phone Contact */}
+                {/* Cinematic Pitch Decks Services */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="group/contact"
+                  className="group/service"
                 >
-                  <div className="space-y-3">
-                    <p className="text-lg font-semibold text-white/70 jost-secondary">Phone Number</p>
-                    <a 
-                      href="https://wa.me/917744074265"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-2xl md:text-3xl font-bold text-white hover:text-cyan-400 transition-colors duration-300 jost-secondary"
-                    >
-                      +91 7744074265
-                    </a>
+                  <h3 className="text-xl md:text-2xl font-semibold text-primary mb-6 jost-secondary">
+                    For Cinematic Pitch Decks
+                  </h3>
+                  <div className="space-y-6">
+                    <div className="space-y-3">
+                      <p className="text-lg font-semibold text-white/70 jost-secondary">Email</p>
+                      <a 
+                        href="mailto:hello@pitchcraft.global"
+                        className="text-xl md:text-2xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary inline-block"
+                        style={{ wordBreak: 'keep-all', whiteSpace: 'nowrap' }}
+                      >
+                        hello@pitchcraft.global
+                      </a>
+                    </div>
+                    <div className="space-y-3">
+                      <p className="text-lg font-semibold text-white/70 jost-secondary">Phone Number</p>
+                      <a 
+                        href="https://wa.me/919987563570"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xl md:text-2xl font-bold text-white hover:text-cyan-400 transition-colors duration-300 jost-secondary"
+                      >
+                        +91 9987563570
+                      </a>
+                    </div>
                   </div>
                 </motion.div>
 
