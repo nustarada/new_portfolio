@@ -680,7 +680,6 @@ export default function Home() {
           >
             <Card className="relative overflow-hidden glass-intense grain-texture p-8">
               {/* Background Effects */}
-              <div className="absolute top-0 left-0 w-32 h-32 bg-primary/6 blur-3xl" />
               <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-400/6 to-emerald-400/6 blur-2xl" />
               
               <div className="relative z-10 space-y-8">
