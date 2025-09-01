@@ -1071,7 +1071,7 @@ export default function Home() {
                       className="text-2xl md:text-3xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary inline-block"
                       style={{ wordBreak: 'keep-all', whiteSpace: 'nowrap' }}
                     >
-                      HELLO@PITCHCRAFT.GLOBAL
+                      hello@pitchcraft.global
                     </a>
                   </div>
                 </motion.div>
