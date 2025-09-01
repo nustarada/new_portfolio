@@ -490,7 +490,7 @@ export default function Home() {
             className="text-center mb-10"
           >
             <motion.h2 
-              className="text-4xl md:text-5xl font-semibold mb-4 text-white druk-wide-medium"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-white druk-wide-medium"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -658,7 +658,7 @@ export default function Home() {
             className="text-center mb-10"
           >
             <motion.h2 
-              className="text-4xl md:text-5xl font-semibold mb-4 text-white druk-wide-medium"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-white druk-wide-medium"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -796,7 +796,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <div className="relative inline-block mb-6">
-              <h2 className="text-4xl md:text-5xl font-semibold text-white relative z-10 druk-wide-medium">FEATURED PROJECTS</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white relative z-10 druk-wide-medium">FEATURED PROJECTS</h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
             </div>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
@@ -931,7 +931,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <div className="relative inline-block mb-6">
-              <h2 className="text-4xl md:text-5xl font-semibold glow-text relative z-10 druk-wide-medium">DESIGN PHILOSOPHY</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold glow-text relative z-10 druk-wide-medium">DESIGN PHILOSOPHY</h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
             </div>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
