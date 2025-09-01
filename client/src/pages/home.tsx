@@ -53,6 +53,8 @@ import {
   MapPin,
   FileText,
   Heart,
+  Grid,
+  Search,
   Trophy,
   Phone,
   Award,
@@ -739,14 +741,14 @@ export default function Home() {
 
                 {/* Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  {/* Left Column */}
+                  {/* Left Column - Expertise */}
                   <div className="space-y-4">
                     <h4 className="text-lg font-bold text-white mb-4 flex items-center jost-secondary">
-                      <User className="w-5 h-5 text-cyan-400 mr-2" />
-                      About & Expertise
+                      <Briefcase className="w-5 h-5 text-cyan-400 mr-2" />
+                      Expertise
                     </h4>
                     
-                    {/* Experience Card */}
+                    {/* Design Systems Card */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -754,16 +756,16 @@ export default function Home() {
                       viewport={{ once: true }}
                       className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
                     >
-                      <div className="w-8 h-8 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 flex items-center justify-center">
-                        <Briefcase className="w-4 h-4 text-cyan-400" />
+                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 border border-white/10 flex items-center justify-center">
+                        <Grid className="w-4 h-4 text-blue-400" />
                       </div>
                       <div>
-                        <h5 className="text-white font-semibold text-sm jost-secondary">4+ Years Experience</h5>
-                        <p className="text-white/70 text-xs jost-secondary">Specialized UI/UX design expertise</p>
+                        <h5 className="text-white font-semibold text-sm jost-secondary">Design Systems</h5>
+                        <p className="text-white/70 text-xs jost-secondary">Scalable component libraries</p>
                       </div>
                     </motion.div>
 
-                    {/* Innovation Card */}
+                    {/* Prototyping Card */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -772,15 +774,15 @@ export default function Home() {
                       className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
                     >
                       <div className="w-8 h-8 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 flex items-center justify-center">
-                        <Lightbulb className="w-4 h-4 text-purple-400" />
+                        <Layers className="w-4 h-4 text-purple-400" />
                       </div>
                       <div>
-                        <h5 className="text-white font-semibold text-sm jost-secondary">AI-Powered Workflow</h5>
-                        <p className="text-white/70 text-xs jost-secondary">60% faster design cycles</p>
+                        <h5 className="text-white font-semibold text-sm jost-secondary">Interactive Prototyping</h5>
+                        <p className="text-white/70 text-xs jost-secondary">High-fidelity user testing</p>
                       </div>
                     </motion.div>
 
-                    {/* Additional Achievement Card */}
+                    {/* Research Card */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -788,12 +790,12 @@ export default function Home() {
                       viewport={{ once: true }}
                       className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
                     >
-                      <div className="w-8 h-8 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 flex items-center justify-center">
-                        <Rocket className="w-4 h-4 text-emerald-400" />
+                      <div className="w-8 h-8 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-white/10 flex items-center justify-center">
+                        <Search className="w-4 h-4 text-emerald-400" />
                       </div>
                       <div>
-                        <h5 className="text-white font-semibold text-sm jost-secondary">Innovation-First Approach</h5>
-                        <p className="text-white/70 text-xs jost-secondary">Pushing creative boundaries</p>
+                        <h5 className="text-white font-semibold text-sm jost-secondary">User Research</h5>
+                        <p className="text-white/70 text-xs jost-secondary">Data-driven design decisions</p>
                       </div>
                     </motion.div>
                   </div>
