@@ -695,7 +695,7 @@ export default function Home() {
                     className="flex flex-col items-center space-y-6"
                   >
                     {/* Photo Placeholder */}
-                    <div className="w-32 h-32 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-full border-2 border-white/20 flex items-center justify-center">
+                    <div className="w-32 h-40 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-lg border-2 border-white/20 flex items-center justify-center">
                       <User className="w-16 h-16 text-primary" />
                     </div>
                     {/* Name */}
