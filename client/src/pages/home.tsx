@@ -59,8 +59,7 @@ import {
   Phone,
   Award,
   Folder,
-  Package,
-  Wallpaper
+  Package
 } from 'lucide-react';
 
 export default function Home() {
@@ -1130,7 +1129,7 @@ export default function Home() {
                                 className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-1 hover:bg-white/10 rounded text-white/60 hover:text-primary"
                                 title="Copy email address"
                               >
-                                <Wallpaper className="w-3 h-3" />
+                                <FileText className="w-3 h-3" />
                               </button>
                             </div>
                           </div>
@@ -1213,7 +1212,7 @@ export default function Home() {
                                 className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-1 hover:bg-white/10 rounded text-white/60 hover:text-primary"
                                 title="Copy email address"
                               >
-                                <Wallpaper className="w-3 h-3" />
+                                <FileText className="w-3 h-3" />
                               </button>
                             </div>
                           </div>
