@@ -1073,93 +1073,155 @@ export default function Home() {
             <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-2xl" />
             
-            <div className="relative z-10 text-center">
-              <div className="space-y-16">
-                {/* UI/UX Design Services */}
+            <div className="relative z-10">
+              {/* Services Grid */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                {/* UI/UX Design Card */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
                   viewport={{ once: true }}
                   className="group/service"
                 >
-                  <h3 className="text-xl md:text-2xl font-semibold text-primary mb-6 jost-secondary">
-                    For UI/UX Design
-                  </h3>
-                  <div className="space-y-6">
-                    <div className="space-y-3">
-                      <p className="text-lg font-semibold text-white/70 jost-secondary">Email</p>
-                      <a 
-                        href="mailto:gadhavekaran@gmail.com"
-                        className="text-xl md:text-2xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary inline-block"
-                        style={{ wordBreak: 'keep-all', whiteSpace: 'nowrap' }}
-                      >
-                        gadhavekaran@gmail.com
-                      </a>
+                  <Card className="h-full p-8 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
+                    {/* Service Header */}
+                    <div className="text-center mb-8">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-blue-500/20 border border-white/10 flex items-center justify-center mx-auto mb-4">
+                        <Grid className="w-8 h-8 text-primary" />
+                      </div>
+                      <h3 className="text-xl md:text-2xl font-semibold text-primary mb-2 jost-secondary">
+                        UI/UX Design
+                      </h3>
+                      <p className="text-white/60 text-sm jost-secondary">
+                        Digital product design & user experience
+                      </p>
                     </div>
-                    <div className="space-y-3">
-                      <p className="text-lg font-semibold text-white/70 jost-secondary">Phone Number</p>
-                      <a 
-                        href="https://wa.me/917744074265"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xl md:text-2xl font-bold text-white hover:text-cyan-400 transition-colors duration-300 jost-secondary"
-                      >
-                        +91 7744074265
-                      </a>
+
+                    {/* Contact Details */}
+                    <div className="space-y-6">
+                      {/* Email */}
+                      <div className="group/contact p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/5 hover:border-primary/20">
+                        <div className="flex items-center space-x-4">
+                          <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 flex items-center justify-center">
+                            <Mail className="w-5 h-5 text-emerald-400" />
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-white/60 text-xs font-medium mb-1 jost-secondary">Email</p>
+                            <a 
+                              href="mailto:gadhavekaran@gmail.com"
+                              className="text-white hover:text-primary transition-colors duration-300 font-semibold text-sm jost-secondary block"
+                            >
+                              gadhavekaran@gmail.com
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Phone */}
+                      <div className="group/contact p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/5 hover:border-primary/20">
+                        <div className="flex items-center space-x-4">
+                          <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 flex items-center justify-center">
+                            <Phone className="w-5 h-5 text-cyan-400" />
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-white/60 text-xs font-medium mb-1 jost-secondary">WhatsApp</p>
+                            <a 
+                              href="https://wa.me/917744074265"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-white hover:text-cyan-400 transition-colors duration-300 font-semibold text-sm jost-secondary block"
+                            >
+                              +91 7744074265
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  </Card>
                 </motion.div>
 
-                {/* Cinematic Pitch Decks Services */}
+                {/* Cinematic Pitch Decks Card */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
                   viewport={{ once: true }}
                   className="group/service"
                 >
-                  <h3 className="text-xl md:text-2xl font-semibold text-primary mb-6 jost-secondary">
-                    For Cinematic Pitch Decks
-                  </h3>
-                  <div className="space-y-6">
-                    <div className="space-y-3">
-                      <p className="text-lg font-semibold text-white/70 jost-secondary">Email</p>
-                      <a 
-                        href="mailto:hello@pitchcraft.global"
-                        className="text-xl md:text-2xl font-bold text-white hover:text-primary transition-colors duration-300 jost-secondary inline-block"
-                        style={{ wordBreak: 'keep-all', whiteSpace: 'nowrap' }}
-                      >
-                        hello@pitchcraft.global
-                      </a>
+                  <Card className="h-full p-8 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
+                    {/* Service Header */}
+                    <div className="text-center mb-8">
+                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 flex items-center justify-center mx-auto mb-4">
+                        <Sparkles className="w-8 h-8 text-purple-400" />
+                      </div>
+                      <h3 className="text-xl md:text-2xl font-semibold text-primary mb-2 jost-secondary">
+                        Cinematic Pitch Decks
+                      </h3>
+                      <p className="text-white/60 text-sm jost-secondary">
+                        Visual storytelling & presentation design
+                      </p>
                     </div>
-                    <div className="space-y-3">
-                      <p className="text-lg font-semibold text-white/70 jost-secondary">Phone Number</p>
-                      <a 
-                        href="https://wa.me/919987563570"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xl md:text-2xl font-bold text-white hover:text-cyan-400 transition-colors duration-300 jost-secondary"
-                      >
-                        +91 9987563570
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
 
-                {/* Call to Action */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  viewport={{ once: true }}
-                  className="pt-8"
-                >
-                  <p className="text-white/80 text-xl leading-relaxed jost-secondary">
-                    Let's discuss your next project and bring your ideas to life!
-                  </p>
+                    {/* Contact Details */}
+                    <div className="space-y-6">
+                      {/* Email */}
+                      <div className="group/contact p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/5 hover:border-primary/20">
+                        <div className="flex items-center space-x-4">
+                          <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 flex items-center justify-center">
+                            <Mail className="w-5 h-5 text-emerald-400" />
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-white/60 text-xs font-medium mb-1 jost-secondary">Email</p>
+                            <a 
+                              href="mailto:hello@pitchcraft.global"
+                              className="text-white hover:text-primary transition-colors duration-300 font-semibold text-sm jost-secondary block"
+                            >
+                              hello@pitchcraft.global
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Phone */}
+                      <div className="group/contact p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/5 hover:border-primary/20">
+                        <div className="flex items-center space-x-4">
+                          <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 flex items-center justify-center">
+                            <Phone className="w-5 h-5 text-cyan-400" />
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-white/60 text-xs font-medium mb-1 jost-secondary">WhatsApp</p>
+                            <a 
+                              href="https://wa.me/919987563570"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-white hover:text-cyan-400 transition-colors duration-300 font-semibold text-sm jost-secondary block"
+                            >
+                              +91 9987563570
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
                 </motion.div>
               </div>
+
+              {/* Call to Action */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="inline-flex items-center space-x-3 px-8 py-4 glass-card grain-texture border border-white/10">
+                  <Rocket className="w-6 h-6 text-primary" />
+                  <p className="text-white/90 text-lg font-medium jost-secondary">
+                    Let's discuss your next project and bring your ideas to life!
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </Card>
 
