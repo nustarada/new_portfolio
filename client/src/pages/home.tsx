@@ -59,7 +59,8 @@ import {
   Phone,
   Award,
   Folder,
-  Package
+  Package,
+  Wallpaper
 } from 'lucide-react';
 
 export default function Home() {
@@ -1088,7 +1089,7 @@ export default function Home() {
                     {/* Service Header */}
                     <div className="text-center mb-8">
                       <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-blue-500/20 border border-white/10 flex items-center justify-center mx-auto mb-4">
-                        <Grid className="w-8 h-8 text-primary" />
+                        <Wallpaper className="w-8 h-8 text-primary" />
                       </div>
                       <h3 className="text-xl md:text-2xl font-semibold text-primary mb-2 jost-secondary">
                         UI/UX Design
