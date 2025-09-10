@@ -1108,12 +1108,30 @@ export default function Home() {
                           </div>
                           <div className="flex-1">
                             <p className="text-white/60 text-xs font-medium mb-1 jost-secondary">Email</p>
-                            <a 
-                              href="mailto:gadhavekaran@gmail.com"
-                              className="text-white hover:text-primary transition-colors duration-300 font-semibold text-sm jost-secondary block"
-                            >
-                              gadhavekaran@gmail.com
-                            </a>
+                            <div className="flex items-center justify-between group">
+                              <a 
+                                href="mailto:gadhavekaran@gmail.com"
+                                className="text-white hover:text-primary transition-colors duration-300 font-semibold text-sm jost-secondary"
+                                title="Click to open email client"
+                              >
+                                gadhavekaran@gmail.com
+                              </a>
+                              <button
+                                onClick={(event) => {
+                                  navigator.clipboard.writeText('gadhavekaran@gmail.com');
+                                  const button = event.currentTarget;
+                                  const originalContent = button.innerHTML;
+                                  button.innerHTML = '<svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                                  setTimeout(() => {
+                                    button.innerHTML = originalContent;
+                                  }, 2000);
+                                }}
+                                className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-1 hover:bg-white/10 rounded text-white/60 hover:text-primary"
+                                title="Copy email address"
+                              >
+                                <FileText className="w-3 h-3" />
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1173,12 +1191,30 @@ export default function Home() {
                           </div>
                           <div className="flex-1">
                             <p className="text-white/60 text-xs font-medium mb-1 jost-secondary">Email</p>
-                            <a 
-                              href="mailto:hello@pitchcraft.global"
-                              className="text-white hover:text-primary transition-colors duration-300 font-semibold text-sm jost-secondary block"
-                            >
-                              hello@pitchcraft.global
-                            </a>
+                            <div className="flex items-center justify-between group">
+                              <a 
+                                href="mailto:hello@pitchcraft.global"
+                                className="text-white hover:text-primary transition-colors duration-300 font-semibold text-sm jost-secondary"
+                                title="Click to open email client"
+                              >
+                                hello@pitchcraft.global
+                              </a>
+                              <button
+                                onClick={(event) => {
+                                  navigator.clipboard.writeText('hello@pitchcraft.global');
+                                  const button = event.currentTarget;
+                                  const originalContent = button.innerHTML;
+                                  button.innerHTML = '<svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                                  setTimeout(() => {
+                                    button.innerHTML = originalContent;
+                                  }, 2000);
+                                }}
+                                className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-1 hover:bg-white/10 rounded text-white/60 hover:text-primary"
+                                title="Copy email address"
+                              >
+                                <FileText className="w-3 h-3" />
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
