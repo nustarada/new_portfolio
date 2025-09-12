@@ -375,11 +375,8 @@ export default function Home() {
                   className="text-sm py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-500 jost-secondary cursor-pointer group/badge relative overflow-hidden"
                 >
                   <div className="flex items-center px-6 group-hover/badge:px-6 transition-all duration-500">
-                    <Sparkles className="w-4 h-4 mr-2 text-primary flex-shrink-0" />
                     <span className="whitespace-nowrap">powered by pitchcraft.global</span>
-                    <div className="w-0 group-hover/badge:w-6 transition-all duration-500 overflow-hidden">
-                      <ArrowRight className="w-4 h-4 ml-2 text-primary opacity-0 group-hover/badge:opacity-100 transition-all duration-500 flex-shrink-0" />
-                    </div>
+                    <ArrowRight className="w-4 h-4 ml-2 text-primary flex-shrink-0" />
                   </div>
                 </Badge>
               </a>
