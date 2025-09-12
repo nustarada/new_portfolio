@@ -26,6 +26,8 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
       baseOpacity: 0.35,
       activeOpacity: 0.9,
       lineWidth: 0.7,
+      edgeFadeWidth: 100, // Pixels from edge where fade starts
+      minEdgeOpacity: 0.05, // Minimum opacity at edges
     }),
     [],
   );
@@ -148,7 +150,17 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
             1 - distance / config.distortionRadius,
             3,
           );
-          ctx.strokeStyle = `rgba(79, 172, 254, ${0.18 + opacityFactor})`;
+          
+          // Calculate edge fade
+          const edgeDistanceX = Math.min(x, width - x);
+          const edgeDistanceY = Math.min(y, height - y);
+          const minEdgeDistance = Math.min(edgeDistanceX, edgeDistanceY);
+          const edgeFadeFactor = Math.min(1, minEdgeDistance / config.edgeFadeWidth);
+          const smoothEdgeFade = Math.pow(edgeFadeFactor, 2);
+          
+          // Combine both fades
+          const finalOpacity = (0.18 + opacityFactor) * smoothEdgeFade;
+          ctx.strokeStyle = `rgba(79, 172, 254, ${Math.max(finalOpacity, config.minEdgeOpacity)})`;
 
           let distortedX = x;
           const wave =
@@ -194,7 +206,17 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
             1 - distance / config.distortionRadius,
             3,
           );
-          ctx.strokeStyle = `rgba(79, 172, 254, ${0.18 + opacityFactor})`;
+          
+          // Calculate edge fade
+          const edgeDistanceX = Math.min(x, width - x);
+          const edgeDistanceY = Math.min(y, height - y);
+          const minEdgeDistance = Math.min(edgeDistanceX, edgeDistanceY);
+          const edgeFadeFactor = Math.min(1, minEdgeDistance / config.edgeFadeWidth);
+          const smoothEdgeFade = Math.pow(edgeFadeFactor, 2);
+          
+          // Combine both fades
+          const finalOpacity = (0.18 + opacityFactor) * smoothEdgeFade;
+          ctx.strokeStyle = `rgba(79, 172, 254, ${Math.max(finalOpacity, config.minEdgeOpacity)})`;
 
           let distortedY = y;
           const wave =
