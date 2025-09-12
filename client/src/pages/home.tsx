@@ -515,21 +515,21 @@ export default function Home() {
                 label: 'Projects Delivered', 
                 description: 'Successful design solutions',
                 icon: Folder,
-                iconColor: 'text-green-400'
+                iconColor: 'text-emerald-400'
               },
               { 
                 number: '8+', 
                 label: 'Team Members Led', 
                 description: 'Cross-functional collaboration',
                 icon: Users,
-                iconColor: 'text-purple-400'
+                iconColor: 'text-violet-400'
               },
               { 
                 number: '60%', 
                 label: 'Faster Design Cycles', 
                 description: 'AI-enhanced workflow efficiency',
                 icon: Zap,
-                iconColor: 'text-yellow-400'
+                iconColor: 'text-amber-400'
               },
               { 
                 number: '95%', 
