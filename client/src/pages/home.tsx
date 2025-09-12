@@ -1112,7 +1112,7 @@ export default function Home() {
                   <Card className="h-full p-8 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
                     {/* Service Header */}
                     <div className="text-center mb-8">
-                      <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-blue-500/20 border border-white/10 flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-white/10 flex items-center justify-center mx-auto mb-4">
                         <Wallpaper className="w-8 h-8 text-blue-400" />
                       </div>
                       <h3 className="text-xl md:text-2xl font-semibold text-primary mb-2 jost-secondary">
@@ -1195,7 +1195,7 @@ export default function Home() {
                   <Card className="h-full p-8 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
                     {/* Service Header */}
                     <div className="text-center mb-8">
-                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-purple-600/20 border border-white/10 flex items-center justify-center mx-auto mb-4">
                         <Sparkles className="w-8 h-8 text-purple-400" />
                       </div>
                       <h3 className="text-xl md:text-2xl font-semibold text-primary mb-2 jost-secondary">
