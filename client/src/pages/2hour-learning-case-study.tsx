@@ -85,7 +85,12 @@ const TwoHourLearningCaseStudy = () => {
       {
         title: "Homepage (WordPress)",
         target: "General Audience & New Visitors",
-        description: "Comprehensive overview page designed to introduce 2 Hour Learning's value proposition to first-time visitors and provide clear navigation to specialized content.",
+        role: "Primary landing page gateway",
+        focus: "Brand introduction, credibility building, multi-audience conversion",
+        description: "Comprehensive overview page designed to introduce 2 Hour Learning's value proposition to first-time visitors, establish credibility through research validation, and provide clear navigation paths to specialized persona-specific content.",
+        painPoints: ["Lack of personalized learning solutions", "Traditional education limitations", "Time constraints in learning", "Need for innovative approaches"],
+        motivations: ["Educational innovation", "Personalized learning solutions", "Research-driven methods", "Efficient learning outcomes"],
+        channels: ["Direct URL/Brand awareness", "SEO/Google Search", "Referral traffic", "Social media links"],
         features: ["Hero section with clear value proposition", "Student and educator testimonials", "Research validation and credibility indicators", "Multiple conversion paths for different user types"]
       },
       {
