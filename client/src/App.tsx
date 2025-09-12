@@ -23,8 +23,9 @@ function Router() {
       <Route path="/fff-case-study" component={CaseStudy} />
       <Route path="/liffo-case-study" component={LiffoCase} />
       <Route path="/2hour-learning-case-study" component={TwoHourLearningCaseStudy} />
-
-      <Route component={NotFound} />
+      <Route>
+        <NotFound />
+      </Route>
     </Switch>
   );
 }

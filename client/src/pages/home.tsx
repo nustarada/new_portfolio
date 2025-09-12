@@ -639,7 +639,7 @@ export default function Home() {
                     className="flex flex-col items-center space-y-6"
                   >
                     {/* Photo */}
-                    <div className="w-40 h-52 rounded-lg border-2 border-white/20 overflow-hidden">
+                    <div className="w-48 h-60 rounded-lg border-2 border-white/20 overflow-hidden">
                       <img 
                         src={new URL('@assets/IMG_0879_1757674246988.JPG', import.meta.url).href}
                         alt="Karan Gadhave" 
