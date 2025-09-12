@@ -372,10 +372,11 @@ export default function Home() {
               >
                 <Badge 
                   variant="outline" 
+
                   className="text-sm py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-500 jost-secondary cursor-pointer group/badge relative overflow-hidden"
                 >
                   <div className="flex items-center px-6 group-hover/badge:px-6 transition-all duration-500">
-                    <span className="whitespace-nowrap">powered by pitchcraft.global</span>
+                    <span className="whitespace-nowrap">Powered by pitchcraft.global</span>
                     <ArrowRight className="w-4 h-4 ml-2 text-primary flex-shrink-0" />
                   </div>
                 </Badge>
