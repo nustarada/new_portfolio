@@ -148,7 +148,7 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
             1 - distance / config.distortionRadius,
             3,
           );
-          ctx.strokeStyle = `rgba(79, 172, 254, ${0.18 + opacityFactor})`;
+          ctx.strokeStyle = `rgba(79, 172, 254, ${0.15 + opacityFactor})`;
 
           let distortedX = x;
           const wave =
@@ -194,7 +194,7 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
             1 - distance / config.distortionRadius,
             3,
           );
-          ctx.strokeStyle = `rgba(79, 172, 254, ${0.18 + opacityFactor})`;
+          ctx.strokeStyle = `rgba(79, 172, 254, ${0.15 + opacityFactor})`;
 
           let distortedY = y;
           const wave =
