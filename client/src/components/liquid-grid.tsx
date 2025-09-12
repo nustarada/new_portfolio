@@ -111,13 +111,6 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
       const mousePixelX = (currentMouseX / 100) * width;
       const mousePixelY = (currentMouseY / 100) * height;
 
-      // Skip rendering if mouse is outside canvas bounds
-      if (mousePixelX < 0 || mousePixelX > width || mousePixelY < 0 || mousePixelY > height) {
-        ctx.clearRect(0, 0, width, height); // Clear the canvas
-        animationRef.current = requestAnimationFrame(drawLiquidGrid);
-        return; // Skip to next frame
-      }
-
       driftOffset += 0.1;
 
       ctx.clearRect(0, 0, width, height);
@@ -155,7 +148,7 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
             1 - distance / config.distortionRadius,
             3,
           );
-          ctx.strokeStyle = `rgba(79, 172, 254, ${0.14 + opacityFactor})`;
+          ctx.strokeStyle = `rgba(79, 172, 254, ${0.1 + opacityFactor})`;
 
           let distortedX = x;
           const wave =
@@ -201,7 +194,7 @@ export function LiquidGrid({ mouseX, mouseY, intensity }: LiquidGridProps) {
             1 - distance / config.distortionRadius,
             3,
           );
-          ctx.strokeStyle = `rgba(79, 172, 254, ${0.14 + opacityFactor})`;
+          ctx.strokeStyle = `rgba(79, 172, 254, ${0.1 + opacityFactor})`;
 
           let distortedY = y;
           const wave =
