@@ -379,9 +379,9 @@ const TwoHourLearningCaseStudy = () => {
               >
                 <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
                   <img src={homepageThumbnail} alt="Homepage WordPress Design" className="w-full h-auto rounded-lg" />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded">
-                      <p className="text-white text-xs font-medium">Click to view</p>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                    <div className="bg-white/95 backdrop-blur-sm border border-white/30 px-4 py-2 rounded-md shadow-lg">
+                      <p className="text-gray-900 text-sm font-semibold jost-secondary">Click to view</p>
                     </div>
                   </div>
                 </div>
@@ -409,9 +409,9 @@ const TwoHourLearningCaseStudy = () => {
               >
                 <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
                   <img src={persona1Thumbnail} alt="Persona 1 HubSpot Design" className="w-full h-auto rounded-lg" />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded">
-                      <p className="text-white text-xs font-medium">Click to view</p>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                    <div className="bg-white/95 backdrop-blur-sm border border-white/30 px-4 py-2 rounded-md shadow-lg">
+                      <p className="text-gray-900 text-sm font-semibold jost-secondary">Click to view</p>
                     </div>
                   </div>
                 </div>
@@ -439,9 +439,9 @@ const TwoHourLearningCaseStudy = () => {
               >
                 <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
                   <img src={persona2Thumbnail} alt="Persona 2 HubSpot Design" className="w-full h-auto rounded-lg" />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded">
-                      <p className="text-white text-xs font-medium">Click to view</p>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                    <div className="bg-white/95 backdrop-blur-sm border border-white/30 px-4 py-2 rounded-md shadow-lg">
+                      <p className="text-gray-900 text-sm font-semibold jost-secondary">Click to view</p>
                     </div>
                   </div>
                 </div>
@@ -469,9 +469,9 @@ const TwoHourLearningCaseStudy = () => {
               >
                 <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
                   <img src={persona3Thumbnail} alt="Persona 3 HubSpot Design" className="w-full h-auto rounded-lg" />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded">
-                      <p className="text-white text-xs font-medium">Click to view</p>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                    <div className="bg-white/95 backdrop-blur-sm border border-white/30 px-4 py-2 rounded-md shadow-lg">
+                      <p className="text-gray-900 text-sm font-semibold jost-secondary">Click to view</p>
                     </div>
                   </div>
                 </div>
