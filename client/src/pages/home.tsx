@@ -1079,6 +1079,22 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-2xl" />
             
             <div className="relative z-10">
+              {/* Call to Action */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="text-center mb-12"
+              >
+                <div className="inline-flex items-center space-x-3 px-8 py-4 glass-card grain-texture border border-white/10">
+                  <Rocket className="w-6 h-6 text-primary" />
+                  <p className="text-white/90 text-lg font-medium jost-secondary">
+                    Let's discuss your next project and bring your ideas to life!
+                  </p>
+                </div>
+              </motion.div>
+
               {/* Services Grid */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
                 {/* UI/UX Design Card */}
@@ -1247,22 +1263,6 @@ export default function Home() {
                   </Card>
                 </motion.div>
               </div>
-
-              {/* Call to Action */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <div className="inline-flex items-center space-x-3 px-8 py-4 glass-card grain-texture border border-white/10">
-                  <Rocket className="w-6 h-6 text-primary" />
-                  <p className="text-white/90 text-lg font-medium jost-secondary">
-                    Let's discuss your next project and bring your ideas to life!
-                  </p>
-                </div>
-              </motion.div>
             </div>
           </Card>
 
