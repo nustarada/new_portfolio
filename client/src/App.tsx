@@ -15,7 +15,7 @@ import TwoHourLearningCaseStudy from "./pages/2hour-learning-case-study";
 
 import NotFound from "@/pages/not-found";
 
-function Router() {
+function Routes() {
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -39,7 +39,7 @@ function App() {
           <ScrollIndicator />
 
           <Toaster />
-          <Router />
+          <Routes />
         </div>
       </TooltipProvider>
     </QueryClientProvider>

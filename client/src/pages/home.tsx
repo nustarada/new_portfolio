@@ -515,28 +515,32 @@ export default function Home() {
                 label: 'Projects Delivered', 
                 description: 'Successful design solutions',
                 icon: Folder,
-                iconColor: 'text-emerald-400'
+                iconColor: 'text-emerald-400',
+                bgColor: 'from-emerald-500/20 to-emerald-600/20'
               },
               { 
                 number: '8+', 
                 label: 'Team Members Led', 
                 description: 'Cross-functional collaboration',
                 icon: Users,
-                iconColor: 'text-violet-400'
+                iconColor: 'text-violet-400',
+                bgColor: 'from-violet-500/20 to-violet-600/20'
               },
               { 
                 number: '60%', 
                 label: 'Faster Design Cycles', 
                 description: 'AI-enhanced workflow efficiency',
                 icon: Zap,
-                iconColor: 'text-amber-400'
+                iconColor: 'text-amber-400',
+                bgColor: 'from-amber-500/20 to-amber-600/20'
               },
               { 
                 number: '95%', 
                 label: 'Client Satisfaction', 
                 description: 'Consistent project success rate',
                 icon: Award,
-                iconColor: 'text-orange-400'
+                iconColor: 'text-orange-400',
+                bgColor: 'from-orange-500/20 to-orange-600/20'
               }
             ].map((stat, index) => (
               <motion.div
@@ -555,7 +559,7 @@ export default function Home() {
                   <div className="relative z-10">
                     {/* Mobile: Vertical Layout */}
                     <div className="block sm:hidden text-center space-y-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${stat.bgColor} border border-white/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300`}>
                         <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                       </div>
                       <div>
@@ -567,7 +571,7 @@ export default function Home() {
 
                     {/* Tablet & Desktop: Horizontal Layout */}
                     <div className="hidden sm:flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${stat.bgColor} border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                         <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                       </div>
                       <div className="flex-1">
