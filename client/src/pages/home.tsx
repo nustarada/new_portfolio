@@ -757,9 +757,9 @@ export default function Home() {
                       Core Principles
                     </h4>
                     {[
-                      { icon: Target, title: 'User-Centered Design', desc: 'Decisions driven by user needs', color: 'text-cyan-400' },
-                      { icon: Zap, title: 'AI-Enhanced Workflow', desc: 'Technology for maximum efficiency', color: 'text-yellow-400' },
-                      { icon: Rocket, title: 'Innovation-First', desc: 'Pushing creative boundaries', color: 'text-purple-400' }
+                      { icon: Target, title: 'User-Centered Design', desc: 'Decisions driven by user needs', color: 'text-cyan-400', bgColor: 'from-cyan-500/20 to-cyan-600/20' },
+                      { icon: Zap, title: 'AI-Enhanced Workflow', desc: 'Technology for maximum efficiency', color: 'text-amber-400', bgColor: 'from-amber-500/20 to-amber-600/20' },
+                      { icon: Rocket, title: 'Innovation-First', desc: 'Pushing creative boundaries', color: 'text-purple-400', bgColor: 'from-purple-500/20 to-purple-600/20' }
                     ].map((principle, index) => (
                       <motion.div
                         key={principle.title}
@@ -769,7 +769,7 @@ export default function Home() {
                         transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                         viewport={{ once: true }}
                       >
-                        <div className="w-8 h-8 bg-gradient-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center">
+                        <div className={`w-8 h-8 bg-gradient-to-br ${principle.bgColor} border border-white/10 flex items-center justify-center`}>
                           <principle.icon className={`w-4 h-4 ${principle.color}`} />
                         </div>
                         <div>
