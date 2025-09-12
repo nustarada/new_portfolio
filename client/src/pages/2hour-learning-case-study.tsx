@@ -90,21 +90,36 @@ const TwoHourLearningCaseStudy = () => {
       },
       {
         title: "Persona 1 (HubSpot)",
-        target: "Students & Parents",
-        description: "Focused on 'Personalized Learning Powered by AI' with statistics showing student success rates and faster learning outcomes.",
-        features: ["AI-powered personalization messaging", "Student success statistics and outcomes", "Testimonials from successful learners", "Clear enrollment and trial CTAs"]
+        target: "Head of School / Principal",
+        role: "Strategic budget holder",
+        focus: "Outcomes, school differentiation, board alignment",
+        description: "Strategic decision-maker focused on justifying high tuition fees, achieving strong school differentiation, and meeting rising parent expectations through innovative, future-ready solutions.",
+        painPoints: ["Pressure to justify high tuition fees", "Need for strong differentiation", "Rising parent expectations"],
+        motivations: ["Better student outcomes", "Innovative approaches", "Future-readiness", "Simple rollout of solutions"],
+        channels: ["Google Search (high intent)", "LinkedIn Ads", "Email", "Webinars"],
+        features: ["ROI-focused messaging and outcome metrics", "School differentiation and innovation highlights", "Simple implementation and rollout process", "Board-ready data and success stories"]
       },
       {
         title: "Persona 2 (HubSpot)", 
-        target: "Educators & Teachers",
-        description: "Emphasizes 'Better Outcomes, Less Planning' targeting educators looking for efficient teaching solutions and measurable student progress.",
-        features: ["Teacher workflow optimization messaging", "Academic progress and outcome metrics", "Professional development opportunities", "Educational resource access"]
+        target: "Dean of Academics / Director of Curriculum",
+        role: "Execution-oriented leader",
+        focus: "Teacher load, student growth, curriculum alignment",
+        description: "Operational leader focused on reducing teacher burnout, eliminating fragmented instruction, and demonstrating measurable academic gains through efficient curriculum solutions.",
+        painPoints: ["Teacher burnout", "Fragmented instruction", "Pressure to show academic gains"],
+        motivations: ["Curriculum efficiency", "Mastery data for students", "Time-saving teaching tools"],
+        channels: ["Google Search (curriculum-related terms)", "YouTube", "LinkedIn", "Email"],
+        features: ["Teacher workflow optimization and efficiency tools", "Student mastery tracking and data analytics", "Integrated curriculum alignment solutions", "Time-saving instructional resources"]
       },
       {
         title: "Persona 3 (HubSpot)",
-        target: "Schools & Institutions",
-        description: "Institutional-focused messaging around 'Revolutionary School Model' targeting decision-makers and administrators.",
-        features: ["Institutional transformation messaging", "Scalability and implementation support", "ROI and institutional success metrics", "Partnership and consultation CTAs"]
+        target: "Board Member / School Owner",
+        role: "Strategic stakeholder",
+        focus: "ROI, market position, long-term stability",
+        description: "High-level strategic stakeholder focused on addressing enrollment stagnation, reducing operational costs, and driving visible innovation for competitive advantage and long-term growth.",
+        painPoints: ["Enrollment stagnation", "High operational costs", "Lack of visible innovation"],
+        motivations: ["Competitive edge", "Cost-per-outcome efficiency", "Long-term growth"],
+        channels: ["Retargeting", "LinkedIn (owners/trustees)", "Forwardable email"],
+        features: ["Competitive positioning and market differentiation", "Cost-efficiency and ROI optimization metrics", "Long-term growth strategy and innovation roadmap", "Executive-level partnership and consultation"]
       }
     ],
     
@@ -642,24 +657,84 @@ const TwoHourLearningCaseStudy = () => {
                     {persona.title}
                   </h3>
                   
-                  <Badge variant="outline" className="text-xs px-2 py-1 border-green-400/50 text-green-400 jost-secondary mb-4">
-                    {persona.target}
-                  </Badge>
+                  <div className="space-y-4 mb-6">
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="outline" className="text-xs px-2 py-1 border-green-400/50 text-green-400 jost-secondary">
+                        {persona.target}
+                      </Badge>
+                      {persona.role && (
+                        <Badge variant="outline" className="text-xs px-2 py-1 border-blue-400/50 text-blue-400 jost-secondary">
+                          {persona.role}
+                        </Badge>
+                      )}
+                    </div>
+                    
+                    {persona.focus && (
+                      <div>
+                        <h5 className="text-xs font-bold text-green-400 mb-1 jost-secondary uppercase tracking-wider">Focus</h5>
+                        <p className="text-sm text-white/80 jost-secondary">{persona.focus}</p>
+                      </div>
+                    )}
+                  </div>
                   
                   <p className="text-white/85 leading-relaxed mb-6 jost-secondary">
                     {persona.description}
                   </p>
                   
-                  <div>
-                    <h4 className="text-sm font-bold text-green-400 mb-2 jost-secondary">KEY FEATURES</h4>
-                    <ul className="space-y-1">
-                      {persona.features.map((feature, idx) => (
-                        <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
-                          <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-2" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="space-y-4">
+                    {persona.painPoints && (
+                      <div>
+                        <h4 className="text-sm font-bold text-red-400 mb-2 jost-secondary">PAIN POINTS</h4>
+                        <ul className="space-y-1">
+                          {persona.painPoints.map((point, idx) => (
+                            <li key={idx} className="text-sm text-white/70 flex items-start jost-secondary">
+                              <div className="w-1.5 h-1.5 bg-red-400 rounded-full mr-2 mt-1.5 flex-shrink-0" />
+                              {point}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {persona.motivations && (
+                      <div>
+                        <h4 className="text-sm font-bold text-blue-400 mb-2 jost-secondary">MOTIVATIONS</h4>
+                        <ul className="space-y-1">
+                          {persona.motivations.map((motivation, idx) => (
+                            <li key={idx} className="text-sm text-white/70 flex items-start jost-secondary">
+                              <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2 mt-1.5 flex-shrink-0" />
+                              {motivation}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {persona.channels && (
+                      <div>
+                        <h4 className="text-sm font-bold text-purple-400 mb-2 jost-secondary">TOP CHANNELS</h4>
+                        <ul className="space-y-1">
+                          {persona.channels.map((channel, idx) => (
+                            <li key={idx} className="text-sm text-white/70 flex items-start jost-secondary">
+                              <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2 mt-1.5 flex-shrink-0" />
+                              {channel}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    <div>
+                      <h4 className="text-sm font-bold text-green-400 mb-2 jost-secondary">KEY FEATURES</h4>
+                      <ul className="space-y-1">
+                        {persona.features.map((feature, idx) => (
+                          <li key={idx} className="text-sm text-white/70 flex items-start jost-secondary">
+                            <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-2 mt-1.5 flex-shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </Card>
               </motion.div>
