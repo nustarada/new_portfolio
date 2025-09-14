@@ -1234,7 +1234,7 @@ export default function Home() {
       </section> */}
       {/* Contact Section */}
       <section id="contact" className="py-16 relative">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
