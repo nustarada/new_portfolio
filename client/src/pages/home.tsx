@@ -1303,45 +1303,45 @@ export default function Home() {
                       {/* Email */}
                       <div className="group/contact p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/5 hover:border-primary/20">
                         <div className="space-y-3">
-                          {/* Header with icon and title */}
-                          <div className="flex items-center space-x-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 flex items-center justify-center flex-shrink-0">
-                              <Mail className="w-5 h-5 text-emerald-400" />
+                          {/* Header with icon, title and copy button */}
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-3">
+                              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 flex items-center justify-center flex-shrink-0">
+                                <Mail className="w-5 h-5 text-emerald-400" />
+                              </div>
+                              <p className="text-white/60 text-sm font-medium jost-secondary">
+                                Email
+                              </p>
                             </div>
-                            <p className="text-white/60 text-sm font-medium jost-secondary">
-                              Email
-                            </p>
+                            <button
+                              onClick={(event) => {
+                                navigator.clipboard.writeText(
+                                  "gadhavekaran@gmail.com",
+                                );
+                                const button = event.currentTarget;
+                                const originalContent = button.innerHTML;
+                                button.innerHTML =
+                                  '<svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                                setTimeout(() => {
+                                  button.innerHTML = originalContent;
+                                }, 2000);
+                              }}
+                              className="opacity-60 group-hover:opacity-100 transition-opacity duration-300 p-1 hover:bg-white/10 rounded text-white/60 hover:text-primary flex-shrink-0"
+                              title="Copy email address"
+                            >
+                              <FileText className="w-3 h-3" />
+                            </button>
                           </div>
                           
                           {/* Contact info */}
-                          <div className="group ml-13">
-                            <div className="flex items-center justify-between gap-3">
-                              <a
-                                href="mailto:gadhavekaran@gmail.com"
-                                className="text-white hover:text-primary transition-colors duration-300 font-semibold text-sm jost-secondary flex-1 break-all"
-                                title="Click to open email client"
-                              >
-                                gadhavekaran@gmail.com
-                              </a>
-                              <button
-                                onClick={(event) => {
-                                  navigator.clipboard.writeText(
-                                    "gadhavekaran@gmail.com",
-                                  );
-                                  const button = event.currentTarget;
-                                  const originalContent = button.innerHTML;
-                                  button.innerHTML =
-                                    '<svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                                  setTimeout(() => {
-                                    button.innerHTML = originalContent;
-                                  }, 2000);
-                                }}
-                                className="opacity-60 group-hover:opacity-100 transition-opacity duration-300 p-1 hover:bg-white/10 rounded text-white/60 hover:text-primary flex-shrink-0"
-                                title="Copy email address"
-                              >
-                                <FileText className="w-3 h-3" />
-                              </button>
-                            </div>
+                          <div className="ml-13">
+                            <a
+                              href="mailto:gadhavekaran@gmail.com"
+                              className="text-white hover:text-primary transition-colors duration-300 font-semibold text-sm jost-secondary break-all"
+                              title="Click to open email client"
+                            >
+                              gadhavekaran@gmail.com
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -1403,45 +1403,45 @@ export default function Home() {
                       {/* Email */}
                       <div className="group/contact p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/5 hover:border-primary/20">
                         <div className="space-y-3">
-                          {/* Header with icon and title */}
-                          <div className="flex items-center space-x-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 flex items-center justify-center flex-shrink-0">
-                              <Mail className="w-5 h-5 text-emerald-400" />
+                          {/* Header with icon, title and copy button */}
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-3">
+                              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 flex items-center justify-center flex-shrink-0">
+                                <Mail className="w-5 h-5 text-emerald-400" />
+                              </div>
+                              <p className="text-white/60 text-sm font-medium jost-secondary">
+                                Email
+                              </p>
                             </div>
-                            <p className="text-white/60 text-sm font-medium jost-secondary">
-                              Email
-                            </p>
+                            <button
+                              onClick={(event) => {
+                                navigator.clipboard.writeText(
+                                  "hello@pitchcraft.global",
+                                );
+                                const button = event.currentTarget;
+                                const originalContent = button.innerHTML;
+                                button.innerHTML =
+                                  '<svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                                setTimeout(() => {
+                                  button.innerHTML = originalContent;
+                                }, 2000);
+                              }}
+                              className="opacity-60 group-hover:opacity-100 transition-opacity duration-300 p-1 hover:bg-white/10 rounded text-white/60 hover:text-primary flex-shrink-0"
+                              title="Copy email address"
+                            >
+                              <FileText className="w-3 h-3" />
+                            </button>
                           </div>
                           
                           {/* Contact info */}
-                          <div className="group ml-13">
-                            <div className="flex items-center justify-between gap-3">
-                              <a
-                                href="mailto:hello@pitchcraft.global"
-                                className="text-white hover:text-primary transition-colors duration-300 font-semibold text-sm jost-secondary flex-1 break-all"
-                                title="Click to open email client"
-                              >
-                                hello@pitchcraft.global
-                              </a>
-                              <button
-                                onClick={(event) => {
-                                  navigator.clipboard.writeText(
-                                    "hello@pitchcraft.global",
-                                  );
-                                  const button = event.currentTarget;
-                                  const originalContent = button.innerHTML;
-                                  button.innerHTML =
-                                    '<svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                                  setTimeout(() => {
-                                    button.innerHTML = originalContent;
-                                  }, 2000);
-                                }}
-                                className="opacity-60 group-hover:opacity-100 transition-opacity duration-300 p-1 hover:bg-white/10 rounded text-white/60 hover:text-primary flex-shrink-0"
-                                title="Copy email address"
-                              >
-                                <FileText className="w-3 h-3" />
-                              </button>
-                            </div>
+                          <div className="ml-13">
+                            <a
+                              href="mailto:hello@pitchcraft.global"
+                              className="text-white hover:text-primary transition-colors duration-300 font-semibold text-sm jost-secondary break-all"
+                              title="Click to open email client"
+                            >
+                              hello@pitchcraft.global
+                            </a>
                           </div>
                         </div>
                       </div>
