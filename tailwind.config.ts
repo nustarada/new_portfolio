@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        'sans': ['Jost', 'system-ui', 'sans-serif'],
+        'sans': ['Albert Sans', 'system-ui', 'sans-serif'],
+        'heading': ['Bricolage Grotesque', 'Arial', 'sans-serif'],
         'mono': ['Source Code Pro', 'monospace'],
       },
       borderRadius: {
