@@ -11,18 +11,19 @@ Preferred communication style: Simple, everyday language.
 - **Main Section Headings (h1/h2)**: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold albert-sans-medium text-white`
 - **Subsection Headings (h3)**: `text-2xl font-semibold albert-sans-medium`
 - **Small Headings (h4)**: `text-xl font-semibold albert-sans-medium`
-- **Supporting Text**: Use `jost-secondary` font class for body text and descriptions
+- **Supporting Text**: Use `jost-secondary` or `open-sans` font class for body text and descriptions
 
 ### Typography Update (October 21, 2025)
-- **Latest Migration**: Successfully migrated from Druk Wide Medium to Albert Sans across entire portfolio
-- **Primary Font**: All section headings now use Albert Sans (`albert-sans-medium` class) loaded from Google Fonts
-- **Font Weight**: Using `font-semibold` (600) weight for optimal readability with the modern sans-serif font
+- **Latest Migration**: Successfully migrated from Druk Wide Medium to Albert Sans for headings, and from Jost to Open Sans for body text
+- **Primary Font (Headings)**: All section headings now use Albert Sans (`albert-sans-medium` class) loaded from Google Fonts
+- **Body Font**: All body text, descriptions, and paragraphs now use Open Sans (`jost-secondary` or `open-sans` class) loaded from Google Fonts
+- **Font Weight**: Using `font-semibold` (600) weight for headings for optimal readability with the modern sans-serif font
 - **Letter Spacing**: Consistent 0.02em letter spacing applied across all headings
 - **Text Color**: Clean `text-white` styling maintained for all major section headings
 - **Scope**: Typography migration completed across Home page, Case Studies page, Liffo case study page, and 2Hour Learning case study page
 - **Statistics**: Achievement numbers in statistics section also updated to use Albert Sans font
 - **Consistency**: All major headings now use `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold albert-sans-medium text-white`
-- **Font Files**: Druk Wide font files deleted from assets, Albert Sans loaded via Google Fonts CDN
+- **Font Files**: Druk Wide font files deleted from assets, Albert Sans and Open Sans loaded via Google Fonts CDN
 
 ### Color Applications
 - **Primary Color**: Use `text-primary` for accent elements and highlights
@@ -34,7 +35,7 @@ Preferred communication style: Simple, everyday language.
 - **Mobile-First Responsive**: All headings scale from `text-2xl` on mobile to `lg:text-5xl` on large screens
 - Always use `font-semibold` for main section headings to match Albert Sans characteristics
 - Always use `text-white` for section headings (no gradient backgrounds)
-- Always include `albert-sans-medium` class for headings and `jost-secondary` for body text
+- Always include `albert-sans-medium` class for headings and `jost-secondary` or `open-sans` for body text
 - Maintain consistent spacing: `mb-6` for section headings, `mb-8` for larger gaps
 - **CRITICAL**: Never use `font-normal` for any heading elements - all headings use `font-semibold`
 - **CRITICAL**: Never use gradient text backgrounds - all headings use clean `text-white`

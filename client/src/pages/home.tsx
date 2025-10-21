@@ -439,7 +439,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold text-white tracking-wide leading-tight hero-text-hover flex justify-center">
-              <span className="text-gray-200 albert-sans-black blend-mode-overlay">
+              <span className="text-gray-200 albert-sans-medium blend-mode-overlay">
                 KARN KALAA
               </span>
             </h1>
@@ -453,7 +453,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight druk-wide-medium">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight albert-sans-medium">
               <span className="text-white">SENIOR </span>
               <span className="glow-text">PRODUCT DESIGNER</span>
             </h2>
@@ -545,7 +545,7 @@ export default function Home() {
             className="text-center mb-10"
           >
             <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-white druk-wide-medium"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-white albert-sans-medium"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -617,7 +617,7 @@ export default function Home() {
                         <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                       </div>
                       <div>
-                        <span className="text-2xl sm:text-3xl font-black text-primary druk-wide-medium block">
+                        <span className="text-2xl sm:text-3xl font-black text-primary albert-sans-medium block">
                           {stat.number}
                         </span>
                         <h3 className="text-white font-bold text-sm sm:text-base jost-secondary mt-1">
@@ -638,7 +638,7 @@ export default function Home() {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-baseline space-x-3 mb-1">
-                          <span className="text-2xl lg:text-3xl font-black text-primary druk-wide-medium">
+                          <span className="text-2xl lg:text-3xl font-black text-primary albert-sans-medium">
                             {stat.number}
                           </span>
                           <h3 className="text-white font-bold text-sm lg:text-base jost-secondary">
@@ -675,7 +675,7 @@ export default function Home() {
             className="text-center mb-10"
           >
             <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-white druk-wide-medium"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-white albert-sans-medium"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -725,7 +725,7 @@ export default function Home() {
                       />
                     </div>
                     {/* Name */}
-                    <h3 className="text-2xl md:text-3xl font-bold text-white druk-wide-medium text-center">
+                    <h3 className="text-2xl md:text-3xl font-bold text-white albert-sans-medium text-center">
                       Karan Gadhave
                     </h3>
                     {/* Title */}
@@ -964,7 +964,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <div className="relative inline-block mb-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white relative z-10 druk-wide-medium">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white relative z-10 albert-sans-medium">
                 FEATURED PROJECTS
               </h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
@@ -1121,7 +1121,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <div className="relative inline-block mb-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold glow-text relative z-10 druk-wide-medium">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold glow-text relative z-10 albert-sans-medium">
                 DESIGN PHILOSOPHY
               </h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
@@ -1238,7 +1238,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-5xl font-semibold mb-6 text-white druk-wide-medium">
+            <h2 className="text-5xl font-semibold mb-6 text-white albert-sans-medium">
               GET IN TOUCH
             </h2>
             <p className="text-xl text-muted-foreground jost-secondary">
