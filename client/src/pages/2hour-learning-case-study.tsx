@@ -248,10 +248,10 @@ const TwoHourLearningCaseStudy = () => {
                 {caseStudyData.category}
               </Badge>
               <div className="space-y-6">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white albert-sans-medium leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white albert-sans-medium leading-tight">
                   2 Hour Learning
                 </h1>
-                <h2 className="text-lg font-semibold text-white albert-sans-medium leading-tight">
+                <h2 className="text-lg font-extrabold text-white albert-sans-medium leading-tight">
                   Persona-Driven Lead Generation
                 </h2>
               </div>
@@ -290,7 +290,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               PROJECT OVERVIEW
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -308,7 +308,7 @@ const TwoHourLearningCaseStudy = () => {
               className="h-full"
             >
               <Card className="p-8 glass-card grain-texture border-blue-500/30 h-full flex flex-col">
-                <h3 className="text-2xl font-bold mb-6 text-blue-400 albert-sans-medium">PROJECT DETAILS</h3>
+                <h3 className="text-2xl font-extrabold mb-6 text-blue-400 albert-sans-medium">PROJECT DETAILS</h3>
                 <div className="space-y-4 flex-grow">
                   <div className="flex justify-between">
                     <span className="text-white/70 jost-secondary">Client</span>
@@ -339,7 +339,7 @@ const TwoHourLearningCaseStudy = () => {
               className="h-full"
             >
               <Card className="p-8 glass-card grain-texture border-cyan-500/30 h-full flex flex-col">
-                <h3 className="text-2xl font-bold mb-6 text-cyan-400 albert-sans-medium">OVERVIEW</h3>
+                <h3 className="text-2xl font-extrabold mb-6 text-cyan-400 albert-sans-medium">OVERVIEW</h3>
                 <p className="text-white/85 leading-relaxed text-lg jost-secondary flex-grow">
                   {caseStudyData.overview}
                 </p>
@@ -363,7 +363,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               LANDING PAGE DESIGNS
             </h2>
             <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
@@ -393,7 +393,7 @@ const TwoHourLearningCaseStudy = () => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-base font-bold text-cyan-400 mb-1 albert-sans-medium">
+                  <h3 className="text-base font-extrabold text-cyan-400 mb-1 albert-sans-medium">
                     Homepage (WordPress)
                   </h3>
                   <p className="text-white/75 text-xs jost-secondary">
@@ -423,7 +423,7 @@ const TwoHourLearningCaseStudy = () => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-base font-bold text-blue-400 mb-1 albert-sans-medium">
+                  <h3 className="text-base font-extrabold text-blue-400 mb-1 albert-sans-medium">
                     Persona 1 (HubSpot)
                   </h3>
                   <p className="text-white/75 text-xs jost-secondary">
@@ -453,7 +453,7 @@ const TwoHourLearningCaseStudy = () => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-base font-bold text-green-400 mb-1 albert-sans-medium">
+                  <h3 className="text-base font-extrabold text-green-400 mb-1 albert-sans-medium">
                     Persona 2 (HubSpot)
                   </h3>
                   <p className="text-white/75 text-xs jost-secondary">
@@ -483,7 +483,7 @@ const TwoHourLearningCaseStudy = () => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-base font-bold text-purple-400 mb-1 albert-sans-medium">
+                  <h3 className="text-base font-extrabold text-purple-400 mb-1 albert-sans-medium">
                     Persona 3 (HubSpot)
                   </h3>
                   <p className="text-white/75 text-xs jost-secondary">
@@ -498,7 +498,7 @@ const TwoHourLearningCaseStudy = () => {
           <Dialog open={openModal === 'homepage'} onOpenChange={() => setOpenModal(null)}>
             <DialogContent className="max-w-4xl w-full h-[90vh] bg-background/95 border-cyan-500/30">
               <DialogHeader>
-                <DialogTitle className="text-xl font-bold text-cyan-400 albert-sans-medium">
+                <DialogTitle className="text-xl font-extrabold text-cyan-400 albert-sans-medium">
                   Homepage (WordPress) - Full Design
                 </DialogTitle>
               </DialogHeader>
@@ -517,7 +517,7 @@ const TwoHourLearningCaseStudy = () => {
           <Dialog open={openModal === 'persona1'} onOpenChange={() => setOpenModal(null)}>
             <DialogContent className="max-w-4xl w-full h-[90vh] bg-background/95 border-blue-500/30">
               <DialogHeader>
-                <DialogTitle className="text-xl font-bold text-blue-400 albert-sans-medium">
+                <DialogTitle className="text-xl font-extrabold text-blue-400 albert-sans-medium">
                   Persona 1 (HubSpot) - Full Design
                 </DialogTitle>
               </DialogHeader>
@@ -536,7 +536,7 @@ const TwoHourLearningCaseStudy = () => {
           <Dialog open={openModal === 'persona2'} onOpenChange={() => setOpenModal(null)}>
             <DialogContent className="max-w-4xl w-full h-[90vh] bg-background/95 border-green-500/30">
               <DialogHeader>
-                <DialogTitle className="text-xl font-bold text-green-400 albert-sans-medium">
+                <DialogTitle className="text-xl font-extrabold text-green-400 albert-sans-medium">
                   Persona 2 (HubSpot) - Full Design
                 </DialogTitle>
               </DialogHeader>
@@ -555,7 +555,7 @@ const TwoHourLearningCaseStudy = () => {
           <Dialog open={openModal === 'persona3'} onOpenChange={() => setOpenModal(null)}>
             <DialogContent className="max-w-4xl w-full h-[90vh] bg-background/95 border-purple-500/30">
               <DialogHeader>
-                <DialogTitle className="text-xl font-bold text-purple-400 albert-sans-medium">
+                <DialogTitle className="text-xl font-extrabold text-purple-400 albert-sans-medium">
                   Persona 3 (HubSpot) - Full Design
                 </DialogTitle>
               </DialogHeader>
@@ -587,7 +587,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               DESIGN STRATEGY
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -607,7 +607,7 @@ const TwoHourLearningCaseStudy = () => {
                 {caseStudyData.strategy.description}
               </p>
               
-              <h3 className="text-2xl font-bold mb-6 text-purple-400 albert-sans-medium">KEY APPROACHES</h3>
+              <h3 className="text-2xl font-extrabold mb-6 text-purple-400 albert-sans-medium">KEY APPROACHES</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {caseStudyData.strategy.approaches.map((approach, index) => (
                   <motion.div
@@ -642,7 +642,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               PERSONA-DRIVEN APPROACH
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -660,7 +660,7 @@ const TwoHourLearningCaseStudy = () => {
                 viewport={{ once: true }}
               >
                 <Card className="p-8 glass-card grain-texture border-green-500/30 h-full">
-                  <h3 className="text-xl font-bold mb-4 text-green-300 albert-sans-medium">
+                  <h3 className="text-xl font-extrabold mb-4 text-green-300 albert-sans-medium">
                     {persona.title}
                   </h3>
                   
@@ -764,7 +764,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               DESIGN PROCESS
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -791,7 +791,7 @@ const TwoHourLearningCaseStudy = () => {
                     </Badge>
                   </div>
                   
-                  <h3 className="text-xl font-bold mb-4 text-purple-300 albert-sans-medium">
+                  <h3 className="text-xl font-extrabold mb-4 text-purple-300 albert-sans-medium">
                     {phase.phase}
                   </h3>
                   
@@ -831,7 +831,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               RESULTS & IMPACT
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -850,7 +850,7 @@ const TwoHourLearningCaseStudy = () => {
               >
                 <Card className="p-8 glass-card grain-texture border-orange-500/30 text-center h-full flex flex-col justify-between">
                   <div>
-                    <div className="text-4xl font-bold text-orange-400 mb-2 albert-sans-medium">
+                    <div className="text-4xl font-extrabold text-orange-400 mb-2 albert-sans-medium">
                       {result.value}
                     </div>
                     <h3 className="text-lg font-semibold text-white mb-3 jost-secondary">
@@ -883,7 +883,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               TECHNOLOGY & TOOLS
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -934,7 +934,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               KEY LEARNINGS
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -981,7 +981,7 @@ const TwoHourLearningCaseStudy = () => {
             className="text-center"
           >
             <Card className="p-12 glass-card grain-texture border-primary/30">
-              <h3 className="text-3xl font-bold mb-6 text-white albert-sans-medium">
+              <h3 className="text-3xl font-extrabold mb-6 text-white albert-sans-medium">
                 Ready to Transform Your Educational Landing Pages?
               </h3>
               <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto jost-secondary">

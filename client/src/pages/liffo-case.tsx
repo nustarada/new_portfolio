@@ -420,8 +420,8 @@ const LiffoCaseStudy = () => {
                 {caseStudyData.category}
               </Badge>
               <h1 className="space-y-2">
-                <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white albert-sans-medium leading-tight">Liffo</span>
-                <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent albert-sans-medium leading-tight">Emergency Health<br className="hidden sm:inline" /> Platform</span>
+                <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white albert-sans-medium leading-tight">Liffo</span>
+                <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent albert-sans-medium leading-tight">Emergency Health<br className="hidden sm:inline" /> Platform</span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
                 {caseStudyData.subtitle}
@@ -458,7 +458,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               OVERVIEW & PROBLEM
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -476,7 +476,7 @@ const LiffoCaseStudy = () => {
               className="h-full"
             >
               <Card className="p-8 glass-card grain-texture border-red-500/30 h-full flex flex-col">
-                <h3 className="text-2xl font-bold mb-6 text-red-400 albert-sans-medium">PROJECT DETAILS</h3>
+                <h3 className="text-2xl font-extrabold mb-6 text-red-400 albert-sans-medium">PROJECT DETAILS</h3>
                 <div className="space-y-4 flex-grow">
                   <div className="flex justify-between">
                     <span className="text-white/70 jost-secondary">Client</span>
@@ -503,7 +503,7 @@ const LiffoCaseStudy = () => {
               className="h-full"
             >
               <Card className="p-8 glass-card grain-texture border-orange-500/30 h-full flex flex-col">
-                <h3 className="text-2xl font-bold mb-6 text-orange-400 albert-sans-medium">OVERVIEW</h3>
+                <h3 className="text-2xl font-extrabold mb-6 text-orange-400 albert-sans-medium">OVERVIEW</h3>
                 <p className="text-white/85 leading-relaxed text-lg jost-secondary flex-grow">
                   {caseStudyData.overview}
                 </p>
@@ -520,12 +520,12 @@ const LiffoCaseStudy = () => {
             className="mb-12"
           >
             <Card className="p-6 sm:p-8 lg:p-12 glass-card grain-texture border-red-500/30">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 sm:mb-8 text-center text-red-400 albert-sans-medium">THE HEALTHCARE CHALLENGE</h3>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 sm:mb-8 text-center text-red-400 albert-sans-medium">THE HEALTHCARE CHALLENGE</h3>
               <p className="text-xl text-white/90 leading-relaxed mb-8 jost-secondary">
                 {caseStudyData.problem.description}
               </p>
               
-              <h4 className="text-2xl font-bold mb-6 text-red-400 albert-sans-medium">KEY PAIN POINTS</h4>
+              <h4 className="text-2xl font-extrabold mb-6 text-red-400 albert-sans-medium">KEY PAIN POINTS</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {caseStudyData.problem.painPoints.map((point, index) => (
                   <motion.div
@@ -560,7 +560,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               USER PERSONAS
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -584,7 +584,7 @@ const LiffoCaseStudy = () => {
                         <User className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />
                       </div>
                       <div className="text-center sm:text-left">
-                        <h3 className="text-lg sm:text-xl font-bold text-blue-300 albert-sans-medium leading-tight">{persona.name}</h3>
+                        <h3 className="text-lg sm:text-xl font-extrabold text-blue-300 albert-sans-medium leading-tight">{persona.name}</h3>
                         <p className="text-sm sm:text-base text-white/70 jost-secondary">{persona.role}, {persona.age}</p>
                       </div>
                     </div>
@@ -649,7 +649,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               USER JOURNEY
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -673,7 +673,7 @@ const LiffoCaseStudy = () => {
                         <div className="w-8 h-8 bg-purple-500/20 rounded-full flex items-center justify-center text-purple-400 font-bold text-sm">
                           {index + 1}
                         </div>
-                        <h3 className="text-lg font-bold text-purple-300 albert-sans-medium">{phase.phase}</h3>
+                        <h3 className="text-lg font-extrabold text-purple-300 albert-sans-medium">{phase.phase}</h3>
                       </div>
                     </div>
                     
@@ -736,7 +736,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               THE DESIGN SOLUTION
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -756,7 +756,7 @@ const LiffoCaseStudy = () => {
                 {caseStudyData.solution.description}
               </p>
               
-              <h3 className="text-2xl font-bold mb-6 text-green-400 albert-sans-medium">SOLUTION FEATURES</h3>
+              <h3 className="text-2xl font-extrabold mb-6 text-green-400 albert-sans-medium">SOLUTION FEATURES</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {caseStudyData.solution.features.map((feature, index) => (
                   <motion.div
@@ -783,7 +783,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="mt-16"
           >
-            <h3 className="text-4xl md:text-5xl font-semibold mb-8 text-center text-purple-300 albert-sans-medium">
+            <h3 className="text-4xl md:text-5xl font-extrabold mb-8 text-center text-purple-300 albert-sans-medium">
               DESIGN PROCESS
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -805,7 +805,7 @@ const LiffoCaseStudy = () => {
                       </Badge>
                     </div>
                     
-                    <h4 className="text-xl font-bold mb-4 text-purple-300 albert-sans-medium">
+                    <h4 className="text-xl font-extrabold mb-4 text-purple-300 albert-sans-medium">
                       {phase.phase}
                     </h4>
                     
@@ -846,7 +846,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               KEY FEATURES
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -872,7 +872,7 @@ const LiffoCaseStudy = () => {
                     />
                   </div>
                   
-                  <h3 className="text-xl font-bold mb-4 text-orange-300 albert-sans-medium">
+                  <h3 className="text-xl font-extrabold mb-4 text-orange-300 albert-sans-medium">
                     {feature.title}
                   </h3>
                   
@@ -912,7 +912,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               DESIGN SHOWCASE
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -931,7 +931,7 @@ const LiffoCaseStudy = () => {
                 viewport={{ once: true }}
               >
                 <Card className="p-8 glass-card grain-texture border-blue-500/30">
-                  <h3 className="text-2xl font-bold mb-4 text-blue-400 albert-sans-medium">
+                  <h3 className="text-2xl font-extrabold mb-4 text-blue-400 albert-sans-medium">
                     {showcase.category}
                   </h3>
                   <p className="text-white/85 mb-8 jost-secondary">
@@ -969,7 +969,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
           >
             <Card className="p-8 glass-card grain-texture border-purple-500/30">
-              <h3 className="text-4xl md:text-5xl font-semibold mb-6 text-purple-400 albert-sans-medium text-center">
+              <h3 className="text-4xl md:text-5xl font-extrabold mb-6 text-purple-400 albert-sans-medium text-center">
                 COMPLETE INTERFACE GALLERY
               </h3>
               <p className="text-white/85 mb-8 text-center jost-secondary">
@@ -1034,7 +1034,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               RESULTS & IMPACT
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -1086,7 +1086,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               DESIGN PRINCIPLES
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -1111,7 +1111,7 @@ const LiffoCaseStudy = () => {
                         <IconComponent className="w-6 h-6 text-cyan-400" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-cyan-300 mb-3 albert-sans-medium">
+                        <h3 className="text-xl font-extrabold text-cyan-300 mb-3 albert-sans-medium">
                           {principle.principle}
                         </h3>
                         <p className="text-white/85 leading-relaxed jost-secondary">
@@ -1141,7 +1141,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               TOOLS & TECHNOLOGY
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -1192,7 +1192,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               KEY LEARNINGS
             </h2>
             <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
@@ -1236,7 +1236,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold albert-sans-medium text-white">
+            <h2 className="text-4xl md:text-5xl font-extrabold albert-sans-medium text-white">
               READY TO DISCUSS YOUR PROJECT?
             </h2>
             <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed jost-secondary">

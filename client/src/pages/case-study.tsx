@@ -231,10 +231,10 @@ const CaseStudyPage = () => {
                 {caseStudyData.category}
               </Badge>
               <div className="space-y-2">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white albert-sans-medium leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white albert-sans-medium leading-tight">
                   FutureFirstFamilies
                 </h1>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white albert-sans-medium leading-tight">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white albert-sans-medium leading-tight">
                   Where Families<br className="hidden sm:inline" /> Drive Change.
                 </h2>
               </div>
@@ -273,7 +273,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               PROJECT OVERVIEW
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -291,7 +291,7 @@ const CaseStudyPage = () => {
               className="h-full"
             >
               <Card className="p-8 glass-card grain-texture border-blue-500/30 h-full flex flex-col">
-                <h3 className="text-2xl font-bold mb-6 text-blue-400 albert-sans-medium">PROJECT DETAILS</h3>
+                <h3 className="text-2xl font-extrabold mb-6 text-blue-400 albert-sans-medium">PROJECT DETAILS</h3>
                 <div className="space-y-4 flex-grow">
                   <div className="flex justify-between">
                     <span className="text-white/70 jost-secondary">Client</span>
@@ -322,7 +322,7 @@ const CaseStudyPage = () => {
               className="h-full"
             >
               <Card className="p-8 glass-card grain-texture border-cyan-500/30 h-full flex flex-col">
-                <h3 className="text-2xl font-bold mb-6 text-cyan-400 albert-sans-medium">OVERVIEW</h3>
+                <h3 className="text-2xl font-extrabold mb-6 text-cyan-400 albert-sans-medium">OVERVIEW</h3>
                 <p className="text-white/85 leading-relaxed text-lg jost-secondary flex-grow">
                   {caseStudyData.overview}
                 </p>
@@ -346,7 +346,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               WEBSITE SHOWCASE
             </h2>
             <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
@@ -378,7 +378,7 @@ const CaseStudyPage = () => {
               </div>
               
               <div className="mt-6 text-center">
-                <h3 className="text-xl font-bold text-cyan-400 mb-2 albert-sans-medium">
+                <h3 className="text-xl font-extrabold text-cyan-400 mb-2 albert-sans-medium">
                   Complete Website Demonstration
                 </h3>
                 <p className="text-white/75 jost-secondary">
@@ -454,7 +454,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               THE CHALLENGE
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -474,7 +474,7 @@ const CaseStudyPage = () => {
                 {caseStudyData.problem.description}
               </p>
               
-              <h3 className="text-2xl font-bold mb-6 text-red-400 albert-sans-medium">KEY PAIN POINTS</h3>
+              <h3 className="text-2xl font-extrabold mb-6 text-red-400 albert-sans-medium">KEY PAIN POINTS</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {caseStudyData.problem.painPoints.map((point, index) => (
                   <motion.div
@@ -509,7 +509,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               THE SOLUTION
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -529,7 +529,7 @@ const CaseStudyPage = () => {
                 {caseStudyData.solution.description}
               </p>
               
-              <h3 className="text-2xl font-bold mb-6 text-green-400 albert-sans-medium">KEY FEATURES</h3>
+              <h3 className="text-2xl font-extrabold mb-6 text-green-400 albert-sans-medium">KEY FEATURES</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {caseStudyData.solution.features.map((feature, index) => (
                   <motion.div
@@ -564,7 +564,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               DESIGN & DEVELOPMENT PROCESS
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -591,7 +591,7 @@ const CaseStudyPage = () => {
                     </Badge>
                   </div>
                   
-                  <h3 className="text-xl font-bold mb-4 text-purple-300 albert-sans-medium">
+                  <h3 className="text-xl font-extrabold mb-4 text-purple-300 albert-sans-medium">
                     {phase.phase}
                   </h3>
                   
@@ -631,7 +631,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               HUBSPOT INTEGRATION RESULTS
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -654,7 +654,7 @@ const CaseStudyPage = () => {
                       <CheckCircle className="w-5 h-5 text-orange-400" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-orange-300 mb-3 albert-sans-medium">
+                      <h3 className="text-xl font-extrabold text-orange-300 mb-3 albert-sans-medium">
                         {item.feature}
                       </h3>
                       <p className="text-white/85 leading-relaxed mb-4 jost-secondary">
@@ -686,7 +686,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               RESULTS & IMPACT
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -738,7 +738,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               TECHNOLOGY STACK
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
@@ -789,7 +789,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               KEY LEARNINGS
             </h2>
             <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
@@ -833,7 +833,7 @@ const CaseStudyPage = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-4xl md:text-5xl font-bold albert-sans-medium bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-extrabold albert-sans-medium bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent">
               READY TO START YOUR PROJECT?
             </h2>
             <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
