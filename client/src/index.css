@@ -788,7 +788,7 @@ button,
   height: 3px;
   background: linear-gradient(90deg, #8A2BE2, #FF6B6B, #4ECDC4);
   transform-origin: left;
-  z-index: 100;
+  z-index: 9999;
 }
 
 /* Resume Modal Styles - Remove default dialog overlay and position correctly */
