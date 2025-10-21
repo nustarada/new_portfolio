@@ -17,7 +17,7 @@ Preferred communication style: Simple, everyday language.
 - **Latest Migration**: Successfully migrated from Druk Wide Medium to Albert Sans for headings, and from Jost to Open Sans for body text
 - **Primary Font (Headings)**: All section headings now use Albert Sans (`albert-sans-medium` class) loaded from Google Fonts
 - **Body Font**: All body text, descriptions, and paragraphs now use Open Sans (`jost-secondary` or `open-sans` class) loaded from Google Fonts
-- **Font Weight**: Using `font-bold` (700) weight for headings for optimal readability and visual impact
+- **Font Weight**: Using `font-extrabold` (800) weight for headings for optimal readability and visual impact
 - **Letter Spacing**: Consistent 0.02em letter spacing applied across all headings
 - **Text Color**: Clean `text-white` styling maintained for all major section headings
 - **Scope**: Typography migration completed across Home page, Case Studies page, Liffo case study page, and 2Hour Learning case study page
