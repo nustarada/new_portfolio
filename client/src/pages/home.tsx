@@ -466,8 +466,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 1.3 }}
             className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto font-normal jost-secondary mb-8"
           >
-            Designing exceptional digital experiences with Figma, enhanced by AI
-            tools like Replit, Lovable, and more.
+            4+ years turning concepts into launch‑ready platforms via research, IA/flows, prototyping, and iterative testing enhanced by AI.
           </motion.p>
 
           {/* Responsive Action Buttons */}
@@ -749,7 +748,7 @@ export default function Home() {
 
                     <div className="space-y-4">
                       <p className="text-white/85 leading-relaxed text-base jost-secondary">
-                        I'm a passionate UI/UX designer specializing in crafting
+                        I'm a passionate UI/UX designer with 4+ years of experience. Specializing in crafting
                         innovative digital solutions. My expertise lies in
                         combining traditional design principles with{" "}
                         <span className="text-primary font-semibold">
