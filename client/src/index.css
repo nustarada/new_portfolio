@@ -1,6 +1,6 @@
 /* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&display=swap');
 
 /* Custom Font Declaration */
 @font-face {
@@ -76,7 +76,7 @@
 
   body {
     @apply bg-background text-foreground overflow-x-hidden;
-    font-family: 'Open Sans', system-ui, sans-serif !important;
+    font-family: 'Albert Sans', system-ui, sans-serif !important;
     line-height: 1.6;
     background: transparent !important;
     color: #ffffff !important;
@@ -277,24 +277,30 @@
   }
 
   .jost-secondary {
-    font-family: 'Open Sans', system-ui, sans-serif !important;
+    font-family: 'Albert Sans', system-ui, sans-serif !important;
     font-weight: 400;
   }
 
   .open-sans {
-    font-family: 'Open Sans', system-ui, sans-serif !important;
+    font-family: 'Albert Sans', system-ui, sans-serif !important;
     font-weight: 400;
   }
 
   .albert-sans-bold {
-    font-family: 'Albert Sans', 'Arial Black', sans-serif !important;
+    font-family: 'Bricolage Grotesque', 'Arial Black', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em;
+  }
+
+  .albert-sans-medium {
+    font-family: 'Bricolage Grotesque', 'Arial', sans-serif !important;
     font-weight: 700 !important;
     letter-spacing: 0.02em;
   }
 
   .albert-sans-extrabold {
-    font-family: 'Albert Sans', 'Arial', sans-serif !important;
-    font-weight: 800 !important;
+    font-family: 'Bricolage Grotesque', 'Arial', sans-serif !important;
+    font-weight: 700 !important;
     letter-spacing: 0.02em;
   }
 

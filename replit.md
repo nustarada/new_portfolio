@@ -8,22 +8,22 @@ Preferred communication style: Simple, everyday language.
 **Established August 2025** - All section headings must follow consistent typography:
 
 ### Section Heading Standards
-- **Main Section Headings (h1/h2)**: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold albert-sans-medium text-white`
-- **Subsection Headings (h3)**: `text-2xl font-semibold albert-sans-medium`
-- **Small Headings (h4)**: `text-xl font-semibold albert-sans-medium`
+- **Main Section Headings (h1/h2)**: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold albert-sans-medium text-white`
+- **Subsection Headings (h3)**: `text-2xl font-extrabold albert-sans-medium`
+- **Small Headings (h4)**: `text-xl font-extrabold albert-sans-medium`
 - **Supporting Text**: Use `jost-secondary` or `open-sans` font class for body text and descriptions
 
 ### Typography Update (October 21, 2025)
-- **Latest Migration**: Successfully migrated from Druk Wide Medium to Albert Sans for headings, and from Jost to Open Sans for body text
-- **Primary Font (Headings)**: All section headings now use Albert Sans (`albert-sans-medium` class) loaded from Google Fonts
-- **Body Font**: All body text, descriptions, and paragraphs now use Open Sans (`jost-secondary` or `open-sans` class) loaded from Google Fonts
-- **Font Weight**: Using `font-extrabold` (800) weight for headings for optimal readability and visual impact
+- **Latest Migration**: Successfully migrated to Bricolage Grotesque for headings and Albert Sans for body text
+- **Primary Font (Headings)**: All section headings now use Bricolage Grotesque 700 bold (`albert-sans-medium` class) loaded from Google Fonts
+- **Body Font**: All body text, descriptions, and paragraphs now use Albert Sans 400 (`jost-secondary` or `open-sans` class) loaded from Google Fonts
+- **Font Weight**: Using `font-extrabold` (700) weight for headings for optimal readability and visual impact
 - **Letter Spacing**: Consistent 0.02em letter spacing applied across all headings
 - **Text Color**: Clean `text-white` styling maintained for all major section headings
 - **Scope**: Typography migration completed across Home page, Case Studies page, Liffo case study page, and 2Hour Learning case study page
-- **Statistics**: Achievement numbers in statistics section also updated to use Albert Sans font
-- **Consistency**: All major headings now use `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold albert-sans-medium text-white`
-- **Font Files**: Druk Wide font files deleted from assets, Albert Sans and Open Sans loaded via Google Fonts CDN
+- **Statistics**: Achievement numbers in statistics section also updated to use Bricolage Grotesque font
+- **Consistency**: All major headings now use `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold albert-sans-medium text-white`
+- **Font Files**: Druk Wide font files deleted from assets, Bricolage Grotesque and Albert Sans loaded via Google Fonts CDN
 
 ### Color Applications
 - **Primary Color**: Use `text-primary` for accent elements and highlights
