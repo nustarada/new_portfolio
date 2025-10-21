@@ -980,7 +980,7 @@ export default function Home() {
           </motion.div>
 
           {/* Wireframe-Based Project Cards */}
-          <div className="space-y-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -990,18 +990,18 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="group"
               >
-                <Card className="relative overflow-hidden glass-card grain-texture hover:glass-intense border border-white/20 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.01]">
-                  {/* Horizontal Layout: Thumbnail + Content */}
-                  <div className="flex flex-col lg:flex-row">
-                    {/* Left Side - Thumbnail */}
+                <Card className="relative overflow-hidden glass-card grain-texture hover:glass-intense border border-white/20 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.01] h-full">
+                  {/* Vertical Layout: Thumbnail + Content */}
+                  <div className="flex flex-col">
+                    {/* Top - Thumbnail */}
                     <img
                       src={project.image}
                       alt={`${project.title} Platform`}
-                      className="lg:w-1/2 aspect-square object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
                     />
 
-                    {/* Right Side - Content */}
-                    <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-between">
+                    {/* Bottom - Content */}
+                    <div className="p-6 lg:p-8 flex flex-col justify-between flex-1">
                       {/* Top Section: Brand Logo */}
                       <div className="flex justify-between items-start mb-6">
                         <div className="flex-1">
