@@ -8,37 +8,38 @@ Preferred communication style: Simple, everyday language.
 **Established August 2025** - All section headings must follow consistent typography:
 
 ### Section Heading Standards
-- **Main Section Headings (h1/h2)**: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold druk-wide-medium text-white`
-- **Subsection Headings (h3)**: `text-2xl font-semibold druk-wide-medium`
-- **Small Headings (h4)**: `text-xl font-semibold druk-wide-medium`
+- **Main Section Headings (h1/h2)**: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold albert-sans-medium text-white`
+- **Subsection Headings (h3)**: `text-2xl font-semibold albert-sans-medium`
+- **Small Headings (h4)**: `text-xl font-semibold albert-sans-medium`
 - **Supporting Text**: Use `jost-secondary` font class for body text and descriptions
 
-### Typography Update (August 31, 2025)
-- **Complete Migration**: Successfully migrated from Modern Heritage Display to Druk Wide Medium font across entire portfolio
-- **Primary Font**: All section headings now use Druk Wide Medium (`druk-wide-medium` class)
-- **Font Weight**: Maintained `font-semibold` weight for optimal readability with the new condensed wide font
+### Typography Update (October 21, 2025)
+- **Latest Migration**: Successfully migrated from Druk Wide Medium to Albert Sans across entire portfolio
+- **Primary Font**: All section headings now use Albert Sans (`albert-sans-medium` class) loaded from Google Fonts
+- **Font Weight**: Using `font-semibold` (600) weight for optimal readability with the modern sans-serif font
 - **Letter Spacing**: Consistent 0.02em letter spacing applied across all headings
 - **Text Color**: Clean `text-white` styling maintained for all major section headings
-- **Scope**: Typography migration completed across Home page, Case Studies page, and Liffo case study page
-- **Statistics**: Achievement numbers in statistics section also updated to use Druk Wide Medium font
-- **Consistency**: All major headings now use `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold druk-wide-medium text-white`
+- **Scope**: Typography migration completed across Home page, Case Studies page, Liffo case study page, and 2Hour Learning case study page
+- **Statistics**: Achievement numbers in statistics section also updated to use Albert Sans font
+- **Consistency**: All major headings now use `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold albert-sans-medium text-white`
+- **Font Files**: Druk Wide font files deleted from assets, Albert Sans loaded via Google Fonts CDN
 
 ### Color Applications
 - **Primary Color**: Use `text-primary` for accent elements and highlights
 - **Section Headers**: Use `text-white` for all major section headings (no gradient backgrounds)
 - **White Text**: Use `text-white` for main content, `text-white/80` or `text-white/85` for secondary content
 
-### Consistency Requirements (Updated August 31, 2025)
-- All major section headings across the portfolio MUST use `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold druk-wide-medium text-white`
+### Consistency Requirements (Updated October 21, 2025)
+- All major section headings across the portfolio MUST use `text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold albert-sans-medium text-white`
 - **Mobile-First Responsive**: All headings scale from `text-2xl` on mobile to `lg:text-5xl` on large screens
-- Always use `font-semibold` for main section headings to match Druk Wide Medium characteristics
+- Always use `font-semibold` for main section headings to match Albert Sans characteristics
 - Always use `text-white` for section headings (no gradient backgrounds)
-- Always include `druk-wide-medium` class for headings and `jost-secondary` for body text
+- Always include `albert-sans-medium` class for headings and `jost-secondary` for body text
 - Maintain consistent spacing: `mb-6` for section headings, `mb-8` for larger gaps
 - **CRITICAL**: Never use `font-normal` for any heading elements - all headings use `font-semibold`
 - **CRITICAL**: Never use gradient text backgrounds - all headings use clean `text-white`
 - **CRITICAL**: All headings must include full responsive breakpoints for optimal mobile experience
-- **CRITICAL**: Never use `modern-heritage` class - migration to `druk-wide-medium` is complete
+- **CRITICAL**: Never use `druk-wide` classes - migration to `albert-sans-medium` is complete
 
 This ensures perfect visual consistency across Home, Case Studies, Admin, and any future pages.
 
