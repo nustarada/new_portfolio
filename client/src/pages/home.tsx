@@ -1510,7 +1510,7 @@ export default function Home() {
                     Karan Gadhave
                   </h1>
                   <h2 className="text-base sm:text-lg md:text-xl text-gray-600 mb-3 sm:mb-4">
-                    Senior Product / UI/UX Designer
+                    Senior Product / UI UX Designer
                   </h2>
                 </div>
 
@@ -1521,14 +1521,7 @@ export default function Home() {
                     Profile Summary:
                   </h3>
                   <p className="text-xs sm:text-sm leading-relaxed">
-                    Lead Product Designer with expertise in crafting intuitive
-                    UI/UX for web and mobile platforms. Skilled in using
-                    AI-driven design tools to accelerate workflows and improve
-                    user research. Proficient in Vibe coding to design and
-                    develop interactive, high-fidelity prototypes and production
-                    ready products. Passionate about building elegant,
-                    user-focused digital products that balance form and
-                    function.
+                    Senior Product Designer with 5+ years delivering end-to-end UI/UX and AI-assisted vibe-coding builds for websites and web apps; ready to join immediately. Strengths: user research, usability testing, information architecture, user flows, wireframing, interactive prototyping, interaction/visual design, design systems, accessibility. Shipped integrated platforms including HubSpot and WordPress implementations and a gamified parent platform.
                   </p>
                 </section>
 
@@ -1543,41 +1536,33 @@ export default function Home() {
                         Team Pumpkin
                       </h4>
                       <span className="text-xs sm:text-sm text-gray-600">
-                        Apr 2022 - Present
+                        April 2022 - Present
                       </span>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-600 mb-2">
-                      UI UX Designer Manager - Remote, India
+                      Senior Manager - UI UX Designer - Remote, India
                     </p>
                     <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
                       <li className="leading-relaxed">
-                        Pioneered the design of Acedboard, a project management
-                        tool, driving a 35% increase in user satisfaction and a
-                        40% boost in task efficiency through innovative,
-                        user-centric design
+                        Owned multi-year vibe-coding builds, delivering production websites and web apps from discovery to launch and post-release iteration
                       </li>
                       <li className="leading-relaxed">
-                        Led the end-to-end design of Aeroplane, a
-                        business-oriented social media platform, achieving a 25%
-                        rise in user engagement and a 20% improvement in task
-                        completion with optimized workflows and streamlined
-                        interfaces
+                        Designed and developed the Future First Families website with end-to-end integrations across auth, forms/CRM, analytics, and automations
                       </li>
                       <li className="leading-relaxed">
-                        Solely created and designed cutting-edge health
-                        platforms for Healthsignz and MYMEDIC B2B2C Digital
-                        Health, delivering seamless web and mobile experiences
+                        Built the Future First Families gamified parent platform with onboarding, progression mechanics, engagement tracking, and admin controls
                       </li>
                       <li className="leading-relaxed">
-                        Demonstrated deep expertise in UI/UX design, user
-                        research, and information architecture, crafting
-                        intuitive wireframes, interactive prototypes, and
-                        cohesive user journeys
+                        Delivered cross-platform experiences (websites, web apps, responsive) using rapid prototyping and AI-assisted workflows to shorten cycle time
                       </li>
                       <li className="leading-relaxed">
-                        Excelled in managing and mentoring a design team,
-                        ensuring the delivery of high-impact, user-focused
-                        solutions within strict deadlines
+                        Built and customized designs on HubSpot CMS and WordPress—including themes/modules, landing pages, blogs, forms, and marketing automations
+                      </li>
+                      <li className="leading-relaxed">
+                        Created and governed design systems to standardize UI, improve accessibility, and accelerate feature delivery
+                      </li>
+                      <li className="leading-relaxed">
+                        Led design for healthcare platforms (Healthsignz, MYMEDIC), mapping patient/provider journeys and shipping inclusive, compliant experiences
                       </li>
                     </ul>
                   </div>
@@ -1585,10 +1570,10 @@ export default function Home() {
                   <div className="mb-4 sm:mb-6">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
                       <h4 className="font-semibold text-sm sm:text-base">
-                        WeInvest Pepperpenny
+                        Pepperpenny
                       </h4>
                       <span className="text-xs sm:text-sm text-gray-600">
-                        Jun 2021 - Nov 2021
+                        June 2021 - March 2022
                       </span>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-600 mb-2">
@@ -1596,17 +1581,13 @@ export default function Home() {
                     </p>
                     <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
                       <li className="leading-relaxed">
-                        Designed core features for StockMarketBox like broker
-                        comparison, market tickers, courses, and blog
+                        Designed core features for StockMarketBox like broker comparison, market tickers, courses, and blog
                       </li>
                       <li className="leading-relaxed">
-                        Successfully launched Stockmarketbox.com, boosting
-                        online presence
+                        Successfully launched Stockmarketbox.com, boosting online presence
                       </li>
                       <li className="leading-relaxed">
-                        Created custom illustrations and animations, increasing
-                        user engagement by 20%, and designed 30+ mobile trading
-                        app interfaces in 3 months
+                        Created custom illustrations and animations, increasing user engagement by 20%, and designed 30+ mobile trading app interfaces in 3 months
                       </li>
                     </ul>
                   </div>
@@ -1617,7 +1598,7 @@ export default function Home() {
                         DBM Infotech PVT LTD
                       </h4>
                       <span className="text-xs sm:text-sm text-gray-600">
-                        Mar 2021 - Jun 2021
+                        March 2021 - June 2021
                       </span>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-600 mb-2">
@@ -1628,8 +1609,7 @@ export default function Home() {
                         Led the design for Teach Max mobile application
                       </li>
                       <li className="leading-relaxed">
-                        Worked on various redesign projects from websites to
-                        mobile application including company website
+                        Worked on various redesign projects from websites to mobile application including company website
                       </li>
                     </ul>
                   </div>
@@ -1643,35 +1623,10 @@ export default function Home() {
                   <div className="mb-3 sm:mb-4">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
                       <h4 className="font-semibold text-sm sm:text-base">
-                        Credence Analytics
-                      </h4>
-                      <span className="text-xs sm:text-sm text-gray-600">
-                        Jan 2022 - Mar 2022
-                      </span>
-                    </div>
-                    <p className="text-xs sm:text-sm text-gray-600 mb-2">
-                      UI UX Designer Intern - Remote, India
-                    </p>
-                    <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
-                      <li className="leading-relaxed">
-                        Redesigned iDeal, iDeal Wealth and Fund, Mercury, and
-                        CashTrea, achieving a 30% improvement in user
-                        satisfaction and a 25% increase in usability
-                      </li>
-                      <li className="leading-relaxed">
-                        Redesigned company website, resulting in a 47% growth in
-                        visitors and a 20% increase in lead generation
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="mb-3 sm:mb-4">
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                      <h4 className="font-semibold text-sm sm:text-base">
                         FarmiGO
                       </h4>
                       <span className="text-xs sm:text-sm text-gray-600">
-                        Oct 2020 - Dec 2020
+                        October 2020 - December 2020
                       </span>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-600 mb-2">
@@ -1679,25 +1634,16 @@ export default function Home() {
                     </p>
                     <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
                       <li className="leading-relaxed">
-                        Designed both UX and UI with a deep focus on enhancing
-                        user experience through extensive research and 20 user
-                        interviews, ensuring data-driven design decisions
+                        Designed both UX and UI with a deep focus on enhancing user experience through extensive research and 20 user interviews, ensuring data-driven design decisions
                       </li>
                       <li className="leading-relaxed">
-                        Applied advanced problem-solving skills to deliver
-                        optimal and intuitive design solutions, addressing user
-                        pain points effectively
+                        Applied advanced problem-solving skills to deliver optimal and intuitive design solutions, addressing user pain points effectively
                       </li>
                       <li className="leading-relaxed">
-                        Spearheaded the app design process from initial research
-                        to high-fidelity prototypes in just two months,
-                        showcasing agility and expertise in fast-paced
-                        environments
+                        Spearheaded the app design process from initial research to high-fidelity prototypes in just two months, showcasing agility and expertise in fast-paced environments
                       </li>
                       <li className="leading-relaxed">
-                        Conducted comprehensive research, including user
-                        interviews and feedback analysis, to inform a seamless
-                        and user-friendly product experience
+                        Conducted comprehensive research, including user interviews and feedback analysis, to inform a seamless and user-friendly product experience
                       </li>
                     </ul>
                   </div>
@@ -1713,8 +1659,7 @@ export default function Home() {
                         Bachelor of Arts in History
                       </h4>
                       <p className="text-xs sm:text-sm text-gray-600">
-                        Yashwantrao Chavan Maharashtra Open University, Barshi,
-                        India
+                        Yashwantrao Chavan Maharashtra Open University, Barshi, India
                       </p>
                     </div>
                     <span className="text-xs sm:text-sm text-gray-600">
@@ -1732,19 +1677,19 @@ export default function Home() {
                       <span className="mb-1 sm:mb-0">
                         UX/UI Bootcamp - Designwings UX/UI School
                       </span>
-                      <span className="text-gray-600">Mar 2022</span>
+                      <span className="text-gray-600">March 2022</span>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:justify-between">
                       <span className="mb-1 sm:mb-0">
                         Complete Web & Mobile Designer - Udemy
                       </span>
-                      <span className="text-gray-600">Feb 2024</span>
+                      <span className="text-gray-600">February 2024</span>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:justify-between">
                       <span className="mb-1 sm:mb-0">
                         UI/UX Design - Internshala
                       </span>
-                      <span className="text-gray-600">Aug 2020</span>
+                      <span className="text-gray-600">August 2020</span>
                     </div>
                   </div>
                 </section>
@@ -1756,54 +1701,37 @@ export default function Home() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 text-xs sm:text-sm">
                     <div>
                       <h4 className="font-semibold mb-2 text-sm sm:text-base">
-                        Design Skills
+                        Core Design & Research
                       </h4>
                       <ul className="space-y-1 list-disc list-inside pl-0">
-                        <li>Prototyping</li>
-                        <li>User Experience Design</li>
-                        <li>Design Strategy</li>
-                        <li>User Journeys</li>
-                        <li>UI Design</li>
-                        <li>UX Design</li>
-                        <li>User Flows</li>
-                        <li>User Research</li>
+                        <li>Interaction Design</li>
                         <li>Information Architecture</li>
-                        <li>Typography</li>
-                        <li>Wireframing</li>
-                        <li>Heuristic Analysis</li>
-                        <li>A/B Testing</li>
-                        <li>User Testing</li>
-                        <li>User Research and Analysis</li>
+                        <li>User Research & Testing</li>
+                        <li>Prototyping & Wireframing</li>
+                        <li>Visual Design & Design Systems</li>
                       </ul>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-2 text-sm sm:text-base">
-                        Technical Skills
+                        Technical & AI Skills
                       </h4>
                       <ul className="space-y-1 list-disc list-inside pl-0">
-                        <li>Figma</li>
-                        <li>Sketch</li>
-                        <li>Adobe XD</li>
-                        <li>Axure RP</li>
+                        <li>AI Workflows</li>
+                        <li>Generative UI</li>
+                        <li>Full-Stack Development</li>
+                        <li>Cross-Platform Delivery</li>
+                        <li>Technology Agnostic</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2 text-sm sm:text-base">
+                        Strategy & Collaboration
+                      </h4>
+                      <ul className="space-y-1 list-disc list-inside pl-0">
+                        <li>Stakeholder Management</li>
                         <li>Agile Methodologies</li>
-                        <li>Visual and UI Design Skills</li>
-                        <li>Wireframing</li>
-                        <li>User Testing</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2 text-sm sm:text-base">
-                        Soft Skills
-                      </h4>
-                      <ul className="space-y-1 list-disc list-inside pl-0">
-                        <li>Strong Leadership</li>
-                        <li>Coordination Skills</li>
-                        <li>Capable of adapting to any environments</li>
-                        <li>Creative and efficient individual</li>
-                        <li>Empathy</li>
-                        <li>Critical Thinking</li>
-                        <li>Communication & Collaboration</li>
-                        <li>Time Management</li>
+                        <li>Analytics Collaboration</li>
+                        <li>Accessibility (WCAG)</li>
                       </ul>
                     </div>
                   </div>
