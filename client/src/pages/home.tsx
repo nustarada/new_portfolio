@@ -1173,60 +1173,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      {/* Expertise Section - Hidden */}
-      {/* <section id="expertise" className="py-32 relative">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl font-bold mb-6 glow-text">EXPERTISE</h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skills.map((skill, index) => {
-              const Icon = skill.icon;
-              return (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Card className="neo-card text-center h-full">
-                    <div className="mb-6">
-                      <div className="w-16 h-16 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
-                        <Icon className="w-8 h-8 text-primary" />
-                      </div>
-                      <h3 className="text-xl font-bold mb-2">{skill.name}</h3>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span>Proficiency</span>
-                        <span className="code-font text-primary">{skill.level}%</span>
-                      </div>
-                      <div className="w-full bg-secondary rounded-full h-2 overflow-hidden">
-                        <motion.div
-                          className="h-full bg-gradient-to-r from-primary to-primary/60"
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1, delay: index * 0.1 }}
-                          viewport={{ once: true }}
-                        />
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section> */}
       {/* Contact Section */}
       <section id="contact" className="py-16 relative">
         <div className="max-w-4xl mx-auto px-6">
@@ -1477,8 +1423,8 @@ export default function Home() {
       </section>
       {/* Resume Modal */}
       <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
-        <DialogContent className="resume-modal fixed w-full h-screen max-w-none top-0 left-0 right-0 translate-x-0 translate-y-0 m-0 p-0 glass-intense grain-texture border-0 overflow-hidden rounded-none z-[9999] flex flex-col">
-          <DialogHeader className="p-2 sm:p-3 md:p-4 pb-2 sm:pb-3 border-b border-primary/20 flex-shrink-0">
+        <DialogContent className="resume-modal fixed w-full h-screen max-w-none top-0 left-0 right-0 translate-x-0 translate-y-0 m-0 p-0 glass-intense grain-texture border-0 overflow-hidden rounded-none z-[9999] flex flex-col [&>button]:hidden !gap-0">
+          <DialogHeader className="p-2 sm:p-3 md:p-4 pb-2 sm:pb-3 border-b border-primary/20 flex-shrink-0 !mb-0">
             <DialogTitle className="flex items-center justify-between w-full">
               <Button
                 variant="ghost"
@@ -1489,22 +1435,26 @@ export default function Home() {
                 <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
 
-              <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-3 flex-1 justify-center">
-                <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-gradient-to-br from-primary/30 to-cyan-500/30 flex items-center justify-center">
-                  <User className="w-3 h-3 sm:w-3 sm:h-3 md:w-4 md:h-4 text-primary" />
-                </div>
+              <div className="flex-1 flex justify-center">
                 <span className="text-xs sm:text-sm md:text-base font-bold text-white">
                   Karan Gadhave - Resume
                 </span>
               </div>
 
-              <div className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0"></div>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsResumeOpen(false)}
+                className="w-8 h-8 sm:w-10 sm:h-10 text-white hover:bg-white/20 hover:text-primary transition-colors flex-shrink-0"
+              >
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
+              </Button>
             </DialogTitle>
           </DialogHeader>
 
-          <div className="flex-1 overflow-auto p-1 sm:p-2 md:p-4 bg-white">
-            <div className="w-full h-full bg-white rounded-lg overflow-auto pb-8">
-              <div className="max-w-4xl mx-auto p-3 sm:p-6 md:p-8 bg-white text-black">
+          <div className="flex-1 overflow-auto bg-white mt-0">
+            <div className="w-full h-full bg-white overflow-auto pb-8">
+              <div className="max-w-4xl mx-auto p-3 sm:p-6 md:p-8 pt-4 sm:pt-6 md:pt-8 bg-white text-black">
                 <div className="text-center mb-6 sm:mb-8">
                   <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
                     Karan Gadhave
@@ -1570,7 +1520,7 @@ export default function Home() {
                   <div className="mb-4 sm:mb-6">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
                       <h4 className="font-semibold text-sm sm:text-base">
-                        Pepperpenny Finanace Pvt Ltd
+                        Pepperpenny
                       </h4>
                       <span className="text-xs sm:text-sm text-gray-600">
                         June 2021 - March 2022
