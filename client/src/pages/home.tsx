@@ -1489,16 +1489,20 @@ export default function Home() {
                 <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
 
-              <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-3 flex-1 justify-center">
-                <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-gradient-to-br from-primary/30 to-cyan-500/30 flex items-center justify-center">
-                  <User className="w-3 h-3 sm:w-3 sm:h-3 md:w-4 md:h-4 text-primary" />
-                </div>
+              <div className="flex-1 flex justify-center">
                 <span className="text-xs sm:text-sm md:text-base font-bold text-white">
                   Karan Gadhave - Resume
                 </span>
               </div>
 
-              <div className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0"></div>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsResumeOpen(false)}
+                className="w-8 h-8 sm:w-10 sm:h-10 text-white hover:bg-white/20 hover:text-primary transition-colors flex-shrink-0"
+              >
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
+              </Button>
             </DialogTitle>
           </DialogHeader>
 
