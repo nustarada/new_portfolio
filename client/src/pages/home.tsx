@@ -1174,16 +1174,16 @@ export default function Home() {
         </div>
       </section>
       {/* Contact Section */}
-      <section id="contact" className="py-16 relative">
+      <section id="contact" className="py-10 relative">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-6"
           >
-            <h2 className="text-5xl font-extrabold mb-6 text-white albert-sans-medium">
+            <h2 className="text-5xl font-extrabold mb-4 text-white albert-sans-medium">
               GET IN TOUCH
             </h2>
             <p className="text-xl text-muted-foreground jost-secondary">
@@ -1191,7 +1191,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <Card className="group relative overflow-hidden p-10 glass-intense grain-texture hover:glass-card transition-all duration-700 shadow-2xl shadow-primary/20">
+          <Card className="group relative overflow-hidden p-6 glass-intense grain-texture hover:glass-card transition-all duration-700 shadow-2xl shadow-primary/20">
             {/* Background Effects */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl" />
@@ -1204,11 +1204,11 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="text-center mb-12"
+                className="text-center mb-6"
               >
-                <div className="inline-flex items-center space-x-3 px-8 py-4 glass-card grain-texture border border-white/10">
-                  <Rocket className="w-6 h-6 text-primary" />
-                  <p className="text-white/90 text-lg font-medium jost-secondary">
+                <div className="inline-flex items-center space-x-3 px-6 py-3 glass-card grain-texture border border-white/10">
+                  <Rocket className="w-5 h-5 text-primary" />
+                  <p className="text-white/90 text-base font-medium jost-secondary">
                     Let's discuss your next project and bring your ideas to
                     life!
                   </p>
@@ -1216,7 +1216,7 @@ export default function Home() {
               </motion.div>
 
               {/* Services Grid */}
-              <div className="flex justify-center mb-12">
+              <div className="flex justify-center">
                 {/* UI/UX Design Card */}
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
@@ -1225,14 +1225,8 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="group/service"
                 >
-                  <Card className="h-full p-8 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30 min-w-[320px]">
-                    <div className="text-center mb-8">
-                      <h3 className="text-xl md:text-2xl font-semibold text-primary jost-secondary">
-                        Contact
-                      </h3>
-                    </div>
-
-                    <div className="space-y-5">
+                  <Card className="h-full p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30 min-w-[320px]">
+                    <div className="space-y-4">
                       {/* Email */}
                       <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
                         <div className="flex items-center gap-3">
