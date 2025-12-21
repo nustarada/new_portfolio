@@ -1173,60 +1173,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      {/* Expertise Section - Hidden */}
-      {/* <section id="expertise" className="py-32 relative">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl font-bold mb-6 glow-text">EXPERTISE</h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skills.map((skill, index) => {
-              const Icon = skill.icon;
-              return (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Card className="neo-card text-center h-full">
-                    <div className="mb-6">
-                      <div className="w-16 h-16 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
-                        <Icon className="w-8 h-8 text-primary" />
-                      </div>
-                      <h3 className="text-xl font-bold mb-2">{skill.name}</h3>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span>Proficiency</span>
-                        <span className="code-font text-primary">{skill.level}%</span>
-                      </div>
-                      <div className="w-full bg-secondary rounded-full h-2 overflow-hidden">
-                        <motion.div
-                          className="h-full bg-gradient-to-r from-primary to-primary/60"
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1, delay: index * 0.1 }}
-                          viewport={{ once: true }}
-                        />
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section> */}
       {/* Contact Section */}
       <section id="contact" className="py-16 relative">
         <div className="max-w-4xl mx-auto px-6">
