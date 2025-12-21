@@ -1174,16 +1174,16 @@ export default function Home() {
         </div>
       </section>
       {/* Contact Section */}
-      <section id="contact" className="py-16 relative">
+      <section id="contact" className="py-10 relative">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-6"
           >
-            <h2 className="text-5xl font-extrabold mb-6 text-white albert-sans-medium">
+            <h2 className="text-5xl font-extrabold mb-4 text-white albert-sans-medium">
               GET IN TOUCH
             </h2>
             <p className="text-xl text-muted-foreground jost-secondary">
@@ -1191,7 +1191,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <Card className="group relative overflow-hidden p-10 glass-intense grain-texture hover:glass-card transition-all duration-700 shadow-2xl shadow-primary/20">
+          <Card className="group relative overflow-hidden p-6 glass-intense grain-texture hover:glass-card transition-all duration-700 shadow-2xl shadow-primary/20">
             {/* Background Effects */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl" />
@@ -1204,219 +1204,87 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="text-center mb-12"
+                className="text-center mb-6 max-w-xl mx-auto"
               >
-                <div className="inline-flex items-center space-x-3 px-8 py-4 glass-card grain-texture border border-white/10">
-                  <Rocket className="w-6 h-6 text-primary" />
-                  <p className="text-white/90 text-lg font-medium jost-secondary">
+                <div className="flex items-center justify-center space-x-3 px-6 py-3 glass-card grain-texture border border-white/10">
+                  <Rocket className="w-5 h-5 text-primary flex-shrink-0" />
+                  <p className="text-white/90 text-base font-medium jost-secondary">
                     Let's discuss your next project and bring your ideas to
                     life!
                   </p>
                 </div>
               </motion.div>
 
-              {/* Services Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                {/* UI/UX Design Card */}
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  viewport={{ once: true }}
-                  className="group/service"
-                >
-                  <Card className="h-full p-8 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
-                    {/* Service Header */}
-                    <div className="text-center mb-8">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-white/10 flex items-center justify-center mx-auto mb-4">
-                        <Wallpaper className="w-8 h-8 text-blue-400" />
-                      </div>
-                      <h3 className="text-xl md:text-2xl font-semibold text-primary mb-2 jost-secondary">
-                        UI/UX Design
-                      </h3>
-                      <p className="text-white/60 text-sm jost-secondary">
-                        Digital product design & user experience
-                      </p>
-                    </div>
-
-                    {/* Contact Details */}
-                    <div className="space-y-6">
+              {/* Contact Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="max-w-xl mx-auto"
+              >
+                <Card className="p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
+                  <div className="space-y-4">
                       {/* Email */}
-                      <div className="group/contact p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/5 hover:border-primary/20">
-                        <div className="space-y-3">
-                          {/* Header with icon and title */}
-                          <div className="flex items-center space-x-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 flex items-center justify-center flex-shrink-0">
-                              <Mail className="w-5 h-5 text-emerald-400" />
-                            </div>
-                            <p className="text-white/60 text-sm font-medium jost-secondary">
-                              Email
-                            </p>
+                      <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Mail className="w-5 h-5 text-emerald-400" />
                           </div>
-
-                          {/* Contact info */}
-                          <div className="group ml-13">
-                            <div className="flex items-center justify-between gap-3">
-                              <a
-                                href="mailto:gadhavekaran@gmail.com"
-                                className="text-white hover:text-primary transition-colors duration-300 font-semibold text-sm jost-secondary flex-1 break-all"
-                                title="Click to open email client"
-                              >
-                                gadhavekaran@gmail.com
-                              </a>
-                              <button
-                                onClick={(event) => {
-                                  navigator.clipboard.writeText(
-                                    "gadhavekaran@gmail.com",
-                                  );
-                                  const button = event.currentTarget;
-                                  const originalContent = button.innerHTML;
-                                  button.innerHTML =
-                                    '<svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                                  setTimeout(() => {
-                                    button.innerHTML = originalContent;
-                                  }, 2000);
-                                }}
-                                className="opacity-60 group-hover:opacity-100 transition-opacity duration-300 p-1 hover:bg-white/10 rounded text-white/60 hover:text-primary flex-shrink-0"
-                                title="Copy email address"
-                              >
-                                <FileText className="w-3 h-3" />
-                              </button>
-                            </div>
-                          </div>
+                          <a
+                            href="mailto:gadhavekaran@gmail.com"
+                            className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
+                          >
+                            gadhavekaran@gmail.com
+                          </a>
                         </div>
+                        <button
+                          onClick={(event) => {
+                            navigator.clipboard.writeText("gadhavekaran@gmail.com");
+                            const button = event.currentTarget;
+                            const originalContent = button.innerHTML;
+                            button.innerHTML = '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                            setTimeout(() => { button.innerHTML = originalContent; }, 2000);
+                          }}
+                          className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
+                          title="Copy email"
+                        >
+                          <FileText className="w-4 h-4" />
+                        </button>
                       </div>
 
                       {/* Phone */}
-                      <div className="group/contact p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/5 hover:border-primary/20">
-                        <div className="space-y-3">
-                          {/* Header with icon and title */}
-                          <div className="flex items-center space-x-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 flex items-center justify-center flex-shrink-0">
-                              <Phone className="w-5 h-5 text-cyan-400" />
-                            </div>
-                            <p className="text-white/60 text-sm font-medium jost-secondary">
-                              WhatsApp
-                            </p>
+                      <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Phone className="w-5 h-5 text-cyan-400" />
                           </div>
-
-                          {/* Contact info */}
-                          <div className="ml-13">
-                            <a
-                              href="https://wa.me/917744074265"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-white hover:text-cyan-400 transition-colors duration-300 font-semibold text-sm jost-secondary block"
-                            >
-                              +91 7744074265
-                            </a>
-                          </div>
+                          <a
+                            href="https://wa.me/917744074265"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
+                          >
+                            +91 7744074265
+                          </a>
                         </div>
+                        <button
+                          onClick={(event) => {
+                            navigator.clipboard.writeText("+917744074265");
+                            const button = event.currentTarget;
+                            const originalContent = button.innerHTML;
+                            button.innerHTML = '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                            setTimeout(() => { button.innerHTML = originalContent; }, 2000);
+                          }}
+                          className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
+                          title="Copy phone"
+                        >
+                          <FileText className="w-4 h-4" />
+                        </button>
                       </div>
-                    </div>
-                  </Card>
-                </motion.div>
-
-                {/* Cinematic Pitch Decks Card */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="group/service"
-                >
-                  <Card className="h-full p-8 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
-                    {/* Service Header */}
-                    <div className="text-center mb-8">
-                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-purple-600/20 border border-white/10 flex items-center justify-center mx-auto mb-4">
-                        <Sparkles className="w-8 h-8 text-purple-400" />
-                      </div>
-                      <h3 className="text-xl md:text-2xl font-semibold text-primary mb-2 jost-secondary">
-                        Cinematic Pitch Decks
-                      </h3>
-                      <p className="text-white/60 text-sm jost-secondary">
-                        Visual storytelling & presentation design
-                      </p>
-                    </div>
-
-                    {/* Contact Details */}
-                    <div className="space-y-6">
-                      {/* Email */}
-                      <div className="group/contact p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/5 hover:border-primary/20">
-                        <div className="space-y-3">
-                          {/* Header with icon and title */}
-                          <div className="flex items-center space-x-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 flex items-center justify-center flex-shrink-0">
-                              <Mail className="w-5 h-5 text-emerald-400" />
-                            </div>
-                            <p className="text-white/60 text-sm font-medium jost-secondary">
-                              Email
-                            </p>
-                          </div>
-
-                          {/* Contact info */}
-                          <div className="group ml-13">
-                            <div className="flex items-center justify-between gap-3">
-                              <a
-                                href="mailto:hello@pitchcraft.global"
-                                className="text-white hover:text-primary transition-colors duration-300 font-semibold text-sm jost-secondary flex-1 break-all"
-                                title="Click to open email client"
-                              >
-                                hello@pitchcraft.global
-                              </a>
-                              <button
-                                onClick={(event) => {
-                                  navigator.clipboard.writeText(
-                                    "hello@pitchcraft.global",
-                                  );
-                                  const button = event.currentTarget;
-                                  const originalContent = button.innerHTML;
-                                  button.innerHTML =
-                                    '<svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                                  setTimeout(() => {
-                                    button.innerHTML = originalContent;
-                                  }, 2000);
-                                }}
-                                className="opacity-60 group-hover:opacity-100 transition-opacity duration-300 p-1 hover:bg-white/10 rounded text-white/60 hover:text-primary flex-shrink-0"
-                                title="Copy email address"
-                              >
-                                <FileText className="w-3 h-3" />
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Phone */}
-                      <div className="group/contact p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/5 hover:border-primary/20">
-                        <div className="space-y-3">
-                          {/* Header with icon and title */}
-                          <div className="flex items-center space-x-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 flex items-center justify-center flex-shrink-0">
-                              <Phone className="w-5 h-5 text-cyan-400" />
-                            </div>
-                            <p className="text-white/60 text-sm font-medium jost-secondary">
-                              WhatsApp
-                            </p>
-                          </div>
-
-                          {/* Contact info */}
-                          <div className="ml-13">
-                            <a
-                              href="https://wa.me/919987563570"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-white hover:text-cyan-400 transition-colors duration-300 font-semibold text-sm jost-secondary block"
-                            >
-                              +91 9987563570
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              </div>
+                  </div>
+                </Card>
+              </motion.div>
             </div>
           </Card>
         </div>
