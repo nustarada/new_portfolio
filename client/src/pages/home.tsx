@@ -1477,8 +1477,8 @@ export default function Home() {
       </section>
       {/* Resume Modal */}
       <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
-        <DialogContent className="resume-modal fixed w-full h-screen max-w-none top-0 left-0 right-0 translate-x-0 translate-y-0 m-0 p-0 glass-intense grain-texture border-0 overflow-hidden rounded-none z-[9999] flex flex-col [&>button]:hidden">
-          <DialogHeader className="p-2 sm:p-3 md:p-4 pb-2 sm:pb-3 border-b border-primary/20 flex-shrink-0">
+        <DialogContent className="resume-modal fixed w-full h-screen max-w-none top-0 left-0 right-0 translate-x-0 translate-y-0 m-0 p-0 glass-intense grain-texture border-0 overflow-hidden rounded-none z-[9999] flex flex-col [&>button]:hidden !gap-0">
+          <DialogHeader className="p-2 sm:p-3 md:p-4 pb-2 sm:pb-3 border-b border-primary/20 flex-shrink-0 !mb-0">
             <DialogTitle className="flex items-center justify-between w-full">
               <Button
                 variant="ghost"
@@ -1506,9 +1506,9 @@ export default function Home() {
             </DialogTitle>
           </DialogHeader>
 
-          <div className="flex-1 overflow-auto bg-white">
+          <div className="flex-1 overflow-auto bg-white mt-0">
             <div className="w-full h-full bg-white overflow-auto pb-8">
-              <div className="max-w-4xl mx-auto p-3 sm:p-6 md:p-8 bg-white text-black">
+              <div className="max-w-4xl mx-auto p-3 sm:p-6 md:p-8 pt-4 sm:pt-6 md:pt-8 bg-white text-black">
                 <div className="text-center mb-6 sm:mb-8">
                   <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
                     Karan Gadhave
