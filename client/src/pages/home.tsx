@@ -1204,10 +1204,10 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="text-center mb-6"
+                className="text-center mb-6 max-w-xl mx-auto"
               >
-                <div className="inline-flex items-center space-x-3 px-6 py-3 glass-card grain-texture border border-white/10">
-                  <Rocket className="w-5 h-5 text-primary" />
+                <div className="flex items-center justify-center space-x-3 px-6 py-3 glass-card grain-texture border border-white/10">
+                  <Rocket className="w-5 h-5 text-primary flex-shrink-0" />
                   <p className="text-white/90 text-base font-medium jost-secondary">
                     Let's discuss your next project and bring your ideas to
                     life!
@@ -1215,18 +1215,16 @@ export default function Home() {
                 </div>
               </motion.div>
 
-              {/* Services Grid */}
-              <div className="flex justify-center">
-                {/* UI/UX Design Card */}
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  viewport={{ once: true }}
-                  className="group/service"
-                >
-                  <Card className="h-full p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30 min-w-[320px]">
-                    <div className="space-y-4">
+              {/* Contact Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="max-w-xl mx-auto"
+              >
+                <Card className="p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
+                  <div className="space-y-4">
                       {/* Email */}
                       <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
                         <div className="flex items-center gap-3">
@@ -1284,10 +1282,9 @@ export default function Home() {
                           <FileText className="w-4 h-4" />
                         </button>
                       </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              </div>
+                  </div>
+                </Card>
+              </motion.div>
             </div>
           </Card>
         </div>
