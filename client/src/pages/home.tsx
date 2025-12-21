@@ -1225,94 +1225,28 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="group/service"
                 >
-                  <Card className="h-full p-8 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
-                    {/* Service Header */}
-                    <div className="text-center mb-8">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-white/10 flex items-center justify-center mx-auto mb-4">
-                        <Wallpaper className="w-8 h-8 text-blue-400" />
-                      </div>
-                      <h3 className="text-xl md:text-2xl font-semibold text-primary mb-2 jost-secondary">
-                        UI/UX Design
+                  <Card className="h-full p-8 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30 min-w-[280px]">
+                    <div className="text-center mb-6">
+                      <h3 className="text-xl md:text-2xl font-semibold text-primary jost-secondary">
+                        Contact
                       </h3>
-                      <p className="text-white/60 text-sm jost-secondary">
-                        Digital product design & user experience
-                      </p>
                     </div>
 
-                    {/* Contact Details */}
-                    <div className="space-y-6">
-                      {/* Email */}
-                      <div className="group/contact p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/5 hover:border-primary/20">
-                        <div className="space-y-3">
-                          {/* Header with icon and title */}
-                          <div className="flex items-center space-x-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 flex items-center justify-center flex-shrink-0">
-                              <Mail className="w-5 h-5 text-emerald-400" />
-                            </div>
-                            <p className="text-white/60 text-sm font-medium jost-secondary">
-                              Email
-                            </p>
-                          </div>
-
-                          {/* Contact info */}
-                          <div className="group ml-13">
-                            <div className="flex items-center justify-between gap-3">
-                              <a
-                                href="mailto:gadhavekaran@gmail.com"
-                                className="text-white hover:text-primary transition-colors duration-300 font-semibold text-sm jost-secondary flex-1 break-all"
-                                title="Click to open email client"
-                              >
-                                gadhavekaran@gmail.com
-                              </a>
-                              <button
-                                onClick={(event) => {
-                                  navigator.clipboard.writeText(
-                                    "gadhavekaran@gmail.com",
-                                  );
-                                  const button = event.currentTarget;
-                                  const originalContent = button.innerHTML;
-                                  button.innerHTML =
-                                    '<svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                                  setTimeout(() => {
-                                    button.innerHTML = originalContent;
-                                  }, 2000);
-                                }}
-                                className="opacity-60 group-hover:opacity-100 transition-opacity duration-300 p-1 hover:bg-white/10 rounded text-white/60 hover:text-primary flex-shrink-0"
-                                title="Copy email address"
-                              >
-                                <FileText className="w-3 h-3" />
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Phone */}
-                      <div className="group/contact p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/5 hover:border-primary/20">
-                        <div className="space-y-3">
-                          {/* Header with icon and title */}
-                          <div className="flex items-center space-x-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 flex items-center justify-center flex-shrink-0">
-                              <Phone className="w-5 h-5 text-cyan-400" />
-                            </div>
-                            <p className="text-white/60 text-sm font-medium jost-secondary">
-                              WhatsApp
-                            </p>
-                          </div>
-
-                          {/* Contact info */}
-                          <div className="ml-13">
-                            <a
-                              href="https://wa.me/917744074265"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-white hover:text-cyan-400 transition-colors duration-300 font-semibold text-sm jost-secondary block"
-                            >
-                              +91 7744074265
-                            </a>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="space-y-4">
+                      <a
+                        href="mailto:gadhavekaran@gmail.com"
+                        className="block text-white hover:text-primary transition-colors duration-300 text-center jost-secondary"
+                      >
+                        gadhavekaran@gmail.com
+                      </a>
+                      <a
+                        href="https://wa.me/917744074265"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-white hover:text-primary transition-colors duration-300 text-center jost-secondary"
+                      >
+                        +91 7744074265
+                      </a>
                     </div>
                   </Card>
                 </motion.div>
