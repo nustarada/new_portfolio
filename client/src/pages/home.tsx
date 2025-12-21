@@ -1570,7 +1570,7 @@ export default function Home() {
                   <div className="mb-4 sm:mb-6">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
                       <h4 className="font-semibold text-sm sm:text-base">
-                        Pepperpenny
+                        Pepperpenny Finanace Pvt Ltd
                       </h4>
                       <span className="text-xs sm:text-sm text-gray-600">
                         June 2021 - March 2022
