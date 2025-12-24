@@ -20,10 +20,10 @@ const CaseStudyPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Define navigation sections
+  // Define navigation sections - aligned with standard case study structure
   const navigationSections = [
     { id: 'overview', title: 'Project Overview', color: 'from-blue-400 to-teal-400' },
-    { id: 'showcase', title: 'Website Showcase', color: 'from-cyan-400 to-pink-400' },
+    { id: 'showcase', title: 'Design Showcase', color: 'from-cyan-400 to-pink-400' },
     { id: 'personas', title: 'User Personas', color: 'from-orange-400 to-red-400' },
     { id: 'challenge', title: 'The Challenge', color: 'from-red-400 to-yellow-400' },
     { id: 'solution', title: 'The Solution', color: 'from-green-400 to-teal-400' },

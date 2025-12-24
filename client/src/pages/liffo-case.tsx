@@ -57,7 +57,7 @@ const LiffoCaseStudy = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Define navigation sections for Liffo case study
+  // Define navigation sections for Liffo case study - aligned with standard case study structure
   const navigationSections = [
     { id: 'overview', title: 'Project Overview', color: 'from-blue-400 to-teal-400' },
     { id: 'screens', title: 'Design Showcase', color: 'from-cyan-400 to-pink-400' },
