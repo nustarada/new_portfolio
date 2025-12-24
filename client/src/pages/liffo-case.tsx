@@ -316,7 +316,7 @@ const LiffoCaseStudy = () => {
       {/* ============================================ */}
       {/* SECTION 2: DESIGN THINKING & KEY DECISIONS */}
       {/* ============================================ */}
-      <section id="thinking" className="py-20 relative overflow-hidden">
+      <section id="thinking" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -331,139 +331,68 @@ const LiffoCaseStudy = () => {
             className="text-center mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 albert-sans-medium text-white">
-              THE DESIGN STORY
+              DESIGN THINKING & KEY DECISIONS
             </h2>
             <p className="text-lg text-white/80 max-w-2xl mx-auto jost-secondary">
-              Four key insights that shaped every design decision
+              How research insights translated directly into product decisions
             </p>
           </motion.div>
 
-          {/* Story Timeline */}
-          <div className="relative">
-            {/* Vertical Timeline Line */}
-            <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-purple-500/50 via-blue-500/50 to-green-500/50 hidden md:block" />
-            
-            <div className="space-y-12">
-              {keyInsights.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.15 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
-                  {/* Chapter Number - Timeline Node */}
-                  <div className="absolute left-0 sm:left-2 top-0 hidden md:flex">
-                    <motion.div 
-                      className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      {index + 1}
-                    </motion.div>
-                  </div>
-
-                  {/* Story Card */}
-                  <div className="md:ml-20">
-                    <Card className="p-6 sm:p-8 glass-card grain-texture border-l-4 border-l-purple-500 border-t-0 border-r-0 border-b-0 hover:border-l-purple-400 transition-all duration-300 relative overflow-hidden group">
-                      {/* Subtle glow effect on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      
-                      {/* Mobile Chapter Number */}
-                      <div className="md:hidden mb-4">
-                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white font-bold text-sm">
-                          {index + 1}
-                        </span>
-                      </div>
-
-                      {/* Chapter Title */}
-                      <div className="mb-6">
-                        <span className="text-purple-400/70 text-xs font-semibold uppercase tracking-widest jost-secondary">
-                          Chapter {index + 1}
-                        </span>
-                      </div>
-
-                      {/* THE INSIGHT - The Problem */}
-                      <div className="mb-6">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
-                            <Lightbulb className="w-4 h-4 text-purple-400" />
-                          </div>
-                          <span className="text-purple-300 text-sm font-semibold uppercase tracking-wider jost-secondary">The Insight</span>
-                        </div>
-                        <p className="text-white text-lg sm:text-xl leading-relaxed jost-secondary pl-11">
-                          "{item.insight}"
-                        </p>
-                      </div>
-
-                      {/* Visual Flow Arrow */}
-                      <div className="flex items-center gap-3 my-5 pl-11">
-                        <div className="flex-1 h-px bg-gradient-to-r from-purple-500/50 via-blue-500/50 to-transparent" />
-                        <ArrowRight className="w-5 h-5 text-blue-400 animate-pulse" />
-                        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-green-500/50" />
-                      </div>
-
-                      {/* THE DECISION - What We Did */}
-                      <div className="mb-6">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                            <TrendingUp className="w-4 h-4 text-blue-400" />
-                          </div>
-                          <span className="text-blue-300 text-sm font-semibold uppercase tracking-wider jost-secondary">The Decision</span>
-                        </div>
-                        <p className="text-blue-200 text-base sm:text-lg leading-relaxed jost-secondary pl-11">
-                          {item.decision}
-                        </p>
-                      </div>
-
-                      {/* THE OUTCOME - The Result */}
-                      <div className="mt-6 pt-5 border-t border-white/10">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
-                            <CheckCircle className="w-4 h-4 text-green-400" />
-                          </div>
-                          <span className="text-green-300 text-sm font-semibold uppercase tracking-wider jost-secondary">The Outcome</span>
-                        </div>
-                        <p className="text-green-300 text-lg sm:text-xl font-semibold leading-relaxed jost-secondary pl-11">
-                          {item.outcome}
-                        </p>
-                      </div>
-                    </Card>
-                  </div>
-
-                  {/* Connecting Arrow to Next Chapter */}
-                  {index < keyInsights.length - 1 && (
-                    <motion.div 
-                      className="hidden md:flex justify-center mt-6"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ delay: 0.3 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="flex flex-col items-center text-white/30">
-                        <div className="w-px h-6 bg-gradient-to-b from-green-500/30 to-purple-500/30" />
-                      </div>
-                    </motion.div>
+          <div className="space-y-10">
+            {keyInsights.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-6 sm:p-8 glass-card grain-texture border-purple-500/30 hover:border-purple-400/50 transition-all duration-300">
+                  {/* Primary Insight Badge */}
+                  {index === 0 && (
+                    <div className="mb-4">
+                      <Badge className="bg-purple-500/20 text-purple-300 text-xs">
+                        Primary Design Decision
+                      </Badge>
+                    </div>
                   )}
-                </motion.div>
-              ))}
-            </div>
-          </div>
 
-          {/* Story Conclusion */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="mt-16 text-center"
-          >
-            <div className="inline-flex items-center gap-4 text-white/60 jost-secondary">
-              <div className="w-12 h-px bg-gradient-to-r from-transparent to-white/30" />
-              <span className="text-sm">Each decision built upon the last to create a cohesive experience</span>
-              <div className="w-12 h-px bg-gradient-to-l from-transparent to-white/30" />
-            </div>
-          </motion.div>
+                  {/* INSIGHT */}
+                  <div className="mb-5">
+                    <div className="flex items-center gap-2 text-purple-400 text-xs font-semibold uppercase tracking-wider">
+                      <Lightbulb className="w-4 h-4" />
+                      Insight
+                    </div>
+                    <p className="text-white/90 text-lg leading-relaxed mt-2 jost-secondary">
+                      {item.insight}
+                    </p>
+                  </div>
+
+                  {/* FLOW INDICATOR */}
+                  <div className="text-white/30 text-sm mb-4">
+                    ↓ Design decision
+                  </div>
+
+                  {/* DESIGN DECISION */}
+                  <div className="mb-5">
+                    <p className="text-blue-300 font-medium leading-relaxed jost-secondary">
+                      {item.decision}
+                    </p>
+                  </div>
+
+                  {/* OUTCOME */}
+                  <div className="mt-4 pt-4 border-t border-white/10">
+                    <div className="text-green-400 text-xs font-semibold uppercase tracking-wide mb-1">
+                      Outcome
+                    </div>
+                    <p className="text-green-300 font-semibold jost-secondary">
+                      {item.outcome}
+                    </p>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
