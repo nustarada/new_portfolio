@@ -59,16 +59,15 @@ const LiffoCaseStudy = () => {
 
   // Define navigation sections for Liffo case study
   const navigationSections = [
-    { id: 'overview', title: 'Overview & Problem', color: 'from-blue-400 to-teal-400' },
+    { id: 'overview', title: 'Project Overview', color: 'from-blue-400 to-teal-400' },
+    { id: 'screens', title: 'Design Showcase', color: 'from-cyan-400 to-pink-400' },
     { id: 'personas', title: 'User Personas', color: 'from-orange-400 to-red-400' },
-    { id: 'research', title: 'User Journey', color: 'from-green-400 to-teal-400' },
-    { id: 'approach', title: 'The Design Solution', color: 'from-purple-400 to-pink-400' },
-    { id: 'wireframes', title: 'Key Features', color: 'from-purple-400 to-cyan-400' },
-    { id: 'screens', title: 'Design Showcase', color: 'from-green-400 to-cyan-400' },
-    { id: 'testing', title: 'Results & Impact', color: 'from-yellow-400 to-orange-400' },
-    { id: 'visual', title: 'Design Principles', color: 'from-pink-400 to-purple-400' },
-    { id: 'information', title: 'Tools & Technology', color: 'from-cyan-400 to-blue-400' },
-    { id: 'learnings', title: 'Key Learnings', color: 'from-red-400 to-pink-400' }
+    { id: 'challenge', title: 'The Challenge', color: 'from-red-400 to-yellow-400' },
+    { id: 'solution', title: 'The Solution', color: 'from-green-400 to-teal-400' },
+    { id: 'process', title: 'Design Process', color: 'from-purple-400 to-red-400' },
+    { id: 'results', title: 'Results & Impact', color: 'from-green-400 to-cyan-400' },
+    { id: 'technology', title: 'Technology Stack', color: 'from-blue-400 to-purple-400' },
+    { id: 'learnings', title: 'Key Learnings', color: 'from-yellow-400 to-red-400' }
   ];
 
   useEffect(() => {
@@ -634,8 +633,8 @@ const LiffoCaseStudy = () => {
           </div>
         </div>
       </section>
-      {/* 3. User Journey */}
-      <section id="research" className="py-20 relative">
+      {/* The Challenge */}
+      <section id="challenge" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -650,10 +649,10 @@ const LiffoCaseStudy = () => {
             className="text-center mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
-              USER JOURNEY
+              THE CHALLENGE
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Mapping the complete healthcare experience from concern to care
+              Understanding user journey and pain points in healthcare access
             </p>
           </motion.div>
 
@@ -721,8 +720,8 @@ const LiffoCaseStudy = () => {
           </div>
         </div>
       </section>
-      {/* 4. Solution & Process */}
-      <section id="approach" className="py-20 relative">
+      {/* The Solution */}
+      <section id="solution" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -775,64 +774,77 @@ const LiffoCaseStudy = () => {
             </Card>
           </motion.div>
           
-          {/* Design Process */}
+        </div>
+      </section>
+      {/* Design Process */}
+      <section id="process" className="py-20 relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mt-16"
+            className="text-center mb-16"
           >
-            <h3 className="text-4xl md:text-5xl font-extrabold mb-8 text-center text-purple-300 albert-sans-medium">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               DESIGN PROCESS
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {caseStudyData.process.map((phase, index) => (
-                <motion.div
-                  key={phase.phase}
-                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Card className="p-6 glass-card grain-texture border-purple-500/30 h-full">
-                    <div className="flex items-center mb-4">
-                      <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4">
-                        <span className="text-purple-400 font-bold jost-secondary">{index + 1}</span>
-                      </div>
-                      <Badge variant="outline" className="text-sm px-3 py-1.5 border-purple-400/50 text-purple-400 jost-secondary">
-                        {phase.duration}
-                      </Badge>
-                    </div>
-                    
-                    <h4 className="text-xl font-extrabold mb-4 text-purple-300 albert-sans-medium">
-                      {phase.phase}
-                    </h4>
-                    
-                    <p className="text-white/85 leading-relaxed mb-6 text-lg jost-secondary">
-                      {phase.description}
-                    </p>
-                    
-                    <div>
-                      <h5 className="text-base font-bold text-purple-400 mb-4 jost-secondary">DELIVERABLES</h5>
-                      <ul className="space-y-2">
-                        {phase.deliverables.map((deliverable, idx) => (
-                          <li key={idx} className="text-base text-white/80 flex items-center jost-secondary">
-                            <div className="w-2.5 h-2.5 bg-purple-400 rounded-full mr-3 flex-shrink-0" />
-                            {deliverable}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
+            </h2>
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
+              Structured approach to creating an intuitive healthcare platform
+            </p>
           </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {caseStudyData.process.map((phase, index) => (
+              <motion.div
+                key={phase.phase}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-6 glass-card grain-texture border-purple-500/30 h-full">
+                  <div className="flex items-center mb-4">
+                    <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4">
+                      <span className="text-purple-400 font-bold jost-secondary">{index + 1}</span>
+                    </div>
+                    <Badge variant="outline" className="text-sm px-3 py-1.5 border-purple-400/50 text-purple-400 jost-secondary">
+                      {phase.duration}
+                    </Badge>
+                  </div>
+                  
+                  <h4 className="text-xl font-extrabold mb-4 text-purple-300 albert-sans-medium">
+                    {phase.phase}
+                  </h4>
+                  
+                  <p className="text-white/85 leading-relaxed mb-6 text-lg jost-secondary">
+                    {phase.description}
+                  </p>
+                  
+                  <div>
+                    <h5 className="text-base font-bold text-purple-400 mb-4 jost-secondary">DELIVERABLES</h5>
+                    <ul className="space-y-2">
+                      {phase.deliverables.map((deliverable, idx) => (
+                        <li key={idx} className="text-base text-white/80 flex items-center jost-secondary">
+                          <div className="w-2.5 h-2.5 bg-purple-400 rounded-full mr-3 flex-shrink-0" />
+                          {deliverable}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
-      {/* 5. Key Features */}
-      <section id="wireframes" className="py-20 relative">
+      {/* Key Features - Removed from nav but keeping for content */}
+      <section className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-orange-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -1019,8 +1031,8 @@ const LiffoCaseStudy = () => {
           </motion.div>
         </div>
       </section>
-      {/* 7. Results & Impact */}
-      <section id="testing" className="py-20 relative">
+      {/* Results & Impact */}
+      <section id="results" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -1071,8 +1083,8 @@ const LiffoCaseStudy = () => {
           </div>
         </div>
       </section>
-      {/* 8. Design Principles */}
-      <section id="visual" className="py-20 relative">
+      {/* Design Principles - Additional content section */}
+      <section className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -1126,8 +1138,8 @@ const LiffoCaseStudy = () => {
           </div>
         </div>
       </section>
-      {/* 9. Tools & Technology */}
-      <section id="information" className="py-20 relative">
+      {/* Technology Stack */}
+      <section id="technology" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -1142,7 +1154,7 @@ const LiffoCaseStudy = () => {
             className="text-center mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
-              TOOLS & TECHNOLOGY
+              TECHNOLOGY STACK
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Design and prototyping tools used for optimal workflow

@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'wouter';
-import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, ArrowLeft, Lightbulb, Zap, Palette, Code, Smartphone, Globe, Linkedin } from 'lucide-react';
+import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, ArrowLeft, Lightbulb, Zap, Palette, Code, Smartphone, Globe, Linkedin, User, AlertCircle } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -24,10 +24,11 @@ const CaseStudyPage = () => {
   const navigationSections = [
     { id: 'overview', title: 'Project Overview', color: 'from-blue-400 to-teal-400' },
     { id: 'showcase', title: 'Website Showcase', color: 'from-cyan-400 to-pink-400' },
+    { id: 'personas', title: 'User Personas', color: 'from-orange-400 to-red-400' },
     { id: 'challenge', title: 'The Challenge', color: 'from-red-400 to-yellow-400' },
     { id: 'solution', title: 'The Solution', color: 'from-green-400 to-teal-400' },
-    { id: 'process', title: 'Design & Development Process', color: 'from-purple-400 to-red-400' },
-    { id: 'hubspot', title: 'HubSpot Integration Results', color: 'from-orange-400 to-red-400' },
+    { id: 'process', title: 'Design Process', color: 'from-purple-400 to-red-400' },
+    { id: 'hubspot', title: 'HubSpot Integration', color: 'from-orange-400 to-red-400' },
     { id: 'results', title: 'Results & Impact', color: 'from-green-400 to-cyan-400' },
     { id: 'technology', title: 'Technology Stack', color: 'from-blue-400 to-purple-400' },
     { id: 'learnings', title: 'Key Learnings', color: 'from-yellow-400 to-red-400' }
@@ -61,6 +62,45 @@ const CaseStudyPage = () => {
     
     // Standard Case Study Sections
     overview: "FutureFirstFamilies needed a modern, engaging AI learning platform to replace their outdated system and better connect with families through personalized educational experiences. The challenge was creating a user-friendly interface that could leverage AI to adapt content and motivate continued learning while managing educational content efficiently through API integration.",
+
+    personas: [
+      {
+        name: "Advocacy Parent - Sarah Chen",
+        role: "Stay-at-Home Mom",
+        age: "34",
+        goals: ["Track family advocacy progress", "Access educational resources easily", "Connect with other advocacy families"],
+        painPoints: ["Complex navigation on current platform", "Lack of mobile-friendly experience", "No personalized content recommendations"],
+        techComfort: "Medium",
+        description: "Engaged parent who wants to participate in family advocacy programs but finds the current platform confusing and time-consuming to navigate"
+      },
+      {
+        name: "New Member - Marcus Johnson",
+        role: "Working Professional",
+        age: "42",
+        goals: ["Quick onboarding to advocacy activities", "Understand program structure", "Find relevant challenges and tasks"],
+        painPoints: ["Overwhelming amount of information", "Unclear starting points", "Limited time for learning"],
+        techComfort: "High",
+        description: "Busy professional recently joining the advocacy community who needs clear guidance and efficient pathways to get started"
+      },
+      {
+        name: "Community Leader - Elena Rodriguez",
+        role: "Volunteer Coordinator",
+        age: "38",
+        goals: ["Monitor team progress and engagement", "Access administrative tools", "Share resources with community members"],
+        painPoints: ["Manual tracking of participant activities", "Difficult to generate reports", "Limited collaboration features"],
+        techComfort: "High",
+        description: "Active community organizer who needs robust tools to coordinate advocacy efforts and track collective impact"
+      },
+      {
+        name: "Senior Advocate - Robert Williams",
+        role: "Retired Educator",
+        age: "65",
+        goals: ["Easy access to learning materials", "Simple navigation interface", "Clear visual feedback on progress"],
+        painPoints: ["Small text and complex interfaces", "Too many steps to complete tasks", "Confusing gamification elements"],
+        techComfort: "Low",
+        description: "Experienced advocate who values simplicity and accessibility in digital platforms, preferring straightforward interfaces over complex features"
+      }
+    ],
     
     problem: {
       title: "The Challenge",
@@ -439,7 +479,96 @@ const CaseStudyPage = () => {
           </motion.div>
         </div>
       </section>
-      {/* 2. Problem Statement */}
+      {/* User Personas */}
+      <section id="personas" className="py-20 relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+              USER PERSONAS
+            </h2>
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
+              Four key user groups driving platform design decisions
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            {caseStudyData.personas.map((persona, index) => (
+              <motion.div
+                key={persona.name}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-4 sm:p-6 lg:p-8 glass-card grain-texture border-blue-500/30 h-full">
+                  <div className="space-y-4 sm:space-y-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto sm:mx-0">
+                        <User className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />
+                      </div>
+                      <div className="text-center sm:text-left">
+                        <h3 className="text-lg sm:text-xl font-extrabold text-blue-300 albert-sans-medium leading-tight">{persona.name}</h3>
+                        <p className="text-sm sm:text-base text-white/70 jost-secondary">{persona.role}, {persona.age}</p>
+                      </div>
+                    </div>
+                    
+                    <p className="text-white/85 leading-relaxed jost-secondary">{persona.description}</p>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="text-base font-bold text-blue-400 mb-3 jost-secondary">GOALS</h4>
+                        <ul className="space-y-2">
+                          {persona.goals.map((goal, idx) => (
+                            <li key={idx} className="text-base text-white/80 flex items-start jost-secondary">
+                              <Target className="w-4 h-4 text-blue-400 mr-3 flex-shrink-0 mt-0.5" />
+                              {goal}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h4 className="text-base font-bold text-red-400 mb-3 jost-secondary">PAIN POINTS</h4>
+                        <ul className="space-y-2">
+                          {persona.painPoints.map((pain, idx) => (
+                            <li key={idx} className="text-base text-white/80 flex items-start jost-secondary">
+                              <AlertCircle className="w-4 h-4 text-red-400 mr-3 flex-shrink-0 mt-0.5" />
+                              {pain}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div className="flex justify-between items-center pt-4">
+                        <span className="text-sm text-white/70 jost-secondary">Tech Comfort</span>
+                        <span className={`text-sm font-semibold px-3 py-1.5 rounded ${
+                          persona.techComfort === 'High' ? 'bg-green-500/20 text-green-400' :
+                          persona.techComfort === 'Medium' ? 'bg-yellow-500/20 text-yellow-400' :
+                          'bg-red-500/20 text-red-400'
+                        }`}>
+                          {persona.techComfort}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* The Challenge */}
       <section id="challenge" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-red-950/30 via-gray-900 to-slate-950" />
