@@ -29,15 +29,16 @@ const TwoHourLearningCaseStudy = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [openModal, setOpenModal] = useState<string | null>(null);
 
-  // Define navigation sections
+  // Define navigation sections - aligned with standard case study structure
   const navigationSections = [
     { id: 'overview', title: 'Project Overview', color: 'from-blue-400 to-teal-400' },
-    { id: 'designs', title: 'Landing Page Designs', color: 'from-cyan-400 to-pink-400' },
-    { id: 'strategy', title: 'Design Strategy', color: 'from-purple-400 to-blue-400' },
-    { id: 'personas', title: 'Persona-Driven Approach', color: 'from-green-400 to-teal-400' },
+    { id: 'designs', title: 'Design Showcase', color: 'from-cyan-400 to-pink-400' },
+    { id: 'personas', title: 'User Personas', color: 'from-orange-400 to-red-400' },
+    { id: 'challenge', title: 'The Challenge', color: 'from-red-400 to-yellow-400' },
+    { id: 'solution', title: 'The Solution', color: 'from-green-400 to-teal-400' },
     { id: 'process', title: 'Design Process', color: 'from-purple-400 to-red-400' },
-    { id: 'results', title: 'Results & Impact', color: 'from-orange-400 to-red-400' },
-    { id: 'technology', title: 'Technology & Tools', color: 'from-blue-400 to-purple-400' },
+    { id: 'results', title: 'Results & Impact', color: 'from-green-400 to-cyan-400' },
+    { id: 'technology', title: 'Technology Stack', color: 'from-blue-400 to-purple-400' },
     { id: 'learnings', title: 'Key Learnings', color: 'from-yellow-400 to-red-400' }
   ];
 
@@ -572,65 +573,10 @@ const TwoHourLearningCaseStudy = () => {
           </Dialog>
         </div>
       </section>
-      {/* 3. Design Strategy */}
-      <section id="strategy" className="py-20 relative">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
-          <div className="absolute inset-0 grain-texture opacity-25" />
-        </div>
-        
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
-              DESIGN STRATEGY
-            </h2>
-            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Balancing brand consistency with persona-specific optimization
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <Card className="p-12 glass-card grain-texture border-purple-500/30">
-              <p className="text-xl text-white/90 leading-relaxed mb-8 jost-secondary">
-                {caseStudyData.strategy.description}
-              </p>
-              
-              <h3 className="text-2xl font-extrabold mb-6 text-purple-400 albert-sans-medium">KEY APPROACHES</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {caseStudyData.strategy.approaches.map((approach, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-start space-x-3"
-                  >
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
-                    <p className="text-white/85 jost-secondary">{approach}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
-      {/* 4. Persona-Driven Approach */}
+      {/* User Personas */}
       <section id="personas" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -643,10 +589,10 @@ const TwoHourLearningCaseStudy = () => {
             className="text-center mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
-              PERSONA-DRIVEN APPROACH
+              USER PERSONAS
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Tailored messaging and design for each educational audience
+              Four key educational stakeholders driving platform design decisions
             </p>
           </motion.div>
 
@@ -749,7 +695,139 @@ const TwoHourLearningCaseStudy = () => {
           </div>
         </div>
       </section>
-      {/* 5. Design Process */}
+      {/* The Challenge */}
+      <section id="challenge" className="py-20 relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-red-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+              THE CHALLENGE
+            </h2>
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
+              Key obstacles in reaching diverse educational stakeholders
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Card className="p-8 sm:p-12 glass-card grain-texture border-red-500/30">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-2xl font-extrabold mb-6 text-red-400 albert-sans-medium">KEY PAIN POINTS</h3>
+                  <ul className="space-y-4">
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
+                      <p className="text-white/85 jost-secondary">Diverse audience segments requiring unique messaging strategies</p>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
+                      <p className="text-white/85 jost-secondary">Multiple platform requirements (HubSpot and WordPress)</p>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
+                      <p className="text-white/85 jost-secondary">Maintaining brand consistency across varied designs</p>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
+                      <p className="text-white/85 jost-secondary">Conversion optimization for different decision-maker roles</p>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-extrabold mb-6 text-yellow-400 albert-sans-medium">PROJECT CONSTRAINTS</h3>
+                  <ul className="space-y-4">
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
+                      <p className="text-white/85 jost-secondary">4-week timeline for complete design system delivery</p>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
+                      <p className="text-white/85 jost-secondary">Solo designer managing entire project scope</p>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
+                      <p className="text-white/85 jost-secondary">Need for scalable system supporting future expansions</p>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
+                      <p className="text-white/85 jost-secondary">Platform-specific technical requirements and limitations</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+      {/* The Solution */}
+      <section id="solution" className="py-20 relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+              THE SOLUTION
+            </h2>
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
+              Persona-driven design strategy with unified brand system
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Card className="p-8 sm:p-12 glass-card grain-texture border-green-500/30">
+              <p className="text-xl text-white/90 leading-relaxed mb-8 jost-secondary">
+                {caseStudyData.strategy.description}
+              </p>
+              
+              <h3 className="text-2xl font-extrabold mb-6 text-green-400 albert-sans-medium">KEY APPROACHES</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {caseStudyData.strategy.approaches.map((approach, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-start space-x-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                    <p className="text-white/85 jost-secondary">{approach}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+      {/* Design Process */}
       <section id="process" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
@@ -816,7 +894,7 @@ const TwoHourLearningCaseStudy = () => {
           </div>
         </div>
       </section>
-      {/* 6. Results & Impact */}
+      {/* Results & Impact */}
       <section id="results" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-orange-950/30 via-gray-900 to-slate-950" />
@@ -868,7 +946,7 @@ const TwoHourLearningCaseStudy = () => {
           </div>
         </div>
       </section>
-      {/* 7. Technology Stack */}
+      {/* Technology Stack */}
       <section id="technology" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
@@ -884,7 +962,7 @@ const TwoHourLearningCaseStudy = () => {
             className="text-center mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
-              TECHNOLOGY & TOOLS
+              TECHNOLOGY STACK
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Design and platform tools used for optimal implementation
@@ -919,7 +997,7 @@ const TwoHourLearningCaseStudy = () => {
           </div>
         </div>
       </section>
-      {/* 8. Key Learnings */}
+      {/* Key Learnings */}
       <section id="learnings" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-yellow-950/30 via-gray-900 to-slate-950" />
