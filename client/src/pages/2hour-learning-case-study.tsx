@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { CaseStudyNavigation } from '@/components/case-study-navigation';
 import LogoImage from '@assets/Logo white_1754674219191.png';
+import linkedinLogo from "@assets/linkedin 1_1756620179383.png";
 import homepageDesign from "@assets/Homepage (Wordpress)_1756635142322.png";
 import persona1Design from "@assets/Persona 1 (Hubspot)_1756635142323.png";
 import persona2Design from "@assets/Persona 2 (Hubspot)_1756635142324.png";
@@ -1084,19 +1085,50 @@ const TwoHourLearningCaseStudy = () => {
         </div>
       </section>
       {/* Footer */}
-      <footer className="relative py-12">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950" />
-          <div className="absolute inset-0 grain-texture opacity-20" />
-        </div>
-        
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <footer className="py-16 border-t border-white/10">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="flex items-center justify-center mb-10">
+            <div className="flex items-center space-x-16">
+              {/* Logo Circle */}
+              <div className="flex-shrink-0">
+                <a href="/#hero" className="block group">
+                  <div className="w-20 h-20 bg-gradient-to-br from-grey-600/30 to-white-600/30 rounded-full border-1.5 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
+                    <img
+                      src={LogoImage}
+                      alt="Logo"
+                      className="w-10 h-10 object-contain"
+                    />
+                  </div>
+                </a>
+              </div>
+
+              {/* LinkedIn Circle */}
+              <div className="flex-shrink-0">
+                <a
+                  href="https://www.linkedin.com/in/karan-gadhave/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
+                  <div className="w-20 h-20 bg-gradient-to-br from-black-600/30 to-black-600/30 rounded-full border-1.5 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
+                    <img
+                      src={linkedinLogo}
+                      alt="LinkedIn"
+                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300"
+                    />
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-600 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto mb-8"></div>
+
           <div className="text-center">
             <p className="text-white/70 text-sm font-light tracking-wider">
               © 2025 Karn Kalaa. Designed & developed with passion.
             </p>
           </div>
-          
         </div>
       </footer>
     </div>

@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { CaseStudyNavigation } from '@/components/case-study-navigation';
 import LogoImage from '@assets/Logo white_1754674219191.png';
+import linkedinLogo from "@assets/linkedin 1_1756620179383.png";
 import fffVideoPath from "@assets/FFF website video (video-converter.com)_1754054201797.webm";
 
 const CaseStudyPage = () => {
@@ -989,57 +990,48 @@ const CaseStudyPage = () => {
       {/* Footer */}
       <footer className="py-16 border-t border-white/10">
         <div className="max-w-4xl mx-auto px-6">
-          
           <div className="flex items-center justify-center mb-10">
             <div className="flex items-center space-x-16">
-              
               {/* Logo Circle */}
               <div className="flex-shrink-0">
-                <Link href="/#hero">
-                  <motion.div 
-                    className="w-20 h-20 bg-gradient-to-br from-violet-600/30 to-indigo-600/30 rounded-full border-2 border-white/30 flex items-center justify-center cursor-pointer"
-                    whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.5)" }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <img 
-                      src={LogoImage} 
-                      alt="Logo" 
+                <a href="/#hero" className="block group">
+                  <div className="w-20 h-20 bg-gradient-to-br from-grey-600/30 to-white-600/30 rounded-full border-1.5 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
+                    <img
+                      src={LogoImage}
+                      alt="Logo"
                       className="w-10 h-10 object-contain"
                     />
-                  </motion.div>
-                </Link>
+                  </div>
+                </a>
               </div>
 
               {/* LinkedIn Circle */}
               <div className="flex-shrink-0">
-                <a 
-                  href="https://www.linkedin.com/in/karan-gadhave/" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/karan-gadhave/"
+                  target="_blank"
                   rel="noopener noreferrer"
+                  className="block group"
                 >
-                  <motion.div 
-                    className="w-20 h-20 bg-gradient-to-br from-violet-600/30 to-indigo-600/30 rounded-full border-2 border-white/30 flex items-center justify-center cursor-pointer group"
-                    whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.5)" }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Linkedin className="w-9 h-9 text-white group-hover:text-blue-300 transition-colors duration-300" />
-                  </motion.div>
+                  <div className="w-20 h-20 bg-gradient-to-br from-black-600/30 to-black-600/30 rounded-full border-1.5 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
+                    <img
+                      src={linkedinLogo}
+                      alt="LinkedIn"
+                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300"
+                    />
+                  </div>
                 </a>
               </div>
-
             </div>
           </div>
-          
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto mb-8"></div>
-          
+
+          <div className="w-600 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto mb-8"></div>
+
           <div className="text-center">
             <p className="text-white/70 text-sm font-light tracking-wider">
               © 2025 Karn Kalaa. Designed & developed with passion.
             </p>
           </div>
-          
         </div>
       </footer>
     </div>
