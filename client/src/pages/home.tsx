@@ -466,7 +466,8 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 1.3 }}
             className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto font-normal jost-secondary mb-8"
           >
-            4+ years turning concepts into launch‑ready platforms via research, IA/flows, prototyping, and iterative testing enhanced by AI.
+            4+ years turning concepts into launch‑ready platforms via research,
+            IA/flows, prototyping, and iterative testing enhanced by AI.
           </motion.p>
 
           {/* Responsive Action Buttons */}
@@ -748,9 +749,10 @@ export default function Home() {
 
                     <div className="space-y-4">
                       <p className="text-white/85 leading-relaxed text-base jost-secondary">
-                        I'm a passionate UI/UX designer with 4+ years of experience. Specializing in crafting
-                        innovative digital solutions. My expertise lies in
-                        combining traditional design principles with{" "}
+                        I'm a passionate UI/UX designer with 4+ years of
+                        experience. Specializing in crafting innovative digital
+                        solutions. My expertise lies in combining traditional
+                        design principles with{" "}
                         <span className="text-primary font-semibold">
                           AI-driven design approaches
                         </span>{" "}
@@ -1207,11 +1209,6 @@ export default function Home() {
                 className="text-center mb-6 max-w-xl mx-auto"
               >
                 <div className="flex items-center justify-center space-x-3 px-6 py-3 glass-card grain-texture border border-white/10">
-                  <Rocket className="w-5 h-5 text-primary flex-shrink-0" />
-                  <p className="text-white/90 text-base font-medium jost-secondary">
-                    Let's discuss your next project and bring your ideas to
-                    life!
-                  </p>
                 </div>
               </motion.div>
 
@@ -1225,63 +1222,71 @@ export default function Home() {
               >
                 <Card className="p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
                   <div className="space-y-4">
-                      {/* Email */}
-                      <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Mail className="w-5 h-5 text-emerald-400" />
-                          </div>
-                          <a
-                            href="mailto:gadhavekaran@gmail.com"
-                            className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
-                          >
-                            gadhavekaran@gmail.com
-                          </a>
+                    {/* Email */}
+                    <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Mail className="w-5 h-5 text-emerald-400" />
                         </div>
-                        <button
-                          onClick={(event) => {
-                            navigator.clipboard.writeText("gadhavekaran@gmail.com");
-                            const button = event.currentTarget;
-                            const originalContent = button.innerHTML;
-                            button.innerHTML = '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                            setTimeout(() => { button.innerHTML = originalContent; }, 2000);
-                          }}
-                          className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
-                          title="Copy email"
+                        <a
+                          href="mailto:gadhavekaran@gmail.com"
+                          className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
                         >
-                          <FileText className="w-4 h-4" />
-                        </button>
+                          gadhavekaran@gmail.com
+                        </a>
                       </div>
+                      <button
+                        onClick={(event) => {
+                          navigator.clipboard.writeText(
+                            "gadhavekaran@gmail.com",
+                          );
+                          const button = event.currentTarget;
+                          const originalContent = button.innerHTML;
+                          button.innerHTML =
+                            '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                          setTimeout(() => {
+                            button.innerHTML = originalContent;
+                          }, 2000);
+                        }}
+                        className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
+                        title="Copy email"
+                      >
+                        <FileText className="w-4 h-4" />
+                      </button>
+                    </div>
 
-                      {/* Phone */}
-                      <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Phone className="w-5 h-5 text-cyan-400" />
-                          </div>
-                          <a
-                            href="https://wa.me/917744074265"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
-                          >
-                            +91 7744074265
-                          </a>
+                    {/* Phone */}
+                    <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Phone className="w-5 h-5 text-cyan-400" />
                         </div>
-                        <button
-                          onClick={(event) => {
-                            navigator.clipboard.writeText("+917744074265");
-                            const button = event.currentTarget;
-                            const originalContent = button.innerHTML;
-                            button.innerHTML = '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                            setTimeout(() => { button.innerHTML = originalContent; }, 2000);
-                          }}
-                          className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
-                          title="Copy phone"
+                        <a
+                          href="https://wa.me/917744074265"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
                         >
-                          <FileText className="w-4 h-4" />
-                        </button>
+                          +91 7744074265
+                        </a>
                       </div>
+                      <button
+                        onClick={(event) => {
+                          navigator.clipboard.writeText("+917744074265");
+                          const button = event.currentTarget;
+                          const originalContent = button.innerHTML;
+                          button.innerHTML =
+                            '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                          setTimeout(() => {
+                            button.innerHTML = originalContent;
+                          }, 2000);
+                        }}
+                        className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
+                        title="Copy phone"
+                      >
+                        <FileText className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
                 </Card>
               </motion.div>
@@ -1339,7 +1344,14 @@ export default function Home() {
                     Profile Summary:
                   </h3>
                   <p className="text-xs sm:text-sm leading-relaxed">
-                    Senior Product Designer with 5+ years delivering end-to-end UI/UX and AI-assisted vibe-coding builds for websites and web apps; ready to join immediately. Strengths: user research, usability testing, information architecture, user flows, wireframing, interactive prototyping, interaction/visual design, design systems, accessibility. Shipped integrated platforms including HubSpot and WordPress implementations and a gamified parent platform.
+                    Senior Product Designer with 5+ years delivering end-to-end
+                    UI/UX and AI-assisted vibe-coding builds for websites and
+                    web apps; ready to join immediately. Strengths: user
+                    research, usability testing, information architecture, user
+                    flows, wireframing, interactive prototyping,
+                    interaction/visual design, design systems, accessibility.
+                    Shipped integrated platforms including HubSpot and WordPress
+                    implementations and a gamified parent platform.
                   </p>
                 </section>
 
@@ -1362,25 +1374,38 @@ export default function Home() {
                     </p>
                     <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
                       <li className="leading-relaxed">
-                        Owned multi-year vibe-coding builds, delivering production websites and web apps from discovery to launch and post-release iteration
+                        Owned multi-year vibe-coding builds, delivering
+                        production websites and web apps from discovery to
+                        launch and post-release iteration
                       </li>
                       <li className="leading-relaxed">
-                        Designed and developed the Future First Families website with end-to-end integrations across auth, forms/CRM, analytics, and automations
+                        Designed and developed the Future First Families website
+                        with end-to-end integrations across auth, forms/CRM,
+                        analytics, and automations
                       </li>
                       <li className="leading-relaxed">
-                        Built the Future First Families gamified parent platform with onboarding, progression mechanics, engagement tracking, and admin controls
+                        Built the Future First Families gamified parent platform
+                        with onboarding, progression mechanics, engagement
+                        tracking, and admin controls
                       </li>
                       <li className="leading-relaxed">
-                        Delivered cross-platform experiences (websites, web apps, responsive) using rapid prototyping and AI-assisted workflows to shorten cycle time
+                        Delivered cross-platform experiences (websites, web
+                        apps, responsive) using rapid prototyping and
+                        AI-assisted workflows to shorten cycle time
                       </li>
                       <li className="leading-relaxed">
-                        Built and customized designs on HubSpot CMS and WordPress—including themes/modules, landing pages, blogs, forms, and marketing automations
+                        Built and customized designs on HubSpot CMS and
+                        WordPress—including themes/modules, landing pages,
+                        blogs, forms, and marketing automations
                       </li>
                       <li className="leading-relaxed">
-                        Created and governed design systems to standardize UI, improve accessibility, and accelerate feature delivery
+                        Created and governed design systems to standardize UI,
+                        improve accessibility, and accelerate feature delivery
                       </li>
                       <li className="leading-relaxed">
-                        Led design for healthcare platforms (Healthsignz, MYMEDIC), mapping patient/provider journeys and shipping inclusive, compliant experiences
+                        Led design for healthcare platforms (Healthsignz,
+                        MYMEDIC), mapping patient/provider journeys and shipping
+                        inclusive, compliant experiences
                       </li>
                     </ul>
                   </div>
@@ -1399,13 +1424,17 @@ export default function Home() {
                     </p>
                     <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
                       <li className="leading-relaxed">
-                        Designed core features for StockMarketBox like broker comparison, market tickers, courses, and blog
+                        Designed core features for StockMarketBox like broker
+                        comparison, market tickers, courses, and blog
                       </li>
                       <li className="leading-relaxed">
-                        Successfully launched Stockmarketbox.com, boosting online presence
+                        Successfully launched Stockmarketbox.com, boosting
+                        online presence
                       </li>
                       <li className="leading-relaxed">
-                        Created custom illustrations and animations, increasing user engagement by 20%, and designed 30+ mobile trading app interfaces in 3 months
+                        Created custom illustrations and animations, increasing
+                        user engagement by 20%, and designed 30+ mobile trading
+                        app interfaces in 3 months
                       </li>
                     </ul>
                   </div>
@@ -1427,7 +1456,8 @@ export default function Home() {
                         Led the design for Teach Max mobile application
                       </li>
                       <li className="leading-relaxed">
-                        Worked on various redesign projects from websites to mobile application including company website
+                        Worked on various redesign projects from websites to
+                        mobile application including company website
                       </li>
                     </ul>
                   </div>
@@ -1452,16 +1482,25 @@ export default function Home() {
                     </p>
                     <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
                       <li className="leading-relaxed">
-                        Designed both UX and UI with a deep focus on enhancing user experience through extensive research and 20 user interviews, ensuring data-driven design decisions
+                        Designed both UX and UI with a deep focus on enhancing
+                        user experience through extensive research and 20 user
+                        interviews, ensuring data-driven design decisions
                       </li>
                       <li className="leading-relaxed">
-                        Applied advanced problem-solving skills to deliver optimal and intuitive design solutions, addressing user pain points effectively
+                        Applied advanced problem-solving skills to deliver
+                        optimal and intuitive design solutions, addressing user
+                        pain points effectively
                       </li>
                       <li className="leading-relaxed">
-                        Spearheaded the app design process from initial research to high-fidelity prototypes in just two months, showcasing agility and expertise in fast-paced environments
+                        Spearheaded the app design process from initial research
+                        to high-fidelity prototypes in just two months,
+                        showcasing agility and expertise in fast-paced
+                        environments
                       </li>
                       <li className="leading-relaxed">
-                        Conducted comprehensive research, including user interviews and feedback analysis, to inform a seamless and user-friendly product experience
+                        Conducted comprehensive research, including user
+                        interviews and feedback analysis, to inform a seamless
+                        and user-friendly product experience
                       </li>
                     </ul>
                   </div>
@@ -1477,7 +1516,8 @@ export default function Home() {
                         Bachelor of Arts in History
                       </h4>
                       <p className="text-xs sm:text-sm text-gray-600">
-                        Yashwantrao Chavan Maharashtra Open University, Barshi, India
+                        Yashwantrao Chavan Maharashtra Open University, Barshi,
+                        India
                       </p>
                     </div>
                     <span className="text-xs sm:text-sm text-gray-600">
