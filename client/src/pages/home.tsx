@@ -1200,18 +1200,6 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-2xl" />
 
             <div className="relative z-10">
-              {/* Call to Action */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="text-center mb-6 max-w-xl mx-auto"
-              >
-                <div className="flex items-center justify-center space-x-3 px-6 py-3 glass-card grain-texture border border-white/10">
-                </div>
-              </motion.div>
-
               {/* Contact Card */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
