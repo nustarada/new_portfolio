@@ -657,6 +657,227 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Projects Section */}
+      <section id="projects" className="py-16 relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <div className="relative inline-block mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white relative z-10 albert-sans-medium">
+                FEATURED PROJECTS
+              </h2>
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
+            </div>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
+              A showcase of innovative solutions spanning AI integration,
+              enterprise platforms, and user-centered design systems.
+            </p>
+          </motion.div>
+
+          {/* Wireframe-Based Project Cards */}
+          <div className="space-y-8 max-w-6xl mx-auto">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <Card className="relative overflow-hidden glass-card grain-texture hover:glass-intense border border-white/20 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.01]">
+                  {/* Horizontal Layout: Thumbnail + Content */}
+                  <div className="flex flex-col lg:flex-row">
+                    {/* Left Side - Thumbnail */}
+                    <img
+                      src={project.image}
+                      alt={`${project.title} Platform`}
+                      className="lg:w-1/2 aspect-square object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+
+                    {/* Right Side - Content */}
+                    <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-between">
+                      {/* Top Section: Brand Logo */}
+                      <div className="flex justify-between items-start mb-6">
+                        <div className="flex-1">
+                          {/* Project Number Badge */}
+                          <div className="w-10 h-10 bg-gradient-to-br from-primary/20 to-purple-500/20 backdrop-blur-md border border-white/10 flex items-center justify-center mb-4">
+                            <span className="text-sm font-bold text-primary font-mono">
+                              {String(index + 1).padStart(2, "0")}
+                            </span>
+                          </div>
+                        </div>
+                        {/* Project Logo */}
+                        <img
+                          src={project.logo}
+                          alt={`${project.title} Logo`}
+                          className="object-contain opacity-90"
+                          style={{
+                            width:
+                              project.title === "FutureFirst Families"
+                                ? "120px"
+                                : "96px",
+                            height:
+                              project.title === "FutureFirst Families"
+                                ? "72px"
+                                : "48px",
+                          }}
+                        />
+                      </div>
+
+                      {/* Project Title and Description */}
+                      <div className="space-y-4 mb-6">
+                        <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
+                          {project.title}
+                        </h3>
+                        <p className="text-white/85 leading-relaxed text-base jost-secondary font-light">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      {/* Industry and Services Row */}
+                      <div className="grid grid-cols-2 gap-6 mb-6">
+                        <div>
+                          <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">
+                            Industry
+                          </p>
+                          <p className="text-white font-semibold jost-secondary">
+                            {project.category}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">
+                            Services
+                          </p>
+                          <p className="text-white font-semibold jost-secondary">
+                            {project.services}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Duration */}
+                      <div className="mb-6">
+                        <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">
+                          Duration
+                        </p>
+                        <p className="text-white font-semibold jost-secondary">
+                          {project.duration || "4 Months"}
+                        </p>
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        <a
+                          href={project.caseStudyUrl}
+                          className="flex-1 group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-sm h-12 border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer block text-center no-underline shadow-lg hover:shadow-primary/25 flex items-center justify-center"
+                          style={{ WebkitTapHighlightColor: "transparent" }}
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                          <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
+                            <span className="font-semibold">Case Study</span>
+                            <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
+                          </div>
+                        </a>
+                        {project.liveUrl !== "#" && (
+                          <button
+                            onClick={() =>
+                              window.open(project.liveUrl, "_blank")
+                            }
+                            className="flex-1 group/btn relative overflow-hidden text-white font-bold text-sm border border-white/30 hover:bg-white/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-white/10 flex items-center justify-center"
+                            style={{
+                              WebkitTapHighlightColor: "transparent",
+                              minHeight: "48px",
+                              padding: "12px 24px",
+                            }}
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                            <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
+                              <span className="font-semibold">Live Site</span>
+                              <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
+                            </div>
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Enhanced Ambient Effects */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Design Philosophy Section */}
+      <section className="py-16 relative">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <div className="relative inline-block mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold glow-text relative z-10 albert-sans-medium">
+                DESIGN PHILOSOPHY
+              </h2>
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
+            </div>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
+              My approach to creating meaningful and impactful digital
+              experiences
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <Card className="group relative overflow-hidden p-10 glass-intense grain-texture hover:glass-card transition-all duration-500">
+              {/* Background Elements */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-2xl" />
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/25 to-white/20 flex items-center justify-center backdrop-blur-sm">
+                    <Sparkles className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
+
+                <div className="space-y-8">
+                  <blockquote className="relative text-center">
+                    <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-400 to-primary/60"></div>
+                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium jost-secondary">
+                      "Great design is invisible. It seamlessly bridges human
+                      needs with technological possibilities, creating
+                      experiences that feel natural, intuitive, and delightful."
+                    </p>
+                  </blockquote>
+
+                  <div className="text-center pt-6 border-t border-white/10">
+                    <p className="text-white/85 text-lg leading-relaxed max-w-2xl mx-auto jost-secondary">
+                      I harness the power of AI design tools, master Figma's
+                      ecosystem, and leverage interactive prototyping to create
+                      innovative, efficient design workflows that deliver
+                      exceptional results.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
       {/* About Section */}
       <section id="about" className="py-12 relative overflow-hidden">
         {/* Elegant Background */}
@@ -949,227 +1170,6 @@ export default function Home() {
                     ))}
                   </div>
                 </motion.div>
-              </div>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
-      {/* Projects Section */}
-      <section id="projects" className="py-16 relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <div className="relative inline-block mb-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white relative z-10 albert-sans-medium">
-                FEATURED PROJECTS
-              </h2>
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
-            </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
-              A showcase of innovative solutions spanning AI integration,
-              enterprise platforms, and user-centered design systems.
-            </p>
-          </motion.div>
-
-          {/* Wireframe-Based Project Cards */}
-          <div className="space-y-8 max-w-6xl mx-auto">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <Card className="relative overflow-hidden glass-card grain-texture hover:glass-intense border border-white/20 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.01]">
-                  {/* Horizontal Layout: Thumbnail + Content */}
-                  <div className="flex flex-col lg:flex-row">
-                    {/* Left Side - Thumbnail */}
-                    <img
-                      src={project.image}
-                      alt={`${project.title} Platform`}
-                      className="lg:w-1/2 aspect-square object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-
-                    {/* Right Side - Content */}
-                    <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-between">
-                      {/* Top Section: Brand Logo */}
-                      <div className="flex justify-between items-start mb-6">
-                        <div className="flex-1">
-                          {/* Project Number Badge */}
-                          <div className="w-10 h-10 bg-gradient-to-br from-primary/20 to-purple-500/20 backdrop-blur-md border border-white/10 flex items-center justify-center mb-4">
-                            <span className="text-sm font-bold text-primary font-mono">
-                              {String(index + 1).padStart(2, "0")}
-                            </span>
-                          </div>
-                        </div>
-                        {/* Project Logo */}
-                        <img
-                          src={project.logo}
-                          alt={`${project.title} Logo`}
-                          className="object-contain opacity-90"
-                          style={{
-                            width:
-                              project.title === "FutureFirst Families"
-                                ? "120px"
-                                : "96px",
-                            height:
-                              project.title === "FutureFirst Families"
-                                ? "72px"
-                                : "48px",
-                          }}
-                        />
-                      </div>
-
-                      {/* Project Title and Description */}
-                      <div className="space-y-4 mb-6">
-                        <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
-                          {project.title}
-                        </h3>
-                        <p className="text-white/85 leading-relaxed text-base jost-secondary font-light">
-                          {project.description}
-                        </p>
-                      </div>
-
-                      {/* Industry and Services Row */}
-                      <div className="grid grid-cols-2 gap-6 mb-6">
-                        <div>
-                          <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">
-                            Industry
-                          </p>
-                          <p className="text-white font-semibold jost-secondary">
-                            {project.category}
-                          </p>
-                        </div>
-                        <div>
-                          <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">
-                            Services
-                          </p>
-                          <p className="text-white font-semibold jost-secondary">
-                            {project.services}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Duration */}
-                      <div className="mb-6">
-                        <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">
-                          Duration
-                        </p>
-                        <p className="text-white font-semibold jost-secondary">
-                          {project.duration || "4 Months"}
-                        </p>
-                      </div>
-
-                      {/* Action Buttons */}
-                      <div className="flex flex-col sm:flex-row gap-3">
-                        <a
-                          href={project.caseStudyUrl}
-                          className="flex-1 group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-sm h-12 border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer block text-center no-underline shadow-lg hover:shadow-primary/25 flex items-center justify-center"
-                          style={{ WebkitTapHighlightColor: "transparent" }}
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                          <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
-                            <span className="font-semibold">Case Study</span>
-                            <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
-                          </div>
-                        </a>
-                        {project.liveUrl !== "#" && (
-                          <button
-                            onClick={() =>
-                              window.open(project.liveUrl, "_blank")
-                            }
-                            className="flex-1 group/btn relative overflow-hidden text-white font-bold text-sm border border-white/30 hover:bg-white/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-white/10 flex items-center justify-center"
-                            style={{
-                              WebkitTapHighlightColor: "transparent",
-                              minHeight: "48px",
-                              padding: "12px 24px",
-                            }}
-                          >
-                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                            <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
-                              <span className="font-semibold">Live Site</span>
-                              <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
-                            </div>
-                          </button>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Enhanced Ambient Effects */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* Design Philosophy Section */}
-      <section className="py-16 relative">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <div className="relative inline-block mb-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold glow-text relative z-10 albert-sans-medium">
-                DESIGN PHILOSOPHY
-              </h2>
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
-            </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
-              My approach to creating meaningful and impactful digital
-              experiences
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <Card className="group relative overflow-hidden p-10 glass-intense grain-texture hover:glass-card transition-all duration-500">
-              {/* Background Elements */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-2xl" />
-
-              <div className="relative z-10">
-                <div className="flex items-center justify-center mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/25 to-white/20 flex items-center justify-center backdrop-blur-sm">
-                    <Sparkles className="w-8 h-8 text-primary" />
-                  </div>
-                </div>
-
-                <div className="space-y-8">
-                  <blockquote className="relative text-center">
-                    <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-400 to-primary/60"></div>
-                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium jost-secondary">
-                      "Great design is invisible. It seamlessly bridges human
-                      needs with technological possibilities, creating
-                      experiences that feel natural, intuitive, and delightful."
-                    </p>
-                  </blockquote>
-
-                  <div className="text-center pt-6 border-t border-white/10">
-                    <p className="text-white/85 text-lg leading-relaxed max-w-2xl mx-auto jost-secondary">
-                      I harness the power of AI design tools, master Figma's
-                      ecosystem, and leverage interactive prototyping to create
-                      innovative, efficient design workflows that deliver
-                      exceptional results.
-                    </p>
-                  </div>
-                </div>
               </div>
             </Card>
           </motion.div>
