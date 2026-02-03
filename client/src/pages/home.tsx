@@ -945,7 +945,7 @@ export default function Home() {
                       <img
                         src={
                           new URL(
-                            "@assets/IMG_0879_1757674246988.JPG",
+                            "@assets/f894f7c16bd38de4f917265637f70cbcb179a3b831d11411ec64662e596c2f_1770135807671.png",
                             import.meta.url,
                           ).href
                         }
