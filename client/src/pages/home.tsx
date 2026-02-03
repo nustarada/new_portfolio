@@ -1098,12 +1098,7 @@ export default function Home() {
                   </blockquote>
 
                   <div className="text-center pt-6 border-t border-white/10">
-                    <p className="text-white/85 text-lg leading-relaxed max-w-3xl mx-auto jost-secondary">
-                      I harness the power of AI design tools, master Figma's
-                      ecosystem, and leverage interactive prototyping to create
-                      innovative, efficient design workflows that deliver
-                      exceptional results.
-                    </p>
+                    <p className="text-white/85 text-lg leading-relaxed max-w-3xl mx-auto jost-secondary">I focus on understanding problems deeply - through research, system thinking, and iteration - before shaping solutions that scale. Tools and technology support the process, but clarity, usability, and intent always lead the design.</p>
                   </div>
                 </div>
               </div>
