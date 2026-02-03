@@ -1005,16 +1005,18 @@ export default function Home() {
                   <h4 className="text-lg font-bold text-white mb-4 text-center jost-secondary">
                     Specialized Skills
                   </h4>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                     {[
-                      "AI Design Tools",
-                      "Figma Mastery",
-                      "Interactive Prototyping",
-                      "Design Systems",
+                      "Product Design (B2B & Consumer SaaS)",
+                      "UX Design & UX Architecture",
+                      "UI Design (Web & Mobile)",
+                      "Interaction & Workflow Design",
+                      "Information Architecture",
                       "User Research",
-                      "Design Automation",
-                      "Rapid Prototyping",
-                      "Cross-Platform Design",
+                      "Usability Testing",
+                      "Design Systems & Component Libraries",
+                      "Prototyping (Figma)",
+                      "Cross-functional Collaboration",
                     ].map((skill, index) => (
                       <motion.div
                         key={skill}
