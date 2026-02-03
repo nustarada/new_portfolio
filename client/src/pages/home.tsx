@@ -28,6 +28,7 @@ import liffoLogo from "@assets/Liffo_logo_1754475239620.png";
 import linkedinLogo from "@assets/linkedin 1_1756620179383.png";
 import twoHourLearningThumbnail from "@assets/2_Hour_Learning_thumbnail_1770103573825.png";
 import twoHourLearningLogo from "@assets/2HL Logo_1756637716101.png";
+import cybersecurityThumbnail from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.png";
 import {
   Terminal,
   Sparkles,
@@ -291,6 +292,52 @@ export default function Home() {
         "Developed high-fidelity designs for all 4 landing pages",
         "Optimized for conversion with strategic messaging and CTAs",
         "Delivered production-ready designs for development",
+      ],
+    },
+    {
+      title: "Enterprise Cybersecurity Platform Redesign",
+      subtitle: "End-to-end redesign of a complex, role-based cybersecurity web platform focused on system structure, workflows, and usability.",
+      description:
+        "End-to-end redesign of a complex, role-based cybersecurity web platform focused on system structure, workflows, and usability.",
+      detailedDescription:
+        "Due to client confidentiality, detailed screens and system architecture are intentionally limited. This project highlights platform-level thinking, UX decisions, and system design.",
+      image: cybersecurityThumbnail,
+      logo: undefined,
+      liveUrl: undefined,
+      caseStudyUrl: undefined,
+      isComingSoon: true,
+      isConfidential: true,
+      tags: [
+        "Enterprise UX",
+        "System Redesign",
+        "Web Platform",
+        "Cybersecurity",
+      ],
+      year: "2025",
+      category: "Platform Redesign",
+      role: "Lead Product Designer",
+      services: "Platform Redesign",
+      industry: "Cybersecurity",
+      platform: "Web Platform",
+      outcomes: [
+        "Comprehensive platform restructuring",
+        "Improved role-based workflows",
+        "Enhanced usability across complex systems",
+      ],
+      keyFeatures: [
+        "Role-based access control design",
+        "Complex workflow optimization",
+        "System architecture improvements",
+        "Usability enhancements for enterprise users",
+      ],
+      techStack: ["Figma", "Enterprise UX", "System Design"],
+      duration: "Ongoing",
+      process: [
+        "Platform audit and stakeholder interviews",
+        "System structure analysis",
+        "Workflow redesign and optimization",
+        "Role-based experience mapping",
+        "Usability testing and iteration",
       ],
     },
   ];
@@ -761,31 +808,47 @@ export default function Home() {
 
                     {/* Action Buttons - pushed to bottom */}
                     <div className="grid grid-cols-2 gap-3 mt-auto">
-                      <a
-                        href={project.caseStudyUrl}
-                        className={`project-card-btn group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-xs border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer no-underline shadow-lg hover:shadow-primary/25 ${project.liveUrl === "#" ? "col-span-2" : ""}`}
-                        style={{ WebkitTapHighlightColor: "transparent" }}
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                        <div className="relative z-10 flex items-center justify-center space-x-1 jost-secondary">
-                          <span className="font-semibold">Case Study</span>
-                          <ArrowUpRight className="w-3 h-3 group-hover/btn:rotate-45 transition-transform duration-300" />
-                        </div>
-                      </a>
-                      {project.liveUrl !== "#" && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="project-card-btn group/btn relative overflow-hidden text-white font-bold text-xs border border-white/30 hover:bg-white/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-white/10 no-underline"
+                      {project.isComingSoon ? (
+                        <div
+                          className={`project-card-btn col-span-2 relative overflow-hidden bg-white/10 text-white/60 font-bold text-xs border border-white/20 cursor-not-allowed opacity-70`}
                           style={{ WebkitTapHighlightColor: "transparent" }}
                         >
-                          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                          <div className="relative z-10 flex items-center justify-center space-x-1 jost-secondary">
-                            <span className="font-semibold">Live Site</span>
-                            <ArrowUpRight className="w-3 h-3 group-hover/btn:rotate-45 transition-transform duration-300" />
+                          <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
+                            <span className="font-semibold">Coming Soon</span>
+                            {project.isConfidential && (
+                              <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded">Confidential</span>
+                            )}
                           </div>
-                        </a>
+                        </div>
+                      ) : (
+                        <>
+                          <a
+                            href={project.caseStudyUrl}
+                            className={`project-card-btn group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-xs border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer no-underline shadow-lg hover:shadow-primary/25 ${project.liveUrl === "#" || !project.liveUrl ? "col-span-2" : ""}`}
+                            style={{ WebkitTapHighlightColor: "transparent" }}
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                            <div className="relative z-10 flex items-center justify-center space-x-1 jost-secondary">
+                              <span className="font-semibold">Case Study</span>
+                              <ArrowUpRight className="w-3 h-3 group-hover/btn:rotate-45 transition-transform duration-300" />
+                            </div>
+                          </a>
+                          {project.liveUrl && project.liveUrl !== "#" && (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="project-card-btn group/btn relative overflow-hidden text-white font-bold text-xs border border-white/30 hover:bg-white/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-white/10 no-underline"
+                              style={{ WebkitTapHighlightColor: "transparent" }}
+                            >
+                              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                              <div className="relative z-10 flex items-center justify-center space-x-1 jost-secondary">
+                                <span className="font-semibold">Live Site</span>
+                                <ArrowUpRight className="w-3 h-3 group-hover/btn:rotate-45 transition-transform duration-300" />
+                              </div>
+                            </a>
+                          )}
+                        </>
                       )}
                     </div>
                   </div>
