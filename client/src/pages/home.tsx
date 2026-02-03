@@ -764,7 +764,7 @@ export default function Home() {
                     <div className="grid grid-cols-2 gap-3 mt-auto">
                       <a
                         href={project.caseStudyUrl}
-                        className={`group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-xs h-10 border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer block no-underline shadow-lg hover:shadow-primary/25 flex items-center justify-center ${project.liveUrl === "#" ? "col-span-2" : ""}`}
+                        className={`project-card-btn group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-xs border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer no-underline shadow-lg hover:shadow-primary/25 ${project.liveUrl === "#" ? "col-span-2" : ""}`}
                         style={{ WebkitTapHighlightColor: "transparent" }}
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
@@ -778,7 +778,7 @@ export default function Home() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/btn relative overflow-hidden text-white font-bold text-xs h-10 border border-white/30 hover:bg-white/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-white/10 flex items-center justify-center block no-underline"
+                          className="project-card-btn group/btn relative overflow-hidden text-white font-bold text-xs border border-white/30 hover:bg-white/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-white/10 no-underline"
                           style={{ WebkitTapHighlightColor: "transparent" }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />

@@ -656,6 +656,25 @@ button,
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
+/* Project Card Buttons - fixed height for consistency */
+.project-card-btn {
+  min-height: 40px !important;
+  max-height: 40px !important;
+  height: 40px !important;
+  padding: 0 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+.project-card-btn.cta-button {
+  min-height: 40px !important;
+  max-height: 40px !important;
+  height: 40px !important;
+  padding: 0 16px !important;
+}
+
 .cta-button.no-underline:hover {
   background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #1d4ed8 100%) !important;
   box-shadow:
