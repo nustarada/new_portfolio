@@ -197,7 +197,7 @@ export default function Home() {
       ],
     },
     {
-      title: "FutureFirst Families",
+      title: "Future First Families: Gamified Educational Platform for Parents",
       subtitle: "AI-Enhanced Learning Platform",
       description:
         "An innovative AI learning platform empowering parents and students with personalized educational experiences through gamified, user-friendly design and intelligent content adaptation.",
@@ -243,7 +243,7 @@ export default function Home() {
       ],
     },
     {
-      title: "Liffo",
+      title: "Liffo: Emergency Health Services",
       subtitle: "Emergency Health Services Platform",
       description:
         "A unified emergency health services platform providing fast, reliable access to critical healthcare including ambulance booking, doctor consultations, lab tests, and medicine delivery.",
@@ -295,10 +295,10 @@ export default function Home() {
       ],
     },
     {
-      title: "2 Hour Learning: Educational Landing Page System",
+      title: "2 Hour Learning: Lead Gen Landing Pages",
       subtitle: "Persona-Driven Lead Generation",
       description:
-        "A comprehensive landing page design system for 2 Hour Learning featuring targeted designs for different educational personas including students, educators, and institutions.",
+        "A comprehensive landing page design system for 2 Hour Learning featuring targeted designs for different educational personas including parents, students, educators, and institutions.",
       detailedDescription:
         "Created a cohesive set of 4 specialized landing pages targeting different segments of the education market, each optimized for specific user personas and conversion goals while maintaining brand consistency and visual excellence.",
       image: twoHourLearningThumbnail,
@@ -479,6 +479,24 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
+          {/* Open for Work Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex justify-center mb-4"
+          >
+            <Badge
+              variant="outline"
+              className="px-4 py-1.5 glass-card grain-texture text-white/90 font-medium tracking-wide border-emerald-500/50 hover:border-emerald-400 transition-all duration-300 jost-secondary"
+            >
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                <span className="text-sm">Open for Work</span>
+              </div>
+            </Badge>
+          </motion.div>
+
           {/* Name with Bold Display */}
           <motion.div
             className="space-y-4 mb-6 md:mb-8"
@@ -513,10 +531,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.3 }}
             className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto font-normal jost-secondary mb-8"
-          >
-            4+ years turning concepts into launch‑ready platforms via research,
-            IA/flows, prototyping, and iterative testing enhanced by AI.
-          </motion.p>
+          >5+ years turning complex problems into launch-ready products through research-driven UX, clear information architecture, and iterative design - supported by modern tools.</motion.p>
 
           {/* Responsive Action Buttons */}
           <motion.div
@@ -773,8 +788,8 @@ export default function Home() {
                           alt={`${project.title} Logo`}
                           className="object-contain opacity-90"
                           style={{
-                            width: project.title === "FutureFirst Families" ? "60px" : "48px",
-                            height: project.title === "FutureFirst Families" ? "36px" : "24px",
+                            width: project.title.includes("Future First Families") ? "60px" : "48px",
+                            height: project.title.includes("Future First Families") ? "36px" : "24px",
                           }}
                         />
                       </div>
@@ -871,70 +886,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Design Philosophy Section */}
-      <section className="py-16 relative">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <div className="relative inline-block mb-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold glow-text relative z-10 albert-sans-medium">
-                DESIGN PHILOSOPHY
-              </h2>
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
-            </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
-              My approach to creating meaningful and impactful digital
-              experiences
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <Card className="group relative overflow-hidden p-10 glass-intense grain-texture hover:glass-card transition-all duration-500">
-              {/* Background Elements */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-2xl" />
-
-              <div className="relative z-10">
-                <div className="flex items-center justify-center mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/25 to-white/20 flex items-center justify-center backdrop-blur-sm">
-                    <Sparkles className="w-8 h-8 text-primary" />
-                  </div>
-                </div>
-
-                <div className="space-y-8">
-                  <blockquote className="relative text-center">
-                    <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-400 to-primary/60"></div>
-                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium jost-secondary">
-                      "Great design is invisible. It seamlessly bridges human
-                      needs with technological possibilities, creating
-                      experiences that feel natural, intuitive, and delightful."
-                    </p>
-                  </blockquote>
-
-                  <div className="text-center pt-6 border-t border-white/10">
-                    <p className="text-white/85 text-lg leading-relaxed max-w-2xl mx-auto jost-secondary">
-                      I harness the power of AI design tools, master Figma's
-                      ecosystem, and leverage interactive prototyping to create
-                      innovative, efficient design workflows that deliver
-                      exceptional results.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
       {/* About Section */}
       <section id="about" className="py-12 relative overflow-hidden">
         {/* Elegant Background */}
@@ -943,7 +894,7 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/10 blur-3xl animate-pulse" />
         </div>
 
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -961,7 +912,7 @@ export default function Home() {
             >
               ABOUT ME
             </motion.h2>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
+            <p className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed jost-secondary">
               Crafting innovative digital experiences through AI-enhanced design
               workflows
             </p>
@@ -1007,9 +958,7 @@ export default function Home() {
                       Karan Gadhave
                     </h3>
                     {/* Title */}
-                    <p className="text-lg text-primary font-semibold jost-secondary text-center">
-                      Senior Product & UI/UX Designer
-                    </p>
+                    <p className="text-lg text-primary font-semibold jost-secondary text-center">Senior Product - UI/UX Designer</p>
                   </motion.div>
 
                   {/* Right Column - About Summary */}
@@ -1062,136 +1011,6 @@ export default function Home() {
                   </motion.div>
                 </div>
 
-                {/* Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  {/* Left Column - Expertise */}
-                  <div className="space-y-4">
-                    <h4 className="text-lg font-bold text-white mb-4 flex items-center jost-secondary">
-                      <Briefcase className="w-5 h-5 text-cyan-400 mr-2" />
-                      Expertise
-                    </h4>
-
-                    {/* Design Systems Card */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.1 }}
-                      viewport={{ once: true }}
-                      className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
-                    >
-                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 border border-white/10 flex items-center justify-center">
-                        <Grid className="w-4 h-4 text-blue-400" />
-                      </div>
-                      <div>
-                        <h5 className="text-white font-semibold text-sm jost-secondary">
-                          Design Systems
-                        </h5>
-                        <p className="text-white/70 text-xs jost-secondary">
-                          Scalable component libraries
-                        </p>
-                      </div>
-                    </motion.div>
-
-                    {/* Prototyping Card */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
-                      viewport={{ once: true }}
-                      className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
-                    >
-                      <div className="w-8 h-8 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 flex items-center justify-center">
-                        <Layers className="w-4 h-4 text-purple-400" />
-                      </div>
-                      <div>
-                        <h5 className="text-white font-semibold text-sm jost-secondary">
-                          Interactive Prototyping
-                        </h5>
-                        <p className="text-white/70 text-xs jost-secondary">
-                          High-fidelity user testing
-                        </p>
-                      </div>
-                    </motion.div>
-
-                    {/* Research Card */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      viewport={{ once: true }}
-                      className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
-                    >
-                      <div className="w-8 h-8 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-white/10 flex items-center justify-center">
-                        <Search className="w-4 h-4 text-emerald-400" />
-                      </div>
-                      <div>
-                        <h5 className="text-white font-semibold text-sm jost-secondary">
-                          User Research
-                        </h5>
-                        <p className="text-white/70 text-xs jost-secondary">
-                          Data-driven design decisions
-                        </p>
-                      </div>
-                    </motion.div>
-                  </div>
-
-                  {/* Right Column - Core Principles */}
-                  <div className="space-y-4">
-                    <h4 className="text-lg font-bold text-white mb-4 flex items-center jost-secondary">
-                      <Shield className="w-5 h-5 text-emerald-400 mr-2" />
-                      Core Principles
-                    </h4>
-                    {[
-                      {
-                        icon: Target,
-                        title: "User-Centered Design",
-                        desc: "Decisions driven by user needs",
-                        color: "text-cyan-400",
-                        bgColor: "from-cyan-500/20 to-cyan-600/20",
-                      },
-                      {
-                        icon: Zap,
-                        title: "AI-Enhanced Workflow",
-                        desc: "Technology for maximum efficiency",
-                        color: "text-amber-400",
-                        bgColor: "from-amber-500/20 to-amber-600/20",
-                      },
-                      {
-                        icon: Rocket,
-                        title: "Innovation-First",
-                        desc: "Pushing creative boundaries",
-                        color: "text-purple-400",
-                        bgColor: "from-purple-500/20 to-purple-600/20",
-                      },
-                    ].map((principle, index) => (
-                      <motion.div
-                        key={principle.title}
-                        className="group flex items-center space-x-4 p-4 glass-card grain-texture hover:glass-intense transition-all duration-300 border border-white/10 hover:border-primary/30"
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                        viewport={{ once: true }}
-                      >
-                        <div
-                          className={`w-8 h-8 bg-gradient-to-br ${principle.bgColor} border border-white/10 flex items-center justify-center`}
-                        >
-                          <principle.icon
-                            className={`w-4 h-4 ${principle.color}`}
-                          />
-                        </div>
-                        <div>
-                          <h5 className="text-white font-semibold text-sm jost-secondary">
-                            {principle.title}
-                          </h5>
-                          <p className="text-white/70 text-xs jost-secondary">
-                            {principle.desc}
-                          </p>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
                 {/* Skills Section */}
                 <motion.div
                   className="mt-8 pt-6 border-t border-white/10"
@@ -1232,9 +1051,64 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+      {/* Design Philosophy Section */}
+      <section className="py-16 relative">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <div className="relative inline-block mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold glow-text relative z-10 albert-sans-medium">
+                DESIGN PHILOSOPHY
+              </h2>
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
+            </div>
+            <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed jost-secondary">
+              My approach to creating meaningful and impactful digital
+              experiences
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <Card className="group relative overflow-hidden p-10 glass-intense grain-texture hover:glass-card transition-all duration-500">
+              {/* Background Elements */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-2xl" />
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/25 to-white/20 flex items-center justify-center backdrop-blur-sm">
+                    <Sparkles className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
+
+                <div className="space-y-8">
+                  <blockquote className="relative text-center">
+                    <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-400 to-primary/60"></div>
+                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium jost-secondary">"Great design is invisible. It bridges human needs and system complexity, creating experiences that feel intuitive, purposeful, and effortless at scale."</p>
+                  </blockquote>
+
+                  <div className="text-center pt-6 border-t border-white/10">
+                    <p className="text-white/85 text-lg leading-relaxed max-w-3xl mx-auto jost-secondary">I focus on understanding problems deeply—through research, system thinking, and iteration—before shaping solutions that scale. Tools and technology support the process, but clarity, usability, and intent always lead the design.</p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
       {/* Contact Section */}
       <section id="contact" className="py-10 relative">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1242,101 +1116,89 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-6"
           >
-            <h2 className="text-5xl font-extrabold mb-4 text-white albert-sans-medium">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-white albert-sans-medium">
               GET IN TOUCH
             </h2>
-            <p className="text-xl text-muted-foreground jost-secondary">
+            <p className="text-xl text-muted-foreground jost-secondary max-w-3xl mx-auto">
               Ready to collaborate on your next innovative project?
             </p>
           </motion.div>
 
-          <Card className="group relative overflow-hidden p-6 glass-intense grain-texture hover:glass-card transition-all duration-700 shadow-2xl shadow-primary/20">
-            {/* Background Effects */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-2xl" />
-
-            <div className="relative z-10">
-              {/* Contact Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="max-w-xl mx-auto"
-              >
-                <Card className="p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
-                  <div className="space-y-4">
-                    {/* Email */}
-                    <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <Mail className="w-5 h-5 text-emerald-400" />
-                        </div>
-                        <a
-                          href="mailto:gadhavekaran@gmail.com"
-                          className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
-                        >
-                          gadhavekaran@gmail.com
-                        </a>
-                      </div>
-                      <button
-                        onClick={(event) => {
-                          navigator.clipboard.writeText(
-                            "gadhavekaran@gmail.com",
-                          );
-                          const button = event.currentTarget;
-                          const originalContent = button.innerHTML;
-                          button.innerHTML =
-                            '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                          setTimeout(() => {
-                            button.innerHTML = originalContent;
-                          }, 2000);
-                        }}
-                        className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
-                        title="Copy email"
-                      >
-                        <FileText className="w-4 h-4" />
-                      </button>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="max-w-md mx-auto"
+          >
+            <Card className="p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
+              <div className="space-y-4">
+                {/* Email */}
+                <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Mail className="w-5 h-5 text-emerald-400" />
                     </div>
-
-                    {/* Phone */}
-                    <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <Phone className="w-5 h-5 text-cyan-400" />
-                        </div>
-                        <a
-                          href="https://wa.me/917744074265"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
-                        >
-                          +91 7744074265
-                        </a>
-                      </div>
-                      <button
-                        onClick={(event) => {
-                          navigator.clipboard.writeText("+917744074265");
-                          const button = event.currentTarget;
-                          const originalContent = button.innerHTML;
-                          button.innerHTML =
-                            '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                          setTimeout(() => {
-                            button.innerHTML = originalContent;
-                          }, 2000);
-                        }}
-                        className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
-                        title="Copy phone"
-                      >
-                        <FileText className="w-4 h-4" />
-                      </button>
-                    </div>
+                    <a
+                      href="mailto:gadhavekaran@gmail.com"
+                      className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
+                    >
+                      gadhavekaran@gmail.com
+                    </a>
                   </div>
-                </Card>
-              </motion.div>
-            </div>
-          </Card>
+                  <button
+                    onClick={(event) => {
+                      navigator.clipboard.writeText("gadhavekaran@gmail.com");
+                      const button = event.currentTarget;
+                      const originalContent = button.innerHTML;
+                      button.innerHTML =
+                        '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                      setTimeout(() => {
+                        button.innerHTML = originalContent;
+                      }, 2000);
+                    }}
+                    className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
+                    title="Copy email"
+                  >
+                    <FileText className="w-4 h-4" />
+                  </button>
+                </div>
+
+                {/* Phone */}
+                <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-5 h-5 text-cyan-400" />
+                    </div>
+                    <a
+                      href="https://wa.me/917744074265"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
+                    >
+                      +91 7744074265
+                    </a>
+                  </div>
+                  <button
+                    onClick={(event) => {
+                      navigator.clipboard.writeText("+917744074265");
+                      const button = event.currentTarget;
+                      const originalContent = button.innerHTML;
+                      button.innerHTML =
+                        '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                      setTimeout(() => {
+                        button.innerHTML = originalContent;
+                      }, 2000);
+                    }}
+                    className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
+                    title="Copy phone"
+                  >
+                    <FileText className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
         </div>
       </section>
       {/* Resume Modal */}
@@ -1646,7 +1508,7 @@ export default function Home() {
       </Dialog>
       {/* Footer */}
       <footer className="py-16 border-t border-white/10">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-center mb-10">
             <div className="flex items-center space-x-16">
               {/* Logo Circle */}
