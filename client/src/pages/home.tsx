@@ -243,7 +243,7 @@ export default function Home() {
       ],
     },
     {
-      title: "Liffo",
+      title: "Liffo: Emergency Health Services",
       subtitle: "Emergency Health Services Platform",
       description:
         "A unified emergency health services platform providing fast, reliable access to critical healthcare including ambulance booking, doctor consultations, lab tests, and medicine delivery.",
