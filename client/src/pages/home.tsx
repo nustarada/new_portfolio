@@ -941,7 +941,7 @@ export default function Home() {
                     className="flex flex-col items-center space-y-6"
                   >
                     {/* Photo */}
-                    <div className="w-48 h-60 rounded-lg border-2 border-white/20 overflow-hidden">
+                    <div className="w-48 h-auto rounded-lg border-2 border-white/20 overflow-hidden">
                       <img
                         src={
                           new URL(
@@ -950,7 +950,7 @@ export default function Home() {
                           ).href
                         }
                         alt="Karan Gadhave"
-                        className="w-full h-full object-cover"
+                        className="w-full h-auto object-contain"
                       />
                     </div>
                     {/* Name */}
