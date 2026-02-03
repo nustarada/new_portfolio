@@ -873,7 +873,7 @@ export default function Home() {
       </section>
       {/* Design Philosophy Section */}
       <section className="py-16 relative">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -887,7 +887,7 @@ export default function Home() {
               </h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
             </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
+            <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed jost-secondary">
               My approach to creating meaningful and impactful digital
               experiences
             </p>
@@ -922,7 +922,7 @@ export default function Home() {
                   </blockquote>
 
                   <div className="text-center pt-6 border-t border-white/10">
-                    <p className="text-white/85 text-lg leading-relaxed max-w-2xl mx-auto jost-secondary">
+                    <p className="text-white/85 text-lg leading-relaxed max-w-3xl mx-auto jost-secondary">
                       I harness the power of AI design tools, master Figma's
                       ecosystem, and leverage interactive prototyping to create
                       innovative, efficient design workflows that deliver
@@ -943,7 +943,7 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/10 blur-3xl animate-pulse" />
         </div>
 
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -961,7 +961,7 @@ export default function Home() {
             >
               ABOUT ME
             </motion.h2>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
+            <p className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed jost-secondary">
               Crafting innovative digital experiences through AI-enhanced design
               workflows
             </p>
@@ -1234,7 +1234,7 @@ export default function Home() {
       </section>
       {/* Contact Section */}
       <section id="contact" className="py-10 relative">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1242,15 +1242,15 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-6"
           >
-            <h2 className="text-5xl font-extrabold mb-4 text-white albert-sans-medium">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-white albert-sans-medium">
               GET IN TOUCH
             </h2>
-            <p className="text-xl text-muted-foreground jost-secondary">
+            <p className="text-xl text-muted-foreground jost-secondary max-w-3xl mx-auto">
               Ready to collaborate on your next innovative project?
             </p>
           </motion.div>
 
-          <Card className="group relative overflow-hidden p-6 glass-intense grain-texture hover:glass-card transition-all duration-700 shadow-2xl shadow-primary/20">
+          <Card className="group relative overflow-hidden p-6 md:p-8 glass-intense grain-texture hover:glass-card transition-all duration-700 shadow-2xl shadow-primary/20 max-w-4xl mx-auto">
             {/* Background Effects */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl" />
@@ -1646,7 +1646,7 @@ export default function Home() {
       </Dialog>
       {/* Footer */}
       <footer className="py-16 border-t border-white/10">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-center mb-10">
             <div className="flex items-center space-x-16">
               {/* Logo Circle */}
