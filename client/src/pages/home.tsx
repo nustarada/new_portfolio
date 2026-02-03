@@ -1117,93 +1117,81 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <Card className="group relative overflow-hidden p-6 md:p-8 glass-intense grain-texture hover:glass-card transition-all duration-700 shadow-2xl shadow-primary/20 max-w-4xl mx-auto">
-            {/* Background Effects */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-2xl" />
-
-            <div className="relative z-10">
-              {/* Contact Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="max-w-xl mx-auto"
-              >
-                <Card className="p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
-                  <div className="space-y-4">
-                    {/* Email */}
-                    <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <Mail className="w-5 h-5 text-emerald-400" />
-                        </div>
-                        <a
-                          href="mailto:gadhavekaran@gmail.com"
-                          className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
-                        >
-                          gadhavekaran@gmail.com
-                        </a>
-                      </div>
-                      <button
-                        onClick={(event) => {
-                          navigator.clipboard.writeText(
-                            "gadhavekaran@gmail.com",
-                          );
-                          const button = event.currentTarget;
-                          const originalContent = button.innerHTML;
-                          button.innerHTML =
-                            '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                          setTimeout(() => {
-                            button.innerHTML = originalContent;
-                          }, 2000);
-                        }}
-                        className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
-                        title="Copy email"
-                      >
-                        <FileText className="w-4 h-4" />
-                      </button>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="max-w-md mx-auto"
+          >
+            <Card className="p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
+              <div className="space-y-4">
+                {/* Email */}
+                <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Mail className="w-5 h-5 text-emerald-400" />
                     </div>
-
-                    {/* Phone */}
-                    <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <Phone className="w-5 h-5 text-cyan-400" />
-                        </div>
-                        <a
-                          href="https://wa.me/917744074265"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
-                        >
-                          +91 7744074265
-                        </a>
-                      </div>
-                      <button
-                        onClick={(event) => {
-                          navigator.clipboard.writeText("+917744074265");
-                          const button = event.currentTarget;
-                          const originalContent = button.innerHTML;
-                          button.innerHTML =
-                            '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                          setTimeout(() => {
-                            button.innerHTML = originalContent;
-                          }, 2000);
-                        }}
-                        className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
-                        title="Copy phone"
-                      >
-                        <FileText className="w-4 h-4" />
-                      </button>
-                    </div>
+                    <a
+                      href="mailto:gadhavekaran@gmail.com"
+                      className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
+                    >
+                      gadhavekaran@gmail.com
+                    </a>
                   </div>
-                </Card>
-              </motion.div>
-            </div>
-          </Card>
+                  <button
+                    onClick={(event) => {
+                      navigator.clipboard.writeText("gadhavekaran@gmail.com");
+                      const button = event.currentTarget;
+                      const originalContent = button.innerHTML;
+                      button.innerHTML =
+                        '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                      setTimeout(() => {
+                        button.innerHTML = originalContent;
+                      }, 2000);
+                    }}
+                    className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
+                    title="Copy email"
+                  >
+                    <FileText className="w-4 h-4" />
+                  </button>
+                </div>
+
+                {/* Phone */}
+                <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-5 h-5 text-cyan-400" />
+                    </div>
+                    <a
+                      href="https://wa.me/917744074265"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
+                    >
+                      +91 7744074265
+                    </a>
+                  </div>
+                  <button
+                    onClick={(event) => {
+                      navigator.clipboard.writeText("+917744074265");
+                      const button = event.currentTarget;
+                      const originalContent = button.innerHTML;
+                      button.innerHTML =
+                        '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                      setTimeout(() => {
+                        button.innerHTML = originalContent;
+                      }, 2000);
+                    }}
+                    className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
+                    title="Copy phone"
+                  >
+                    <FileText className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
         </div>
       </section>
       {/* Resume Modal */}
