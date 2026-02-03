@@ -930,18 +930,17 @@ export default function Home() {
               <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-400/6 to-emerald-400/6 blur-2xl" />
 
               <div className="relative z-10 space-y-8">
-                {/* Profile Section - Name and Photo on Left, Summary on Right */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-8">
-                  {/* Left Column - Photo */}
+                {/* Profile Section - Photo and About Summary side by side */}
+                <div className="flex flex-col lg:flex-row gap-8 items-start">
+                  {/* Photo */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="flex flex-col items-center lg:pl-4"
+                    className="flex-shrink-0 mx-auto lg:mx-0"
                   >
-                    {/* Photo */}
-                    <div className="w-48 h-auto rounded-lg border-2 border-white/20 overflow-hidden">
+                    <div className="w-44 h-auto rounded-lg border-2 border-white/20 overflow-hidden">
                       <img
                         src={
                           new URL(
@@ -955,13 +954,13 @@ export default function Home() {
                     </div>
                   </motion.div>
 
-                  {/* Right Column - About Summary */}
+                  {/* About Summary */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
                     viewport={{ once: true }}
-                    className="space-y-6 lg:pr-4"
+                    className="flex-1 space-y-4"
                   >
                     <h4 className="text-lg font-bold text-white mb-4 flex items-center jost-secondary">
                       <User className="w-5 h-5 text-cyan-400 mr-2" />
