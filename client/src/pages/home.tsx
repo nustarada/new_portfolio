@@ -616,8 +616,7 @@ export default function Home() {
               ACHIEVEMENTS
             </motion.h2>
             <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
-              Proven impact through innovative design solutions and exceptional
-              team leadership
+              Measurable impact through product design, systems thinking, and execution
             </p>
           </motion.div>
 
@@ -625,33 +624,33 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
               {
-                number: "50+",
-                label: "Projects Delivered",
-                description: "Successful design solutions",
+                number: "40+",
+                label: "Products & Platforms Designed",
+                description: "Web and mobile SaaS products across B2B and consumer domains",
                 icon: Folder,
                 iconColor: "text-emerald-400",
                 bgColor: "from-emerald-500/20 to-emerald-600/20",
               },
               {
-                number: "8+",
-                label: "Team Members Led",
-                description: "Cross-functional collaboration",
+                number: "",
+                label: "Cross-functional Design Leadership",
+                description: "Partnered with PMs, engineers, founders, and stakeholders",
                 icon: Users,
                 iconColor: "text-violet-400",
                 bgColor: "from-violet-500/20 to-violet-600/20",
               },
               {
-                number: "60%",
+                number: "",
                 label: "Faster Design Cycles",
-                description: "AI-enhanced workflow efficiency",
+                description: "Reduced iteration time through design systems and reusable components",
                 icon: Zap,
                 iconColor: "text-amber-400",
                 bgColor: "from-amber-500/20 to-amber-600/20",
               },
               {
-                number: "95%",
-                label: "Client Satisfaction",
-                description: "Consistent project success rate",
+                number: "",
+                label: "High Client & Stakeholder Satisfaction",
+                description: "Delivered scalable, production-ready user experiences",
                 icon: Award,
                 iconColor: "text-orange-400",
                 bgColor: "from-orange-500/20 to-orange-600/20",
@@ -679,10 +678,12 @@ export default function Home() {
                         <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                       </div>
                       <div>
-                        <span className="text-2xl sm:text-3xl font-black text-primary albert-sans-medium block">
-                          {stat.number}
-                        </span>
-                        <h3 className="text-white font-bold text-sm sm:text-base jost-secondary mt-1">
+                        {stat.number && (
+                          <span className="text-2xl sm:text-3xl font-black text-primary albert-sans-medium block">
+                            {stat.number}
+                          </span>
+                        )}
+                        <h3 className={`text-white font-bold jost-secondary ${stat.number ? 'text-sm sm:text-base mt-1' : 'text-base sm:text-lg'}`}>
                           {stat.label}
                         </h3>
                         <p className="text-white/60 text-xs sm:text-sm jost-secondary mt-1">
@@ -700,10 +701,12 @@ export default function Home() {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-baseline space-x-3 mb-1">
-                          <span className="text-2xl lg:text-3xl font-black text-primary albert-sans-medium">
-                            {stat.number}
-                          </span>
-                          <h3 className="text-white font-bold text-sm lg:text-base jost-secondary">
+                          {stat.number && (
+                            <span className="text-2xl lg:text-3xl font-black text-primary albert-sans-medium">
+                              {stat.number}
+                            </span>
+                          )}
+                          <h3 className={`text-white font-bold jost-secondary ${stat.number ? 'text-sm lg:text-base' : 'text-base lg:text-lg'}`}>
                             {stat.label}
                           </h3>
                         </div>
