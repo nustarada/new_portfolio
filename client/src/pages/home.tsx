@@ -513,10 +513,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.3 }}
             className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto font-normal jost-secondary mb-8"
-          >
-            4+ years turning concepts into launch‑ready platforms via research,
-            IA/flows, prototyping, and iterative testing enhanced by AI.
-          </motion.p>
+          >5+ years turning concepts into launch‑ready platforms via research, IA/flows, prototyping, and iterative testing enhanced by AI.</motion.p>
 
           {/* Responsive Action Buttons */}
           <motion.div
