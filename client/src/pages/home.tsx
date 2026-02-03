@@ -150,6 +150,52 @@ export default function Home() {
 
   const projects = [
     {
+      title: "Enterprise Cybersecurity Platform Redesign",
+      subtitle: "End-to-end redesign of a complex, role-based cybersecurity web platform focused on system structure, workflows, and usability.",
+      description:
+        "End-to-end redesign of a complex, role-based cybersecurity web platform focused on system structure, workflows, and usability.",
+      detailedDescription:
+        "Due to client confidentiality, detailed screens and system architecture are intentionally limited. This project highlights platform-level thinking, UX decisions, and system design.",
+      image: cybersecurityThumbnail,
+      logo: undefined,
+      liveUrl: undefined,
+      caseStudyUrl: undefined,
+      isComingSoon: true,
+      isConfidential: true,
+      tags: [
+        "Enterprise UX",
+        "System Redesign",
+        "Web Platform",
+        "Cybersecurity",
+      ],
+      year: "2025",
+      category: "Platform Redesign",
+      role: "Lead Product Designer",
+      services: "Platform Redesign",
+      industry: "Cybersecurity",
+      platform: "Web Platform",
+      outcomes: [
+        "Comprehensive platform restructuring",
+        "Improved role-based workflows",
+        "Enhanced usability across complex systems",
+      ],
+      keyFeatures: [
+        "Role-based access control design",
+        "Complex workflow optimization",
+        "System architecture improvements",
+        "Usability enhancements for enterprise users",
+      ],
+      techStack: ["Figma", "Enterprise UX", "System Design"],
+      duration: "Ongoing",
+      process: [
+        "Platform audit and stakeholder interviews",
+        "System structure analysis",
+        "Workflow redesign and optimization",
+        "Role-based experience mapping",
+        "Usability testing and iteration",
+      ],
+    },
+    {
       title: "FutureFirst Families",
       subtitle: "AI-Enhanced Learning Platform",
       description:
@@ -292,52 +338,6 @@ export default function Home() {
         "Developed high-fidelity designs for all 4 landing pages",
         "Optimized for conversion with strategic messaging and CTAs",
         "Delivered production-ready designs for development",
-      ],
-    },
-    {
-      title: "Enterprise Cybersecurity Platform Redesign",
-      subtitle: "End-to-end redesign of a complex, role-based cybersecurity web platform focused on system structure, workflows, and usability.",
-      description:
-        "End-to-end redesign of a complex, role-based cybersecurity web platform focused on system structure, workflows, and usability.",
-      detailedDescription:
-        "Due to client confidentiality, detailed screens and system architecture are intentionally limited. This project highlights platform-level thinking, UX decisions, and system design.",
-      image: cybersecurityThumbnail,
-      logo: undefined,
-      liveUrl: undefined,
-      caseStudyUrl: undefined,
-      isComingSoon: true,
-      isConfidential: true,
-      tags: [
-        "Enterprise UX",
-        "System Redesign",
-        "Web Platform",
-        "Cybersecurity",
-      ],
-      year: "2025",
-      category: "Platform Redesign",
-      role: "Lead Product Designer",
-      services: "Platform Redesign",
-      industry: "Cybersecurity",
-      platform: "Web Platform",
-      outcomes: [
-        "Comprehensive platform restructuring",
-        "Improved role-based workflows",
-        "Enhanced usability across complex systems",
-      ],
-      keyFeatures: [
-        "Role-based access control design",
-        "Complex workflow optimization",
-        "System architecture improvements",
-        "Usability enhancements for enterprise users",
-      ],
-      techStack: ["Figma", "Enterprise UX", "System Design"],
-      duration: "Ongoing",
-      process: [
-        "Platform audit and stakeholder interviews",
-        "System structure analysis",
-        "Workflow redesign and optimization",
-        "Role-based experience mapping",
-        "Usability testing and iteration",
       ],
     },
   ];
