@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { Download, Mail, Phone, Linkedin, ChevronDown, ChevronUp } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Mail, Phone, Linkedin, ChevronDown, ChevronUp } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import resumePDF from '@assets/Karan_Gadhave_Product_Designer_CV_1770137475674.pdf';
 
 const ResumeSection = () => {
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
@@ -91,14 +89,7 @@ const ResumeSection = () => {
           <p className="text-lg text-white/80 jost-secondary max-w-3xl mx-auto mb-8">
             Product Designer with 5+ years of experience designing complex web and mobile products, including user-facing platforms, admin systems, and internal tools. Strong background in UX architecture, workflow-heavy systems, and scalable design systems.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              className="bg-primary hover:bg-primary/90 text-white px-6 py-3"
-              onClick={() => window.open(resumePDF, '_blank')}
-            >
-              <Download className="w-5 h-5 mr-2" />
-              Download PDF
-            </Button>
+          <div className="flex flex-wrap gap-4 justify-center items-center">
             <div className="flex flex-wrap gap-4 justify-center text-sm text-white/70">
               <a href="mailto:gadhavekaran@gmail.com" className="flex items-center gap-1 hover:text-primary transition-colors">
                 <Mail className="w-4 h-4" />
