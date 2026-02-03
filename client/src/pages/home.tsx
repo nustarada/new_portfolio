@@ -938,7 +938,7 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="flex flex-col items-center space-y-6"
+                    className="flex flex-col items-center space-y-6 lg:pl-4"
                   >
                     {/* Photo */}
                     <div className="w-48 h-auto rounded-lg border-2 border-white/20 overflow-hidden">
@@ -967,7 +967,7 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
                     viewport={{ once: true }}
-                    className="space-y-6"
+                    className="space-y-6 lg:pr-4"
                   >
                     <h4 className="text-lg font-bold text-white mb-4 flex items-center jost-secondary">
                       <User className="w-5 h-5 text-cyan-400 mr-2" />
