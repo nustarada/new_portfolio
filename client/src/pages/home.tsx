@@ -1094,11 +1094,7 @@ export default function Home() {
                 <div className="space-y-8">
                   <blockquote className="relative text-center">
                     <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-400 to-primary/60"></div>
-                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium jost-secondary">
-                      "Great design is invisible. It seamlessly bridges human
-                      needs with technological possibilities, creating
-                      experiences that feel natural, intuitive, and delightful."
-                    </p>
+                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium jost-secondary">"Great design is invisible. It bridges human needs and system complexity, creating experiences that feel intuitive, purposeful, and effortless at scale."</p>
                   </blockquote>
 
                   <div className="text-center pt-6 border-t border-white/10">
