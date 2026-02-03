@@ -1226,79 +1226,62 @@ export default function Home() {
                     Karan Gadhave
                   </h1>
                   <h2 className="text-base sm:text-lg md:text-xl text-gray-600 mb-3 sm:mb-4">
-                    Senior Product / UI UX Designer
+                    Lead Product Designer
                   </h2>
+                  <p className="text-xs sm:text-sm text-gray-600">
+                    Pune, India | gadhavekaran@gmail.com | 7744074265
+                  </p>
                 </div>
 
                 <hr className="border-gray-300 mb-4 sm:mb-6" />
 
                 <section className="mb-6 sm:mb-8">
                   <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-3">
-                    Profile Summary:
+                    PROFILE SUMMARY
                   </h3>
                   <p className="text-xs sm:text-sm leading-relaxed">
-                    Senior Product Designer with 5+ years delivering end-to-end
-                    UI/UX and AI-assisted vibe-coding builds for websites and
-                    web apps; ready to join immediately. Strengths: user
-                    research, usability testing, information architecture, user
-                    flows, wireframing, interactive prototyping,
-                    interaction/visual design, design systems, accessibility.
-                    Shipped integrated platforms including HubSpot and WordPress
-                    implementations and a gamified parent platform.
+                    Product Designer with 5+ years of experience designing complex web and mobile products, including user-facing platforms, admin systems, and internal tools. Strong background in UX architecture, workflow-heavy systems, and scalable design systems. Experienced in end-to-end product design as an individual contributor, working closely with product and engineering teams to deliver clear, usable, and maintainable solutions in B2B and consumer contexts.
+                  </p>
+                </section>
+
+                <section className="mb-6 sm:mb-8">
+                  <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-3">
+                    CORE SKILLS
+                  </h3>
+                  <p className="text-xs sm:text-sm leading-relaxed">
+                    Product Design (B2B & Consumer SaaS), UX Architecture & Information Architecture, Interaction Design & Workflow Design, User Research & Usability Testing, Design Systems & Component Libraries, Web & Mobile UI Design, Prototyping (Figma), Cross-functional Collaboration (PM & Engineering)
                   </p>
                 </section>
 
                 <section className="mb-6 sm:mb-8">
                   <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">
-                    Work Experience:
+                    WORK EXPERIENCE
                   </h3>
 
                   <div className="mb-4 sm:mb-6">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
                       <h4 className="font-semibold text-sm sm:text-base">
-                        Team Pumpkin
+                        Lead Product Designer — Team Pumpkin
                       </h4>
                       <span className="text-xs sm:text-sm text-gray-600">
-                        April 2022 - Present
+                        Apr 2022 – Present
                       </span>
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-600 mb-2">
-                      Senior Manager - UI UX Designer - Remote, India
-                    </p>
                     <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
                       <li className="leading-relaxed">
-                        Owned multi-year vibe-coding builds, delivering
-                        production websites and web apps from discovery to
-                        launch and post-release iteration
+                        Led end-to-end product design for complex web platforms, including user-facing products, admin systems, and internal tools.
                       </li>
                       <li className="leading-relaxed">
-                        Designed and developed the Future First Families website
-                        with end-to-end integrations across auth, forms/CRM,
-                        analytics, and automations
+                        Owned UX architecture and workflow design, simplifying multi-step, role-based processes across products.
                       </li>
                       <li className="leading-relaxed">
-                        Built the Future First Families gamified parent platform
-                        with onboarding, progression mechanics, engagement
-                        tracking, and admin controls
+                        Designed and shipped integrated platforms involving authentication, CRM/forms, analytics, automations, and admin controls.
                       </li>
                       <li className="leading-relaxed">
-                        Delivered cross-platform experiences (websites, web
-                        apps, responsive) using rapid prototyping and
-                        AI-assisted workflows to shorten cycle time
+                        Built and maintained scalable design systems to improve consistency, accessibility, and long-term product maintainability.
                       </li>
                       <li className="leading-relaxed">
-                        Built and customized designs on HubSpot CMS and
-                        WordPress—including themes/modules, landing pages,
-                        blogs, forms, and marketing automations
-                      </li>
-                      <li className="leading-relaxed">
-                        Created and governed design systems to standardize UI,
-                        improve accessibility, and accelerate feature delivery
-                      </li>
-                      <li className="leading-relaxed">
-                        Led design for healthcare platforms (Healthsignz,
-                        MYMEDIC), mapping patient/provider journeys and shipping
-                        inclusive, compliant experiences
+                        Worked closely with product managers, engineers, and founders as a hands-on individual contributor from discovery to delivery.
                       </li>
                     </ul>
                   </div>
@@ -1306,28 +1289,21 @@ export default function Home() {
                   <div className="mb-4 sm:mb-6">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
                       <h4 className="font-semibold text-sm sm:text-base">
-                        Pepperpenny
+                        UI UX Designer — Pepper Penny Finance Pvt. Ltd
                       </h4>
                       <span className="text-xs sm:text-sm text-gray-600">
-                        June 2021 - March 2022
+                        Jun 2021 – Mar 2022
                       </span>
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-600 mb-2">
-                      UI UX Designer - Remote, India
-                    </p>
                     <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
                       <li className="leading-relaxed">
-                        Designed core features for StockMarketBox like broker
-                        comparison, market tickers, courses, and blog
+                        Designed core product experiences for a stock trading and learning platform, including dashboards, comparisons, and content flows.
                       </li>
                       <li className="leading-relaxed">
-                        Successfully launched Stockmarketbox.com, boosting
-                        online presence
+                        Owned UX and UI for web and mobile surfaces, supporting successful product launch and early adoption.
                       </li>
                       <li className="leading-relaxed">
-                        Created custom illustrations and animations, increasing
-                        user engagement by 20%, and designed 30+ mobile trading
-                        app interfaces in 3 months
+                        Delivered high-volume interface work under tight timelines, enabling rapid iteration and validation.
                       </li>
                     </ul>
                   </div>
@@ -1335,22 +1311,18 @@ export default function Home() {
                   <div className="mb-4 sm:mb-6">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
                       <h4 className="font-semibold text-sm sm:text-base">
-                        DBM Infotech PVT LTD
+                        UI UX Designer — DBM Infotech Pvt. Ltd
                       </h4>
                       <span className="text-xs sm:text-sm text-gray-600">
-                        March 2021 - June 2021
+                        Mar 2021 – Jun 2021
                       </span>
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-600 mb-2">
-                      UI UX Designer - Pune, India
-                    </p>
                     <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
                       <li className="leading-relaxed">
-                        Led the design for Teach Max mobile application
+                        Designed end-to-end UX and UI for a mobile application, owning user flows and interface execution from concept to release.
                       </li>
                       <li className="leading-relaxed">
-                        Worked on various redesign projects from websites to
-                        mobile application including company website
+                        Collaborated with product owners and developers to translate business requirements into clear, usable designs.
                       </li>
                     </ul>
                   </div>
@@ -1358,42 +1330,21 @@ export default function Home() {
 
                 <section className="mb-6 sm:mb-8">
                   <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">
-                    Internship Experience:
+                    EARLY EXPERIENCE
                   </h3>
 
                   <div className="mb-3 sm:mb-4">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
                       <h4 className="font-semibold text-sm sm:text-base">
-                        FarmiGO
+                        UI UX Design Intern — FarmiGO
                       </h4>
                       <span className="text-xs sm:text-sm text-gray-600">
-                        October 2020 - December 2020
+                        Oct 2020 – Dec 2020
                       </span>
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-600 mb-2">
-                      UI UX Designer Intern - Remote, India
-                    </p>
                     <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
                       <li className="leading-relaxed">
-                        Designed both UX and UI with a deep focus on enhancing
-                        user experience through extensive research and 20 user
-                        interviews, ensuring data-driven design decisions
-                      </li>
-                      <li className="leading-relaxed">
-                        Applied advanced problem-solving skills to deliver
-                        optimal and intuitive design solutions, addressing user
-                        pain points effectively
-                      </li>
-                      <li className="leading-relaxed">
-                        Spearheaded the app design process from initial research
-                        to high-fidelity prototypes in just two months,
-                        showcasing agility and expertise in fast-paced
-                        environments
-                      </li>
-                      <li className="leading-relaxed">
-                        Conducted comprehensive research, including user
-                        interviews and feedback analysis, to inform a seamless
-                        and user-friendly product experience
+                        Designed the end-to-end UX and UI for a mobile application, conducting user interviews and translating research insights into structured flows and high-fidelity prototypes.
                       </li>
                     </ul>
                   </div>
@@ -1401,90 +1352,26 @@ export default function Home() {
 
                 <section className="mb-6 sm:mb-8">
                   <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">
-                    Education:
+                    CERTIFICATES
                   </h3>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
-                    <div className="mb-2 sm:mb-0">
-                      <h4 className="font-semibold text-sm sm:text-base">
-                        Bachelor of Arts in History
-                      </h4>
-                      <p className="text-xs sm:text-sm text-gray-600">
-                        Yashwantrao Chavan Maharashtra Open University, Barshi,
-                        India
-                      </p>
-                    </div>
-                    <span className="text-xs sm:text-sm text-gray-600">
-                      2016 - 2019
-                    </span>
-                  </div>
-                </section>
-
-                <section className="mb-6 sm:mb-8">
-                  <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">
-                    Certifications:
-                  </h3>
-                  <div className="space-y-2 text-xs sm:text-sm">
-                    <div className="flex flex-col sm:flex-row sm:justify-between">
-                      <span className="mb-1 sm:mb-0">
-                        UX/UI Bootcamp - Designwings UX/UI School
-                      </span>
-                      <span className="text-gray-600">March 2022</span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:justify-between">
-                      <span className="mb-1 sm:mb-0">
-                        Complete Web & Mobile Designer - Udemy
-                      </span>
-                      <span className="text-gray-600">February 2024</span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:justify-between">
-                      <span className="mb-1 sm:mb-0">
-                        UI/UX Design - Internshala
-                      </span>
-                      <span className="text-gray-600">August 2020</span>
-                    </div>
-                  </div>
+                  <p className="text-xs sm:text-sm">
+                    UX/UI Bootcamp (Designwings) · Web & Mobile Design (Udemy)
+                  </p>
                 </section>
 
                 <section>
                   <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">
-                    Skills:
+                    EDUCATION
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 text-xs sm:text-sm">
-                    <div>
-                      <h4 className="font-semibold mb-2 text-sm sm:text-base">
-                        Core Design & Research
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
+                    <div className="mb-2 sm:mb-0">
+                      <h4 className="font-semibold text-sm sm:text-base">
+                        Bachelor of Arts in History — Yashwantrao Chavan Maharashtra Open University
                       </h4>
-                      <ul className="space-y-1 list-disc list-inside pl-0">
-                        <li>Interaction Design</li>
-                        <li>Information Architecture</li>
-                        <li>User Research & Testing</li>
-                        <li>Prototyping & Wireframing</li>
-                        <li>Visual Design & Design Systems</li>
-                      </ul>
                     </div>
-                    <div>
-                      <h4 className="font-semibold mb-2 text-sm sm:text-base">
-                        Technical & AI Skills
-                      </h4>
-                      <ul className="space-y-1 list-disc list-inside pl-0">
-                        <li>AI Workflows</li>
-                        <li>Generative UI</li>
-                        <li>Full-Stack Development</li>
-                        <li>Cross-Platform Delivery</li>
-                        <li>Technology Agnostic</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2 text-sm sm:text-base">
-                        Strategy & Collaboration
-                      </h4>
-                      <ul className="space-y-1 list-disc list-inside pl-0">
-                        <li>Stakeholder Management</li>
-                        <li>Agile Methodologies</li>
-                        <li>Analytics Collaboration</li>
-                        <li>Accessibility (WCAG)</li>
-                      </ul>
-                    </div>
+                    <span className="text-xs sm:text-sm text-gray-600">
+                      2016–2019
+                    </span>
                   </div>
                 </section>
               </div>
