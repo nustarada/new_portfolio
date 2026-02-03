@@ -172,7 +172,7 @@ export default function Home() {
       category: "Platform Redesign",
       role: "Lead Product Designer",
       services: "Platform Redesign",
-      industry: "Cybersecurity",
+      industry: "Enterprise Cybersecurity",
       platform: "Web Platform",
       outcomes: [
         "Comprehensive platform restructuring",
