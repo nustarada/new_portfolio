@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  "AI Design Tools", "Figma Mastery", "Advanced Prototyping", "Design Systems", 
-  "User Research", "AI-Powered Workflows", "Rapid Prototyping", "Design Automation",
-  "Product Strategy", "Cross-functional Leadership", "Data Visualization", 
-  "Interaction Design", "Design Thinking", "Agile Methodology", "Brand Identity",
-  "Responsive Design", "Accessibility", "Performance Optimization", "Team Mentoring",
-  "Creative Direction", "Visual Storytelling", "Design Operations", "Innovation",
-  "Problem Solving", "Strategic Planning", "User Experience", "Interface Design"
+  "UI/UX Design", "Product Design (SaaS)", "User Experience Design", "Interface Design",
+  "Interaction Design", "Information Architecture", "Design Systems", "Component Libraries",
+  "Advanced Prototyping", "Rapid Prototyping", "Figma Mastery", "Usability Testing",
+  "User Research", "Workflow Design", "Cross-Platform Design (Web & Mobile)", "Responsive Design",
+  "Accessibility (WCAG)", "Visual Design", "Visual Storytelling", "Design Documentation & Handoff",
+  "Design Thinking", "Creative Direction", "Brand-aligned UI", "Data-informed Design Decisions",
+  "Cross-functional Collaboration", "Stakeholder Communication", "Team Mentoring (Design)",
+  "Problem Solving", "Innovation in UX", "AI-assisted Design Workflows"
 ];
 
 const skillIcons = ["✦", "◆", "●", "▲", "◇", "★"];
