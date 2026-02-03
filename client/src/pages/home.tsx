@@ -311,7 +311,6 @@ export default function Home() {
     >
       {/* Scroll Progress */}
       <motion.div className="scroll-indicator" style={{ scaleX }} />
-
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-[100] glass-card grain-texture border-b border-white/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center relative">
@@ -673,10 +672,7 @@ export default function Home() {
               </h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
             </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
-              A showcase of innovative solutions spanning AI integration,
-              enterprise platforms, and user-centered design systems.
-            </p>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">A curated set of product designs solving complex problems across platforms and systems.</p>
           </motion.div>
 
           {/* 2x2 Grid Project Cards */}
