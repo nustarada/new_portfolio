@@ -29,6 +29,7 @@ import linkedinLogo from "@assets/linkedin 1_1756620179383.png";
 import twoHourLearningThumbnail from "@assets/2_Hour_Learning_thumbnail_1770103573825.png";
 import twoHourLearningLogo from "@assets/2HL Logo_1756637716101.png";
 import cybersecurityThumbnail from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.png";
+import cybersecurityLogo from "@assets/lionfish_logo_1770107402256.png";
 import {
   Terminal,
   Sparkles,
@@ -157,7 +158,7 @@ export default function Home() {
       detailedDescription:
         "Due to client confidentiality, detailed screens and system architecture are intentionally limited. This project highlights platform-level thinking, UX decisions, and system design.",
       image: cybersecurityThumbnail,
-      logo: undefined,
+      logo: cybersecurityLogo,
       liveUrl: undefined,
       caseStudyUrl: undefined,
       isComingSoon: true,
@@ -791,7 +792,7 @@ export default function Home() {
                           Industry
                         </p>
                         <p className="text-white font-semibold text-sm jost-secondary">
-                          {project.category}
+                          {project.industry || project.category}
                         </p>
                       </div>
                       <div>
