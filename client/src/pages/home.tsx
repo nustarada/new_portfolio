@@ -1020,7 +1020,7 @@ export default function Home() {
                     ].map((skill, index) => (
                       <motion.div
                         key={skill}
-                        className="px-3 py-2 glass-card grain-texture text-white/90 text-xs font-medium hover:glass-intense transition-all duration-300 jost-secondary text-center border border-white/10 hover:border-primary/30"
+                        className="px-3 py-2 glass-card grain-texture text-white/90 text-xs font-medium hover:glass-intense transition-all duration-300 jost-secondary text-center border border-white/10 hover:border-primary/30 flex items-center justify-center"
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.3, delay: index * 0.03 }}
