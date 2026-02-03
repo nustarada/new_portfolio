@@ -479,6 +479,24 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
+          {/* Open for Work Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex justify-center mb-4"
+          >
+            <Badge
+              variant="outline"
+              className="px-4 py-1.5 glass-card grain-texture text-white/90 font-medium tracking-wide border-emerald-500/50 hover:border-emerald-400 transition-all duration-300 jost-secondary"
+            >
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                <span className="text-sm">Open for Work</span>
+              </div>
+            </Badge>
+          </motion.div>
+
           {/* Name with Bold Display */}
           <motion.div
             className="space-y-4 mb-6 md:mb-8"
