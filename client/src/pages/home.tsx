@@ -316,6 +316,7 @@ export default function Home() {
       category: "Landing Page Design",
       role: "Lead UI/UX Designer",
       services: "Landing Page Design & Strategy",
+      industry: "AI Learning Platform",
       outcomes: [
         "4 targeted landing pages for different personas",
         "Consistent brand experience across all touchpoints",
