@@ -21,7 +21,6 @@ import ResumeSection from "@/components/resume-section";
 import futureFirstFamiliesThumbnail from "@assets/FutureFirstFamilies_thumbnail_1770103573837.png";
 import liffoThumbnail from "@assets/Liffo_thumbnail_1770103573838.png";
 import resumePdf from "@assets/Karan Gadhave CV_1754656812100.pdf";
-import profilePhoto from "@assets/4. Dashboard 1_1754469198505.png";
 import LogoImage from "@assets/Logo white_1754674219191.png";
 import fffLogo from "@assets/FFF_Logo_1754475239613.png";
 import liffoLogo from "@assets/Liffo_logo_1754475239620.png";
@@ -617,8 +616,7 @@ export default function Home() {
               ACHIEVEMENTS
             </motion.h2>
             <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
-              Proven impact through innovative design solutions and exceptional
-              team leadership
+              Measurable impact through product design, systems thinking, and execution
             </p>
           </motion.div>
 
@@ -626,33 +624,33 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
               {
-                number: "50+",
-                label: "Projects Delivered",
-                description: "Successful design solutions",
+                number: "40+",
+                label: "Products & Platforms Designed",
+                description: "Web and mobile SaaS products across B2B and consumer domains",
                 icon: Folder,
                 iconColor: "text-emerald-400",
                 bgColor: "from-emerald-500/20 to-emerald-600/20",
               },
               {
-                number: "8+",
-                label: "Team Members Led",
-                description: "Cross-functional collaboration",
+                number: "",
+                label: "Cross-functional Design Leadership",
+                description: "Partnered with PMs, engineers, founders, and stakeholders",
                 icon: Users,
                 iconColor: "text-violet-400",
                 bgColor: "from-violet-500/20 to-violet-600/20",
               },
               {
-                number: "60%",
+                number: "",
                 label: "Faster Design Cycles",
-                description: "AI-enhanced workflow efficiency",
+                description: "Reduced iteration time through design systems and reusable components",
                 icon: Zap,
                 iconColor: "text-amber-400",
                 bgColor: "from-amber-500/20 to-amber-600/20",
               },
               {
-                number: "95%",
-                label: "Client Satisfaction",
-                description: "Consistent project success rate",
+                number: "",
+                label: "High Client & Stakeholder Satisfaction",
+                description: "Delivered scalable, production-ready user experiences",
                 icon: Award,
                 iconColor: "text-orange-400",
                 bgColor: "from-orange-500/20 to-orange-600/20",
@@ -680,10 +678,12 @@ export default function Home() {
                         <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                       </div>
                       <div>
-                        <span className="text-2xl sm:text-3xl font-black text-primary albert-sans-medium block">
-                          {stat.number}
-                        </span>
-                        <h3 className="text-white font-bold text-sm sm:text-base jost-secondary mt-1">
+                        {stat.number && (
+                          <span className="text-2xl sm:text-3xl font-black text-primary albert-sans-medium block">
+                            {stat.number}
+                          </span>
+                        )}
+                        <h3 className={`text-white font-bold jost-secondary ${stat.number ? 'text-sm sm:text-base mt-1' : 'text-base sm:text-lg'}`}>
                           {stat.label}
                         </h3>
                         <p className="text-white/60 text-xs sm:text-sm jost-secondary mt-1">
@@ -701,10 +701,12 @@ export default function Home() {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-baseline space-x-3 mb-1">
-                          <span className="text-2xl lg:text-3xl font-black text-primary albert-sans-medium">
-                            {stat.number}
-                          </span>
-                          <h3 className="text-white font-bold text-sm lg:text-base jost-secondary">
+                          {stat.number && (
+                            <span className="text-2xl lg:text-3xl font-black text-primary albert-sans-medium">
+                              {stat.number}
+                            </span>
+                          )}
+                          <h3 className={`text-white font-bold jost-secondary ${stat.number ? 'text-sm lg:text-base' : 'text-base lg:text-lg'}`}>
                             {stat.label}
                           </h3>
                         </div>
@@ -930,44 +932,37 @@ export default function Home() {
               <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-400/6 to-emerald-400/6 blur-2xl" />
 
               <div className="relative z-10 space-y-8">
-                {/* Profile Section - Name and Photo on Left, Summary on Right */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-8">
-                  {/* Left Column - Name and Photo */}
+                {/* Profile Section - Photo and About Summary side by side */}
+                <div className="flex flex-col lg:flex-row gap-8 items-start">
+                  {/* Photo */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="flex flex-col items-center space-y-6"
+                    className="flex-shrink-0 mx-auto lg:mx-0"
                   >
-                    {/* Photo */}
-                    <div className="w-48 h-60 rounded-lg border-2 border-white/20 overflow-hidden">
+                    <div className="w-44 h-auto rounded-lg border-2 border-white/20 overflow-hidden">
                       <img
                         src={
                           new URL(
-                            "@assets/IMG_0879_1757674246988.JPG",
+                            "@assets/f894f7c16bd38de4f917265637f70cbcb179a3b831d11411ec64662e596c2f_1770135807671.png",
                             import.meta.url,
                           ).href
                         }
                         alt="Karan Gadhave"
-                        className="w-full h-full object-cover"
+                        className="w-full h-auto object-contain"
                       />
                     </div>
-                    {/* Name */}
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-white albert-sans-medium text-center">
-                      Karan Gadhave
-                    </h3>
-                    {/* Title */}
-                    <p className="text-lg text-primary font-semibold jost-secondary text-center">Senior Product - UI/UX Designer</p>
                   </motion.div>
 
-                  {/* Right Column - About Summary */}
+                  {/* About Summary */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
                     viewport={{ once: true }}
-                    className="space-y-6"
+                    className="flex-1 space-y-4"
                   >
                     <h4 className="text-lg font-bold text-white mb-4 flex items-center jost-secondary">
                       <User className="w-5 h-5 text-cyan-400 mr-2" />
@@ -976,36 +971,26 @@ export default function Home() {
 
                     <div className="space-y-4">
                       <p className="text-white/85 leading-relaxed text-base jost-secondary">
-                        I'm a passionate UI/UX designer with 4+ years of
-                        experience. Specializing in crafting innovative digital
-                        solutions. My expertise lies in combining traditional
-                        design principles with{" "}
+                        I'm a Senior Product Designer with over 5 years of experience in designing{" "}
                         <span className="text-primary font-semibold">
-                          AI-driven design approaches
+                          SaaS and B2B platforms
                         </span>{" "}
-                        to create exceptional user experiences.
+                        for both web and mobile. I focus on solving complex workflow problems with strong UX structure, interaction design, and scalable design systems.
                       </p>
 
                       <p className="text-white/85 leading-relaxed text-base jost-secondary">
-                        Through streamlined workflows and cutting-edge design
-                        tools, I've achieved{" "}
-                        <span className="bg-primary/20 text-primary px-2 py-1 font-semibold">
-                          60% faster design cycles
-                        </span>{" "}
-                        while maintaining the highest quality standards. I
-                        believe in{" "}
+                        I work directly across the entire design process, from{" "}
                         <span className="text-primary font-semibold">
-                          user-centered design
+                          discovery and user research
                         </span>{" "}
-                        that pushes creative boundaries and delivers measurable
-                        business results.
+                        to high-fidelity UI, prototyping, and delivery. I collaborate closely with product managers and engineers.
                       </p>
 
                       <p className="text-white/85 leading-relaxed text-base jost-secondary">
-                        My approach focuses on innovation-first thinking,
-                        leveraging technology for maximum efficiency, and
-                        ensuring every decision is driven by user needs and
-                        business objectives.
+                        My work highlights clarity, usability, and long-term maintainability, especially in systems that are{" "}
+                        <span className="text-primary font-semibold">
+                          admin-heavy and role-based
+                        </span>. I'm motivated by user-centered design that balances business goals with real-world usability.
                       </p>
                     </div>
                   </motion.div>
@@ -1022,20 +1007,22 @@ export default function Home() {
                   <h4 className="text-lg font-bold text-white mb-4 text-center jost-secondary">
                     Specialized Skills
                   </h4>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                     {[
-                      "AI Design Tools",
-                      "Figma Mastery",
-                      "Interactive Prototyping",
-                      "Design Systems",
+                      "Product Design (B2B & Consumer SaaS)",
+                      "UX Design & UX Architecture",
+                      "UI Design (Web & Mobile)",
+                      "Interaction & Workflow Design",
+                      "Information Architecture",
                       "User Research",
-                      "Design Automation",
-                      "Rapid Prototyping",
-                      "Cross-Platform Design",
+                      "Usability Testing",
+                      "Design Systems & Component Libraries",
+                      "Prototyping (Figma)",
+                      "Cross-functional Collaboration",
                     ].map((skill, index) => (
                       <motion.div
                         key={skill}
-                        className="px-3 py-2 glass-card grain-texture text-white/90 text-xs font-medium hover:glass-intense transition-all duration-300 jost-secondary text-center border border-white/10 hover:border-primary/30"
+                        className="px-3 py-2 glass-card grain-texture text-white/90 text-xs font-medium hover:glass-intense transition-all duration-300 jost-secondary text-center border border-white/10 hover:border-primary/30 flex items-center justify-center"
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.3, delay: index * 0.03 }}
