@@ -197,7 +197,7 @@ export default function Home() {
       ],
     },
     {
-      title: "FutureFirst Families",
+      title: "Future First Families: Gamified Platform for Parents",
       subtitle: "AI-Enhanced Learning Platform",
       description:
         "An innovative AI learning platform empowering parents and students with personalized educational experiences through gamified, user-friendly design and intelligent content adaptation.",
@@ -788,8 +788,8 @@ export default function Home() {
                           alt={`${project.title} Logo`}
                           className="object-contain opacity-90"
                           style={{
-                            width: project.title === "FutureFirst Families" ? "60px" : "48px",
-                            height: project.title === "FutureFirst Families" ? "36px" : "24px",
+                            width: project.title.includes("Future First Families") ? "60px" : "48px",
+                            height: project.title.includes("Future First Families") ? "36px" : "24px",
                           }}
                         />
                       </div>
