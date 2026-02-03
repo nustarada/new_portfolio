@@ -197,7 +197,7 @@ export default function Home() {
       ],
     },
     {
-      title: "Future First Families: Gamified Platform for Parents",
+      title: "Future First Families: Gamified Educational Platform for Parents",
       subtitle: "AI-Enhanced Learning Platform",
       description:
         "An innovative AI learning platform empowering parents and students with personalized educational experiences through gamified, user-friendly design and intelligent content adaptation.",
