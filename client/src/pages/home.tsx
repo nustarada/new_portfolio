@@ -295,7 +295,7 @@ export default function Home() {
       ],
     },
     {
-      title: "2 Hour Learning: Educational Landing Page System",
+      title: "2 Hour Learning: Lead Gen Landing Pages",
       subtitle: "Persona-Driven Lead Generation",
       description:
         "A comprehensive landing page design system for 2 Hour Learning featuring targeted designs for different educational personas including parents, students, educators, and institutions.",
