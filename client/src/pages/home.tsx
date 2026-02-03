@@ -932,13 +932,13 @@ export default function Home() {
               <div className="relative z-10 space-y-8">
                 {/* Profile Section - Name and Photo on Left, Summary on Right */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-8">
-                  {/* Left Column - Name and Photo */}
+                  {/* Left Column - Photo */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="flex flex-col items-center space-y-6 lg:pl-4"
+                    className="flex flex-col items-center lg:pl-4"
                   >
                     {/* Photo */}
                     <div className="w-48 h-auto rounded-lg border-2 border-white/20 overflow-hidden">
@@ -953,12 +953,6 @@ export default function Home() {
                         className="w-full h-auto object-contain"
                       />
                     </div>
-                    {/* Name */}
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-white albert-sans-medium text-center">
-                      Karan Gadhave
-                    </h3>
-                    {/* Title */}
-                    <p className="text-lg text-primary font-semibold jost-secondary text-center">Senior Product - UI/UX Designer</p>
                   </motion.div>
 
                   {/* Right Column - About Summary */}
