@@ -700,27 +700,30 @@ export default function Home() {
                         {String(index + 1).padStart(2, "0")}
                       </span>
                     </div>
-                    {/* Project Logo */}
-                    <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md rounded-lg p-2">
-                      <img
-                        src={project.logo}
-                        alt={`${project.title} Logo`}
-                        className="object-contain opacity-90"
-                        style={{
-                          width: project.title === "FutureFirst Families" ? "80px" : "64px",
-                          height: project.title === "FutureFirst Families" ? "48px" : "32px",
-                        }}
-                      />
-                    </div>
                   </div>
 
                   {/* Content */}
                   <div className="p-5 flex flex-col flex-1">
-                    {/* Project Title and Description */}
-                    <div className="space-y-3 mb-4">
+                    {/* Project Title with Logo */}
+                    <div className="flex items-center justify-between gap-3 mb-3">
                       <h3 className="text-xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
                         {project.title}
                       </h3>
+                      {/* Project Logo */}
+                      <div className="flex-shrink-0 bg-white/10 backdrop-blur-md rounded-lg p-2">
+                        <img
+                          src={project.logo}
+                          alt={`${project.title} Logo`}
+                          className="object-contain opacity-90"
+                          style={{
+                            width: project.title === "FutureFirst Families" ? "60px" : "48px",
+                            height: project.title === "FutureFirst Families" ? "36px" : "24px",
+                          }}
+                        />
+                      </div>
+                    </div>
+                    {/* Project Description */}
+                    <div className="mb-4">
                       <p className="text-white/80 leading-relaxed text-sm jost-secondary font-light line-clamp-3">
                         {project.description}
                       </p>
