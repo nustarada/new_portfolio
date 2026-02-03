@@ -976,36 +976,26 @@ export default function Home() {
 
                     <div className="space-y-4">
                       <p className="text-white/85 leading-relaxed text-base jost-secondary">
-                        I'm a passionate UI/UX designer with 4+ years of
-                        experience. Specializing in crafting innovative digital
-                        solutions. My expertise lies in combining traditional
-                        design principles with{" "}
+                        I'm a Senior Product Designer with over 5 years of experience in designing{" "}
                         <span className="text-primary font-semibold">
-                          AI-driven design approaches
+                          SaaS and B2B platforms
                         </span>{" "}
-                        to create exceptional user experiences.
+                        for both web and mobile. I focus on solving complex workflow problems with strong UX structure, interaction design, and scalable design systems.
                       </p>
 
                       <p className="text-white/85 leading-relaxed text-base jost-secondary">
-                        Through streamlined workflows and cutting-edge design
-                        tools, I've achieved{" "}
-                        <span className="bg-primary/20 text-primary px-2 py-1 font-semibold">
-                          60% faster design cycles
-                        </span>{" "}
-                        while maintaining the highest quality standards. I
-                        believe in{" "}
+                        I work directly across the entire design process, from{" "}
                         <span className="text-primary font-semibold">
-                          user-centered design
+                          discovery and user research
                         </span>{" "}
-                        that pushes creative boundaries and delivers measurable
-                        business results.
+                        to high-fidelity UI, prototyping, and delivery. I collaborate closely with product managers and engineers.
                       </p>
 
                       <p className="text-white/85 leading-relaxed text-base jost-secondary">
-                        My approach focuses on innovation-first thinking,
-                        leveraging technology for maximum efficiency, and
-                        ensuring every decision is driven by user needs and
-                        business objectives.
+                        My work highlights clarity, usability, and long-term maintainability, especially in systems that are{" "}
+                        <span className="text-primary font-semibold">
+                          admin-heavy and role-based
+                        </span>. I'm motivated by user-centered design that balances business goals with real-world usability.
                       </p>
                     </div>
                   </motion.div>
