@@ -1004,9 +1004,7 @@ export default function Home() {
                       Karan Gadhave
                     </h3>
                     {/* Title */}
-                    <p className="text-lg text-primary font-semibold jost-secondary text-center">
-                      Senior Product & UI/UX Designer
-                    </p>
+                    <p className="text-lg text-primary font-semibold jost-secondary text-center">Senior Product - UI/UX Designer</p>
                   </motion.div>
 
                   {/* Right Column - About Summary */}
