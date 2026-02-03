@@ -886,70 +886,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Design Philosophy Section */}
-      <section className="py-16 relative">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <div className="relative inline-block mb-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold glow-text relative z-10 albert-sans-medium">
-                DESIGN PHILOSOPHY
-              </h2>
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
-            </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed jost-secondary">
-              My approach to creating meaningful and impactful digital
-              experiences
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <Card className="group relative overflow-hidden p-10 glass-intense grain-texture hover:glass-card transition-all duration-500">
-              {/* Background Elements */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-2xl" />
-
-              <div className="relative z-10">
-                <div className="flex items-center justify-center mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/25 to-white/20 flex items-center justify-center backdrop-blur-sm">
-                    <Sparkles className="w-8 h-8 text-primary" />
-                  </div>
-                </div>
-
-                <div className="space-y-8">
-                  <blockquote className="relative text-center">
-                    <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-400 to-primary/60"></div>
-                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium jost-secondary">
-                      "Great design is invisible. It seamlessly bridges human
-                      needs with technological possibilities, creating
-                      experiences that feel natural, intuitive, and delightful."
-                    </p>
-                  </blockquote>
-
-                  <div className="text-center pt-6 border-t border-white/10">
-                    <p className="text-white/85 text-lg leading-relaxed max-w-3xl mx-auto jost-secondary">
-                      I harness the power of AI design tools, master Figma's
-                      ecosystem, and leverage interactive prototyping to create
-                      innovative, efficient design workflows that deliver
-                      exceptional results.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
       {/* About Section */}
       <section id="about" className="py-12 relative overflow-hidden">
         {/* Elegant Background */}
@@ -1110,6 +1046,70 @@ export default function Home() {
                     ))}
                   </div>
                 </motion.div>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+      {/* Design Philosophy Section */}
+      <section className="py-16 relative">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <div className="relative inline-block mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold glow-text relative z-10 albert-sans-medium">
+                DESIGN PHILOSOPHY
+              </h2>
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
+            </div>
+            <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed jost-secondary">
+              My approach to creating meaningful and impactful digital
+              experiences
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <Card className="group relative overflow-hidden p-10 glass-intense grain-texture hover:glass-card transition-all duration-500">
+              {/* Background Elements */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-2xl" />
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/25 to-white/20 flex items-center justify-center backdrop-blur-sm">
+                    <Sparkles className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
+
+                <div className="space-y-8">
+                  <blockquote className="relative text-center">
+                    <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-400 to-primary/60"></div>
+                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium jost-secondary">
+                      "Great design is invisible. It seamlessly bridges human
+                      needs with technological possibilities, creating
+                      experiences that feel natural, intuitive, and delightful."
+                    </p>
+                  </blockquote>
+
+                  <div className="text-center pt-6 border-t border-white/10">
+                    <p className="text-white/85 text-lg leading-relaxed max-w-3xl mx-auto jost-secondary">
+                      I harness the power of AI design tools, master Figma's
+                      ecosystem, and leverage interactive prototyping to create
+                      innovative, efficient design workflows that deliver
+                      exceptional results.
+                    </p>
+                  </div>
+                </div>
               </div>
             </Card>
           </motion.div>
