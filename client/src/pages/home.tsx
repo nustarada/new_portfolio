@@ -18,16 +18,18 @@ import { LiquidGrid } from "@/components/liquid-grid";
 import { MovingRibbon } from "@/components/moving-ribbon";
 import ResumeSection from "@/components/resume-section";
 // Removed old logo PDF import
-import futureFirstFamiliesThumbnail from "@assets/FutureFirstFamilies_thumbnail_1754478108591.png";
-import liffoThumbnail from "@assets/Liffo_thumbnail_1754478108594.png";
+import futureFirstFamiliesThumbnail from "@assets/FutureFirstFamilies_thumbnail_1770103573837.png";
+import liffoThumbnail from "@assets/Liffo_thumbnail_1770103573838.png";
 import resumePdf from "@assets/Karan Gadhave CV_1754656812100.pdf";
 import profilePhoto from "@assets/4. Dashboard 1_1754469198505.png";
 import LogoImage from "@assets/Logo white_1754674219191.png";
 import fffLogo from "@assets/FFF_Logo_1754475239613.png";
 import liffoLogo from "@assets/Liffo_logo_1754475239620.png";
 import linkedinLogo from "@assets/linkedin 1_1756620179383.png";
-import twoHourLearningThumbnail from "@assets/2hl thumbnail_1756637673905.png";
+import twoHourLearningThumbnail from "@assets/2_Hour_Learning_thumbnail_1770103573825.png";
 import twoHourLearningLogo from "@assets/2HL Logo_1756637716101.png";
+import cybersecurityThumbnail from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.png";
+import cybersecurityLogo from "@assets/lionfish_logo_1770107402256.png";
 import {
   Terminal,
   Sparkles,
@@ -149,6 +151,52 @@ export default function Home() {
 
   const projects = [
     {
+      title: "Enterprise Cybersecurity Platform Redesign",
+      subtitle: "End-to-end redesign of a complex, role-based cybersecurity web platform focused on system structure, workflows, and usability.",
+      description:
+        "End-to-end redesign of a complex, role-based cybersecurity web platform focused on system structure, workflows, and usability.",
+      detailedDescription:
+        "Due to client confidentiality, detailed screens and system architecture are intentionally limited. This project highlights platform-level thinking, UX decisions, and system design.",
+      image: cybersecurityThumbnail,
+      logo: cybersecurityLogo,
+      liveUrl: undefined,
+      caseStudyUrl: undefined,
+      isComingSoon: true,
+      isConfidential: true,
+      tags: [
+        "Enterprise UX",
+        "System Redesign",
+        "Web Platform",
+        "Cybersecurity",
+      ],
+      year: "2025",
+      category: "Platform Redesign",
+      role: "Lead Product Designer",
+      services: "Platform Redesign",
+      industry: "Enterprise Cybersecurity",
+      platform: "Web Platform",
+      outcomes: [
+        "Comprehensive platform restructuring",
+        "Improved role-based workflows",
+        "Enhanced usability across complex systems",
+      ],
+      keyFeatures: [
+        "Role-based access control design",
+        "Complex workflow optimization",
+        "System architecture improvements",
+        "Usability enhancements for enterprise users",
+      ],
+      techStack: ["Figma", "Enterprise UX", "System Design"],
+      duration: "8 Weeks",
+      process: [
+        "Platform audit and stakeholder interviews",
+        "System structure analysis",
+        "Workflow redesign and optimization",
+        "Role-based experience mapping",
+        "Usability testing and iteration",
+      ],
+    },
+    {
       title: "FutureFirst Families",
       subtitle: "AI-Enhanced Learning Platform",
       description:
@@ -268,6 +316,7 @@ export default function Home() {
       category: "Landing Page Design",
       role: "Lead UI/UX Designer",
       services: "Landing Page Design & Strategy",
+      industry: "AI Learning Platform",
       outcomes: [
         "4 targeted landing pages for different personas",
         "Consistent brand experience across all touchpoints",
@@ -311,7 +360,6 @@ export default function Home() {
     >
       {/* Scroll Progress */}
       <motion.div className="scroll-indicator" style={{ scaleX }} />
-
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-[100] glass-card grain-texture border-b border-white/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center relative">
@@ -466,7 +514,8 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 1.3 }}
             className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto font-normal jost-secondary mb-8"
           >
-            4+ years turning concepts into launch‑ready platforms via research, IA/flows, prototyping, and iterative testing enhanced by AI.
+            4+ years turning concepts into launch‑ready platforms via research,
+            IA/flows, prototyping, and iterative testing enhanced by AI.
           </motion.p>
 
           {/* Responsive Action Buttons */}
@@ -656,6 +705,236 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Projects Section */}
+      <section id="projects" className="py-16 relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <div className="relative inline-block mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white relative z-10 albert-sans-medium">
+                FEATURED PROJECTS
+              </h2>
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
+            </div>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">A curated set of product designs solving complex problems across platforms and systems.</p>
+          </motion.div>
+
+          {/* 2x2 Grid Project Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group h-full"
+              >
+                <Card className="relative overflow-hidden glass-card grain-texture hover:glass-intense border border-white/20 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.02] h-full flex flex-col">
+                  {/* Thumbnail */}
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={`${project.title} Platform`}
+                      className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    {/* Project Number Badge */}
+                    <div className="absolute top-4 left-4 w-10 h-10 bg-gradient-to-br from-primary/80 to-purple-500/80 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                      <span className="text-sm font-bold text-white font-mono">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    {/* Case Study Coming Soon Badge */}
+                    {project.isComingSoon && (
+                      <div className="absolute bottom-4 left-4 px-3 py-1.5 bg-black/70 backdrop-blur-md border border-white/20 rounded">
+                        <span className="text-[10px] font-semibold text-white/90 jost-secondary uppercase tracking-wide">
+                          Case Study Coming Soon
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5 flex flex-col flex-1">
+                    {/* Project Title with Logo */}
+                    <div className="flex items-center justify-between gap-3 mb-3">
+                      <h3 className="text-xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
+                        {project.title}
+                      </h3>
+                      {/* Project Logo */}
+                      <div className="flex-shrink-0 bg-white/10 backdrop-blur-md rounded-lg p-2">
+                        <img
+                          src={project.logo}
+                          alt={`${project.title} Logo`}
+                          className="object-contain opacity-90"
+                          style={{
+                            width: project.title === "FutureFirst Families" ? "60px" : "48px",
+                            height: project.title === "FutureFirst Families" ? "36px" : "24px",
+                          }}
+                        />
+                      </div>
+                    </div>
+                    {/* Project Description */}
+                    <div className="mb-4">
+                      <p className="text-white/80 leading-relaxed text-sm jost-secondary font-light line-clamp-3">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    {/* Industry and Services Row */}
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      <div>
+                        <p className="text-white/50 text-xs mb-1 jost-secondary font-medium">
+                          Industry
+                        </p>
+                        <p className="text-white font-semibold text-sm jost-secondary">
+                          {project.industry || project.category}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-white/50 text-xs mb-1 jost-secondary font-medium">
+                          Services
+                        </p>
+                        <p className="text-white font-semibold text-sm jost-secondary">
+                          {project.services}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Duration */}
+                    <div className="mb-4">
+                      <p className="text-white/50 text-xs mb-1 jost-secondary font-medium">
+                        Duration
+                      </p>
+                      <p className="text-white font-semibold text-sm jost-secondary">
+                        {project.duration || "4 Months"}
+                      </p>
+                    </div>
+
+                    {/* Action Buttons - pushed to bottom */}
+                    <div className="grid grid-cols-2 gap-3 mt-auto">
+                      {project.isComingSoon ? (
+                        <div
+                          className={`project-card-btn col-span-2 relative overflow-hidden bg-white/10 text-white/60 font-bold text-xs border border-white/20 cursor-not-allowed opacity-70`}
+                          style={{ WebkitTapHighlightColor: "transparent" }}
+                        >
+                          <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
+                            <span className="font-semibold">Confidential Case Study</span>
+                            {project.isConfidential && (
+                              <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded">Confidential</span>
+                            )}
+                          </div>
+                        </div>
+                      ) : (
+                        <>
+                          <a
+                            href={project.caseStudyUrl}
+                            className={`project-card-btn group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-xs border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer no-underline shadow-lg hover:shadow-primary/25 ${project.liveUrl === "#" || !project.liveUrl ? "col-span-2" : ""}`}
+                            style={{ WebkitTapHighlightColor: "transparent" }}
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                            <div className="relative z-10 flex items-center justify-center space-x-1 jost-secondary">
+                              <span className="font-semibold">Case Study</span>
+                              <ArrowUpRight className="w-3 h-3 group-hover/btn:rotate-45 transition-transform duration-300" />
+                            </div>
+                          </a>
+                          {project.liveUrl && project.liveUrl !== "#" && (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="project-card-btn group/btn relative overflow-hidden text-white font-bold text-xs border border-white/30 hover:bg-white/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-white/10 no-underline"
+                              style={{ WebkitTapHighlightColor: "transparent" }}
+                            >
+                              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                              <div className="relative z-10 flex items-center justify-center space-x-1 jost-secondary">
+                                <span className="font-semibold">Live Site</span>
+                                <ArrowUpRight className="w-3 h-3 group-hover/btn:rotate-45 transition-transform duration-300" />
+                              </div>
+                            </a>
+                          )}
+                        </>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Enhanced Ambient Effects */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Design Philosophy Section */}
+      <section className="py-16 relative">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <div className="relative inline-block mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold glow-text relative z-10 albert-sans-medium">
+                DESIGN PHILOSOPHY
+              </h2>
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
+            </div>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
+              My approach to creating meaningful and impactful digital
+              experiences
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <Card className="group relative overflow-hidden p-10 glass-intense grain-texture hover:glass-card transition-all duration-500">
+              {/* Background Elements */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-2xl" />
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/25 to-white/20 flex items-center justify-center backdrop-blur-sm">
+                    <Sparkles className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
+
+                <div className="space-y-8">
+                  <blockquote className="relative text-center">
+                    <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-400 to-primary/60"></div>
+                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium jost-secondary">
+                      "Great design is invisible. It seamlessly bridges human
+                      needs with technological possibilities, creating
+                      experiences that feel natural, intuitive, and delightful."
+                    </p>
+                  </blockquote>
+
+                  <div className="text-center pt-6 border-t border-white/10">
+                    <p className="text-white/85 text-lg leading-relaxed max-w-2xl mx-auto jost-secondary">
+                      I harness the power of AI design tools, master Figma's
+                      ecosystem, and leverage interactive prototyping to create
+                      innovative, efficient design workflows that deliver
+                      exceptional results.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
       {/* About Section */}
       <section id="about" className="py-12 relative overflow-hidden">
         {/* Elegant Background */}
@@ -748,9 +1027,10 @@ export default function Home() {
 
                     <div className="space-y-4">
                       <p className="text-white/85 leading-relaxed text-base jost-secondary">
-                        I'm a passionate UI/UX designer with 4+ years of experience. Specializing in crafting
-                        innovative digital solutions. My expertise lies in
-                        combining traditional design principles with{" "}
+                        I'm a passionate UI/UX designer with 4+ years of
+                        experience. Specializing in crafting innovative digital
+                        solutions. My expertise lies in combining traditional
+                        design principles with{" "}
                         <span className="text-primary font-semibold">
                           AI-driven design approaches
                         </span>{" "}
@@ -952,227 +1232,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      {/* Projects Section */}
-      <section id="projects" className="py-16 relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <div className="relative inline-block mb-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white relative z-10 albert-sans-medium">
-                FEATURED PROJECTS
-              </h2>
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
-            </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
-              A showcase of innovative solutions spanning AI integration,
-              enterprise platforms, and user-centered design systems.
-            </p>
-          </motion.div>
-
-          {/* Wireframe-Based Project Cards */}
-          <div className="space-y-8 max-w-6xl mx-auto">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <Card className="relative overflow-hidden glass-card grain-texture hover:glass-intense border border-white/20 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.01]">
-                  {/* Horizontal Layout: Thumbnail + Content */}
-                  <div className="flex flex-col lg:flex-row">
-                    {/* Left Side - Thumbnail */}
-                    <img
-                      src={project.image}
-                      alt={`${project.title} Platform`}
-                      className="lg:w-1/2 aspect-square object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-
-                    {/* Right Side - Content */}
-                    <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-between">
-                      {/* Top Section: Brand Logo */}
-                      <div className="flex justify-between items-start mb-6">
-                        <div className="flex-1">
-                          {/* Project Number Badge */}
-                          <div className="w-10 h-10 bg-gradient-to-br from-primary/20 to-purple-500/20 backdrop-blur-md border border-white/10 flex items-center justify-center mb-4">
-                            <span className="text-sm font-bold text-primary font-mono">
-                              {String(index + 1).padStart(2, "0")}
-                            </span>
-                          </div>
-                        </div>
-                        {/* Project Logo */}
-                        <img
-                          src={project.logo}
-                          alt={`${project.title} Logo`}
-                          className="object-contain opacity-90"
-                          style={{
-                            width:
-                              project.title === "FutureFirst Families"
-                                ? "120px"
-                                : "96px",
-                            height:
-                              project.title === "FutureFirst Families"
-                                ? "72px"
-                                : "48px",
-                          }}
-                        />
-                      </div>
-
-                      {/* Project Title and Description */}
-                      <div className="space-y-4 mb-6">
-                        <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
-                          {project.title}
-                        </h3>
-                        <p className="text-white/85 leading-relaxed text-base jost-secondary font-light">
-                          {project.description}
-                        </p>
-                      </div>
-
-                      {/* Industry and Services Row */}
-                      <div className="grid grid-cols-2 gap-6 mb-6">
-                        <div>
-                          <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">
-                            Industry
-                          </p>
-                          <p className="text-white font-semibold jost-secondary">
-                            {project.category}
-                          </p>
-                        </div>
-                        <div>
-                          <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">
-                            Services
-                          </p>
-                          <p className="text-white font-semibold jost-secondary">
-                            {project.services}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Duration */}
-                      <div className="mb-6">
-                        <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">
-                          Duration
-                        </p>
-                        <p className="text-white font-semibold jost-secondary">
-                          {project.duration || "4 Months"}
-                        </p>
-                      </div>
-
-                      {/* Action Buttons */}
-                      <div className="flex flex-col sm:flex-row gap-3">
-                        <a
-                          href={project.caseStudyUrl}
-                          className="flex-1 group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-sm h-12 border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer block text-center no-underline shadow-lg hover:shadow-primary/25 flex items-center justify-center"
-                          style={{ WebkitTapHighlightColor: "transparent" }}
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                          <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
-                            <span className="font-semibold">Case Study</span>
-                            <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
-                          </div>
-                        </a>
-                        {project.liveUrl !== "#" && (
-                          <button
-                            onClick={() =>
-                              window.open(project.liveUrl, "_blank")
-                            }
-                            className="flex-1 group/btn relative overflow-hidden text-white font-bold text-sm border border-white/30 hover:bg-white/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-white/10 flex items-center justify-center"
-                            style={{
-                              WebkitTapHighlightColor: "transparent",
-                              minHeight: "48px",
-                              padding: "12px 24px",
-                            }}
-                          >
-                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                            <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
-                              <span className="font-semibold">Live Site</span>
-                              <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
-                            </div>
-                          </button>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Enhanced Ambient Effects */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* Design Philosophy Section */}
-      <section className="py-16 relative">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <div className="relative inline-block mb-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold glow-text relative z-10 albert-sans-medium">
-                DESIGN PHILOSOPHY
-              </h2>
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
-            </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">
-              My approach to creating meaningful and impactful digital
-              experiences
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <Card className="group relative overflow-hidden p-10 glass-intense grain-texture hover:glass-card transition-all duration-500">
-              {/* Background Elements */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-2xl" />
-
-              <div className="relative z-10">
-                <div className="flex items-center justify-center mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/25 to-white/20 flex items-center justify-center backdrop-blur-sm">
-                    <Sparkles className="w-8 h-8 text-primary" />
-                  </div>
-                </div>
-
-                <div className="space-y-8">
-                  <blockquote className="relative text-center">
-                    <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-400 to-primary/60"></div>
-                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium jost-secondary">
-                      "Great design is invisible. It seamlessly bridges human
-                      needs with technological possibilities, creating
-                      experiences that feel natural, intuitive, and delightful."
-                    </p>
-                  </blockquote>
-
-                  <div className="text-center pt-6 border-t border-white/10">
-                    <p className="text-white/85 text-lg leading-relaxed max-w-2xl mx-auto jost-secondary">
-                      I harness the power of AI design tools, master Figma's
-                      ecosystem, and leverage interactive prototyping to create
-                      innovative, efficient design workflows that deliver
-                      exceptional results.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
       {/* Contact Section */}
       <section id="contact" className="py-10 relative">
         <div className="max-w-4xl mx-auto px-6">
@@ -1198,23 +1257,6 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-2xl" />
 
             <div className="relative z-10">
-              {/* Call to Action */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="text-center mb-6 max-w-xl mx-auto"
-              >
-                <div className="flex items-center justify-center space-x-3 px-6 py-3 glass-card grain-texture border border-white/10">
-                  <Rocket className="w-5 h-5 text-primary flex-shrink-0" />
-                  <p className="text-white/90 text-base font-medium jost-secondary">
-                    Let's discuss your next project and bring your ideas to
-                    life!
-                  </p>
-                </div>
-              </motion.div>
-
               {/* Contact Card */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -1225,63 +1267,71 @@ export default function Home() {
               >
                 <Card className="p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
                   <div className="space-y-4">
-                      {/* Email */}
-                      <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Mail className="w-5 h-5 text-emerald-400" />
-                          </div>
-                          <a
-                            href="mailto:gadhavekaran@gmail.com"
-                            className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
-                          >
-                            gadhavekaran@gmail.com
-                          </a>
+                    {/* Email */}
+                    <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Mail className="w-5 h-5 text-emerald-400" />
                         </div>
-                        <button
-                          onClick={(event) => {
-                            navigator.clipboard.writeText("gadhavekaran@gmail.com");
-                            const button = event.currentTarget;
-                            const originalContent = button.innerHTML;
-                            button.innerHTML = '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                            setTimeout(() => { button.innerHTML = originalContent; }, 2000);
-                          }}
-                          className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
-                          title="Copy email"
+                        <a
+                          href="mailto:gadhavekaran@gmail.com"
+                          className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
                         >
-                          <FileText className="w-4 h-4" />
-                        </button>
+                          gadhavekaran@gmail.com
+                        </a>
                       </div>
+                      <button
+                        onClick={(event) => {
+                          navigator.clipboard.writeText(
+                            "gadhavekaran@gmail.com",
+                          );
+                          const button = event.currentTarget;
+                          const originalContent = button.innerHTML;
+                          button.innerHTML =
+                            '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                          setTimeout(() => {
+                            button.innerHTML = originalContent;
+                          }, 2000);
+                        }}
+                        className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
+                        title="Copy email"
+                      >
+                        <FileText className="w-4 h-4" />
+                      </button>
+                    </div>
 
-                      {/* Phone */}
-                      <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Phone className="w-5 h-5 text-cyan-400" />
-                          </div>
-                          <a
-                            href="https://wa.me/917744074265"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
-                          >
-                            +91 7744074265
-                          </a>
+                    {/* Phone */}
+                    <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Phone className="w-5 h-5 text-cyan-400" />
                         </div>
-                        <button
-                          onClick={(event) => {
-                            navigator.clipboard.writeText("+917744074265");
-                            const button = event.currentTarget;
-                            const originalContent = button.innerHTML;
-                            button.innerHTML = '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                            setTimeout(() => { button.innerHTML = originalContent; }, 2000);
-                          }}
-                          className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
-                          title="Copy phone"
+                        <a
+                          href="https://wa.me/917744074265"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
                         >
-                          <FileText className="w-4 h-4" />
-                        </button>
+                          +91 7744074265
+                        </a>
                       </div>
+                      <button
+                        onClick={(event) => {
+                          navigator.clipboard.writeText("+917744074265");
+                          const button = event.currentTarget;
+                          const originalContent = button.innerHTML;
+                          button.innerHTML =
+                            '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                          setTimeout(() => {
+                            button.innerHTML = originalContent;
+                          }, 2000);
+                        }}
+                        className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
+                        title="Copy phone"
+                      >
+                        <FileText className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
                 </Card>
               </motion.div>
@@ -1339,7 +1389,14 @@ export default function Home() {
                     Profile Summary:
                   </h3>
                   <p className="text-xs sm:text-sm leading-relaxed">
-                    Senior Product Designer with 5+ years delivering end-to-end UI/UX and AI-assisted vibe-coding builds for websites and web apps; ready to join immediately. Strengths: user research, usability testing, information architecture, user flows, wireframing, interactive prototyping, interaction/visual design, design systems, accessibility. Shipped integrated platforms including HubSpot and WordPress implementations and a gamified parent platform.
+                    Senior Product Designer with 5+ years delivering end-to-end
+                    UI/UX and AI-assisted vibe-coding builds for websites and
+                    web apps; ready to join immediately. Strengths: user
+                    research, usability testing, information architecture, user
+                    flows, wireframing, interactive prototyping,
+                    interaction/visual design, design systems, accessibility.
+                    Shipped integrated platforms including HubSpot and WordPress
+                    implementations and a gamified parent platform.
                   </p>
                 </section>
 
@@ -1362,25 +1419,38 @@ export default function Home() {
                     </p>
                     <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
                       <li className="leading-relaxed">
-                        Owned multi-year vibe-coding builds, delivering production websites and web apps from discovery to launch and post-release iteration
+                        Owned multi-year vibe-coding builds, delivering
+                        production websites and web apps from discovery to
+                        launch and post-release iteration
                       </li>
                       <li className="leading-relaxed">
-                        Designed and developed the Future First Families website with end-to-end integrations across auth, forms/CRM, analytics, and automations
+                        Designed and developed the Future First Families website
+                        with end-to-end integrations across auth, forms/CRM,
+                        analytics, and automations
                       </li>
                       <li className="leading-relaxed">
-                        Built the Future First Families gamified parent platform with onboarding, progression mechanics, engagement tracking, and admin controls
+                        Built the Future First Families gamified parent platform
+                        with onboarding, progression mechanics, engagement
+                        tracking, and admin controls
                       </li>
                       <li className="leading-relaxed">
-                        Delivered cross-platform experiences (websites, web apps, responsive) using rapid prototyping and AI-assisted workflows to shorten cycle time
+                        Delivered cross-platform experiences (websites, web
+                        apps, responsive) using rapid prototyping and
+                        AI-assisted workflows to shorten cycle time
                       </li>
                       <li className="leading-relaxed">
-                        Built and customized designs on HubSpot CMS and WordPress—including themes/modules, landing pages, blogs, forms, and marketing automations
+                        Built and customized designs on HubSpot CMS and
+                        WordPress—including themes/modules, landing pages,
+                        blogs, forms, and marketing automations
                       </li>
                       <li className="leading-relaxed">
-                        Created and governed design systems to standardize UI, improve accessibility, and accelerate feature delivery
+                        Created and governed design systems to standardize UI,
+                        improve accessibility, and accelerate feature delivery
                       </li>
                       <li className="leading-relaxed">
-                        Led design for healthcare platforms (Healthsignz, MYMEDIC), mapping patient/provider journeys and shipping inclusive, compliant experiences
+                        Led design for healthcare platforms (Healthsignz,
+                        MYMEDIC), mapping patient/provider journeys and shipping
+                        inclusive, compliant experiences
                       </li>
                     </ul>
                   </div>
@@ -1399,13 +1469,17 @@ export default function Home() {
                     </p>
                     <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
                       <li className="leading-relaxed">
-                        Designed core features for StockMarketBox like broker comparison, market tickers, courses, and blog
+                        Designed core features for StockMarketBox like broker
+                        comparison, market tickers, courses, and blog
                       </li>
                       <li className="leading-relaxed">
-                        Successfully launched Stockmarketbox.com, boosting online presence
+                        Successfully launched Stockmarketbox.com, boosting
+                        online presence
                       </li>
                       <li className="leading-relaxed">
-                        Created custom illustrations and animations, increasing user engagement by 20%, and designed 30+ mobile trading app interfaces in 3 months
+                        Created custom illustrations and animations, increasing
+                        user engagement by 20%, and designed 30+ mobile trading
+                        app interfaces in 3 months
                       </li>
                     </ul>
                   </div>
@@ -1427,7 +1501,8 @@ export default function Home() {
                         Led the design for Teach Max mobile application
                       </li>
                       <li className="leading-relaxed">
-                        Worked on various redesign projects from websites to mobile application including company website
+                        Worked on various redesign projects from websites to
+                        mobile application including company website
                       </li>
                     </ul>
                   </div>
@@ -1452,16 +1527,25 @@ export default function Home() {
                     </p>
                     <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
                       <li className="leading-relaxed">
-                        Designed both UX and UI with a deep focus on enhancing user experience through extensive research and 20 user interviews, ensuring data-driven design decisions
+                        Designed both UX and UI with a deep focus on enhancing
+                        user experience through extensive research and 20 user
+                        interviews, ensuring data-driven design decisions
                       </li>
                       <li className="leading-relaxed">
-                        Applied advanced problem-solving skills to deliver optimal and intuitive design solutions, addressing user pain points effectively
+                        Applied advanced problem-solving skills to deliver
+                        optimal and intuitive design solutions, addressing user
+                        pain points effectively
                       </li>
                       <li className="leading-relaxed">
-                        Spearheaded the app design process from initial research to high-fidelity prototypes in just two months, showcasing agility and expertise in fast-paced environments
+                        Spearheaded the app design process from initial research
+                        to high-fidelity prototypes in just two months,
+                        showcasing agility and expertise in fast-paced
+                        environments
                       </li>
                       <li className="leading-relaxed">
-                        Conducted comprehensive research, including user interviews and feedback analysis, to inform a seamless and user-friendly product experience
+                        Conducted comprehensive research, including user
+                        interviews and feedback analysis, to inform a seamless
+                        and user-friendly product experience
                       </li>
                     </ul>
                   </div>
@@ -1477,7 +1561,8 @@ export default function Home() {
                         Bachelor of Arts in History
                       </h4>
                       <p className="text-xs sm:text-sm text-gray-600">
-                        Yashwantrao Chavan Maharashtra Open University, Barshi, India
+                        Yashwantrao Chavan Maharashtra Open University, Barshi,
+                        India
                       </p>
                     </div>
                     <span className="text-xs sm:text-sm text-gray-600">
