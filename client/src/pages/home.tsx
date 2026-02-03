@@ -18,15 +18,15 @@ import { LiquidGrid } from "@/components/liquid-grid";
 import { MovingRibbon } from "@/components/moving-ribbon";
 import ResumeSection from "@/components/resume-section";
 // Removed old logo PDF import
-import futureFirstFamiliesThumbnail from "@assets/FutureFirstFamilies_thumbnail_1754478108591.png";
-import liffoThumbnail from "@assets/Liffo_thumbnail_1754478108594.png";
+import futureFirstFamiliesThumbnail from "@assets/FutureFirstFamilies_thumbnail_1770103573837.png";
+import liffoThumbnail from "@assets/Liffo_thumbnail_1770103573838.png";
 import resumePdf from "@assets/Karan Gadhave CV_1754656812100.pdf";
 import profilePhoto from "@assets/4. Dashboard 1_1754469198505.png";
 import LogoImage from "@assets/Logo white_1754674219191.png";
 import fffLogo from "@assets/FFF_Logo_1754475239613.png";
 import liffoLogo from "@assets/Liffo_logo_1754475239620.png";
 import linkedinLogo from "@assets/linkedin 1_1756620179383.png";
-import twoHourLearningThumbnail from "@assets/2hl thumbnail_1756637673905.png";
+import twoHourLearningThumbnail from "@assets/2_Hour_Learning_thumbnail_1770103573825.png";
 import twoHourLearningLogo from "@assets/2HL Logo_1756637716101.png";
 import {
   Terminal,
@@ -692,7 +692,7 @@ export default function Home() {
                     <img
                       src={project.image}
                       alt={`${project.title} Platform`}
-                      className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     {/* Project Number Badge */}
                     <div className="absolute top-4 left-4 w-10 h-10 bg-gradient-to-br from-primary/80 to-purple-500/80 backdrop-blur-md border border-white/20 flex items-center justify-center">
