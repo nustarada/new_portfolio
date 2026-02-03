@@ -186,7 +186,7 @@ export default function Home() {
         "Usability enhancements for enterprise users",
       ],
       techStack: ["Figma", "Enterprise UX", "System Design"],
-      duration: "Ongoing",
+      duration: "8 Weeks",
       process: [
         "Platform audit and stakeholder interviews",
         "System structure analysis",
@@ -747,6 +747,14 @@ export default function Home() {
                         {String(index + 1).padStart(2, "0")}
                       </span>
                     </div>
+                    {/* Case Study Coming Soon Badge */}
+                    {project.isComingSoon && (
+                      <div className="absolute bottom-4 left-4 px-3 py-1.5 bg-black/70 backdrop-blur-md border border-white/20 rounded">
+                        <span className="text-[10px] font-semibold text-white/90 jost-secondary uppercase tracking-wide">
+                          Case Study Coming Soon
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Content */}
@@ -814,7 +822,7 @@ export default function Home() {
                           style={{ WebkitTapHighlightColor: "transparent" }}
                         >
                           <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
-                            <span className="font-semibold">Coming Soon</span>
+                            <span className="font-semibold">Confidential Case Study</span>
                             {project.isConfidential && (
                               <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded">Confidential</span>
                             )}
