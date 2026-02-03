@@ -679,130 +679,113 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Wireframe-Based Project Cards */}
-          <div className="space-y-8 max-w-6xl mx-auto">
+          {/* 2x2 Grid Project Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group"
+                className="group h-full"
               >
-                <Card className="relative overflow-hidden glass-card grain-texture hover:glass-intense border border-white/20 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.01]">
-                  {/* Horizontal Layout: Thumbnail + Content */}
-                  <div className="flex flex-col lg:flex-row">
-                    {/* Left Side - Thumbnail */}
+                <Card className="relative overflow-hidden glass-card grain-texture hover:glass-intense border border-white/20 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.02] h-full flex flex-col">
+                  {/* Thumbnail */}
+                  <div className="relative overflow-hidden">
                     <img
                       src={project.image}
                       alt={`${project.title} Platform`}
-                      className="lg:w-1/2 aspect-square object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700"
                     />
+                    {/* Project Number Badge */}
+                    <div className="absolute top-4 left-4 w-10 h-10 bg-gradient-to-br from-primary/80 to-purple-500/80 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                      <span className="text-sm font-bold text-white font-mono">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    {/* Project Logo */}
+                    <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md rounded-lg p-2">
+                      <img
+                        src={project.logo}
+                        alt={`${project.title} Logo`}
+                        className="object-contain opacity-90"
+                        style={{
+                          width: project.title === "FutureFirst Families" ? "80px" : "64px",
+                          height: project.title === "FutureFirst Families" ? "48px" : "32px",
+                        }}
+                      />
+                    </div>
+                  </div>
 
-                    {/* Right Side - Content */}
-                    <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-between">
-                      {/* Top Section: Brand Logo */}
-                      <div className="flex justify-between items-start mb-6">
-                        <div className="flex-1">
-                          {/* Project Number Badge */}
-                          <div className="w-10 h-10 bg-gradient-to-br from-primary/20 to-purple-500/20 backdrop-blur-md border border-white/10 flex items-center justify-center mb-4">
-                            <span className="text-sm font-bold text-primary font-mono">
-                              {String(index + 1).padStart(2, "0")}
-                            </span>
-                          </div>
-                        </div>
-                        {/* Project Logo */}
-                        <img
-                          src={project.logo}
-                          alt={`${project.title} Logo`}
-                          className="object-contain opacity-90"
-                          style={{
-                            width:
-                              project.title === "FutureFirst Families"
-                                ? "120px"
-                                : "96px",
-                            height:
-                              project.title === "FutureFirst Families"
-                                ? "72px"
-                                : "48px",
-                          }}
-                        />
-                      </div>
+                  {/* Content */}
+                  <div className="p-5 flex flex-col flex-1">
+                    {/* Project Title and Description */}
+                    <div className="space-y-3 mb-4">
+                      <h3 className="text-xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
+                        {project.title}
+                      </h3>
+                      <p className="text-white/80 leading-relaxed text-sm jost-secondary font-light line-clamp-3">
+                        {project.description}
+                      </p>
+                    </div>
 
-                      {/* Project Title and Description */}
-                      <div className="space-y-4 mb-6">
-                        <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
-                          {project.title}
-                        </h3>
-                        <p className="text-white/85 leading-relaxed text-base jost-secondary font-light">
-                          {project.description}
+                    {/* Industry and Services Row */}
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      <div>
+                        <p className="text-white/50 text-xs mb-1 jost-secondary font-medium">
+                          Industry
+                        </p>
+                        <p className="text-white font-semibold text-sm jost-secondary">
+                          {project.category}
                         </p>
                       </div>
-
-                      {/* Industry and Services Row */}
-                      <div className="grid grid-cols-2 gap-6 mb-6">
-                        <div>
-                          <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">
-                            Industry
-                          </p>
-                          <p className="text-white font-semibold jost-secondary">
-                            {project.category}
-                          </p>
-                        </div>
-                        <div>
-                          <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">
-                            Services
-                          </p>
-                          <p className="text-white font-semibold jost-secondary">
-                            {project.services}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Duration */}
-                      <div className="mb-6">
-                        <p className="text-white/60 text-sm mb-2 jost-secondary font-medium">
-                          Duration
+                      <div>
+                        <p className="text-white/50 text-xs mb-1 jost-secondary font-medium">
+                          Services
                         </p>
-                        <p className="text-white font-semibold jost-secondary">
-                          {project.duration || "4 Months"}
+                        <p className="text-white font-semibold text-sm jost-secondary">
+                          {project.services}
                         </p>
                       </div>
+                    </div>
 
-                      {/* Action Buttons */}
-                      <div className="flex flex-col sm:flex-row gap-3">
-                        <a
-                          href={project.caseStudyUrl}
-                          className="flex-1 group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-sm h-12 border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer block text-center no-underline shadow-lg hover:shadow-primary/25 flex items-center justify-center"
+                    {/* Duration */}
+                    <div className="mb-4">
+                      <p className="text-white/50 text-xs mb-1 jost-secondary font-medium">
+                        Duration
+                      </p>
+                      <p className="text-white font-semibold text-sm jost-secondary">
+                        {project.duration || "4 Months"}
+                      </p>
+                    </div>
+
+                    {/* Action Buttons - pushed to bottom */}
+                    <div className="flex gap-3 mt-auto">
+                      <a
+                        href={project.caseStudyUrl}
+                        className="flex-1 group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-xs h-10 border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer block text-center no-underline shadow-lg hover:shadow-primary/25 flex items-center justify-center"
+                        style={{ WebkitTapHighlightColor: "transparent" }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                        <div className="relative z-10 flex items-center justify-center space-x-1 jost-secondary">
+                          <span className="font-semibold">Case Study</span>
+                          <ArrowUpRight className="w-3 h-3 group-hover/btn:rotate-45 transition-transform duration-300" />
+                        </div>
+                      </a>
+                      {project.liveUrl !== "#" && (
+                        <button
+                          onClick={() => window.open(project.liveUrl, "_blank")}
+                          className="flex-1 group/btn relative overflow-hidden text-white font-bold text-xs border border-white/30 hover:bg-white/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-white/10 flex items-center justify-center h-10"
                           style={{ WebkitTapHighlightColor: "transparent" }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                          <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
-                            <span className="font-semibold">Case Study</span>
-                            <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
+                          <div className="relative z-10 flex items-center justify-center space-x-1 jost-secondary">
+                            <span className="font-semibold">Live Site</span>
+                            <ArrowUpRight className="w-3 h-3 group-hover/btn:rotate-45 transition-transform duration-300" />
                           </div>
-                        </a>
-                        {project.liveUrl !== "#" && (
-                          <button
-                            onClick={() =>
-                              window.open(project.liveUrl, "_blank")
-                            }
-                            className="flex-1 group/btn relative overflow-hidden text-white font-bold text-sm border border-white/30 hover:bg-white/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-white/10 flex items-center justify-center"
-                            style={{
-                              WebkitTapHighlightColor: "transparent",
-                              minHeight: "48px",
-                              padding: "12px 24px",
-                            }}
-                          >
-                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                            <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
-                              <span className="font-semibold">Live Site</span>
-                              <ArrowUpRight className="w-4 h-4 group-hover/btn:rotate-45 transition-transform duration-300" />
-                            </div>
-                          </button>
-                        )}
-                      </div>
+                        </button>
+                      )}
                     </div>
                   </div>
 
