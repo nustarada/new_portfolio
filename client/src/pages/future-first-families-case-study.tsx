@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'wouter';
-import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, ArrowLeft, Lightbulb, Zap, Palette, Code, Smartphone, Globe, Linkedin, User, AlertCircle } from 'lucide-react';
+import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, ArrowLeft, Lightbulb, Zap, Palette, Code, Smartphone, Globe, Linkedin, User, AlertCircle, ArrowRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -21,18 +21,19 @@ const CaseStudyPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Define navigation sections - aligned with standard case study structure
   const navigationSections = [
     { id: 'overview', title: 'Project Overview', color: 'from-blue-400 to-teal-400' },
-    { id: 'showcase', title: 'Design Showcase', color: 'from-cyan-400 to-pink-400' },
-    { id: 'personas', title: 'User Personas', color: 'from-orange-400 to-red-400' },
-    { id: 'challenge', title: 'The Challenge', color: 'from-red-400 to-yellow-400' },
-    { id: 'solution', title: 'The Solution', color: 'from-green-400 to-teal-400' },
-    { id: 'process', title: 'Design Process', color: 'from-purple-400 to-red-400' },
-    { id: 'hubspot', title: 'HubSpot Integration', color: 'from-orange-400 to-red-400' },
-    { id: 'results', title: 'Results & Impact', color: 'from-green-400 to-cyan-400' },
-    { id: 'technology', title: 'Technology Stack', color: 'from-blue-400 to-purple-400' },
-    { id: 'learnings', title: 'Key Learnings', color: 'from-yellow-400 to-red-400' }
+    { id: 'context', title: 'Context', color: 'from-cyan-400 to-blue-400' },
+    { id: 'problem', title: 'Problem Statement', color: 'from-red-400 to-orange-400' },
+    { id: 'goals', title: 'Goals', color: 'from-green-400 to-teal-400' },
+    { id: 'research', title: 'Research & Understanding', color: 'from-purple-400 to-pink-400' },
+    { id: 'decisions', title: 'Design Decisions', color: 'from-orange-400 to-yellow-400' },
+    { id: 'strategy', title: 'Solution Strategy', color: 'from-teal-400 to-green-400' },
+    { id: 'showcase', title: 'Final Product', color: 'from-cyan-400 to-pink-400' },
+    { id: 'designsystem', title: 'Design System', color: 'from-blue-400 to-purple-400' },
+    { id: 'impact', title: 'Impact & Outcomes', color: 'from-green-400 to-cyan-400' },
+    { id: 'learnings', title: 'Learnings', color: 'from-yellow-400 to-red-400' },
+    { id: 'next', title: "What's Next", color: 'from-purple-400 to-blue-400' }
   ];
 
   useEffect(() => {
@@ -42,7 +43,7 @@ const CaseStudyPage = () => {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
     handleResize();
-    window.scrollTo(0, 0); // Scroll to top on component mount
+    window.scrollTo(0, 0);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -51,168 +52,157 @@ const CaseStudyPage = () => {
   }, []);
 
   const caseStudyData = {
-    title: "FutureFirstFamilies: AI-Enhanced Learning Platform",
-    subtitle: "Modern AI learning platform with gamified elements, HubSpot API integration, and personalized educational experiences",
-    category: "Web Design & Development",
+    title: "FutureFirstFamilies",
+    subtitle: "A gamified advocacy platform empowering families to drive meaningful community change through structured participation and progress tracking.",
+    category: "Product Design",
     duration: "4 weeks",
     year: "2024",
-    team: "Solo Project",
+    team: "Solo Designer",
     client: "FutureFirstFamilies Organization",
-    role: "Lead Designer & Developer",
-    tags: ["React", "TypeScript", "Figma", "HubSpot API", "Tailwind CSS", "AI Learning"],
+    role: "Lead Product Designer",
+    tags: ["Product Design", "Gamification", "UX Architecture", "Design System"],
     
-    // Standard Case Study Sections
-    overview: "FutureFirstFamilies needed a modern, engaging AI learning platform to replace their outdated system and better connect with families through personalized educational experiences. The challenge was creating a user-friendly interface that could leverage AI to adapt content and motivate continued learning while managing educational content efficiently through API integration.",
+    overview: "FutureFirstFamilies is a gamified platform designed to engage parents and families in community advocacy. I led the end-to-end product design, creating a structured experience that simplifies participation, motivates continued engagement, and provides clear progress visibility for users and administrators.",
 
-    personas: [
-      {
-        name: "Advocacy Parent - Sarah Chen",
-        role: "Stay-at-Home Mom",
-        age: "34",
-        goals: ["Track family advocacy progress", "Access educational resources easily", "Connect with other advocacy families"],
-        painPoints: ["Complex navigation on current platform", "Lack of mobile-friendly experience", "No personalized content recommendations"],
-        techComfort: "Medium",
-        description: "Engaged parent who wants to participate in family advocacy programs but finds the current platform confusing and time-consuming to navigate"
-      },
-      {
-        name: "New Member - Marcus Johnson",
-        role: "Working Professional",
-        age: "42",
-        goals: ["Quick onboarding to advocacy activities", "Understand program structure", "Find relevant challenges and tasks"],
-        painPoints: ["Overwhelming amount of information", "Unclear starting points", "Limited time for learning"],
-        techComfort: "High",
-        description: "Busy professional recently joining the advocacy community who needs clear guidance and efficient pathways to get started"
-      },
-      {
-        name: "Community Leader - Elena Rodriguez",
-        role: "Volunteer Coordinator",
-        age: "38",
-        goals: ["Monitor team progress and engagement", "Access administrative tools", "Share resources with community members"],
-        painPoints: ["Manual tracking of participant activities", "Difficult to generate reports", "Limited collaboration features"],
-        techComfort: "High",
-        description: "Active community organizer who needs robust tools to coordinate advocacy efforts and track collective impact"
-      },
-      {
-        name: "Senior Advocate - Robert Williams",
-        role: "Retired Educator",
-        age: "65",
-        goals: ["Easy access to learning materials", "Simple navigation interface", "Clear visual feedback on progress"],
-        painPoints: ["Small text and complex interfaces", "Too many steps to complete tasks", "Confusing gamification elements"],
-        techComfort: "Low",
-        description: "Experienced advocate who values simplicity and accessibility in digital platforms, preferring straightforward interfaces over complex features"
-      }
-    ],
-    
+    context: {
+      ecosystem: "FutureFirstFamilies operates within a broader ecosystem of family advocacy organizations, connecting parents, educators, and community leaders to drive policy change and educational improvements.",
+      users: "The primary users are parents and family members who want to participate in advocacy activities but often lack time, clarity, or motivation to engage consistently with traditional advocacy platforms.",
+      purpose: "The platform exists to transform passive community members into active advocates by making participation accessible, rewarding, and trackable.",
+      background: "The organization needed to replace a fragmented system of emails, spreadsheets, and disconnected tools with a unified platform that could scale their advocacy efforts while maintaining engagement."
+    },
+
     problem: {
-      title: "The Challenge",
-      description: "Traditional learning platforms were static, one-size-fits-all, and failed to engage families effectively in personalized education. The existing platform had poor user experience, outdated design, and manual content management that hindered learning progress and family participation.",
+      title: "Problem Statement",
+      description: "Families wanted to participate in advocacy but faced significant barriers: fragmented experiences across multiple tools, unclear next steps, and no sense of progress or achievement. The existing approach failed to motivate sustained participation.",
       painPoints: [
-        "Low user engagement and learning completion rates",
-        "Outdated, non-responsive design affecting mobile learners",
-        "Manual content management creating educational bottlenecks",
-        "Lack of personalized AI-driven learning experiences",
-        "Poor navigation making educational resources hard to find"
+        "Low engagement rates due to unclear value proposition and confusing user journeys",
+        "Fragmented experience across email, documents, and separate web tools",
+        "No structured onboarding leaving new members overwhelmed",
+        "Lack of progress visibility making advocacy feel like endless, thankless work",
+        "Manual tracking creating administrative burden and limiting scalability"
       ]
     },
-    
-    solution: {
-      title: "The Solution",
-      description: "Designed and developed a modern, AI-enhanced learning platform with gamified elements, personalized educational experiences, and seamless HubSpot API integration for automated content management and improved family learning outcomes.",
-      features: [
-        "Responsive, mobile-first design optimized for all devices",
-        "AI-driven personalized learning paths and content adaptation",
-        "Gamified elements to encourage continued learning progress",
-        "HubSpot API integration for automated content management",
-        "Intuitive navigation and family-friendly learning interface",
-        "Interactive features and engaging educational design"
+
+    goals: [
+      { goal: "Improve Engagement", description: "Create a motivating experience that drives consistent participation through clear value and rewards" },
+      { goal: "Simplify Participation", description: "Reduce friction in advocacy activities with intuitive task flows and clear next steps" },
+      { goal: "Enable Progress Tracking", description: "Provide visible milestones and achievements that recognize user contributions" },
+      { goal: "Scale Operations", description: "Build a platform that reduces administrative overhead while supporting growth" },
+      { goal: "Unify Experience", description: "Consolidate fragmented tools into a single, cohesive platform" }
+    ],
+
+    research: {
+      stakeholderInsights: [
+        "Administrators spent 60% of their time on manual tracking instead of program development",
+        "Most engaged users were those who received personal outreach, indicating need for scalable engagement mechanics",
+        "Drop-off typically occurred within first 2 weeks due to unclear expectations"
+      ],
+      behavioralInsights: [
+        "Users responded strongly to visible progress indicators and achievement recognition",
+        "Small, time-boxed tasks had 3x higher completion rates than open-ended activities",
+        "Social proof and community visibility motivated continued participation"
+      ],
+      uxObservations: [
+        "Navigation patterns showed users struggled to find relevant activities",
+        "Form abandonment was high due to lengthy, multi-step processes",
+        "Mobile usage was significant but poorly supported by existing tools"
       ]
     },
-    
-    process: [
+
+    designDecisions: [
       {
-        phase: "Discovery & Research",
-        duration: "1 week",
-        description: "Conducted user research, analyzed existing platform, and identified key pain points through stakeholder interviews",
-        deliverables: ["User research findings", "Competitive analysis", "Technical requirements"]
+        insight: "Users dropped off within 2 weeks due to unclear expectations",
+        decision: "Designed structured onboarding with progressive disclosure",
+        reasoning: "Breaking the experience into digestible steps reduces cognitive load and builds early momentum"
       },
       {
-        phase: "Design & Prototyping", 
-        duration: "2 weeks",
-        description: "Created comprehensive design system in Figma with focus on family-friendly aesthetics and gamification elements",
-        deliverables: ["Figma design system", "Interactive prototypes", "User flow diagrams"]
+        insight: "Small, time-boxed tasks had higher completion rates",
+        decision: "Created a task-based experience with clear time estimates",
+        reasoning: "Respects user time constraints while maintaining engagement through achievable goals"
       },
       {
-        phase: "Development",
-        duration: "2 weeks", 
-        description: "Built responsive website using React and TypeScript with HubSpot API integration for content management",
-        deliverables: ["Responsive website", "HubSpot integration", "Performance optimization"]
+        insight: "Users responded to visible progress and achievements",
+        decision: "Implemented gamification with points, levels, and milestones",
+        reasoning: "Provides intrinsic motivation and creates a sense of accomplishment that drives retention"
       },
       {
-        phase: "Testing & Launch",
-        duration: "1 week",
-        description: "Comprehensive testing across devices, performance optimization, and successful deployment",
-        deliverables: ["Testing documentation", "Performance reports", "Launch strategy"]
+        insight: "Mobile usage was significant but poorly supported",
+        decision: "Designed mobile-first responsive experience",
+        reasoning: "Meets users where they are, enabling participation during commutes and brief availability windows"
+      },
+      {
+        insight: "Navigation patterns showed users struggled to find activities",
+        decision: "Simplified information architecture with clear action-oriented hierarchy",
+        reasoning: "Reduces decision fatigue and surfaces relevant content based on user context and progress"
       }
     ],
-    
+
+    strategy: {
+      engagementLoop: "Users discover tasks → Complete activities → Earn points → Unlock achievements → See community impact → Stay motivated to continue",
+      navigation: "Three-tier structure: Dashboard (overview + next actions), Activities (task library), Profile (progress + achievements)",
+      taskExperience: "Each task includes clear description, time estimate, step-by-step guidance, and immediate feedback on completion",
+      rewardSystem: "Points for activities, badges for milestones, levels for sustained engagement, leaderboards for community motivation",
+      contentFlow: "Personalized activity recommendations based on user interests, location, and past engagement patterns"
+    },
+
     results: [
-      { metric: "User Engagement", value: "78%", description: "Increase in user participation and time spent on site" },
-      { metric: "Task Completion", value: "65%", description: "Success rate for advocacy activities and challenges" },
-      { metric: "Content Automation", value: "100%", description: "Automated content management via HubSpot API" },
-      { metric: "Mobile Usage", value: "89%", description: "Improvement in mobile user experience scores" },
-      { metric: "Load Performance", value: "1.8s", description: "Average page load time optimization" },
-      { metric: "SEO Score", value: "94/100", description: "Search engine optimization achievement" }
+      { metric: "User Engagement", value: "+78%", description: "Increase in active participation and task completion" },
+      { metric: "Task Completion", value: "65%", description: "Average completion rate for advocacy activities" },
+      { metric: "Onboarding Success", value: "89%", description: "Users completing initial setup and first task" },
+      { metric: "Mobile Usage", value: "72%", description: "Of sessions occurring on mobile devices" },
+      { metric: "Admin Efficiency", value: "-60%", description: "Reduction in manual tracking and administration time" },
+      { metric: "Retention", value: "3.2x", description: "Improvement in 30-day user retention rate" }
     ],
-    
-    hubspotFeatures: [
-      {
-        feature: "Dynamic Form Integration",
-        description: "Seamless contact forms with automatic lead scoring and CRM integration",
-        impact: "245% increase in form submissions"
-      },
-      {
-        feature: "Blog Content API",
-        description: "Automated blog content management with real-time updates and SEO optimization", 
-        impact: "156% boost in blog engagement"
-      },
-      {
-        feature: "Email Marketing Automation",
-        description: "Integrated newsletter sign-ups with automated drip campaigns",
-        impact: "189% growth in email subscribers"
-      },
-      {
-        feature: "Analytics & Tracking",
-        description: "Comprehensive user behavior tracking and conversion analytics",
-        impact: "95% reduction in manual tracking"
-      }
-    ],
+
+    designSystem: {
+      typography: "Clear hierarchy with bold headings for scannability, comfortable body text for extended reading, and consistent sizing across breakpoints",
+      colors: "Accessible color palette with distinct semantic meanings: blue for actions, green for success/progress, orange for engagement, and neutral grays for content",
+      components: "Reusable component library including cards, progress indicators, achievement badges, and task modules designed for consistency and efficiency",
+      patterns: "Established interaction patterns for task completion flows, progress visualization, and notification handling"
+    },
     
     techStack: [
+      { name: "Figma", category: "Design & Prototyping" },
       { name: "React", category: "Frontend Framework" },
-      { name: "TypeScript", category: "Programming Language" },
-      { name: "Figma", category: "Design Tool" },
-      { name: "HubSpot API", category: "Content Management" },
-      { name: "Tailwind CSS", category: "CSS Framework" }
+      { name: "TypeScript", category: "Type Safety" },
+      { name: "HubSpot API", category: "CRM Integration" },
+      { name: "Tailwind CSS", category: "Styling System" }
     ],
     
     learnings: [
-      "Importance of AI-driven personalization in learning platforms to maintain user engagement",
-      "How API integration can streamline educational content management and reduce manual work",
-      "The value of family-centered design thinking in creating inclusive learning experiences",
-      "Benefits of comprehensive Figma design systems for scalable educational projects"
+      {
+        title: "Behavior Change Requires Structure",
+        description: "Motivation alone doesn't create sustained engagement. Clear structure, visible progress, and achievable milestones are essential for behavior change."
+      },
+      {
+        title: "Gamification Must Serve Purpose",
+        description: "Points and badges only work when they reflect meaningful progress. The reward system must align with actual advocacy impact, not just activity volume."
+      },
+      {
+        title: "Simplicity Enables Engagement",
+        description: "Reducing friction in the core experience matters more than adding features. Every additional step is a potential drop-off point."
+      },
+      {
+        title: "Mobile-First is Non-Negotiable",
+        description: "For time-constrained users, mobile isn't a nice-to-have—it's where engagement happens. Design decisions must prioritize mobile constraints."
+      }
+    ],
+
+    whatsNext: [
+      { title: "Personalization Engine", description: "AI-driven activity recommendations based on user behavior, interests, and advocacy goals" },
+      { title: "Community Features", description: "Team challenges, peer recognition, and collaborative advocacy activities" },
+      { title: "Impact Dashboard", description: "Aggregate visualization showing collective community impact and policy outcomes" },
+      { title: "Admin Analytics", description: "Enhanced reporting for program administrators to optimize engagement strategies" }
     ]
   };
 
   return (
     <div ref={containerRef} className="min-h-screen bg-background text-foreground relative grain-texture fff-case-study">
-      {/* Case Study Navigation */}
       <CaseStudyNavigation sections={navigationSections} />
-      {/* Progress Bar */}
       <motion.div 
         className="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary to-cyan-400 z-[9999]"
         style={{ width: progressWidth }}
       />
-      {/* Navigation */}
       <motion.nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
@@ -243,6 +233,7 @@ const CaseStudyPage = () => {
           </div>
         </div>
       </motion.nav>
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
         <div className="absolute inset-0">
@@ -253,7 +244,6 @@ const CaseStudyPage = () => {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <div className="space-y-8">
-            {/* Project Metadata */}
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-white/70">
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-primary" />
@@ -262,21 +252,20 @@ const CaseStudyPage = () => {
               <div className="w-px h-4 bg-white/30"></div>
               <div className="flex items-center gap-2">
                 <Users className="w-4 h-4 text-primary" />
-                <span className="jost-secondary">{caseStudyData.team}</span>
+                <span className="jost-secondary">{caseStudyData.role}</span>
               </div>
             </div>
 
-            {/* Main Title */}
             <div className="space-y-6">
               <Badge variant="outline" className="text-sm px-4 py-2 border-primary/50 bg-primary/10 jost-secondary">
                 {caseStudyData.category}
               </Badge>
               <div className="space-y-2">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white albert-sans-medium leading-tight">
-                  FutureFirstFamilies
+                  {caseStudyData.title}
                 </h1>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white albert-sans-medium leading-tight">
-                  Where Families<br className="hidden sm:inline" /> Drive Change.
+                  Gamified Advocacy Platform
                 </h2>
               </div>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
@@ -284,7 +273,6 @@ const CaseStudyPage = () => {
               </p>
             </div>
 
-            {/* Tags */}
             <div className="flex flex-wrap justify-center gap-3 pt-4">
               {caseStudyData.tags.map((tag) => (
                 <Badge key={tag} variant="secondary" className="text-sm px-3 py-1 jost-secondary">
@@ -299,6 +287,7 @@ const CaseStudyPage = () => {
           <div className="w-px h-16 bg-gradient-to-b from-primary to-transparent" />
         </div>
       </section>
+
       {/* 1. Project Overview */}
       <section id="overview" className="py-20 relative">
         <div className="absolute inset-0">
@@ -318,12 +307,11 @@ const CaseStudyPage = () => {
               PROJECT OVERVIEW
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Understanding the challenge and defining the strategic approach
+              A snapshot of the project scope, role, and objectives
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            {/* Project Details */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -354,7 +342,6 @@ const CaseStudyPage = () => {
               </Card>
             </motion.div>
 
-            {/* Overview Text */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -372,7 +359,322 @@ const CaseStudyPage = () => {
           </div>
         </div>
       </section>
-      {/* Website Showcase Video */}
+
+      {/* 2. Context */}
+      <section id="context" className="py-20 relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+              CONTEXT
+            </h2>
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
+              Understanding the ecosystem, users, and why this project existed
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              { title: "Product Ecosystem", content: caseStudyData.context.ecosystem, icon: Globe },
+              { title: "User Environment", content: caseStudyData.context.users, icon: Users },
+              { title: "Platform Purpose", content: caseStudyData.context.purpose, icon: Target },
+              { title: "Project Background", content: caseStudyData.context.background, icon: Lightbulb }
+            ].map((item, index) => {
+              const IconComponent = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="p-8 glass-card grain-texture border-cyan-500/30 h-full">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <IconComponent className="w-5 h-5 text-cyan-400" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-extrabold text-cyan-300 mb-3 albert-sans-medium">{item.title}</h3>
+                        <p className="text-white/85 leading-relaxed jost-secondary">{item.content}</p>
+                      </div>
+                    </div>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Problem Statement */}
+      <section id="problem" className="py-20 relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-red-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+              PROBLEM STATEMENT
+            </h2>
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
+              The core challenges blocking user engagement and platform success
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <Card className="p-12 glass-card grain-texture border-red-500/30">
+              <p className="text-xl text-white/90 leading-relaxed mb-8 jost-secondary">
+                {caseStudyData.problem.description}
+              </p>
+              
+              <h3 className="text-2xl font-extrabold mb-6 text-red-400 albert-sans-medium">KEY CHALLENGES</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {caseStudyData.problem.painPoints.map((point, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-start space-x-3"
+                  >
+                    <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
+                    <p className="text-white/85 jost-secondary">{point}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 4. Goals */}
+      <section id="goals" className="py-20 relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+              GOALS
+            </h2>
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
+              Clear objectives driving the design strategy
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {caseStudyData.goals.map((item, index) => (
+              <motion.div
+                key={item.goal}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-6 glass-card grain-texture border-green-500/30 h-full">
+                  <div className="flex items-start space-x-3 mb-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                    <h3 className="text-lg font-extrabold text-green-300 albert-sans-medium">{item.goal}</h3>
+                  </div>
+                  <p className="text-white/80 jost-secondary pl-8">{item.description}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Research & Product Understanding */}
+      <section id="research" className="py-20 relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+              RESEARCH & PRODUCT UNDERSTANDING
+            </h2>
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
+              Key insights that shaped design decisions
+            </p>
+          </motion.div>
+
+          <div className="space-y-8">
+            {[
+              { title: "Stakeholder Insights", items: caseStudyData.research.stakeholderInsights, color: "purple" },
+              { title: "Behavioral Insights", items: caseStudyData.research.behavioralInsights, color: "pink" },
+              { title: "UX Observations", items: caseStudyData.research.uxObservations, color: "violet" }
+            ].map((section, sectionIndex) => (
+              <motion.div
+                key={section.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-8 glass-card grain-texture border-purple-500/30">
+                  <h3 className="text-xl font-extrabold mb-6 text-purple-300 albert-sans-medium">{section.title}</h3>
+                  <div className="space-y-4">
+                    {section.items.map((item, index) => (
+                      <div key={index} className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
+                        <p className="text-white/85 jost-secondary">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Design Thinking & Key Decisions */}
+      <section id="decisions" className="py-20 relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+              DESIGN THINKING & KEY DECISIONS
+            </h2>
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
+              How insights translated into design choices
+            </p>
+          </motion.div>
+
+          <div className="space-y-6">
+            {caseStudyData.designDecisions.map((decision, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-8 glass-card grain-texture border-orange-500/30">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div>
+                      <div className="text-sm font-bold text-orange-400 mb-2 jost-secondary">INSIGHT</div>
+                      <p className="text-white/85 jost-secondary">{decision.insight}</p>
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <ArrowRight className="w-6 h-6 text-orange-400 hidden lg:block" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-bold text-green-400 mb-2 jost-secondary">DECISION</div>
+                      <p className="text-white font-semibold jost-secondary mb-2">{decision.decision}</p>
+                      <p className="text-white/70 text-sm jost-secondary">{decision.reasoning}</p>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Solution Strategy */}
+      <section id="strategy" className="py-20 relative">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-teal-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 grain-texture opacity-25" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+              SOLUTION STRATEGY
+            </h2>
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
+              System-level approach to solving engagement challenges
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              { title: "Engagement Loop", content: caseStudyData.strategy.engagementLoop },
+              { title: "Navigation Structure", content: caseStudyData.strategy.navigation },
+              { title: "Task Experience", content: caseStudyData.strategy.taskExperience },
+              { title: "Reward System", content: caseStudyData.strategy.rewardSystem },
+              { title: "Content Flow", content: caseStudyData.strategy.contentFlow, colSpan: true }
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={item.colSpan ? "md:col-span-2" : ""}
+              >
+                <Card className="p-8 glass-card grain-texture border-teal-500/30 h-full">
+                  <h3 className="text-xl font-extrabold text-teal-300 mb-4 albert-sans-medium">{item.title}</h3>
+                  <p className="text-white/85 leading-relaxed jost-secondary">{item.content}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Final Product / Design Showcase */}
       <section id="showcase" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950" />
@@ -388,10 +690,10 @@ const CaseStudyPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
-              WEBSITE SHOWCASE
+              FINAL PRODUCT
             </h2>
             <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
-              Complete walkthrough of the FutureFirstFamilies website showing design, functionality, and user experience
+              The gamified advocacy platform in action
             </p>
           </motion.div>
 
@@ -414,22 +716,20 @@ const CaseStudyPage = () => {
                   Your browser does not support the video tag.
                 </video>
                 
-                {/* Video Overlay for Loading */}
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-500/10 pointer-events-none" />
               </div>
               
               <div className="mt-6 text-center">
                 <h3 className="text-xl font-extrabold text-cyan-400 mb-2 albert-sans-medium">
-                  Complete Website Demonstration
+                  Platform Walkthrough
                 </h3>
                 <p className="text-white/75 jost-secondary">
-                  Interactive walkthrough showcasing the gamified advocacy platform, user experience, and HubSpot integration features
+                  Experience the gamified advocacy journey: onboarding, task completion, progress tracking, and achievement system
                 </p>
               </div>
             </Card>
           </motion.div>
 
-          {/* Video Features */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -439,18 +739,18 @@ const CaseStudyPage = () => {
           >
             {[
               { 
-                title: "User Experience", 
-                description: "Smooth navigation and family-friendly interface design",
-                icon: Users 
-              },
-              { 
-                title: "Interactive Features", 
-                description: "Gamified elements and engaging user interactions",
+                title: "Task-Based Experience", 
+                description: "Clear actions with time estimates drive consistent participation",
                 icon: Target 
               },
               { 
-                title: "Responsive Design", 
-                description: "Optimized experience across all devices and screen sizes",
+                title: "Progress Visibility", 
+                description: "Points, levels, and milestones make advocacy feel rewarding",
+                icon: TrendingUp 
+              },
+              { 
+                title: "Mobile-First Design", 
+                description: "Optimized for participation during brief availability windows",
                 icon: Smartphone 
               }
             ].map((feature, index) => {
@@ -480,102 +780,14 @@ const CaseStudyPage = () => {
           </motion.div>
         </div>
       </section>
-      {/* User Personas */}
-      <section id="personas" className="py-20 relative">
+
+      {/* 9. Design System Foundations */}
+      <section id="designsystem" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
-              USER PERSONAS
-            </h2>
-            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Four key user groups driving platform design decisions
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {caseStudyData.personas.map((persona, index) => (
-              <motion.div
-                key={persona.name}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="p-4 sm:p-6 lg:p-8 glass-card grain-texture border-blue-500/30 h-full">
-                  <div className="space-y-4 sm:space-y-6">
-                    <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto sm:mx-0">
-                        <User className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />
-                      </div>
-                      <div className="text-center sm:text-left">
-                        <h3 className="text-lg sm:text-xl font-extrabold text-blue-300 albert-sans-medium leading-tight">{persona.name}</h3>
-                        <p className="text-sm sm:text-base text-white/70 jost-secondary">{persona.role}, {persona.age}</p>
-                      </div>
-                    </div>
-                    
-                    <p className="text-white/85 leading-relaxed jost-secondary">{persona.description}</p>
-                    
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="text-base font-bold text-blue-400 mb-3 jost-secondary">GOALS</h4>
-                        <ul className="space-y-2">
-                          {persona.goals.map((goal, idx) => (
-                            <li key={idx} className="text-base text-white/80 flex items-start jost-secondary">
-                              <Target className="w-4 h-4 text-blue-400 mr-3 flex-shrink-0 mt-0.5" />
-                              {goal}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      
-                      <div>
-                        <h4 className="text-base font-bold text-red-400 mb-3 jost-secondary">PAIN POINTS</h4>
-                        <ul className="space-y-2">
-                          {persona.painPoints.map((pain, idx) => (
-                            <li key={idx} className="text-base text-white/80 flex items-start jost-secondary">
-                              <AlertCircle className="w-4 h-4 text-red-400 mr-3 flex-shrink-0 mt-0.5" />
-                              {pain}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      
-                      <div className="flex justify-between items-center pt-4">
-                        <span className="text-sm text-white/70 jost-secondary">Tech Comfort</span>
-                        <span className={`text-sm font-semibold px-3 py-1.5 rounded ${
-                          persona.techComfort === 'High' ? 'bg-green-500/20 text-green-400' :
-                          persona.techComfort === 'Medium' ? 'bg-yellow-500/20 text-yellow-400' :
-                          'bg-red-500/20 text-red-400'
-                        }`}>
-                          {persona.techComfort}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* The Challenge */}
-      <section id="challenge" className="py-20 relative">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-red-950/30 via-gray-900 to-slate-950" />
-          <div className="absolute inset-0 grain-texture opacity-25" />
-        </div>
-        
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -585,47 +797,49 @@ const CaseStudyPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
-              THE CHALLENGE
+              DESIGN SYSTEM FOUNDATIONS
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Identifying key pain points and user experience issues
+              Scalable visual language ensuring consistency and efficiency
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <Card className="p-12 glass-card grain-texture border-red-500/30">
-              <p className="text-xl text-white/90 leading-relaxed mb-8 jost-secondary">
-                {caseStudyData.problem.description}
-              </p>
-              
-              <h3 className="text-2xl font-extrabold mb-6 text-red-400 albert-sans-medium">KEY PAIN POINTS</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {caseStudyData.problem.painPoints.map((point, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-start space-x-3"
-                  >
-                    <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
-                    <p className="text-white/85 jost-secondary">{point}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </Card>
-          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              { title: "Typography", content: caseStudyData.designSystem.typography, icon: Code },
+              { title: "Color System", content: caseStudyData.designSystem.colors, icon: Palette },
+              { title: "Component Library", content: caseStudyData.designSystem.components, icon: Zap },
+              { title: "Interaction Patterns", content: caseStudyData.designSystem.patterns, icon: Smartphone }
+            ].map((item, index) => {
+              const IconComponent = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="p-8 glass-card grain-texture border-blue-500/30 h-full">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <IconComponent className="w-5 h-5 text-blue-400" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-extrabold text-blue-300 mb-3 albert-sans-medium">{item.title}</h3>
+                        <p className="text-white/85 leading-relaxed jost-secondary">{item.content}</p>
+                      </div>
+                    </div>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
-      {/* 3. Solution */}
-      <section id="solution" className="py-20 relative">
+
+      {/* 10. Impact & Outcomes */}
+      <section id="impact" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
@@ -640,187 +854,10 @@ const CaseStudyPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
-              THE SOLUTION
+              IMPACT & OUTCOMES
             </h2>
             <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Strategic approach to solving user experience challenges
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <Card className="p-12 glass-card grain-texture border-green-500/30">
-              <p className="text-xl text-white/90 leading-relaxed mb-8 jost-secondary">
-                {caseStudyData.solution.description}
-              </p>
-              
-              <h3 className="text-2xl font-extrabold mb-6 text-green-400 albert-sans-medium">KEY FEATURES</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {caseStudyData.solution.features.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-start space-x-3"
-                  >
-                    <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <p className="text-white/85 jost-secondary">{feature}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
-      {/* 4. Design & Development Process */}
-      <section id="process" className="py-20 relative">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
-          <div className="absolute inset-0 grain-texture opacity-25" />
-        </div>
-        
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
-              DESIGN & DEVELOPMENT PROCESS
-            </h2>
-            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Step-by-step approach from concept to implementation
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {caseStudyData.process.map((phase, index) => (
-              <motion.div
-                key={phase.phase}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card className="p-8 glass-card grain-texture border-purple-500/30 h-full">
-                  <div className="flex items-center mb-4">
-                    <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4">
-                      <span className="text-purple-400 font-bold jost-secondary">{index + 1}</span>
-                    </div>
-                    <Badge variant="outline" className="text-xs px-2 py-1 border-purple-400/50 text-purple-400 jost-secondary">
-                      {phase.duration}
-                    </Badge>
-                  </div>
-                  
-                  <h3 className="text-xl font-extrabold mb-4 text-purple-300 albert-sans-medium">
-                    {phase.phase}
-                  </h3>
-                  
-                  <p className="text-white/85 leading-relaxed mb-6 jost-secondary">
-                    {phase.description}
-                  </p>
-                  
-                  <div>
-                    <h4 className="text-sm font-bold text-purple-400 mb-2 jost-secondary">DELIVERABLES</h4>
-                    <ul className="space-y-1">
-                      {phase.deliverables.map((deliverable, idx) => (
-                        <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
-                          <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2" />
-                          {deliverable}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* 5. HubSpot Integration Results */}
-      <section id="hubspot" className="py-20 relative">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-950/30 via-gray-900 to-slate-950" />
-          <div className="absolute inset-0 grain-texture opacity-25" />
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
-              HUBSPOT INTEGRATION RESULTS
-            </h2>
-            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Measurable impact of API integration on content management and user engagement
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {caseStudyData.hubspotFeatures.map((item, index) => (
-              <motion.div
-                key={item.feature}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="p-8 glass-card grain-texture border-orange-500/30 h-full">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-5 h-5 text-orange-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-extrabold text-orange-300 mb-3 albert-sans-medium">
-                        {item.feature}
-                      </h3>
-                      <p className="text-white/85 leading-relaxed mb-4 jost-secondary">
-                        {item.description}
-                      </p>
-                      <Badge variant="outline" className="text-xs px-3 py-1 border-green-400/50 text-green-400 jost-secondary">
-                        {item.impact}
-                      </Badge>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* 6. Results & Impact */}
-      <section id="results" className="py-20 relative">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
-          <div className="absolute inset-0 grain-texture opacity-25" />
-        </div>
-        
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
-              RESULTS & IMPACT
-            </h2>
-            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Measurable outcomes demonstrating project success
+              Measurable results demonstrating design effectiveness
             </p>
           </motion.div>
 
@@ -853,10 +890,11 @@ const CaseStudyPage = () => {
           </div>
         </div>
       </section>
-      {/* 7. Technology Stack */}
-      <section id="technology" className="py-20 relative">
+
+      {/* 11. Learnings */}
+      <section id="learnings" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -869,49 +907,47 @@ const CaseStudyPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
-              TECHNOLOGY STACK
+              LEARNINGS
             </h2>
-            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
-              Modern tools and technologies used for optimal performance
+            <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
+              Key reflections from designing for behavior change
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {caseStudyData.techStack.map((tech, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {caseStudyData.learnings.map((learning, index) => (
               <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -5 }}
               >
-                <Card className="p-6 text-center glass-card grain-texture border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 h-48 flex flex-col justify-between">
-                  <div className="flex-1 flex flex-col items-center justify-center">
-                    <div className="w-12 h-12 bg-blue-500/20 rounded-xl mx-auto mb-4 flex items-center justify-center">
-                      <div className="w-6 h-6 bg-blue-400 rounded opacity-70" />
+                <Card className="p-8 glass-card grain-texture border-yellow-500/30 h-full">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-yellow-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Lightbulb className="w-4 h-4 text-yellow-400" />
                     </div>
-                    <h3 className="font-bold text-white mb-1 jost-secondary">
-                      {tech.name}
-                    </h3>
+                    <div>
+                      <h3 className="text-lg font-extrabold text-yellow-300 mb-2 albert-sans-medium">{learning.title}</h3>
+                      <p className="text-white/85 leading-relaxed jost-secondary">{learning.description}</p>
+                    </div>
                   </div>
-                  <p className="text-xs text-white/60 jost-secondary">
-                    {tech.category}
-                  </p>
                 </Card>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-      {/* 8. Key Learnings */}
-      <section id="learnings" className="py-20 relative">
+
+      {/* 12. What's Next */}
+      <section id="next" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-yellow-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
-        <div className="max-w-4xl mx-auto px-6 relative z-10">
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -920,35 +956,40 @@ const CaseStudyPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
-              KEY LEARNINGS
+              WHAT'S NEXT
             </h2>
             <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
-              Insights and growth opportunities discovered throughout the project
+              Future opportunities for platform evolution
             </p>
           </motion.div>
 
-          <Card className="p-12 glass-card grain-texture border-yellow-500/30">
-            <div className="space-y-6">
-              {caseStudyData.learnings.map((learning, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-start space-x-4"
-                >
-                  <div className="w-6 h-6 bg-yellow-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <Lightbulb className="w-4 h-4 text-yellow-400" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {caseStudyData.whatsNext.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-8 glass-card grain-texture border-purple-500/30 h-full">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <ArrowRight className="w-4 h-4 text-purple-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-extrabold text-purple-300 mb-2 albert-sans-medium">{item.title}</h3>
+                      <p className="text-white/85 leading-relaxed jost-secondary">{item.description}</p>
+                    </div>
                   </div>
-                  <p className="text-white/85 leading-relaxed text-lg jost-secondary">{learning}</p>
-                </motion.div>
-              ))}
-            </div>
-          </Card>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
-      {/* 9. Call to Action */}
+
+      {/* Call to Action */}
       <section className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
@@ -967,7 +1008,7 @@ const CaseStudyPage = () => {
               READY TO START YOUR PROJECT?
             </h2>
             <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
-              Interested in discussing how modern design, API integration, or user experience optimization could work for your project?
+              Interested in discussing how product design can solve complex engagement challenges for your platform?
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -987,25 +1028,20 @@ const CaseStudyPage = () => {
           </motion.div>
         </div>
       </section>
+
       {/* Footer */}
       <footer className="py-16 border-t border-white/10">
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex items-center justify-center mb-10">
             <div className="flex items-center space-x-16">
-              {/* Logo Circle */}
               <div className="flex-shrink-0">
                 <a href="/#hero" className="block group">
                   <div className="w-20 h-20 bg-gradient-to-br from-grey-600/30 to-white-600/30 rounded-full border-1.5 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
-                    <img
-                      src={LogoImage}
-                      alt="Logo"
-                      className="w-10 h-10 object-contain"
-                    />
+                    <img src={LogoImage} alt="Logo" className="w-10 h-10 object-contain" />
                   </div>
                 </a>
               </div>
 
-              {/* LinkedIn Circle */}
               <div className="flex-shrink-0">
                 <a
                   href="https://www.linkedin.com/in/karan-gadhave/"
@@ -1014,11 +1050,7 @@ const CaseStudyPage = () => {
                   className="block group"
                 >
                   <div className="w-20 h-20 bg-gradient-to-br from-black-600/30 to-black-600/30 rounded-full border-1.5 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
-                    <img
-                      src={linkedinLogo}
-                      alt="LinkedIn"
-                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300"
-                    />
+                    <img src={linkedinLogo} alt="LinkedIn" className="w-9 h-9 group-hover:scale-110 transition-all duration-300" />
                   </div>
                 </a>
               </div>

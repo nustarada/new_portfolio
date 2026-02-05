@@ -1,0 +1,110 @@
+Update only the “Future First Families” case study page using the new global case study structure already defined.
+
+Do NOT change UI.
+Do NOT change layout.
+Do NOT change styling.
+Do NOT change animations.
+Only restructure content and section hierarchy.
+
+Reorganize this case study into the following structure while reusing existing components and sections wherever possible.
+
+1. Project Overview
+Keep the hero section.
+Clarify:
+- what the platform is
+- who it is for
+- your role
+- scope and duration
+Make this a clear snapshot of the project.
+
+2. Context
+Add a section introducing:
+- product ecosystem
+- user environment (parents/families/community)
+- platform purpose
+- why the project existed
+
+3. Problem Statement
+Create a strong problem section explaining:
+- user engagement challenges
+- fragmented experience
+- difficulty in motivating participation
+- need for structured advocacy experience
+
+Keep concise and product-focused.
+
+4. Goals
+Add a structured goals section:
+- improve engagement
+- simplify participation
+- create motivating experience
+- make platform scalable
+- enable clear progress tracking
+
+5. Research & Product Understanding
+Convert existing research/persona style content into:
+- stakeholder inputs
+- product understanding
+- behavioral insights
+- UX observations
+
+Avoid academic UX tone.
+
+6. Design Thinking & Key Decisions
+Create a strong section showing:
+Insight → Design decision → Reasoning
+
+Focus on:
+- gamification logic
+- motivation mechanics
+- clarity of actions
+- onboarding simplification
+- platform usability
+
+7. Solution Strategy
+Add system-level explanation:
+- engagement loops
+- navigation structure
+- task-based experience
+- reward/milestone logic
+- content flow
+
+8. Final Product
+Keep existing design showcase.
+Enhance captions to explain why features/screens exist.
+
+9. Design System Foundations
+Add section describing:
+- visual consistency
+- typography system
+- component reuse
+- scalable UI structure
+
+10. Impact & Outcomes
+Reframe results section:
+- usability improvements
+- engagement improvements
+- clarity and motivation
+- platform scalability
+
+11. Learnings
+Add short reflection:
+- designing for behavior change
+- motivation design
+- gamification balance
+- simplicity vs engagement
+
+12. What’s Next
+Add forward-looking section:
+- future feature expansion
+- deeper personalization
+- analytics-driven improvements
+
+Rules:
+- Merge overlapping sections
+- Remove bootcamp-style UX breakdowns
+- Keep page concise
+- Maintain all navigation and motion behavior
+- Keep visuals untouched
+
+Only restructure narrative and section hierarchy.
