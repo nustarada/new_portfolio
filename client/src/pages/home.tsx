@@ -759,26 +759,12 @@ export default function Home() {
                       alt={`${project.title} Platform`}
                       className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    {/* Project Number Badge */}
-                    <div className="absolute top-4 left-4 w-10 h-10 bg-gradient-to-br from-primary/80 to-purple-500/80 backdrop-blur-md border border-white/20 flex items-center justify-center">
-                      <span className="text-sm font-bold text-white font-mono">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-                    {/* Case Study Coming Soon Badge */}
-                    {project.isComingSoon && (
-                      <div className="absolute bottom-4 left-4 px-3 py-1.5 bg-black/70 backdrop-blur-md border border-white/20 rounded">
-                        <span className="text-[10px] font-semibold text-white/90 jost-secondary uppercase tracking-wide">
-                          Case Study Coming Soon
-                        </span>
-                      </div>
-                    )}
                   </div>
 
                   {/* Content */}
                   <div className="p-5 flex flex-col flex-1">
                     {/* Project Title with Logo */}
-                    <div className="flex items-center justify-between gap-3 mb-3">
+                    <div className="flex items-center justify-between gap-3 mb-4">
                       <h3 className="text-xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
                         {project.title}
                       </h3>
@@ -794,42 +780,6 @@ export default function Home() {
                           }}
                         />
                       </div>
-                    </div>
-                    {/* Project Description */}
-                    <div className="mb-4">
-                      <p className="text-white/80 leading-relaxed text-sm jost-secondary font-light line-clamp-3">
-                        {project.description}
-                      </p>
-                    </div>
-
-                    {/* Industry and Services Row */}
-                    <div className="grid grid-cols-2 gap-4 mb-4">
-                      <div>
-                        <p className="text-white/50 text-xs mb-1 jost-secondary font-medium">
-                          Industry
-                        </p>
-                        <p className="text-white font-semibold text-sm jost-secondary">
-                          {project.industry || project.category}
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-white/50 text-xs mb-1 jost-secondary font-medium">
-                          Services
-                        </p>
-                        <p className="text-white font-semibold text-sm jost-secondary">
-                          {project.services}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Duration */}
-                    <div className="mb-4">
-                      <p className="text-white/50 text-xs mb-1 jost-secondary font-medium">
-                        Duration
-                      </p>
-                      <p className="text-white font-semibold text-sm jost-secondary">
-                        {project.duration || "4 Months"}
-                      </p>
                     </div>
 
                     {/* Action Buttons - pushed to bottom */}
