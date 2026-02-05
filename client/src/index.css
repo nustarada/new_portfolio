@@ -351,13 +351,26 @@
   .neo-card {
     @apply bg-card border border-border rounded-2xl p-8;
     box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.05),
+      0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark .neo-card {
+    box-shadow:
       0 0 0 1px rgba(255, 255, 255, 0.05),
       0 8px 32px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .neo-card:hover {
     transform: translateY(-4px);
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.1),
+      0 16px 64px rgba(0, 0, 0, 0.15),
+      0 0 80px rgba(59, 130, 246, 0.05);
+  }
+
+  .dark .neo-card:hover {
     box-shadow:
       0 0 0 1px rgba(255, 255, 255, 0.1),
       0 16px 64px rgba(0, 0, 0, 0.6),
@@ -365,32 +378,43 @@
   }
 
   .glow-text {
-    background: linear-gradient(135deg, #6966ff 0%, #cb5cff 50%, #d642ff 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #9333ea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: #22d3ee !important;
-    /* Fallback for unsupported browsers */
+    color: #2563eb !important;
   }
 
-  /* Fix all gradient text backgrounds */
+  .dark .glow-text {
+    background: linear-gradient(135deg, #6966ff 0%, #cb5cff 50%, #d642ff 100%);
+    color: #22d3ee !important;
+  }
+
   .bg-clip-text {
     background-color: transparent !important;
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 50%, #0891b2 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    color: #2563eb !important;
+  }
+
+  .dark .text-gradient {
+    background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 50%, #0891b2 100%);
     color: #22d3ee !important;
-    /* Fallback for unsupported browsers */
   }
 
   /* Simple Project Card Border */
   .project-card-border {
-    border: 0.6px solid rgba(255, 255, 255, 0.3);
+    border: 0.6px solid rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
+  }
+
+  .dark .project-card-border {
+    border: 0.6px solid rgba(255, 255, 255, 0.3);
   }
 
   .stroke-text {
@@ -405,12 +429,21 @@
     position: relative;
     overflow: hidden;
     background:
+      radial-gradient(circle at 50% 40%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+      linear-gradient(135deg,
+        rgba(248, 250, 252, 1) 0%,
+        rgba(241, 245, 249, 0.98) 50%,
+        rgba(248, 250, 252, 1) 100%);
+    will-change: transform;
+  }
+
+  .dark .cyber-grid {
+    background:
       radial-gradient(circle at 50% 40%, rgba(79, 172, 254, 0.04) 0%, transparent 50%),
       linear-gradient(135deg,
         rgba(4, 4, 6, 1) 0%,
         rgba(6, 6, 10, 0.98) 50%,
         rgba(4, 4, 6, 1) 100%);
-    will-change: transform;
   }
 
   .cyber-grid::after {
