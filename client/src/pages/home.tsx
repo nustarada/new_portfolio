@@ -571,7 +571,7 @@ export default function Home() {
               <Button
                 size="lg"
                 onClick={() => setIsResumeOpen(true)}
-                className="relative overflow-hidden w-full sm:w-auto px-6 sm:px-10 py-4 text-base sm:text-lg font-semibold text-white glass-card grain-texture hover:glass-intense border-primary/50 transition-all duration-300 hover:scale-105 min-h-[56px] jost-secondary"
+                className="relative overflow-hidden w-full sm:w-auto px-6 sm:px-10 py-4 text-base sm:text-lg font-semibold text-foreground glass-card grain-texture hover:glass-intense border-primary/50 transition-all duration-300 hover:scale-105 min-h-[56px] jost-secondary"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover/secondary:opacity-100 transition-opacity duration-300" />
 
@@ -861,7 +861,7 @@ export default function Home() {
                               href={project.liveUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="project-card-btn group/btn relative overflow-hidden text-white font-bold text-xs border border-foreground/30 hover:bg-foreground/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-white/10 no-underline"
+                              className="project-card-btn group/btn relative overflow-hidden text-foreground font-bold text-xs border border-foreground/30 hover:bg-foreground/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-foreground/10 no-underline"
                               style={{ WebkitTapHighlightColor: "transparent" }}
                             >
                               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
@@ -1406,7 +1406,7 @@ export default function Home() {
                     <img
                       src={linkedinLogo}
                       alt="LinkedIn"
-                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300"
+                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300 dark:invert-0 invert"
                     />
                   </div>
                 </a>

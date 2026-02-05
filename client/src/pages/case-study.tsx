@@ -227,7 +227,7 @@ const CaseStudyPage = () => {
           <div className="flex justify-between items-center">
             <Link href="/">
               <motion.div className="cursor-pointer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <img src={LogoImage} alt="Karan Gadhave Logo" className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 object-contain" />
+                <img src={LogoImage} alt="Karan Gadhave Logo" className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 object-contain dark:invert-0 invert" />
               </motion.div>
             </Link>
             
@@ -246,8 +246,8 @@ const CaseStudyPage = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-900" />
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-950/30 via-transparent to-purple-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-gray-50 to-slate-100 dark:from-slate-950 dark:via-gray-900 dark:to-slate-900" />
+          <div className="absolute inset-0 bg-gradient-to-t from-blue-100/30 via-transparent to-purple-100/20 dark:from-blue-950/30 dark:via-transparent dark:to-purple-950/20" />
           <div className="absolute inset-0 grain-texture opacity-30" />
         </div>
 
@@ -302,7 +302,7 @@ const CaseStudyPage = () => {
       {/* 1. Project Overview */}
       <section id="overview" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-900" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-slate-100 to-gray-50 dark:from-gray-950 dark:via-slate-900 dark:to-gray-900" />
           <div className="absolute inset-0 grain-texture opacity-20" />
         </div>
         
@@ -375,7 +375,7 @@ const CaseStudyPage = () => {
       {/* Website Showcase Video */}
       <section id="showcase" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-gray-100 to-slate-50 dark:from-slate-950 dark:via-gray-900 dark:to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-15" />
         </div>
         
@@ -483,7 +483,7 @@ const CaseStudyPage = () => {
       {/* User Personas */}
       <section id="personas" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-gray-100 to-slate-50 dark:from-blue-950/30 dark:via-gray-900 dark:to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -572,7 +572,7 @@ const CaseStudyPage = () => {
       {/* The Challenge */}
       <section id="challenge" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-red-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-red-50/30 via-gray-100 to-slate-50 dark:from-red-950/30 dark:via-gray-900 dark:to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -627,7 +627,7 @@ const CaseStudyPage = () => {
       {/* 3. Solution */}
       <section id="solution" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-gray-100 to-slate-50 dark:from-green-950/30 dark:via-gray-900 dark:to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -682,7 +682,7 @@ const CaseStudyPage = () => {
       {/* 4. Design & Development Process */}
       <section id="process" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-gray-100 to-slate-50 dark:from-purple-950/30 dark:via-gray-900 dark:to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -749,7 +749,7 @@ const CaseStudyPage = () => {
       {/* 5. HubSpot Integration Results */}
       <section id="hubspot" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-gray-100 to-slate-50 dark:from-orange-950/30 dark:via-gray-900 dark:to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -804,7 +804,7 @@ const CaseStudyPage = () => {
       {/* 6. Results & Impact */}
       <section id="results" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-gray-100 to-slate-50 dark:from-green-950/30 dark:via-gray-900 dark:to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -856,7 +856,7 @@ const CaseStudyPage = () => {
       {/* 7. Technology Stack */}
       <section id="technology" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-gray-100 to-slate-50 dark:from-blue-950/30 dark:via-gray-900 dark:to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -907,7 +907,7 @@ const CaseStudyPage = () => {
       {/* 8. Key Learnings */}
       <section id="learnings" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-yellow-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/30 via-gray-100 to-slate-50 dark:from-yellow-950/30 dark:via-gray-900 dark:to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -951,7 +951,7 @@ const CaseStudyPage = () => {
       {/* 9. Call to Action */}
       <section className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-gray-100 to-slate-50 dark:from-purple-950/30 dark:via-gray-900 dark:to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -999,7 +999,7 @@ const CaseStudyPage = () => {
                     <img
                       src={LogoImage}
                       alt="Logo"
-                      className="w-10 h-10 object-contain"
+                      className="w-10 h-10 object-contain dark:invert-0 invert"
                     />
                   </div>
                 </a>
@@ -1017,7 +1017,7 @@ const CaseStudyPage = () => {
                     <img
                       src={linkedinLogo}
                       alt="LinkedIn"
-                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300"
+                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300 dark:invert-0 invert"
                     />
                   </div>
                 </a>
@@ -1025,7 +1025,7 @@ const CaseStudyPage = () => {
             </div>
           </div>
 
-          <div className="w-600 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto mb-8"></div>
+          <div className="w-600 h-px bg-gradient-to-r from-transparent via-foreground/40 to-transparent mx-auto mb-8"></div>
 
           <div className="text-center">
             <p className="text-foreground/70 text-sm font-light tracking-wider">
