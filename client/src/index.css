@@ -203,6 +203,7 @@
     box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    color: hsl(220, 27%, 10%);
   }
 
   .dark .glass-card {
@@ -211,6 +212,7 @@
     box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    color: #fafafa;
   }
 
   .glass-intense {
@@ -221,6 +223,7 @@
     box-shadow:
       0 12px 40px rgba(0, 0, 0, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    color: hsl(220, 27%, 10%);
   }
 
   .dark .glass-intense {
@@ -229,6 +232,7 @@
     box-shadow:
       0 12px 40px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    color: #fafafa;
   }
 
   .grain-texture {

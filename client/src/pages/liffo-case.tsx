@@ -738,7 +738,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               OVERVIEW & PROBLEM
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -857,7 +857,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               USER PERSONAS
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -968,7 +968,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               THE CHALLENGE
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -1072,7 +1072,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               THE DESIGN SOLUTION
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -1130,7 +1130,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               DESIGN PROCESS
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -1207,7 +1207,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               KEY FEATURES
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -1278,7 +1278,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               DESIGN SHOWCASE
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -1433,7 +1433,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               RESULTS & IMPACT
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -1457,7 +1457,7 @@ const LiffoCaseStudy = () => {
                     <div className="text-3xl sm:text-4xl md:text-5xl font-black text-green-400 albert-sans-medium leading-none">
                       {result.value}
                     </div>
-                    <h3 className="text-base sm:text-lg font-semibold text-white jost-secondary">
+                    <h3 className="text-base sm:text-lg font-semibold text-foreground jost-secondary">
                       {result.metric}
                     </h3>
                     <div className="h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent my-3 sm:my-4"></div>
@@ -1486,7 +1486,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               DESIGN PRINCIPLES
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -1541,7 +1541,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               TECHNOLOGY STACK
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -1592,7 +1592,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               KEY LEARNINGS
             </h2>
             <p className="text-xl text-foreground/85 max-w-3xl mx-auto jost-secondary">
@@ -1638,7 +1638,7 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-4xl md:text-5xl font-extrabold albert-sans-medium text-white">
+            <h2 className="text-4xl md:text-5xl font-extrabold albert-sans-medium text-foreground">
               READY TO DISCUSS YOUR PROJECT?
             </h2>
             <p className="text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed jost-secondary">

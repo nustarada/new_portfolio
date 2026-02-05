@@ -292,7 +292,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               PROJECT OVERVIEW
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -365,7 +365,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               LANDING PAGE DESIGNS
             </h2>
             <p className="text-xl text-foreground/85 max-w-3xl mx-auto jost-secondary">
@@ -398,7 +398,7 @@ const TwoHourLearningCaseStudy = () => {
                   <h3 className="text-base font-extrabold text-cyan-400 mb-1 albert-sans-medium">
                     Homepage (WordPress)
                   </h3>
-                  <p className="text-white/75 text-xs jost-secondary">
+                  <p className="text-foreground/75 text-xs jost-secondary">
                     General audience overview
                   </p>
                 </div>
@@ -428,7 +428,7 @@ const TwoHourLearningCaseStudy = () => {
                   <h3 className="text-base font-extrabold text-blue-400 mb-1 albert-sans-medium">
                     Persona 1 (HubSpot)
                   </h3>
-                  <p className="text-white/75 text-xs jost-secondary">
+                  <p className="text-foreground/75 text-xs jost-secondary">
                     AI-powered learning
                   </p>
                 </div>
@@ -458,7 +458,7 @@ const TwoHourLearningCaseStudy = () => {
                   <h3 className="text-base font-extrabold text-green-400 mb-1 albert-sans-medium">
                     Persona 2 (HubSpot)
                   </h3>
-                  <p className="text-white/75 text-xs jost-secondary">
+                  <p className="text-foreground/75 text-xs jost-secondary">
                     Better outcomes
                   </p>
                 </div>
@@ -488,7 +488,7 @@ const TwoHourLearningCaseStudy = () => {
                   <h3 className="text-base font-extrabold text-purple-400 mb-1 albert-sans-medium">
                     Persona 3 (HubSpot)
                   </h3>
-                  <p className="text-white/75 text-xs jost-secondary">
+                  <p className="text-foreground/75 text-xs jost-secondary">
                     School model
                   </p>
                 </div>
@@ -589,7 +589,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               USER PERSONAS
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -711,7 +711,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               THE CHALLENGE
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -789,7 +789,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               THE SOLUTION
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -843,7 +843,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               DESIGN PROCESS
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -910,7 +910,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               RESULTS & IMPACT
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -962,7 +962,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               TECHNOLOGY STACK
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -1013,7 +1013,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
               KEY LEARNINGS
             </h2>
             <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
@@ -1074,7 +1074,7 @@ const TwoHourLearningCaseStudy = () => {
                   </Button>
                 </Link>
                 <a href="https://2hourlearning.com/" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="lg" className="group border-foreground/20 text-white hover:bg-foreground/10">
+                  <Button variant="outline" size="lg" className="group border-foreground/20 text-foreground hover:bg-foreground/10">
                     View Live Site
                     <ExternalLink className="ml-2 h-4 w-4 group-hover:scale-110 transition-transform" />
                   </Button>
