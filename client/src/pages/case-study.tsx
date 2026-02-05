@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'wouter';
-import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, ArrowLeft, Lightbulb, Zap, Palette, Code, Smartphone, Globe, Linkedin, User, AlertCircle } from 'lucide-react';
+import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, ArrowLeft, Lightbulb, Zap, Palette, Code, Smartphone, Globe, Linkedin, User, AlertCircle, Sun, Moon } from 'lucide-react';
+import { useTheme } from '@/contexts/theme-context';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -20,6 +21,7 @@ const CaseStudyPage = () => {
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   // Define navigation sections - aligned with standard case study structure
   const navigationSections = [
@@ -231,15 +233,30 @@ const CaseStudyPage = () => {
               </motion.div>
             </Link>
             
-            <motion.button
-              onClick={() => window.location.href = '/'}
-              className="relative group px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 glass-card grain-texture hover:glass-intense border border-primary/30 hover:border-primary/50 text-foreground font-semibold transition-all duration-300 flex items-center space-x-2 text-sm sm:text-base"
-              whileHover={{ y: -2, scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back</span>
-            </motion.button>
+            <div className="flex items-center space-x-3">
+              <motion.button
+                whileHover={{ scale: 1.1, rotate: 15 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={toggleTheme}
+                className="p-2 rounded-full glass-card border border-foreground/10 hover:border-primary/30 transition-all duration-300"
+                aria-label="Toggle theme"
+              >
+                {theme === 'light' ? (
+                  <Moon className="w-4 h-4 text-foreground" />
+                ) : (
+                  <Sun className="w-4 h-4 text-foreground" />
+                )}
+              </motion.button>
+              <motion.button
+                onClick={() => window.location.href = '/'}
+                className="relative group px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 glass-card grain-texture hover:glass-intense border border-primary/30 hover:border-primary/50 text-foreground font-semibold transition-all duration-300 flex items-center space-x-2 text-sm sm:text-base"
+                whileHover={{ y: -2, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Back</span>
+              </motion.button>
+            </div>
           </div>
         </div>
       </motion.nav>

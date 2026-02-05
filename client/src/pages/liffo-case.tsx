@@ -23,7 +23,10 @@ import {
   AlertCircle,
   ArrowRight,
   Linkedin,
+  Sun,
+  Moon,
 } from "lucide-react";
+import { useTheme } from "@/contexts/theme-context";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -77,6 +80,7 @@ const LiffoCaseStudy = () => {
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   // Define navigation sections for Liffo case study - aligned with standard case study structure
   const navigationSections = [
@@ -652,15 +656,30 @@ const LiffoCaseStudy = () => {
               </motion.div>
             </Link>
 
-            <motion.button
-              onClick={() => (window.location.href = "/")}
-              className="relative group px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 glass-card grain-texture hover:glass-intense border border-red-500/30 hover:border-red-500/50 text-foreground font-semibold transition-all duration-300 flex items-center space-x-2 text-sm sm:text-base"
-              whileHover={{ y: -2, scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back</span>
-            </motion.button>
+            <div className="flex items-center space-x-3">
+              <motion.button
+                whileHover={{ scale: 1.1, rotate: 15 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={toggleTheme}
+                className="p-2 rounded-full glass-card border border-foreground/10 hover:border-red-500/30 transition-all duration-300"
+                aria-label="Toggle theme"
+              >
+                {theme === 'light' ? (
+                  <Moon className="w-4 h-4 text-foreground" />
+                ) : (
+                  <Sun className="w-4 h-4 text-foreground" />
+                )}
+              </motion.button>
+              <motion.button
+                onClick={() => (window.location.href = "/")}
+                className="relative group px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 glass-card grain-texture hover:glass-intense border border-red-500/30 hover:border-red-500/50 text-foreground font-semibold transition-all duration-300 flex items-center space-x-2 text-sm sm:text-base"
+                whileHover={{ y: -2, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Back</span>
+              </motion.button>
+            </div>
           </div>
         </div>
       </motion.nav>

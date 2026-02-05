@@ -67,11 +67,15 @@ import {
   Folder,
   Package,
   Wallpaper,
+  Sun,
+  Moon,
 } from "lucide-react";
+import { useTheme } from "@/contexts/theme-context";
 
 export default function Home() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [activeSection, setActiveSection] = useState("");
+  const { theme, toggleTheme } = useTheme();
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
 
   const [waveIntensity, setWaveIntensity] = useState(0.3);
@@ -391,25 +395,40 @@ export default function Home() {
             </motion.button>
           </div>
 
-          {/* Contact Button - Right */}
-          <motion.div
-            className="ml-auto"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <button
-              onClick={() => {
-                const contactSection = document.getElementById("contact");
-                contactSection?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="relative group h-10 px-4 text-white font-semibold cta-button border-0 text-sm"
+          {/* Theme Toggle & Contact Button - Right */}
+          <div className="ml-auto flex items-center space-x-4">
+            <motion.button
+              whileHover={{ scale: 1.1, rotate: 15 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={toggleTheme}
+              className="p-2.5 rounded-full glass-card border border-foreground/10 hover:border-primary/30 transition-all duration-300"
+              aria-label="Toggle theme"
             >
-              <div className="relative z-10 flex items-center space-x-2 jost-secondary">
-                <Mail className="w-4 h-4" />
-                <span>Contact Me</span>
-              </div>
-            </button>
-          </motion.div>
+              {theme === 'light' ? (
+                <Moon className="w-5 h-5 text-foreground" />
+              ) : (
+                <Sun className="w-5 h-5 text-foreground" />
+              )}
+            </motion.button>
+            
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <button
+                onClick={() => {
+                  const contactSection = document.getElementById("contact");
+                  contactSection?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="relative group h-10 px-4 text-white font-semibold cta-button border-0 text-sm"
+              >
+                <div className="relative z-10 flex items-center space-x-2 jost-secondary">
+                  <Mail className="w-4 h-4" />
+                  <span>Contact Me</span>
+                </div>
+              </button>
+            </motion.div>
+          </div>
         </div>
       </nav>
       {/* Hero Section */}
