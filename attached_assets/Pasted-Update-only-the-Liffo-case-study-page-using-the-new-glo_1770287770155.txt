@@ -1,0 +1,126 @@
+Update only the “Liffo” case study page using the new global senior case study structure already defined.
+
+Do NOT change UI.
+Do NOT change layout.
+Do NOT change styling.
+Do NOT change animations.
+Do NOT modify components.
+
+Only restructure content hierarchy and narrative flow.
+
+This case study should read like a senior product design case study, not a UX documentation page.
+
+Reorganize into the following structure while reusing existing sections and components.
+
+1. Project Overview
+Keep hero section.
+Clarify:
+- healthcare platform positioning
+- emergency-first concept
+- your role
+- scope and duration
+Make this a concise project snapshot.
+
+2. Context
+Introduce:
+- healthcare ecosystem
+- emergency + routine care needs
+- user types (patients, families, providers)
+- platform purpose and environment
+
+3. Problem Statement
+Create a strong problem definition:
+- fragmented healthcare services
+- slow emergency access
+- trust gaps in providers
+- difficulty coordinating care
+- cognitive overload during urgent situations
+
+Keep concise and product-focused.
+
+4. Goals
+Add structured goals section:
+- reduce friction in emergency situations
+- unify services into one platform
+- improve care coordination
+- build trust through transparency
+- support chronic and routine care
+
+5. Research & Product Understanding
+Convert existing research/thinking into:
+- stakeholder inputs
+- product analysis
+- behavioral insights
+- service journey understanding
+- system-level gaps
+
+Avoid academic UX tone.
+
+6. Design Thinking & Key Decisions
+Reframe into:
+Insight → Design decision → Reasoning
+
+Focus on:
+- emergency-first UX logic
+- simplified navigation
+- service hierarchy
+- transparency in doctors/hospitals
+- continuity of care
+
+This section should feel like senior product thinking.
+
+7. Solution Strategy
+Add system-level explanation:
+- platform architecture
+- service grouping logic
+- navigation model
+- emergency prioritization
+- unified healthcare journey
+
+8. Final Product
+Keep design showcase.
+
+Enhance captions:
+Explain decision logic and user experience intent behind screens.
+
+9. Design System Foundations
+Add section describing:
+- consistent visual language
+- component system
+- scalable UI patterns
+- accessibility considerations
+- mobile-first structure
+
+10. Impact & Outcomes
+Reframe results into:
+- improved usability
+- faster access to services
+- clearer navigation
+- stronger trust signals
+- better coordination experience
+
+Keep metrics but focus on experience impact.
+
+11. Learnings
+Add reflection section:
+- designing for high-stress scenarios
+- reducing cognitive load
+- healthcare trust design
+- balancing speed vs clarity
+
+12. What’s Next
+Add forward-looking improvements:
+- deeper integrations
+- predictive care journeys
+- expanded services
+- personalization opportunities
+
+Rules:
+- Merge overlapping sections
+- Remove overly academic UX process breakdowns
+- Keep storytelling concise
+- Maintain navigation behavior
+- Maintain all motion and layout logic
+- Keep visuals untouched
+
+Only restructure narrative and section hierarchy.
