@@ -9,9 +9,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ScrollIndicator } from "@/components/scroll-indicator";
 import Home from "@/pages/home";
 import ProjectDetail from "@/pages/project-detail";
-import CaseStudy from "@/pages/case-study";
-import LiffoCase from "./pages/liffo-case";
-import TwoHourLearningCaseStudy from "./pages/2hour-learning-case-study";
+import FutureFirstFamiliesCaseStudy from "@/pages/future-first-families-case-study";
+import LiffoCaseStudy from "@/pages/liffo-case-study";
+import TwoHourLearningCaseStudy from "@/pages/2hour-learning-case-study";
 
 import NotFound from "@/pages/not-found";
 
@@ -20,8 +20,8 @@ function Routes() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/project/:id" component={ProjectDetail} />
-      <Route path="/fff-case-study" component={CaseStudy} />
-      <Route path="/liffo-case-study" component={LiffoCase} />
+      <Route path="/fff-case-study" component={FutureFirstFamiliesCaseStudy} />
+      <Route path="/liffo-case-study" component={LiffoCaseStudy} />
       <Route path="/2hour-learning-case-study" component={TwoHourLearningCaseStudy} />
       <Route>
         <NotFound />
