@@ -23,10 +23,7 @@ import {
   AlertCircle,
   ArrowRight,
   Linkedin,
-  Sun,
-  Moon,
 } from "lucide-react";
-import { useTheme } from "@/contexts/theme-context";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -80,7 +77,6 @@ const LiffoCaseStudy = () => {
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   // Define navigation sections for Liffo case study - aligned with standard case study structure
   const navigationSections = [
@@ -633,7 +629,7 @@ const LiffoCaseStudy = () => {
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "glass-intense grain-texture border-b border-foreground/10 shadow-2xl shadow-red-500/20"
+            ? "glass-intense grain-texture border-b border-white/10 shadow-2xl shadow-red-500/20"
             : "glass-card grain-texture"
         }`}
         initial={{ y: -100 }}
@@ -651,43 +647,28 @@ const LiffoCaseStudy = () => {
                 <img
                   src={LogoImage}
                   alt="Karan Gadhave Logo"
-                  className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 object-contain dark:invert-0 invert"
+                  className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 object-contain"
                 />
               </motion.div>
             </Link>
 
-            <div className="flex items-center space-x-3">
-              <motion.button
-                whileHover={{ scale: 1.1, rotate: 15 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={toggleTheme}
-                className="p-2 rounded-full glass-card border border-foreground/10 hover:border-red-500/30 transition-all duration-300"
-                aria-label="Toggle theme"
-              >
-                {theme === 'light' ? (
-                  <Moon className="w-4 h-4 text-foreground" />
-                ) : (
-                  <Sun className="w-4 h-4 text-foreground" />
-                )}
-              </motion.button>
-              <motion.button
-                onClick={() => (window.location.href = "/")}
-                className="relative group px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 glass-card grain-texture hover:glass-intense border border-red-500/30 hover:border-red-500/50 text-foreground font-semibold transition-all duration-300 flex items-center space-x-2 text-sm sm:text-base"
-                whileHover={{ y: -2, scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ArrowLeft className="w-4 h-4" />
-                <span>Back</span>
-              </motion.button>
-            </div>
+            <motion.button
+              onClick={() => (window.location.href = "/")}
+              className="relative group px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 glass-card grain-texture hover:glass-intense border border-red-500/30 hover:border-red-500/50 text-white font-semibold transition-all duration-300 flex items-center space-x-2 text-sm sm:text-base"
+              whileHover={{ y: -2, scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Back</span>
+            </motion.button>
           </div>
         </div>
       </motion.nav>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-gray-50 to-slate-100 dark:from-slate-950 dark:via-gray-900 dark:to-slate-900" />
-          <div className="absolute inset-0 bg-gradient-to-t from-red-100/30 via-transparent to-orange-100/20 dark:from-red-950/30 dark:via-transparent dark:to-orange-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-900" />
+          <div className="absolute inset-0 bg-gradient-to-t from-red-950/30 via-transparent to-orange-950/20" />
           <div className="absolute inset-0 grain-texture opacity-30" />
         </div>
 
@@ -714,7 +695,7 @@ const LiffoCaseStudy = () => {
                 {caseStudyData.category}
               </Badge>
               <h1 className="space-y-2">
-                <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground albert-sans-medium leading-tight">
+                <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white albert-sans-medium leading-tight">
                   Liffo
                 </span>
                 <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent albert-sans-medium leading-tight">
@@ -722,7 +703,7 @@ const LiffoCaseStudy = () => {
                   <br className="hidden sm:inline" /> Platform
                 </span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
                 {caseStudyData.subtitle}
               </p>
             </div>
@@ -745,7 +726,7 @@ const LiffoCaseStudy = () => {
       {/* 1. Overview & Problem */}
       <section id="overview" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-slate-100 to-gray-50 dark:from-gray-950 dark:via-slate-900 dark:to-gray-900" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-900" />
           <div className="absolute inset-0 grain-texture opacity-20" />
         </div>
 
@@ -757,10 +738,10 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               OVERVIEW & PROBLEM
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Understanding the healthcare challenge and defining the design
               strategy
             </p>
@@ -781,22 +762,22 @@ const LiffoCaseStudy = () => {
                 </h3>
                 <div className="space-y-4 flex-grow">
                   <div className="flex justify-between">
-                    <span className="text-foreground/70 jost-secondary">Client</span>
-                    <span className="text-foreground font-semibold jost-secondary">
+                    <span className="text-white/70 jost-secondary">Client</span>
+                    <span className="text-white font-semibold jost-secondary">
                       {caseStudyData.client}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-foreground/70 jost-secondary">Role</span>
-                    <span className="text-foreground font-semibold jost-secondary">
+                    <span className="text-white/70 jost-secondary">Role</span>
+                    <span className="text-white font-semibold jost-secondary">
                       {caseStudyData.role}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-foreground/70 jost-secondary">
+                    <span className="text-white/70 jost-secondary">
                       Duration
                     </span>
-                    <span className="text-foreground font-semibold jost-secondary">
+                    <span className="text-white font-semibold jost-secondary">
                       {caseStudyData.duration}
                     </span>
                   </div>
@@ -816,7 +797,7 @@ const LiffoCaseStudy = () => {
                 <h3 className="text-2xl font-extrabold mb-6 text-orange-400 albert-sans-medium">
                   OVERVIEW
                 </h3>
-                <p className="text-foreground/85 leading-relaxed text-lg jost-secondary flex-grow">
+                <p className="text-white/85 leading-relaxed text-lg jost-secondary flex-grow">
                   {caseStudyData.overview}
                 </p>
               </Card>
@@ -835,7 +816,7 @@ const LiffoCaseStudy = () => {
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 sm:mb-8 text-center text-red-400 albert-sans-medium">
                 THE HEALTHCARE CHALLENGE
               </h3>
-              <p className="text-xl text-foreground/90 leading-relaxed mb-8 jost-secondary">
+              <p className="text-xl text-white/90 leading-relaxed mb-8 jost-secondary">
                 {caseStudyData.problem.description}
               </p>
 
@@ -853,7 +834,7 @@ const LiffoCaseStudy = () => {
                     className="flex items-start space-x-3"
                   >
                     <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
-                    <p className="text-foreground/85 jost-secondary">{point}</p>
+                    <p className="text-white/85 jost-secondary">{point}</p>
                   </motion.div>
                 ))}
               </div>
@@ -864,7 +845,7 @@ const LiffoCaseStudy = () => {
       {/* 2. Personas */}
       <section id="personas" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-gray-100 to-slate-50 dark:from-blue-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
 
@@ -876,10 +857,10 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               USER PERSONAS
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Four key user groups driving healthcare platform design decisions
             </p>
           </motion.div>
@@ -903,13 +884,13 @@ const LiffoCaseStudy = () => {
                         <h3 className="text-lg sm:text-xl font-extrabold text-blue-300 albert-sans-medium leading-tight">
                           {persona.name}
                         </h3>
-                        <p className="text-sm sm:text-base text-foreground/70 jost-secondary">
+                        <p className="text-sm sm:text-base text-white/70 jost-secondary">
                           {persona.role}, {persona.age}
                         </p>
                       </div>
                     </div>
 
-                    <p className="text-foreground/85 leading-relaxed jost-secondary">
+                    <p className="text-white/85 leading-relaxed jost-secondary">
                       {persona.description}
                     </p>
 
@@ -922,7 +903,7 @@ const LiffoCaseStudy = () => {
                           {persona.goals.map((goal, idx) => (
                             <li
                               key={idx}
-                              className="text-base text-foreground/80 flex items-start jost-secondary"
+                              className="text-base text-white/80 flex items-start jost-secondary"
                             >
                               <Target className="w-4 h-4 text-blue-400 mr-3 flex-shrink-0 mt-0.5" />
                               {goal}
@@ -939,7 +920,7 @@ const LiffoCaseStudy = () => {
                           {persona.painPoints.map((pain, idx) => (
                             <li
                               key={idx}
-                              className="text-base text-foreground/80 flex items-start jost-secondary"
+                              className="text-base text-white/80 flex items-start jost-secondary"
                             >
                               <AlertCircle className="w-4 h-4 text-red-400 mr-3 flex-shrink-0 mt-0.5" />
                               {pain}
@@ -949,7 +930,7 @@ const LiffoCaseStudy = () => {
                       </div>
 
                       <div className="flex justify-between items-center pt-4">
-                        <span className="text-sm text-foreground/70 jost-secondary">
+                        <span className="text-sm text-white/70 jost-secondary">
                           Tech Comfort
                         </span>
                         <span
@@ -975,7 +956,7 @@ const LiffoCaseStudy = () => {
       {/* The Challenge */}
       <section id="challenge" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-gray-100 to-slate-50 dark:from-purple-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
 
@@ -987,10 +968,10 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               THE CHALLENGE
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Understanding user journey and pain points in healthcare access
             </p>
           </motion.div>
@@ -1019,14 +1000,14 @@ const LiffoCaseStudy = () => {
 
                     <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
                       <div>
-                        <h4 className="text-base font-bold text-foreground/90 mb-3 jost-secondary">
+                        <h4 className="text-base font-bold text-white/90 mb-3 jost-secondary">
                           ACTIONS
                         </h4>
                         <ul className="space-y-2">
                           {phase.actions.map((action, idx) => (
                             <li
                               key={idx}
-                              className="text-base text-foreground/80 flex items-start jost-secondary"
+                              className="text-base text-white/80 flex items-start jost-secondary"
                             >
                               <ArrowRight className="w-4 h-4 text-purple-400 mr-3 flex-shrink-0 mt-0.5" />
                               {action}
@@ -1036,14 +1017,14 @@ const LiffoCaseStudy = () => {
                       </div>
 
                       <div>
-                        <h4 className="text-base font-bold text-foreground/90 mb-3 jost-secondary">
+                        <h4 className="text-base font-bold text-white/90 mb-3 jost-secondary">
                           EMOTIONS
                         </h4>
                         <ul className="space-y-2">
                           {phase.emotions.map((emotion, idx) => (
                             <li
                               key={idx}
-                              className="text-base text-foreground/80 flex items-start jost-secondary"
+                              className="text-base text-white/80 flex items-start jost-secondary"
                             >
                               <Heart className="w-4 h-4 text-pink-400 mr-3 flex-shrink-0 mt-0.5" />
                               {emotion}
@@ -1053,14 +1034,14 @@ const LiffoCaseStudy = () => {
                       </div>
 
                       <div>
-                        <h4 className="text-base font-bold text-foreground/90 mb-3 jost-secondary">
+                        <h4 className="text-base font-bold text-white/90 mb-3 jost-secondary">
                           OPPORTUNITIES
                         </h4>
                         <ul className="space-y-2">
                           {phase.opportunities.map((opportunity, idx) => (
                             <li
                               key={idx}
-                              className="text-base text-foreground/80 flex items-start jost-secondary"
+                              className="text-base text-white/80 flex items-start jost-secondary"
                             >
                               <Lightbulb className="w-4 h-4 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
                               {opportunity}
@@ -1079,7 +1060,7 @@ const LiffoCaseStudy = () => {
       {/* The Solution */}
       <section id="solution" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-gray-100 to-slate-50 dark:from-green-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
 
@@ -1091,10 +1072,10 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               THE DESIGN SOLUTION
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Comprehensive mobile platform addressing emergency healthcare
               needs
             </p>
@@ -1108,7 +1089,7 @@ const LiffoCaseStudy = () => {
             className="mb-12"
           >
             <Card className="p-12 glass-card grain-texture border-green-500/30">
-              <p className="text-xl text-foreground/90 leading-relaxed mb-8 jost-secondary">
+              <p className="text-xl text-white/90 leading-relaxed mb-8 jost-secondary">
                 {caseStudyData.solution.description}
               </p>
 
@@ -1126,7 +1107,7 @@ const LiffoCaseStudy = () => {
                     className="flex items-start space-x-3"
                   >
                     <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <p className="text-foreground/85 jost-secondary">{feature}</p>
+                    <p className="text-white/85 jost-secondary">{feature}</p>
                   </motion.div>
                 ))}
               </div>
@@ -1137,7 +1118,7 @@ const LiffoCaseStudy = () => {
       {/* Design Process */}
       <section id="process" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-gray-100 to-slate-50 dark:from-purple-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
 
@@ -1149,10 +1130,10 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               DESIGN PROCESS
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Structured approach to creating an intuitive healthcare platform
             </p>
           </motion.div>
@@ -1185,7 +1166,7 @@ const LiffoCaseStudy = () => {
                     {phase.phase}
                   </h4>
 
-                  <p className="text-foreground/85 leading-relaxed mb-6 text-lg jost-secondary">
+                  <p className="text-white/85 leading-relaxed mb-6 text-lg jost-secondary">
                     {phase.description}
                   </p>
 
@@ -1197,7 +1178,7 @@ const LiffoCaseStudy = () => {
                       {phase.deliverables.map((deliverable, idx) => (
                         <li
                           key={idx}
-                          className="text-base text-foreground/80 flex items-center jost-secondary"
+                          className="text-base text-white/80 flex items-center jost-secondary"
                         >
                           <div className="w-2.5 h-2.5 bg-purple-400 rounded-full mr-3 flex-shrink-0" />
                           {deliverable}
@@ -1214,7 +1195,7 @@ const LiffoCaseStudy = () => {
       {/* Key Features - Removed from nav but keeping for content */}
       <section className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-gray-100 to-slate-50 dark:from-orange-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
 
@@ -1226,10 +1207,10 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               KEY FEATURES
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Core functionality designed for emergency healthcare scenarios
             </p>
           </motion.div>
@@ -1248,7 +1229,7 @@ const LiffoCaseStudy = () => {
                     <img
                       src={feature.image}
                       alt={feature.title}
-                      className="w-full h-64 object-contain bg-foreground/5 border border-foreground/10"
+                      className="w-full h-64 object-contain bg-white/5 border border-white/10"
                     />
                   </div>
 
@@ -1256,7 +1237,7 @@ const LiffoCaseStudy = () => {
                     {feature.title}
                   </h3>
 
-                  <p className="text-foreground/85 leading-relaxed mb-6 jost-secondary">
+                  <p className="text-white/85 leading-relaxed mb-6 jost-secondary">
                     {feature.description}
                   </p>
 
@@ -1268,7 +1249,7 @@ const LiffoCaseStudy = () => {
                       {feature.benefits.map((benefit, idx) => (
                         <li
                           key={idx}
-                          className="text-base text-foreground/80 flex items-start jost-secondary"
+                          className="text-base text-white/80 flex items-start jost-secondary"
                         >
                           <CheckCircle className="w-4 h-4 text-orange-400 mr-3 flex-shrink-0 mt-0.5" />
                           {benefit}
@@ -1285,7 +1266,7 @@ const LiffoCaseStudy = () => {
       {/* 6. Design Showcase */}
       <section id="screens" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-gray-100 to-slate-50 dark:from-blue-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
 
@@ -1297,10 +1278,10 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               DESIGN SHOWCASE
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Complete visual documentation of all 34 interface designs -
               organized by user journey and functionality
             </p>
@@ -1320,7 +1301,7 @@ const LiffoCaseStudy = () => {
                   <h3 className="text-2xl font-extrabold mb-4 text-blue-400 albert-sans-medium">
                     {showcase.category}
                   </h3>
-                  <p className="text-foreground/85 mb-8 jost-secondary">
+                  <p className="text-white/85 mb-8 jost-secondary">
                     {showcase.description}
                   </p>
 
@@ -1332,7 +1313,7 @@ const LiffoCaseStudy = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: imgIndex * 0.1 }}
                         viewport={{ once: true }}
-                        className="relative overflow-hidden bg-foreground/5 border border-foreground/20 aspect-[9/16]"
+                        className="relative overflow-hidden bg-white/5 border border-white/20 aspect-[9/16]"
                       >
                         <img
                           src={image}
@@ -1358,7 +1339,7 @@ const LiffoCaseStudy = () => {
               <h3 className="text-4xl md:text-5xl font-extrabold mb-6 text-purple-400 albert-sans-medium text-center">
                 COMPLETE INTERFACE GALLERY
               </h3>
-              <p className="text-foreground/85 mb-8 text-center jost-secondary">
+              <p className="text-white/85 mb-8 text-center jost-secondary">
                 Comprehensive view of all designed interfaces across the
                 healthcare platform
               </p>
@@ -1406,7 +1387,7 @@ const LiffoCaseStudy = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4, delay: index * 0.03 }}
                     viewport={{ once: true }}
-                    className="relative overflow-hidden bg-foreground/5 border border-foreground/20 aspect-[9/16]"
+                    className="relative overflow-hidden bg-white/5 border border-white/20 aspect-[9/16]"
                   >
                     <img
                       src={image}
@@ -1440,7 +1421,7 @@ const LiffoCaseStudy = () => {
       {/* Results & Impact */}
       <section id="results" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-gray-100 to-slate-50 dark:from-green-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
 
@@ -1452,10 +1433,10 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               RESULTS & IMPACT
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Measurable improvements in healthcare accessibility and user
               experience
             </p>
@@ -1476,11 +1457,11 @@ const LiffoCaseStudy = () => {
                     <div className="text-3xl sm:text-4xl md:text-5xl font-black text-green-400 albert-sans-medium leading-none">
                       {result.value}
                     </div>
-                    <h3 className="text-base sm:text-lg font-semibold text-foreground jost-secondary">
+                    <h3 className="text-base sm:text-lg font-semibold text-white jost-secondary">
                       {result.metric}
                     </h3>
                     <div className="h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent my-3 sm:my-4"></div>
-                    <p className="text-foreground/70 text-sm leading-relaxed jost-secondary">
+                    <p className="text-white/70 text-sm leading-relaxed jost-secondary">
                       {result.description}
                     </p>
                   </div>
@@ -1493,7 +1474,7 @@ const LiffoCaseStudy = () => {
       {/* Design Principles - Additional content section */}
       <section className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/30 via-gray-100 to-slate-50 dark:from-cyan-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
 
@@ -1505,10 +1486,10 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               DESIGN PRINCIPLES
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Core principles guiding the healthcare platform design
             </p>
           </motion.div>
@@ -1533,7 +1514,7 @@ const LiffoCaseStudy = () => {
                         <h3 className="text-xl font-extrabold text-cyan-300 mb-3 albert-sans-medium">
                           {principle.principle}
                         </h3>
-                        <p className="text-foreground/85 leading-relaxed jost-secondary">
+                        <p className="text-white/85 leading-relaxed jost-secondary">
                           {principle.description}
                         </p>
                       </div>
@@ -1548,7 +1529,7 @@ const LiffoCaseStudy = () => {
       {/* Technology Stack */}
       <section id="technology" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-gray-100 to-slate-50 dark:from-blue-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
 
@@ -1560,10 +1541,10 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               TECHNOLOGY STACK
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Design and prototyping tools used for optimal workflow
             </p>
           </motion.div>
@@ -1583,11 +1564,11 @@ const LiffoCaseStudy = () => {
                     <div className="w-12 h-12 bg-blue-500/20 rounded-xl mx-auto mb-4 flex items-center justify-center">
                       <div className="w-6 h-6 bg-blue-400 rounded opacity-70" />
                     </div>
-                    <h3 className="font-bold text-foreground mb-2 jost-secondary text-base">
+                    <h3 className="font-bold text-white mb-2 jost-secondary text-base">
                       {tech.name}
                     </h3>
                   </div>
-                  <p className="text-sm text-foreground/70 jost-secondary">
+                  <p className="text-sm text-white/70 jost-secondary">
                     {tech.category}
                   </p>
                 </Card>
@@ -1599,7 +1580,7 @@ const LiffoCaseStudy = () => {
       {/* 10. Key Learnings */}
       <section id="learnings" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/30 via-gray-100 to-slate-50 dark:from-yellow-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
 
@@ -1611,10 +1592,10 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               KEY LEARNINGS
             </h2>
-            <p className="text-xl text-foreground/85 max-w-3xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
               Insights gained from designing for emergency healthcare scenarios
             </p>
           </motion.div>
@@ -1633,7 +1614,7 @@ const LiffoCaseStudy = () => {
                   <div className="w-6 h-6 bg-yellow-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                     <Lightbulb className="w-4 h-4 text-yellow-400" />
                   </div>
-                  <p className="text-foreground/85 leading-relaxed text-lg jost-secondary">
+                  <p className="text-white/85 leading-relaxed text-lg jost-secondary">
                     {learning}
                   </p>
                 </motion.div>
@@ -1645,7 +1626,7 @@ const LiffoCaseStudy = () => {
       {/* 11. Call to Action */}
       <section className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-gray-100 to-slate-50 dark:from-purple-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
 
@@ -1657,10 +1638,10 @@ const LiffoCaseStudy = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-4xl md:text-5xl font-extrabold albert-sans-medium text-foreground">
+            <h2 className="text-4xl md:text-5xl font-extrabold albert-sans-medium text-white">
               READY TO DISCUSS YOUR PROJECT?
             </h2>
-            <p className="text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
+            <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
               Interested in healthcare design, emergency UX, or mobile-first
               product design solutions?
             </p>
@@ -1680,18 +1661,18 @@ const LiffoCaseStudy = () => {
         </div>
       </section>
       {/* Footer */}
-      <footer className="py-16 border-t border-foreground/10">
+      <footer className="py-16 border-t border-white/10">
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex items-center justify-center mb-10">
             <div className="flex items-center space-x-16">
               {/* Logo Circle */}
               <div className="flex-shrink-0">
                 <a href="#hero" className="block group">
-                  <div className="w-20 h-20 bg-gradient-to-br from-grey-600/30 to-white-600/30 rounded-full border-1.5 border-foreground/30 flex items-center justify-center hover:border-foreground/50 hover:scale-105 transition-all duration-300">
+                  <div className="w-20 h-20 bg-gradient-to-br from-grey-600/30 to-white-600/30 rounded-full border-1.5 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
                     <img
                       src={LogoImage}
                       alt="Logo"
-                      className="w-10 h-10 object-contain dark:invert-0 invert"
+                      className="w-10 h-10 object-contain"
                     />
                   </div>
                 </a>
@@ -1705,11 +1686,11 @@ const LiffoCaseStudy = () => {
                   rel="noopener noreferrer"
                   className="block group"
                 >
-                  <div className="w-20 h-20 bg-gradient-to-br from-black-600/30 to-black-600/30 rounded-full border-1.5 border-foreground/30 flex items-center justify-center hover:border-foreground/50 hover:scale-105 transition-all duration-300">
+                  <div className="w-20 h-20 bg-gradient-to-br from-black-600/30 to-black-600/30 rounded-full border-1.5 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
                     <img
                       src={linkedinLogo}
                       alt="LinkedIn"
-                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300 dark:invert-0 invert"
+                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300"
                     />
                   </div>
                 </a>
@@ -1717,10 +1698,10 @@ const LiffoCaseStudy = () => {
             </div>
           </div>
 
-          <div className="w-600 h-px bg-gradient-to-r from-transparent via-foreground/40 to-transparent mx-auto mb-8"></div>
+          <div className="w-600 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto mb-8"></div>
 
           <div className="text-center">
-            <p className="text-foreground/70 text-sm font-light tracking-wider">
+            <p className="text-white/70 text-sm font-light tracking-wider">
               © 2025 Karn Kalaa. Designed & developed with passion.
             </p>
           </div>

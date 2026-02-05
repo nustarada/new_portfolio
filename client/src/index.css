@@ -11,29 +11,6 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 27% 10%;
-    --card: 0 0% 98%;
-    --card-foreground: 220 27% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 27% 10%;
-    --primary: 217 91% 50%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 27% 10%;
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
-    --accent: 217 91% 50%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 217 91% 50%;
-    --radius: 0rem;
-  }
-
-  .dark {
     --background: 220 27% 3%;
     --foreground: 0 0% 98%;
     --card: 220 25% 8%;
@@ -53,6 +30,7 @@
     --border: 220 20% 18%;
     --input: 220 20% 12%;
     --ring: 185 84% 55%;
+    --radius: 0rem;
   }
 
   * {
@@ -66,16 +44,10 @@
   }
 
   #root {
-    background: linear-gradient(135deg, hsl(0, 0%, 98%) 0%, hsl(220, 14%, 96%) 100%);
-    color: hsl(220, 27%, 10%);
+    background: linear-gradient(135deg, hsl(220, 27%, 3%) 0%, hsl(220, 25%, 5%) 100%);
+    color: #fafafa !important;
     min-height: 100vh;
     position: relative;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-
-  .dark #root {
-    background: linear-gradient(135deg, hsl(220, 27%, 3%) 0%, hsl(220, 25%, 5%) 100%);
-    color: #fafafa;
   }
 
   #root::before {
@@ -86,20 +58,12 @@
     width: 100%;
     height: 100%;
     background:
-      radial-gradient(circle at 30% 30%, hsl(217, 91%, 50%) 0%, transparent 40%),
-      radial-gradient(circle at 70% 70%, hsl(280, 85%, 60%) 0%, transparent 40%);
-    opacity: 0.08;
-    pointer-events: none;
-    z-index: -1;
-    will-change: transform;
-    transition: opacity 0.3s ease;
-  }
-
-  .dark #root::before {
-    background:
       radial-gradient(circle at 30% 30%, hsl(185, 84%, 55%) 0%, transparent 40%),
       radial-gradient(circle at 70% 70%, hsl(285, 85%, 60%) 0%, transparent 40%);
     opacity: 0.6;
+    pointer-events: none;
+    z-index: -1;
+    will-change: transform;
   }
 
   body {
@@ -107,9 +71,9 @@
     font-family: 'Albert Sans', system-ui, sans-serif !important;
     line-height: 1.6;
     background: transparent !important;
+    color: #ffffff !important;
     font-weight: 400;
     cursor: auto !important;
-    transition: color 0.3s ease;
   }
 
   * {
@@ -194,45 +158,25 @@
     background: transparent !important;
   }
 
-  /* Glassmorphism utilities - Light mode */
+  /* Glassmorphism utilities */
   .glass-card {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    color: hsl(220, 27%, 10%);
-  }
-
-  .dark .glass-card {
-    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    color: #fafafa;
   }
 
   .glass-intense {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow:
-      0 12px 40px rgba(0, 0, 0, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.95);
-    color: hsl(220, 27%, 10%);
-  }
-
-  .dark .glass-intense {
-    background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow:
       0 12px 40px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    color: #fafafa;
   }
 
   .grain-texture {
@@ -355,26 +299,13 @@
   .neo-card {
     @apply bg-card border border-border rounded-2xl p-8;
     box-shadow:
-      0 0 0 1px rgba(0, 0, 0, 0.05),
-      0 8px 32px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .dark .neo-card {
-    box-shadow:
       0 0 0 1px rgba(255, 255, 255, 0.05),
       0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .neo-card:hover {
     transform: translateY(-4px);
-    box-shadow:
-      0 0 0 1px rgba(0, 0, 0, 0.1),
-      0 16px 64px rgba(0, 0, 0, 0.15),
-      0 0 80px rgba(59, 130, 246, 0.05);
-  }
-
-  .dark .neo-card:hover {
     box-shadow:
       0 0 0 1px rgba(255, 255, 255, 0.1),
       0 16px 64px rgba(0, 0, 0, 0.6),
@@ -382,43 +313,32 @@
   }
 
   .glow-text {
-    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #9333ea 100%);
+    background: linear-gradient(135deg, #6966ff 0%, #cb5cff 50%, #d642ff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: #2563eb !important;
-  }
-
-  .dark .glow-text {
-    background: linear-gradient(135deg, #6966ff 0%, #cb5cff 50%, #d642ff 100%);
     color: #22d3ee !important;
+    /* Fallback for unsupported browsers */
   }
 
+  /* Fix all gradient text backgrounds */
   .bg-clip-text {
     background-color: transparent !important;
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+    background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 50%, #0891b2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: #2563eb !important;
-  }
-
-  .dark .text-gradient {
-    background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 50%, #0891b2 100%);
     color: #22d3ee !important;
+    /* Fallback for unsupported browsers */
   }
 
   /* Simple Project Card Border */
   .project-card-border {
-    border: 0.6px solid rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-  }
-
-  .dark .project-card-border {
     border: 0.6px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
   }
 
   .stroke-text {
@@ -433,21 +353,12 @@
     position: relative;
     overflow: hidden;
     background:
-      radial-gradient(circle at 50% 40%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
-      linear-gradient(135deg,
-        rgba(248, 250, 252, 1) 0%,
-        rgba(241, 245, 249, 0.98) 50%,
-        rgba(248, 250, 252, 1) 100%);
-    will-change: transform;
-  }
-
-  .dark .cyber-grid {
-    background:
       radial-gradient(circle at 50% 40%, rgba(79, 172, 254, 0.04) 0%, transparent 50%),
       linear-gradient(135deg,
         rgba(4, 4, 6, 1) 0%,
         rgba(6, 6, 10, 0.98) 50%,
         rgba(4, 4, 6, 1) 100%);
+    will-change: transform;
   }
 
   .cyber-grid::after {

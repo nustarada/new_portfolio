@@ -1,8 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'wouter';
-import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, ArrowLeft, ArrowRight, Lightbulb, Zap, Palette, Code, Smartphone, Globe, Linkedin, Sun, Moon } from 'lucide-react';
-import { useTheme } from '@/contexts/theme-context';
+import { Calendar, Clock, Users, CheckCircle, Target, TrendingUp, ExternalLink, ArrowLeft, ArrowRight, Lightbulb, Zap, Palette, Code, Smartphone, Globe, Linkedin } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -30,7 +29,6 @@ const TwoHourLearningCaseStudy = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [openModal, setOpenModal] = useState<string | null>(null);
-  const { theme, toggleTheme } = useTheme();
 
   // Define navigation sections - aligned with standard case study structure
   const navigationSections = [
@@ -196,7 +194,7 @@ const TwoHourLearningCaseStudy = () => {
       <motion.nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
-            ? 'glass-intense grain-texture border-b border-foreground/10 shadow-2xl shadow-primary/20' 
+            ? 'glass-intense grain-texture border-b border-white/10 shadow-2xl shadow-primary/20' 
             : 'glass-card grain-texture'
         }`}
         initial={{ y: -100 }}
@@ -207,41 +205,26 @@ const TwoHourLearningCaseStudy = () => {
           <div className="flex justify-between items-center">
             <Link href="/">
               <motion.div className="cursor-pointer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <img src={LogoImage} alt="Karan Gadhave Logo" className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 object-contain dark:invert-0 invert" />
+                <img src={LogoImage} alt="Karan Gadhave Logo" className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 object-contain" />
               </motion.div>
             </Link>
             
-            <div className="flex items-center space-x-3">
-              <motion.button
-                whileHover={{ scale: 1.1, rotate: 15 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={toggleTheme}
-                className="p-2 rounded-full glass-card border border-foreground/10 hover:border-primary/30 transition-all duration-300"
-                aria-label="Toggle theme"
-              >
-                {theme === 'light' ? (
-                  <Moon className="w-4 h-4 text-foreground" />
-                ) : (
-                  <Sun className="w-4 h-4 text-foreground" />
-                )}
-              </motion.button>
-              <motion.button
-                onClick={() => window.location.href = '/'}
-                className="relative group px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 glass-card grain-texture hover:glass-intense border border-primary/30 hover:border-primary/50 text-foreground font-semibold transition-all duration-300 flex items-center space-x-2 text-sm sm:text-base"
-                whileHover={{ y: -2, scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ArrowLeft className="w-4 h-4" />
-                <span>Back</span>
-              </motion.button>
-            </div>
+            <motion.button
+              onClick={() => window.location.href = '/'}
+              className="relative group px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 glass-card grain-texture hover:glass-intense border border-primary/30 hover:border-primary/50 text-white font-semibold transition-all duration-300 flex items-center space-x-2 text-sm sm:text-base"
+              whileHover={{ y: -2, scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Back</span>
+            </motion.button>
           </div>
         </div>
       </motion.nav>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-gray-50 to-slate-100 dark:from-slate-950 dark:via-gray-900 dark:to-slate-900" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-900" />
           <div className="absolute inset-0 bg-gradient-to-t from-blue-950/30 via-transparent to-purple-950/20" />
           <div className="absolute inset-0 grain-texture opacity-30" />
         </div>
@@ -249,7 +232,7 @@ const TwoHourLearningCaseStudy = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <div className="space-y-8">
             {/* Project Metadata */}
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-foreground/70">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-white/70">
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-primary" />
                 <span className="jost-secondary">{caseStudyData.duration}</span>
@@ -267,14 +250,14 @@ const TwoHourLearningCaseStudy = () => {
                 {caseStudyData.category}
               </Badge>
               <div className="space-y-6">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground albert-sans-medium leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white albert-sans-medium leading-tight">
                   2 Hour Learning
                 </h1>
-                <h2 className="text-lg font-extrabold text-foreground albert-sans-medium leading-tight">
+                <h2 className="text-lg font-extrabold text-white albert-sans-medium leading-tight">
                   Persona-Driven Lead Generation
                 </h2>
               </div>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed jost-secondary">
                 {caseStudyData.subtitle}
               </p>
             </div>
@@ -297,7 +280,7 @@ const TwoHourLearningCaseStudy = () => {
       {/* 1. Project Overview */}
       <section id="overview" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-slate-100 to-gray-50 dark:from-gray-950 dark:via-slate-900 dark:to-gray-900" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-900" />
           <div className="absolute inset-0 grain-texture opacity-20" />
         </div>
         
@@ -309,10 +292,10 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               PROJECT OVERVIEW
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Creating a comprehensive landing page system for diverse educational audiences
             </p>
           </motion.div>
@@ -330,20 +313,20 @@ const TwoHourLearningCaseStudy = () => {
                 <h3 className="text-2xl font-extrabold mb-6 text-blue-400 albert-sans-medium">PROJECT DETAILS</h3>
                 <div className="space-y-4 flex-grow">
                   <div className="flex justify-between">
-                    <span className="text-foreground/70 jost-secondary">Client</span>
-                    <span className="text-foreground font-semibold jost-secondary">{caseStudyData.client}</span>
+                    <span className="text-white/70 jost-secondary">Client</span>
+                    <span className="text-white font-semibold jost-secondary">{caseStudyData.client}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-foreground/70 jost-secondary">Role</span>
-                    <span className="text-foreground font-semibold jost-secondary">{caseStudyData.role}</span>
+                    <span className="text-white/70 jost-secondary">Role</span>
+                    <span className="text-white font-semibold jost-secondary">{caseStudyData.role}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-foreground/70 jost-secondary">Duration</span>
-                    <span className="text-foreground font-semibold jost-secondary">{caseStudyData.duration}</span>
+                    <span className="text-white/70 jost-secondary">Duration</span>
+                    <span className="text-white font-semibold jost-secondary">{caseStudyData.duration}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-foreground/70 jost-secondary">Year</span>
-                    <span className="text-foreground font-semibold jost-secondary">{caseStudyData.year}</span>
+                    <span className="text-white/70 jost-secondary">Year</span>
+                    <span className="text-white font-semibold jost-secondary">{caseStudyData.year}</span>
                   </div>
                 </div>
               </Card>
@@ -359,7 +342,7 @@ const TwoHourLearningCaseStudy = () => {
             >
               <Card className="p-8 glass-card grain-texture border-cyan-500/30 h-full flex flex-col">
                 <h3 className="text-2xl font-extrabold mb-6 text-cyan-400 albert-sans-medium">OVERVIEW</h3>
-                <p className="text-foreground/85 leading-relaxed text-lg jost-secondary flex-grow">
+                <p className="text-white/85 leading-relaxed text-lg jost-secondary flex-grow">
                   {caseStudyData.overview}
                 </p>
               </Card>
@@ -370,7 +353,7 @@ const TwoHourLearningCaseStudy = () => {
       {/* 2. Landing Page Designs Showcase */}
       <section id="designs" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-gray-100 to-slate-50 dark:from-slate-950 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-15" />
         </div>
         
@@ -382,10 +365,10 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               LANDING PAGE DESIGNS
             </h2>
-            <p className="text-xl text-foreground/85 max-w-3xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-3xl mx-auto jost-secondary">
               Four specialized landing pages targeting different personas in the educational ecosystem
             </p>
           </motion.div>
@@ -406,7 +389,7 @@ const TwoHourLearningCaseStudy = () => {
                 <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
                   <img src={homepageThumbnail} alt="Homepage WordPress Design" className="w-full h-auto rounded-lg" />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                    <div className="bg-white/95 backdrop-blur-sm border border-foreground/30 px-4 py-2 rounded-md shadow-lg">
+                    <div className="bg-white/95 backdrop-blur-sm border border-white/30 px-4 py-2 rounded-md shadow-lg">
                       <p className="text-gray-900 text-sm font-semibold jost-secondary">Click to view</p>
                     </div>
                   </div>
@@ -415,7 +398,7 @@ const TwoHourLearningCaseStudy = () => {
                   <h3 className="text-base font-extrabold text-cyan-400 mb-1 albert-sans-medium">
                     Homepage (WordPress)
                   </h3>
-                  <p className="text-foreground/75 text-xs jost-secondary">
+                  <p className="text-white/75 text-xs jost-secondary">
                     General audience overview
                   </p>
                 </div>
@@ -436,7 +419,7 @@ const TwoHourLearningCaseStudy = () => {
                 <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
                   <img src={persona1Thumbnail} alt="Persona 1 HubSpot Design" className="w-full h-auto rounded-lg" />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                    <div className="bg-white/95 backdrop-blur-sm border border-foreground/30 px-4 py-2 rounded-md shadow-lg">
+                    <div className="bg-white/95 backdrop-blur-sm border border-white/30 px-4 py-2 rounded-md shadow-lg">
                       <p className="text-gray-900 text-sm font-semibold jost-secondary">Click to view</p>
                     </div>
                   </div>
@@ -445,7 +428,7 @@ const TwoHourLearningCaseStudy = () => {
                   <h3 className="text-base font-extrabold text-blue-400 mb-1 albert-sans-medium">
                     Persona 1 (HubSpot)
                   </h3>
-                  <p className="text-foreground/75 text-xs jost-secondary">
+                  <p className="text-white/75 text-xs jost-secondary">
                     AI-powered learning
                   </p>
                 </div>
@@ -466,7 +449,7 @@ const TwoHourLearningCaseStudy = () => {
                 <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
                   <img src={persona2Thumbnail} alt="Persona 2 HubSpot Design" className="w-full h-auto rounded-lg" />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                    <div className="bg-white/95 backdrop-blur-sm border border-foreground/30 px-4 py-2 rounded-md shadow-lg">
+                    <div className="bg-white/95 backdrop-blur-sm border border-white/30 px-4 py-2 rounded-md shadow-lg">
                       <p className="text-gray-900 text-sm font-semibold jost-secondary">Click to view</p>
                     </div>
                   </div>
@@ -475,7 +458,7 @@ const TwoHourLearningCaseStudy = () => {
                   <h3 className="text-base font-extrabold text-green-400 mb-1 albert-sans-medium">
                     Persona 2 (HubSpot)
                   </h3>
-                  <p className="text-foreground/75 text-xs jost-secondary">
+                  <p className="text-white/75 text-xs jost-secondary">
                     Better outcomes
                   </p>
                 </div>
@@ -496,7 +479,7 @@ const TwoHourLearningCaseStudy = () => {
                 <div className="relative overflow-hidden rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300">
                   <img src={persona3Thumbnail} alt="Persona 3 HubSpot Design" className="w-full h-auto rounded-lg" />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                    <div className="bg-white/95 backdrop-blur-sm border border-foreground/30 px-4 py-2 rounded-md shadow-lg">
+                    <div className="bg-white/95 backdrop-blur-sm border border-white/30 px-4 py-2 rounded-md shadow-lg">
                       <p className="text-gray-900 text-sm font-semibold jost-secondary">Click to view</p>
                     </div>
                   </div>
@@ -505,7 +488,7 @@ const TwoHourLearningCaseStudy = () => {
                   <h3 className="text-base font-extrabold text-purple-400 mb-1 albert-sans-medium">
                     Persona 3 (HubSpot)
                   </h3>
-                  <p className="text-foreground/75 text-xs jost-secondary">
+                  <p className="text-white/75 text-xs jost-secondary">
                     School model
                   </p>
                 </div>
@@ -594,7 +577,7 @@ const TwoHourLearningCaseStudy = () => {
       {/* User Personas */}
       <section id="personas" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-gray-100 to-slate-50 dark:from-blue-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -606,10 +589,10 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               USER PERSONAS
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Four key educational stakeholders driving platform design decisions
             </p>
           </motion.div>
@@ -643,12 +626,12 @@ const TwoHourLearningCaseStudy = () => {
                     {persona.focus && (
                       <div>
                         <h5 className="text-xs font-bold text-green-400 mb-1 jost-secondary uppercase tracking-wider">Focus</h5>
-                        <p className="text-sm text-foreground/80 jost-secondary">{persona.focus}</p>
+                        <p className="text-sm text-white/80 jost-secondary">{persona.focus}</p>
                       </div>
                     )}
                   </div>
                   
-                  <p className="text-foreground/85 leading-relaxed mb-6 jost-secondary">
+                  <p className="text-white/85 leading-relaxed mb-6 jost-secondary">
                     {persona.description}
                   </p>
                   
@@ -658,7 +641,7 @@ const TwoHourLearningCaseStudy = () => {
                         <h4 className="text-sm font-bold text-red-400 mb-2 jost-secondary">PAIN POINTS</h4>
                         <ul className="space-y-1">
                           {persona.painPoints.map((point, idx) => (
-                            <li key={idx} className="text-sm text-foreground/70 flex items-start jost-secondary">
+                            <li key={idx} className="text-sm text-white/70 flex items-start jost-secondary">
                               <div className="w-1.5 h-1.5 bg-red-400 rounded-full mr-2 mt-1.5 flex-shrink-0" />
                               {point}
                             </li>
@@ -672,7 +655,7 @@ const TwoHourLearningCaseStudy = () => {
                         <h4 className="text-sm font-bold text-blue-400 mb-2 jost-secondary">MOTIVATIONS</h4>
                         <ul className="space-y-1">
                           {persona.motivations.map((motivation, idx) => (
-                            <li key={idx} className="text-sm text-foreground/70 flex items-start jost-secondary">
+                            <li key={idx} className="text-sm text-white/70 flex items-start jost-secondary">
                               <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2 mt-1.5 flex-shrink-0" />
                               {motivation}
                             </li>
@@ -686,7 +669,7 @@ const TwoHourLearningCaseStudy = () => {
                         <h4 className="text-sm font-bold text-purple-400 mb-2 jost-secondary">TOP CHANNELS</h4>
                         <ul className="space-y-1">
                           {persona.channels.map((channel, idx) => (
-                            <li key={idx} className="text-sm text-foreground/70 flex items-start jost-secondary">
+                            <li key={idx} className="text-sm text-white/70 flex items-start jost-secondary">
                               <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2 mt-1.5 flex-shrink-0" />
                               {channel}
                             </li>
@@ -699,7 +682,7 @@ const TwoHourLearningCaseStudy = () => {
                       <h4 className="text-sm font-bold text-green-400 mb-2 jost-secondary">KEY FEATURES</h4>
                       <ul className="space-y-1">
                         {persona.features.map((feature, idx) => (
-                          <li key={idx} className="text-sm text-foreground/70 flex items-start jost-secondary">
+                          <li key={idx} className="text-sm text-white/70 flex items-start jost-secondary">
                             <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-2 mt-1.5 flex-shrink-0" />
                             {feature}
                           </li>
@@ -716,7 +699,7 @@ const TwoHourLearningCaseStudy = () => {
       {/* The Challenge */}
       <section id="challenge" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-red-50/30 via-gray-100 to-slate-50 dark:from-red-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-red-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -728,10 +711,10 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               THE CHALLENGE
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Key obstacles in reaching diverse educational stakeholders
             </p>
           </motion.div>
@@ -749,19 +732,19 @@ const TwoHourLearningCaseStudy = () => {
                   <ul className="space-y-4">
                     <li className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
-                      <p className="text-foreground/85 jost-secondary">Diverse audience segments requiring unique messaging strategies</p>
+                      <p className="text-white/85 jost-secondary">Diverse audience segments requiring unique messaging strategies</p>
                     </li>
                     <li className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
-                      <p className="text-foreground/85 jost-secondary">Multiple platform requirements (HubSpot and WordPress)</p>
+                      <p className="text-white/85 jost-secondary">Multiple platform requirements (HubSpot and WordPress)</p>
                     </li>
                     <li className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
-                      <p className="text-foreground/85 jost-secondary">Maintaining brand consistency across varied designs</p>
+                      <p className="text-white/85 jost-secondary">Maintaining brand consistency across varied designs</p>
                     </li>
                     <li className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
-                      <p className="text-foreground/85 jost-secondary">Conversion optimization for different decision-maker roles</p>
+                      <p className="text-white/85 jost-secondary">Conversion optimization for different decision-maker roles</p>
                     </li>
                   </ul>
                 </div>
@@ -770,19 +753,19 @@ const TwoHourLearningCaseStudy = () => {
                   <ul className="space-y-4">
                     <li className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
-                      <p className="text-foreground/85 jost-secondary">4-week timeline for complete design system delivery</p>
+                      <p className="text-white/85 jost-secondary">4-week timeline for complete design system delivery</p>
                     </li>
                     <li className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
-                      <p className="text-foreground/85 jost-secondary">Solo designer managing entire project scope</p>
+                      <p className="text-white/85 jost-secondary">Solo designer managing entire project scope</p>
                     </li>
                     <li className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
-                      <p className="text-foreground/85 jost-secondary">Need for scalable system supporting future expansions</p>
+                      <p className="text-white/85 jost-secondary">Need for scalable system supporting future expansions</p>
                     </li>
                     <li className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
-                      <p className="text-foreground/85 jost-secondary">Platform-specific technical requirements and limitations</p>
+                      <p className="text-white/85 jost-secondary">Platform-specific technical requirements and limitations</p>
                     </li>
                   </ul>
                 </div>
@@ -794,7 +777,7 @@ const TwoHourLearningCaseStudy = () => {
       {/* The Solution */}
       <section id="solution" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-gray-100 to-slate-50 dark:from-green-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-green-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -806,10 +789,10 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               THE SOLUTION
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Persona-driven design strategy with unified brand system
             </p>
           </motion.div>
@@ -821,7 +804,7 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
           >
             <Card className="p-8 sm:p-12 glass-card grain-texture border-green-500/30">
-              <p className="text-xl text-foreground/90 leading-relaxed mb-8 jost-secondary">
+              <p className="text-xl text-white/90 leading-relaxed mb-8 jost-secondary">
                 {caseStudyData.strategy.description}
               </p>
               
@@ -837,7 +820,7 @@ const TwoHourLearningCaseStudy = () => {
                     className="flex items-start space-x-3"
                   >
                     <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <p className="text-foreground/85 jost-secondary">{approach}</p>
+                    <p className="text-white/85 jost-secondary">{approach}</p>
                   </motion.div>
                 ))}
               </div>
@@ -848,7 +831,7 @@ const TwoHourLearningCaseStudy = () => {
       {/* Design Process */}
       <section id="process" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-gray-100 to-slate-50 dark:from-purple-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -860,10 +843,10 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               DESIGN PROCESS
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Systematic approach to creating conversion-optimized landing pages
             </p>
           </motion.div>
@@ -891,7 +874,7 @@ const TwoHourLearningCaseStudy = () => {
                     {phase.phase}
                   </h3>
                   
-                  <p className="text-foreground/85 leading-relaxed mb-6 jost-secondary">
+                  <p className="text-white/85 leading-relaxed mb-6 jost-secondary">
                     {phase.description}
                   </p>
                   
@@ -899,7 +882,7 @@ const TwoHourLearningCaseStudy = () => {
                     <h4 className="text-sm font-bold text-purple-400 mb-2 jost-secondary">DELIVERABLES</h4>
                     <ul className="space-y-1">
                       {phase.deliverables.map((deliverable, idx) => (
-                        <li key={idx} className="text-sm text-foreground/70 flex items-center jost-secondary">
+                        <li key={idx} className="text-sm text-white/70 flex items-center jost-secondary">
                           <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2" />
                           {deliverable}
                         </li>
@@ -915,7 +898,7 @@ const TwoHourLearningCaseStudy = () => {
       {/* Results & Impact */}
       <section id="results" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-gray-100 to-slate-50 dark:from-orange-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -927,10 +910,10 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               RESULTS & IMPACT
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Comprehensive landing page system delivering measurable outcomes
             </p>
           </motion.div>
@@ -949,12 +932,12 @@ const TwoHourLearningCaseStudy = () => {
                     <div className="text-4xl font-extrabold text-orange-400 mb-2 albert-sans-medium">
                       {result.value}
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-3 jost-secondary">
+                    <h3 className="text-lg font-semibold text-white mb-3 jost-secondary">
                       {result.metric}
                     </h3>
                   </div>
                   <div>
-                    <p className="text-foreground/70 text-sm leading-relaxed jost-secondary">
+                    <p className="text-white/70 text-sm leading-relaxed jost-secondary">
                       {result.description}
                     </p>
                   </div>
@@ -967,7 +950,7 @@ const TwoHourLearningCaseStudy = () => {
       {/* Technology Stack */}
       <section id="technology" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-gray-100 to-slate-50 dark:from-blue-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -979,10 +962,10 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               TECHNOLOGY STACK
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Design and platform tools used for optimal implementation
             </p>
           </motion.div>
@@ -1002,11 +985,11 @@ const TwoHourLearningCaseStudy = () => {
                     <div className="w-12 h-12 bg-blue-500/20 rounded-xl mx-auto mb-4 flex items-center justify-center">
                       <div className="w-6 h-6 bg-blue-400 rounded opacity-70" />
                     </div>
-                    <h3 className="font-bold text-foreground mb-1 jost-secondary">
+                    <h3 className="font-bold text-white mb-1 jost-secondary">
                       {tech.name}
                     </h3>
                   </div>
-                  <p className="text-xs text-foreground/60 jost-secondary">
+                  <p className="text-xs text-white/60 jost-secondary">
                     {tech.category}
                   </p>
                 </Card>
@@ -1018,7 +1001,7 @@ const TwoHourLearningCaseStudy = () => {
       {/* Key Learnings */}
       <section id="learnings" className="py-20 relative">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/30 via-gray-100 to-slate-50 dark:from-yellow-950/30 dark:via-gray-900 dark:to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-950/30 via-gray-900 to-slate-950" />
           <div className="absolute inset-0 grain-texture opacity-25" />
         </div>
         
@@ -1030,10 +1013,10 @@ const TwoHourLearningCaseStudy = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 albert-sans-medium text-white">
               KEY LEARNINGS
             </h2>
-            <p className="text-xl text-foreground/85 max-w-4xl mx-auto jost-secondary">
+            <p className="text-xl text-white/85 max-w-4xl mx-auto jost-secondary">
               Insights gained from designing conversion-focused educational landing pages
             </p>
           </motion.div>
@@ -1059,7 +1042,7 @@ const TwoHourLearningCaseStudy = () => {
                     <div className="w-6 h-6 bg-yellow-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                       <Lightbulb className="w-3 h-3 text-yellow-400" />
                     </div>
-                    <p className="text-foreground/85 leading-relaxed text-lg jost-secondary">
+                    <p className="text-white/85 leading-relaxed text-lg jost-secondary">
                       {learning}
                     </p>
                   </motion.div>
@@ -1077,10 +1060,10 @@ const TwoHourLearningCaseStudy = () => {
             className="text-center"
           >
             <Card className="p-12 glass-card grain-texture border-primary/30">
-              <h3 className="text-3xl font-extrabold mb-6 text-foreground albert-sans-medium">
+              <h3 className="text-3xl font-extrabold mb-6 text-white albert-sans-medium">
                 Ready to Transform Your Educational Landing Pages?
               </h3>
-              <p className="text-xl text-foreground/80 mb-8 max-w-3xl mx-auto jost-secondary">
+              <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto jost-secondary">
                 Let's create conversion-optimized landing pages that speak to your specific educational audiences and drive meaningful results.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -1091,7 +1074,7 @@ const TwoHourLearningCaseStudy = () => {
                   </Button>
                 </Link>
                 <a href="https://2hourlearning.com/" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="lg" className="group border-foreground/20 text-foreground hover:bg-foreground/10">
+                  <Button variant="outline" size="lg" className="group border-white/20 text-white hover:bg-white/10">
                     View Live Site
                     <ExternalLink className="ml-2 h-4 w-4 group-hover:scale-110 transition-transform" />
                   </Button>
@@ -1102,18 +1085,18 @@ const TwoHourLearningCaseStudy = () => {
         </div>
       </section>
       {/* Footer */}
-      <footer className="py-16 border-t border-foreground/10">
+      <footer className="py-16 border-t border-white/10">
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex items-center justify-center mb-10">
             <div className="flex items-center space-x-16">
               {/* Logo Circle */}
               <div className="flex-shrink-0">
                 <a href="/#hero" className="block group">
-                  <div className="w-20 h-20 bg-gradient-to-br from-grey-600/30 to-white-600/30 rounded-full border-1.5 border-foreground/30 flex items-center justify-center hover:border-foreground/50 hover:scale-105 transition-all duration-300">
+                  <div className="w-20 h-20 bg-gradient-to-br from-grey-600/30 to-white-600/30 rounded-full border-1.5 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
                     <img
                       src={LogoImage}
                       alt="Logo"
-                      className="w-10 h-10 object-contain dark:invert-0 invert"
+                      className="w-10 h-10 object-contain"
                     />
                   </div>
                 </a>
@@ -1127,11 +1110,11 @@ const TwoHourLearningCaseStudy = () => {
                   rel="noopener noreferrer"
                   className="block group"
                 >
-                  <div className="w-20 h-20 bg-gradient-to-br from-black-600/30 to-black-600/30 rounded-full border-1.5 border-foreground/30 flex items-center justify-center hover:border-foreground/50 hover:scale-105 transition-all duration-300">
+                  <div className="w-20 h-20 bg-gradient-to-br from-black-600/30 to-black-600/30 rounded-full border-1.5 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
                     <img
                       src={linkedinLogo}
                       alt="LinkedIn"
-                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300 dark:invert-0 invert"
+                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300"
                     />
                   </div>
                 </a>
@@ -1139,10 +1122,10 @@ const TwoHourLearningCaseStudy = () => {
             </div>
           </div>
 
-          <div className="w-600 h-px bg-gradient-to-r from-transparent via-foreground/40 to-transparent mx-auto mb-8"></div>
+          <div className="w-600 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto mb-8"></div>
 
           <div className="text-center">
-            <p className="text-foreground/70 text-sm font-light tracking-wider">
+            <p className="text-white/70 text-sm font-light tracking-wider">
               © 2025 Karn Kalaa. Designed & developed with passion.
             </p>
           </div>

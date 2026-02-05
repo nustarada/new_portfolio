@@ -67,15 +67,11 @@ import {
   Folder,
   Package,
   Wallpaper,
-  Sun,
-  Moon,
 } from "lucide-react";
-import { useTheme } from "@/contexts/theme-context";
 
 export default function Home() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [activeSection, setActiveSection] = useState("");
-  const { theme, toggleTheme } = useTheme();
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
 
   const [waveIntensity, setWaveIntensity] = useState(0.3);
@@ -356,11 +352,14 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-hidden transition-colors duration-300">
+    <div
+      className="min-h-screen bg-background text-foreground relative overflow-hidden"
+      style={{ backgroundColor: "#040406", color: "#fafafa" }}
+    >
       {/* Scroll Progress */}
       <motion.div className="scroll-indicator" style={{ scaleX }} />
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-[100] glass-card grain-texture border-b border-foreground/10">
+      <nav className="fixed top-0 left-0 right-0 z-[100] glass-card grain-texture border-b border-white/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center relative">
           {/* Logo - Left */}
           <motion.div
@@ -370,17 +369,17 @@ export default function Home() {
             <img
               src={LogoImage}
               alt="Karan Gadhave Logo"
-              className="h-16 w-16 object-contain dark:invert-0 invert"
+              className="h-16 w-16 object-contain"
             />
           </motion.div>
 
           {/* Navigation - Center */}
-          <div className="hidden md:flex items-center space-x-8 text-foreground absolute left-1/2 transform -translate-x-1/2">
+          <div className="hidden md:flex items-center space-x-8 text-[#ffffff] absolute left-1/2 transform -translate-x-1/2">
             {["About", "Projects"].map((item) => (
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-sm font-semibold transition-colors hover:text-primary jost-secondary opacity-80 text-foreground"
+                className="text-sm font-semibold transition-colors hover:text-primary jost-secondary opacity-80 text-[#ffffff]"
                 whileHover={{ y: -2 }}
               >
                 {item}
@@ -395,40 +394,25 @@ export default function Home() {
             </motion.button>
           </div>
 
-          {/* Theme Toggle & Contact Button - Right */}
-          <div className="ml-auto flex items-center space-x-4">
-            <motion.button
-              whileHover={{ scale: 1.1, rotate: 15 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={toggleTheme}
-              className="p-2.5 rounded-full glass-card border border-foreground/10 hover:border-primary/30 transition-all duration-300"
-              aria-label="Toggle theme"
+          {/* Contact Button - Right */}
+          <motion.div
+            className="ml-auto"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <button
+              onClick={() => {
+                const contactSection = document.getElementById("contact");
+                contactSection?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="relative group h-10 px-4 text-white font-semibold cta-button border-0 text-sm"
             >
-              {theme === 'light' ? (
-                <Moon className="w-5 h-5 text-foreground" />
-              ) : (
-                <Sun className="w-5 h-5 text-foreground" />
-              )}
-            </motion.button>
-            
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <button
-                onClick={() => {
-                  const contactSection = document.getElementById("contact");
-                  contactSection?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="relative group h-10 px-4 text-white font-semibold cta-button border-0 text-sm"
-              >
-                <div className="relative z-10 flex items-center space-x-2 jost-secondary">
-                  <Mail className="w-4 h-4" />
-                  <span>Contact Me</span>
-                </div>
-              </button>
-            </motion.div>
-          </div>
+              <div className="relative z-10 flex items-center space-x-2 jost-secondary">
+                <Mail className="w-4 h-4" />
+                <span>Contact Me</span>
+              </div>
+            </button>
+          </motion.div>
         </div>
       </nav>
       {/* Hero Section */}
@@ -502,7 +486,7 @@ export default function Home() {
           >
             <Badge
               variant="outline"
-              className="px-4 py-1.5 glass-card grain-texture text-foreground/90 font-medium tracking-wide border-emerald-500/50 hover:border-emerald-400 transition-all duration-300 jost-secondary"
+              className="px-4 py-1.5 glass-card grain-texture text-white/90 font-medium tracking-wide border-emerald-500/50 hover:border-emerald-400 transition-all duration-300 jost-secondary"
             >
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
@@ -518,8 +502,8 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold text-foreground tracking-wide leading-tight hero-text-hover flex justify-center">
-              <span className="text-foreground/90 dark:text-gray-200 albert-sans-medium">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold text-white tracking-wide leading-tight hero-text-hover flex justify-center">
+              <span className="text-gray-200 albert-sans-medium blend-mode-overlay">
                 KARAN GADHAVE
               </span>
             </h1>
@@ -534,7 +518,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.7 }}
           >
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight albert-sans-medium">
-              <span className="text-foreground">SENIOR </span>
+              <span className="text-white">SENIOR </span>
               <span className="glow-text">PRODUCT DESIGNER</span>
             </h2>
           </motion.div>
@@ -544,7 +528,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.3 }}
-            className="text-lg md:text-xl text-foreground/90 leading-relaxed max-w-3xl mx-auto font-normal jost-secondary mb-8"
+            className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto font-normal jost-secondary mb-8"
           >5+ years turning complex problems into launch-ready products through research-driven UX, clear information architecture, and iterative design - supported by modern tools.</motion.p>
 
           {/* Responsive Action Buttons */}
@@ -571,7 +555,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/hero-cta:translate-x-full transition-transform duration-700" />
 
                 {/* Pulsing Ring */}
-                <div className="absolute inset-0 border-2 border-foreground/30 opacity-0 group-hover/hero-cta:opacity-100 group-hover/hero-cta:scale-110 transition-all duration-500" />
+                <div className="absolute inset-0 border-2 border-white/30 opacity-0 group-hover/hero-cta:opacity-100 group-hover/hero-cta:scale-110 transition-all duration-500" />
 
                 <div className="relative z-10 flex items-center justify-center space-x-2 sm:space-x-3">
                   <ArrowUpRight className="w-4 h-4 sm:w-6 sm:h-6 group-hover/hero-cta:rotate-45 transition-transform duration-300" />
@@ -590,7 +574,7 @@ export default function Home() {
               <Button
                 size="lg"
                 onClick={() => setIsResumeOpen(true)}
-                className="relative overflow-hidden w-full sm:w-auto px-6 sm:px-10 py-4 text-base sm:text-lg font-semibold text-foreground glass-card grain-texture hover:glass-intense border-primary/50 transition-all duration-300 hover:scale-105 min-h-[56px] jost-secondary"
+                className="relative overflow-hidden w-full sm:w-auto px-6 sm:px-10 py-4 text-base sm:text-lg font-semibold text-white glass-card grain-texture hover:glass-intense border-primary/50 transition-all duration-300 hover:scale-105 min-h-[56px] jost-secondary"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover/secondary:opacity-100 transition-opacity duration-300" />
 
@@ -622,7 +606,7 @@ export default function Home() {
             className="text-center mb-10"
           >
             <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-foreground albert-sans-medium"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-white albert-sans-medium"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -630,7 +614,7 @@ export default function Home() {
             >
               ACHIEVEMENTS
             </motion.h2>
-            <p className="text-lg text-foreground/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
+            <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
               Measurable impact through product design, systems thinking, and execution
             </p>
           </motion.div>
@@ -679,7 +663,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="group"
               >
-                <Card className="relative overflow-hidden p-4 sm:p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-foreground/10 hover:border-primary/30 h-full">
+                <Card className="relative overflow-hidden p-4 sm:p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30 h-full">
                   {/* Background Effects */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-cyan-400/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -688,7 +672,7 @@ export default function Home() {
                     {/* Mobile: Vertical Layout */}
                     <div className="block sm:hidden text-center space-y-3">
                       <div
-                        className={`w-12 h-12 bg-gradient-to-br ${stat.bgColor} border border-foreground/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300`}
+                        className={`w-12 h-12 bg-gradient-to-br ${stat.bgColor} border border-white/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300`}
                       >
                         <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                       </div>
@@ -698,10 +682,10 @@ export default function Home() {
                             {stat.number}
                           </span>
                         )}
-                        <h3 className={`text-foreground font-bold jost-secondary ${stat.number ? 'text-sm sm:text-base mt-1' : 'text-base sm:text-lg'}`}>
+                        <h3 className={`text-white font-bold jost-secondary ${stat.number ? 'text-sm sm:text-base mt-1' : 'text-base sm:text-lg'}`}>
                           {stat.label}
                         </h3>
-                        <p className="text-foreground/60 text-xs sm:text-sm jost-secondary mt-1">
+                        <p className="text-white/60 text-xs sm:text-sm jost-secondary mt-1">
                           {stat.description}
                         </p>
                       </div>
@@ -710,7 +694,7 @@ export default function Home() {
                     {/* Tablet & Desktop: Horizontal Layout */}
                     <div className="hidden sm:flex items-center space-x-4">
                       <div
-                        className={`w-12 h-12 bg-gradient-to-br ${stat.bgColor} border border-foreground/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                        className={`w-12 h-12 bg-gradient-to-br ${stat.bgColor} border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
                       >
                         <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                       </div>
@@ -721,11 +705,11 @@ export default function Home() {
                               {stat.number}
                             </span>
                           )}
-                          <h3 className={`text-foreground font-bold jost-secondary ${stat.number ? 'text-sm lg:text-base' : 'text-base lg:text-lg'}`}>
+                          <h3 className={`text-white font-bold jost-secondary ${stat.number ? 'text-sm lg:text-base' : 'text-base lg:text-lg'}`}>
                             {stat.label}
                           </h3>
                         </div>
-                        <p className="text-foreground/60 text-xs lg:text-sm jost-secondary">
+                        <p className="text-white/60 text-xs lg:text-sm jost-secondary">
                           {stat.description}
                         </p>
                       </div>
@@ -753,7 +737,7 @@ export default function Home() {
               </h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
             </div>
-            <p className="text-lg md:text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed jost-secondary">A curated set of product designs solving complex problems across platforms and systems.</p>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">A curated set of product designs solving complex problems across platforms and systems.</p>
           </motion.div>
 
           {/* 2x2 Grid Project Cards */}
@@ -767,7 +751,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="group h-full"
               >
-                <Card className="relative overflow-hidden glass-card grain-texture hover:glass-intense border border-foreground/20 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.02] h-full flex flex-col">
+                <Card className="relative overflow-hidden glass-card grain-texture hover:glass-intense border border-white/20 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.02] h-full flex flex-col">
                   {/* Thumbnail */}
                   <div className="relative overflow-hidden">
                     <img
@@ -776,15 +760,15 @@ export default function Home() {
                       className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     {/* Project Number Badge */}
-                    <div className="absolute top-4 left-4 w-10 h-10 bg-gradient-to-br from-primary/80 to-purple-500/80 backdrop-blur-md border border-foreground/20 flex items-center justify-center">
-                      <span className="text-sm font-bold text-foreground font-mono">
+                    <div className="absolute top-4 left-4 w-10 h-10 bg-gradient-to-br from-primary/80 to-purple-500/80 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                      <span className="text-sm font-bold text-white font-mono">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                     </div>
                     {/* Case Study Coming Soon Badge */}
                     {project.isComingSoon && (
-                      <div className="absolute bottom-4 left-4 px-3 py-1.5 bg-black/70 backdrop-blur-md border border-foreground/20 rounded">
-                        <span className="text-[10px] font-semibold text-foreground/90 jost-secondary uppercase tracking-wide">
+                      <div className="absolute bottom-4 left-4 px-3 py-1.5 bg-black/70 backdrop-blur-md border border-white/20 rounded">
+                        <span className="text-[10px] font-semibold text-white/90 jost-secondary uppercase tracking-wide">
                           Case Study Coming Soon
                         </span>
                       </div>
@@ -795,11 +779,11 @@ export default function Home() {
                   <div className="p-5 flex flex-col flex-1">
                     {/* Project Title with Logo */}
                     <div className="flex items-center justify-between gap-3 mb-3">
-                      <h3 className="text-xl font-bold text-foreground leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
+                      <h3 className="text-xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
                         {project.title}
                       </h3>
                       {/* Project Logo */}
-                      <div className="flex-shrink-0 bg-foreground/10 backdrop-blur-md rounded-lg p-2">
+                      <div className="flex-shrink-0 bg-white/10 backdrop-blur-md rounded-lg p-2">
                         <img
                           src={project.logo}
                           alt={`${project.title} Logo`}
@@ -813,7 +797,7 @@ export default function Home() {
                     </div>
                     {/* Project Description */}
                     <div className="mb-4">
-                      <p className="text-foreground/80 leading-relaxed text-sm jost-secondary font-light line-clamp-3">
+                      <p className="text-white/80 leading-relaxed text-sm jost-secondary font-light line-clamp-3">
                         {project.description}
                       </p>
                     </div>
@@ -821,18 +805,18 @@ export default function Home() {
                     {/* Industry and Services Row */}
                     <div className="grid grid-cols-2 gap-4 mb-4">
                       <div>
-                        <p className="text-foreground/50 text-xs mb-1 jost-secondary font-medium">
+                        <p className="text-white/50 text-xs mb-1 jost-secondary font-medium">
                           Industry
                         </p>
-                        <p className="text-foreground font-semibold text-sm jost-secondary">
+                        <p className="text-white font-semibold text-sm jost-secondary">
                           {project.industry || project.category}
                         </p>
                       </div>
                       <div>
-                        <p className="text-foreground/50 text-xs mb-1 jost-secondary font-medium">
+                        <p className="text-white/50 text-xs mb-1 jost-secondary font-medium">
                           Services
                         </p>
-                        <p className="text-foreground font-semibold text-sm jost-secondary">
+                        <p className="text-white font-semibold text-sm jost-secondary">
                           {project.services}
                         </p>
                       </div>
@@ -840,10 +824,10 @@ export default function Home() {
 
                     {/* Duration */}
                     <div className="mb-4">
-                      <p className="text-foreground/50 text-xs mb-1 jost-secondary font-medium">
+                      <p className="text-white/50 text-xs mb-1 jost-secondary font-medium">
                         Duration
                       </p>
-                      <p className="text-foreground font-semibold text-sm jost-secondary">
+                      <p className="text-white font-semibold text-sm jost-secondary">
                         {project.duration || "4 Months"}
                       </p>
                     </div>
@@ -852,13 +836,13 @@ export default function Home() {
                     <div className="grid grid-cols-2 gap-3 mt-auto">
                       {project.isComingSoon ? (
                         <div
-                          className={`project-card-btn col-span-2 relative overflow-hidden bg-foreground/10 text-foreground/60 font-bold text-xs border border-foreground/20 cursor-not-allowed opacity-70`}
+                          className={`project-card-btn col-span-2 relative overflow-hidden bg-white/10 text-white/60 font-bold text-xs border border-white/20 cursor-not-allowed opacity-70`}
                           style={{ WebkitTapHighlightColor: "transparent" }}
                         >
                           <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
                             <span className="font-semibold">Confidential Case Study</span>
                             {project.isConfidential && (
-                              <span className="text-[10px] bg-foreground/10 px-2 py-0.5 rounded">Confidential</span>
+                              <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded">Confidential</span>
                             )}
                           </div>
                         </div>
@@ -880,7 +864,7 @@ export default function Home() {
                               href={project.liveUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="project-card-btn group/btn relative overflow-hidden text-foreground font-bold text-xs border border-foreground/30 hover:bg-foreground/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-foreground/10 no-underline"
+                              className="project-card-btn group/btn relative overflow-hidden text-white font-bold text-xs border border-white/30 hover:bg-white/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-white/10 no-underline"
                               style={{ WebkitTapHighlightColor: "transparent" }}
                             >
                               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
@@ -921,7 +905,7 @@ export default function Home() {
             className="text-center mb-10"
           >
             <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-foreground albert-sans-medium"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-white albert-sans-medium"
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -929,7 +913,7 @@ export default function Home() {
             >
               ABOUT ME
             </motion.h2>
-            <p className="text-lg text-foreground/80 max-w-3xl mx-auto leading-relaxed jost-secondary">
+            <p className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed jost-secondary">
               Crafting innovative digital experiences through AI-enhanced design
               workflows
             </p>
@@ -957,11 +941,11 @@ export default function Home() {
                     viewport={{ once: true }}
                     className="flex-shrink-0 mx-auto lg:mx-0"
                   >
-                    <div className="w-44 h-auto rounded-lg border-2 border-foreground/20 overflow-hidden">
+                    <div className="w-44 h-auto rounded-lg border-2 border-white/20 overflow-hidden">
                       <img
                         src={
                           new URL(
-                            "@assets/profile_photo_1770274087548.png",
+                            "@assets/f894f7c16bd38de4f917265637f70cbcb179a3b831d11411ec64662e596c2f_1770135807671.png",
                             import.meta.url,
                           ).href
                         }
@@ -985,7 +969,7 @@ export default function Home() {
                     </h4>
 
                     <div className="space-y-4">
-                      <p className="text-foreground/85 leading-relaxed text-base jost-secondary">
+                      <p className="text-white/85 leading-relaxed text-base jost-secondary">
                         I'm a Senior Product Designer with over 5 years of experience in designing{" "}
                         <span className="text-primary font-semibold">
                           SaaS and B2B platforms
@@ -993,7 +977,7 @@ export default function Home() {
                         for both web and mobile. I focus on solving complex workflow problems with strong UX structure, interaction design, and scalable design systems.
                       </p>
 
-                      <p className="text-foreground/85 leading-relaxed text-base jost-secondary">
+                      <p className="text-white/85 leading-relaxed text-base jost-secondary">
                         I work directly across the entire design process, from{" "}
                         <span className="text-primary font-semibold">
                           discovery and user research
@@ -1001,7 +985,7 @@ export default function Home() {
                         to high-fidelity UI, prototyping, and delivery. I collaborate closely with product managers and engineers.
                       </p>
 
-                      <p className="text-foreground/85 leading-relaxed text-base jost-secondary">
+                      <p className="text-white/85 leading-relaxed text-base jost-secondary">
                         My work highlights clarity, usability, and long-term maintainability, especially in systems that are{" "}
                         <span className="text-primary font-semibold">
                           admin-heavy and role-based
@@ -1013,7 +997,7 @@ export default function Home() {
 
                 {/* Skills Section */}
                 <motion.div
-                  className="mt-8 pt-6 border-t border-foreground/10"
+                  className="mt-8 pt-6 border-t border-white/10"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
@@ -1037,7 +1021,7 @@ export default function Home() {
                     ].map((skill, index) => (
                       <motion.div
                         key={skill}
-                        className="px-3 py-2 glass-card grain-texture text-foreground/90 text-xs font-medium hover:glass-intense transition-all duration-300 jost-secondary text-center border border-foreground/10 hover:border-primary/30 flex items-center justify-center"
+                        className="px-3 py-2 glass-card grain-texture text-white/90 text-xs font-medium hover:glass-intense transition-all duration-300 jost-secondary text-center border border-white/10 hover:border-primary/30 flex items-center justify-center"
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.3, delay: index * 0.03 }}
@@ -1069,7 +1053,7 @@ export default function Home() {
               </h2>
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
             </div>
-            <p className="text-lg md:text-xl text-foreground/90 max-w-4xl mx-auto leading-relaxed jost-secondary">
+            <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed jost-secondary">
               My approach to creating meaningful and impactful digital
               experiences
             </p>
@@ -1096,11 +1080,11 @@ export default function Home() {
                 <div className="space-y-8">
                   <blockquote className="relative text-center">
                     <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-400 to-primary/60"></div>
-                    <p className="text-foreground/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium jost-secondary">"Great design is invisible. It bridges human needs and system complexity, creating experiences that feel intuitive, purposeful, and effortless at scale."</p>
+                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium jost-secondary">"Great design is invisible. It bridges human needs and system complexity, creating experiences that feel intuitive, purposeful, and effortless at scale."</p>
                   </blockquote>
 
-                  <div className="text-center pt-6 border-t border-foreground/10">
-                    <p className="text-foreground/85 text-lg leading-relaxed max-w-3xl mx-auto jost-secondary">I focus on understanding problems deeply—through research, system thinking, and iteration—before shaping solutions that scale. Tools and technology support the process, but clarity, usability, and intent always lead the design.</p>
+                  <div className="text-center pt-6 border-t border-white/10">
+                    <p className="text-white/85 text-lg leading-relaxed max-w-3xl mx-auto jost-secondary">I focus on understanding problems deeply—through research, system thinking, and iteration—before shaping solutions that scale. Tools and technology support the process, but clarity, usability, and intent always lead the design.</p>
                   </div>
                 </div>
               </div>
@@ -1118,7 +1102,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-6"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-foreground albert-sans-medium">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-white albert-sans-medium">
               GET IN TOUCH
             </h2>
             <p className="text-xl text-muted-foreground jost-secondary max-w-3xl mx-auto">
@@ -1133,17 +1117,17 @@ export default function Home() {
             viewport={{ once: true }}
             className="max-w-md mx-auto"
           >
-            <Card className="p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-foreground/10 hover:border-primary/30">
+            <Card className="p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
               <div className="space-y-4">
                 {/* Email */}
-                <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-foreground/5 transition-all duration-300">
+                <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-foreground/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Mail className="w-5 h-5 text-emerald-400" />
                     </div>
                     <a
                       href="mailto:gadhavekaran@gmail.com"
-                      className="text-foreground hover:text-primary transition-colors duration-300 jost-secondary"
+                      className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
                     >
                       gadhavekaran@gmail.com
                     </a>
@@ -1159,7 +1143,7 @@ export default function Home() {
                         button.innerHTML = originalContent;
                       }, 2000);
                     }}
-                    className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-foreground/10 rounded-lg text-foreground/60 hover:text-primary"
+                    className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
                     title="Copy email"
                   >
                     <FileText className="w-4 h-4" />
@@ -1167,16 +1151,16 @@ export default function Home() {
                 </div>
 
                 {/* Phone */}
-                <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-foreground/5 transition-all duration-300">
+                <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-foreground/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Phone className="w-5 h-5 text-cyan-400" />
                     </div>
                     <a
                       href="https://wa.me/917744074265"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-foreground hover:text-primary transition-colors duration-300 jost-secondary"
+                      className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
                     >
                       +91 7744074265
                     </a>
@@ -1192,7 +1176,7 @@ export default function Home() {
                         button.innerHTML = originalContent;
                       }, 2000);
                     }}
-                    className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-foreground/10 rounded-lg text-foreground/60 hover:text-primary"
+                    className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
                     title="Copy phone"
                   >
                     <FileText className="w-4 h-4" />
@@ -1212,7 +1196,7 @@ export default function Home() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsResumeOpen(false)}
-                className="w-8 h-8 sm:w-10 sm:h-10 text-white hover:bg-foreground/20 hover:text-primary transition-colors flex-shrink-0 bg-black/20 border border-foreground/20"
+                className="w-8 h-8 sm:w-10 sm:h-10 text-white hover:bg-white/20 hover:text-primary transition-colors flex-shrink-0 bg-black/20 border border-white/20"
               >
                 <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
@@ -1227,7 +1211,7 @@ export default function Home() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsResumeOpen(false)}
-                className="w-8 h-8 sm:w-10 sm:h-10 text-white hover:bg-foreground/20 hover:text-primary transition-colors flex-shrink-0"
+                className="w-8 h-8 sm:w-10 sm:h-10 text-white hover:bg-white/20 hover:text-primary transition-colors flex-shrink-0"
               >
                 <X className="w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
@@ -1396,18 +1380,18 @@ export default function Home() {
         </DialogContent>
       </Dialog>
       {/* Footer */}
-      <footer className="py-16 border-t border-foreground/10">
+      <footer className="py-16 border-t border-white/10">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-center mb-10">
             <div className="flex items-center space-x-16">
               {/* Logo Circle */}
               <div className="flex-shrink-0">
                 <a href="#hero" className="block group">
-                  <div className="w-20 h-20 bg-gradient-to-br from-grey-600/30 to-white-600/30 rounded-full border-1.5 border-foreground/30 flex items-center justify-center hover:border-foreground/50 hover:scale-105 transition-all duration-300">
+                  <div className="w-20 h-20 bg-gradient-to-br from-grey-600/30 to-white-600/30 rounded-full border-1.5 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
                     <img
                       src={LogoImage}
                       alt="Logo"
-                      className="w-10 h-10 object-contain dark:invert-0 invert"
+                      className="w-10 h-10 object-contain"
                     />
                   </div>
                 </a>
@@ -1421,11 +1405,11 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="block group"
                 >
-                  <div className="w-20 h-20 bg-gradient-to-br from-black-600/30 to-black-600/30 rounded-full border-1.5 border-foreground/30 flex items-center justify-center hover:border-foreground/50 hover:scale-105 transition-all duration-300">
+                  <div className="w-20 h-20 bg-gradient-to-br from-black-600/30 to-black-600/30 rounded-full border-1.5 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
                     <img
                       src={linkedinLogo}
                       alt="LinkedIn"
-                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300 dark:invert-0 invert"
+                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300"
                     />
                   </div>
                 </a>
@@ -1433,10 +1417,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="w-600 h-px bg-gradient-to-r from-transparent via-foreground/40 to-transparent mx-auto mb-8"></div>
+          <div className="w-600 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto mb-8"></div>
 
           <div className="text-center">
-            <p className="text-foreground/70 text-sm font-light tracking-wider">
+            <p className="text-white/70 text-sm font-light tracking-wider">
               © 2025 Karn Kalaa. Designed & developed with passion.
             </p>
           </div>
