@@ -1,0 +1,119 @@
+Update only the “2 Hour Learning” case study page using the global senior case study structure already defined.
+
+Do NOT change UI.
+Do NOT change layout.
+Do NOT change styling.
+Do NOT change animations.
+Do NOT modify components.
+
+Only restructure content hierarchy and storytelling.
+
+This page should read like a product thinking case study, not a design exercise.
+
+Reorganize into the following structure while reusing existing sections.
+
+1. Project Overview
+Keep hero section.
+Clarify:
+- concept of platform
+- learning model (time-efficient learning)
+- your role
+- project scope
+Make this a concise snapshot.
+
+2. Context
+Introduce:
+- modern learning challenges
+- time constraints
+- fragmented learning apps
+- need for focused micro-learning
+
+Position as product exploration.
+
+3. Problem Statement
+Create strong problem definition:
+- long-form learning fatigue
+- lack of structured quick learning
+- poor retention
+- overwhelming content platforms
+- low engagement consistency
+
+Keep concise.
+
+4. Goals
+Add structured goals:
+- simplify learning flow
+- enable fast consumption
+- improve engagement
+- create structured modules
+- design scalable learning system
+
+5. Research & Product Understanding
+Convert into:
+- market observation
+- behavior assumptions
+- learning patterns
+- UX gaps in current platforms
+
+Avoid academic UX tone.
+
+6. Design Thinking & Key Decisions
+Reframe into:
+Insight → Decision → Reasoning
+
+Focus on:
+- modular learning structure
+- minimal friction navigation
+- attention-span friendly UX
+- content hierarchy
+- engagement loops
+
+7. Solution Strategy
+Add system-level thinking:
+- course structure
+- learning journey flow
+- navigation logic
+- content grouping
+- retention mechanisms
+
+8. Final Product
+Keep design showcase.
+Enhance captions explaining why features exist.
+
+9. Design System Foundations
+Add section describing:
+- typography hierarchy
+- spacing consistency
+- layout structure
+- reusable components
+- scalable design
+
+10. Impact & Outcomes
+Frame outcomes as:
+- clarity of learning journey
+- reduced friction
+- improved engagement potential
+- scalable product foundation
+
+11. Learnings
+Add reflection:
+- designing for attention span
+- simplifying complexity
+- balancing content & UX
+- importance of structure
+
+12. What’s Next
+Add forward-looking ideas:
+- personalization
+- adaptive learning
+- analytics insights
+- expansion of modules
+
+Rules:
+- Merge overlapping sections
+- Remove bootcamp-style UX storytelling
+- Keep narrative concise
+- Maintain existing navigation and motion
+- Keep visuals untouched
+
+Only restructure narrative and section hierarchy.
