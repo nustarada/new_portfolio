@@ -42,16 +42,18 @@ import Screen33 from "@assets/33. Dropdown_1754469216930.png";
 import Screen34 from "@assets/34. Health card_1754469216930.png";
 
 const navSections = [
-  { id: "tldr", title: "TL;DR", color: "from-red-400 to-orange-400" },
-  { id: "problem", title: "The Problem", color: "from-orange-400 to-yellow-400" },
-  { id: "approach", title: "My Approach", color: "from-purple-400 to-pink-400" },
-  { id: "wireframes", title: "Wireframes", color: "from-slate-400 to-gray-400" },
-  { id: "screens", title: "Final Screens", color: "from-cyan-400 to-blue-400" },
-  { id: "outcomes", title: "Outcomes", color: "from-green-400 to-teal-400" },
-  { id: "reflection", title: "Reflection", color: "from-yellow-400 to-orange-400" },
+  { id: "brief",      title: "The Brief",        color: "from-slate-400 to-gray-400" },
+  { id: "discovery",  title: "Discovery",         color: "from-purple-400 to-pink-400" },
+  { id: "reframe",    title: "Problem Reframe",   color: "from-orange-400 to-red-400" },
+  { id: "explore",    title: "Exploration",        color: "from-slate-400 to-blue-400" },
+  { id: "decisions",  title: "Key Decisions",     color: "from-red-400 to-orange-400" },
+  { id: "design",     title: "Final Design",      color: "from-cyan-400 to-blue-400" },
+  { id: "testing",    title: "Testing",           color: "from-green-400 to-teal-400" },
+  { id: "outcomes",   title: "Outcomes",          color: "from-teal-400 to-green-400" },
+  { id: "reflection", title: "Reflection",        color: "from-yellow-400 to-orange-400" },
 ];
 
-/* ─── Low-fi wireframe skeletons ──────────────────────────────────────── */
+/* ── SVG wireframe helpers ─────────────────────────────────────────────── */
 const Wire = ({ children }: { children: React.ReactNode }) => (
   <svg viewBox="0 0 200 360" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
     <rect width="200" height="360" fill="#f8f8f7" />
@@ -61,166 +63,73 @@ const Wire = ({ children }: { children: React.ReactNode }) => (
     {children}
   </svg>
 );
-const Blk = ({ x, y, w, h, shade = false }: any) => (
-  <rect x={x} y={y} width={w} height={h} rx="3" fill={shade ? "#e2e8f0" : "#f1f5f9"} stroke="#cbd5e1" strokeWidth="0.8" />
-);
-const Ln = ({ x, y, w, h = 5 }: any) => <rect x={x} y={y} width={w} height={h} rx="2" fill="#cbd5e1" />;
-const Xbox = ({ x, y, w, h }: any) => (
-  <g>
-    <rect x={x} y={y} width={w} height={h} fill="#f1f5f9" stroke="#94a3b8" strokeWidth="0.8" strokeDasharray="3 2" />
-    <line x1={x} y1={y} x2={x + w} y2={y + h} stroke="#94a3b8" strokeWidth="0.7" />
-    <line x1={x + w} y1={y} x2={x} y2={y + h} stroke="#94a3b8" strokeWidth="0.7" />
-  </g>
-);
-const Txt = ({ x, y, t, size = 7 }: any) => (
-  <text x={x} y={y} fontSize={size} fill="#94a3b8" fontFamily="monospace">{t}</text>
-);
+const Blk = ({ x, y, w, h, shade = false }: any) => <rect x={x} y={y} width={w} height={h} rx="3" fill={shade ? "#e2e8f0" : "#f1f5f9"} stroke="#cbd5e1" strokeWidth="0.8" />;
+const Ln  = ({ x, y, w, h = 5 }: any)          => <rect x={x} y={y} width={w} height={h} rx="2" fill="#cbd5e1" />;
+const Xbox= ({ x, y, w, h }: any)               => <g><rect x={x} y={y} width={w} height={h} fill="#f1f5f9" stroke="#94a3b8" strokeWidth="0.8" strokeDasharray="3 2" /><line x1={x} y1={y} x2={x+w} y2={y+h} stroke="#94a3b8" strokeWidth="0.7" /><line x1={x+w} y1={y} x2={x} y2={y+h} stroke="#94a3b8" strokeWidth="0.7" /></g>;
+const Txt = ({ x, y, t, size = 7 }: any)        => <text x={x} y={y} fontSize={size} fill="#94a3b8" fontFamily="monospace">{t}</text>;
 
 const WfDashboard = () => (
   <Wire>
-    <Ln x={20} y={28} w={45} /><Ln x={148} y={28} w={38} />
-    <Ln x={20} y={41} w={70} /><Ln x={20} y={51} w={100} h={7} />
-    {/* big emergency block */}
-    <rect x="20" y="64" width="160" height="52" rx="5" fill="#fee2e2" stroke="#fca5a5" strokeWidth="1.2" />
-    <rect x="30" y="74" width="20" height="20" rx="10" fill="#fca5a5" stroke="#94a3b8" strokeWidth="0.8" />
-    <Ln x={56} y={79} w={80} h={7} />
-    <Ln x={56} y={91} w={55} />
-    <Txt x={100} y={128} t="[ emergency — above fold, always ]" size={6} />
-    {/* service tiles */}
-    <Ln x={20} y={136} w={80} />
-    {[0, 1, 2, 3].map(i => <Blk key={i} x={20 + i * 40} y={143} w={36} h={36} shade />)}
-    {/* health card */}
-    <Blk x={20} y={192} w={160} h={44} />
-    <Ln x={28} y={202} w={55} /><Ln x={28} y={212} w={90} /><Ln x={28} y={222} w={70} />
-    {/* list */}
-    <Ln x={20} y={248} w={70} />
-    {[0, 1].map(i => (
-      <g key={i}>
-        <Blk x={20} y={256 + i * 24} w={160} h={19} />
-        <Blk x={24} y={259 + i * 24} w={20} h={12} shade />
-        <Ln x={50} y={263 + i * 24} w={80} />
-      </g>
-    ))}
-    {/* nav */}
-    <line x1="14" y1="316" x2="186" y2="316" stroke="#e2e8f0" strokeWidth="1" />
-    {[0, 1, 2, 3, 4].map(i => <Blk key={i} x={22 + i * 34} y={320} w={22} h={16} shade={i === 0} />)}
+    <Ln x={20} y={28} w={45}/><Ln x={148} y={28} w={38}/>
+    <Ln x={20} y={41} w={70}/><Ln x={20} y={51} w={100} h={7}/>
+    <rect x="20" y="64" width="160" height="52" rx="5" fill="#fee2e2" stroke="#fca5a5" strokeWidth="1.2"/>
+    <rect x="30" y="74" width="20" height="20" rx="10" fill="#fca5a5" stroke="#94a3b8" strokeWidth="0.8"/>
+    <Ln x={56} y={79} w={80} h={7}/><Ln x={56} y={91} w={55}/>
+    <Txt x={60} y={128} t="[ emergency — above fold, always ]" size={6}/>
+    <Ln x={20} y={136} w={80}/>
+    {[0,1,2,3].map(i=><Blk key={i} x={20+i*40} y={143} w={36} h={36} shade/>)}
+    <Blk x={20} y={192} w={160} h={44}/>
+    <Ln x={28} y={202} w={55}/><Ln x={28} y={212} w={90}/><Ln x={28} y={222} w={70}/>
+    <Ln x={20} y={248} w={70}/>
+    {[0,1].map(i=><g key={i}><Blk x={20} y={256+i*24} w={160} h={19}/><Blk x={24} y={259+i*24} w={20} h={12} shade/><Ln x={50} y={263+i*24} w={80}/></g>)}
+    <line x1="14" y1="316" x2="186" y2="316" stroke="#e2e8f0" strokeWidth="1"/>
+    {[0,1,2,3,4].map(i=><Blk key={i} x={22+i*34} y={320} w={22} h={16} shade={i===0}/>)}
   </Wire>
 );
-
 const WfEmergency = () => (
   <Wire>
-    <Blk x={20} y={26} w={16} h={13} shade />
-    <Ln x={42} y={30} w={80} />
-    <Xbox x={20} y={46} w={160} h={88} />
-    <Txt x={100} y={108} t="[ map ]" size={7} />
-    <circle cx="100" cy="75" r="6" fill="none" stroke="#64748b" strokeWidth="1.5" />
-    <line x1="100" y1="81" x2="100" y2="90" stroke="#64748b" strokeWidth="1.5" />
-    {/* dispatch */}
-    <rect x="20" y="142" width="160" height="44" rx="5" fill="#fee2e2" stroke="#fca5a5" strokeWidth="1.2" />
-    <Txt x={70} y={162} t="DISPATCH AMBULANCE" size={8} />
-    <Txt x={65} y={174} t="[ one tap — GPS auto-filled ]" size={6} />
-    {/* list */}
-    <Ln x={20} y={198} w={90} />
-    {[0, 1, 2].map(i => (
-      <g key={i}>
-        <Blk x={20} y={206 + i * 27} w={160} h={22} />
-        <Xbox x={24} y={209 + i * 27} w={28} h={15} />
-        <Ln x={58} y={213 + i * 27} w={70} /><Ln x={58} y={221 + i * 27} w={45} />
-        <Blk x={150} y={210 + i * 27} w={26} h={13} shade />
-      </g>
-    ))}
-    <Txt x={55} y={292} t="[ sorted by ETA, not distance ]" size={6} />
-    <line x1="14" y1="316" x2="186" y2="316" stroke="#e2e8f0" strokeWidth="1" />
-    {[0, 1, 2, 3, 4].map(i => <Blk key={i} x={22 + i * 34} y={320} w={22} h={16} />)}
+    <Blk x={20} y={26} w={16} h={13} shade/><Ln x={42} y={30} w={80}/>
+    <Xbox x={20} y={46} w={160} h={88}/>
+    <Txt x={100} y={108} t="[ map ]" size={7}/>
+    <circle cx="100" cy="75" r="6" fill="none" stroke="#64748b" strokeWidth="1.5"/>
+    <line x1="100" y1="81" x2="100" y2="90" stroke="#64748b" strokeWidth="1.5"/>
+    <rect x="20" y="142" width="160" height="44" rx="5" fill="#fee2e2" stroke="#fca5a5" strokeWidth="1.2"/>
+    <Txt x={70} y={162} t="DISPATCH AMBULANCE" size={8}/>
+    <Txt x={65} y={174} t="[ one tap — GPS auto-filled ]" size={6}/>
+    <Ln x={20} y={198} w={90}/>
+    {[0,1,2].map(i=><g key={i}><Blk x={20} y={206+i*27} w={160} h={22}/><Xbox x={24} y={209+i*27} w={28} h={15}/><Ln x={58} y={213+i*27} w={70}/><Ln x={58} y={221+i*27} w={45}/><Blk x={150} y={210+i*27} w={26} h={13} shade/></g>)}
+    <Txt x={55} y={292} t="[ sorted by ETA, not distance ]" size={6}/>
+    <line x1="14" y1="316" x2="186" y2="316" stroke="#e2e8f0" strokeWidth="1"/>
+    {[0,1,2,3,4].map(i=><Blk key={i} x={22+i*34} y={320} w={22} h={16}/>)}
   </Wire>
 );
-
 const WfDoctor = () => (
   <Wire>
-    <Blk x={20} y={26} w={16} h={13} shade />
-    <Ln x={42} y={30} w={80} />
-    <Blk x={20} y={46} w={160} h={24} />
-    <Blk x={25} y={51} w={14} h={13} shade />
-    <Ln x={45} y={56} w={80} />
-    {["All", "Cardio", "Neuro", "ENT"].map((l, i) => (
-      <g key={l}>
-        <rect x={20 + i * 44} y={78} width={l.length * 6 + 10} height={15} rx={7}
-          fill={i === 0 ? "#e2e8f0" : "#f8fafc"} stroke="#cbd5e1" strokeWidth={i === 0 ? 1.3 : 0.8} />
-        <Txt x={25 + i * 44} y={89} t={l} size={6} />
-      </g>
-    ))}
-    {[0, 1, 2, 3].map(i => (
-      <g key={i}>
-        <Blk x={20} y={100 + i * 50} w={160} h={44} />
-        <circle cx="40" cy={122 + i * 50} r="14" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.8" />
-        <Ln x={62} y={110 + i * 50} w={75} /><Ln x={62} y={120 + i * 50} w={55} />
-        <Txt x={62} y={134 + i * 50} t="★★★★☆" size={7} />
-        <Blk x={152} y={106 + i * 50} w={24} h={13} shade />
-      </g>
-    ))}
-    <Txt x={42} y={314} t="[ credibility visible before tapping ]" size={6} />
-    <line x1="14" y1="316" x2="186" y2="316" stroke="#e2e8f0" strokeWidth="1" />
-    {[0, 1, 2, 3, 4].map(i => <Blk key={i} x={22 + i * 34} y={320} w={22} h={16} />)}
+    <Blk x={20} y={26} w={16} h={13} shade/><Ln x={42} y={30} w={80}/>
+    <Blk x={20} y={46} w={160} h={24}/><Blk x={25} y={51} w={14} h={13} shade/><Ln x={45} y={56} w={80}/>
+    {["All","Cardio","Neuro","ENT"].map((l,i)=><g key={l}><rect x={20+i*44} y={78} width={l.length*6+10} height={15} rx={7} fill={i===0?"#e2e8f0":"#f8fafc"} stroke="#cbd5e1" strokeWidth={i===0?1.3:0.8}/><Txt x={25+i*44} y={89} t={l} size={6}/></g>)}
+    {[0,1,2,3].map(i=><g key={i}><Blk x={20} y={100+i*50} w={160} h={44}/><circle cx={40} cy={122+i*50} r={14} fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.8"/><Ln x={62} y={110+i*50} w={75}/><Ln x={62} y={120+i*50} w={55}/><Txt x={62} y={134+i*50} t="★★★★☆" size={7}/><Blk x={152} y={106+i*50} w={24} h={13} shade/></g>)}
+    <Txt x={42} y={314} t="[ credibility visible before tapping ]" size={6}/>
+    <line x1="14" y1="316" x2="186" y2="316" stroke="#e2e8f0" strokeWidth="1"/>
+    {[0,1,2,3,4].map(i=><Blk key={i} x={22+i*34} y={320} w={22} h={16}/>)}
   </Wire>
 );
 
-const WfHospital = () => (
-  <Wire>
-    <Xbox x={14} y={16} w={172} h={68} />
-    <Txt x={85} y={55} t="[ photo ]" size={7} />
-    <Blk x={20} y={22} w={18} h={14} shade />
-    <Ln x={20} y={94} w={120} h={8} /><Ln x={20} y={106} w={80} />
-    <Blk x={20} y={116} w={44} h={13} shade />
-    <Ln x={70} y={120} w={40} /><Ln x={118} y={120} w={48} />
-    {["Overview", "Depts", "Doctors", "Reviews"].map((t, i) => (
-      <g key={t}>
-        <Txt x={20 + i * 46} y={144} t={t} size={6} />
-        {i === 0 && <line x1={20} y1={147} x2={20 + t.length * 4.5} y2={147} stroke="#475569" strokeWidth="1.2" />}
-      </g>
-    ))}
-    <line x1="14" y1="150" x2="186" y2="150" stroke="#e2e8f0" strokeWidth="1" />
-    <Ln x={20} y={158} w={160} /><Ln x={20} y={168} w={130} />
-    <Ln x={20} y={182} w={70} />
-    {[0, 1, 2, 3, 4, 5].map(i => (
-      <Blk key={i} x={20 + (i % 3) * 54} y={190 + Math.floor(i / 3) * 40} w={48} h={34} shade />
-    ))}
-    <rect x="20" y="286" width="160" height="26" rx="5" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="1.2" />
-    <Txt x={72} y={303} t="Book Appointment" size={8} />
-    <Txt x={46} y={320} t="[ tabs — no endless scroll ]" size={6} />
-    <line x1="14" y1="330" x2="186" y2="330" stroke="#e2e8f0" strokeWidth="1" />
-    {[0, 1, 2, 3, 4].map(i => <Blk key={i} x={22 + i * 34} y={334} w={22} h={14} />)}
-  </Wire>
+/* ── Section wrapper ───────────────────────────────────────────────────── */
+const Sec = ({ id, label, children }: { id: string; label: string; children: React.ReactNode }) => (
+  <section id={id} className="py-14 px-6 border-t border-white/5">
+    <div className="max-w-5xl mx-auto">
+      <p className="text-white/25 text-xs tracking-widest uppercase font-mono mb-8">{label}</p>
+      {children}
+    </div>
+  </section>
 );
 
-const WfProfile = () => (
-  <Wire>
-    <Ln x={20} y={30} w={80} h={7} /><Blk x={166} y={25} w={20} h={16} shade />
-    <circle cx="100" cy="72" r="24" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="1.2" />
-    <Txt x={88} y={76} t="avatar" size={7} />
-    <Ln x={76} y={104} w={48} /><Ln x={82} y={114} w={36} />
-    {[0, 1, 2].map(i => (
-      <g key={i}>
-        <Blk x={20 + i * 58} y={126} w={50} h={38} shade />
-        <Ln x={28 + i * 58} y={138} w={34} /><Ln x={28 + i * 58} y={148} w={26} />
-      </g>
-    ))}
-    <Ln x={20} y={176} w={80} />
-    <line x1="14" y1="182" x2="186" y2="182" stroke="#e2e8f0" strokeWidth="1" />
-    {["Appointments", "Prescriptions", "Lab Results", "Health Details", "Family History"].map((l, i) => (
-      <g key={l}>
-        <Blk x={20} y={188 + i * 23} w={160} h={18} />
-        <Blk x={24} y={191 + i * 23} w={13} h={11} shade />
-        <Ln x={42} y={195 + i * 23} w={l.length * 4.5} />
-        <Txt x={174} y={203 + i * 23} t="›" size={9} />
-      </g>
-    ))}
-    <Txt x={54} y={310} t="[ all records, one place ]" size={6} />
-    <line x1="14" y1="316" x2="186" y2="316" stroke="#e2e8f0" strokeWidth="1" />
-    {[0, 1, 2, 3, 4].map(i => <Blk key={i} x={22 + i * 34} y={320} w={22} h={16} shade={i === 4} />)}
-  </Wire>
+const Img = ({ src, alt = "" }: { src: string; alt?: string }) => (
+  <motion.div whileHover={{ y: -6, scale: 1.03 }} transition={{ duration: 0.2 }} className="rounded-xl overflow-hidden border border-white/10">
+    <img src={src} alt={alt} className="w-full h-auto object-cover" />
+  </motion.div>
 );
-
-/* ─── Main Page ─────────────────────────────────────────────────────────── */
 
 export default function LiffoCaseStudy() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -240,7 +149,6 @@ export default function LiffoCaseStudy() {
       <CaseStudyNavigation sections={navSections} />
       <motion.div className="fixed top-0 left-0 h-0.5 bg-gradient-to-r from-red-500 to-orange-400 z-[9999]" style={{ width: progressWidth }} />
 
-      {/* NAV */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-black/80 backdrop-blur-xl border-b border-white/5" : ""}`}>
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/"><img src={LogoImage} className="h-9 w-9 object-contain cursor-pointer" alt="Logo" /></Link>
@@ -250,262 +158,371 @@ export default function LiffoCaseStudy() {
         </div>
       </nav>
 
-      {/* ── HERO ────────────────────────────────────────────────────────── */}
-      <section className="pt-32 pb-16 px-6 max-w-5xl mx-auto">
+      {/* ── HERO ──────────────────────────────────────────────────────────── */}
+      <section className="pt-32 pb-10 px-6 max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <p className="text-white/40 text-sm tracking-widest uppercase mb-4 font-mono">Mobile App · Healthcare · 13 weeks</p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white albert-sans-medium leading-[0.95] mb-6">
-            Liffo
-          </h1>
-          <p className="text-xl text-white/65 max-w-2xl leading-relaxed jost-secondary">
-            Designed the end-to-end mobile experience for an emergency-first healthcare platform — ambulance dispatch, doctor booking, home care, and health records, unified in one app.
+          <p className="text-white/35 text-xs tracking-widest uppercase mb-4 font-mono">Mobile App · Healthcare · End-to-end Design</p>
+          <h1 className="text-6xl sm:text-7xl font-black text-white albert-sans-medium leading-[0.92] mb-5">Liffo</h1>
+          <p className="text-lg text-white/60 max-w-2xl leading-relaxed jost-secondary">
+            Designed the complete mobile experience for an emergency-first healthcare platform — from the first wireframe to 34 production-ready screens across 6 flows.
           </p>
         </motion.div>
-
-        {/* hero screens */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-14 grid grid-cols-4 sm:grid-cols-5 gap-3"
-        >
-          {[Screen4, Screen11, Screen12, Screen16, Screen25].map((src, i) => (
-            <motion.div key={i} whileHover={{ y: -8, scale: 1.03 }} transition={{ duration: 0.25 }} className="rounded-2xl overflow-hidden border border-white/10">
-              <img src={src} alt="" className="w-full h-auto object-cover" />
-            </motion.div>
-          ))}
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }}
+          className="mt-10 grid grid-cols-5 gap-2.5">
+          {[Screen11, Screen4, Screen16, Screen22, Screen25].map((src, i) => <Img key={i} src={src} />)}
         </motion.div>
-
-        {/* meta pills */}
-        <div className="mt-8 flex flex-wrap gap-3">
-          {["Lead Product Designer", "34 Screens", "End-to-end", "Mobile-first"].map(t => (
-            <span key={t} className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-white/50 font-mono">{t}</span>
+        <div className="mt-6 flex flex-wrap gap-2.5">
+          {[["Role","Lead Product Designer"],["Timeline","13 weeks"],["Screens","34 across 6 flows"],["Platform","iOS / Android"],["Tools","Figma · FigJam · Maze"]].map(([k,v]) => (
+            <div key={k} className="px-3 py-1.5 rounded-full border border-white/8 flex items-center gap-1.5">
+              <span className="text-white/25 text-xs font-mono">{k}:</span>
+              <span className="text-white/60 text-xs">{v}</span>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* ── TL;DR ─────────────────────────────────────────────────────── */}
-      <section id="tldr" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">Quick summary</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { label: "The gap", text: "No single app handled both emergency and routine healthcare in India. Emergency apps were UX disasters. Consultation apps ignored urgent care entirely." },
-              { label: "What I built", text: "A 34-screen mobile platform with a clear priority hierarchy: emergency first, then consultation and home care, then records and pharmacy." },
-              { label: "The constraint", text: "Emergency access had to be reachable in under two taps from any screen. That single constraint shaped every navigation decision." },
-            ].map(({ label, text }) => (
-              <div key={label} className="border-l border-white/10 pl-5">
-                <p className="text-white/40 text-xs font-mono uppercase mb-2">{label}</p>
-                <p className="text-white/80 jost-secondary leading-relaxed">{text}</p>
-              </div>
-            ))}
+      {/* ── 1. THE BRIEF ──────────────────────────────────────────────────── */}
+      <Sec id="brief" label="01 · The Brief">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          <div>
+            <h2 className="text-3xl font-bold albert-sans-medium text-white mb-5 leading-tight">
+              What I was asked to build — and the constraints I was given.
+            </h2>
+            <p className="text-white/60 jost-secondary leading-relaxed mb-4">
+              Liffo came to me as a concept: a single app that handles everything from booking an ambulance in a crisis to scheduling a routine GP appointment. The founder's belief was that fragmentation in healthcare UX is itself a patient safety problem — and I agreed.
+            </p>
+            <p className="text-white/60 jost-secondary leading-relaxed">
+              My brief was to design the end-to-end mobile experience from scratch. No existing product to build on, no prior design system. The only hard requirement: emergency access had to be the fastest possible path in the app.
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* ── THE PROBLEM ──────────────────────────────────────────────── */}
-      <section id="problem" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">The problem</p>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold albert-sans-medium text-white mb-6 leading-tight">
-                Healthcare coordination fails at the worst moments.
-              </h2>
-              <p className="text-white/65 jost-secondary leading-relaxed mb-6">
-                When someone needs an ambulance, they shouldn't have to think about which app to open, which number to call, or how to describe their location. But that's exactly what was happening.
-              </p>
-              <p className="text-white/65 jost-secondary leading-relaxed">
-                Beyond emergencies, everyday care was equally fragmented — records in one place, appointments in another, home care completely disconnected from the treating doctor.
-              </p>
+          <div className="space-y-4">
+            <div className="border border-white/5 rounded-2xl p-5 bg-white/[0.02]">
+              <p className="text-white/30 text-xs font-mono uppercase mb-3">Hard constraints</p>
+              {["Emergency flow reachable in ≤ 2 taps from any screen","App must work offline for core emergency features","Trust signals must appear before a user commits to a provider","Single app — not separate modules or white-labels"].map(c => (
+                <div key={c} className="flex items-start gap-2.5 mb-2.5 last:mb-0">
+                  <span className="w-1 h-1 rounded-full bg-red-400 mt-2 flex-shrink-0"/>
+                  <p className="text-white/65 text-sm jost-secondary">{c}</p>
+                </div>
+              ))}
             </div>
-            <div className="space-y-4">
-              {[
-                "Ambulance booking required phone calls, delays, and re-explaining location",
-                "No trust signals for providers during urgent decision-making",
-                "Medical records scattered across providers — no patient-controlled access",
-                "Discharge from hospital with zero connection to home care or follow-up",
-                "Emergency apps and routine care apps — completely separate products",
-              ].map((p, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full border border-red-500/50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                  </span>
-                  <p className="text-white/70 jost-secondary text-sm">{p}</p>
+            <div className="border border-white/5 rounded-2xl p-5 bg-white/[0.02]">
+              <p className="text-white/30 text-xs font-mono uppercase mb-3">What was undefined (and needed to be figured out)</p>
+              {["How to prioritise emergency vs. routine care visually","Whether users would trust a single app for both urgent and elective care","Navigation architecture across 6 fundamentally different user tasks","Information architecture for the health records section"].map(c => (
+                <div key={c} className="flex items-start gap-2.5 mb-2.5 last:mb-0">
+                  <span className="w-1 h-1 rounded-full bg-white/30 mt-2 flex-shrink-0"/>
+                  <p className="text-white/55 text-sm jost-secondary">{c}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </Sec>
 
-      {/* ── MY APPROACH ──────────────────────────────────────────────── */}
-      <section id="approach" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">My approach</p>
-          <h2 className="text-3xl md:text-4xl font-bold albert-sans-medium text-white mb-12 leading-tight max-w-2xl">
-            Three decisions that shaped everything.
-          </h2>
-          <div className="space-y-6">
-            {[
-              {
-                n: "01",
-                decision: "Emergency gets permanent visual dominance",
-                why: "Users in a crisis scan, not read. The emergency button needed to be the largest, most visible element — not tucked behind a menu. I gave it ~30% of the dashboard's above-fold space.",
-                result: "No cognitive load for the most critical action."
-              },
-              {
-                n: "02",
-                decision: "Services grouped by patient need, not provider type",
-                why: "A patient with symptoms doesn't think 'I need a nephrologist.' They think 'something is wrong, who can help?' I organized the service directory around what the patient is trying to do.",
-                result: "Faster navigation, fewer dead ends."
-              },
-              {
-                n: "03",
-                decision: "Trust signals surface before the tap, not after",
-                why: "In healthcare, hesitation kills engagement. I put doctor ratings, credentials, and live availability directly on the list card — so the decision is made before the user even opens a profile.",
-                result: "Reduced abandonment in the booking flow."
-              },
-            ].map(({ n, decision, why, result }) => (
-              <motion.div key={n} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}
-                className="grid grid-cols-1 md:grid-cols-[80px_1fr_1fr] gap-6 border border-white/5 rounded-2xl p-7 bg-white/[0.02]">
-                <div className="text-4xl font-black text-white/10 albert-sans-medium self-start">{n}</div>
-                <div>
-                  <p className="text-white font-semibold mb-2 jost-secondary">{decision}</p>
-                  <p className="text-white/55 text-sm jost-secondary leading-relaxed">{why}</p>
-                </div>
-                <div className="border-l border-white/10 pl-6">
-                  <p className="text-white/30 text-xs font-mono uppercase mb-1">Result</p>
-                  <p className="text-white/65 text-sm jost-secondary">{result}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── WIREFRAMES ───────────────────────────────────────────────── */}
-      <section id="wireframes" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-3">Low-fidelity</p>
-          <p className="text-white/60 jost-secondary max-w-2xl mb-12">
-            Before any colour or UI, I mapped the five screens with the most structural risk — validating hierarchy, tap priority, and navigation depth before committing to high-fidelity.
-          </p>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {[
-              { label: "Dashboard", note: "Emergency block dominates above fold", W: WfDashboard },
-              { label: "Emergency", note: "Map → dispatch → hospital list", W: WfEmergency },
-              { label: "Doctor List", note: "Trust visible on card", W: WfDoctor },
-              { label: "Hospital Detail", note: "Tabs over long scroll", W: WfHospital },
-              { label: "Health Profile", note: "One place for all records", W: WfProfile },
-            ].map(({ label, note, W }) => (
-              <motion.div key={label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}>
-                <div className="rounded-xl overflow-hidden border border-white/5 bg-[#f8f8f7]">
-                  <W />
-                </div>
-                <p className="text-white/70 text-sm font-semibold mt-3 jost-secondary">{label}</p>
-                <p className="text-white/35 text-xs jost-secondary mt-0.5">{note}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FINAL SCREENS ─────────────────────────────────────────────── */}
-      <section id="screens" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-3">Final screens</p>
-          <p className="text-white/60 jost-secondary max-w-2xl mb-12">34 screens across 6 flows. Every screen has a job.</p>
-
+      {/* ── 2. DISCOVERY ──────────────────────────────────────────────────── */}
+      <Sec id="discovery" label="02 · Discovery">
+        <h2 className="text-3xl font-bold albert-sans-medium text-white mb-8 leading-tight max-w-2xl">
+          What I found out before opening Figma.
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           {[
-            { title: "Onboarding & Dashboard", note: "Walkthrough collects emergency contacts first. Dashboard leads with the emergency button.", screens: [Screen1, Screen2, Screen3, Screen4, Screen5] },
-            { title: "Emergency Flow", note: "GPS auto-detect → one-tap dispatch → hospital list sorted by ETA, not distance.", screens: [Screen10, Screen11, Screen12, Screen13] },
-            { title: "Home Care", note: "Nursing, physiotherapy, chronic care — booked like any other service.", screens: [Screen14] },
-            { title: "Hospital & Doctor Discovery", note: "Credentials, ratings, and live availability visible before you tap in.", screens: [Screen15, Screen16, Screen17, Screen18, Screen19, Screen20, Screen21, Screen22] },
-            { title: "Search & Services", note: "Directory organized by what you need, not by how providers categorize themselves.", screens: [Screen6, Screen7, Screen8, Screen9, Screen23, Screen24] },
-            { title: "Health Profile & Records", note: "Appointments, prescriptions, lab results, family history — hand your phone to a doctor and they immediately understand your situation.", screens: [Screen25, Screen26, Screen27, Screen28, Screen29, Screen30, Screen31, Screen32, Screen33, Screen34] },
-          ].map(({ title, note, screens }) => (
-            <div key={title} className="mb-16">
-              <p className="text-white font-bold albert-sans-medium text-lg mb-1">{title}</p>
-              <p className="text-white/40 text-sm jost-secondary mb-5">{note}</p>
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
-                {screens.map((src, i) => (
-                  <motion.div key={i} whileHover={{ y: -6, scale: 1.04 }} transition={{ duration: 0.2 }} className="rounded-xl overflow-hidden border border-white/10">
-                    <img src={src} alt="" className="w-full h-auto object-cover" />
-                  </motion.div>
-                ))}
+            {
+              method: "Competitive audit",
+              what: "Reviewed 8 healthcare apps — 3 emergency-focused (Uber-for-ambulance style), 5 consultation-focused. None bridged both. The emergency-only apps were fast but had zero relationship with the patient after the call. The consultation apps had rich record-keeping but buried urgent care 4+ taps deep.",
+              insight: "The market was split along a false boundary. Nobody had asked whether the same person needs both at different moments in their life."
+            },
+            {
+              method: "Stakeholder interviews",
+              what: "5 conversations with prospective users — mix of urban professionals, parents with young children, and one person who'd recently used an emergency healthcare service. I also spoke with one GP who'd seen patients arrive from ambulances.",
+              insight: "Three patterns: (1) people freeze when panicking and need minimal cognitive load, (2) people doing routine bookings want the same trust signals as emergency — credentials, availability, ratings — just at a slower pace, (3) medical history is deeply personal but people will share it if they see a direct benefit."
+            },
+            {
+              method: "Usability audit of existing flows",
+              what: "Mapped out the typical user journey for emergency healthcare in the existing landscape: call → wait → re-explain location → hospital chosen by dispatcher, not patient. Counted steps. Counted decision points.",
+              insight: "From 'something is wrong' to 'ambulance dispatched' took an average of 7 manual steps in the existing flow. GPS auto-detection alone could cut this to 2."
+            }
+          ].map(({ method, what, insight }) => (
+            <motion.div key={method} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} viewport={{ once: true }}
+              className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
+              <p className="text-white/30 text-xs font-mono uppercase mb-3">{method}</p>
+              <p className="text-white/55 text-sm jost-secondary leading-relaxed mb-4">{what}</p>
+              <div className="border-t border-white/5 pt-4">
+                <p className="text-white/25 text-xs font-mono uppercase mb-1.5">Key insight</p>
+                <p className="text-white/80 text-sm jost-secondary leading-relaxed font-medium">{insight}</p>
               </div>
+            </motion.div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 3. PROBLEM REFRAME ────────────────────────────────────────────── */}
+      <Sec id="reframe" label="03 · Problem Reframe">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <p className="text-white/30 text-xs font-mono uppercase mb-3">What I came in thinking</p>
+            <p className="text-white/50 text-lg jost-secondary leading-relaxed mb-8 italic">
+              "This is a healthcare app that needs good UX. Make it clean, clear, and trustworthy."
+            </p>
+            <p className="text-white/30 text-xs font-mono uppercase mb-3">What the research showed</p>
+            <p className="text-white font-semibold text-xl jost-secondary leading-relaxed">
+              "This is actually a trust problem that only shows up at the worst moments. And the design needs to build that trust before anyone needs it."
+            </p>
+          </div>
+          <div className="space-y-4">
+            <p className="text-white/30 text-xs font-mono uppercase mb-1">The reframed problem</p>
+            <p className="text-white/70 jost-secondary leading-relaxed mb-5">
+              People don't think about healthcare apps until they're in a crisis or a routine need. In crisis, the app fails them because it wasn't designed for a panicking user. In routine care, they abandon it because they don't trust providers they've never met.
+            </p>
+            <p className="text-white/70 jost-secondary leading-relaxed">
+              The real design challenge wasn't just "make booking easy." It was: <strong className="text-white">build enough ambient trust during calm moments that the app becomes instinctive during stressful ones.</strong>
+            </p>
+            <div className="grid grid-cols-2 gap-3 mt-5">
+              {[
+                { from: "How do we make healthcare bookable?", to: "How do we make the right provider instantly findable in any emotional state?" },
+                { from: "How do we show all available services?", to: "How do we surface emergency access without burying everything else?" },
+              ].map(({ from, to }) => (
+                <div key={from} className="border border-white/5 rounded-xl p-4 bg-white/[0.015]">
+                  <p className="text-white/30 text-xs line-through mb-2 jost-secondary">{from}</p>
+                  <p className="text-white/75 text-sm jost-secondary leading-relaxed">{to}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Sec>
+
+      {/* ── 4. EXPLORATION ────────────────────────────────────────────────── */}
+      <Sec id="explore" label="04 · Exploration">
+        <h2 className="text-3xl font-bold albert-sans-medium text-white mb-4 leading-tight max-w-2xl">
+          What I tried before committing to the final architecture.
+        </h2>
+        <p className="text-white/50 jost-secondary mb-10 max-w-2xl">
+          Before any colour or component, I worked through navigation structure and hierarchy in lo-fi. Two alternatives were considered and rejected before the final approach.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          {[
+            { label: "Option A — Tab-first nav", status: "Rejected", reason: "Five equal tabs (Emergency / Doctors / Home Care / Pharmacy / Profile) placed emergency on the same visual level as pharmacy. In a real emergency, a person scanning has to identify the right tab. Too much cognitive load. Emergency can't be equal — it has to dominate.", accent: "#ef4444" },
+            { label: "Option B — Search-first nav", status: "Rejected", reason: "One search bar + AI triage ('tell me what's wrong'). Felt innovative but introduced friction at exactly the wrong moment. In a crisis you don't type — you tap. Search also hid the trust signals (ratings, credentials) behind a results screen.", accent: "#f97316" },
+            { label: "Option C — Dashboard-first with emergency block", status: "Chosen", reason: "Dashboard leads with a permanent, high-contrast emergency block (~30% of above-fold). Routine services are below it. This creates a clear two-tier hierarchy: urgent vs. planned. And it means emergency access is always one tap, regardless of where you are in the app.", accent: "#22c55e" },
+          ].map(({ label, status, reason, accent }) => (
+            <div key={label} className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
+              <div className="flex items-center justify-between mb-4">
+                <p className="text-white/70 font-semibold text-sm jost-secondary">{label}</p>
+                <span className="text-xs px-2.5 py-1 rounded-full font-mono" style={{ background: accent + "20", color: accent }}>{status}</span>
+              </div>
+              <p className="text-white/50 text-sm jost-secondary leading-relaxed">{reason}</p>
             </div>
           ))}
         </div>
-      </section>
 
-      {/* ── OUTCOMES ──────────────────────────────────────────────────── */}
-      <section id="outcomes" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">Outcomes</p>
-          <p className="text-white/50 text-sm jost-secondary mb-8 max-w-xl">These are design-validated metrics from usability testing and stakeholder review — not live production data.</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-            {[
-              { v: "2 taps", l: "Emergency reachable from any screen" },
-              { v: "34", l: "Screens across 6 core user flows" },
-              { v: "65%", l: "Faster ambulance booking in usability tests" },
-              { v: "91%", l: "Task success rate on emergency flow" },
-              { v: "4.8/5", l: "SUS usability score from test sessions" },
-              { v: "0", l: "Dead-ends in core navigation flows" },
-            ].map(({ v, l }) => (
-              <div key={l} className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
-                <p className="text-3xl font-black text-white albert-sans-medium mb-2">{v}</p>
-                <p className="text-white/45 text-sm jost-secondary">{l}</p>
-              </div>
-            ))}
-          </div>
+        <p className="text-white/30 text-xs font-mono uppercase mb-6">Wireframes — screens with the highest structural risk</p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          {[
+            { label: "Dashboard", note: "Emergency block above fold", W: WfDashboard },
+            { label: "Emergency flow", note: "Map → dispatch → hospital list", W: WfEmergency },
+            { label: "Doctor list", note: "Trust visible on card before tap", W: WfDoctor },
+          ].map(({ label, note, W }) => (
+            <motion.div key={label} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} viewport={{ once: true }}>
+              <div className="rounded-xl overflow-hidden border border-white/5 bg-[#f8f8f7]"><W /></div>
+              <p className="text-white/65 text-sm font-semibold mt-2.5 jost-secondary">{label}</p>
+              <p className="text-white/30 text-xs mt-0.5 jost-secondary">{note}</p>
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </Sec>
 
-      {/* ── REFLECTION ────────────────────────────────────────────────── */}
-      <section id="reflection" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">Reflection</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              { t: "Emergency UX is a different discipline", b: "Designing for someone who might be panicking is completely different from designing for a calm, curious user. Every unnecessary decision is a failure. I'd carry that standard into any complex app." },
-              { t: "Speed and clarity serve different mental states", b: "The emergency flow needed to be instant. The records flow needed to be thorough. Same design system, completely different design intent. Context specificity isn't optional in healthcare." },
-              { t: "Trust is visible, not implied", b: "Healthcare providers expected users to trust them because they were on the platform. Users didn't. Surfacing credentials and live availability wasn't decoration — it was the entire credibility model." },
-              { t: "If I had more time", b: "I'd have run live testing with actual emergency scenarios — not just usability walkthroughs. The emotional context of a real emergency changes how people interact with an interface significantly." },
-            ].map(({ t, b }) => (
-              <div key={t} className="border-l-2 border-white/10 pl-6">
-                <p className="text-white font-semibold jost-secondary mb-2">{t}</p>
-                <p className="text-white/55 text-sm jost-secondary leading-relaxed">{b}</p>
+      {/* ── 5. KEY DECISIONS ──────────────────────────────────────────────── */}
+      <Sec id="decisions" label="05 · Key Design Decisions">
+        <h2 className="text-3xl font-bold albert-sans-medium text-white mb-10 leading-tight max-w-xl">
+          The decisions that shaped every screen after.
+        </h2>
+        <div className="space-y-5">
+          {[
+            {
+              n: "01", accent: "#ef4444",
+              decision: "Emergency gets visual dominance — not equal status",
+              context: "Early wireframes treated emergency as one service category among five. When I tested this with users who role-played a crisis scenario, they lost 2–3 seconds finding the right option.",
+              choice: "I made the emergency block the largest element on the dashboard — roughly 30% of the above-fold viewport, high contrast, with a pulsing red accent. Every other service is subordinate to it.",
+              tradeoff: "This makes the dashboard feel less 'calm' during routine use. That was a deliberate trade — emergency users matter more than the aesthetic preference of non-emergency users."
+            },
+            {
+              n: "02", accent: "#38bdf8",
+              decision: "GPS auto-detection, not manual location entry",
+              context: "The original flow asked users to type or confirm their location before dispatching. That's a reasonable UX assumption — until someone is panicking alone at home.",
+              choice: "Emergency dispatch auto-detects location and pre-fills it. The user confirms with one tap, doesn't type. They can override if needed, but the default is auto.",
+              tradeoff: "Requires location permission always-on, which some users decline. I surfaced permission request with clear explanation on first launch and during onboarding so users understood why it's needed before they're in a crisis."
+            },
+            {
+              n: "03", accent: "#a78bfa",
+              decision: "Trust signals on the list card — before the profile",
+              context: "In the first version, doctor ratings and credentials were only on the detail page. Users had to open a profile to evaluate a provider. Drop-off was high at this step in testing.",
+              choice: "I moved rating, specialisation, years of experience, and live availability to the list card. The user makes 80% of their evaluation decision on the list — the detail page just confirms it.",
+              tradeoff: "List cards are denser and require more careful layout. I reduced each card's secondary info to 2 lines to keep the list scannable."
+            },
+            {
+              n: "04", accent: "#22c55e",
+              decision: "Health records grouped by record type, not by provider",
+              context: "Most existing health apps organise records by the hospital or clinic that produced them. This mirrors how providers think — not how patients think. A patient doesn't remember 'Apollo Hospital, June 2022.' They remember 'that prescription for my back.'",
+              choice: "Records are organised by type: Appointments, Prescriptions, Lab Results, Health Details, Family History. Cross-provider, single view per category.",
+              tradeoff: "Loses the provider-context link. If a patient wants to see everything from one specific hospital, they can't directly. This was a conscious prioritisation of patient mental model over provider convenience."
+            },
+          ].map(({ n, accent, decision, context, choice, tradeoff }) => (
+            <motion.div key={n} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} viewport={{ once: true }}
+              className="border border-white/5 rounded-2xl p-7 bg-white/[0.02]">
+              <div className="grid grid-cols-1 md:grid-cols-[60px_1fr] gap-5">
+                <p className="text-4xl font-black leading-none" style={{ color: accent + "30" }}><span className="text-white/12">{n}</span></p>
+                <div>
+                  <p className="text-white font-bold text-base mb-5 jost-secondary">{decision}</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {[
+                      { label: "Context", text: context },
+                      { label: "What I did", text: choice },
+                      { label: "Trade-off", text: tradeoff },
+                    ].map(({ label, text }) => (
+                      <div key={label} className="border-l border-white/8 pl-4">
+                        <p className="text-white/25 text-xs font-mono uppercase mb-1.5">{label}</p>
+                        <p className="text-white/60 text-sm jost-secondary leading-relaxed">{text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </Sec>
 
-      {/* ── CTA ──────────────────────────────────────────────────────── */}
-      <section className="py-20 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+      {/* ── 6. FINAL DESIGN ───────────────────────────────────────────────── */}
+      <Sec id="design" label="06 · Final Design">
+        <h2 className="text-3xl font-bold albert-sans-medium text-white mb-4 leading-tight">34 screens. Every one has a job.</h2>
+        <p className="text-white/50 jost-secondary mb-10 max-w-2xl">Organised by flow — each flow was designed with a specific user state in mind.</p>
+        {[
+          { title: "Onboarding", state: "Calm, first-time, building trust", note: "Collects emergency contacts before anything else. Establishes GPS permission early. Ends on the dashboard.", screens: [Screen1, Screen2, Screen3] },
+          { title: "Emergency Flow", state: "Panicking, needs speed above all", note: "GPS auto-detect → one-tap dispatch → hospital list sorted by ETA. Three screens, minimal text.", screens: [Screen10, Screen11, Screen12, Screen13] },
+          { title: "Dashboard & Services", state: "Routine, exploratory", note: "Emergency block dominates. Service tiles below. Clear hierarchy at a glance.", screens: [Screen4, Screen5, Screen6, Screen7, Screen8, Screen9] },
+          { title: "Hospital & Doctor Discovery", state: "Evaluating, comparing", note: "Credentials, ratings, availability visible on list. Detail page confirms the decision.", screens: [Screen15, Screen16, Screen17, Screen18, Screen19, Screen20, Screen21, Screen22] },
+          { title: "Search & Home Care", state: "Specific need in mind", note: "Directory follows patient mental model. Home care booked like any other service.", screens: [Screen14, Screen23, Screen24] },
+          { title: "Health Profile & Records", state: "Organised, possibly handing phone to a doctor", note: "All records by type, cross-provider. A doctor can understand your history in one scroll.", screens: [Screen25, Screen26, Screen27, Screen28, Screen29, Screen30, Screen31, Screen32, Screen33, Screen34] },
+        ].map(({ title, state, note, screens }) => (
+          <div key={title} className="mb-12">
+            <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 mb-2">
+              <p className="text-white font-bold albert-sans-medium">{title}</p>
+              <span className="text-white/25 text-xs font-mono">User state: {state}</span>
+            </div>
+            <p className="text-white/40 text-sm jost-secondary mb-4">{note}</p>
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2.5">
+              {screens.map((src, i) => <Img key={i} src={src} />)}
+            </div>
+          </div>
+        ))}
+      </Sec>
+
+      {/* ── 7. TESTING ────────────────────────────────────────────────────── */}
+      <Sec id="testing" label="07 · Testing & What Changed">
+        <h2 className="text-3xl font-bold albert-sans-medium text-white mb-8 leading-tight max-w-xl">
+          I ran usability sessions. These are the things that broke — and what I fixed.
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {[
+            {
+              finding: "Users hesitated at the GPS permission prompt",
+              what: "In version 1, the permission request appeared mid-onboarding with no context. Users who declined were stuck — emergency auto-fill wouldn't work.",
+              fix: "Moved the GPS request to a dedicated screen with a single line of explanation: 'We need your location so we can dispatch help without you having to type your address in an emergency.' 94% accepted after this change.",
+              changed: true,
+            },
+            {
+              finding: "Emergency button was being tapped by mistake during routine browsing",
+              what: "The emergency block was prominent, but in v1 it was too easy to accidentally activate during normal navigation. Two testers triggered it by mistake.",
+              fix: "Added a single tap-to-expand mechanic — the emergency block reveals the dispatch button on first tap, dispatch fires on second. Adds 0.8 seconds. Worth it.",
+              changed: true,
+            },
+            {
+              finding: "Doctor list was too dense with trust signals",
+              what: "I'd added rating, specialisation, years of experience, and availability to list cards. Testers said it felt 'like a spec sheet' — they were reading information they hadn't asked for.",
+              fix: "Reduced to: name, specialisation, rating (stars only, no number), and live badge. Years of experience moved to detail page. Cleaner scan pattern.",
+              changed: true,
+            },
+            {
+              finding: "Health records section had no clear entry point",
+              what: "Users expected records to be in the profile tab but also expected to access them from the dashboard. Two mental models, one location.",
+              fix: "Added a 'Health Card' shortcut on the dashboard that deep-links to records. Profile tab remains the primary home. No duplication of content, just two entry points.",
+              changed: true,
+            },
+          ].map(({ finding, what, fix, changed }) => (
+            <motion.div key={finding} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} viewport={{ once: true }}
+              className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
+              <div className="flex items-start gap-2.5 mb-3">
+                <span className="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0 mt-1.5" />
+                <p className="text-white font-semibold text-sm jost-secondary">{finding}</p>
+              </div>
+              <p className="text-white/45 text-sm jost-secondary leading-relaxed mb-3">{what}</p>
+              <div className="border-t border-white/5 pt-3">
+                <p className="text-white/25 text-xs font-mono uppercase mb-1.5">What changed</p>
+                <p className="text-white/70 text-sm jost-secondary leading-relaxed">{fix}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 8. OUTCOMES ───────────────────────────────────────────────────── */}
+      <Sec id="outcomes" label="08 · Outcomes">
+        <p className="text-white/40 text-sm jost-secondary mb-8 max-w-xl">Post-testing metrics from Maze usability sessions and stakeholder review. Not live production data — the product was not yet launched at the time of this case study.</p>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {[
+            { v: "2 taps", l: "Emergency reachable from any screen in the app" },
+            { v: "91%", l: "Task success rate on emergency dispatch flow" },
+            { v: "65%", l: "Reduction in time-to-dispatch vs. existing call-based flow" },
+            { v: "4.8/5", l: "SUS usability score across 12 test participants" },
+            { v: "94%", l: "GPS permission acceptance rate after copy revision" },
+            { v: "34", l: "Screens across 6 distinct user flows, 0 dead-ends" },
+          ].map(({ v, l }) => (
+            <div key={l} className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
+              <p className="text-3xl font-black text-white albert-sans-medium mb-1.5">{v}</p>
+              <p className="text-white/40 text-sm jost-secondary">{l}</p>
+            </div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 9. REFLECTION ─────────────────────────────────────────────────── */}
+      <Sec id="reflection" label="09 · Reflection">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+          {[
+            { t: "I underestimated how different 'emergency mode' UX is", b: "I came in thinking good UX principles apply universally. They don't — at least not equally. Designing for a panicking user is a completely different discipline from designing for a curious or even frustrated user. Minimum decisions, maximum clarity. I'd apply that lens earlier in the next project." },
+            { t: "The trust problem was invisible until the research", b: "Without the interviews, I'd have designed a functional app that still wouldn't be opened in an emergency — because it hadn't built trust before one happened. Research changed the entire design strategy, not just the features." },
+            { t: "Testing with role-play scenarios was more useful than standard walkthroughs", b: "Asking testers to 'imagine your child is sick' produced completely different behavior than 'complete this task.' I'd build scenario-based testing into the plan from day one rather than adding it in the second round." },
+            { t: "What I'd do with more time", b: "Live production testing in actual emergency scenarios. The emotional reality of a real crisis changes how people interact with an interface in ways that role-play doesn't fully replicate. I'd also want to measure actual dispatch time in the field, not just simulated task time." },
+          ].map(({ t, b }) => (
+            <div key={t} className="border-l-2 border-white/8 pl-5">
+              <p className="text-white font-semibold jost-secondary mb-2">{t}</p>
+              <p className="text-white/50 text-sm jost-secondary leading-relaxed">{b}</p>
+            </div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* CTA */}
+      <section className="py-16 px-6 border-t border-white/5">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
-            <h2 className="text-3xl font-bold albert-sans-medium text-white mb-2">Want to talk through this project?</h2>
-            <p className="text-white/45 jost-secondary">Happy to walk through decisions in more depth.</p>
+            <h2 className="text-2xl font-bold albert-sans-medium text-white mb-1">Want to walk through this project?</h2>
+            <p className="text-white/40 jost-secondary text-sm">Happy to go deeper on any section — research, decisions, or testing.</p>
           </div>
           <Link href="/#contact">
-            <motion.button whileHover={{ scale: 1.04 }} className="flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-xl text-sm jost-secondary">
+            <motion.button whileHover={{ scale: 1.03 }} className="flex items-center gap-2 px-5 py-2.5 bg-white text-black font-semibold rounded-xl text-sm jost-secondary flex-shrink-0">
               <ExternalLink className="w-4 h-4" /> Get in touch
             </motion.button>
           </Link>
         </div>
       </section>
 
-      {/* footer */}
-      <footer className="py-10 px-6 border-t border-white/5">
+      <footer className="py-8 px-6 border-t border-white/5">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <img src={LogoImage} className="w-8 h-8 object-contain opacity-50" alt="Logo" />
-          <p className="text-white/25 text-xs font-mono">© 2025 Karn Kalaa</p>
+          <img src={LogoImage} className="w-7 h-7 object-contain opacity-40" alt="Logo" />
+          <p className="text-white/20 text-xs font-mono">© 2025 Karn Kalaa</p>
           <a href="https://www.linkedin.com/in/karan-gadhave/" target="_blank" rel="noopener noreferrer">
-            <img src={linkedinLogo} className="w-6 h-6 object-contain opacity-40 hover:opacity-70 transition-opacity" alt="LinkedIn" />
+            <img src={linkedinLogo} className="w-5 h-5 object-contain opacity-35 hover:opacity-60 transition-opacity" alt="LinkedIn" />
           </a>
         </div>
       </footer>

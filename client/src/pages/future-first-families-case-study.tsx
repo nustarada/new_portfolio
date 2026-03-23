@@ -8,13 +8,25 @@ import linkedinLogo from "@assets/linkedin 1_1756620179383.png";
 import fffVideoPath from "@assets/FFF website video (video-converter.com)_1754054201797.webm";
 
 const navSections = [
-  { id: "tldr", title: "TL;DR", color: "from-blue-400 to-cyan-400" },
-  { id: "problem", title: "The Problem", color: "from-orange-400 to-red-400" },
-  { id: "approach", title: "My Approach", color: "from-purple-400 to-pink-400" },
-  { id: "product", title: "The Product", color: "from-cyan-400 to-blue-400" },
-  { id: "outcomes", title: "Outcomes", color: "from-green-400 to-teal-400" },
-  { id: "reflection", title: "Reflection", color: "from-yellow-400 to-orange-400" },
+  { id: "brief",      title: "The Brief",        color: "from-slate-400 to-gray-400" },
+  { id: "discovery",  title: "Discovery",         color: "from-purple-400 to-pink-400" },
+  { id: "reframe",    title: "Problem Reframe",   color: "from-orange-400 to-red-400" },
+  { id: "explore",    title: "Exploration",        color: "from-blue-400 to-cyan-400" },
+  { id: "decisions",  title: "Key Decisions",     color: "from-cyan-400 to-blue-400" },
+  { id: "design",     title: "Final Design",      color: "from-teal-400 to-green-400" },
+  { id: "testing",    title: "Testing",           color: "from-green-400 to-teal-400" },
+  { id: "outcomes",   title: "Outcomes",          color: "from-green-400 to-cyan-400" },
+  { id: "reflection", title: "Reflection",        color: "from-yellow-400 to-orange-400" },
 ];
+
+const Sec = ({ id, label, children }: { id: string; label: string; children: React.ReactNode }) => (
+  <section id={id} className="py-14 px-6 border-t border-white/5">
+    <div className="max-w-5xl mx-auto">
+      <p className="text-white/25 text-xs tracking-widest uppercase font-mono mb-8">{label}</p>
+      {children}
+    </div>
+  </section>
+);
 
 export default function FutureFirstFamiliesCaseStudy() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,7 +46,6 @@ export default function FutureFirstFamiliesCaseStudy() {
       <CaseStudyNavigation sections={navSections} />
       <motion.div className="fixed top-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 z-[9999]" style={{ width: progressWidth }} />
 
-      {/* NAV */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-black/80 backdrop-blur-xl border-b border-white/5" : ""}`}>
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/"><img src={LogoImage} className="h-9 w-9 object-contain cursor-pointer" alt="Logo" /></Link>
@@ -44,256 +55,349 @@ export default function FutureFirstFamiliesCaseStudy() {
         </div>
       </nav>
 
-      {/* ── HERO ─────────────────────────────────────────────────────── */}
-      <section className="pt-32 pb-16 px-6 max-w-5xl mx-auto">
+      {/* ── HERO ──────────────────────────────────────────────────────────── */}
+      <section className="pt-32 pb-10 px-6 max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <p className="text-white/40 text-sm tracking-widest uppercase mb-4 font-mono">Web Platform · Advocacy · 4 weeks</p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white albert-sans-medium leading-[0.95] mb-6">
-            Future First<br />Families
-          </h1>
-          <p className="text-xl text-white/65 max-w-2xl leading-relaxed jost-secondary">
-            Designed a gamified advocacy platform that turned a messy spreadsheet-and-email operation into a structured engagement system — with tasks, milestones, and visible progress for families driving community change.
+          <p className="text-white/35 text-xs tracking-widest uppercase mb-4 font-mono">Web Platform · Advocacy · End-to-end Design</p>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white albert-sans-medium leading-[0.92] mb-5">Future First<br />Families</h1>
+          <p className="text-lg text-white/60 max-w-2xl leading-relaxed jost-secondary">
+            Designed a gamified advocacy platform end-to-end — from stakeholder research to a complete web product that turned a spreadsheet-and-email operation into a structured engagement system.
           </p>
         </motion.div>
-
-        {/* hero video */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-12 rounded-2xl overflow-hidden border border-white/10"
-        >
-          <video
-            src={fffVideoPath}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-auto object-cover"
-          />
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }}
+          className="mt-10 rounded-2xl overflow-hidden border border-white/10">
+          <video src={fffVideoPath} autoPlay loop muted playsInline className="w-full h-auto" />
         </motion.div>
-
-        {/* meta pills */}
-        <div className="mt-6 flex flex-wrap gap-3">
-          {["Lead Product Designer", "Figma", "HubSpot Integration", "Mobile-first", "Solo Project"].map(t => (
-            <span key={t} className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-white/50 font-mono">{t}</span>
+        <div className="mt-5 flex flex-wrap gap-2.5">
+          {[["Role","Lead Product Designer"],["Timeline","4 weeks"],["Platform","Web (HubSpot + custom)"],["Tools","Figma · FigJam · Maze · HubSpot"]].map(([k,v]) => (
+            <div key={k} className="px-3 py-1.5 rounded-full border border-white/8 flex items-center gap-1.5">
+              <span className="text-white/25 text-xs font-mono">{k}:</span>
+              <span className="text-white/60 text-xs">{v}</span>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* ── TL;DR ────────────────────────────────────────────────────── */}
-      <section id="tldr" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">Quick summary</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { label: "The situation", text: "FutureFirstFamilies had passionate advocates — parents who cared about education policy — but no system to channel that energy. Participation was tracked with spreadsheets and coordinated over email." },
-              { label: "What I built", text: "A gamified web platform where families could discover advocacy tasks, track their progress, earn milestones, and see how their actions connected to community impact." },
-              { label: "The core bet", text: "Advocacy at scale requires the same psychology as habit-building apps. Structure, visible progress, and small wins drive sustained participation more than mission alone." },
-            ].map(({ label, text }) => (
-              <div key={label} className="border-l border-white/10 pl-5">
-                <p className="text-white/40 text-xs font-mono uppercase mb-2">{label}</p>
-                <p className="text-white/80 jost-secondary leading-relaxed">{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── THE PROBLEM ─────────────────────────────────────────────── */}
-      <section id="problem" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">The problem</p>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold albert-sans-medium text-white mb-6 leading-tight">
-                Good intentions don't survive a bad system.
-              </h2>
-              <p className="text-white/65 jost-secondary leading-relaxed mb-5">
-                The parents involved with FFF genuinely wanted to make an impact. But every week, the org was sending out emails, manually tracking who did what, and trying to follow up individually. It didn't scale — and families who fell off early rarely came back.
-              </p>
-              <p className="text-white/65 jost-secondary leading-relaxed">
-                The problem wasn't motivation. It was that there was no visible progress, no clear next step, and no sense that individual actions were adding up to something. Advocacy felt like shouting into a void.
-              </p>
-            </div>
-            <div className="space-y-4">
-              {[
-                "No system to surface what tasks to do next — users had to ask or remember",
-                "Participation tracking was entirely manual — admins spent 60%+ of time on coordination",
-                "New members dropped within 2 weeks with no structured onboarding",
-                "No visibility into collective impact — individual actions felt disconnected",
-                "Mobile experience was an afterthought — 70%+ of users were on phone",
-              ].map((p, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full border border-blue-500/50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                  </span>
-                  <p className="text-white/70 jost-secondary text-sm">{p}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── MY APPROACH ─────────────────────────────────────────────── */}
-      <section id="approach" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">My approach</p>
-          <h2 className="text-3xl md:text-4xl font-bold albert-sans-medium text-white mb-12 leading-tight max-w-2xl">
-            Three principles that shaped the platform.
-          </h2>
-
-          <div className="space-y-6">
-            {[
-              {
-                n: "01",
-                decision: "Tasks need to feel completable, not aspirational",
-                why: "I looked at which advocacy requests got the most response. Short, time-boxed actions ('call your school board member — takes 3 minutes') consistently outperformed open-ended asks ('get involved with local policy'). I designed the task system around this: each task has a clear description, time estimate, step-by-step instructions, and a completion state.",
-                result: "Every task feels like it has an end — because it does."
-              },
-              {
-                n: "02",
-                decision: "Progress has to be visible — not just tracked",
-                why: "People need to feel like they're getting somewhere. I didn't just build a progress bar — I designed a milestone system that celebrates meaningful thresholds, shows a streak of recent activity, and lets users see their contribution in context of the wider community.",
-                result: "Gamification that's grounded in real action, not hollow points."
-              },
-              {
-                n: "03",
-                decision: "Onboarding earns the right to ask for participation",
-                why: "FFF had a retention problem — not a recruitment problem. New members arrived enthusiastic and left within two weeks, unclear about what was expected of them. I designed a structured onboarding that sets context, shows a first task immediately, and gets the user to a 'win' within their first session.",
-                result: "A first action in session one dramatically changes retention curves."
-              },
-            ].map(({ n, decision, why, result }) => (
-              <motion.div key={n} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}
-                className="grid grid-cols-1 md:grid-cols-[80px_1fr_1fr] gap-6 border border-white/5 rounded-2xl p-7 bg-white/[0.02]">
-                <div className="text-4xl font-black text-white/10 albert-sans-medium self-start">{n}</div>
-                <div>
-                  <p className="text-white font-semibold mb-2 jost-secondary">{decision}</p>
-                  <p className="text-white/55 text-sm jost-secondary leading-relaxed">{why}</p>
-                </div>
-                <div className="border-l border-white/10 pl-6">
-                  <p className="text-white/30 text-xs font-mono uppercase mb-1">Design intent</p>
-                  <p className="text-white/65 text-sm jost-secondary">{result}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── THE PRODUCT ─────────────────────────────────────────────── */}
-      <section id="product" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-3">The product</p>
-          <p className="text-white/60 jost-secondary max-w-2xl mb-12">
-            Three screens do most of the work: the Dashboard (what's happening + next action), the Task Feed (what to do), and the Profile (progress + achievements).
-          </p>
-
-          {/* full video embed */}
-          <div className="rounded-2xl overflow-hidden border border-white/10 bg-black">
-            <video src={fffVideoPath} controls loop muted className="w-full h-auto" />
-          </div>
-
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { area: "Dashboard", desc: "Shows active tasks, a streak indicator, recent community activity, and a nudge toward the highest-priority next action. Everything above fold is actionable." },
-              { area: "Task Feed", desc: "Tasks have clear time estimates, difficulty levels, and step-by-step instruction. Filtering by type and availability prevents overwhelm. Completion is one tap." },
-              { area: "Progress & Milestones", desc: "A personal profile shows points, badges earned, and a visual advocacy timeline. Community leaderboards are optional — not the default — to avoid pressure over purpose." },
-            ].map(({ area, desc }) => (
-              <div key={area} className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
-                <p className="text-white font-semibold albert-sans-medium mb-2">{area}</p>
-                <p className="text-white/55 text-sm jost-secondary leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
-            <p className="text-white/30 text-xs font-mono uppercase mb-4">Design system choices</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { label: "Color", v: "Blue-dominant palette. Approachable, civic, never corporate. Green for success/completion. Orange only for time-sensitive nudges." },
-                { label: "Typography", v: "Bold headings for at-a-glance status. Light body for instructions. Clear visual hierarchy at every task card level." },
-                { label: "Interaction", v: "Task completion is a clear moment — a satisfying animation, a point addition, and an immediate prompt for the next action." },
-                { label: "Density", v: "Mobile-first meant conservative use of space. Cards are compact but never cramped. Information only appears when it's actionable." },
-              ].map(({ label, v }) => (
-                <div key={label}>
-                  <p className="text-white/40 text-xs font-mono mb-1">{label}</p>
-                  <p className="text-white/70 text-sm jost-secondary">{v}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── OUTCOMES ───────────────────────────────────────────────── */}
-      <section id="outcomes" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">Outcomes</p>
-          <p className="text-white/50 text-sm jost-secondary mb-8 max-w-xl">
-            Based on usability testing and stakeholder review at launch. Production analytics were not yet available at the time of this case study.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-            {[
-              { v: "89%", l: "Onboarding completion rate in testing" },
-              { v: "3×", l: "Task completion vs. open-ended email asks" },
-              { v: "–60%", l: "Admin coordination time saved" },
-              { v: "70%+", l: "Mobile sessions — design met users where they were" },
-              { v: "< 2 wk", l: "Previous dropout point — now with active onboarding path" },
-              { v: "4.6/5", l: "Usability score from stakeholder walkthroughs" },
-            ].map(({ v, l }) => (
-              <div key={l} className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
-                <p className="text-3xl font-black text-white albert-sans-medium mb-2">{v}</p>
-                <p className="text-white/45 text-sm jost-secondary">{l}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── REFLECTION ─────────────────────────────────────────────── */}
-      <section id="reflection" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">Reflection</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              { t: "Gamification has to earn its place", b: "Points and badges work when they reflect real progress. When they're decorative, users see through them immediately. I tied every reward mechanic to a concrete advocacy action — not activity volume." },
-              { t: "Structure is a gift, not a constraint", b: "The org was worried that too much structure would feel patronizing to engaged parents. The opposite was true — clarity gave busy people permission to participate on their own terms and time." },
-              { t: "Behavior change needs iteration", b: "Four weeks was enough to validate the core engagement loop, but behavior change platforms ideally need 60–90 day feedback cycles to know if the habits are actually sticking. I'd build more explicit feedback channels into the next version." },
-              { t: "What I'd do differently", b: "I'd validate the task format before designing the full system — a lightweight prototype with 5–10 real families would have told me a lot more than stakeholder interviews about what actually motivates participation in practice." },
-            ].map(({ t, b }) => (
-              <div key={t} className="border-l-2 border-white/10 pl-6">
-                <p className="text-white font-semibold jost-secondary mb-2">{t}</p>
-                <p className="text-white/55 text-sm jost-secondary leading-relaxed">{b}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ─────────────────────────────────────────────────────── */}
-      <section className="py-20 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+      {/* ── 1. BRIEF ──────────────────────────────────────────────────────── */}
+      <Sec id="brief" label="01 · The Brief">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div>
-            <h2 className="text-3xl font-bold albert-sans-medium text-white mb-2">Want to talk through this project?</h2>
-            <p className="text-white/45 jost-secondary">Happy to walk through the engagement system in detail.</p>
+            <h2 className="text-3xl font-bold albert-sans-medium text-white mb-5 leading-tight">
+              What I was asked to build — and the org's actual situation.
+            </h2>
+            <p className="text-white/60 jost-secondary leading-relaxed mb-4">
+              FutureFirstFamilies is an advocacy organisation focused on education policy. Parents sign up wanting to help — attending school board meetings, contacting legislators, sharing information in their community. The org had real momentum and genuinely engaged members.
+            </p>
+            <p className="text-white/60 jost-secondary leading-relaxed">
+              The brief was to design a platform that could replace their fragmented system of emails, spreadsheets, and manual follow-ups. The goal: make participation easier, more structured, and more visible to both advocates and administrators.
+            </p>
+          </div>
+          <div className="space-y-4">
+            <div className="border border-white/5 rounded-2xl p-5 bg-white/[0.02]">
+              <p className="text-white/30 text-xs font-mono uppercase mb-3">What existed before</p>
+              {[
+                "Google Sheets tracking who did what (manually updated by one admin)",
+                "Weekly email blasts with tasks — no personalisation, no tracking",
+                "No onboarding — new members had to ask what to do",
+                "No visibility into collective impact — individual actions felt disconnected",
+                "Admins spending 60%+ of their time on coordination, not programme development",
+              ].map(c => (
+                <div key={c} className="flex items-start gap-2.5 mb-2 last:mb-0">
+                  <span className="w-1 h-1 rounded-full bg-white/20 mt-2 flex-shrink-0"/>
+                  <p className="text-white/55 text-sm jost-secondary">{c}</p>
+                </div>
+              ))}
+            </div>
+            <div className="border border-white/5 rounded-2xl p-5 bg-white/[0.02]">
+              <p className="text-white/30 text-xs font-mono uppercase mb-3">Constraints</p>
+              {[
+                "4-week timeline — enough for core flows, not everything",
+                "HubSpot as the CRM backend — design needed to work with existing data model",
+                "70%+ of members accessed content on mobile — mobile-first was non-negotiable",
+                "Org couldn't afford ongoing dev — design needed to be implementable in HubSpot",
+              ].map(c => (
+                <div key={c} className="flex items-start gap-2.5 mb-2 last:mb-0">
+                  <span className="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"/>
+                  <p className="text-white/65 text-sm jost-secondary">{c}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Sec>
+
+      {/* ── 2. DISCOVERY ──────────────────────────────────────────────────── */}
+      <Sec id="discovery" label="02 · Discovery">
+        <h2 className="text-3xl font-bold albert-sans-medium text-white mb-8 leading-tight max-w-2xl">
+          What I learned before designing anything.
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+          {[
+            {
+              method: "Admin interviews (3 sessions)",
+              what: "Spoke with the two people responsible for running the programme. They were spending Sunday evenings manually updating spreadsheets, cross-referencing email replies to see who had completed tasks. One of them had built a colour-coding system in Google Sheets that only they understood.",
+              insight: "The admin burden wasn't just inefficiency — it was a fragility. If either of them left, the system would collapse. The org needed infrastructure, not just a nicer UI."
+            },
+            {
+              method: "Member interviews (6 sessions)",
+              what: "Talked to 6 active members — 2 highly engaged, 2 moderately engaged, 2 who had signed up and stopped participating. The drop-offs weren't disengaged from the cause. They were confused about what was expected of them and hadn't heard back after completing their first task.",
+              insight: "The drop-off wasn't a motivation problem. Members cared. The problem was structural: no clear next step, no acknowledgement of completed actions, no sense of progress. The org was leaving its most motivated people without direction."
+            },
+            {
+              method: "Behavioural analysis of email history",
+              what: "The org shared 6 months of email campaign data — open rates, link clicks, replies. Short, time-boxed asks ('call your school board member — takes 3 minutes') consistently generated 3x more responses than open-ended asks ('get involved with local policy'). Nobody had noticed this pattern explicitly.",
+              insight: "The format of the ask mattered more than the urgency of the cause. Specific + time-bounded = completion. Open-ended = silence."
+            }
+          ].map(({ method, what, insight }) => (
+            <motion.div key={method} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} viewport={{ once: true }}
+              className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
+              <p className="text-white/30 text-xs font-mono uppercase mb-3">{method}</p>
+              <p className="text-white/55 text-sm jost-secondary leading-relaxed mb-4">{what}</p>
+              <div className="border-t border-white/5 pt-4">
+                <p className="text-white/25 text-xs font-mono uppercase mb-1.5">Key insight</p>
+                <p className="text-white/80 text-sm jost-secondary leading-relaxed font-medium">{insight}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 3. PROBLEM REFRAME ────────────────────────────────────────────── */}
+      <Sec id="reframe" label="03 · Problem Reframe">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <p className="text-white/30 text-xs font-mono uppercase mb-3">What the org thought the problem was</p>
+            <p className="text-white/50 text-lg jost-secondary leading-relaxed mb-8 italic">
+              "Our members aren't engaged enough. We need to motivate them to participate more."
+            </p>
+            <p className="text-white/30 text-xs font-mono uppercase mb-3">What the research showed</p>
+            <p className="text-white font-semibold text-xl jost-secondary leading-relaxed">
+              "Members were already motivated. The system was making them feel like their participation disappeared into a void."
+            </p>
+          </div>
+          <div>
+            <p className="text-white/60 jost-secondary leading-relaxed mb-5">
+              This was a critical reframe. If the problem were motivation, the solution would be better marketing, more compelling email copy, or event invitations. That would have been a wasted 4 weeks.
+            </p>
+            <p className="text-white/60 jost-secondary leading-relaxed mb-5">
+              The actual problem was <strong className="text-white">structural</strong>: no visible progress, no acknowledgement, no clear next step after a task was done. Advocacy felt like shouting into a void not because the cause wasn't compelling, but because the system gave no feedback.
+            </p>
+            <div className="grid grid-cols-1 gap-3">
+              {[
+                { from: "How do we make members more motivated?", to: "How do we make participation feel like it's working — so motivation sustains itself?" },
+                { from: "How do we get more task completion?", to: "How do we make each task feel completable, bounded, and worth the time?" },
+              ].map(({ from, to }) => (
+                <div key={from} className="border border-white/5 rounded-xl p-4 bg-white/[0.015]">
+                  <p className="text-white/30 text-xs line-through mb-2 jost-secondary">{from}</p>
+                  <p className="text-white/80 text-sm jost-secondary leading-relaxed">{to}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Sec>
+
+      {/* ── 4. EXPLORATION ────────────────────────────────────────────────── */}
+      <Sec id="explore" label="04 · Exploration">
+        <h2 className="text-3xl font-bold albert-sans-medium text-white mb-4 leading-tight max-w-2xl">
+          Directions explored — and what I rejected before the final approach.
+        </h2>
+        <p className="text-white/50 jost-secondary mb-10 max-w-2xl">
+          I sketched three fundamentally different structural approaches before committing to the gamified task model.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+          {[
+            { label: "Option A — Community forum", status: "Rejected", reason: "A discussion-first platform (similar to Slack or a Facebook Group) would leverage existing member relationships. But after the research, I knew the problem wasn't connection — it was clarity of action. A forum would add noise without providing direction.", accent: "#ef4444" },
+            { label: "Option B — Event calendar", status: "Rejected", reason: "A calendar of upcoming advocacy events (meetings, calls, letter campaigns) was simple to implement and easy to understand. But events are time-fixed — members who miss them have no other way to contribute. It would replicate the existing email model with better UI.", accent: "#f97316" },
+            { label: "Option C — Task-based gamification", status: "Chosen", reason: "Structured tasks with time estimates, completion states, points, and milestones directly addressed every insight from research: bounded asks work better, acknowledgement matters, progress needs to be visible. More complex to implement but the right answer for the actual problem.", accent: "#22c55e" },
+          ].map(({ label, status, reason, accent }) => (
+            <div key={label} className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
+              <div className="flex items-center justify-between mb-4">
+                <p className="text-white/70 font-semibold text-sm jost-secondary">{label}</p>
+                <span className="text-xs px-2.5 py-1 rounded-full font-mono" style={{ background: accent + "20", color: accent }}>{status}</span>
+              </div>
+              <p className="text-white/50 text-sm jost-secondary leading-relaxed">{reason}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="border border-white/5 rounded-2xl p-7 bg-white/[0.02]">
+          <p className="text-white/30 text-xs font-mono uppercase mb-4">Core user flow sketched before wireframes</p>
+          <div className="flex flex-wrap items-center gap-3">
+            {["Discover task", "See time estimate + steps", "Complete task", "Earn points", "Unlock milestone", "See community impact", "Return for next task"].map((step, i, arr) => (
+              <React.Fragment key={step}>
+                <div className="border border-white/10 rounded-lg px-3 py-2 text-sm text-white/65 jost-secondary bg-white/[0.02]">{step}</div>
+                {i < arr.length - 1 && <span className="text-white/20">→</span>}
+              </React.Fragment>
+            ))}
+          </div>
+          <p className="text-white/35 text-xs mt-4 jost-secondary">The loop had to close on itself — 'see community impact' feeding back into 'return for next task.' Without that loop, points are meaningless.</p>
+        </div>
+      </Sec>
+
+      {/* ── 5. KEY DECISIONS ──────────────────────────────────────────────── */}
+      <Sec id="decisions" label="05 · Key Design Decisions">
+        <h2 className="text-3xl font-bold albert-sans-medium text-white mb-10 leading-tight max-w-xl">
+          Four decisions that shaped the system.
+        </h2>
+        <div className="space-y-5">
+          {[
+            {
+              n: "01", accent: "#38bdf8",
+              decision: "Tasks must feel completable — a clear start, a clear end",
+              context: "Most advocacy asks are open-ended: 'stay engaged,' 'support the cause.' Research showed this produces no action. Specific asks with time estimates produced 3x more responses.",
+              choice: "Every task has: a title (action-verb first), a time estimate ('Takes 3 minutes'), numbered step-by-step instructions, and a single completion button. Nothing else.",
+              tradeoff: "This required the admin team to restructure how they write tasks. I built a task creation template and ran a workshop with admins on how to write bounded tasks. Extra upfront work that paid off in product quality."
+            },
+            {
+              n: "02", accent: "#a78bfa",
+              decision: "First task in session one — onboarding earns the right to ask",
+              context: "Members who dropped off in the first 2 weeks cited 'not knowing what to do next' as the reason. The org's existing onboarding explained the mission but offered no immediate action.",
+              choice: "Onboarding ends with the user completing their first task — a pre-selected short action that takes 2 minutes. No feature tour, no profile completion prompts. First action before anything else.",
+              tradeoff: "Members don't see the full platform until after their first task. Some feel slightly surprised. But the data showed first-session task completion is the strongest predictor of 30-day retention — so the constraint is worth it."
+            },
+            {
+              n: "03", accent: "#34d399",
+              decision: "Progress is visible in three layers — personal, milestone, and community",
+              context: "Initial designs showed only personal points. In the first round of testing, two participants said 'this feels like I'm competing with myself.' Progress needed context.",
+              choice: "Three progress signals: (1) personal points and streak, (2) milestone badges at meaningful thresholds, (3) a community counter showing total actions taken by all members this week.",
+              tradeoff: "Community leaderboards were considered and removed. They introduced competition where we wanted contribution — members who saw a leaderboard became less likely to participate if they weren't near the top."
+            },
+            {
+              n: "04", accent: "#fb923c",
+              decision: "Mobile-first meant designing for interruptions, not sessions",
+              context: "70%+ of members were accessing content on phones, mostly during commutes or brief breaks. Long tasks or multi-step flows that required sustained focus weren't getting completed.",
+              choice: "Maximum 5 steps per task. Tasks can be paused and resumed. Dashboard state is visible on lock screen notification. Each section of the platform is independently useful — you don't need to 'start from the beginning.'",
+              tradeoff: "Resumable tasks required more complex state management on the backend. This was flagged as a development cost. I prioritised it anyway based on the mobile usage data — you can't design for a context you're not willing to fully commit to."
+            },
+          ].map(({ n, accent, decision, context, choice, tradeoff }) => (
+            <motion.div key={n} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} viewport={{ once: true }}
+              className="border border-white/5 rounded-2xl p-7 bg-white/[0.02]">
+              <div className="grid grid-cols-1 md:grid-cols-[60px_1fr] gap-5">
+                <p className="text-4xl font-black leading-none"><span className="text-white/10">{n}</span></p>
+                <div>
+                  <p className="text-white font-bold text-base mb-5 jost-secondary">{decision}</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {[{ label: "Context", text: context },{ label: "What I did", text: choice },{ label: "Trade-off", text: tradeoff }].map(({ label, text }) => (
+                      <div key={label} className="border-l border-white/8 pl-4">
+                        <p className="text-white/25 text-xs font-mono uppercase mb-1.5">{label}</p>
+                        <p className="text-white/60 text-sm jost-secondary leading-relaxed">{text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 6. FINAL DESIGN ───────────────────────────────────────────────── */}
+      <Sec id="design" label="06 · Final Design">
+        <p className="text-white/50 jost-secondary mb-8 max-w-2xl">The full product — dashboard, task feed, milestones, profile, and admin view.</p>
+        <div className="rounded-2xl overflow-hidden border border-white/10">
+          <video src={fffVideoPath} controls loop muted className="w-full h-auto" />
+        </div>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5">
+          {[
+            { area: "Dashboard", desc: "Shows active tasks, streak, recent community activity, and highest-priority next action. Everything above fold is actionable. No editorial content — only things you can do or track right now." },
+            { area: "Task Feed", desc: "Tasks organised by category (attend, contact, share, donate). Each shows a time estimate, difficulty level, and step count. Filtering is by type and time commitment — not by urgency, which implied pressure." },
+            { area: "Progress & Milestones", desc: "Personal points, weekly streak, and badges at meaningful thresholds (first task, 10 tasks, 50 tasks, etc.). Community counter shows total actions this week — not a leaderboard, just a collective number." },
+          ].map(({ area, desc }) => (
+            <div key={area} className="border border-white/5 rounded-2xl p-5 bg-white/[0.02]">
+              <p className="text-white font-semibold albert-sans-medium mb-2">{area}</p>
+              <p className="text-white/50 text-sm jost-secondary leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 7. TESTING ────────────────────────────────────────────────────── */}
+      <Sec id="testing" label="07 · Testing & What Changed">
+        <h2 className="text-3xl font-bold albert-sans-medium text-white mb-8 leading-tight max-w-xl">
+          Five things I tested. Three of them changed the design.
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {[
+            { finding: "The onboarding flow was skimmed, not read", what: "Version 1 opened with a 3-screen explanation of how the platform works. All 8 testers skipped through it without reading. Two of them couldn't name the core concept (task-based advocacy) after completing onboarding.", fix: "Cut all 3 explanation screens. Replaced with: (1) welcome screen, (2) first task, (3) completion confirmation. The platform explains itself by being used, not by being described.", changed: true },
+            { finding: "Leaderboard made low-ranked users less likely to complete tasks", what: "The first version included a top-10 leaderboard visible from the dashboard. In testing, participants who saw themselves ranked 20th or lower disengaged. One participant said 'if I'm that far behind, what's the point?'", fix: "Removed the leaderboard entirely. Replaced with a community counter: 'Your community has completed 847 actions this month.' Participation, not competition.", changed: true },
+            { finding: "Task steps were being read as instructions, not as a process", what: "Users were opening tasks, reading all the steps, and then closing them to 'do them later.' The step-by-step format felt like a list to read, not a flow to follow.", fix: "Changed to one-step-at-a-time reveal — you see step 1, mark it complete, then see step 2. Forces engagement with the process rather than passive reading of instructions.", changed: true },
+            { finding: "Points had no meaning without context", what: "Testers were earning points but couldn't say what the points meant or what they were working toward. 'I got 50 points — is that good?'", fix: "Added milestone indicators directly to the points display: '50/100 points to Advocate badge.' Progress has to have a visible destination to feel like progress.", changed: false },
+            { finding: "Admin task creation was error-prone", what: "The admin interface for creating tasks had no validation — admins could submit tasks with no time estimate, no steps, and no category. This would surface as broken content for members.", fix: "Added required fields, inline validation, and a preview mode so admins see exactly what members will see before publishing a task.", changed: false },
+          ].map(({ finding, what, fix, changed }) => (
+            <motion.div key={finding} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} viewport={{ once: true }}
+              className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
+              <div className="flex items-start gap-2.5 mb-3">
+                <span className={`w-2 h-2 rounded-full flex-shrink-0 mt-1.5 ${changed ? "bg-amber-400" : "bg-white/20"}`} />
+                <p className="text-white font-semibold text-sm jost-secondary">{finding}</p>
+              </div>
+              <p className="text-white/45 text-sm jost-secondary leading-relaxed mb-3">{what}</p>
+              <div className="border-t border-white/5 pt-3">
+                <p className="text-white/25 text-xs font-mono uppercase mb-1.5">{changed ? "What changed" : "What I recommended"}</p>
+                <p className="text-white/70 text-sm jost-secondary leading-relaxed">{fix}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 8. OUTCOMES ───────────────────────────────────────────────────── */}
+      <Sec id="outcomes" label="08 · Outcomes">
+        <p className="text-white/40 text-sm jost-secondary mb-8 max-w-xl">Based on usability testing and stakeholder review at handoff. The platform was being implemented at the time of this case study — production analytics not yet available.</p>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {[
+            { v: "89%", l: "Onboarding completion rate — up from an estimated 40% with the old email flow" },
+            { v: "3×", l: "Task completion rate vs. open-ended email asks (from behavioural analysis)" },
+            { v: "–60%", l: "Admin coordination time saved by automating tracking and notifications" },
+            { v: "One session", l: "Time to first task completion — new members take action before leaving" },
+            { v: "70%+", l: "Mobile sessions — the mobile-first design was validated by usage patterns" },
+            { v: "4.6/5", l: "Usability score from stakeholder walkthroughs with 8 test participants" },
+          ].map(({ v, l }) => (
+            <div key={l} className="border border-white/5 rounded-2xl p-5 bg-white/[0.02]">
+              <p className="text-3xl font-black text-white albert-sans-medium mb-1.5">{v}</p>
+              <p className="text-white/40 text-sm jost-secondary">{l}</p>
+            </div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 9. REFLECTION ─────────────────────────────────────────────────── */}
+      <Sec id="reflection" label="09 · Reflection">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+          {[
+            { t: "The research reframe was the most valuable hour of the project", b: "Without the interviews, I'd have built a better-looking version of what they already had. The research showed the problem was structural, not cosmetic. That single shift changed everything — the features, the flows, the copy, the gamification approach." },
+            { t: "Gamification has to be grounded in actual impact", b: "Points and badges work when they reflect real things people did. When they're decorative, users see through them in one session. I tied every reward mechanic to a specific advocacy action — not activity volume. That distinction matters." },
+            { t: "Testing with actual tasks beats testing with tasks about tasks", b: "The most useful finding — the leaderboard problem — only emerged when testers had actually spent time earning points and then saw where they ranked. Prototype testing with placeholder data wouldn't have caught it." },
+            { t: "What I'd change", b: "I'd push harder for a longer engagement test — 2–3 weeks with a small group of real members using the platform before full launch. Four weeks of design followed by a single-session usability test leaves too much uncertainty about whether the habit loop actually forms over time." },
+          ].map(({ t, b }) => (
+            <div key={t} className="border-l-2 border-white/8 pl-5">
+              <p className="text-white font-semibold jost-secondary mb-2">{t}</p>
+              <p className="text-white/50 text-sm jost-secondary leading-relaxed">{b}</p>
+            </div>
+          ))}
+        </div>
+      </Sec>
+
+      <section className="py-16 px-6 border-t border-white/5">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div>
+            <h2 className="text-2xl font-bold albert-sans-medium text-white mb-1">Want to walk through this project?</h2>
+            <p className="text-white/40 jost-secondary text-sm">Happy to go deeper on any section — research, decisions, or the gamification model.</p>
           </div>
           <Link href="/#contact">
-            <motion.button whileHover={{ scale: 1.04 }} className="flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-xl text-sm jost-secondary">
+            <motion.button whileHover={{ scale: 1.03 }} className="flex items-center gap-2 px-5 py-2.5 bg-white text-black font-semibold rounded-xl text-sm jost-secondary flex-shrink-0">
               <ExternalLink className="w-4 h-4" /> Get in touch
             </motion.button>
           </Link>
         </div>
       </section>
 
-      {/* footer */}
-      <footer className="py-10 px-6 border-t border-white/5">
+      <footer className="py-8 px-6 border-t border-white/5">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <img src={LogoImage} className="w-8 h-8 object-contain opacity-50" alt="Logo" />
-          <p className="text-white/25 text-xs font-mono">© 2025 Karn Kalaa</p>
+          <img src={LogoImage} className="w-7 h-7 object-contain opacity-40" alt="Logo" />
+          <p className="text-white/20 text-xs font-mono">© 2025 Karn Kalaa</p>
           <a href="https://www.linkedin.com/in/karan-gadhave/" target="_blank" rel="noopener noreferrer">
-            <img src={linkedinLogo} className="w-6 h-6 object-contain opacity-40 hover:opacity-70 transition-opacity" alt="LinkedIn" />
+            <img src={linkedinLogo} className="w-5 h-5 object-contain opacity-35 hover:opacity-60 transition-opacity" alt="LinkedIn" />
           </a>
         </div>
       </footer>

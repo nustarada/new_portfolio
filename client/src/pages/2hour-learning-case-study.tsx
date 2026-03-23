@@ -15,20 +15,32 @@ import persona2Thumbnail from "@assets/Persona 2 Thumbnail_1756635908006.png";
 import persona3Thumbnail from "@assets/Persona 3 Thumbnail_1756635908004.png";
 
 const navSections = [
-  { id: "tldr", title: "TL;DR", color: "from-violet-400 to-purple-400" },
-  { id: "problem", title: "The Problem", color: "from-orange-400 to-red-400" },
-  { id: "insight", title: "The Insight", color: "from-purple-400 to-pink-400" },
-  { id: "pages", title: "The Four Pages", color: "from-cyan-400 to-blue-400" },
-  { id: "outcomes", title: "Outcomes", color: "from-green-400 to-teal-400" },
-  { id: "reflection", title: "Reflection", color: "from-yellow-400 to-orange-400" },
+  { id: "brief",      title: "The Brief",        color: "from-slate-400 to-gray-400" },
+  { id: "discovery",  title: "Discovery",         color: "from-purple-400 to-pink-400" },
+  { id: "reframe",    title: "Problem Reframe",   color: "from-orange-400 to-red-400" },
+  { id: "explore",    title: "Exploration",        color: "from-violet-400 to-purple-400" },
+  { id: "decisions",  title: "Key Decisions",     color: "from-violet-400 to-purple-400" },
+  { id: "design",     title: "The Four Pages",    color: "from-cyan-400 to-blue-400" },
+  { id: "testing",    title: "Testing",           color: "from-green-400 to-teal-400" },
+  { id: "outcomes",   title: "Outcomes",          color: "from-teal-400 to-green-400" },
+  { id: "reflection", title: "Reflection",        color: "from-yellow-400 to-orange-400" },
 ];
 
-const screens = [
-  { thumb: homepageThumbnail, full: homepageDesign, label: "Homepage", platform: "WordPress", audience: "General discovery — school administrators finding 2HL for the first time. Brand story over conversion.", color: "from-violet-500 to-purple-600" },
-  { thumb: persona1Thumbnail, full: persona1Design, label: "Head of School", platform: "HubSpot", audience: "Outcome-focused. Cares about school differentiation and parent satisfaction. Lead with results.", color: "from-blue-500 to-cyan-600" },
-  { thumb: persona2Thumbnail, full: persona2Design, label: "Dean of Academics", platform: "HubSpot", audience: "Process-focused. Cares about how teachers will use this and whether student data is actionable.", color: "from-teal-500 to-green-600" },
-  { thumb: persona3Thumbnail, full: persona3Design, label: "Board Member", platform: "HubSpot", audience: "ROI-focused. Cares about long-term investment return and district-level strategic fit.", color: "from-orange-500 to-amber-600" },
+const allScreens = [
+  { thumb: homepageThumbnail, full: homepageDesign, label: "Homepage", platform: "WordPress", accent: "#a78bfa" },
+  { thumb: persona1Thumbnail, full: persona1Design, label: "Head of School", platform: "HubSpot", accent: "#38bdf8" },
+  { thumb: persona2Thumbnail, full: persona2Design, label: "Dean of Academics", platform: "HubSpot", accent: "#34d399" },
+  { thumb: persona3Thumbnail, full: persona3Design, label: "Board Member", platform: "HubSpot", accent: "#fb923c" },
 ];
+
+const Sec = ({ id, label, children }: { id: string; label: string; children: React.ReactNode }) => (
+  <section id={id} className="py-14 px-6 border-t border-white/5">
+    <div className="max-w-5xl mx-auto">
+      <p className="text-white/25 text-xs tracking-widest uppercase font-mono mb-8">{label}</p>
+      {children}
+    </div>
+  </section>
+);
 
 export default function TwoHourLearningCaseStudy() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -49,7 +61,6 @@ export default function TwoHourLearningCaseStudy() {
       <CaseStudyNavigation sections={navSections} />
       <motion.div className="fixed top-0 left-0 h-0.5 bg-gradient-to-r from-violet-500 to-purple-400 z-[9999]" style={{ width: progressWidth }} />
 
-      {/* NAV */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-black/80 backdrop-blur-xl border-b border-white/5" : ""}`}>
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/"><img src={LogoImage} className="h-9 w-9 object-contain cursor-pointer" alt="Logo" /></Link>
@@ -59,265 +70,392 @@ export default function TwoHourLearningCaseStudy() {
         </div>
       </nav>
 
-      {/* ── HERO ──────────────────────────────────────────────────────── */}
-      <section className="pt-32 pb-16 px-6 max-w-5xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <p className="text-white/40 text-sm tracking-widest uppercase mb-4 font-mono">Web Design · EdTech · B2B</p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white albert-sans-medium leading-[0.95] mb-6">
-            2 Hour<br />Learning
-          </h1>
-          <p className="text-xl text-white/65 max-w-2xl leading-relaxed jost-secondary">
-            Designed a persona-driven landing page system for a B2B EdTech company — four distinct pages that speak directly to how each buying stakeholder thinks, not a single page trying to reach everyone.
-          </p>
-        </motion.div>
-
-        {/* hero grid — thumbnails */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
-        >
-          {screens.map((s, i) => (
-            <motion.div key={i} whileHover={{ y: -6, scale: 1.03 }} transition={{ duration: 0.2 }}
-              onClick={() => setExpanded(i)}
-              className="cursor-zoom-in rounded-xl overflow-hidden border border-white/10 group relative">
-              <img src={s.thumb} alt={s.label} className="w-full h-auto object-cover" />
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                <p className="text-white text-xs font-mono">{s.label}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-        <p className="mt-3 text-white/25 text-xs font-mono text-center">Click any page to expand</p>
-
-        <div className="mt-6 flex flex-wrap gap-3">
-          {["Lead Designer", "WordPress", "HubSpot", "4 Pages", "B2B Sales System"].map(t => (
-            <span key={t} className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-white/50 font-mono">{t}</span>
-          ))}
-        </div>
-      </section>
-
-      {/* expanded image overlay */}
+      {/* expanded overlay */}
       {expanded !== null && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[99999] bg-black/90 backdrop-blur-md flex items-start justify-center overflow-y-auto p-8"
-          onClick={() => setExpanded(null)}
-        >
-          <motion.div
-            initial={{ scale: 0.9, y: 20 }}
-            animate={{ scale: 1, y: 0 }}
-            className="max-w-5xl w-full"
-            onClick={e => e.stopPropagation()}
-          >
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[99999] bg-black/92 backdrop-blur-md flex items-start justify-center overflow-y-auto p-8"
+          onClick={() => setExpanded(null)}>
+          <motion.div initial={{ scale: 0.93, y: 20 }} animate={{ scale: 1, y: 0 }} className="max-w-5xl w-full" onClick={e => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-4">
               <div>
-                <p className="text-white font-bold albert-sans-medium text-lg">{screens[expanded].label}</p>
-                <p className="text-white/45 text-sm jost-secondary">{screens[expanded].platform} · {screens[expanded].audience}</p>
+                <p className="text-white font-bold albert-sans-medium text-lg">{allScreens[expanded].label}</p>
+                <p className="text-white/40 text-sm jost-secondary">{allScreens[expanded].platform}</p>
               </div>
-              <button onClick={() => setExpanded(null)} className="text-white/50 hover:text-white text-2xl leading-none px-3">×</button>
+              <button onClick={() => setExpanded(null)} className="text-white/40 hover:text-white text-3xl leading-none px-2">×</button>
             </div>
-            <img src={screens[expanded].full} alt={screens[expanded].label} className="w-full h-auto rounded-2xl border border-white/10" />
+            <img src={allScreens[expanded].full} alt={allScreens[expanded].label} className="w-full h-auto rounded-2xl border border-white/10" />
           </motion.div>
         </motion.div>
       )}
 
-      {/* ── TL;DR ─────────────────────────────────────────────────────── */}
-      <section id="tldr" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">Quick summary</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { label: "The challenge", text: "2 Hour Learning sells to multiple decision-makers at once — principals, curriculum directors, and board members — all with completely different priorities. One landing page can't serve all of them." },
-              { label: "The solution", text: "Four distinct pages: a general brand homepage, and three persona-specific HubSpot pages, each with messaging architecture built for how that stakeholder evaluates a purchasing decision." },
-              { label: "The principle", text: "B2B buying isn't one decision — it's a chain of individual approvals. Design has to respect each person's actual concern, not present a single message and hope it lands." },
-            ].map(({ label, text }) => (
-              <div key={label} className="border-l border-white/10 pl-5">
-                <p className="text-white/40 text-xs font-mono uppercase mb-2">{label}</p>
-                <p className="text-white/80 jost-secondary leading-relaxed">{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── THE PROBLEM ─────────────────────────────────────────────── */}
-      <section id="problem" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">The problem</p>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold albert-sans-medium text-white mb-6 leading-tight">
-                One message can't close a committee room.
-              </h2>
-              <p className="text-white/65 jost-secondary leading-relaxed mb-5">
-                When a school decides to adopt a new learning platform, it's not one person's decision. A principal signs off on the vision. A curriculum director approves or kills the implementation plan. A board member approves the budget.
-              </p>
-              <p className="text-white/65 jost-secondary leading-relaxed">
-                Each of those people lands on the website with a completely different question in their head. A single page can't answer all of them — so most landing pages end up answering none of them particularly well.
-              </p>
-            </div>
-            <div className="space-y-4">
-              {[
-                "Generic homepage messaging wasn't converting outbound-qualified leads",
-                "Sales team couldn't send a link that spoke to the specific person they were talking to",
-                "Different stakeholders had contradictory objections — one page can't address all of them",
-                "No way to track which message was resonating with which audience type",
-                "Brand story was consistent, but value proposition wasn't role-specific",
-              ].map((p, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full border border-violet-500/50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-violet-500" />
-                  </span>
-                  <p className="text-white/70 jost-secondary text-sm">{p}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── THE INSIGHT ─────────────────────────────────────────────── */}
-      <section id="insight" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">The insight</p>
-          <h2 className="text-3xl md:text-4xl font-bold albert-sans-medium text-white mb-10 leading-tight max-w-2xl">
-            Each stakeholder has one primary fear. Design to that fear.
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
-            {[
-              { role: "Head of School", fear: "Making a risky bet", wants: "Proof of outcomes at comparable schools. Differentiation story. What happens after year 1.", accent: "blue" },
-              { role: "Dean of Academics", fear: "Disrupting teachers", wants: "Workflow clarity. How is student progress surfaced? What's the implementation burden?", accent: "teal" },
-              { role: "Board Member", fear: "Wasting budget", wants: "ROI timeline. Long-term cost vs. in-house alternative. Strategic fit with district goals.", accent: "amber" },
-            ].map(({ role, fear, wants, accent }) => (
-              <div key={role} className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
-                <p className="text-white font-bold albert-sans-medium mb-1">{role}</p>
-                <p className="text-white/30 text-xs font-mono uppercase mb-3">Core fear: {fear}</p>
-                <p className="text-white/60 text-sm jost-secondary leading-relaxed">{wants}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="border border-white/5 rounded-2xl p-7 bg-white/[0.02]">
-            <p className="text-white/30 text-xs font-mono uppercase mb-3">What this meant for design</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                { d: "Messaging hierarchy", v: "Lead with the thing they care about most — not a generic headline about 'transforming education.'" },
-                { d: "Social proof selection", v: "Different proof for different people. A dean wants teacher testimonials. A board member wants data and district-level case studies." },
-                { d: "CTA specificity", v: "Each page has one CTA aligned to where that persona is in the buying process — not a generic 'request a demo'." },
-              ].map(({ d, v }) => (
-                <div key={d}>
-                  <p className="text-white/50 text-xs font-mono mb-1">{d}</p>
-                  <p className="text-white/70 text-sm jost-secondary leading-relaxed">{v}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── THE FOUR PAGES ──────────────────────────────────────────── */}
-      <section id="pages" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-3">The four pages</p>
-          <p className="text-white/60 jost-secondary max-w-2xl mb-12">Each page is built around what that audience actually needs to see before they'll take a next step. Click any to view full design.</p>
-
-          <div className="space-y-10">
-            {screens.map((s, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}
-                className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8 items-start">
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} transition={{ duration: 0.2 }}
-                  onClick={() => setExpanded(i)}
-                  className="cursor-zoom-in rounded-xl overflow-hidden border border-white/10">
-                  <img src={s.thumb} alt={s.label} className="w-full h-auto object-cover" />
-                </motion.div>
-                <div>
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs px-2.5 py-1 rounded-full border border-white/10 text-white/40 font-mono">{String(i + 1).padStart(2, "0")}</span>
-                    <h3 className="text-white font-bold albert-sans-medium text-xl">{s.label}</h3>
-                    <span className="text-xs px-2.5 py-1 rounded-full border border-white/10 text-white/40 font-mono">{s.platform}</span>
-                  </div>
-                  <p className="text-white/60 jost-secondary leading-relaxed text-sm">{s.audience}</p>
-                  <button onClick={() => setExpanded(i)} className="mt-4 text-xs text-white/40 hover:text-white/70 font-mono flex items-center gap-1.5 transition-colors">
-                    View full design <ExternalLink className="w-3 h-3" />
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── OUTCOMES ─────────────────────────────────────────────────── */}
-      <section id="outcomes" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">Outcomes</p>
-          <p className="text-white/50 text-sm jost-secondary mb-8 max-w-xl">
-            These reflect client feedback and qualitative validation at handoff. Full conversion tracking was set up post-launch; data wasn't available for this case study.
+      {/* ── HERO ──────────────────────────────────────────────────────────── */}
+      <section className="pt-32 pb-10 px-6 max-w-5xl mx-auto">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <p className="text-white/35 text-xs tracking-widest uppercase mb-4 font-mono">Web Design · EdTech · B2B Sales Enablement</p>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white albert-sans-medium leading-[0.92] mb-5">2 Hour<br/>Learning</h1>
+          <p className="text-lg text-white/60 max-w-2xl leading-relaxed jost-secondary">
+            Designed a persona-driven landing page system for a B2B EdTech company — four distinct pages aligned to how each buying stakeholder actually evaluates a purchasing decision.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-            {[
-              { v: "4 pages", l: "Each targeting a distinct decision-maker in the buying chain" },
-              { v: "3 personas", l: "Separate HubSpot pages — all trackable per stakeholder" },
-              { v: "1 brand", l: "Consistent visual identity across all four pages" },
-              { v: "Sales-ready", l: "Sales team can send a page matched to the specific contact" },
-              { v: "CTA-specific", l: "Each page has a CTA aligned to that stakeholder's next step" },
-              { v: "≥ 4.5/5", l: "Client satisfaction score across design review sessions" },
-            ].map(({ v, l }) => (
-              <div key={l} className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
-                <p className="text-3xl font-black text-white albert-sans-medium mb-2">{v}</p>
-                <p className="text-white/45 text-sm jost-secondary">{l}</p>
+        </motion.div>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }}
+          className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3">
+          {allScreens.map((s, i) => (
+            <motion.div key={i} whileHover={{ y: -5, scale: 1.02 }} transition={{ duration: 0.2 }}
+              onClick={() => setExpanded(i)} className="cursor-zoom-in rounded-xl overflow-hidden border border-white/10 group relative">
+              <img src={s.thumb} alt={s.label} className="w-full h-auto object-cover" />
+              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                <span className="text-white text-xs font-mono">{s.label}</span>
               </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
+        </motion.div>
+        <p className="text-white/20 text-xs font-mono mt-2 text-center">Click any page to expand</p>
+        <div className="mt-5 flex flex-wrap gap-2.5">
+          {[["Role","Lead Designer"],["Pages","4 — 1 WordPress + 3 HubSpot"],["Platform","Web (B2B)"],["Tools","Figma · WordPress · HubSpot"]].map(([k,v]) => (
+            <div key={k} className="px-3 py-1.5 rounded-full border border-white/8 flex items-center gap-1.5">
+              <span className="text-white/25 text-xs font-mono">{k}:</span>
+              <span className="text-white/60 text-xs">{v}</span>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* ── REFLECTION ──────────────────────────────────────────────── */}
-      <section id="reflection" className="py-16 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white/30 text-xs tracking-widest uppercase font-mono mb-8">Reflection</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              { t: "B2B UX is really sales strategy", b: "Designing these pages taught me that in B2B, UX and sales enablement are the same job. The question isn't just 'is this easy to use?' — it's 'does this move the right person closer to a decision?'" },
-              { t: "Segmentation makes everything sharper", b: "Once you commit to speaking to one persona per page, every design decision becomes easier. What hero message? What proof point? What CTA? The persona answers all of it." },
-              { t: "I'd add a tracking layer from day one", b: "The pages were set up in HubSpot, which has strong analytics. I should have pushed harder for UTM-tagged links from the sales team so we could measure which persona page was actually converting better." },
-              { t: "What this applies to beyond EdTech", b: "Any product with a complex, multi-stakeholder buying process has this problem. SaaS, healthcare software, enterprise tools. The persona-driven page model is the right pattern — this just happened to be EdTech." },
-            ].map(({ t, b }) => (
-              <div key={t} className="border-l-2 border-white/10 pl-6">
-                <p className="text-white font-semibold jost-secondary mb-2">{t}</p>
-                <p className="text-white/55 text-sm jost-secondary leading-relaxed">{b}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ──────────────────────────────────────────────────────── */}
-      <section className="py-20 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+      {/* ── 1. BRIEF ──────────────────────────────────────────────────────── */}
+      <Sec id="brief" label="01 · The Brief">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div>
-            <h2 className="text-3xl font-bold albert-sans-medium text-white mb-2">Want to see the full pages?</h2>
-            <p className="text-white/45 jost-secondary">Happy to walk through the messaging architecture and design decisions in detail.</p>
+            <h2 className="text-3xl font-bold albert-sans-medium text-white mb-5 leading-tight">
+              What I was asked to do — and what I understood about the client's situation.
+            </h2>
+            <p className="text-white/60 jost-secondary leading-relaxed mb-4">
+              2 Hour Learning is an EdTech platform that helps schools dramatically reduce the time students spend on core academic subjects — freeing up the school day for enrichment, arts, sports, and deeper learning. The product genuinely works. The problem was getting it in front of the right people.
+            </p>
+            <p className="text-white/60 jost-secondary leading-relaxed">
+              The initial brief was simple: "We need a better website." What I found when I started asking questions was considerably more specific.
+            </p>
+          </div>
+          <div className="space-y-4">
+            <div className="border border-white/5 rounded-2xl p-5 bg-white/[0.02]">
+              <p className="text-white/30 text-xs font-mono uppercase mb-3">The actual situation</p>
+              {[
+                "Sales team was sending all leads to the same homepage — regardless of who the lead was",
+                "Homepage tried to speak to everyone: principals, teachers, and board members in the same copy",
+                "Conversion rate was low — not because the product was weak, but because messaging wasn't role-specific",
+                "Sales reps had no page they could send a board member that spoke purely in financial terms",
+              ].map(c => (
+                <div key={c} className="flex items-start gap-2.5 mb-2 last:mb-0">
+                  <span className="w-1 h-1 rounded-full bg-white/20 mt-2 flex-shrink-0"/>
+                  <p className="text-white/55 text-sm jost-secondary">{c}</p>
+                </div>
+              ))}
+            </div>
+            <div className="border border-white/5 rounded-2xl p-5 bg-white/[0.02]">
+              <p className="text-white/30 text-xs font-mono uppercase mb-3">What I proposed (and they approved)</p>
+              <p className="text-white/65 text-sm jost-secondary leading-relaxed">
+                Four pages: one brand homepage for general discovery, and three HubSpot landing pages built around the specific fears and priorities of the three people who appear in every school buying cycle — the principal, the dean of academics, and the board member. Each page with its own messaging architecture and CTA.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Sec>
+
+      {/* ── 2. DISCOVERY ──────────────────────────────────────────────────── */}
+      <Sec id="discovery" label="02 · Discovery">
+        <h2 className="text-3xl font-bold albert-sans-medium text-white mb-8 leading-tight max-w-2xl">
+          Understanding the buying cycle before designing the pages.
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {[
+            {
+              method: "Sales team interviews (4 sessions)",
+              what: "Talked to the people actually running the sales process. They described the same pattern every time: initial contact with a principal, growing interest, then stall. 'We lose them when it goes to the board.' Boards were asking for financial projections that the sales team didn't have ready materials for.",
+              insight: "The sales process was failing at the transition between stakeholders — not at the initial stage. The homepage could be perfect for a principal and still lose the deal at the board review."
+            },
+            {
+              method: "Stakeholder mapping",
+              what: "For each stakeholder role, I mapped: their primary job responsibility, what success looks like in their role, what they'd be blamed for if this went wrong, and what evidence they'd need to feel confident recommending 2HL to their colleagues.",
+              insight: "Each role had a different definition of 'risk.' Principals risk reputation. Deans risk teacher morale. Board members risk budget. Designing for all three with the same message was structurally impossible."
+            },
+            {
+              method: "Competitor landing page analysis",
+              what: "Reviewed how 6 comparable EdTech companies positioned their landing pages. Most had a single homepage. The ones that had role-specific pages were uniformly better at the conversion stages where 2HL was struggling — board-level justification and implementation-ease proofs.",
+              insight: "The market hadn't fully figured this out. Companies that had done persona-specific pages were better funded and growing faster. The pattern was there to follow and improve on."
+            }
+          ].map(({ method, what, insight }) => (
+            <motion.div key={method} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} viewport={{ once: true }}
+              className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
+              <p className="text-white/30 text-xs font-mono uppercase mb-3">{method}</p>
+              <p className="text-white/55 text-sm jost-secondary leading-relaxed mb-4">{what}</p>
+              <div className="border-t border-white/5 pt-4">
+                <p className="text-white/25 text-xs font-mono uppercase mb-1.5">Key insight</p>
+                <p className="text-white/80 text-sm jost-secondary leading-relaxed font-medium">{insight}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 3. REFRAME ────────────────────────────────────────────────────── */}
+      <Sec id="reframe" label="03 · Problem Reframe">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <p className="text-white/30 text-xs font-mono uppercase mb-3">What the brief said</p>
+            <p className="text-white/50 text-lg jost-secondary leading-relaxed mb-8 italic">
+              "We need a better website that converts more leads."
+            </p>
+            <p className="text-white/30 text-xs font-mono uppercase mb-3">What the research showed</p>
+            <p className="text-white font-semibold text-xl jost-secondary leading-relaxed">
+              "We need a system of pages — each designed for a different person in the same buying committee, at a different stage of the same decision."
+            </p>
+          </div>
+          <div>
+            <p className="text-white/60 jost-secondary leading-relaxed mb-5">
+              Selling software to a school is a committee decision. A principal might love the product. A dean of academics needs to believe it won't burden teachers. A board member needs to see the financial case. All three need to say yes.
+            </p>
+            <p className="text-white/60 jost-secondary leading-relaxed mb-5">
+              A single landing page can't answer three completely different questions simultaneously. Trying to do so means answering none of them well enough to convert.
+            </p>
+            <div className="border border-white/5 rounded-2xl p-5 bg-white/[0.02]">
+              <p className="text-white/30 text-xs font-mono uppercase mb-3">The design principle that followed</p>
+              <p className="text-white/75 jost-secondary text-sm leading-relaxed">
+                Design to the fear, not the feature. Each stakeholder has a specific thing they're afraid of getting wrong. The page that addresses their fear directly — before talking about product features — is the one that earns the next conversation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Sec>
+
+      {/* ── 4. EXPLORATION ────────────────────────────────────────────────── */}
+      <Sec id="explore" label="04 · Exploration">
+        <h2 className="text-3xl font-bold albert-sans-medium text-white mb-4 leading-tight max-w-2xl">
+          Mapping what each stakeholder needed to see — and building the messaging architecture first.
+        </h2>
+        <p className="text-white/50 jost-secondary mb-8 max-w-2xl">Before any visual design, I worked out the content strategy for each page as a set of questions each stakeholder would ask — and the order in which the page needed to answer them.</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+          {[
+            { role: "Head of School", accent: "#38bdf8",
+              fear: "Betting on the wrong thing — if 2HL doesn't deliver, it's my reputation on the line",
+              questions: ["Do schools like mine use this?", "What happened to their results?", "Who can I call to ask about their experience?", "What does the next step look like?"],
+              messagingOrder: "Peer proof first → outcome data → named testimonial → low-commitment CTA ('request a briefing', not 'buy now')" },
+            { role: "Dean of Academics", accent: "#34d399",
+              fear: "Disrupting teachers who are already overloaded",
+              questions: ["Does this work with our existing curriculum?", "What's the teacher's actual workflow?", "How long does implementation take?", "What support is available?"],
+              messagingOrder: "Workflow fit first → teacher testimonial → implementation timeline → 'see the teacher dashboard' CTA" },
+            { role: "Board Member", accent: "#fb923c",
+              fear: "Approving a budget item that doesn't generate measurable return",
+              questions: ["What's the projected ROI?", "What's the implementation cost?", "What happens if it doesn't work?", "Can I see the numbers for a comparable district?"],
+              messagingOrder: "Hard financial number first → district case study → ROI calculator CTA → no testimonials (boards don't care about feelings)" },
+            { role: "Homepage", accent: "#a78bfa",
+              fear: "N/A — this is a discovery page, not a conversion page",
+              questions: ["What is 2HL?", "Who is it for?", "Is it credible?", "How do I find out more?"],
+              messagingOrder: "Brand narrative first → scale signal (schools enrolled) → product overview → general 'see how it works' CTA" },
+          ].map(({ role, accent, fear, questions, messagingOrder }) => (
+            <div key={role} className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
+              <div className="flex items-center gap-2.5 mb-4">
+                <div className="w-2 h-2 rounded-full" style={{ background: accent }} />
+                <p className="text-white font-semibold jost-secondary">{role}</p>
+              </div>
+              <p className="text-white/30 text-xs font-mono uppercase mb-1.5">Core fear</p>
+              <p className="text-white/60 text-sm jost-secondary mb-4 italic">"{fear}"</p>
+              <p className="text-white/30 text-xs font-mono uppercase mb-1.5">Questions the page must answer in order</p>
+              <ol className="space-y-1 mb-4">
+                {questions.map((q, i) => <li key={i} className="flex items-start gap-2"><span className="text-white/20 text-xs font-mono mt-0.5">{i+1}.</span><p className="text-white/55 text-sm jost-secondary">{q}</p></li>)}
+              </ol>
+              <div className="border-t border-white/5 pt-3">
+                <p className="text-white/25 text-xs font-mono uppercase mb-1">Messaging architecture</p>
+                <p className="text-white/65 text-xs jost-secondary leading-relaxed">{messagingOrder}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 5. KEY DECISIONS ──────────────────────────────────────────────── */}
+      <Sec id="decisions" label="05 · Key Design Decisions">
+        <h2 className="text-3xl font-bold albert-sans-medium text-white mb-10 leading-tight max-w-xl">
+          Where the design choices diverged from the obvious answer.
+        </h2>
+        <div className="space-y-5">
+          {[
+            {
+              n: "01", accent: "#a78bfa",
+              decision: "One visual system across all four pages — zero brand fragmentation",
+              context: "The initial stakeholder feedback was: 'make each page feel different so it's clearly tailored.' The instinct was to use different colour schemes or visual styles per persona.",
+              choice: "Kept the same visual system — typography, colour palette, spacing, component library — across all four pages. What changes is the content hierarchy, the proof points selected, and the CTA. The brand stays identical.",
+              tradeoff: "Some stakeholders felt the pages looked 'too similar.' But brand fragmentation would confuse sales reps linking to pages and risk undermining credibility — if the board page looks completely different from the principal page, it raises questions about the company's coherence."
+            },
+            {
+              n: "02", accent: "#38bdf8",
+              decision: "CTAs are stage-gates, not generic conversion buttons",
+              context: "The initial brief included 'Request a Demo' as the CTA on all pages. That's a high-commitment ask for someone who just discovered the product on the homepage — and too generic for a board member who needs specific financial information.",
+              choice: "Homepage: 'See how it works' (low-commitment, educational). Head of School: 'Request a principal briefing' (high-signal qualification). Dean: 'See the teacher dashboard' (product evaluation). Board: 'Get the ROI model' (budget-stage asset).",
+              tradeoff: "Four different CTAs require the sales team to have a response protocol for each. I provided a one-pager mapping each CTA to the expected next step — so the sales handoff matched the page intent."
+            },
+            {
+              n: "03", accent: "#34d399",
+              decision: "Board page leads with a hard financial number — no mission, no story",
+              context: "First draft of the board page opened with the company mission and student outcomes. That's compelling for a principal. A board member reviewing a budget item is not moved by mission.",
+              choice: "Board page opens with: '$240K average increase in per-pupil funding within 24 months.' No preamble, no warmup. The number is the first thing on the page. The explanation of how it's calculated is below the fold.",
+              tradeoff: "Feels blunt. Doesn't represent the brand's warmth. But warmth is not what board members are evaluating — they're evaluating fiduciary responsibility. The page serves its reader, not the brand's preferred tone."
+            },
+          ].map(({ n, accent, decision, context, choice, tradeoff }) => (
+            <motion.div key={n} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} viewport={{ once: true }}
+              className="border border-white/5 rounded-2xl p-7 bg-white/[0.02]">
+              <div className="grid grid-cols-1 md:grid-cols-[60px_1fr] gap-5">
+                <p className="text-4xl font-black leading-none"><span className="text-white/10">{n}</span></p>
+                <div>
+                  <p className="text-white font-bold text-base mb-5 jost-secondary">{decision}</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {[{ label: "Context", text: context },{ label: "What I did", text: choice },{ label: "Trade-off", text: tradeoff }].map(({ label, text }) => (
+                      <div key={label} className="border-l border-white/8 pl-4">
+                        <p className="text-white/25 text-xs font-mono uppercase mb-1.5">{label}</p>
+                        <p className="text-white/60 text-sm jost-secondary leading-relaxed">{text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 6. THE FOUR PAGES ─────────────────────────────────────────────── */}
+      <Sec id="design" label="06 · The Four Pages">
+        <p className="text-white/50 jost-secondary mb-10 max-w-2xl">Click any design to view full page.</p>
+        <div className="space-y-10">
+          {[
+            { i: 0, role: "Homepage", platform: "WordPress", accent: "#a78bfa",
+              audience: "School administrators who discovered 2HL through search or word of mouth — not yet in a buying cycle.",
+              messagingLead: "Brand narrative and transformation story. Not a product pitch.", cta: "\"See how it works\" — low commitment" },
+            { i: 1, role: "Head of School", platform: "HubSpot", accent: "#38bdf8",
+              audience: "Principals accountable for school reputation, enrollment, and parent satisfaction.",
+              messagingLead: "Peer testimonial + enrollment impact data. Ambition-first.", cta: "\"Request a principal briefing\" — high-signal" },
+            { i: 2, role: "Dean of Academics", platform: "HubSpot", accent: "#34d399",
+              audience: "Curriculum directors responsible for teacher experience and academic outcomes.",
+              messagingLead: "Workflow fit and implementation ease. Teacher testimonial above the fold.", cta: "\"See the teacher dashboard\" — product evaluation" },
+            { i: 3, role: "Board Member", platform: "HubSpot", accent: "#fb923c",
+              audience: "Budget approvers evaluating financial return on a long-term investment.",
+              messagingLead: "Hard financial number. No mission, no story. Numbers lead and close.", cta: "\"Get the ROI model\" — budget-stage asset" },
+          ].map(({ i, role, platform, accent, audience, messagingLead, cta }) => (
+            <motion.div key={role} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-7 items-start">
+              <motion.div whileHover={{ y: -4, scale: 1.02 }} transition={{ duration: 0.2 }}
+                onClick={() => setExpanded(i)} className="cursor-zoom-in rounded-2xl overflow-hidden border border-white/10">
+                <img src={allScreens[i].thumb} alt={role} className="w-full h-auto object-cover" />
+              </motion.div>
+              <div>
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-xs px-2.5 py-1 rounded-full font-mono" style={{ background: accent + "20", color: accent }}>{platform}</span>
+                  <h3 className="text-white font-bold albert-sans-medium text-xl">{role}</h3>
+                </div>
+                <div className="space-y-3">
+                  {[
+                    { label: "Who this page is for", text: audience },
+                    { label: "What leads the page", text: messagingLead },
+                    { label: "Primary CTA", text: cta },
+                  ].map(({ label, text }) => (
+                    <div key={label}>
+                      <p className="text-white/25 text-xs font-mono uppercase mb-1">{label}</p>
+                      <p className="text-white/70 text-sm jost-secondary leading-relaxed">{text}</p>
+                    </div>
+                  ))}
+                </div>
+                <button onClick={() => setExpanded(i)} className="mt-4 flex items-center gap-1.5 text-xs font-mono text-white/30 hover:text-white/60 transition-colors">
+                  View full design <ExternalLink className="w-3 h-3" />
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 7. TESTING ────────────────────────────────────────────────────── */}
+      <Sec id="testing" label="07 · Testing & What Changed">
+        <h2 className="text-3xl font-bold albert-sans-medium text-white mb-8 leading-tight max-w-xl">
+          What I tested — and the findings that changed the design.
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {[
+            { finding: "Sales reps didn't know which page to send to which lead", what: "I assumed the page system would be self-explanatory to the sales team. In the first walkthrough, two sales reps asked 'how do I know which page to use?' The differentiation was clear to me but not to people who hadn't been part of the design process.", fix: "Built a one-page 'page routing guide' for the sales team — a simple decision tree: Is your contact a principal? → Page 1. Does the deal need board approval? → Page 3. This became part of the sales enablement material.", changed: true },
+            { finding: "The board page was 'too cold' for stakeholders who reviewed it internally", what: "The org's own leadership reviewed the board page and called it 'blunt' and 'impersonal.' They wanted to add the mission statement to the top.", fix: "Kept the financial number as the headline. Added one line of brand context below it as a subheadline — enough to remind the reader of the company's purpose without softening the primary argument. The compromise: purpose below the number, not above it.", changed: true },
+            { finding: "Homepage CTA 'See how it works' wasn't driving enough next-step action", what: "Analytics on the existing site showed high time-on-page but low CTA click rates. The 'See how it works' button felt like it might open a video or tour — users didn't know what would happen if they clicked.", fix: "Added a short descriptor below the CTA: 'Book a 20-minute walkthrough with our team.' Specificity about what happens after the click increased clarity without adding friction.", changed: true },
+            { finding: "Dean page focused too much on the platform, not enough on the teacher", what: "First version of the dean page talked about '2HL's academic framework' and 'standards-aligned content.' This was product description. Deans don't want to hear about the product — they want to hear about their teachers.", fix: "Rewrote the opening section to feature a teacher's daily workflow: 'From 9am to 11am, your teachers focus on what they do best — teaching. 2HL handles the adaptive practice.' The product becomes the means, not the subject.", changed: true },
+          ].map(({ finding, what, fix, changed }) => (
+            <motion.div key={finding} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} viewport={{ once: true }}
+              className="border border-white/5 rounded-2xl p-6 bg-white/[0.02]">
+              <div className="flex items-start gap-2.5 mb-3">
+                <span className="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0 mt-1.5" />
+                <p className="text-white font-semibold text-sm jost-secondary">{finding}</p>
+              </div>
+              <p className="text-white/45 text-sm jost-secondary leading-relaxed mb-3">{what}</p>
+              <div className="border-t border-white/5 pt-3">
+                <p className="text-white/25 text-xs font-mono uppercase mb-1.5">What changed</p>
+                <p className="text-white/70 text-sm jost-secondary leading-relaxed">{fix}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 8. OUTCOMES ───────────────────────────────────────────────────── */}
+      <Sec id="outcomes" label="08 · Outcomes">
+        <p className="text-white/40 text-sm jost-secondary mb-8 max-w-xl">Client feedback and qualitative validation at handoff. Conversion analytics were being set up post-launch — not available for this case study.</p>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {[
+            { v: "4 pages", l: "Each aligned to a distinct role in the school buying committee" },
+            { v: "3 personas", l: "Separate HubSpot pages with individual tracking and CTA routing" },
+            { v: "4 CTAs", l: "Each matched to that stakeholder's stage in the buying process" },
+            { v: "Sales-ready", l: "Sales team has a page matched to the specific contact they're talking to" },
+            { v: "1 brand", l: "Consistent visual system across all four pages — zero fragmentation" },
+            { v: "4.5+/5", l: "Client satisfaction across all design review and iteration sessions" },
+          ].map(({ v, l }) => (
+            <div key={l} className="border border-white/5 rounded-2xl p-5 bg-white/[0.02]">
+              <p className="text-3xl font-black text-white albert-sans-medium mb-1.5">{v}</p>
+              <p className="text-white/40 text-sm jost-secondary">{l}</p>
+            </div>
+          ))}
+        </div>
+      </Sec>
+
+      {/* ── 9. REFLECTION ─────────────────────────────────────────────────── */}
+      <Sec id="reflection" label="09 · Reflection">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+          {[
+            { t: "B2B UX is sales strategy with better typography", b: "This project made me understand that in B2B, design and sales enablement are the same job. The question isn't just 'is this easy to use?' — it's 'does this move the right person closer to a decision?' That lens should come into every B2B design brief." },
+            { t: "The sales team is a user too", b: "I designed four pages for four buyer personas but nearly forgot the fifth user: the sales rep routing leads to the right page. Building the routing guide as part of the deliverable — not as an afterthought — changed how I think about what 'done' means for a design system." },
+            { t: "I'd build in conversion tracking from the start", b: "The pages were set up in HubSpot, which has strong analytics. I should have pushed harder for UTM-tagged links from the sales team so we could measure which persona page was actually converting better. Without that data, we're optimising by intuition." },
+            { t: "The reframe was everything", b: "The brief said 'better website.' The research said 'four different arguments for four different people.' If I'd designed a better single homepage, I'd have built something that looked great and changed nothing. The diagnosis has to come before the solution." },
+          ].map(({ t, b }) => (
+            <div key={t} className="border-l-2 border-white/8 pl-5">
+              <p className="text-white font-semibold jost-secondary mb-2">{t}</p>
+              <p className="text-white/50 text-sm jost-secondary leading-relaxed">{b}</p>
+            </div>
+          ))}
+        </div>
+      </Sec>
+
+      <section className="py-16 px-6 border-t border-white/5">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div>
+            <h2 className="text-2xl font-bold albert-sans-medium text-white mb-1">Want to walk through this project?</h2>
+            <p className="text-white/40 jost-secondary text-sm">Happy to go deeper on the messaging architecture or the stakeholder mapping process.</p>
           </div>
           <Link href="/#contact">
-            <motion.button whileHover={{ scale: 1.04 }} className="flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-xl text-sm jost-secondary">
+            <motion.button whileHover={{ scale: 1.03 }} className="flex items-center gap-2 px-5 py-2.5 bg-white text-black font-semibold rounded-xl text-sm jost-secondary flex-shrink-0">
               <ExternalLink className="w-4 h-4" /> Get in touch
             </motion.button>
           </Link>
         </div>
       </section>
 
-      {/* footer */}
-      <footer className="py-10 px-6 border-t border-white/5">
+      <footer className="py-8 px-6 border-t border-white/5">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <img src={LogoImage} className="w-8 h-8 object-contain opacity-50" alt="Logo" />
-          <p className="text-white/25 text-xs font-mono">© 2025 Karn Kalaa</p>
+          <img src={LogoImage} className="w-7 h-7 object-contain opacity-40" alt="Logo" />
+          <p className="text-white/20 text-xs font-mono">© 2025 Karn Kalaa</p>
           <a href="https://www.linkedin.com/in/karan-gadhave/" target="_blank" rel="noopener noreferrer">
-            <img src={linkedinLogo} className="w-6 h-6 object-contain opacity-40 hover:opacity-70 transition-opacity" alt="LinkedIn" />
+            <img src={linkedinLogo} className="w-5 h-5 object-contain opacity-35 hover:opacity-60 transition-opacity" alt="LinkedIn" />
           </a>
         </div>
       </footer>
