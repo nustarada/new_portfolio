@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { CaseStudyNavigation } from "@/components/case-study-navigation";
+import { CaseStudySidebar } from "@/components/case-study-sidebar";
 import LogoImage from "@assets/Logo white_1754674219191.png";
 import linkedinLogo from "@assets/linkedin 1_1756620179383.png";
 import fffVideoPath from "@assets/FFF website video (video-converter.com)_1754054201797.webm";
@@ -34,6 +35,7 @@ export default function FutureFirstFamiliesCaseStudy() {
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -42,12 +44,27 @@ export default function FutureFirstFamiliesCaseStudy() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => scrollYProgress.on("change", v => setProgress(v)), [scrollYProgress]);
+
   return (
-    <div ref={containerRef} className="min-h-screen bg-[#090910] text-white fff-case-study">
-      <CaseStudyNavigation sections={navSections} />
+    <div ref={containerRef} className="min-h-screen bg-[#090910] text-white fff-case-study lg:pl-[208px]">
+      <div className="lg:hidden"><CaseStudyNavigation sections={navSections} /></div>
+      <CaseStudySidebar
+        sections={navSections}
+        accentColor="#38bdf8"
+        projectTitle="Future First Families"
+        projectTag="Web Platform · Advocacy"
+        meta={[
+          { label: "Role",     value: "Lead Product Designer" },
+          { label: "Timeline", value: "4 weeks" },
+          { label: "Platform", value: "Web (HubSpot + custom)" },
+          { label: "Tools",    value: "Figma · Maze · HubSpot" },
+        ]}
+        progress={progress}
+      />
       <motion.div className="fixed top-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 z-[9999]" style={{ width: progressWidth }} />
 
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-black/80 backdrop-blur-xl border-b border-white/5" : ""}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 lg:hidden transition-all duration-300 ${scrolled ? "bg-black/80 backdrop-blur-xl border-b border-white/5" : ""}`}>
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/"><img src={LogoImage} className="h-9 w-9 object-contain cursor-pointer" alt="Logo" /></Link>
           <motion.button onClick={() => window.location.href = "/"} className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors" whileHover={{ x: -2 }}>
@@ -57,7 +74,7 @@ export default function FutureFirstFamiliesCaseStudy() {
       </nav>
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="pt-32 pb-10 px-6 max-w-5xl mx-auto">
+      <section className="pt-32 lg:pt-16 pb-10 px-6 max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <p className="text-white/35 text-xs tracking-widest uppercase mb-4 font-mono">Web Platform · Advocacy · End-to-end Design</p>
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white albert-sans-medium leading-[0.92] mb-5">Future First<br />Families</h1>
