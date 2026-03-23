@@ -42,6 +42,7 @@ import Screen33 from "@assets/33. Dropdown_1754469216930.png";
 import Screen34 from "@assets/34. Health card_1754469216930.png";
 
 const navSections = [
+  { id: "overview",   title: "Overview",          color: "from-white/40 to-white/20" },
   { id: "brief",      title: "The Brief",        color: "from-slate-400 to-gray-400" },
   { id: "discovery",  title: "Discovery",         color: "from-purple-400 to-pink-400" },
   { id: "reframe",    title: "Problem Reframe",   color: "from-orange-400 to-red-400" },

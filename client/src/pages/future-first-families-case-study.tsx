@@ -8,6 +8,7 @@ import linkedinLogo from "@assets/linkedin 1_1756620179383.png";
 import fffVideoPath from "@assets/FFF website video (video-converter.com)_1754054201797.webm";
 
 const navSections = [
+  { id: "overview",   title: "Overview",          color: "from-white/40 to-white/20" },
   { id: "brief",      title: "The Brief",        color: "from-slate-400 to-gray-400" },
   { id: "discovery",  title: "Discovery",         color: "from-purple-400 to-pink-400" },
   { id: "reframe",    title: "Problem Reframe",   color: "from-orange-400 to-red-400" },

@@ -15,6 +15,7 @@ import persona2Thumbnail from "@assets/Persona 2 Thumbnail_1756635908006.png";
 import persona3Thumbnail from "@assets/Persona 3 Thumbnail_1756635908004.png";
 
 const navSections = [
+  { id: "overview",   title: "Overview",          color: "from-white/40 to-white/20" },
   { id: "brief",      title: "The Brief",        color: "from-slate-400 to-gray-400" },
   { id: "discovery",  title: "Discovery",         color: "from-purple-400 to-pink-400" },
   { id: "reframe",    title: "Problem Reframe",   color: "from-orange-400 to-red-400" },
