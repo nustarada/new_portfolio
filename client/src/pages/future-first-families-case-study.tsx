@@ -79,6 +79,36 @@ export default function FutureFirstFamiliesCaseStudy() {
         </div>
       </section>
 
+      {/* ── 0. OVERVIEW ───────────────────────────────────────────────────── */}
+      <Sec id="overview" label="00 · Overview">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+          {[["89%","Onboarding completion"],["3×","Task completion rate"],["–60%","Admin time saved"],["4.6/5","Usability score"]].map(([v, l]) => (
+            <div key={l} className="border border-white/6 rounded-2xl p-5 bg-white/[0.02]">
+              <p className="text-3xl font-black text-white tracking-tight mb-1">{v}</p>
+              <p className="text-white/40 text-xs font-mono">{l}</p>
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <div className="border border-white/6 rounded-2xl p-6 bg-white/[0.02]">
+            <p className="text-white/25 text-xs font-mono uppercase tracking-widest mb-3">Core problem</p>
+            <p className="text-white/70 jost-secondary leading-relaxed">FFF's members were motivated to advocate for education reform — but the platform gave them no feedback, no visible progress, and no clear next step. Advocacy felt like shouting into a void. The problem wasn't motivation, it was the system.</p>
+          </div>
+          <div className="border border-white/6 rounded-2xl p-6 bg-white/[0.02]">
+            <p className="text-white/25 text-xs font-mono uppercase tracking-widest mb-3">Key outcome</p>
+            <p className="text-white/70 jost-secondary leading-relaxed">A gamified task system that turned email-based advocacy into a measurable, rewarding experience — with 89% onboarding completion from day one, 3× task completion vs. open-ended email asks, and 60% reduction in admin coordination time.</p>
+          </div>
+        </div>
+        <div className="border border-white/6 rounded-2xl p-6 bg-white/[0.02]">
+          <p className="text-white/25 text-xs font-mono uppercase tracking-widest mb-4">What's in this case study</p>
+          <div className="flex flex-wrap gap-3">
+            {["01 · The Brief","02 · Discovery","03 · Problem Reframe","04 · Exploration","05 · Key Decisions","06 · Final Design","07 · Testing","08 · Outcomes","09 · Reflection"].map(s => (
+              <span key={s} className="text-white/50 text-xs font-mono px-3 py-1.5 rounded-full border border-white/8">{s}</span>
+            ))}
+          </div>
+        </div>
+      </Sec>
+
       {/* ── 1. BRIEF ──────────────────────────────────────────────────────── */}
       <Sec id="brief" label="01 · The Brief">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">

@@ -1,95 +1,239 @@
 /* Layout C — Card Grid / Bento · Future First Families */
-const META = { title: "Future First Families", sub: "advocacy platform · web · 4 weeks", role: "UX Designer", timeline: "4 weeks" };
+import { useState, useEffect, useRef } from "react";
 
-const W = 1280;
-const PAD = 24;
-const GAP = 16;
+const ACC = "#38bdf8";
+const BG = "#090910";
+const SECTIONS = [
+  { id: "overview",   label: "00 · Overview" },
+  { id: "brief",      label: "01 · The Brief" },
+  { id: "discovery",  label: "02 · Discovery" },
+  { id: "reframe",    label: "03 · Problem Reframe" },
+  { id: "explore",    label: "04 · Exploration" },
+  { id: "decisions",  label: "05 · Key Decisions" },
+  { id: "design",     label: "06 · Final Design" },
+  { id: "testing",    label: "07 · Testing" },
+  { id: "outcomes",   label: "08 · Outcomes" },
+  { id: "reflection", label: "09 · Reflection" },
+];
 
-const Ln = ({ x, y, w, op = 1 }: any) => <rect x={x} y={y} width={w} height={7} rx="1" fill="#c8c4bc" opacity={op}/>;
-const Xbox = ({ x, y, w, h }: any) => (
-  <g><rect x={x} y={y} width={w} height={h} fill="#f0ede8" stroke="#b8b0a4" strokeWidth="1.1" rx="1"/>
-  <line x1={x} y1={y} x2={x+w} y2={y+h} stroke="#b8b0a4" strokeWidth="0.9"/>
-  <line x1={x+w} y1={y} x2={x} y2={y+h} stroke="#b8b0a4" strokeWidth="0.9"/></g>
+const Card = ({ children, style }: any) => (
+  <div style={{ border: "1px solid rgba(255,255,255,0.06)", borderRadius: 14, padding: "16px", background: "rgba(255,255,255,0.02)", ...style }}>{children}</div>
 );
-const Card = ({ x, y, w, h, bg = "#f5f1ea" }: any) => (
-  <rect x={x} y={y} width={w} height={h} rx="3" fill={bg} stroke="#e0d8cc" strokeWidth="1"/>
+const SL = ({ label }: { label: string }) => (
+  <div style={{ fontFamily: "monospace", fontSize: 9, color: "rgba(255,255,255,0.22)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 10 }}>{label}</div>
 );
-const SLabel = ({ x, y, t }: any) => (
-  <text x={x} y={y} fontSize="8" fill="#9ca3af" fontFamily="monospace" fontWeight="bold" letterSpacing="1">{t}</text>
-);
-const HLine = ({ x, y, w }: any) => <rect x={x} y={y} width={w} height={12} rx="1" fill="#c8c4bc" opacity="0.8"/>;
-
-const heroH = 110, metricH = 88, briefResH = 160, reframeH = 90, exploreH = 180, decScreenH = 220, testingH = 140, outcomesH = 110, reflectH = 110;
-const TOTAL_H = heroH + GAP + metricH + GAP + briefResH + GAP + reframeH + GAP + exploreH + GAP + decScreenH + GAP + testingH + GAP + outcomesH + GAP + reflectH + PAD*2 + 40;
 
 export function LayoutC() {
-  let y = PAD;
-  const rows: number[] = [];
-  [heroH, metricH, briefResH, reframeH, exploreH, decScreenH, testingH, outcomesH, reflectH].forEach((h, i) => {
-    rows.push(y);
-    y += h + GAP;
-  });
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const { scrollTop, scrollHeight, clientHeight } = el;
+      const pct = scrollHeight - clientHeight > 0 ? (scrollTop / (scrollHeight - clientHeight)) * 100 : 0;
+      setProgress(pct);
+      setActiveIdx(Math.min(SECTIONS.length - 1, Math.floor((scrollTop / Math.max(scrollHeight - clientHeight, 1)) * SECTIONS.length)));
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <div className="w-full bg-[#fdf8f0]">
-      <svg viewBox={`0 0 ${W} ${TOTAL_H}`} className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="wf-fc-sk">
-            <feTurbulence type="turbulence" baseFrequency="0.018" numOctaves="3" seed="13" result="n"/>
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="1.8" xChannelSelector="R" yChannelSelector="G"/>
-          </filter>
-          <pattern id="wf-fc-grid" width="24" height="24" patternUnits="userSpaceOnUse">
-            <path d="M24 0L0 0 0 24" fill="none" stroke="#ddd5c5" strokeWidth="0.5"/>
-          </pattern>
-          <pattern id="wf-fc-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-            <line x1="0" y1="0" x2="0" y2="6" stroke="#9ca3af" strokeWidth="0.9" opacity="0.55"/>
-          </pattern>
-        </defs>
-        <rect width={W} height={TOTAL_H} fill="#fdf8f0"/>
-        <rect width={W} height={TOTAL_H} fill="url(#wf-fc-grid)" opacity="0.65"/>
-        <g filter="url(#wf-fc-sk)">
-          {/* HERO */}
-          <Card x={PAD} y={rows[0]} w={W-PAD*2} h={heroH-8}/>
-          <SLabel x={PAD+20} y={rows[0]+16} t="CASE STUDY"/>
-          <HLine x={PAD+20} y={rows[0]+22} w={460}/>
-          <Ln x={PAD+20} y={rows[0]+42} w={280} op={0.7}/>
-          {[0,1,2].map(i=><rect key={i} x={PAD+20+i*96} y={rows[0]+56} width={84} height={16} rx="8" fill="#e8e4de" stroke="#c8c4bc" strokeWidth="0.9"/>)}
-          <text x={PAD+20} y={rows[0]+90} fontSize="7.5" fill="#b8b0a4" fontFamily="monospace">{META.title} · {META.sub}</text>
-          <rect x={W-PAD-100} y={rows[0]+22} width={80} height={52} rx="3" fill="url(#wf-fc-hatch)" stroke="#9ca3af" strokeWidth="1"/>
-          {/* METRICS */}
-          {[0,1,2,3].map(i => { const cw=(W-PAD*2-GAP*3)/4; return (<g key={i}><Card x={PAD+i*(cw+GAP)} y={rows[1]} w={cw} h={metricH}/><rect x={PAD+i*(cw+GAP)+16} y={rows[1]+16} width={80} height={22} rx="1" fill="#c8c4bc" opacity="0.7"/><Ln x={PAD+i*(cw+GAP)+16} y={rows[1]+46} w={cw-40} op={0.5}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[1]+58} w={cw-60} op={0.35}/></g>); })}
-          {/* BRIEF + DISCOVERY */}
-          {[{label:"01 · THE BRIEF", x:PAD},{label:"02 · DISCOVERY", x:PAD+(W-PAD*2-GAP)/2+GAP}].map(({label,x})=>{ const cw=(W-PAD*2-GAP)/2; return(<g key={label}><Card x={x} y={rows[2]} w={cw} h={briefResH}/><SLabel x={x+16} y={rows[2]+18} t={label}/><HLine x={x+16} y={rows[2]+26} w={cw*0.55}/><Ln x={x+16} y={rows[2]+50} w={cw-40}/><Ln x={x+16} y={rows[2]+62} w={cw-60}/><Ln x={x+16} y={rows[2]+74} w={cw-50}/><Ln x={x+16} y={rows[2]+86} w={cw-100} op={0.65}/>{label.includes("DISC")&&(<><rect x={x+16} y={rows[2]+106} width={3} height={40} fill="#c8c4bc"/><Ln x={x+28} y={rows[2]+110} w={cw-60} op={0.7}/><Ln x={x+28} y={rows[2]+122} w={cw-90} op={0.7}/></>)}</g>); })}
-          {/* REFRAME */}
-          <Card x={PAD} y={rows[3]} w={W-PAD*2} h={reframeH} bg="#ece8e0"/>
-          <SLabel x={PAD+20} y={rows[3]+18} t="03 · PROBLEM REFRAME"/>
-          <rect x={PAD+20} y={rows[3]+28} width={620} height={16} rx="1" fill="#c8c4bc" opacity="0.7"/>
-          <Ln x={PAD+20} y={rows[3]+52} w={480} op={0.55}/>
-          <text x={PAD+20} y={rows[3]+80} fontSize="7.5" fill="#9ca3af" fontFamily="monospace">[ reframes the design problem ]</text>
-          {/* EXPLORATION 3-COL */}
-          {[0,1,2].map(i=>{ const cw=(W-PAD*2-GAP*2)/3; const bg=i===2?"#e8ede4":"#f5f1ea"; return(<g key={i}><Card x={PAD+i*(cw+GAP)} y={rows[4]} w={cw} h={exploreH} bg={bg}/><SLabel x={PAD+i*(cw+GAP)+16} y={rows[4]+18} t={`OPTION ${String.fromCharCode(65+i)}`}/><HLine x={PAD+i*(cw+GAP)+16} y={rows[4]+26} w={cw*0.55}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[4]+50} w={cw-40}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[4]+62} w={cw-60}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[4]+74} w={cw-40}/><Xbox x={PAD+i*(cw+GAP)+16} y={rows[4]+90} w={cw-32} h={70}/>{i===2?<text x={PAD+i*(cw+GAP)+16} y={rows[4]+exploreH-8} fontSize="8" fill="#7a9070" fontFamily="monospace" fontWeight="bold">✓ chosen</text>:<text x={PAD+i*(cw+GAP)+16} y={rows[4]+exploreH-8} fontSize="8" fill="#b8b0a4" fontFamily="monospace">✗ rejected</text>}</g>); })}
-          {/* DECISIONS + SCREENS */}
-          {(()=>{ const lW=(W-PAD*2-GAP)*0.45; const rW=(W-PAD*2-GAP)*0.55; return(<><Card x={PAD} y={rows[5]} w={lW} h={decScreenH}/><SLabel x={PAD+16} y={rows[5]+18} t="05 · KEY DECISIONS"/><HLine x={PAD+16} y={rows[5]+26} w={lW*0.6}/>{[0,1,2,3].map(i=><g key={i}><Ln x={PAD+16} y={rows[5]+50+i*40} w={lW-40}/><Ln x={PAD+16} y={rows[5]+62+i*40} w={lW-60} op={0.65}/><Ln x={PAD+16} y={rows[5]+74+i*40} w={lW-90} op={0.45}/></g>)}<Card x={PAD+lW+GAP} y={rows[5]} w={rW} h={decScreenH}/><SLabel x={PAD+lW+GAP+16} y={rows[5]+18} t="06 · FINAL DESIGN"/><HLine x={PAD+lW+GAP+16} y={rows[5]+26} w={rW*0.5}/>{[0,1].map(row=>[0,1].map(col=><Xbox key={`${row}${col}`} x={PAD+lW+GAP+16+col*((rW-48)/2+GAP)} y={rows[5]+46+row*((decScreenH-80)/2+GAP)} w={(rW-48)/2} h={(decScreenH-80)/2}/>))}</>); })()}
-          {/* TESTING */}
-          <Card x={PAD} y={rows[6]} w={W-PAD*2} h={testingH}/>
-          <SLabel x={PAD+20} y={rows[6]+18} t="07 · TESTING"/>
-          <HLine x={PAD+20} y={rows[6]+26} w={240}/>
-          <Ln x={PAD+20} y={rows[6]+52} w={W-PAD*2-80}/>
-          <Ln x={PAD+20} y={rows[6]+64} w={W-PAD*2-140}/>
-          {[0,1,2,3].map(i=>(<g key={i}><rect x={PAD+20+i*((W-PAD*2-80)/4+GAP)} y={rows[6]+86} width={(W-PAD*2-80)/4} height={38} rx="2" fill="#f0ede8" stroke="#e0d8cc" strokeWidth="0.9"/><Ln x={PAD+36+i*((W-PAD*2-80)/4+GAP)} y={rows[6]+94} w={(W-PAD*2-80)/4-32} op={0.7}/><Ln x={PAD+36+i*((W-PAD*2-80)/4+GAP)} y={rows[6]+106} w={(W-PAD*2-80)/4-52} op={0.5}/></g>))}
-          {/* OUTCOMES */}
-          {[0,1,2,3].map(i=>{ const cw=(W-PAD*2-GAP*3)/4; return(<g key={i}><Card x={PAD+i*(cw+GAP)} y={rows[7]} w={cw} h={outcomesH}/><rect x={PAD+i*(cw+GAP)+16} y={rows[7]+16} width={cw*0.6} height={26} rx="1" fill="#c8c4bc" opacity="0.65"/><Ln x={PAD+i*(cw+GAP)+16} y={rows[7]+50} w={cw-40} op={0.5}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[7]+62} w={cw-60} op={0.35}/>{i===0&&<SLabel x={PAD+i*(cw+GAP)+16} y={rows[7]+94} t="08 · OUTCOMES"/>}</g>); })}
-          {/* REFLECTION */}
-          <Card x={PAD} y={rows[8]} w={W-PAD*2} h={reflectH}/>
-          <SLabel x={PAD+20} y={rows[8]+18} t="09 · REFLECTION"/>
-          <HLine x={PAD+20} y={rows[8]+26} w={300}/>
-          <Ln x={PAD+20} y={rows[8]+50} w={W-PAD*2-80}/>
-          <Ln x={PAD+20} y={rows[8]+62} w={W-PAD*2-140}/>
-          <Ln x={PAD+20} y={rows[8]+74} w={W-PAD*2-200} op={0.7}/>
-          <Ln x={PAD+20} y={rows[8]+86} w={W-PAD*2-300} op={0.5}/>
-          <text x={1100} y={TOTAL_H-16} fontSize="8" fill="#c8c4bc" fontFamily="monospace">Layout C · Card Grid</text>
-        </g>
-      </svg>
+    <div ref={containerRef} style={{ width: "100%", height: "100vh", overflowY: "auto", background: BG, fontFamily: "'Inter', system-ui, sans-serif", color: "#fff" }}>
+      <div style={{ position: "sticky", top: 0, zIndex: 100, height: 3, background: "rgba(255,255,255,0.05)" }}>
+        <div style={{ height: "100%", width: `${progress}%`, background: ACC, transition: "width 0.1s" }} />
+      </div>
+      <div style={{ position: "sticky", top: 3, zIndex: 99, borderBottom: "1px solid rgba(255,255,255,0.05)", padding: "10px 28px", display: "flex", alignItems: "center", justifyContent: "space-between", background: BG }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <div style={{ width: 26, height: 26, borderRadius: 7, background: ACC, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 10, height: 10, borderRadius: 2, background: "#000", opacity: 0.9 }} />
+          </div>
+          <span style={{ fontSize: 13, fontWeight: 700 }}>Future First Families</span>
+          <span style={{ fontSize: 10, color: "rgba(255,255,255,0.28)", fontFamily: "monospace" }}>Advocacy Platform · Case Study</span>
+        </div>
+        <div style={{ display: "flex", gap: 5 }}>
+          {SECTIONS.map((s, i) => (
+            <div key={s.id} style={{ width: 6, height: 6, borderRadius: "50%", background: i === activeIdx ? ACC : "rgba(255,255,255,0.14)" }} />
+          ))}
+        </div>
+      </div>
+
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: "40px 28px 80px" }}>
+        {/* Bento Hero */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 40 }}>
+          <div style={{ gridColumn: "1 / 3", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 16, padding: "24px", background: "rgba(255,255,255,0.02)" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: `${ACC}1a`, border: `1px solid ${ACC}40`, borderRadius: 20, padding: "3px 10px", marginBottom: 14 }}>
+              <div style={{ width: 5, height: 5, borderRadius: "50%", background: ACC }} />
+              <span style={{ fontSize: 10, color: ACC, fontFamily: "monospace" }}>UX Design — Web Platform</span>
+            </div>
+            <h1 style={{ fontSize: 30, fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.03em", color: "#fff", marginBottom: 10 }}>Making advocacy feel like it's working.</h1>
+            <div style={{ display: "flex", gap: 7, flexWrap: "wrap", marginTop: 14 }}>
+              {["Lead Designer", "4 weeks", "Web · HubSpot"].map(t => (
+                <span key={t} style={{ fontSize: 10, padding: "4px 10px", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 20, color: "rgba(255,255,255,0.5)", fontFamily: "monospace" }}>{t}</span>
+              ))}
+            </div>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            {[["89%", "onboarding"], ["3×", "completion"], ["–60%", "admin time"]].map(([v, l]) => (
+              <div key={l} style={{ flex: 1, border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "12px 14px", background: "rgba(255,255,255,0.02)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <span style={{ fontSize: 20, fontWeight: 800, color: "#fff", letterSpacing: "-0.03em" }}>{v}</span>
+                <span style={{ fontSize: 10, color: "rgba(255,255,255,0.3)", fontFamily: "monospace" }}>{l}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dashboard mock */}
+        <div style={{ borderRadius: 14, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", padding: 16, marginBottom: 40, display: "flex", flexDirection: "column", gap: 8 }}>
+          <div style={{ height: 30, borderRadius: 8, border: `1px solid ${ACC}33`, background: `${ACC}0a`, padding: "0 12px", display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ width: 5, height: 5, borderRadius: "50%", background: ACC }} />
+            <span style={{ fontSize: 11, color: ACC }}>Welcome Sarah · Streak 🔥 5 days</span>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 8 }}>
+            <div style={{ height: 46, borderRadius: 8, border: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.02)", padding: "8px 12px" }}>
+              <div style={{ fontSize: 9, fontFamily: "monospace", color: "rgba(255,255,255,0.22)", marginBottom: 3 }}>NEXT TASK</div>
+              <div style={{ fontSize: 12, fontWeight: 600 }}>Contact your school board rep · 3 min</div>
+            </div>
+            <div style={{ height: 46, borderRadius: 8, border: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.02)", padding: "8px 10px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+              <div style={{ fontSize: 9, fontFamily: "monospace", color: "rgba(255,255,255,0.22)", marginBottom: 2 }}>COMMUNITY</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: "#22c55e" }}>847 actions</div>
+            </div>
+          </div>
+        </div>
+
+        {/* 00 Overview */}
+        <SL label="00 · Overview" />
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 36 }}>
+          <Card>
+            <SL label="Core problem" />
+            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", lineHeight: 1.65 }}>Members were motivated to advocate but the platform gave them no feedback, no visible progress, and no clear next step. Advocacy felt like shouting into a void.</p>
+          </Card>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+            {[["89%", "Onboarding"], ["3×", "Completion"], ["–60%", "Admin time"], ["4.6/5", "Usability"]].map(([v, l]) => (
+              <div key={l} style={{ border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "12px", background: "rgba(255,255,255,0.02)" }}>
+                <div style={{ fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", marginBottom: 3 }}>{v}</div>
+                <div style={{ fontSize: 10, color: "rgba(255,255,255,0.3)" }}>{l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 01 + 02 */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 36 }}>
+          <div>
+            <SL label="01 · The Brief" />
+            <Card>
+              <h2 style={{ fontSize: 16, fontWeight: 700, marginBottom: 8, lineHeight: 1.3 }}>Build a platform to boost member engagement in advocacy.</h2>
+              <p style={{ fontSize: 12, color: "rgba(255,255,255,0.45)", lineHeight: 1.6 }}>4 weeks. Email-only org. No existing platform. Needed measurable engagement from the first session.</p>
+            </Card>
+          </div>
+          <div>
+            <SL label="02 · Discovery" />
+            <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+              {[
+                "8 interviews: members wanted to act but lacked clear next steps",
+                "3 admin interviews: 60% of time spent on coordination",
+                "Bounded asks got 3× the completion of open-ended ones",
+              ].map(i => (
+                <div key={i} style={{ padding: "8px 10px", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)", background: "rgba(255,255,255,0.02)", fontSize: 11, color: "rgba(255,255,255,0.5)", lineHeight: 1.5 }}>{i}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* 03 + 04 */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 36 }}>
+          <div>
+            <SL label="03 · Problem Reframe" />
+            <div style={{ background: `${ACC}08`, border: `1px solid ${ACC}22`, borderRadius: 14, padding: "16px 18px" }}>
+              <p style={{ fontSize: 12, color: "rgba(255,255,255,0.38)", fontStyle: "italic", marginBottom: 10 }}>"Members aren't motivated enough."</p>
+              <p style={{ fontSize: 13, fontWeight: 600, color: "#fff", lineHeight: 1.5 }}>"Make participation feel like it's working — so motivation sustains itself."</p>
+            </div>
+          </div>
+          <div>
+            <SL label="04 · Exploration" />
+            <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+              {[
+                { l: "Community forum", s: "Rejected", c: "#ef4444" },
+                { l: "Event calendar", s: "Rejected", c: "#f97316" },
+                { l: "Task-based gamification", s: "Chosen", c: "#22c55e" },
+              ].map(({ l, s, c }) => (
+                <div key={l} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "9px 12px", border: "1px solid rgba(255,255,255,0.05)", borderRadius: 9, background: "rgba(255,255,255,0.02)" }}>
+                  <span style={{ fontSize: 12, color: "rgba(255,255,255,0.62)" }}>{l}</span>
+                  <span style={{ fontSize: 9, fontFamily: "monospace", padding: "2px 7px", borderRadius: 10, background: c + "22", color: c }}>{s}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* 05 Decisions */}
+        <SL label="05 · Key Decisions" />
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 36 }}>
+          {[
+            { n: "01", t: "Tasks feel completable", d: "Verb-first, time estimate, step-by-step, single completion button." },
+            { n: "02", t: "First task in session one", d: "Cut onboarding screens. Platform explains itself by being used." },
+            { n: "03", t: "Community counter not leaderboard", d: "Rank 20+ disengaged. One shared number for everyone." },
+          ].map(({ n, t, d }) => (
+            <Card key={n}>
+              <div style={{ fontSize: 10, fontFamily: "monospace", color: ACC, marginBottom: 8 }}>{n}</div>
+              <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 6, color: "#fff" }}>{t}</div>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", lineHeight: 1.55 }}>{d}</div>
+            </Card>
+          ))}
+        </div>
+
+        {/* 06 Final Design */}
+        <SL label="06 · Final Design" />
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 36 }}>
+          {["Dashboard — streak, next task, community counter", "Task detail — verb-first, time, step reveal, completion", "Milestones — 50/100 to Advocate badge", "Admin — create task with validation + preview"].map((s, i) => (
+            <div key={s} style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 14px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)", fontSize: 12, color: "rgba(255,255,255,0.55)", lineHeight: 1.5 }}>
+              <div style={{ width: 4, height: 4, borderRadius: "50%", background: ACC, flexShrink: 0 }} />{s}
+            </div>
+          ))}
+        </div>
+
+        {/* 07 Testing + 08 Outcomes */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 36 }}>
+          <div>
+            <SL label="07 · Testing" />
+            <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+              {["Onboarding cut → first task", "Leaderboard removed → counter", "Step reveal → one at a time", "Points → milestone anchor"].map(f => (
+                <div key={f} style={{ display: "flex", gap: 7, padding: "8px 10px", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)", background: "rgba(255,255,255,0.02)", fontSize: 11, color: "rgba(255,255,255,0.5)" }}>
+                  <div style={{ width: 5, height: 5, borderRadius: "50%", background: "#f59e0b", marginTop: 2, flexShrink: 0 }} />{f}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <SL label="08 · Outcomes" />
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              {[["89%", "Onboarding"], ["3×", "Completion"], ["–60%", "Admin"], ["4.6/5", "Usability"]].map(([v, l]) => (
+                <div key={l} style={{ border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "12px", background: "rgba(255,255,255,0.02)" }}>
+                  <div style={{ fontSize: 20, fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", marginBottom: 3 }}>{v}</div>
+                  <div style={{ fontSize: 10, color: "rgba(255,255,255,0.3)" }}>{l}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* 09 Reflection */}
+        <SL label="09 · Reflection" />
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 40 }}>
+          {["Motivation wasn't the problem — the system was.", "Gamification must reflect real impact, not just activity.", "The leaderboard finding only emerged with real usage.", "I'd push for a 2–3 week member pilot next time."].map(r => (
+            <Card key={r}><p style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", lineHeight: 1.65 }}>{r}</p></Card>
+          ))}
+        </div>
+
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: 22, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.18)", fontFamily: "monospace" }}>FFF · Karan Gadhave</span>
+          <div style={{ fontSize: 11, padding: "7px 16px", borderRadius: 20, background: "#fff", color: "#000", fontWeight: 600 }}>Get in touch →</div>
+        </div>
+      </div>
     </div>
   );
 }

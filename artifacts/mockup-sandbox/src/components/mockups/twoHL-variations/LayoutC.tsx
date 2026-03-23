@@ -1,95 +1,249 @@
 /* Layout C — Card Grid / Bento · 2Hour Learning */
-const META = { title: "2Hour Learning", sub: "B2B EdTech · 4 landing pages", role: "UX Designer", timeline: "3 weeks" };
+import { useState, useEffect, useRef } from "react";
 
-const W = 1280;
-const PAD = 24;
-const GAP = 16;
+const ACC = "#a78bfa";
+const BG = "#090910";
+const SECTIONS = [
+  { id: "overview",   label: "00 · Overview" },
+  { id: "brief",      label: "01 · The Brief" },
+  { id: "discovery",  label: "02 · Discovery" },
+  { id: "reframe",    label: "03 · Problem Reframe" },
+  { id: "explore",    label: "04 · Exploration" },
+  { id: "decisions",  label: "05 · Key Decisions" },
+  { id: "design",     label: "06 · The Four Pages" },
+  { id: "testing",    label: "07 · Testing" },
+  { id: "outcomes",   label: "08 · Outcomes" },
+  { id: "reflection", label: "09 · Reflection" },
+];
 
-const Ln = ({ x, y, w, op = 1 }: any) => <rect x={x} y={y} width={w} height={7} rx="1" fill="#c8c4bc" opacity={op}/>;
-const Xbox = ({ x, y, w, h }: any) => (
-  <g><rect x={x} y={y} width={w} height={h} fill="#f0ede8" stroke="#b8b0a4" strokeWidth="1.1" rx="1"/>
-  <line x1={x} y1={y} x2={x+w} y2={y+h} stroke="#b8b0a4" strokeWidth="0.9"/>
-  <line x1={x+w} y1={y} x2={x} y2={y+h} stroke="#b8b0a4" strokeWidth="0.9"/></g>
+const Card = ({ children, style }: any) => (
+  <div style={{ border: "1px solid rgba(255,255,255,0.06)", borderRadius: 14, padding: "16px", background: "rgba(255,255,255,0.02)", ...style }}>{children}</div>
 );
-const Card = ({ x, y, w, h, bg = "#f5f1ea" }: any) => (
-  <rect x={x} y={y} width={w} height={h} rx="3" fill={bg} stroke="#e0d8cc" strokeWidth="1"/>
+const SL = ({ label }: { label: string }) => (
+  <div style={{ fontFamily: "monospace", fontSize: 9, color: "rgba(255,255,255,0.22)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 10 }}>{label}</div>
 );
-const SLabel = ({ x, y, t }: any) => (
-  <text x={x} y={y} fontSize="8" fill="#9ca3af" fontFamily="monospace" fontWeight="bold" letterSpacing="1">{t}</text>
-);
-const HLine = ({ x, y, w }: any) => <rect x={x} y={y} width={w} height={12} rx="1" fill="#c8c4bc" opacity="0.8"/>;
 
-const heroH = 110, metricH = 88, briefResH = 160, reframeH = 90, exploreH = 180, decScreenH = 220, testingH = 140, outcomesH = 110, reflectH = 110;
-const TOTAL_H = heroH + GAP + metricH + GAP + briefResH + GAP + reframeH + GAP + exploreH + GAP + decScreenH + GAP + testingH + GAP + outcomesH + GAP + reflectH + PAD*2 + 40;
+const personas = [
+  { role: "Head of School", color: "#38bdf8", fear: "Reputation" },
+  { role: "Dean of Academics", color: "#34d399", fear: "Teacher burden" },
+  { role: "Board Member", color: "#fb923c", fear: "Budget ROI" },
+];
 
 export function LayoutC() {
-  let y = PAD;
-  const rows: number[] = [];
-  [heroH, metricH, briefResH, reframeH, exploreH, decScreenH, testingH, outcomesH, reflectH].forEach(h => {
-    rows.push(y);
-    y += h + GAP;
-  });
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const { scrollTop, scrollHeight, clientHeight } = el;
+      const pct = scrollHeight - clientHeight > 0 ? (scrollTop / (scrollHeight - clientHeight)) * 100 : 0;
+      setProgress(pct);
+      setActiveIdx(Math.min(SECTIONS.length - 1, Math.floor((scrollTop / Math.max(scrollHeight - clientHeight, 1)) * SECTIONS.length)));
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <div className="w-full bg-[#fdf8f0]">
-      <svg viewBox={`0 0 ${W} ${TOTAL_H}`} className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="wf-2c-sk">
-            <feTurbulence type="turbulence" baseFrequency="0.018" numOctaves="3" seed="17" result="n"/>
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="1.8" xChannelSelector="R" yChannelSelector="G"/>
-          </filter>
-          <pattern id="wf-2c-grid" width="24" height="24" patternUnits="userSpaceOnUse">
-            <path d="M24 0L0 0 0 24" fill="none" stroke="#ddd5c5" strokeWidth="0.5"/>
-          </pattern>
-          <pattern id="wf-2c-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-            <line x1="0" y1="0" x2="0" y2="6" stroke="#9ca3af" strokeWidth="0.9" opacity="0.55"/>
-          </pattern>
-        </defs>
-        <rect width={W} height={TOTAL_H} fill="#fdf8f0"/>
-        <rect width={W} height={TOTAL_H} fill="url(#wf-2c-grid)" opacity="0.65"/>
-        <g filter="url(#wf-2c-sk)">
-          {/* HERO */}
-          <Card x={PAD} y={rows[0]} w={W-PAD*2} h={heroH-8}/>
-          <SLabel x={PAD+20} y={rows[0]+16} t="CASE STUDY"/>
-          <HLine x={PAD+20} y={rows[0]+22} w={380}/>
-          <Ln x={PAD+20} y={rows[0]+42} w={240} op={0.7}/>
-          {[0,1,2].map(i=><rect key={i} x={PAD+20+i*96} y={rows[0]+56} width={84} height={16} rx="8" fill="#e8e4de" stroke="#c8c4bc" strokeWidth="0.9"/>)}
-          <text x={PAD+20} y={rows[0]+90} fontSize="7.5" fill="#b8b0a4" fontFamily="monospace">{META.title} · {META.sub}</text>
-          <rect x={W-PAD-100} y={rows[0]+22} width={80} height={52} rx="3" fill="url(#wf-2c-hatch)" stroke="#9ca3af" strokeWidth="1"/>
-          {/* METRICS */}
-          {[0,1,2,3].map(i=>{ const cw=(W-PAD*2-GAP*3)/4; return(<g key={i}><Card x={PAD+i*(cw+GAP)} y={rows[1]} w={cw} h={metricH}/><rect x={PAD+i*(cw+GAP)+16} y={rows[1]+16} width={80} height={22} rx="1" fill="#c8c4bc" opacity="0.7"/><Ln x={PAD+i*(cw+GAP)+16} y={rows[1]+46} w={cw-40} op={0.5}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[1]+58} w={cw-60} op={0.35}/></g>); })}
-          {/* BRIEF + DISCOVERY */}
-          {[{label:"01 · THE BRIEF",x:PAD},{label:"02 · DISCOVERY",x:PAD+(W-PAD*2-GAP)/2+GAP}].map(({label,x})=>{ const cw=(W-PAD*2-GAP)/2; return(<g key={label}><Card x={x} y={rows[2]} w={cw} h={briefResH}/><SLabel x={x+16} y={rows[2]+18} t={label}/><HLine x={x+16} y={rows[2]+26} w={cw*0.55}/><Ln x={x+16} y={rows[2]+50} w={cw-40}/><Ln x={x+16} y={rows[2]+62} w={cw-60}/><Ln x={x+16} y={rows[2]+74} w={cw-50}/><Ln x={x+16} y={rows[2]+86} w={cw-100} op={0.65}/>{label.includes("DISC")&&(<><rect x={x+16} y={rows[2]+106} width={3} height={40} fill="#c8c4bc"/><Ln x={x+28} y={rows[2]+110} w={cw-60} op={0.7}/><Ln x={x+28} y={rows[2]+122} w={cw-90} op={0.7}/></>)}</g>); })}
-          {/* REFRAME */}
-          <Card x={PAD} y={rows[3]} w={W-PAD*2} h={reframeH} bg="#ece8e0"/>
-          <SLabel x={PAD+20} y={rows[3]+18} t="03 · PROBLEM REFRAME"/>
-          <rect x={PAD+20} y={rows[3]+28} width={560} height={16} rx="1" fill="#c8c4bc" opacity="0.7"/>
-          <Ln x={PAD+20} y={rows[3]+52} w={420} op={0.55}/>
-          <text x={PAD+20} y={rows[3]+80} fontSize="7.5" fill="#9ca3af" fontFamily="monospace">[ reframes the design problem ]</text>
-          {/* EXPLORATION 3-COL */}
-          {[0,1,2].map(i=>{ const cw=(W-PAD*2-GAP*2)/3; const bg=i===2?"#e8ede4":"#f5f1ea"; return(<g key={i}><Card x={PAD+i*(cw+GAP)} y={rows[4]} w={cw} h={exploreH} bg={bg}/><SLabel x={PAD+i*(cw+GAP)+16} y={rows[4]+18} t={`OPTION ${String.fromCharCode(65+i)}`}/><HLine x={PAD+i*(cw+GAP)+16} y={rows[4]+26} w={cw*0.55}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[4]+50} w={cw-40}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[4]+62} w={cw-60}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[4]+74} w={cw-40}/><Xbox x={PAD+i*(cw+GAP)+16} y={rows[4]+90} w={cw-32} h={70}/>{i===2?<text x={PAD+i*(cw+GAP)+16} y={rows[4]+exploreH-8} fontSize="8" fill="#7a9070" fontFamily="monospace" fontWeight="bold">✓ chosen</text>:<text x={PAD+i*(cw+GAP)+16} y={rows[4]+exploreH-8} fontSize="8" fill="#b8b0a4" fontFamily="monospace">✗ rejected</text>}</g>); })}
-          {/* DECISIONS + SCREENS */}
-          {(()=>{ const lW=(W-PAD*2-GAP)*0.45; const rW=(W-PAD*2-GAP)*0.55; return(<><Card x={PAD} y={rows[5]} w={lW} h={decScreenH}/><SLabel x={PAD+16} y={rows[5]+18} t="05 · KEY DECISIONS"/><HLine x={PAD+16} y={rows[5]+26} w={lW*0.6}/>{[0,1,2,3].map(i=><g key={i}><Ln x={PAD+16} y={rows[5]+50+i*40} w={lW-40}/><Ln x={PAD+16} y={rows[5]+62+i*40} w={lW-60} op={0.65}/><Ln x={PAD+16} y={rows[5]+74+i*40} w={lW-90} op={0.45}/></g>)}<Card x={PAD+lW+GAP} y={rows[5]} w={rW} h={decScreenH}/><SLabel x={PAD+lW+GAP+16} y={rows[5]+18} t="06 · FINAL DESIGN"/><HLine x={PAD+lW+GAP+16} y={rows[5]+26} w={rW*0.5}/>{[0,1].map(row=>[0,1].map(col=><Xbox key={`${row}${col}`} x={PAD+lW+GAP+16+col*((rW-48)/2+GAP)} y={rows[5]+46+row*((decScreenH-80)/2+GAP)} w={(rW-48)/2} h={(decScreenH-80)/2}/>))}</>); })()}
-          {/* TESTING */}
-          <Card x={PAD} y={rows[6]} w={W-PAD*2} h={testingH}/>
-          <SLabel x={PAD+20} y={rows[6]+18} t="07 · TESTING"/>
-          <HLine x={PAD+20} y={rows[6]+26} w={240}/>
-          <Ln x={PAD+20} y={rows[6]+52} w={W-PAD*2-80}/>
-          <Ln x={PAD+20} y={rows[6]+64} w={W-PAD*2-140}/>
-          {[0,1,2,3].map(i=>(<g key={i}><rect x={PAD+20+i*((W-PAD*2-80)/4+GAP)} y={rows[6]+86} width={(W-PAD*2-80)/4} height={38} rx="2" fill="#f0ede8" stroke="#e0d8cc" strokeWidth="0.9"/><Ln x={PAD+36+i*((W-PAD*2-80)/4+GAP)} y={rows[6]+94} w={(W-PAD*2-80)/4-32} op={0.7}/><Ln x={PAD+36+i*((W-PAD*2-80)/4+GAP)} y={rows[6]+106} w={(W-PAD*2-80)/4-52} op={0.5}/></g>))}
-          {/* OUTCOMES */}
-          {[0,1,2,3].map(i=>{ const cw=(W-PAD*2-GAP*3)/4; return(<g key={i}><Card x={PAD+i*(cw+GAP)} y={rows[7]} w={cw} h={outcomesH}/><rect x={PAD+i*(cw+GAP)+16} y={rows[7]+16} width={cw*0.6} height={26} rx="1" fill="#c8c4bc" opacity="0.65"/><Ln x={PAD+i*(cw+GAP)+16} y={rows[7]+50} w={cw-40} op={0.5}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[7]+62} w={cw-60} op={0.35}/>{i===0&&<SLabel x={PAD+i*(cw+GAP)+16} y={rows[7]+94} t="08 · OUTCOMES"/>}</g>); })}
-          {/* REFLECTION */}
-          <Card x={PAD} y={rows[8]} w={W-PAD*2} h={reflectH}/>
-          <SLabel x={PAD+20} y={rows[8]+18} t="09 · REFLECTION"/>
-          <HLine x={PAD+20} y={rows[8]+26} w={300}/>
-          <Ln x={PAD+20} y={rows[8]+50} w={W-PAD*2-80}/>
-          <Ln x={PAD+20} y={rows[8]+62} w={W-PAD*2-140}/>
-          <Ln x={PAD+20} y={rows[8]+74} w={W-PAD*2-200} op={0.7}/>
-          <Ln x={PAD+20} y={rows[8]+86} w={W-PAD*2-300} op={0.5}/>
-          <text x={1100} y={TOTAL_H-16} fontSize="8" fill="#c8c4bc" fontFamily="monospace">Layout C · Card Grid</text>
-        </g>
-      </svg>
+    <div ref={containerRef} style={{ width: "100%", height: "100vh", overflowY: "auto", background: BG, fontFamily: "'Inter', system-ui, sans-serif", color: "#fff" }}>
+      <div style={{ position: "sticky", top: 0, zIndex: 100, height: 3, background: "rgba(255,255,255,0.05)" }}>
+        <div style={{ height: "100%", width: `${progress}%`, background: ACC, transition: "width 0.1s" }} />
+      </div>
+      <div style={{ position: "sticky", top: 3, zIndex: 99, borderBottom: "1px solid rgba(255,255,255,0.05)", padding: "10px 28px", display: "flex", alignItems: "center", justifyContent: "space-between", background: BG }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <div style={{ width: 26, height: 26, borderRadius: 7, background: ACC, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 10, height: 10, borderRadius: 2, background: "#000", opacity: 0.9 }} />
+          </div>
+          <span style={{ fontSize: 13, fontWeight: 700 }}>2Hour Learning</span>
+          <span style={{ fontSize: 10, color: "rgba(255,255,255,0.28)", fontFamily: "monospace" }}>B2B EdTech · Case Study</span>
+        </div>
+        <div style={{ display: "flex", gap: 5 }}>
+          {SECTIONS.map((s, i) => (
+            <div key={s.id} style={{ width: 6, height: 6, borderRadius: "50%", background: i === activeIdx ? ACC : "rgba(255,255,255,0.14)" }} />
+          ))}
+        </div>
+      </div>
+
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: "40px 28px 80px" }}>
+        {/* Bento Hero */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 40 }}>
+          <div style={{ gridColumn: "1 / 3", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 16, padding: "24px", background: "rgba(255,255,255,0.02)" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: `${ACC}1a`, border: `1px solid ${ACC}40`, borderRadius: 20, padding: "3px 10px", marginBottom: 14 }}>
+              <div style={{ width: 5, height: 5, borderRadius: "50%", background: ACC }} />
+              <span style={{ fontSize: 10, color: ACC, fontFamily: "monospace" }}>UX Design — B2B Web</span>
+            </div>
+            <h1 style={{ fontSize: 30, fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.03em", color: "#fff", marginBottom: 10 }}>One product. Three buyers. Four different pages.</h1>
+            <div style={{ display: "flex", gap: 7, flexWrap: "wrap", marginTop: 14 }}>
+              {["Lead Designer", "4 weeks", "WordPress + HubSpot"].map(t => (
+                <span key={t} style={{ fontSize: 10, padding: "4px 10px", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 20, color: "rgba(255,255,255,0.5)", fontFamily: "monospace" }}>{t}</span>
+              ))}
+            </div>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            {[["4", "pages"], ["+40%", "board engage"], ["+35%", "dean scroll"]].map(([v, l]) => (
+              <div key={l} style={{ flex: 1, border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "12px 14px", background: "rgba(255,255,255,0.02)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <span style={{ fontSize: 20, fontWeight: 800, color: "#fff", letterSpacing: "-0.03em" }}>{v}</span>
+                <span style={{ fontSize: 10, color: "rgba(255,255,255,0.3)", fontFamily: "monospace" }}>{l}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Persona cards */}
+        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 10, marginBottom: 40 }}>
+          <div style={{ borderRadius: 12, background: `${ACC}0a`, border: `1px solid ${ACC}22`, padding: "16px" }}>
+            <div style={{ fontSize: 9, fontFamily: "monospace", color: "rgba(255,255,255,0.3)", textTransform: "uppercase", marginBottom: 6 }}>Homepage · WordPress</div>
+            <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 6 }}>2Hour Learning</div>
+            <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)" }}>Brand narrative + product overview + scale signal → general CTA</div>
+          </div>
+          {personas.map(({ role, color, fear }) => (
+            <div key={role} style={{ borderRadius: 12, border: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.02)", overflow: "hidden" }}>
+              <div style={{ height: 4, background: color }} />
+              <div style={{ padding: "12px" }}>
+                <div style={{ fontSize: 10, fontWeight: 600, marginBottom: 5, color: "#fff" }}>{role}</div>
+                <div style={{ fontSize: 9, fontFamily: "monospace", color: "rgba(255,255,255,0.22)", marginBottom: 3 }}>FEAR</div>
+                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)" }}>{fear}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* 00 Overview */}
+        <SL label="00 · Overview" />
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 36 }}>
+          <Card>
+            <SL label="Core problem" />
+            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", lineHeight: 1.65 }}>A buying committee is 3 people with 3 different definitions of risk. One page can't answer all three — trying means answering none well enough to convert.</p>
+          </Card>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+            {[["4", "Pages"], ["3", "Personas"], ["+40%", "Board"], ["+35%", "Dean"]].map(([v, l]) => (
+              <div key={l} style={{ border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "12px", background: "rgba(255,255,255,0.02)" }}>
+                <div style={{ fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", marginBottom: 3 }}>{v}</div>
+                <div style={{ fontSize: 10, color: "rgba(255,255,255,0.3)" }}>{l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 01 + 02 */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 36 }}>
+          <div>
+            <SL label="01 · The Brief" />
+            <Card>
+              <h2 style={{ fontSize: 16, fontWeight: 700, marginBottom: 8, lineHeight: 1.3 }}>Redesign the landing page to convert more leads.</h2>
+              <p style={{ fontSize: 12, color: "rgba(255,255,255,0.45)", lineHeight: 1.6 }}>4 weeks. Single homepage for all audiences. Strong product, weak sales website.</p>
+            </Card>
+          </div>
+          <div>
+            <SL label="02 · Discovery" />
+            <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+              {["Sales calls: 3 types of questions, 1 page", "Principal: reputation, Dean: burden, Board: ROI", "Persona-specific pages correlated with higher growth"].map(i => (
+                <div key={i} style={{ padding: "8px 10px", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)", background: "rgba(255,255,255,0.02)", fontSize: 11, color: "rgba(255,255,255,0.5)", lineHeight: 1.5 }}>{i}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* 03 + 04 */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 36 }}>
+          <div>
+            <SL label="03 · Problem Reframe" />
+            <div style={{ background: `${ACC}08`, border: `1px solid ${ACC}22`, borderRadius: 14, padding: "16px 18px" }}>
+              <p style={{ fontSize: 12, color: "rgba(255,255,255,0.38)", fontStyle: "italic", marginBottom: 10 }}>"We need a better landing page."</p>
+              <p style={{ fontSize: 13, fontWeight: 600, color: "#fff", lineHeight: 1.5 }}>"Design to the fear, not the feature — 4 pages for 4 stakeholders."</p>
+            </div>
+          </div>
+          <div>
+            <SL label="04 · Exploration" />
+            <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+              {personas.map(({ role, color, fear }) => (
+                <div key={role} style={{ display: "flex", gap: 8, alignItems: "center", padding: "8px 10px", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)", background: "rgba(255,255,255,0.02)" }}>
+                  <div style={{ width: 7, height: 7, borderRadius: "50%", background: color, flexShrink: 0 }} />
+                  <span style={{ fontSize: 11, color: "rgba(255,255,255,0.6)" }}>{role}</span>
+                  <span style={{ fontSize: 10, color: "rgba(255,255,255,0.28)", fontFamily: "monospace", marginLeft: "auto" }}>{fear}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* 05 Decisions */}
+        <SL label="05 · Key Decisions" />
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 36 }}>
+          {[
+            { n: "01", t: "4 pages not 1", d: "One page can't address 3 different risk definitions. Persona-specific pages do." },
+            { n: "02", t: "Board: financial number first", d: "$240K — no mission, no warmup. Boards don't buy on feelings." },
+            { n: "03", t: "Dean: teacher workflow first", d: "Address the fear (teacher burden) before any product features." },
+          ].map(({ n, t, d }) => (
+            <Card key={n}>
+              <div style={{ fontSize: 10, fontFamily: "monospace", color: ACC, marginBottom: 8 }}>{n}</div>
+              <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 6, color: "#fff" }}>{t}</div>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", lineHeight: 1.55 }}>{d}</div>
+            </Card>
+          ))}
+        </div>
+
+        {/* 06 The Four Pages */}
+        <SL label="06 · The Four Pages" />
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 10, marginBottom: 36 }}>
+          {[
+            { name: "Homepage", platform: "WordPress", color: ACC, hero: "Brand + product + scale → CTA" },
+            { name: "Head of School", platform: "HubSpot", color: "#38bdf8", hero: "Peer proof → briefing CTA" },
+            { name: "Dean of Academics", platform: "HubSpot", color: "#34d399", hero: "Teacher workflow → dashboard" },
+            { name: "Board Member", platform: "HubSpot", color: "#fb923c", hero: "$240K → ROI calculator" },
+          ].map(({ name, platform, color, hero }) => (
+            <div key={name} style={{ border: "1px solid rgba(255,255,255,0.07)", borderRadius: 12, overflow: "hidden" }}>
+              <div style={{ height: 4, background: color }} />
+              <div style={{ padding: "12px" }}>
+                <div style={{ fontSize: 11, fontWeight: 600, marginBottom: 3, color: "#fff" }}>{name}</div>
+                <div style={{ fontSize: 9, fontFamily: "monospace", color: "rgba(255,255,255,0.22)", marginBottom: 8 }}>{platform}</div>
+                <p style={{ fontSize: 10, color: "rgba(255,255,255,0.42)", lineHeight: 1.5 }}>{hero}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* 07 Testing + 08 Outcomes */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 36 }}>
+          <div>
+            <SL label="07 · Testing" />
+            <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+              {["Board: financial first → +40% engage", "Dean: teacher hero → +35% scroll", "Homepage: scale signal beat generic", "Lower-commitment CTAs → better leads"].map(f => (
+                <div key={f} style={{ display: "flex", gap: 7, padding: "8px 10px", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)", background: "rgba(255,255,255,0.02)", fontSize: 11, color: "rgba(255,255,255,0.5)" }}>
+                  <div style={{ width: 5, height: 5, borderRadius: "50%", background: "#f59e0b", marginTop: 2, flexShrink: 0 }} />{f}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <SL label="08 · Outcomes" />
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              {[["4", "Pages"], ["3", "Personas"], ["+40%", "Board"], ["+35%", "Dean"]].map(([v, l]) => (
+                <div key={l} style={{ border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "12px", background: "rgba(255,255,255,0.02)" }}>
+                  <div style={{ fontSize: 20, fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", marginBottom: 3 }}>{v}</div>
+                  <div style={{ fontSize: 10, color: "rgba(255,255,255,0.3)" }}>{l}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* 09 Reflection */}
+        <SL label="09 · Reflection" />
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 40 }}>
+          {["Brief said 'better page' — research said 4 different pages.", "Design to the fear first. Features come after addressing the risk.", "Sales teams hold the insight. That conversation changed the project.", "I'd build a 5th page for IT directors — the silent fourth stakeholder."].map(r => (
+            <Card key={r}><p style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", lineHeight: 1.65 }}>{r}</p></Card>
+          ))}
+        </div>
+
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: 22, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.18)", fontFamily: "monospace" }}>2HL · Karan Gadhave</span>
+          <div style={{ fontSize: 11, padding: "7px 16px", borderRadius: 20, background: "#fff", color: "#000", fontWeight: 600 }}>Get in touch →</div>
+        </div>
+      </div>
     </div>
   );
 }

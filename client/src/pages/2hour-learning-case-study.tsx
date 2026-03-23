@@ -121,6 +121,36 @@ export default function TwoHourLearningCaseStudy() {
         </div>
       </section>
 
+      {/* ── 0. OVERVIEW ───────────────────────────────────────────────────── */}
+      <Sec id="overview" label="00 · Overview">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+          {[["4","Pages designed"],["3","Stakeholder personas"],["+40%","Board engagement"],["+35%","Dean scroll depth"]].map(([v, l]) => (
+            <div key={l} className="border border-white/6 rounded-2xl p-5 bg-white/[0.02]">
+              <p className="text-3xl font-black text-white tracking-tight mb-1">{v}</p>
+              <p className="text-white/40 text-xs font-mono">{l}</p>
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <div className="border border-white/6 rounded-2xl p-6 bg-white/[0.02]">
+            <p className="text-white/25 text-xs font-mono uppercase tracking-widest mb-3">Core problem</p>
+            <p className="text-white/70 jost-secondary leading-relaxed">Selling EdTech software to a school is a committee decision — a principal, a dean, and a board member all need to say yes. Each has a completely different definition of 'good'. One landing page trying to answer three different questions answers none of them well enough to convert.</p>
+          </div>
+          <div className="border border-white/6 rounded-2xl p-6 bg-white/[0.02]">
+            <p className="text-white/25 text-xs font-mono uppercase tracking-widest mb-3">Key outcome</p>
+            <p className="text-white/70 jost-secondary leading-relaxed">Four persona-specific pages — one WordPress homepage and three HubSpot landing pages — each designed around a different stakeholder's definition of risk. Board page leads with a hard financial number; dean page leads with teacher workflow; principal page leads with peer proof.</p>
+          </div>
+        </div>
+        <div className="border border-white/6 rounded-2xl p-6 bg-white/[0.02]">
+          <p className="text-white/25 text-xs font-mono uppercase tracking-widest mb-4">What's in this case study</p>
+          <div className="flex flex-wrap gap-3">
+            {["01 · The Brief","02 · Discovery","03 · Problem Reframe","04 · Exploration","05 · Key Decisions","06 · The Four Pages","07 · Testing","08 · Outcomes","09 · Reflection"].map(s => (
+              <span key={s} className="text-white/50 text-xs font-mono px-3 py-1.5 rounded-full border border-white/8">{s}</span>
+            ))}
+          </div>
+        </div>
+      </Sec>
+
       {/* ── 1. BRIEF ──────────────────────────────────────────────────────── */}
       <Sec id="brief" label="01 · The Brief">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">

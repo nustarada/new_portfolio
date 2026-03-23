@@ -182,6 +182,36 @@ export default function LiffoCaseStudy() {
         </div>
       </section>
 
+      {/* ── 0. OVERVIEW ───────────────────────────────────────────────────── */}
+      <Sec id="overview" label="00 · Overview">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+          {[["34","Screens"],["≤ 2","Taps to emergency"],["6","User flows"],["13 wk","Timeline"]].map(([v, l]) => (
+            <div key={l} className="border border-white/6 rounded-2xl p-5 bg-white/[0.02]">
+              <p className="text-3xl font-black text-white tracking-tight mb-1">{v}</p>
+              <p className="text-white/40 text-xs font-mono">{l}</p>
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <div className="border border-white/6 rounded-2xl p-6 bg-white/[0.02]">
+            <p className="text-white/25 text-xs font-mono uppercase tracking-widest mb-3">Core problem</p>
+            <p className="text-white/70 jost-secondary leading-relaxed">Healthcare apps fragment emergency and routine care into separate products — users in a panic can't find what they need, and users in routine mode never build the muscle-memory that matters in a crisis. Liffo needed to solve both in a single interface.</p>
+          </div>
+          <div className="border border-white/6 rounded-2xl p-6 bg-white/[0.02]">
+            <p className="text-white/25 text-xs font-mono uppercase tracking-widest mb-3">Key outcome</p>
+            <p className="text-white/70 jost-secondary leading-relaxed">Emergency access reachable in ≤ 2 taps from any screen. 34 screens across 6 flows — walk-through, dashboard, services, emergency, doctor profiles, and profile management — delivered over 13 weeks as sole designer.</p>
+          </div>
+        </div>
+        <div className="border border-white/6 rounded-2xl p-6 bg-white/[0.02]">
+          <p className="text-white/25 text-xs font-mono uppercase tracking-widest mb-4">What's in this case study</p>
+          <div className="flex flex-wrap gap-3">
+            {["01 · The Brief","02 · Discovery","03 · Problem Reframe","04 · Exploration","05 · Key Decisions","06 · Final Design","07 · Testing","08 · Outcomes","09 · Reflection"].map(s => (
+              <span key={s} className="text-white/50 text-xs font-mono px-3 py-1.5 rounded-full border border-white/8">{s}</span>
+            ))}
+          </div>
+        </div>
+      </Sec>
+
       {/* ── 1. THE BRIEF ──────────────────────────────────────────────────── */}
       <Sec id="brief" label="01 · The Brief">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
