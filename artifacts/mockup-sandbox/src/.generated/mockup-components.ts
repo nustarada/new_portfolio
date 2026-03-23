@@ -5,6 +5,15 @@ export const modules: ModuleMap = {
   "./components/mockups/2hl-case-study/EditorialLongform.tsx": () => import("../components/mockups/2hl-case-study/EditorialLongform.tsx"),
   "./components/mockups/2hl-case-study/PitchDeck.tsx": () => import("../components/mockups/2hl-case-study/PitchDeck.tsx"),
   "./components/mockups/2hl-case-study/StakeholderSwitcher.tsx": () => import("../components/mockups/2hl-case-study/StakeholderSwitcher.tsx"),
+  "./components/mockups/fff-variations/ImpactFirst.tsx": () => import("../components/mockups/fff-variations/ImpactFirst.tsx"),
+  "./components/mockups/fff-variations/ProcessTimeline.tsx": () => import("../components/mockups/fff-variations/ProcessTimeline.tsx"),
+  "./components/mockups/fff-variations/VisualArtifact.tsx": () => import("../components/mockups/fff-variations/VisualArtifact.tsx"),
   "./components/mockups/liffo-refinements/DenseEditorial.tsx": () => import("../components/mockups/liffo-refinements/DenseEditorial.tsx"),
-  "./components/mockups/liffo-refinements/FeaturedScreenHero.tsx": () => import("../components/mockups/liffo-refinements/FeaturedScreenHero.tsx")
+  "./components/mockups/liffo-refinements/FeaturedScreenHero.tsx": () => import("../components/mockups/liffo-refinements/FeaturedScreenHero.tsx"),
+  "./components/mockups/liffo-variations/ImpactFirst.tsx": () => import("../components/mockups/liffo-variations/ImpactFirst.tsx"),
+  "./components/mockups/liffo-variations/ProcessTimeline.tsx": () => import("../components/mockups/liffo-variations/ProcessTimeline.tsx"),
+  "./components/mockups/liffo-variations/VisualArtifact.tsx": () => import("../components/mockups/liffo-variations/VisualArtifact.tsx"),
+  "./components/mockups/twoHL-variations/ImpactFirst.tsx": () => import("../components/mockups/twoHL-variations/ImpactFirst.tsx"),
+  "./components/mockups/twoHL-variations/ProcessTimeline.tsx": () => import("../components/mockups/twoHL-variations/ProcessTimeline.tsx"),
+  "./components/mockups/twoHL-variations/VisualArtifact.tsx": () => import("../components/mockups/twoHL-variations/VisualArtifact.tsx")
 };

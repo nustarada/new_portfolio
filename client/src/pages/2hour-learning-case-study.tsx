@@ -269,6 +269,129 @@ export default function TwoHourLearningCaseStudy() {
             </div>
           ))}
         </div>
+
+        <p className="text-white/30 text-xs font-mono uppercase mb-4 mt-8">Lo-fi sketches — messaging structure before visual design</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Stakeholder fear map */}
+          <div>
+            <div className="rounded-2xl overflow-hidden border border-white/8">
+              <svg viewBox="0 0 220 190" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="hl-sk1"><feTurbulence type="turbulence" baseFrequency="0.027" numOctaves="3" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2" xChannelSelector="R" yChannelSelector="G"/></filter>
+                  <pattern id="hl-h1" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#94a3b8" strokeWidth="0.8" opacity="0.5"/></pattern>
+                  <pattern id="hl-g1" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0L0 0 0 14" fill="none" stroke="#e0d5c5" strokeWidth="0.5"/></pattern>
+                </defs>
+                <rect width="220" height="190" fill="#fdf8f0"/>
+                <rect width="220" height="190" fill="url(#hl-g1)" opacity="0.7"/>
+                <g filter="url(#hl-sk1)">
+                  <text x="8" y="11" fontSize="6" fill="#374151" fontFamily="monospace" fontWeight="bold">Buying committee — fear map</text>
+                  <rect x="80" y="16" width="60" height="14" rx="1" fill="none" stroke="#374151" strokeWidth="1.2"/>
+                  <text x="85" y="26" fontSize="5.5" fill="#374151" fontFamily="monospace" fontWeight="bold">PRINCIPAL</text>
+                  <line x1="110" y1="30" x2="75" y2="46" stroke="#374151" strokeWidth="1"/>
+                  <line x1="110" y1="30" x2="145" y2="46" stroke="#374151" strokeWidth="1"/>
+                  <rect x="30" y="46" width="85" height="14" rx="1" fill="none" stroke="#374151" strokeWidth="1"/>
+                  <text x="36" y="56" fontSize="5.5" fill="#374151" fontFamily="monospace">DEAN / CURRICULUM</text>
+                  <rect x="125" y="46" width="75" height="14" rx="1" fill="none" stroke="#374151" strokeWidth="1"/>
+                  <text x="130" y="56" fontSize="5.5" fill="#374151" fontFamily="monospace">BOARD MEMBER</text>
+                  <line x1="8" y1="70" x2="212" y2="70" stroke="#374151" strokeWidth="0.8" strokeDasharray="3 2"/>
+                  <text x="8" y="80" fontSize="5.5" fill="#374151" fontFamily="monospace" fontWeight="bold">FEAR MAPPING</text>
+                  {[{x:8,fill:"#e9d5ff",role:"Principal",fear:"Reputation",proof:"Peer proof"},{x:78,fill:"#dcfce7",role:"Dean",fear:"Teacher burden",proof:"Workflow demo"},{x:148,fill:"#fef9c3",role:"Board",fear:"Budget ROI",proof:"Financial model"}].map(({x,fill,role,fear,proof})=>(
+                    <g key={role}>
+                      <rect x={x} y={84} width="66" height="44" rx="1" fill={fill} stroke="#9ca3af" strokeWidth="0.9"/>
+                      <text x={x+4} y={95} fontSize="5.5" fill="#374151" fontFamily="monospace" fontWeight="bold">{role}</text>
+                      <text x={x+4} y={105} fontSize="4.5" fill="#6b7280" fontFamily="monospace">Fear: {fear}</text>
+                      <text x={x+4} y={115} fontSize="4.5" fill="#374151" fontFamily="monospace">Need: {proof}</text>
+                      <text x={x+4} y={123} fontSize="4.5" fill="#9ca3af" fontFamily="monospace">{proof.substring(0,10)}..</text>
+                    </g>
+                  ))}
+                  <text x="8" y="146" fontSize="4.5" fill="#9ca3af" fontFamily="monospace" fontStyle="italic">one page cannot answer 3 different fears</text>
+                  <rect x="8" y="152" width="204" height="12" rx="1" fill="#dbeafe" stroke="#60a5fa" strokeWidth="1.2"/>
+                  <text x="20" y="161" fontSize="5.5" fill="#2563eb" fontFamily="monospace" fontWeight="bold">→ need 4 pages: 1 brand + 3 persona</text>
+                  <text x="8" y="176" fontSize="5" fill="#374151" fontFamily="monospace">design to the fear, not the feature</text>
+                  <text x="8" y="186" fontSize="4.5" fill="#9ca3af" fontFamily="monospace" fontStyle="italic">each page answers ONE definition of risk</text>
+                </g>
+              </svg>
+            </div>
+            <p className="text-white/30 text-xs mt-2 font-mono">Stakeholder fear mapping</p>
+          </div>
+
+          {/* Board page structure */}
+          <div>
+            <div className="rounded-2xl overflow-hidden border border-white/8">
+              <svg viewBox="0 0 220 190" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="hl-sk2"><feTurbulence type="turbulence" baseFrequency="0.026" numOctaves="3" seed="6" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.1" xChannelSelector="R" yChannelSelector="G"/></filter>
+                  <pattern id="hl-h2" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#94a3b8" strokeWidth="0.8" opacity="0.5"/></pattern>
+                  <pattern id="hl-g2" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0L0 0 0 14" fill="none" stroke="#e0d5c5" strokeWidth="0.5"/></pattern>
+                </defs>
+                <rect width="220" height="190" fill="#fdf8f0"/>
+                <rect width="220" height="190" fill="url(#hl-g2)" opacity="0.7"/>
+                <g filter="url(#hl-sk2)">
+                  <text x="8" y="11" fontSize="6" fill="#374151" fontFamily="monospace" fontWeight="bold">Board page — fear first structure</text>
+                  <rect x="8" y="16" width="204" height="26" rx="1" fill="#fef9c3" stroke="#ca8a04" strokeWidth="1.8"/>
+                  <text x="14" y="26" fontSize="8" fill="#854d0e" fontFamily="monospace" fontWeight="bold">$240K avg per pupil</text>
+                  <text x="14" y="36" fontSize="5.5" fill="#854d0e" fontFamily="monospace">within 24 months</text>
+                  <text x="8" y="52" fontSize="4.5" fill="#9ca3af" fontFamily="monospace" fontStyle="italic">NO mission. NO warmup. Financial # FIRST.</text>
+                  <rect x="8" y="58" width="204" height="16" rx="1" fill="none" stroke="#374151" strokeWidth="1.1"/>
+                  <text x="65" y="69" fontSize="5" fill="#6b7280" fontFamily="monospace">[ how it works, brief ]</text>
+                  <rect x="8" y="78" width="204" height="18" rx="1" fill="none" stroke="#374151" strokeWidth="1.1"/>
+                  <text x="45" y="90" fontSize="5" fill="#6b7280" fontFamily="monospace">[ comparable district case study ]</text>
+                  <rect x="8" y="100" width="204" height="18" rx="1" fill="none" stroke="#374151" strokeWidth="1.1"/>
+                  <text x="65" y="112" fontSize="5" fill="#6b7280" fontFamily="monospace">[ ROI breakdown table ]</text>
+                  <rect x="8" y="122" width="204" height="14" rx="1" fill="#dbeafe" stroke="#60a5fa" strokeWidth="1.4"/>
+                  <text x="55" y="132" fontSize="6" fill="#2563eb" fontFamily="monospace" fontWeight="bold">GET THE ROI MODEL →</text>
+                  <text x="8" y="148" fontSize="4.5" fill="#9ca3af" fontFamily="monospace" fontStyle="italic">no testimonials — boards don't buy on feelings</text>
+                  <line x1="8" y1="154" x2="212" y2="154" stroke="#374151" strokeWidth="0.7" strokeDasharray="3 2"/>
+                  <text x="8" y="164" fontSize="5" fill="#374151" fontFamily="monospace">Dean page opens differently:</text>
+                  <rect x="8" y="168" width="204" height="16" rx="1" fill="#dcfce7" stroke="#22c55e" strokeWidth="1.2"/>
+                  <text x="14" y="178" fontSize="5" fill="#15803d" fontFamily="monospace">From 9am to 11am, your teachers focus</text>
+                  <text x="14" y="186" fontSize="5" fill="#15803d" fontFamily="monospace">on what they do best — teaching.</text>
+                </g>
+              </svg>
+            </div>
+            <p className="text-white/30 text-xs mt-2 font-mono">Board page — fear-first structure</p>
+          </div>
+
+          {/* CTA stage-gating */}
+          <div>
+            <div className="rounded-2xl overflow-hidden border border-white/8">
+              <svg viewBox="0 0 220 190" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="hl-sk3"><feTurbulence type="turbulence" baseFrequency="0.03" numOctaves="3" seed="9" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2" xChannelSelector="R" yChannelSelector="G"/></filter>
+                  <pattern id="hl-h3" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#94a3b8" strokeWidth="0.8" opacity="0.5"/></pattern>
+                  <pattern id="hl-g3" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0L0 0 0 14" fill="none" stroke="#e0d5c5" strokeWidth="0.5"/></pattern>
+                </defs>
+                <rect width="220" height="190" fill="#fdf8f0"/>
+                <rect width="220" height="190" fill="url(#hl-g3)" opacity="0.7"/>
+                <g filter="url(#hl-sk3)">
+                  <text x="8" y="11" fontSize="6" fill="#374151" fontFamily="monospace" fontWeight="bold">CTA stage-gating sketch</text>
+                  <text x="8" y="23" fontSize="5.5" fill="#ef4444" fontFamily="monospace">before — generic CTA everywhere</text>
+                  {[0,1,2,3].map(i=>(
+                    <g key={i}>
+                      <rect x="8" y={27+i*12} width="204" height="10" rx="1" fill="none" stroke="#374151" strokeWidth="1"/>
+                      <text x="12" y={35+i*12} fontSize="5" fill="#374151" fontFamily="monospace">Page {i+1}: homepage/school/dean/board</text>
+                      <rect x="162" y={28+i*12} width="46" height="8" rx="1" fill="url(#hl-h1)" stroke="#374151" strokeWidth="1"/>
+                      <text x="165" y={35+i*12} fontSize="4.5" fill="#374151" fontFamily="monospace">Request Demo</text>
+                    </g>
+                  ))}
+                  <text x="18" y="86" fontSize="4.5" fill="#ef4444" fontFamily="monospace" fontStyle="italic">✗ high-commitment for discovery users</text>
+                  <line x1="8" y1="92" x2="212" y2="92" stroke="#374151" strokeWidth="0.8" strokeDasharray="3 2"/>
+                  <text x="8" y="103" fontSize="5.5" fill="#059669" fontFamily="monospace">after — CTAs matched to buyer stage</text>
+                  {[{label:"Homepage",cta:"See how it works",fill:"#e9d5ff"},{label:"Principal",cta:"Request briefing",fill:"#dbeafe"},{label:"Dean",cta:"See teacher dash",fill:"#dcfce7"},{label:"Board",cta:"Get ROI model",fill:"#fef9c3"}].map(({label,cta,fill},i)=>(
+                    <g key={label}>
+                      <rect x="8" y={107+i*18} width="204" height="14" rx="1" fill="none" stroke="#374151" strokeWidth="1"/>
+                      <text x="12" y={117+i*18} fontSize="5" fill="#374151" fontFamily="monospace">{label}</text>
+                      <rect x="130" y={109+i*18} width="78" height="10" rx="1" fill={fill} stroke="#9ca3af" strokeWidth="0.9"/>
+                      <text x="134" y={117+i*18} fontSize="5" fill="#374151" fontFamily="monospace">{cta}</text>
+                    </g>
+                  ))}
+                  <text x="8" y="184" fontSize="4.5" fill="#9ca3af" fontFamily="monospace" fontStyle="italic">CTA = next step in buyer journey</text>
+                </g>
+              </svg>
+            </div>
+            <p className="text-white/30 text-xs mt-2 font-mono">CTA stage-gating — matched to buyer stage</p>
+          </div>
+        </div>
       </Sec>
 
       {/* ── 5. KEY DECISIONS ──────────────────────────────────────────────── */}

@@ -221,17 +221,116 @@ export default function FutureFirstFamiliesCaseStudy() {
           ))}
         </div>
 
-        <div className="border border-white/5 rounded-2xl p-7 bg-white/[0.02]">
-          <p className="text-white/30 text-xs font-mono uppercase mb-4">Core user flow sketched before wireframes</p>
-          <div className="flex flex-wrap items-center gap-3">
-            {["Discover task", "See time estimate + steps", "Complete task", "Earn points", "Unlock milestone", "See community impact", "Return for next task"].map((step, i, arr) => (
-              <React.Fragment key={step}>
-                <div className="border border-white/10 rounded-lg px-3 py-2 text-sm text-white/65 jost-secondary bg-white/[0.02]">{step}</div>
-                {i < arr.length - 1 && <span className="text-white/20">→</span>}
-              </React.Fragment>
-            ))}
+        <p className="text-white/30 text-xs font-mono uppercase mb-4 mt-2">Lo-fi sketches — before any visual design</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Sketch 1: Task card v1 vs v2 */}
+          <div>
+            <div className="rounded-2xl overflow-hidden border border-white/8">
+              <svg viewBox="0 0 220 190" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="fff-sk1"><feTurbulence type="turbulence" baseFrequency="0.025" numOctaves="3" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2" xChannelSelector="R" yChannelSelector="G"/></filter>
+                  <pattern id="fff-h1" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#94a3b8" strokeWidth="0.8" opacity="0.55"/></pattern>
+                  <pattern id="fff-g1" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0L0 0 0 14" fill="none" stroke="#e0d5c5" strokeWidth="0.5"/></pattern>
+                </defs>
+                <rect width="220" height="190" fill="#fdf8f0"/>
+                <rect width="220" height="190" fill="url(#fff-g1)" opacity="0.7"/>
+                <g filter="url(#fff-sk1)">
+                  <text x="8" y="12" fontSize="6" fill="#374151" fontFamily="monospace" fontWeight="bold">Task card: open-ended vs. bounded</text>
+                  <text x="8" y="24" fontSize="5.5" fill="#ef4444" fontFamily="monospace">v1 — vague ask</text>
+                  <rect x="8" y="28" width="204" height="24" rx="1" fill="#fef2f2" stroke="#f87171" strokeWidth="1.4"/>
+                  <text x="14" y="40" fontSize="5.5" fill="#374151" fontFamily="monospace">Get involved in advocacy</text>
+                  <text x="14" y="49" fontSize="4.5" fill="#9ca3af" fontFamily="monospace" fontStyle="italic">[ how? when? how long? → abandoned ]</text>
+                  <line x1="8" y1="58" x2="212" y2="58" stroke="#374151" strokeWidth="0.8" strokeDasharray="3 2"/>
+                  <text x="8" y="70" fontSize="5.5" fill="#059669" fontFamily="monospace">v2 — verb-first, bounded</text>
+                  <rect x="8" y="74" width="204" height="62" rx="1" fill="#f0fdf4" stroke="#22c55e" strokeWidth="1.6"/>
+                  <text x="14" y="85" fontSize="6.5" fill="#374151" fontFamily="monospace" fontWeight="bold">Contact your school board rep</text>
+                  <text x="14" y="96" fontSize="5" fill="#6b7280" fontFamily="monospace">3 min · 3 steps · contact</text>
+                  <line x1="14" y1="102" x2="208" y2="102" stroke="#374151" strokeWidth="0.7" strokeDasharray="3 2"/>
+                  <rect x="14" y="106" width="192" height="10" rx="1" fill="#dcfce7" stroke="#22c55e" strokeWidth="0.9"/>
+                  <text x="22" y="114" fontSize="5" fill="#059669" fontFamily="monospace">Step 1 complete ✓ → reveal step 2</text>
+                  <rect x="14" y="120" width="192" height="10" rx="1" fill="#e0e7ff" stroke="#818cf8" strokeWidth="0.9"/>
+                  <text x="22" y="128" fontSize="5" fill="#4338ca" fontFamily="monospace">Step 2 revealed → [ complete ]</text>
+                  <text x="8" y="152" fontSize="5" fill="#9ca3af" fontFamily="monospace" fontStyle="italic">3× more completions from bounded format</text>
+                  <rect x="8" y="158" width="204" height="24" rx="1" fill="#dbeafe" stroke="#60a5fa" strokeWidth="1.4"/>
+                  <text x="38" y="168" fontSize="6" fill="#2563eb" fontFamily="monospace" fontWeight="bold">+50 pts → toward Advocate</text>
+                  <text x="48" y="178" fontSize="5" fill="#2563eb" fontFamily="monospace">[ specific reward, not decoration ]</text>
+                </g>
+              </svg>
+            </div>
+            <p className="text-white/30 text-xs mt-2 font-mono">Task card — open-ended vs. bounded</p>
           </div>
-          <p className="text-white/35 text-xs mt-4 jost-secondary">The loop had to close on itself — 'see community impact' feeding back into 'return for next task.' Without that loop, points are meaningless.</p>
+
+          {/* Sketch 2: Dashboard structure */}
+          <div>
+            <div className="rounded-2xl overflow-hidden border border-white/8">
+              <svg viewBox="0 0 220 190" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="fff-sk2"><feTurbulence type="turbulence" baseFrequency="0.028" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2" xChannelSelector="R" yChannelSelector="G"/></filter>
+                  <pattern id="fff-h2" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#94a3b8" strokeWidth="0.8" opacity="0.5"/></pattern>
+                  <pattern id="fff-g2" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0L0 0 0 14" fill="none" stroke="#e0d5c5" strokeWidth="0.5"/></pattern>
+                </defs>
+                <rect width="220" height="190" fill="#fdf8f0"/>
+                <rect width="220" height="190" fill="url(#fff-g2)" opacity="0.7"/>
+                <g filter="url(#fff-sk2)">
+                  <text x="8" y="12" fontSize="6" fill="#374151" fontFamily="monospace" fontWeight="bold">Dashboard — engagement loop</text>
+                  <rect x="8" y="16" width="204" height="18" rx="1" fill="#eff6ff" stroke="#60a5fa" strokeWidth="1.4"/>
+                  <text x="12" y="25" fontSize="5.5" fill="#374151" fontFamily="monospace">Welcome Sarah · streak 🔥 5 days</text>
+                  <text x="12" y="32" fontSize="4.5" fill="#9ca3af" fontFamily="monospace" fontStyle="italic">[ streak = habit signal ]</text>
+                  <text x="8" y="46" fontSize="5.5" fill="#2563eb" fontFamily="monospace" fontWeight="bold">YOUR NEXT TASK</text>
+                  <rect x="8" y="50" width="204" height="30" rx="1" fill="#f0f9ff" stroke="#38bdf8" strokeWidth="1.2"/>
+                  <text x="12" y="61" fontSize="6" fill="#374151" fontFamily="monospace" fontWeight="bold">Call school board member</text>
+                  <text x="12" y="71" fontSize="5" fill="#6b7280" fontFamily="monospace">3 min · easy · contact</text>
+                  <rect x="168" y="54" width="40" height="22" rx="1" fill="url(#fff-h2)" stroke="#374151" strokeWidth="1"/>
+                  <text x="173" y="68" fontSize="6" fill="#374151" fontFamily="monospace">Start</text>
+                  <text x="8" y="96" fontSize="5.5" fill="#6b7280" fontFamily="monospace" fontWeight="bold">COMMUNITY</text>
+                  <rect x="8" y="100" width="204" height="16" rx="1" fill="none" stroke="#374151" strokeWidth="1.1"/>
+                  <text x="14" y="111" fontSize="5.5" fill="#374151" fontFamily="monospace">847 actions this month</text>
+                  <text x="8" y="130" fontSize="5.5" fill="#6b7280" fontFamily="monospace" fontWeight="bold">MORE TASKS</text>
+                  {[0,1,2].map(i=>(
+                    <rect key={i} x="8" y={134+i*11} width="204" height="9" rx="1" fill="none" stroke="#374151" strokeWidth="1"/>
+                  ))}
+                  <text x="12" y="141" fontSize="5" fill="#374151" fontFamily="monospace">Attend school board meeting · 45min</text>
+                  <text x="12" y="152" fontSize="5" fill="#374151" fontFamily="monospace">Share post about funding · 2min</text>
+                  <text x="12" y="163" fontSize="5" fill="#374151" fontFamily="monospace">Write letter to state rep · 10min</text>
+                  <text x="8" y="180" fontSize="4.5" fill="#9ca3af" fontFamily="monospace" fontStyle="italic">next task always visible → no dead ends</text>
+                </g>
+              </svg>
+            </div>
+            <p className="text-white/30 text-xs mt-2 font-mono">Dashboard — task + community structure</p>
+          </div>
+
+          {/* Sketch 3: Leaderboard removed */}
+          <div>
+            <div className="rounded-2xl overflow-hidden border border-white/8">
+              <svg viewBox="0 0 220 190" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="fff-sk3"><feTurbulence type="turbulence" baseFrequency="0.026" numOctaves="3" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/></filter>
+                  <pattern id="fff-g3" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0L0 0 0 14" fill="none" stroke="#e0d5c5" strokeWidth="0.5"/></pattern>
+                </defs>
+                <rect width="220" height="190" fill="#fdf8f0"/>
+                <rect width="220" height="190" fill="url(#fff-g3)" opacity="0.7"/>
+                <g filter="url(#fff-sk3)">
+                  <text x="8" y="12" fontSize="6" fill="#374151" fontFamily="monospace" fontWeight="bold">Test: leaderboard → community counter</text>
+                  <text x="8" y="24" fontSize="5.5" fill="#ef4444" fontFamily="monospace">v1 — leaderboard</text>
+                  <rect x="8" y="28" width="204" height="52" rx="1" fill="none" stroke="#374151" strokeWidth="1.2"/>
+                  {["1. Anna D.  — 320 pts","2. James R.  — 280 pts","3. Maria T.  — 240 pts","...","20. You  — 45 pts  ←"].map((t,i)=>(
+                    <text key={i} x="14" y={38+i*10} fontSize="5" fill={i===4 ? "#ef4444" : "#374151"} fontFamily="monospace" fontWeight={i===4 ? "bold" : "normal"}>{t}</text>
+                  ))}
+                  <text x="18" y="92" fontSize="5" fill="#ef4444" fontFamily="monospace" fontStyle="italic">✗ rank 20: 'what's the point?'</text>
+                  <line x1="8" y1="98" x2="212" y2="98" stroke="#374151" strokeWidth="0.8" strokeDasharray="3 2"/>
+                  <text x="8" y="110" fontSize="5.5" fill="#059669" fontFamily="monospace">v2 — community counter</text>
+                  <rect x="8" y="114" width="204" height="26" rx="1" fill="#f0fdf4" stroke="#22c55e" strokeWidth="1.6"/>
+                  <text x="14" y="125" fontSize="5.5" fill="#374151" fontFamily="monospace">Your community:</text>
+                  <text x="14" y="135" fontSize="8" fill="#059669" fontFamily="monospace" fontWeight="bold">847 actions this month</text>
+                  <text x="14" y="145" fontSize="5" fill="#6b7280" fontFamily="monospace" fontStyle="italic">everyone contributes to one number</text>
+                  <text x="8" y="162" fontSize="5" fill="#9ca3af" fontFamily="monospace" fontStyle="italic">removed competition → added contribution</text>
+                  <text x="8" y="174" fontSize="5" fill="#374151" fontFamily="monospace">testing finding: low-ranked = disengaged</text>
+                  <text x="8" y="184" fontSize="5" fill="#374151" fontFamily="monospace">leaderboard removed entirely</text>
+                </g>
+              </svg>
+            </div>
+            <p className="text-white/30 text-xs mt-2 font-mono">Testing: leaderboard removed → counter</p>
+          </div>
         </div>
       </Sec>
 
