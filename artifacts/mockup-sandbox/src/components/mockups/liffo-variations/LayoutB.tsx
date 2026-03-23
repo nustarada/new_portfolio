@@ -1,8 +1,8 @@
 /* Layout B — Side Nav + Content · Liffo */
-const META = { title: "Liffo", sub: "Emergency-first healthcare app", role: "Lead Designer", timeline: "13 weeks" };
+const META = { title: "Liffo", sub: "emergency healthcare · 34 screens · 13 weeks", role: "Lead Designer", timeline: "13 weeks" };
 
 const SECTIONS = [
-  "01 · The Brief","02 · Discovery","03 · Problem Reframe",
+  "00 · Overview","01 · The Brief","02 · Discovery","03 · Problem Reframe",
   "04 · Exploration","05 · Key Decisions","06 · Final Design",
   "07 · Testing","08 · Outcomes","09 · Reflection",
 ];
@@ -10,7 +10,7 @@ const SECTIONS = [
 const NAV_W = 216;
 const COL_X = NAV_W + 24;
 const COL_W = 1280 - COL_X - 24;
-const TOTAL_H = 1860;
+const TOTAL_H = 2080;
 
 const Ln = ({ x, y, w, op = 1 }: any) => <rect x={x} y={y} width={w} height={7} rx="1" fill="#c8c4bc" opacity={op}/>;
 const Xbox = ({ x, y, w, h }: any) => (
@@ -72,10 +72,11 @@ export function LayoutB() {
           <rect x={COL_X+COL_W-260} y={14} width={80} height={14} rx="2" fill="#e8e4de" stroke="#c8c4bc" strokeWidth="0.9"/>
           <rect x={COL_X+COL_W-170} y={14} width={80} height={14} rx="2" fill="#e8e4de" stroke="#c8c4bc" strokeWidth="0.9"/>
           <rect x={COL_X+COL_W-80} y={14} width={60} height={14} rx="2" fill="#e8e4de" stroke="#c8c4bc" strokeWidth="0.9"/>
-          <text x={COL_X+16} y={62} fontSize="7.5" fill="#b8b0a4" fontFamily="monospace">{META.title} · {META.sub} · {META.role} · {META.timeline}</text>
+          <text x={COL_X+16} y={62} fontSize="7.5" fill="#b8b0a4" fontFamily="monospace">{META.title} · {META.sub}</text>
 
-          {/* ── CONTENT SECTIONS ──────────────────────────────────── */}
+          {/* ── CONTENT SECTIONS (10 total, 00–09) ──────────────── */}
           {[
+            { h: 120, content: "overview" },
             { h: 150, content: "text" },
             { h: 175, content: "text+quote" },
             { h: 120, content: "highlight" },
@@ -86,17 +87,24 @@ export function LayoutB() {
             { h: 130, content: "metrics" },
             { h: 130, content: "text" },
           ].map(({ h, content }, idx) => {
-            const y = 80 + SECTIONS.slice(0,idx).reduce((acc,_,i)=>{
-              const heights=[150,175,120,210,220,215,175,130,130];
-              return acc+heights[i]+20;
-            }, 0);
+            const heights=[120,150,175,120,210,220,215,175,130,130];
+            const y = 80 + heights.slice(0,idx).reduce((a,v)=>a+v+20, 0);
 
             return (
               <g key={idx}>
                 <rect x={COL_X} y={y} width={5} height={h} fill="#c8c4bc" opacity="0.6"/>
                 <text x={COL_X+20} y={y+14} fontSize="8.5" fill="#9ca3af" fontFamily="monospace" fontWeight="bold" letterSpacing="1">{SECTIONS[idx]}</text>
-                <rect x={COL_X+20} y={y+22} width={320} height={12} rx="1" fill="#c8c4bc" opacity="0.75"/>
+                {content !== "overview" && <rect x={COL_X+20} y={y+22} width={320} height={12} rx="1" fill="#c8c4bc" opacity="0.75"/>}
 
+                {content === "overview" && (
+                  <>
+                    <rect x={COL_X+20} y={y+28} width={COL_W-40} height={h-38} rx="2" fill="#f5f1ea" stroke="#e0d8cc" strokeWidth="1"/>
+                    <rect x={COL_X+36} y={y+40} width={340} height={18} rx="1" fill="#c8c4bc" opacity="0.8"/>
+                    {[0,1,2].map(j=><rect key={j} x={COL_X+36+j*110} y={y+64} width={96} height={16} rx="8" fill="#e8e4de" stroke="#c8c4bc" strokeWidth="0.9"/>)}
+                    <Ln x={COL_X+36} y={y+88} w={280} op={0.6}/>
+                    <text x={COL_X+36} y={h+y-12} fontSize="7.5" fill="#b8b0a4" fontFamily="monospace">{META.title} · {META.sub}</text>
+                  </>
+                )}
                 {content === "text" && (
                   <>
                     <Ln x={COL_X+20} y={y+46} w={COL_W-40}/>

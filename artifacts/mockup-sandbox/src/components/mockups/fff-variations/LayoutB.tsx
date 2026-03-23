@@ -1,8 +1,8 @@
 /* Layout B — Side Nav + Content · Future First Families */
-const META = { title: "Future First Families", sub: "Family advocacy platform", role: "UX Designer", timeline: "4 weeks" };
+const META = { title: "Future First Families", sub: "advocacy platform · web · 4 weeks", role: "UX Designer", timeline: "4 weeks" };
 
 const SECTIONS = [
-  "01 · The Brief","02 · Discovery","03 · Problem Reframe",
+  "00 · Overview","01 · The Brief","02 · Discovery","03 · Problem Reframe",
   "04 · Exploration","05 · Key Decisions","06 · Final Design",
   "07 · Testing","08 · Outcomes","09 · Reflection",
 ];
@@ -10,8 +10,8 @@ const SECTIONS = [
 const NAV_W = 216;
 const COL_X = NAV_W + 24;
 const COL_W = 1280 - COL_X - 24;
-const TOTAL_H = 1860;
-const ROW_H = [150,175,120,210,220,215,175,130,130];
+const TOTAL_H = 2080;
+const ROW_H = [120,150,175,120,210,220,215,175,130,130];
 
 const Ln = ({ x, y, w, op = 1 }: any) => <rect x={x} y={y} width={w} height={7} rx="1" fill="#c8c4bc" opacity={op}/>;
 const Xbox = ({ x, y, w, h }: any) => (
@@ -63,9 +63,10 @@ export function LayoutB() {
           <rect x={COL_X+COL_W-260} y={14} width={80} height={14} rx="2" fill="#e8e4de" stroke="#c8c4bc" strokeWidth="0.9"/>
           <rect x={COL_X+COL_W-170} y={14} width={80} height={14} rx="2" fill="#e8e4de" stroke="#c8c4bc" strokeWidth="0.9"/>
           <rect x={COL_X+COL_W-80} y={14} width={60} height={14} rx="2" fill="#e8e4de" stroke="#c8c4bc" strokeWidth="0.9"/>
-          <text x={COL_X+16} y={62} fontSize="7.5" fill="#b8b0a4" fontFamily="monospace">{META.title} · {META.sub} · {META.role} · {META.timeline}</text>
-          {/* SECTIONS */}
+          <text x={COL_X+16} y={62} fontSize="7.5" fill="#b8b0a4" fontFamily="monospace">{META.title} · {META.sub}</text>
+          {/* SECTIONS (10 total, 00–09) */}
           {[
+            { content: "overview" },
             { content: "text" }, { content: "text+quote" }, { content: "highlight" },
             { content: "wireframes" }, { content: "decisions" }, { content: "screens" },
             { content: "findings" }, { content: "metrics" }, { content: "text" },
@@ -76,7 +77,16 @@ export function LayoutB() {
               <g key={idx}>
                 <rect x={COL_X} y={y} width={5} height={h} fill="#c8c4bc" opacity="0.6"/>
                 <text x={COL_X+20} y={y+14} fontSize="8.5" fill="#9ca3af" fontFamily="monospace" fontWeight="bold" letterSpacing="1">{SECTIONS[idx]}</text>
-                <rect x={COL_X+20} y={y+22} width={320} height={12} rx="1" fill="#c8c4bc" opacity="0.75"/>
+                {content !== "overview" && <rect x={COL_X+20} y={y+22} width={320} height={12} rx="1" fill="#c8c4bc" opacity="0.75"/>}
+                {content === "overview" && (
+                  <>
+                    <rect x={COL_X+20} y={y+28} width={COL_W-40} height={h-38} rx="2" fill="#f5f1ea" stroke="#e0d8cc" strokeWidth="1"/>
+                    <rect x={COL_X+36} y={y+40} width={340} height={18} rx="1" fill="#c8c4bc" opacity="0.8"/>
+                    {[0,1,2].map(j=><rect key={j} x={COL_X+36+j*110} y={y+64} width={96} height={16} rx="8" fill="#e8e4de" stroke="#c8c4bc" strokeWidth="0.9"/>)}
+                    <Ln x={COL_X+36} y={y+88} w={280} op={0.6}/>
+                    <text x={COL_X+36} y={h+y-12} fontSize="7.5" fill="#b8b0a4" fontFamily="monospace">{META.title} · {META.sub}</text>
+                  </>
+                )}
                 {content === "text" && (<><Ln x={COL_X+20} y={y+46} w={COL_W-40}/><Ln x={COL_X+20} y={y+58} w={COL_W-80}/><Ln x={COL_X+20} y={y+70} w={COL_W-100}/><Ln x={COL_X+20} y={y+82} w={COL_W-180} op={0.6}/></>)}
                 {content === "text+quote" && (<><Ln x={COL_X+20} y={y+46} w={COL_W-40}/><Ln x={COL_X+20} y={y+58} w={COL_W-80}/><rect x={COL_X+20} y={y+78} width={3} height={60} fill="#c8c4bc"/><Ln x={COL_X+32} y={y+84} w={560} op={0.7}/><Ln x={COL_X+32} y={y+96} w={480} op={0.7}/><Ln x={COL_X+32} y={y+108} w={520} op={0.7}/><Ln x={COL_X+32} y={y+120} w={360} op={0.5}/></>)}
                 {content === "highlight" && (<><rect x={COL_X+20} y={y+42} width={COL_W-40} height={58} rx="2" fill="#e8e4de" stroke="#c8c4bc" strokeWidth="1"/><Ln x={COL_X+36} y={y+54} w={560}/><Ln x={COL_X+36} y={y+66} w={420}/><text x={COL_X+36} y={y+90} fontSize="7.5" fill="#9ca3af" fontFamily="monospace">[ key insight ]</text></>)}

@@ -1,5 +1,5 @@
 /* Layout C — Card Grid / Bento · Liffo */
-const META = { title: "Liffo", sub: "Emergency-first healthcare app", role: "Lead Designer", timeline: "13 weeks" };
+const META = { title: "Liffo", sub: "emergency healthcare · 34 screens · 13 weeks", role: "Lead Designer", timeline: "13 weeks" };
 
 const W = 1280;
 const PAD = 24;
@@ -31,9 +31,10 @@ export function LayoutC() {
   const reframeH = 90;
   const exploreH = 180;
   const decScreenH = 220;
+  const testingH = 140;
   const outcomesH = 110;
   const reflectH = 110;
-  const TOTAL_H = heroH + GAP + metricH + GAP + briefResH + GAP + reframeH + GAP + exploreH + GAP + decScreenH + GAP + outcomesH + GAP + reflectH + 60;
+  const TOTAL_H = heroH + GAP + metricH + GAP + briefResH + GAP + reframeH + GAP + exploreH + GAP + decScreenH + GAP + testingH + GAP + outcomesH + GAP + reflectH + 60;
 
   return (
     <div className="w-full bg-[#fdf8f0]">
@@ -164,8 +165,23 @@ export function LayoutC() {
             );
           })()}
 
-          {/* ── 4-COL: OUTCOMES ──────────────────────────────────── */}
+          {/* ── TESTING — full width ─────────────────────────────── */}
           {(y += decScreenH+GAP, null)}
+          <Card x={PAD} y={y} w={W-PAD*2} h={testingH}/>
+          <SLabel x={PAD+20} y={y+18} t="07 · TESTING"/>
+          <HLine x={PAD+20} y={y+26} w={240}/>
+          <Ln x={PAD+20} y={y+52} w={W-PAD*2-80}/>
+          <Ln x={PAD+20} y={y+64} w={W-PAD*2-140}/>
+          {[0,1,2,3].map(i=>(
+            <g key={i}>
+              <rect x={PAD+20+i*((W-PAD*2-80)/4+GAP)} y={y+86} width={(W-PAD*2-80)/4} height={38} rx="2" fill="#f0ede8" stroke="#e0d8cc" strokeWidth="0.9"/>
+              <Ln x={PAD+36+i*((W-PAD*2-80)/4+GAP)} y={y+94} w={(W-PAD*2-80)/4-32} op={0.7}/>
+              <Ln x={PAD+36+i*((W-PAD*2-80)/4+GAP)} y={y+106} w={(W-PAD*2-80)/4-52} op={0.5}/>
+            </g>
+          ))}
+
+          {/* ── 4-COL: OUTCOMES ──────────────────────────────────── */}
+          {(y += testingH+GAP, null)}
           {[0,1,2,3].map(i => {
             const cw = (W-PAD*2-GAP*3)/4;
             return (

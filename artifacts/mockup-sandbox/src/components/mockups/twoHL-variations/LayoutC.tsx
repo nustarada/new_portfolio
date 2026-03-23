@@ -1,5 +1,5 @@
 /* Layout C — Card Grid / Bento · 2Hour Learning */
-const META = { title: "2Hour Learning", sub: "B2B EdTech platform", role: "UX Designer", timeline: "3 weeks" };
+const META = { title: "2Hour Learning", sub: "B2B EdTech · 4 landing pages", role: "UX Designer", timeline: "3 weeks" };
 
 const W = 1280;
 const PAD = 24;
@@ -19,13 +19,13 @@ const SLabel = ({ x, y, t }: any) => (
 );
 const HLine = ({ x, y, w }: any) => <rect x={x} y={y} width={w} height={12} rx="1" fill="#c8c4bc" opacity="0.8"/>;
 
-const heroH = 110, metricH = 88, briefResH = 160, reframeH = 90, exploreH = 180, decScreenH = 220, outcomesH = 110, reflectH = 110;
-const TOTAL_H = heroH + GAP + metricH + GAP + briefResH + GAP + reframeH + GAP + exploreH + GAP + decScreenH + GAP + outcomesH + GAP + reflectH + PAD*2 + 40;
+const heroH = 110, metricH = 88, briefResH = 160, reframeH = 90, exploreH = 180, decScreenH = 220, testingH = 140, outcomesH = 110, reflectH = 110;
+const TOTAL_H = heroH + GAP + metricH + GAP + briefResH + GAP + reframeH + GAP + exploreH + GAP + decScreenH + GAP + testingH + GAP + outcomesH + GAP + reflectH + PAD*2 + 40;
 
 export function LayoutC() {
   let y = PAD;
   const rows: number[] = [];
-  [heroH, metricH, briefResH, reframeH, exploreH, decScreenH, outcomesH, reflectH].forEach(h => {
+  [heroH, metricH, briefResH, reframeH, exploreH, decScreenH, testingH, outcomesH, reflectH].forEach(h => {
     rows.push(y);
     y += h + GAP;
   });
@@ -70,16 +70,23 @@ export function LayoutC() {
           {[0,1,2].map(i=>{ const cw=(W-PAD*2-GAP*2)/3; const bg=i===2?"#e8ede4":"#f5f1ea"; return(<g key={i}><Card x={PAD+i*(cw+GAP)} y={rows[4]} w={cw} h={exploreH} bg={bg}/><SLabel x={PAD+i*(cw+GAP)+16} y={rows[4]+18} t={`OPTION ${String.fromCharCode(65+i)}`}/><HLine x={PAD+i*(cw+GAP)+16} y={rows[4]+26} w={cw*0.55}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[4]+50} w={cw-40}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[4]+62} w={cw-60}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[4]+74} w={cw-40}/><Xbox x={PAD+i*(cw+GAP)+16} y={rows[4]+90} w={cw-32} h={70}/>{i===2?<text x={PAD+i*(cw+GAP)+16} y={rows[4]+exploreH-8} fontSize="8" fill="#7a9070" fontFamily="monospace" fontWeight="bold">✓ chosen</text>:<text x={PAD+i*(cw+GAP)+16} y={rows[4]+exploreH-8} fontSize="8" fill="#b8b0a4" fontFamily="monospace">✗ rejected</text>}</g>); })}
           {/* DECISIONS + SCREENS */}
           {(()=>{ const lW=(W-PAD*2-GAP)*0.45; const rW=(W-PAD*2-GAP)*0.55; return(<><Card x={PAD} y={rows[5]} w={lW} h={decScreenH}/><SLabel x={PAD+16} y={rows[5]+18} t="05 · KEY DECISIONS"/><HLine x={PAD+16} y={rows[5]+26} w={lW*0.6}/>{[0,1,2,3].map(i=><g key={i}><Ln x={PAD+16} y={rows[5]+50+i*40} w={lW-40}/><Ln x={PAD+16} y={rows[5]+62+i*40} w={lW-60} op={0.65}/><Ln x={PAD+16} y={rows[5]+74+i*40} w={lW-90} op={0.45}/></g>)}<Card x={PAD+lW+GAP} y={rows[5]} w={rW} h={decScreenH}/><SLabel x={PAD+lW+GAP+16} y={rows[5]+18} t="06 · FINAL DESIGN"/><HLine x={PAD+lW+GAP+16} y={rows[5]+26} w={rW*0.5}/>{[0,1].map(row=>[0,1].map(col=><Xbox key={`${row}${col}`} x={PAD+lW+GAP+16+col*((rW-48)/2+GAP)} y={rows[5]+46+row*((decScreenH-80)/2+GAP)} w={(rW-48)/2} h={(decScreenH-80)/2}/>))}</>); })()}
+          {/* TESTING */}
+          <Card x={PAD} y={rows[6]} w={W-PAD*2} h={testingH}/>
+          <SLabel x={PAD+20} y={rows[6]+18} t="07 · TESTING"/>
+          <HLine x={PAD+20} y={rows[6]+26} w={240}/>
+          <Ln x={PAD+20} y={rows[6]+52} w={W-PAD*2-80}/>
+          <Ln x={PAD+20} y={rows[6]+64} w={W-PAD*2-140}/>
+          {[0,1,2,3].map(i=>(<g key={i}><rect x={PAD+20+i*((W-PAD*2-80)/4+GAP)} y={rows[6]+86} width={(W-PAD*2-80)/4} height={38} rx="2" fill="#f0ede8" stroke="#e0d8cc" strokeWidth="0.9"/><Ln x={PAD+36+i*((W-PAD*2-80)/4+GAP)} y={rows[6]+94} w={(W-PAD*2-80)/4-32} op={0.7}/><Ln x={PAD+36+i*((W-PAD*2-80)/4+GAP)} y={rows[6]+106} w={(W-PAD*2-80)/4-52} op={0.5}/></g>))}
           {/* OUTCOMES */}
-          {[0,1,2,3].map(i=>{ const cw=(W-PAD*2-GAP*3)/4; return(<g key={i}><Card x={PAD+i*(cw+GAP)} y={rows[6]} w={cw} h={outcomesH}/><rect x={PAD+i*(cw+GAP)+16} y={rows[6]+16} width={cw*0.6} height={26} rx="1" fill="#c8c4bc" opacity="0.65"/><Ln x={PAD+i*(cw+GAP)+16} y={rows[6]+50} w={cw-40} op={0.5}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[6]+62} w={cw-60} op={0.35}/>{i===0&&<SLabel x={PAD+i*(cw+GAP)+16} y={rows[6]+94} t="08 · OUTCOMES"/>}</g>); })}
+          {[0,1,2,3].map(i=>{ const cw=(W-PAD*2-GAP*3)/4; return(<g key={i}><Card x={PAD+i*(cw+GAP)} y={rows[7]} w={cw} h={outcomesH}/><rect x={PAD+i*(cw+GAP)+16} y={rows[7]+16} width={cw*0.6} height={26} rx="1" fill="#c8c4bc" opacity="0.65"/><Ln x={PAD+i*(cw+GAP)+16} y={rows[7]+50} w={cw-40} op={0.5}/><Ln x={PAD+i*(cw+GAP)+16} y={rows[7]+62} w={cw-60} op={0.35}/>{i===0&&<SLabel x={PAD+i*(cw+GAP)+16} y={rows[7]+94} t="08 · OUTCOMES"/>}</g>); })}
           {/* REFLECTION */}
-          <Card x={PAD} y={rows[7]} w={W-PAD*2} h={reflectH}/>
-          <SLabel x={PAD+20} y={rows[7]+18} t="09 · REFLECTION"/>
-          <HLine x={PAD+20} y={rows[7]+26} w={300}/>
-          <Ln x={PAD+20} y={rows[7]+50} w={W-PAD*2-80}/>
-          <Ln x={PAD+20} y={rows[7]+62} w={W-PAD*2-140}/>
-          <Ln x={PAD+20} y={rows[7]+74} w={W-PAD*2-200} op={0.7}/>
-          <Ln x={PAD+20} y={rows[7]+86} w={W-PAD*2-300} op={0.5}/>
+          <Card x={PAD} y={rows[8]} w={W-PAD*2} h={reflectH}/>
+          <SLabel x={PAD+20} y={rows[8]+18} t="09 · REFLECTION"/>
+          <HLine x={PAD+20} y={rows[8]+26} w={300}/>
+          <Ln x={PAD+20} y={rows[8]+50} w={W-PAD*2-80}/>
+          <Ln x={PAD+20} y={rows[8]+62} w={W-PAD*2-140}/>
+          <Ln x={PAD+20} y={rows[8]+74} w={W-PAD*2-200} op={0.7}/>
+          <Ln x={PAD+20} y={rows[8]+86} w={W-PAD*2-300} op={0.5}/>
           <text x={1100} y={TOTAL_H-16} fontSize="8" fill="#c8c4bc" fontFamily="monospace">Layout C · Card Grid</text>
         </g>
       </svg>

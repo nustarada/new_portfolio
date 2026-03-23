@@ -1,11 +1,11 @@
 /* Layout A — Single Column Editorial · Liffo case study wireframe */
 const cs = {
   title: "Liffo",
-  sub: "Emergency-first healthcare app",
+  sub: "emergency healthcare · 34 screens · 13 weeks",
   role: "Lead Designer",
   timeline: "13 weeks",
-  screens: "34 screens",
   sections: [
+    { label: "00 · OVERVIEW", content: "overview", h: 120 },
     { label: "01 · THE BRIEF", content: "text+pill", h: 130 },
     { label: "02 · DISCOVERY", content: "text+quote", h: 160 },
     { label: "03 · PROBLEM REFRAME", content: "highlight", h: 110 },
@@ -67,7 +67,7 @@ const HeadingLine = ({ x, y, w }: any) => (
 );
 
 export function LayoutA() {
-  let curY = 200; // start after hero
+  let curY = 52; // start after nav
 
   const sectionBlocks = cs.sections.map(({ label, content, h }) => {
     const y = curY;
@@ -93,25 +93,30 @@ export function LayoutA() {
           <rect x={1140} y={20} width={50} height={12} rx="1" fill="#d1cfc8" opacity="0.5"/>
           <rect x={1200} y={18} width={56} height={16} rx="3" fill="url(#wf-a-hatch)" stroke="#9ca3af" strokeWidth="1"/>
 
-          {/* ── HERO ────────────────────────────────────────────────── */}
-          <rect x={0} y={52} width={1280} height={135} fill="#f5f1ea" stroke="#e0d8cc" strokeWidth="1"/>
-          <text x={CONTENT_X} y={92} fontSize="9" fill="#9ca3af" fontFamily="monospace" fontWeight="bold" letterSpacing="1.5">CASE STUDY</text>
-          <rect x={CONTENT_X} y={100} width={420} height={22} rx="1" fill="#c8c4bc" opacity="0.8"/>
-          <rect x={CONTENT_X} y={128} width={260} height={13} rx="1" fill="#d1cfc8" opacity="0.7"/>
-          {[0,1,2,3].map(i => <Pill key={i} x={CONTENT_X + i*96} y={150} w={84}/>)}
-          <text x={CONTENT_X} y={186} fontSize="7.5" fill="#b8b0a4" fontFamily="monospace">{cs.title} · {cs.sub} · {cs.role} · {cs.timeline}</text>
-
           {/* ── LEFT PROGRESS RAIL ──────────────────────────────────── */}
-          <line x1={RAIL_X} y1={200} x2={RAIL_X} y2={curY-50} stroke="#d1cfc8" strokeWidth="1.5" strokeDasharray="4 4"/>
+          <line x1={RAIL_X} y1={52} x2={RAIL_X} y2={curY-50} stroke="#d1cfc8" strokeWidth="1.5" strokeDasharray="4 4"/>
           {sectionBlocks.map(({ y }, i) => (
             <circle key={i} cx={RAIL_X} cy={y+14} r={5} fill="#fff" stroke="#b8b0a4" strokeWidth="1.5"/>
           ))}
 
-          {/* ── SECTIONS ────────────────────────────────────────────── */}
+          {/* ── SECTIONS (10 total, 00–09) ───────────────────────────── */}
           {sectionBlocks.map(({ label, content, h, y }) => (
             <g key={label}>
-              <SectionLabel x={CONTENT_X} y={y+10} label={label}/>
-              <HeadingLine x={CONTENT_X} y={y+20} w={380}/>
+              {content === "overview" ? (
+                <>
+                  <rect x={0} y={y} width={1280} height={h} fill="#f5f1ea" stroke="#e0d8cc" strokeWidth="1"/>
+                  <text x={CONTENT_X} y={y+14} fontSize="8.5" fill="#9ca3af" fontFamily="monospace" fontWeight="bold" letterSpacing="1">00 · OVERVIEW</text>
+                  <rect x={CONTENT_X} y={y+22} width={440} height={20} rx="1" fill="#c8c4bc" opacity="0.8"/>
+                  <rect x={CONTENT_X} y={y+48} width={280} height={12} rx="1" fill="#d1cfc8" opacity="0.7"/>
+                  {[0,1,2,3].map(j=><Pill key={j} x={CONTENT_X+j*96} y={y+66} w={84}/>)}
+                  <text x={CONTENT_X} y={y+102} fontSize="7.5" fill="#b8b0a4" fontFamily="monospace">{cs.title} · {cs.sub}</text>
+                </>
+              ) : (
+                <>
+                  <SectionLabel x={CONTENT_X} y={y+10} label={label}/>
+                  <HeadingLine x={CONTENT_X} y={y+20} w={380}/>
+                </>
+              )}
 
               {content === "text+pill" && (
                 <>
@@ -163,7 +168,6 @@ export function LayoutA() {
               )}
               {content === "screens" && (
                 <>
-                  <div/>
                   {[0,1,2].map(i=><Xbox key={i} x={CONTENT_X+i*388} y={y+40} w={370} h={140}/>)}
                   <text x={CONTENT_X+130} y={y+195} fontSize="7.5" fill="#9ca3af" fontFamily="monospace">screen label</text>
                   <text x={CONTENT_X+520} y={y+195} fontSize="7.5" fill="#9ca3af" fontFamily="monospace">screen label</text>
