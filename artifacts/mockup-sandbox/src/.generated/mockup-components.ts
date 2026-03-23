@@ -4,5 +4,7 @@ export const modules: ModuleMap = {
   "./components/mockups/2hl-case-study/ComparisonMatrix.tsx": () => import("../components/mockups/2hl-case-study/ComparisonMatrix.tsx"),
   "./components/mockups/2hl-case-study/EditorialLongform.tsx": () => import("../components/mockups/2hl-case-study/EditorialLongform.tsx"),
   "./components/mockups/2hl-case-study/PitchDeck.tsx": () => import("../components/mockups/2hl-case-study/PitchDeck.tsx"),
-  "./components/mockups/2hl-case-study/StakeholderSwitcher.tsx": () => import("../components/mockups/2hl-case-study/StakeholderSwitcher.tsx")
+  "./components/mockups/2hl-case-study/StakeholderSwitcher.tsx": () => import("../components/mockups/2hl-case-study/StakeholderSwitcher.tsx"),
+  "./components/mockups/liffo-refinements/DenseEditorial.tsx": () => import("../components/mockups/liffo-refinements/DenseEditorial.tsx"),
+  "./components/mockups/liffo-refinements/FeaturedScreenHero.tsx": () => import("../components/mockups/liffo-refinements/FeaturedScreenHero.tsx")
 };
