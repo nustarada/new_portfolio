@@ -14,11 +14,13 @@ import LiffoCaseStudy from "@/pages/liffo-case-study";
 import TwoHourLearningCaseStudy from "@/pages/2hour-learning-case-study";
 
 import NotFound from "@/pages/not-found";
+import Preview from "@/pages/preview";
 
 function Routes() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/preview" component={Preview} />
       <Route path="/project/:id" component={ProjectDetail} />
       <Route path="/fff-case-study" component={FutureFirstFamiliesCaseStudy} />
       <Route path="/liffo-case-study" component={LiffoCaseStudy} />

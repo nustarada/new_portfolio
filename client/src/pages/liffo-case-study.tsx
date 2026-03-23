@@ -58,235 +58,258 @@ import Screen32 from "@assets/32. Family Medical History_1754469216930.png";
 import Screen33 from "@assets/33. Dropdown_1754469216930.png";
 import Screen34 from "@assets/34. Health card_1754469216930.png";
 
-/* ─── Wireframe SVG components ─────────────────────────────────────────── */
+/* ─── Low-fidelity sketch wireframe components ──────────────────────────── */
+
+const SketchPhone = ({ children }: { children: React.ReactNode }) => (
+  <svg viewBox="0 0 220 390" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+    {/* Paper background */}
+    <rect x="0" y="0" width="220" height="390" fill="#fafaf8"/>
+    {/* Phone outline — slightly imperfect corners for sketch feel */}
+    <rect x="12" y="6" width="196" height="372" rx="20" ry="20" fill="white" stroke="#9ca3af" strokeWidth="2" strokeDasharray="0"/>
+    {/* Notch */}
+    <rect x="76" y="6" width="68" height="14" rx="7" fill="#e5e7eb"/>
+    {/* Screen area */}
+    <rect x="18" y="20" width="184" height="352" rx="12" ry="12" fill="#f9fafb"/>
+    {children}
+  </svg>
+);
+
+const XBox = ({ x, y, w, h, label }: { x: number; y: number; w: number; h: number; label?: string }) => (
+  <g>
+    <rect x={x} y={y} width={w} height={h} fill="#f3f4f6" stroke="#9ca3af" strokeWidth="1" strokeDasharray="4 2"/>
+    <line x1={x} y1={y} x2={x + w} y2={y + h} stroke="#d1d5db" strokeWidth="1"/>
+    <line x1={x + w} y1={y} x2={x} y2={y + h} stroke="#d1d5db" strokeWidth="1"/>
+    {label && <text x={x + w / 2} y={y + h / 2 + 4} textAnchor="middle" fontSize="7" fill="#9ca3af" fontFamily="monospace">{label}</text>}
+  </g>
+);
+
+const SketchRect = ({ x, y, w, h, filled = false, dashed = false }: { x: number; y: number; w: number; h: number; filled?: boolean; dashed?: boolean }) => (
+  <rect x={x} y={y} width={w} height={h} rx="3" fill={filled ? "#e5e7eb" : "#f9fafb"} stroke="#9ca3af" strokeWidth="1" strokeDasharray={dashed ? "3 2" : "0"}/>
+);
+
+const SketchLine = ({ x, y, w, thin = false }: { x: number; y: number; w: number; thin?: boolean }) => (
+  <rect x={x} y={y} width={w} height={thin ? 4 : 6} rx="2" fill="#d1d5db"/>
+);
+
+const SketchLabel = ({ x, y, text, small = false }: { x: number; y: number; text: string; small?: boolean }) => (
+  <text x={x} y={y} fontSize={small ? 6.5 : 8} fill="#6b7280" fontFamily="monospace">{text}</text>
+);
+
+const AnnotationLine = ({ x1, y1, x2, y2, label, lx, ly }: { x1: number; y1: number; x2: number; y2: number; label: string; lx: number; ly: number }) => (
+  <g>
+    <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#6b7280" strokeWidth="0.8" strokeDasharray="3 2"/>
+    <text x={lx} y={ly} fontSize="6.5" fill="#6b7280" fontFamily="monospace" textAnchor="middle">{label}</text>
+  </g>
+);
 
 const WireframeDashboard = () => (
-  <svg viewBox="0 0 220 380" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-    {/* Phone shell */}
-    <rect x="10" y="8" width="200" height="364" rx="22" ry="22" fill="#1a1a2e" stroke="#4a4a6a" strokeWidth="2"/>
-    <rect x="20" y="18" width="180" height="344" rx="14" ry="14" fill="#0f0f1a"/>
+  <SketchPhone>
     {/* Status bar */}
-    <rect x="30" y="28" width="40" height="6" rx="3" fill="#2a2a4a"/>
-    <rect x="160" y="28" width="30" height="6" rx="3" fill="#2a2a4a"/>
-    {/* Greeting text placeholder */}
-    <rect x="30" y="48" width="70" height="7" rx="3" fill="#3a3a5a"/>
-    <rect x="30" y="60" width="110" height="10" rx="3" fill="#4a4a7a"/>
-    {/* Emergency button — the focal point */}
-    <rect x="40" y="82" width="140" height="56" rx="12" fill="#7f1d1d" stroke="#ef4444" strokeWidth="1.5"/>
-    <rect x="55" y="96" width="24" height="24" rx="12" fill="#ef4444" opacity="0.4"/>
-    <rect x="90" y="100" width="60" height="8" rx="3" fill="#fca5a5"/>
-    <rect x="90" y="112" width="40" height="6" rx="3" fill="#ef4444" opacity="0.6"/>
-    <text x="113" y="170" textAnchor="middle" fontSize="7" fill="#6b7280" fontFamily="sans-serif">Emergency — always visible, always first</text>
-    {/* Quick access row */}
-    <rect x="30" y="150" width="140" height="8" rx="3" fill="#2a2a4a"/>
+    <SketchLine x={28} y={28} w={40} thin/>
+    <SketchLine x={148} y={28} w={36} thin/>
+    {/* Greeting */}
+    <SketchLine x={28} y={44} w={60} thin/>
+    <SketchLine x={28} y={53} w={90} />
+    {/* Emergency CTA — prominent box */}
+    <rect x="28" y="68" width="164" height="54" rx="6" fill="#fee2e2" stroke="#9ca3af" strokeWidth="1.5"/>
+    <rect x="38" y="78" width="22" height="22" rx="11" fill="#fca5a5" stroke="#9ca3af" strokeWidth="1"/>
+    <text x="64" y="89" fontSize="8" fill="#374151" fontFamily="monospace" fontWeight="bold">🚨 CALL AMBULANCE</text>
+    <SketchLine x={64} y={96} w={70} thin/>
+    <AnnotationLine x1={200} y1={95} x2={215} y2={95} label="" lx={0} ly={0}/>
+    {/* Arrow annotation */}
+    <text x={110} y={130} fontSize="6.5" fill="#9ca3af" fontFamily="monospace" textAnchor="middle">[ primary action — always above fold ]</text>
+    {/* Section label */}
+    <SketchLine x={28} y={140} w={80} thin/>
     {/* 4 service tiles */}
     {[0,1,2,3].map(i => (
       <g key={i}>
-        <rect x={30 + i*44} y="166" width="36" height="36" rx="8" fill="#1e1e3a" stroke="#3a3a5a" strokeWidth="1"/>
-        <rect x={38 + i*44} y="174" width="20" height="8" rx="2" fill="#3a3a6a"/>
-        <rect x={42 + i*44} y="186" width="12" height="6" rx="2" fill="#2a2a5a"/>
+        <SketchRect x={28 + i * 42} y={150} w={38} h={38} filled/>
+        <SketchLine x={33 + i*42} y={178} w={28} thin/>
       </g>
     ))}
-    {/* Health overview card */}
-    <rect x="30" y="214" width="160" height="48" rx="10" fill="#1e1e3a" stroke="#3a3a5a" strokeWidth="1"/>
-    <rect x="40" y="223" width="60" height="7" rx="3" fill="#3a3a6a"/>
-    <rect x="40" y="234" width="100" height="6" rx="3" fill="#2a2a5a"/>
-    <rect x="40" y="244" width="80" height="6" rx="3" fill="#2a2a5a"/>
-    {/* Recent activity */}
-    <rect x="30" y="272" width="90" height="7" rx="3" fill="#3a3a6a"/>
+    {/* Health summary card */}
+    <SketchRect x={28} y={198} w={164} h={42} dashed/>
+    <SketchLine x={36} y={208} w={55} thin/>
+    <SketchLine x={36} y={218} w={90}/>
+    <SketchLine x={36} y={228} w={70} thin/>
+    {/* Recent list */}
+    <SketchLine x={28} y={250} w={70} thin/>
     {[0,1].map(i => (
       <g key={i}>
-        <rect x="30" y={285 + i*22} width="160" height="16" rx="6" fill="#1a1a2e" stroke="#2a2a4a" strokeWidth="1"/>
-        <rect x="36" y={289 + i*22} width="24" height="8" rx="2" fill="#2a2a4a"/>
-        <rect x="66" y={289 + i*22} width="80" height="8" rx="2" fill="#2a2a5a"/>
+        <SketchRect x={28} y={260 + i*26} w={164} h={20}/>
+        <SketchRect x={32} y={264 + i*26} w={24} h={12} filled/>
+        <SketchLine x={62} y={267 + i*26} w={80} thin/>
+        <SketchLine x={62} y={275 + i*26} w={55} thin/>
       </g>
     ))}
     {/* Bottom nav */}
-    <rect x="20" y="330" width="180" height="2" fill="#2a2a4a"/>
+    <line x1="18" y1="332" x2="202" y2="332" stroke="#d1d5db" strokeWidth="1"/>
     {[0,1,2,3,4].map(i => (
       <g key={i}>
-        <rect x={36 + i*36} y="336" width="16" height="10" rx="3" fill={i===0 ? "#4a4aaa" : "#2a2a4a"}/>
-        <rect x={39 + i*36} y="350" width="10" height="4" rx="2" fill={i===0 ? "#6a6aca" : "#2a2a4a"}/>
+        <SketchRect x={30 + i*36} y={337} w={22} h={16} filled={i===0}/>
+        <SketchLine x={33 + i*36} y={357} w={16} thin/>
       </g>
     ))}
-    {/* Annotation */}
-    <line x1="112" y1="138" x2="112" y2="150" stroke="#ef4444" strokeWidth="1" strokeDasharray="3"/>
-    <text x="112" y="148" textAnchor="middle" fontSize="6" fill="#ef4444" fontFamily="sans-serif">↓ quick access</text>
-  </svg>
+  </SketchPhone>
 );
 
 const WireframeEmergency = () => (
-  <svg viewBox="0 0 220 380" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-    <rect x="10" y="8" width="200" height="364" rx="22" ry="22" fill="#1a1a2e" stroke="#4a4a6a" strokeWidth="2"/>
-    <rect x="20" y="18" width="180" height="344" rx="14" ry="14" fill="#0f0f1a"/>
+  <SketchPhone>
     {/* Back + title */}
-    <rect x="30" y="32" width="16" height="12" rx="4" fill="#2a2a4a"/>
-    <rect x="54" y="34" width="80" height="8" rx="3" fill="#4a4a7a"/>
-    {/* Map placeholder */}
-    <rect x="30" y="56" width="160" height="90" rx="8" fill="#1a2a1a" stroke="#2a3a2a" strokeWidth="1"/>
-    <rect x="85" y="90" width="50" height="24" rx="4" fill="#1a3a1a" stroke="#22c55e" strokeWidth="1"/>
-    <rect x="95" y="96" width="30" height="6" rx="2" fill="#22c55e" opacity="0.6"/>
-    <rect x="100" y="105" width="20" height="6" rx="2" fill="#22c55e" opacity="0.4"/>
-    {/* Location pin */}
-    <circle cx="110" cy="75" r="5" fill="#ef4444" opacity="0.8"/>
-    <line x1="110" y1="80" x2="110" y2="88" stroke="#ef4444" strokeWidth="1.5"/>
-    <text x="110" y="156" textAnchor="middle" fontSize="6" fill="#6b7280" fontFamily="sans-serif">auto-detected location</text>
-    {/* One-tap dispatch button */}
-    <rect x="30" y="162" width="160" height="44" rx="10" fill="#7f1d1d" stroke="#ef4444" strokeWidth="1.5"/>
-    <rect x="55" y="174" width="20" height="8" rx="3" fill="#fca5a5"/>
-    <rect x="83" y="174" width="80" height="8" rx="3" fill="#fca5a5"/>
-    <rect x="83" y="186" width="50" height="6" rx="2" fill="#ef4444" opacity="0.5"/>
-    {/* Nearby hospitals */}
-    <rect x="30" y="216" width="110" height="7" rx="3" fill="#3a3a6a"/>
+    <SketchRect x={28} y={28} w={18} h={14} filled/>
+    <SketchLine x={52} y={32} w={80}/>
+    {/* Map area with X box */}
+    <XBox x={28} y={50} w={164} h={90} label="[ map ]"/>
+    {/* Pin marker */}
+    <circle cx="110" cy="80" r="6" fill="none" stroke="#6b7280" strokeWidth="1.5"/>
+    <line x1="110" y1="86" x2="110" y2="96" stroke="#6b7280" strokeWidth="1.5"/>
+    <text x="110" y="148" fontSize="6.5" fill="#9ca3af" fontFamily="monospace" textAnchor="middle">[ GPS auto-detected ]</text>
+    {/* Dispatch button */}
+    <rect x="28" y="154" width="164" height="46" rx="5" fill="#fee2e2" stroke="#9ca3af" strokeWidth="1.5"/>
+    <text x="110" y="173" fontSize="8" fill="#374151" fontFamily="monospace" fontWeight="bold" textAnchor="middle">DISPATCH AMBULANCE</text>
+    <SketchLine x={58} y={181} w={104} thin/>
+    {/* Hospital list */}
+    <SketchLine x={28} y={212} w={100} thin/>
     {[0,1,2].map(i => (
       <g key={i}>
-        <rect x="30" y={228 + i*26} width="160" height="20" rx="6" fill="#1e1e3a" stroke="#3a3a5a" strokeWidth="1"/>
-        <rect x="36" y={232 + i*26} width="30" height="12" rx="3" fill="#2a2a4a"/>
-        <rect x="72" y={233 + i*26} width="70" height="6" rx="2" fill="#3a3a6a"/>
-        <rect x="72" y={242 + i*26} width="40" height="5" rx="2" fill="#2a2a5a"/>
-        <rect x="155" y={232 + i*26} width="28" height="12" rx="4" fill="#14532d" stroke="#22c55e" strokeWidth="0.5"/>
+        <SketchRect x={28} y={222 + i*28} w={164} h={22}/>
+        <XBox x={32} y={225 + i*28} w={28} h={15}/>
+        <SketchLine x={66} y={229 + i*28} w={70} thin/>
+        <SketchLine x={66} y={237 + i*28} w={45} thin/>
+        <SketchRect x={152} y={226 + i*28} w={36} h={14} filled/>
       </g>
     ))}
-    {/* Annotation */}
-    <line x1="190" y1="184" x2="196" y2="184" stroke="#ef4444" strokeWidth="1" strokeDasharray="2"/>
-    <text x="108" y="310" textAnchor="middle" fontSize="6" fill="#6b7280" fontFamily="sans-serif">sorted by ETA, not just distance</text>
+    <text x="110" y="318" fontSize="6.5" fill="#9ca3af" fontFamily="monospace" textAnchor="middle">[ sorted by ETA, not distance ]</text>
     {/* Bottom nav */}
-    <rect x="20" y="330" width="180" height="2" fill="#2a2a4a"/>
+    <line x1="18" y1="332" x2="202" y2="332" stroke="#d1d5db" strokeWidth="1"/>
     {[0,1,2,3,4].map(i => (
-      <rect key={i} x={36 + i*36} y="336" width="16" height="14" rx="3" fill="#2a2a4a"/>
+      <SketchRect key={i} x={30 + i*36} y={337} w={22} h={16} filled={i===1}/>
     ))}
-  </svg>
+  </SketchPhone>
 );
 
 const WireframeDoctor = () => (
-  <svg viewBox="0 0 220 380" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-    <rect x="10" y="8" width="200" height="364" rx="22" ry="22" fill="#1a1a2e" stroke="#4a4a6a" strokeWidth="2"/>
-    <rect x="20" y="18" width="180" height="344" rx="14" ry="14" fill="#0f0f1a"/>
-    {/* Header */}
-    <rect x="30" y="30" width="16" height="12" rx="4" fill="#2a2a4a"/>
-    <rect x="54" y="32" width="80" height="8" rx="3" fill="#4a4a7a"/>
+  <SketchPhone>
+    {/* Back + title */}
+    <SketchRect x={28} y={28} w={18} h={14} filled/>
+    <SketchLine x={52} y={32} w={80}/>
     {/* Search bar */}
-    <rect x="30" y="52" width="160" height="26" rx="8" fill="#1e1e3a" stroke="#3a3a5a" strokeWidth="1"/>
-    <rect x="40" y="60" width="12" height="10" rx="2" fill="#3a3a6a"/>
-    <rect x="58" y="62" width="80" height="6" rx="2" fill="#2a2a5a"/>
+    <SketchRect x={28} y={50} w={164} h={24} dashed/>
+    <SketchRect x={33} y={55} w={14} h={14} filled/>
+    <SketchLine x={53} y={60} w={80} thin/>
     {/* Filter chips */}
-    {["All","Cardio","Neuro","ENT"].map((label, i) => (
-      <g key={label}>
-        <rect x={30 + i*44} y="86" width={label.length * 5 + 14} height="16" rx="8" fill={i===0 ? "#312e81" : "#1e1e3a"} stroke={i===0 ? "#6366f1" : "#3a3a5a"} strokeWidth="1"/>
-        <text x={37 + i*44} y="97" fontSize="6" fill={i===0 ? "#a5b4fc" : "#6b7280"} fontFamily="sans-serif">{label}</text>
+    {["All", "Cardio", "Neuro", "ENT"].map((lbl, i) => (
+      <g key={lbl}>
+        <rect x={28 + i * 46} y={82} width={lbl.length * 6 + 10} height={16} rx={8} fill={i===0 ? "#e5e7eb" : "#f9fafb"} stroke="#9ca3af" strokeWidth={i===0 ? 1.5 : 1}/>
+        <text x={33 + i*46} y={93} fontSize="6.5" fill="#374151" fontFamily="monospace">{lbl}</text>
       </g>
     ))}
-    {/* Doctor cards */}
+    {/* Doctor rows */}
     {[0,1,2,3].map(i => (
       <g key={i}>
-        <rect x="30" y={110 + i*50} width="160" height="44" rx="10" fill="#1e1e3a" stroke="#3a3a5a" strokeWidth="1"/>
-        {/* Avatar */}
-        <circle cx="52" cy={132 + i*50} r="14" fill="#2a2a4a"/>
-        <rect x="44" y={124 + i*50} width="16" height="8" rx="4" fill="#3a3a5a"/>
-        {/* Name + specialty */}
-        <rect x="74" y={118 + i*50} width="80" height="7" rx="3" fill="#4a4a7a"/>
-        <rect x="74" y={128 + i*50} width="55" height="6" rx="3" fill="#2a2a5a"/>
-        {/* Rating */}
-        <rect x="74" y={138 + i*50} width="30" height="6" rx="3" fill="#78350f" opacity="0.8"/>
+        <SketchRect x={28} y={106 + i*52} w={164} h={46}/>
+        <circle cx="50" cy={129 + i*52} r="15" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="1"/>
+        <SketchLine x={72} y={116 + i*52} w={75}/>
+        <SketchLine x={72} y={126 + i*52} w={55} thin/>
+        {/* star rating */}
+        <text x={72} y={137 + i*52} fontSize="7" fill="#9ca3af" fontFamily="monospace">★★★★☆</text>
         {/* Available badge */}
-        <rect x="152" y={118 + i*50} width="32" height="14" rx="6" fill="#14532d" stroke="#22c55e" strokeWidth="0.5"/>
-        <text x="168" y="126" fontSize="5" fill="#86efac" fontFamily="sans-serif" textAnchor="middle">avail.</text>
+        <rect x={156} y={112 + i*52} w={28} height={14} rx={4} fill="#e5e7eb" stroke="#9ca3af" strokeWidth="1"/>
+        <text x={170} y={122 + i*52} fontSize="6" fill="#6b7280" fontFamily="monospace" textAnchor="middle">avail</text>
       </g>
     ))}
-    <text x="110" y="320" textAnchor="middle" fontSize="6" fill="#6b7280" fontFamily="sans-serif">credibility first — ratings visible before tapping</text>
+    <text x="110" y="325" fontSize="6.5" fill="#9ca3af" fontFamily="monospace" textAnchor="middle">[ trust visible on card — no tap needed ]</text>
     {/* Bottom nav */}
-    <rect x="20" y="330" width="180" height="2" fill="#2a2a4a"/>
+    <line x1="18" y1="332" x2="202" y2="332" stroke="#d1d5db" strokeWidth="1"/>
     {[0,1,2,3,4].map(i => (
-      <rect key={i} x={36 + i*36} y="336" width="16" height="14" rx="3" fill="#2a2a4a"/>
+      <SketchRect key={i} x={30 + i*36} y={337} w={22} h={16}/>
     ))}
-  </svg>
+  </SketchPhone>
 );
 
 const WireframeHospitalDetail = () => (
-  <svg viewBox="0 0 220 380" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-    <rect x="10" y="8" width="200" height="364" rx="22" ry="22" fill="#1a1a2e" stroke="#4a4a6a" strokeWidth="2"/>
-    <rect x="20" y="18" width="180" height="344" rx="14" ry="14" fill="#0f0f1a"/>
+  <SketchPhone>
     {/* Hero image placeholder */}
-    <rect x="20" y="18" width="180" height="80" rx="14" fill="#1e2a1e" stroke="#2a3a2a" strokeWidth="1"/>
-    <rect x="75" y="42" width="70" height="32" rx="4" fill="#2a3a2a" opacity="0.6"/>
-    {/* Back arrow overlay */}
-    <rect x="28" y="24" width="20" height="16" rx="6" fill="#0f0f1a" opacity="0.7"/>
-    <rect x="32" y="28" width="12" height="8" rx="2" fill="#4a4a7a"/>
-    {/* Hospital name */}
-    <rect x="30" y="108" width="120" height="9" rx="3" fill="#4a4a7a"/>
-    <rect x="30" y="121" width="80" height="7" rx="3" fill="#2a2a5a"/>
-    {/* Rating + distance row */}
-    <rect x="30" y="134" width="50" height="10" rx="4" fill="#78350f" opacity="0.7"/>
-    <rect x="88" y="136" width="40" height="6" rx="2" fill="#2a2a5a"/>
-    <rect x="136" y="136" width="50" height="6" rx="2" fill="#2a2a5a"/>
-    {/* Tab bar */}
-    {["Overview","Departments","Doctors","Reviews"].map((tab, i) => (
+    <XBox x={18} y={20} w={184} h={72} label="[ hospital photo ]"/>
+    {/* Back overlay */}
+    <SketchRect x={26} y={28} w={20} h={16} filled/>
+    {/* Name + specialty */}
+    <SketchLine x={28} y={102} w={120}/>
+    <SketchLine x={28} y={112} w={80} thin/>
+    {/* Rating + distance */}
+    <rect x={28} y={120} w={46} height={14} rx={4} fill="#e5e7eb" stroke="#9ca3af" strokeWidth="1"/>
+    <text x={30} y={130} fontSize="7" fill="#374151" fontFamily="monospace">★ 4.8</text>
+    <SketchLine x={80} y={123} w={40} thin/>
+    <SketchLine x={128} y={123} w={46} thin/>
+    {/* Tabs */}
+    {["Overview","Depts","Doctors","Reviews"].map((tab, i) => (
       <g key={tab}>
-        <text x={30 + i*50} y="158" fontSize="5.5" fill={i===0 ? "#a5b4fc" : "#4b5563"} fontFamily="sans-serif">{tab}</text>
-        {i===0 && <rect x="28" y="160" width={tab.length*4.2} height="1.5" rx="1" fill="#6366f1"/>}
+        <text x={26 + i*48} y={148} fontSize="6.5" fill={i===0 ? "#374151" : "#9ca3af"} fontFamily="monospace">{tab}</text>
+        {i===0 && <line x1={26} y1={151} x2={26 + tab.length*5} y2={151} stroke="#374151" strokeWidth="1.5"/>}
       </g>
     ))}
-    {/* Content */}
-    <rect x="30" y="168" width="160" height="7" rx="3" fill="#2a2a5a"/>
-    <rect x="30" y="179" width="130" height="7" rx="3" fill="#2a2a5a"/>
-    {/* Services grid */}
-    <rect x="30" y="196" width="70" height="8" rx="3" fill="#3a3a6a"/>
+    <line x1="18" y1="154" x2="202" y2="154" stroke="#e5e7eb" strokeWidth="1"/>
+    {/* Body text lines */}
+    <SketchLine x={28} y={162} w={160} thin/>
+    <SketchLine x={28} y={171} w={130} thin/>
+    {/* Services grid label */}
+    <SketchLine x={28} y={184} w={70}/>
     {[0,1,2,3,4,5].map(i => (
       <g key={i}>
-        <rect x={30 + (i%3)*54} y={212 + Math.floor(i/3)*38} width="46" height="32" rx="8" fill="#1e1e3a" stroke="#3a3a5a" strokeWidth="1"/>
-        <rect x={38 + (i%3)*54} y={220 + Math.floor(i/3)*38} width="30" height="16" rx="4" fill="#2a2a4a"/>
+        <SketchRect x={28 + (i%3)*56} y={194 + Math.floor(i/3)*42} w={50} h={36} filled/>
+        <SketchLine x={36 + (i%3)*56} y={218 + Math.floor(i/3)*42} w={34} thin/>
       </g>
     ))}
-    {/* Book button */}
-    <rect x="30" y="298" width="160" height="28" rx="10" fill="#312e81" stroke="#6366f1" strokeWidth="1"/>
-    <rect x="80" y="307" width="60" height="8" rx="3" fill="#a5b4fc"/>
+    {/* CTA button */}
+    <rect x={28} y={290} width={164} height={30} rx={6} fill="#e5e7eb" stroke="#9ca3af" strokeWidth="1.5"/>
+    <text x={110} y={309} fontSize="8" fill="#374151" fontFamily="monospace" textAnchor="middle">Book Appointment</text>
+    <text x="110" y="328" fontSize="6.5" fill="#9ca3af" fontFamily="monospace" textAnchor="middle">[ tabs avoid long scroll ]</text>
     {/* Bottom nav */}
-    <rect x="20" y="330" width="180" height="2" fill="#2a2a4a"/>
+    <line x1="18" y1="332" x2="202" y2="332" stroke="#d1d5db" strokeWidth="1"/>
     {[0,1,2,3,4].map(i => (
-      <rect key={i} x={36 + i*36} y="336" width="16" height="14" rx="3" fill="#2a2a4a"/>
+      <SketchRect key={i} x={30 + i*36} y={337} w={22} h={16}/>
     ))}
-    <text x="110" y="356" textAnchor="middle" fontSize="6" fill="#6b7280" fontFamily="sans-serif">tab navigation — no back-and-forth</text>
-  </svg>
+  </SketchPhone>
 );
 
 const WireframeProfile = () => (
-  <svg viewBox="0 0 220 380" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-    <rect x="10" y="8" width="200" height="364" rx="22" ry="22" fill="#1a1a2e" stroke="#4a4a6a" strokeWidth="2"/>
-    <rect x="20" y="18" width="180" height="344" rx="14" ry="14" fill="#0f0f1a"/>
+  <SketchPhone>
     {/* Header */}
-    <rect x="30" y="28" width="90" height="9" rx="3" fill="#4a4a7a"/>
-    <rect x="168" y="28" width="22" height="14" rx="4" fill="#1e1e3a" stroke="#3a3a5a" strokeWidth="1"/>
-    {/* Avatar + name */}
-    <circle cx="110" cy="74" r="24" fill="#1e1e3a" stroke="#3a3a5a" strokeWidth="2"/>
-    <rect x="96" y="64" width="28" height="12" rx="6" fill="#2a2a4a"/>
-    <rect x="88" y="104" width="44" height="8" rx="3" fill="#4a4a7a" x1="88"/>
-    <rect x="95" y="116" width="30" height="6" rx="3" fill="#2a2a5a"/>
-    {/* Health stats row */}
+    <SketchLine x={28} y={34} w={80}/>
+    <SketchRect x={172} y={28} w={22} h={18} filled/>
+    {/* Avatar */}
+    <circle cx="110" cy="76" r="26" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="1.5"/>
+    <text x="110" y="80" fontSize="8" fill="#9ca3af" fontFamily="monospace" textAnchor="middle">avatar</text>
+    {/* Name + role */}
+    <SketchLine x={78} y={110} w={64}/>
+    <SketchLine x={88} y={120} w={44} thin/>
+    {/* Stats row */}
     {[0,1,2].map(i => (
       <g key={i}>
-        <rect x={30 + i*60} y="130" width="52" height="40" rx="8" fill="#1e1e3a" stroke="#3a3a5a" strokeWidth="1"/>
-        <rect x={38 + i*60} y="140" width="36" height="10" rx="3" fill="#312e81"/>
-        <rect x={42 + i*60} y="154" width="28" height="6" rx="2" fill="#2a2a5a"/>
+        <SketchRect x={28 + i*60} y={132} w={52} h={40} filled/>
+        <SketchLine x={36 + i*60} y={144} w={36} thin/>
+        <SketchLine x={36 + i*60} y={154} w={26} thin/>
       </g>
     ))}
-    {/* Section divider */}
-    <rect x="30" y="178" width="80" height="7" rx="3" fill="#3a3a6a"/>
+    {/* Section header */}
+    <SketchLine x={28} y={184} w={80}/>
+    <line x1="18" y1="190" x2="202" y2="190" stroke="#e5e7eb" strokeWidth="1"/>
     {/* Record rows */}
-    {["Appointments","Prescriptions","Lab Results","Health Details","Family History"].map((label, i) => (
-      <g key={label}>
-        <rect x="30" y={192 + i*24} width="160" height="18" rx="6" fill="#1a1a2e" stroke="#2a2a4a" strokeWidth="1"/>
-        <rect x="36" y={196 + i*24} width="14" height="10" rx="3" fill="#2a2a4a"/>
-        <rect x="56" y={198 + i*24} width={label.length * 5} height="6" rx="2" fill="#3a3a6a"/>
-        <rect x="174" y={199 + i*24} width="8" height="4" rx="1" fill="#2a2a5a"/>
+    {["Appointments","Prescriptions","Lab Results","Health Details","Family History"].map((lbl, i) => (
+      <g key={lbl}>
+        <SketchRect x={28} y={196 + i*24} w={164} h={19}/>
+        <SketchRect x={32} y={199 + i*24} w={14} h={12} filled/>
+        <SketchLine x={52} y={202 + i*24} w={lbl.length * 4.8} thin/>
+        <text x={188} y={209 + i*24} fontSize="9" fill="#d1d5db" fontFamily="monospace">›</text>
       </g>
     ))}
-    {/* Bottom nav with profile active */}
-    <rect x="20" y="330" width="180" height="2" fill="#2a2a4a"/>
+    <text x="110" y="326" fontSize="6.5" fill="#9ca3af" fontFamily="monospace" textAnchor="middle">[ all records, one place ]</text>
+    {/* Bottom nav — profile active */}
+    <line x1="18" y1="332" x2="202" y2="332" stroke="#d1d5db" strokeWidth="1"/>
     {[0,1,2,3,4].map(i => (
-      <rect key={i} x={36 + i*36} y="336" width="16" height="14" rx="3" fill={i===4 ? "#312e81" : "#2a2a4a"}/>
+      <SketchRect key={i} x={30 + i*36} y={337} w={22} h={16} filled={i===4}/>
     ))}
-    <text x="110" y="358" textAnchor="middle" fontSize="6" fill="#6b7280" fontFamily="sans-serif">all health data in one place</text>
-  </svg>
+  </SketchPhone>
 );
 
 /* ─── Main Component ────────────────────────────────────────────────────── */
@@ -750,11 +773,11 @@ const LiffoCaseStudy = () => {
                 viewport={{ once: true }}
                 className={i === 4 ? "sm:col-span-2 lg:col-span-1" : ""}
               >
-                <Card className="p-5 glass-card grain-texture border-slate-500/30 h-full flex flex-col">
-                  <div className="flex-grow mb-4">
+                <Card className="overflow-hidden border border-slate-600/30 h-full flex flex-col" style={{ background: "rgba(250,250,248,0.06)" }}>
+                  <div className="bg-[#fafaf8] rounded-t-lg">
                     {component}
                   </div>
-                  <div className="border-t border-white/10 pt-4">
+                  <div className="px-5 py-4 border-t border-white/10">
                     <h4 className="text-base font-extrabold text-white mb-1 albert-sans-medium">{label}</h4>
                     <p className="text-white/60 text-sm jost-secondary">{note}</p>
                   </div>
