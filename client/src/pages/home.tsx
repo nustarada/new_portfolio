@@ -28,6 +28,7 @@ import twoHourLearningThumbnail from "@assets/2_Hour_Learning_thumbnail_17701035
 import twoHourLearningLogo from "@assets/2HL Logo_1756637716101.png";
 import cybersecurityThumbnail from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.png";
 import cybersecurityLogo from "@assets/lionfish_logo_1770107402256.png";
+import acedboardThumbnail from "@assets/acedboard_thumbnail.svg";
 import {
   Terminal,
   Sparkles,
@@ -338,6 +339,56 @@ export default function Home() {
         "Developed high-fidelity designs for all 4 landing pages",
         "Optimized for conversion with strategic messaging and CTAs",
         "Delivered production-ready designs for development",
+      ],
+    },
+    {
+      title: "Acedboard: Proconomics Module",
+      subtitle: "Cost-Benefit Analysis Tool for Project Managers",
+      description:
+        "Designed a cost-benefit analysis module embedded inside Acedboard — a project management platform — that lets PMs run financial justification without ever leaving their workflow.",
+      detailedDescription:
+        "The Proconomics Module transforms how project managers justify decisions. With a structured input form, live ROI preview, analysis dashboard, and stakeholder-ready export, PMs can produce a complete cost-benefit analysis in under 20 minutes — inside the tool they already use.",
+      image: acedboardThumbnail,
+      logo: undefined,
+      liveUrl: undefined,
+      caseStudyUrl: "/acedboard-case-study",
+      isComingSoon: false,
+      isConfidential: false,
+      tags: [
+        "Product Design",
+        "SaaS",
+        "Financial UX",
+        "Project Management",
+      ],
+      year: "2025",
+      category: "SaaS Feature Design",
+      role: "Product Designer",
+      services: "Feature Design · UX Research",
+      industry: "Project Management SaaS",
+      platform: "Web (SaaS)",
+      outcomes: [
+        "62% reduction in time to produce a financial justification",
+        "89% task completion rate in usability testing",
+        "3/3 approvers said the export format improved trust",
+        "Zero external tools required for a full cost-benefit analysis",
+      ],
+      keyFeatures: [
+        "Structured cost and benefit input with named categories",
+        "Live ROI preview that updates as values are entered",
+        "Mandatory assumption fields for every benefit item",
+        "Automatic sensitivity analysis for highest-impact variable",
+        "Stakeholder-ready PDF/link export in PM language",
+        "Direct connection to the Acedboard project board",
+      ],
+      techStack: ["Figma", "FigJam", "Maze", "Web (SaaS)"],
+      duration: "8 Weeks",
+      process: [
+        "7 PM interviews + 4 approver interviews to understand the real problem",
+        "Workflow audit — timed 3 PMs through their existing CBA process",
+        "Explored 3 structural approaches, selected structured form + live preview",
+        "5 key design decisions including mandatory assumption fields",
+        "3 rounds of usability testing across 15 participants",
+        "Iterated on benefit categories, chart clarity, and export format",
       ],
     },
   ];

@@ -12,6 +12,7 @@ import ProjectDetail from "@/pages/project-detail";
 import FutureFirstFamiliesCaseStudy from "@/pages/future-first-families-case-study";
 import LiffoCaseStudy from "@/pages/liffo-case-study";
 import TwoHourLearningCaseStudy from "@/pages/2hour-learning-case-study";
+import AcedboardCaseStudy from "@/pages/acedboard-case-study";
 
 import NotFound from "@/pages/not-found";
 import Preview from "@/pages/preview";
@@ -25,6 +26,7 @@ function Routes() {
       <Route path="/fff-case-study" component={FutureFirstFamiliesCaseStudy} />
       <Route path="/liffo-case-study" component={LiffoCaseStudy} />
       <Route path="/2hour-learning-case-study" component={TwoHourLearningCaseStudy} />
+      <Route path="/acedboard-case-study" component={AcedboardCaseStudy} />
       <Route>
         <NotFound />
       </Route>
