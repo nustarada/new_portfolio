@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Design Directions — Karan Gadhave Portfolio Revamp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { -webkit-font-smoothing:antialiased; }
+
+  /* ── divider bar between directions ─────────────────────────── */
+  .divider {
+    background:#0A0A0A; color:#fff; font:600 12px/1 'Space Mono', monospace;
+    letter-spacing:.2em; text-transform:uppercase; padding:14px 32px;
+    display:flex; justify-content:space-between; align-items:center;
+    position:sticky; top:0; z-index:50;
+  }
+  .divider span:last-child { opacity:.5; }
+
+  /* ════════════════════════════════════════════════════════════
+     DIRECTION A — EDITORIAL STUDIO
+     Warm paper, expressive serif, understated confidence
+  ════════════════════════════════════════════════════════════ */
+  .dir-a { background:#FAF6F0; color:#1A1712; font-family:'Inter',sans-serif; }
+  .dir-a .nav {
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:28px 48px; border-bottom:1px solid rgba(26,23,18,.12);
+  }
+  .dir-a .nav .logo { font:italic 600 20px 'Fraunces',serif; }
+  .dir-a .nav .links { display:flex; gap:32px; }
+  .dir-a .nav a {
+    color:#1A1712; text-decoration:none; font-size:13px; letter-spacing:.04em;
+    padding-bottom:2px; border-bottom:1px solid transparent; transition:border-color .25s;
+  }
+  .dir-a .nav a:hover { border-color:#1A1712; }
+  .dir-a .hero { padding:110px 48px 80px; max-width:1280px; margin:0 auto; }
+  .dir-a .eyebrow {
+    font:500 12px 'Space Mono',monospace; letter-spacing:.22em; text-transform:uppercase;
+    color:#8A8177; display:flex; align-items:center; gap:14px; margin-bottom:36px;
+  }
+  .dir-a .eyebrow::before { content:''; width:44px; height:1px; background:#C4501B; }
+  .dir-a h1 {
+    font:300 clamp(56px, 8.5vw, 118px)/1.04 'Fraunces',serif;
+    letter-spacing:-.015em; max-width:1100px;
+  }
+  .dir-a h1 em { font-style:italic; font-weight:400; color:#C4501B; }
+  .dir-a .sub {
+    margin-top:40px; font-size:17px; line-height:1.65; color:#57503F;
+    max-width:460px;
+  }
+  .dir-a .cta-row { margin-top:52px; display:flex; gap:36px; align-items:center; }
+  .dir-a .cta {
+    font:italic 500 17px 'Fraunces',serif; color:#1A1712; text-decoration:none;
+    border-bottom:1.5px solid #1A1712; padding-bottom:4px; transition:color .25s, border-color .25s;
+  }
+  .dir-a .cta:hover { color:#C4501B; border-color:#C4501B; }
+  .dir-a .cta.mut { border-color:rgba(26,23,18,.25); color:#8A8177; }
+  .dir-a .meta {
+    margin-top:96px; display:flex; gap:64px; padding-top:28px;
+    border-top:1px solid rgba(26,23,18,.12);
+  }
+  .dir-a .meta div p:first-child {
+    font:500 11px 'Space Mono',monospace; letter-spacing:.18em; text-transform:uppercase;
+    color:#8A8177; margin-bottom:8px;
+  }
+  .dir-a .meta div p:last-child { font-size:15px; }
+  .dir-a .work { max-width:1280px; margin:0 auto; padding:20px 48px 100px; }
+  .dir-a .work-label {
+    font:500 12px 'Space Mono',monospace; letter-spacing:.22em; text-transform:uppercase;
+    color:#8A8177; margin:56px 0 8px;
+  }
+  .dir-a .row {
+    display:grid; grid-template-columns:64px 1fr auto auto; gap:32px; align-items:baseline;
+    padding:30px 0; border-bottom:1px solid rgba(26,23,18,.12); text-decoration:none; color:#1A1712;
+    transition:padding-left .3s;
+  }
+  .dir-a .row:hover { padding-left:16px; }
+  .dir-a .row:hover .t { font-style:italic; color:#C4501B; }
+  .dir-a .row .n { font:400 13px 'Space Mono',monospace; color:#8A8177; }
+  .dir-a .row .t { font:400 30px 'Fraunces',serif; transition:color .2s; }
+  .dir-a .row .tag { font-size:13px; color:#8A8177; }
+  .dir-a .row .yr { font:400 13px 'Space Mono',monospace; color:#8A8177; }
+
+  /* ════════════════════════════════════════════════════════════
+     DIRECTION B — SWISS GRID
+     Stark white, massive grotesque, electric blue, structural
+  ════════════════════════════════════════════════════════════ */
+  .dir-b { background:#FFFFFF; color:#0A0A0A; font-family:'Space Grotesk',sans-serif; position:relative; }
+  .dir-b .gridlines {
+    position:absolute; inset:0; pointer-events:none;
+    background-image:repeating-linear-gradient(90deg, rgba(10,10,10,.055) 0 1px, transparent 1px calc(100%/6));
+    background-size:calc(100% - 96px) 100%; background-position:48px 0; background-repeat:no-repeat;
+  }
+  .dir-b .nav {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 48px; border-bottom:1px solid #0A0A0A; position:relative;
+  }
+  .dir-b .nav .logo { font-weight:700; font-size:15px; letter-spacing:-.02em; }
+  .dir-b .nav .links { display:flex; gap:2px; }
+  .dir-b .nav a {
+    color:#0A0A0A; text-decoration:none; font:500 12px 'Space Mono',monospace;
+    text-transform:uppercase; letter-spacing:.08em; padding:8px 14px; transition:background .2s,color .2s;
+  }
+  .dir-b .nav a:hover { background:#2545FF; color:#fff; }
+  .dir-b .hero { padding:90px 48px 0; position:relative; }
+  .dir-b .tag-row { display:flex; justify-content:space-between; margin-bottom:28px; }
+  .dir-b .tag-row p { font:400 12px 'Space Mono',monospace; letter-spacing:.06em; color:#666; }
+  .dir-b .tag-row p b { color:#2545FF; font-weight:400; }
+  .dir-b h1 {
+    font-weight:700; font-size:clamp(64px, 11.5vw, 168px); line-height:.92;
+    letter-spacing:-.045em; text-transform:uppercase;
+  }
+  .dir-b h1 .l2 { display:block; color:transparent; -webkit-text-stroke:1.5px #0A0A0A; }
+  .dir-b .hero-foot {
+    display:flex; justify-content:space-between; align-items:flex-end;
+    padding:44px 0 56px; position:relative;
+  }
+  .dir-b .hero-foot .desc { font-size:16px; line-height:1.55; color:#444; max-width:420px; }
+  .dir-b .hero-foot .desc b { color:#0A0A0A; }
+  .dir-b .btns { display:flex; gap:12px; }
+  .dir-b .btn {
+    font:500 13px 'Space Mono',monospace; text-transform:uppercase; letter-spacing:.06em;
+    padding:16px 26px; text-decoration:none; border:1px solid #0A0A0A; color:#0A0A0A;
+    transition:all .2s;
+  }
+  .dir-b .btn.fill { background:#0A0A0A; color:#fff; }
+  .dir-b .btn.fill:hover { background:#2545FF; border-color:#2545FF; }
+  .dir-b .btn:not(.fill):hover { background:#0A0A0A; color:#fff; }
+  .dir-b .marquee {
+    border-top:1px solid #0A0A0A; border-bottom:1px solid #0A0A0A;
+    overflow:hidden; white-space:nowrap; position:relative; background:#2545FF;
+  }
+  .dir-b .marquee-inner {
+    display:inline-block; animation:mq 18s linear infinite; padding:14px 0;
+    font-weight:600; font-size:15px; letter-spacing:.04em; text-transform:uppercase; color:#fff;
+  }
+  @keyframes mq { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .dir-b .work { position:relative; }
+  .dir-b .wrow {
+    display:grid; grid-template-columns:80px 1fr auto 120px; gap:24px; align-items:center;
+    padding:34px 48px; border-bottom:1px solid #0A0A0A; text-decoration:none; color:#0A0A0A;
+    transition:background .2s, color .2s; position:relative;
+  }
+  .dir-b .wrow:hover { background:#0A0A0A; color:#fff; }
+  .dir-b .wrow:hover .num { color:#2545FF; }
+  .dir-b .wrow .num { font:400 13px 'Space Mono',monospace; color:#999; }
+  .dir-b .wrow .name { font-weight:600; font-size:32px; letter-spacing:-.03em; text-transform:uppercase; }
+  .dir-b .wrow .cat  { font:400 12px 'Space Mono',monospace; color:inherit; opacity:.55; text-transform:uppercase; }
+  .dir-b .wrow .arr  { text-align:right; font-size:24px; }
+
+  /* ════════════════════════════════════════════════════════════
+     DIRECTION C — SOFT PRODUCT
+     Airy gradient, rounded, friendly — freelance-client warmth
+  ════════════════════════════════════════════════════════════ */
+  .dir-c {
+    background:#F7F7FB; color:#191A23; font-family:'Outfit',sans-serif;
+    position:relative; overflow:hidden;
+  }
+  .dir-c .blob { position:absolute; border-radius:50%; filter:blur(90px); opacity:.55; pointer-events:none; }
+  .dir-c .b1 { width:520px; height:520px; background:#C7B9FF; top:-140px; left:-80px; }
+  .dir-c .b2 { width:460px; height:460px; background:#FFD6C2; top:40px; right:-120px; }
+  .dir-c .b3 { width:380px; height:380px; background:#BFF0DC; bottom:-100px; left:38%; }
+  .dir-c .nav {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:22px 48px; position:relative; z-index:2;
+  }
+  .dir-c .nav .logo { font-weight:700; font-size:18px; letter-spacing:-.02em; }
+  .dir-c .nav .links {
+    display:flex; gap:6px; background:rgba(255,255,255,.7); backdrop-filter:blur(12px);
+    border:1px solid rgba(25,26,35,.08); border-radius:999px; padding:6px;
+  }
+  .dir-c .nav .links a {
+    color:#191A23; text-decoration:none; font-size:14px; font-weight:500;
+    padding:8px 18px; border-radius:999px; transition:background .2s;
+  }
+  .dir-c .nav .links a:hover { background:#191A23; color:#fff; }
+  .dir-c .hero { text-align:center; padding:96px 48px 72px; position:relative; z-index:2; }
+  .dir-c .pill {
+    display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:500;
+    background:rgba(255,255,255,.8); border:1px solid rgba(25,26,35,.08); border-radius:999px;
+    padding:8px 18px; margin-bottom:34px; color:#5A5B69;
+  }
+  .dir-c .pill .dot { width:8px; height:8px; border-radius:50%; background:#34C77B; animation:pulse 2s infinite; }
+  @keyframes pulse { 50%{opacity:.35} }
+  .dir-c h1 {
+    font-weight:600; font-size:clamp(46px, 6.6vw, 92px); line-height:1.06; letter-spacing:-.035em;
+    max-width:1000px; margin:0 auto;
+  }
+  .dir-c h1 .grad {
+    background:linear-gradient(92deg,#7C5CFF 0%,#FF7A59 55%,#2BB98A 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .dir-c .sub { margin:30px auto 0; font-size:18px; font-weight:300; line-height:1.6; color:#5A5B69; max-width:520px; }
+  .dir-c .ctas { margin-top:44px; display:flex; gap:14px; justify-content:center; }
+  .dir-c .btn {
+    text-decoration:none; font-size:15px; font-weight:600; padding:16px 30px; border-radius:999px;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .dir-c .btn.primary { background:#191A23; color:#fff; box-shadow:0 8px 24px rgba(25,26,35,.18); }
+  .dir-c .btn.primary:hover { transform:translateY(-2px); box-shadow:0 14px 32px rgba(25,26,35,.24); }
+  .dir-c .btn.ghost { color:#191A23; border:1.5px solid rgba(25,26,35,.16); background:rgba(255,255,255,.6); }
+  .dir-c .btn.ghost:hover { transform:translateY(-2px); background:#fff; }
+  .dir-c .cards {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+    padding:30px 48px 96px; max-width:1240px; margin:0 auto; position:relative; z-index:2;
+  }
+  .dir-c .card {
+    background:rgba(255,255,255,.82); backdrop-filter:blur(10px);
+    border:1px solid rgba(25,26,35,.07); border-radius:26px; padding:14px;
+    text-decoration:none; color:#191A23; transition:transform .25s, box-shadow .25s;
+  }
+  .dir-c .card:hover { transform:translateY(-6px); box-shadow:0 20px 44px rgba(25,26,35,.12); }
+  .dir-c .thumb { height:190px; border-radius:16px; margin-bottom:18px; }
+  .dir-c .card:nth-child(1) .thumb { background:linear-gradient(135deg,#D9CBFF,#F3EEFF); }
+  .dir-c .card:nth-child(2) .thumb { background:linear-gradient(135deg,#FFE0D1,#FFF4EE); }
+  .dir-c .card:nth-child(3) .thumb { background:linear-gradient(135deg,#CDEEE0,#F0FBF6); }
+  .dir-c .card h3 { font-size:20px; font-weight:600; letter-spacing:-.01em; padding:0 10px; }
+  .dir-c .card p { font-size:14px; color:#5A5B69; padding:6px 10px 12px; font-weight:300; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ DIRECTION A ══════════════ -->
+<div class="divider"><span>Direction A — Editorial Studio</span><span>warm paper · expressive serif · quiet confidence</span></div>
+<section class="dir-a">
+  <nav class="nav">
+    <span class="logo">Karan Gadhave</span>
+    <div class="links"><a href="#">Work</a><a href="#">About</a><a href="#">Services</a><a href="#">Contact</a></div>
+  </nav>
+  <div class="hero">
+    <p class="eyebrow">Product &amp; UX Designer — available for hire &amp; freelance</p>
+    <h1>Designing digital products people <em>actually trust.</em></h1>
+    <p class="sub">Five shipped platforms across healthcare, fintech, edtech and cybersecurity — designed end-to-end, from research to production.</p>
+    <div class="cta-row">
+      <a class="cta" href="#">See the work →</a>
+      <a class="cta mut" href="#">About me</a>
+    </div>
+    <div class="meta">
+      <div><p>Currently</p><p>Open to full-time &amp; freelance</p></div>
+      <div><p>Focus</p><p>SaaS platforms · complex systems</p></div>
+      <div><p>Based</p><p>Pune, India — working globally</p></div>
+    </div>
+  </div>
+  <div class="work">
+    <p class="work-label">Selected work</p>
+    <a class="row" href="#"><span class="n">01</span><span class="t">Lionfish Cyber Security</span><span class="tag">Platform redesign</span><span class="yr">2025</span></a>
+    <a class="row" href="#"><span class="n">02</span><span class="t">Acedboard Proconomics</span><span class="tag">Fintech · CBA tool</span><span class="yr">2025</span></a>
+    <a class="row" href="#"><span class="n">03</span><span class="t">Liffo Healthcare</span><span class="tag">Mobile · 34 screens</span><span class="yr">2024</span></a>
+  </div>
+</section>
+
+<!-- ══════════════ DIRECTION B ══════════════ -->
+<div class="divider"><span>Direction B — Swiss Grid</span><span>stark white · massive grotesque · electric structure</span></div>
+<section class="dir-b">
+  <div class="gridlines"></div>
+  <nav class="nav">
+    <span class="logo">KARAN GADHAVE®</span>
+    <div class="links"><a href="#">Work</a><a href="#">About</a><a href="#">Services</a><a href="#">Contact</a></div>
+  </nav>
+  <div class="hero">
+    <div class="tag-row">
+      <p><b>●</b> Available — Q3 2026</p>
+      <p>Product / UX Designer</p>
+      <p>Pune → Worldwide</p>
+    </div>
+    <h1>Design that<span class="l2">ships.</span></h1>
+    <div class="hero-foot">
+      <p class="desc"><b>5 platforms live in production.</b> Healthcare, fintech, edtech, cybersecurity — designed solo, end-to-end, from first research to shipped product.</p>
+      <div class="btns"><a class="btn fill" href="#">View work</a><a class="btn" href="#">Get in touch</a></div>
+    </div>
+  </div>
+  <div class="marquee"><div class="marquee-inner">UX DESIGN — PRODUCT DESIGN — DESIGN SYSTEMS — RESEARCH — UX DESIGN — PRODUCT DESIGN — DESIGN SYSTEMS — RESEARCH —&nbsp;</div></div>
+  <div class="work">
+    <a class="wrow" href="#"><span class="num">001</span><span class="name">Lionfish</span><span class="cat">Cybersecurity · Redesign</span><span class="arr">→</span></a>
+    <a class="wrow" href="#"><span class="num">002</span><span class="name">Proconomics</span><span class="cat">Fintech · SaaS</span><span class="arr">→</span></a>
+    <a class="wrow" href="#"><span class="num">003</span><span class="name">Liffo</span><span class="cat">Healthcare · Mobile</span><span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- ══════════════ DIRECTION C ══════════════ -->
+<div class="divider"><span>Direction C — Soft Product</span><span>airy gradients · rounded · friendly warmth</span></div>
+<section class="dir-c">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <nav class="nav">
+    <span class="logo">karan.design</span>
+    <div class="links"><a href="#">Work</a><a href="#">About</a><a href="#">Services</a><a href="#">Contact</a></div>
+  </nav>
+  <div class="hero">
+    <div class="pill"><span class="dot"></span> Available for new projects</div>
+    <h1>Turning complex products into <span class="grad">experiences people love.</span></h1>
+    <p class="sub">I'm Karan — a product designer who takes messy, complicated platforms and makes them feel simple. Five products shipped and live.</p>
+    <div class="ctas">
+      <a class="btn primary" href="#">Explore my work</a>
+      <a class="btn ghost" href="#">Let's talk ↗</a>
+    </div>
+  </div>
+  <div class="cards">
+    <a class="card" href="#"><div class="thumb"></div><h3>Lionfish Cyber Security</h3><p>Full platform redesign — multi-tenant SaaS, live in production</p></a>
+    <a class="card" href="#"><div class="thumb"></div><h3>Acedboard Proconomics</h3><p>A cost-benefit analysis engine inside a PM tool</p></a>
+    <a class="card" href="#"><div class="thumb"></div><h3>Liffo Healthcare</h3><p>End-to-end mobile healthcare for India — 34 screens</p></a>
+  </div>
+</section>
+
+</body>
+</html>

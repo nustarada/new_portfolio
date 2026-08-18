@@ -1,0 +1,16 @@
+[1G[0K⠙[1G[0K
+> rest-express@1.0.0 dev
+> NODE_ENV=development tsx server/index.ts
+
+[1G[0K⠙[1G[0K5:34:26 AM [express] Validating environment variables...
+5:34:26 AM [express] ✓ Environment: development
+5:34:26 AM [express] ✓ Database URL configured
+5:34:26 AM [express] Environment validation completed.
+5:34:26 AM [express] Starting server in development mode...
+5:34:26 AM [express] Attempting to bind to 0.0.0.0:5000
+5:34:26 AM [express] ✓ Server successfully started and listening on 0.0.0.0:5000
+5:34:26 AM [express] ✓ Environment: development
+5:34:26 AM [express] ✓ Process ID: 208
+Browserslist: browsers data (caniuse-lite) is 19 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme

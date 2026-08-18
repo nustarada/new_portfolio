@@ -1,0 +1,19 @@
+Add Acedboard Proconomics Module case study
+
+New project: Acedboard — Proconomics Module (cost-benefit analysis tool
+inside a project management SaaS platform).
+
+Files added/changed:
+- attached_assets/acedboard_thumbnail.svg — dark-themed CBA dashboard
+  SVG thumbnail (costs/benefits bars, ROI stat, breakdown list)
+- client/src/pages/acedboard-case-study.tsx — full 10-section case study
+  (00 Overview → 09 Reflection) with:
+  · Layout B sidebar (emerald #10b981 accent, 5 meta fields)
+  · 3 hand-drawn SVG wireframes: input form, analysis dashboard,
+    decision summary
+  · Full UX process narrative: PM interviews, workflow audit, 3
+    structural options explored, 5 key design decisions, 3 testing rounds
+  · Outcomes: –62% time to CBA, 89% task completion, 0 external tools
+- client/src/App.tsx — /acedboard-case-study route registered
+- client/src/pages/home.tsx — Acedboard added to projects array with
+  SVG thumbnail import, full metadata, and case study URL

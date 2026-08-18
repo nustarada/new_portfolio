@@ -4,29 +4,23 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-
-
-import { ScrollIndicator } from "@/components/scroll-indicator";
 import Home from "@/pages/home";
-import ProjectDetail from "@/pages/project-detail";
 import FutureFirstFamiliesCaseStudy from "@/pages/future-first-families-case-study";
 import LiffoCaseStudy from "@/pages/liffo-case-study";
 import TwoHourLearningCaseStudy from "@/pages/2hour-learning-case-study";
 import AcedboardCaseStudy from "@/pages/acedboard-case-study";
-
+import LionfishCaseStudy from "@/pages/lionfish-case-study";
 import NotFound from "@/pages/not-found";
-import Preview from "@/pages/preview";
 
 function Routes() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/preview" component={Preview} />
-      <Route path="/project/:id" component={ProjectDetail} />
-      <Route path="/fff-case-study" component={FutureFirstFamiliesCaseStudy} />
+      <Route path="/lionfish-case-study" component={LionfishCaseStudy} />
+      <Route path="/acedboard-case-study" component={AcedboardCaseStudy} />
       <Route path="/liffo-case-study" component={LiffoCaseStudy} />
       <Route path="/2hour-learning-case-study" component={TwoHourLearningCaseStudy} />
-      <Route path="/acedboard-case-study" component={AcedboardCaseStudy} />
+      <Route path="/fff-case-study" component={FutureFirstFamiliesCaseStudy} />
       <Route>
         <NotFound />
       </Route>
@@ -38,13 +32,8 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <div className="dark">
-
-          <ScrollIndicator />
-
-          <Toaster />
-          <Routes />
-        </div>
+        <Toaster />
+        <Routes />
       </TooltipProvider>
     </QueryClientProvider>
   );

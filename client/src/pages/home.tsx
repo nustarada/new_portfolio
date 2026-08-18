@@ -1,1432 +1,221 @@
-import { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { Button } from "@/components/ui/button";
-
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
+import { useReveal } from "@/components/case-study/template";
+import { PageFooter } from "@/components/case-study/template";
+import "@/styles/portfolio.css";
 
-import { LiquidGrid } from "@/components/liquid-grid";
-import { MovingRibbon } from "@/components/moving-ribbon";
-import ResumeSection from "@/components/resume-section";
-// Removed old logo PDF import
-import futureFirstFamiliesThumbnail from "@assets/FutureFirstFamilies_thumbnail_1770103573837.png";
-import liffoThumbnail from "@assets/Liffo_thumbnail_1770103573838.png";
-import LogoImage from "@assets/Logo white_1754674219191.png";
-import fffLogo from "@assets/FFF_Logo_1754475239613.png";
-import liffoLogo from "@assets/Liffo_logo_1754475239620.png";
-import linkedinLogo from "@assets/linkedin 1_1756620179383.png";
-import twoHourLearningThumbnail from "@assets/2_Hour_Learning_thumbnail_1770103573825.png";
-import twoHourLearningLogo from "@assets/2HL Logo_1756637716101.png";
-import cybersecurityThumbnail from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.png";
-import cybersecurityLogo from "@assets/lionfish_logo_1770107402256.png";
-import acedboardThumbnail from "@assets/acedboard_thumbnail.svg";
-import {
-  Terminal,
-  Sparkles,
-  Brain,
-  Zap,
-  Code2,
-  Palette,
-  Database,
-  Layers,
-  Users,
-  Clock,
-  Target,
-  ArrowUpRight,
-  Mail,
-  Github,
-  Linkedin,
-  Download,
-  Eye,
-  User,
-  Briefcase,
-  MessageSquare,
-  Shield,
-  Send,
-  ArrowRight,
-  ArrowLeft,
-  Rocket,
-  Lightbulb,
-  X,
-  MapPin,
-  FileText,
-  Heart,
-  Grid,
-  Search,
-  Trophy,
-  Phone,
-  Award,
-  Folder,
-  Package,
-  Wallpaper,
-} from "lucide-react";
+import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.png";
+import lionfishThumb from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.png";
+import acedboardThumb from "@assets/acedboard_thumbnail.svg";
+import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.png";
+import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.png";
+
+type Work = { href: string; n: string; title: string; tag: string; year: string; img: string };
+
+const WORK: Work[] = [
+  { href: "/lionfish-case-study",       n: "01", title: "Lionfish Cyber Security", tag: "Cybersecurity · Platform redesign", year: "2025", img: lionfishThumb },
+  { href: "/acedboard-case-study",      n: "02", title: "Acedboard Proconomics",   tag: "Fintech · CBA engine",              year: "2025", img: acedboardThumb },
+  { href: "/liffo-case-study",          n: "03", title: "Liffo Healthcare",        tag: "Healthcare · Mobile, 34 screens",   year: "2024", img: liffoThumb },
+  { href: "/2hour-learning-case-study", n: "04", title: "2 Hour Learning",         tag: "EdTech · B2B page system",          year: "2025", img: twoHLThumb },
+  { href: "/fff-case-study",            n: "05", title: "Future First Families",   tag: "Advocacy · Conversion design",      year: "2025", img: fffThumb },
+];
 
 export default function Home() {
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  const [activeSection, setActiveSection] = useState("");
-  const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
+  useReveal();
+  const [scrolled, setScrolled] = useState(false);
+  const cursor = useRef<HTMLDivElement>(null);
+  const preview = useRef<HTMLDivElement>(null);
+  const previewImg = useRef<HTMLImageElement>(null);
+  const magWrap = useRef<HTMLDivElement>(null);
+  const mag = useRef<HTMLAnchorElement>(null);
 
-  const [waveIntensity, setWaveIntensity] = useState(0.3);
-  const [isResumeOpen, setIsResumeOpen] = useState(false);
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
+  /* nav state */
   useEffect(() => {
-    let ticking = false;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          setCursorPos({ x: e.clientX, y: e.clientY });
-
-          // Update liquid wave position for hero section
-          if (heroRef.current) {
-            const rect = heroRef.current.getBoundingClientRect();
-            const isInHero = e.clientY >= rect.top && e.clientY <= rect.bottom;
-
-            if (isInHero) {
-              const x = Math.max(
-                0,
-                Math.min(100, ((e.clientX - rect.left) / rect.width) * 100),
-              );
-              const y = Math.max(
-                0,
-                Math.min(100, ((e.clientY - rect.top) / rect.height) * 100),
-              );
-
-              setMousePos({ x, y });
-              setWaveIntensity(1);
-              heroRef.current.style.setProperty("--mouse-x", `${x}%`);
-              heroRef.current.style.setProperty("--mouse-y", `${y}%`);
-            } else {
-              setWaveIntensity(0.3);
-            }
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    const handleScroll = () => {
-      const sections = ["hero", "about", "projects", "expertise", "contact"];
-      const scrollPos = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPos >= offsetTop && scrollPos < offsetTop + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("scroll", handleScroll);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const projects = [
-    {
-      title: "Enterprise Cybersecurity Platform Redesign",
-      subtitle: "End-to-end redesign of a complex, role-based cybersecurity web platform focused on system structure, workflows, and usability.",
-      description:
-        "End-to-end redesign of a complex, role-based cybersecurity web platform focused on system structure, workflows, and usability.",
-      detailedDescription:
-        "Due to client confidentiality, detailed screens and system architecture are intentionally limited. This project highlights platform-level thinking, UX decisions, and system design.",
-      image: cybersecurityThumbnail,
-      logo: cybersecurityLogo,
-      liveUrl: undefined,
-      caseStudyUrl: undefined,
-      isComingSoon: true,
-      isConfidential: true,
-      tags: [
-        "Enterprise UX",
-        "System Redesign",
-        "Web Platform",
-        "Cybersecurity",
-      ],
-      year: "2025",
-      category: "Platform Redesign",
-      role: "Lead Product Designer",
-      services: "Platform Redesign",
-      industry: "Enterprise Cybersecurity",
-      platform: "Web Platform",
-      outcomes: [
-        "Comprehensive platform restructuring",
-        "Improved role-based workflows",
-        "Enhanced usability across complex systems",
-      ],
-      keyFeatures: [
-        "Role-based access control design",
-        "Complex workflow optimization",
-        "System architecture improvements",
-        "Usability enhancements for enterprise users",
-      ],
-      techStack: ["Figma", "Enterprise UX", "System Design"],
-      duration: "8 Weeks",
-      process: [
-        "Platform audit and stakeholder interviews",
-        "System structure analysis",
-        "Workflow redesign and optimization",
-        "Role-based experience mapping",
-        "Usability testing and iteration",
-      ],
-    },
-    {
-      title: "Future First Families: Gamified Educational Platform for Parents",
-      subtitle: "AI-Enhanced Learning Platform",
-      description:
-        "An innovative AI learning platform empowering parents and students with personalized educational experiences through gamified, user-friendly design and intelligent content adaptation.",
-      detailedDescription:
-        "Designed and developed the entire platform from ground up, combining AI-driven learning with gamification to create an engaging educational experience that increased learning outcomes by 30% and achieved 4× higher user retention.",
-      image: futureFirstFamiliesThumbnail,
-      logo: fffLogo,
-      liveUrl: "https://futurefirstfamilies.com/",
-      caseStudyUrl: "/fff-case-study",
-      tags: [
-        "AI Learning",
-        "Gamification",
-        "React",
-        "UX Research",
-        "Full-Stack",
-      ],
-      year: "2025",
-      category: "AI Learning Platform",
-      role: "UX Research, Design System, Full Development",
-      services: "Web Design & Development",
-      outcomes: [
-        "30% increase in completed actions within first month",
-        "4× higher user retention vs previous system",
-        "1500+ parents onboarded in first 3 weeks",
-        "Significant improvement in action tracking and admin workflow",
-      ],
-      keyFeatures: [
-        "Combined Monthly Action and Activity Hub into single tab-based experience",
-        "Milestone-based reward system for completing actions",
-        "Referral leaderboard to encourage viral growth",
-        "Simple admin dashboard for content management",
-        "Accessibility features including light/dark modes and clean typography",
-      ],
-      techStack: ["React", "JavaScript", "Responsive Design", "Accessibility"],
-      duration: "4 Weeks",
-      process: [
-        "Conducted interviews with advocacy organizers",
-        "Created user flows and low-fidelity wireframes",
-        "Designed high-fidelity mockups and reusable design system",
-        "Developed platform using React with modern tooling",
-        "Integrated gamification, referrals, and accessibility features",
-        "Tested and refined based on team feedback",
-      ],
-    },
-    {
-      title: "Liffo: Emergency Health Services",
-      subtitle: "Emergency Health Services Platform",
-      description:
-        "A unified emergency health services platform providing fast, reliable access to critical healthcare including ambulance booking, doctor consultations, lab tests, and medicine delivery.",
-      detailedDescription:
-        "Led the end-to-end design process for a comprehensive healthcare platform that closes the gap between patients and healthcare providers through emergency-first design principles and comprehensive service integration.",
-      image: liffoThumbnail,
-      logo: liffoLogo,
-      liveUrl: "#",
-      caseStudyUrl: "/liffo-case-study",
-      tags: [
-        "Healthcare",
-        "Emergency Services",
-        "Mobile Design",
-        "UI/UX Design",
-      ],
-      year: "2025",
-      category: "Healthcare Platform",
-      role: "Lead Product Designer",
-      services: "Mobile App Design",
-      outcomes: [
-        "87% faster service booking compared to traditional methods",
-        "95% user satisfaction rate for emergency service accessibility",
-        "60% reduction in time to access healthcare services",
-        "Comprehensive emergency-first design system implementation",
-      ],
-      keyFeatures: [
-        "Real-time ambulance booking with location tracking",
-        "Doctor consultation system with specialist selection",
-        "Premium Elite Doctor services with faster access",
-        "Home care services for post-surgical and chronic care",
-        "Insurance claim filing and tracking integration",
-        "AI-powered chatbot for 24/7 critical help",
-      ],
-      techStack: [
-        "Figma",
-        "React Native",
-        "Node.js",
-        "MongoDB",
-        "Healthcare APIs",
-      ],
-      duration: "13 Weeks",
-      process: [
-        "Conducted user research and competitive analysis",
-        "Created wireframes and interactive prototypes",
-        "Designed comprehensive visual system",
-        "Implemented emergency-first design principles",
-        "Conducted usability testing with healthcare professionals",
-        "Iterated based on user feedback and analytics",
-      ],
-    },
-    {
-      title: "2 Hour Learning: Lead Gen Landing Pages",
-      subtitle: "Persona-Driven Lead Generation",
-      description:
-        "A comprehensive landing page design system for 2 Hour Learning featuring targeted designs for different educational personas including parents, students, educators, and institutions.",
-      detailedDescription:
-        "Created a cohesive set of 4 specialized landing pages targeting different segments of the education market, each optimized for specific user personas and conversion goals while maintaining brand consistency and visual excellence.",
-      image: twoHourLearningThumbnail,
-      logo: twoHourLearningLogo,
-      liveUrl: "https://2hourlearning.com/",
-      caseStudyUrl: "/2hour-learning-case-study",
-      tags: [
-        "Landing Pages",
-        "Education",
-        "Conversion Design",
-        "HubSpot",
-        "WordPress",
-      ],
-      year: "2025",
-      category: "Landing Page Design",
-      role: "Lead UI/UX Designer",
-      services: "Landing Page Design & Strategy",
-      industry: "AI Learning Platform",
-      outcomes: [
-        "4 targeted landing pages for different personas",
-        "Consistent brand experience across all touchpoints",
-        "Optimized conversion funnels for each user type",
-        "Strategic messaging tailored to specific audiences",
-      ],
-      keyFeatures: [
-        "Persona-driven design approach for students, educators, and institutions",
-        "Consistent blue brand palette with professional typography",
-        "Conversion-optimized layouts with strategic CTAs",
-        "Responsive design system across all 4 pages",
-        "Integration with HubSpot and WordPress platforms",
-        "Data-driven testimonials and social proof elements",
-      ],
-      techStack: ["Figma", "HubSpot", "WordPress", "Responsive Design"],
-      duration: "4 Weeks",
-      process: [
-        "Analyzed target personas and conversion requirements",
-        "Created wireframes and user journey mapping",
-        "Designed comprehensive visual system and brand guidelines",
-        "Developed high-fidelity designs for all 4 landing pages",
-        "Optimized for conversion with strategic messaging and CTAs",
-        "Delivered production-ready designs for development",
-      ],
-    },
-    {
-      title: "Acedboard: Proconomics Module",
-      subtitle: "Cost-Benefit Analysis Tool for Project Managers",
-      description:
-        "Designed a cost-benefit analysis module embedded inside Acedboard — a project management platform — that lets PMs run financial justification without ever leaving their workflow.",
-      detailedDescription:
-        "The Proconomics Module transforms how project managers justify decisions. With a structured input form, live ROI preview, analysis dashboard, and stakeholder-ready export, PMs can produce a complete cost-benefit analysis in under 20 minutes — inside the tool they already use.",
-      image: acedboardThumbnail,
-      logo: undefined,
-      liveUrl: undefined,
-      caseStudyUrl: "/acedboard-case-study",
-      isComingSoon: false,
-      isConfidential: false,
-      tags: [
-        "Product Design",
-        "SaaS",
-        "Financial UX",
-        "Project Management",
-      ],
-      year: "2025",
-      category: "SaaS Feature Design",
-      role: "Product Designer",
-      services: "Feature Design · UX Research",
-      industry: "Project Management SaaS",
-      platform: "Web (SaaS)",
-      outcomes: [
-        "62% reduction in time to produce a financial justification",
-        "89% task completion rate in usability testing",
-        "3/3 approvers said the export format improved trust",
-        "Zero external tools required for a full cost-benefit analysis",
-      ],
-      keyFeatures: [
-        "Structured cost and benefit input with named categories",
-        "Live ROI preview that updates as values are entered",
-        "Mandatory assumption fields for every benefit item",
-        "Automatic sensitivity analysis for highest-impact variable",
-        "Stakeholder-ready PDF/link export in PM language",
-        "Direct connection to the Acedboard project board",
-      ],
-      techStack: ["Figma", "FigJam", "Maze", "Web (SaaS)"],
-      duration: "8 Weeks",
-      process: [
-        "7 PM interviews + 4 approver interviews to understand the real problem",
-        "Workflow audit — timed 3 PMs through their existing CBA process",
-        "Explored 3 structural approaches, selected structured form + live preview",
-        "5 key design decisions including mandatory assumption fields",
-        "3 rounds of usability testing across 15 participants",
-        "Iterated on benefit categories, chart clarity, and export format",
-      ],
-    },
-  ];
+  /* cursor + hover preview follow */
+  useEffect(() => {
+    if (window.matchMedia("(pointer:coarse)").matches) return;
+    let cx = -100, cy = -100, tx = -100, ty = -100, px = 0, py = 0;
+    const onMove = (e: MouseEvent) => { tx = e.clientX; ty = e.clientY; };
+    window.addEventListener("mousemove", onMove);
+    let raf = 0;
+    const loop = () => {
+      cx += (tx - cx) * 0.18; cy += (ty - cy) * 0.18;
+      px += (tx - px) * 0.12; py += (ty - py) * 0.12;
+      if (cursor.current) { cursor.current.style.left = `${cx}px`; cursor.current.style.top = `${cy}px`; }
+      if (preview.current) { preview.current.style.left = `${px}px`; preview.current.style.top = `${py}px`; }
+      raf = requestAnimationFrame(loop);
+    };
+    loop();
+    return () => { window.removeEventListener("mousemove", onMove); cancelAnimationFrame(raf); };
+  }, []);
 
-  const skills = [
-    { name: "AI Integration", level: 95, icon: Brain },
-    { name: "Design Systems", level: 92, icon: Layers },
-    { name: "User Research", level: 88, icon: Users },
-    { name: "Product Strategy", level: 90, icon: Target },
-    { name: "Prototyping", level: 87, icon: Zap },
-    { name: "Data Visualization", level: 85, icon: Database },
-  ];
+  /* magnetic contact button */
+  useEffect(() => {
+    const wrap = magWrap.current, btn = mag.current;
+    if (!wrap || !btn || window.matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+    const move = (e: MouseEvent) => {
+      const r = wrap.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+      btn.style.transform = `translate(${dx * 0.28}px, ${dy * 0.34}px)`;
+    };
+    const leave = () => {
+      btn.style.transition = "transform .5s cubic-bezier(.16,1,.3,1), background .3s";
+      btn.style.transform = "translate(0,0)";
+      setTimeout(() => { if (btn) btn.style.transition = "background .3s"; }, 500);
+    };
+    wrap.addEventListener("mousemove", move);
+    wrap.addEventListener("mouseleave", leave);
+    return () => { wrap.removeEventListener("mousemove", move); wrap.removeEventListener("mouseleave", leave); };
+  }, []);
+
+  const enterRow = (img: string) => {
+    if (previewImg.current) previewImg.current.src = img;
+    preview.current?.classList.add("on");
+    cursor.current?.classList.add("big");
+    if (cursor.current) cursor.current.textContent = "View";
+  };
+  const leaveRow = () => {
+    preview.current?.classList.remove("on");
+    cursor.current?.classList.remove("big");
+    if (cursor.current) cursor.current.textContent = "";
+  };
 
   return (
-    <div
-      className="min-h-screen bg-background text-foreground relative overflow-hidden"
-      style={{ backgroundColor: "#040406", color: "#fafafa" }}
-    >
-      {/* Scroll Progress */}
-      <motion.div className="scroll-indicator" style={{ scaleX }} />
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-[100] glass-card grain-texture border-b border-white/20">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center relative">
-          {/* Logo - Left */}
-          <motion.div
-            className="flex items-center"
-            whileHover={{ scale: 1.05 }}
-          >
-            <img
-              src={LogoImage}
-              alt="Karan Gadhave Logo"
-              className="h-16 w-16 object-contain"
-            />
-          </motion.div>
+    <div className="pf" style={{ minHeight: "100vh" }}>
+      <div className="pf-cursor" ref={cursor} />
+      <div className="pf-preview" ref={preview}><img ref={previewImg} src={liffoThumb} alt="" /></div>
 
-          {/* Navigation - Center */}
-          <div className="hidden md:flex items-center space-x-8 text-[#ffffff] absolute left-1/2 transform -translate-x-1/2">
-            {["About", "Projects"].map((item) => (
-              <motion.a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-sm font-semibold transition-colors hover:text-primary jost-secondary opacity-80 text-[#ffffff]"
-                whileHover={{ y: -2 }}
-              >
-                {item}
-              </motion.a>
-            ))}
-            <motion.button
-              onClick={() => setIsResumeOpen(true)}
-              className="text-sm font-semibold transition-colors hover:text-primary text-foreground opacity-80 jost-secondary"
-              whileHover={{ y: -2 }}
-            >
-              Resume
-            </motion.button>
-          </div>
-
-          {/* Contact Button - Right */}
-          <motion.div
-            className="ml-auto"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <button
-              onClick={() => {
-                const contactSection = document.getElementById("contact");
-                contactSection?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="relative group h-10 px-4 text-white font-semibold cta-button border-0 text-sm"
-            >
-              <div className="relative z-10 flex items-center space-x-2 jost-secondary">
-                <Mail className="w-4 h-4" />
-                <span>Contact Me</span>
-              </div>
-            </button>
-          </motion.div>
+      <nav className={`pf-nav${scrolled ? " scrolled" : ""}`}>
+        <Link href="/"><a className="logo">Karan Gadhave</a></Link>
+        <div className="links">
+          <a href="#work">Work</a><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a>
         </div>
       </nav>
-      {/* Hero Section */}
-      <section
-        ref={heroRef}
-        id="hero"
-        className="min-h-screen flex items-center justify-center relative cyber-grid pt-40 pb-8 group"
-        style={
-          {
-            "--mouse-x": `${mousePos.x}%`,
-            "--mouse-y": `${mousePos.y}%`,
-            "--wave-intensity": waveIntensity,
-          } as React.CSSProperties
-        }
-      >
-        <LiquidGrid
-          mouseX={mousePos.x}
-          mouseY={mousePos.y}
-          intensity={waveIntensity}
-        />
 
-        {/* Subtle Grid Background - Hover Interactive */}
-        <div className="absolute inset-0 pointer-events-none z-[1]">
-          {/* Hover Glow Effect */}
-          <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-          {/* Main Grid Lines - Hidden on mobile, visible on hover for desktop */}
-          <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <div className="hidden md:block absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-          {/* Mobile - Very subtle grid */}
-          <div className="md:hidden absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/5 to-transparent" />
-          <div className="md:hidden absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/3 to-transparent" />
+      {/* ── HERO ── */}
+      <header className="pf-home-hero pf-wrap">
+        <p className="pf-eyebrow pf-mask"><span><span className="pf-dot" />Product &amp; UX Designer — available for hire &amp; freelance</span></p>
+        <h1>
+          <span className="pf-mask" style={{ ["--d" as any]: ".08s" }}><span>Designing digital</span></span>
+          <span className="pf-mask" style={{ ["--d" as any]: ".18s" }}><span>products people</span></span>
+          <span className="pf-mask" style={{ ["--d" as any]: ".28s" }}><span><em className="pf-em">actually trust.</em></span></span>
+        </h1>
+        <p data-reveal style={{ marginTop: 42, fontSize: 17, lineHeight: 1.65, color: "var(--soft)", maxWidth: 470, ["--d" as any]: ".5s" }}>
+          Five shipped platforms across healthcare, fintech, edtech and cybersecurity — designed end-to-end, from first research to production.
+        </p>
+        <div style={{ marginTop: 54, display: "flex", gap: 38, alignItems: "center", flexWrap: "wrap", ["--d" as any]: ".62s" }} data-reveal>
+          <a className="pf-cta" href="#work">See the work →</a>
+          <a className="pf-cta mut" href="#about">About me</a>
         </div>
-        <div className="max-w-5xl mx-auto px-8 md:px-6 text-center relative z-20 w-full">
-          {/* Status Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden flex justify-center mb-6 md:mb-8"
-          >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <a
-                href="https://www.pitchcraft.global/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block"
-              >
-                <Badge
-                  variant="outline"
-                  className="text-sm py-3 glass-card grain-texture text-white font-semibold tracking-wider hover:glass-intense transition-all duration-500 jost-secondary cursor-pointer group/badge relative overflow-hidden"
-                >
-                  <div className="flex items-center px-6 group-hover/badge:px-6 transition-all duration-500">
-                    <span className="whitespace-nowrap">
-                      Powered by pitchcraft.global
-                    </span>
-                    <ArrowRight className="w-4 h-4 ml-2 text-primary flex-shrink-0" />
-                  </div>
-                </Badge>
+        <div style={{ marginTop: 100, display: "flex", gap: 64, paddingTop: 28, borderTop: "1px solid var(--line)", flexWrap: "wrap", ["--d" as any]: ".74s" }} data-reveal>
+          {[["Currently", "Open to full-time & freelance"], ["Focus", "SaaS platforms · complex systems"], ["Based", "Pune, India — working globally"]].map(([k, v]) => (
+            <div key={k}>
+              <p style={{ font: "500 11px 'Space Mono',monospace", letterSpacing: ".18em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 8 }}>{k}</p>
+              <p style={{ fontSize: 15 }}>{v}</p>
+            </div>
+          ))}
+        </div>
+      </header>
+
+      {/* ── WORK ── */}
+      <section id="work" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 40 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 26 }} data-reveal>
+          <p className="pf-label">Selected work</p>
+          <p style={{ font: "400 13px 'Space Mono',monospace", color: "var(--mut)" }}>2024 — 2026</p>
+        </div>
+        <div className="pf-worklist">
+          {WORK.map((w, i) => (
+            <Link href={w.href} key={w.href}>
+              <a className="pf-row" data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}
+                 onMouseEnter={() => enterRow(w.img)} onMouseLeave={leaveRow}>
+                <span className="n">{w.n}</span>
+                <span className="t">{w.title}</span>
+                <span className="tag">{w.tag}</span>
+                <span className="yr">{w.year}</span>
               </a>
-            </motion.div>
-          </motion.div>
-
-          {/* Open for Work Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex justify-center mb-4"
-          >
-            <Badge
-              variant="outline"
-              className="px-4 py-1.5 glass-card grain-texture text-white/90 font-medium tracking-wide border-emerald-500/50 hover:border-emerald-400 transition-all duration-300 jost-secondary"
-            >
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-                <span className="text-sm">Open for Work</span>
-              </div>
-            </Badge>
-          </motion.div>
-
-          {/* Name with Bold Display */}
-          <motion.div
-            className="space-y-4 mb-6 md:mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold text-white tracking-wide leading-tight hero-text-hover flex justify-center">
-              <span className="text-gray-200 albert-sans-medium blend-mode-overlay">
-                KARAN GADHAVE
-              </span>
-            </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-400 mx-auto"></div>
-          </motion.div>
-
-          {/* Title/Role */}
-          <motion.div
-            className="space-y-3 mb-6 md:mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-          >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight albert-sans-medium">
-              <span className="text-white">SENIOR </span>
-              <span className="glow-text">PRODUCT DESIGNER</span>
-            </h2>
-          </motion.div>
-
-          {/* Compact Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.3 }}
-            className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto font-normal jost-secondary mb-8"
-          >5+ years turning complex problems into launch-ready products through research-driven UX, clear information architecture, and iterative design - supported by modern tools.</motion.p>
-
-          {/* Responsive Action Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pt-8 w-full max-w-lg mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.6 }}
-          >
-            <motion.div
-              whileHover={{ scale: 1.08, y: -4 }}
-              whileTap={{ scale: 0.95 }}
-              className="group/hero-cta w-full sm:w-auto"
-            >
-              <Button
-                size="lg"
-                onClick={() => {
-                  const projectsSection = document.getElementById("projects");
-                  projectsSection?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="relative overflow-hidden w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-6 text-base sm:text-lg font-bold text-white cta-button grain-texture border-0 hover:scale-105 min-h-[56px] jost-secondary"
-              >
-                {/* Animated Background */}
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/hero-cta:translate-x-full transition-transform duration-700" />
-
-                {/* Pulsing Ring */}
-                <div className="absolute inset-0 border-2 border-white/30 opacity-0 group-hover/hero-cta:opacity-100 group-hover/hero-cta:scale-110 transition-all duration-500" />
-
-                <div className="relative z-10 flex items-center justify-center space-x-2 sm:space-x-3">
-                  <ArrowUpRight className="w-4 h-4 sm:w-6 sm:h-6 group-hover/hero-cta:rotate-45 transition-transform duration-300" />
-                  <span className="text-sm sm:text-lg font-semibold">
-                    View My Work
-                  </span>
-                </div>
-              </Button>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="group/secondary w-full sm:w-auto"
-            >
-              <Button
-                size="lg"
-                onClick={() => setIsResumeOpen(true)}
-                className="relative overflow-hidden w-full sm:w-auto px-6 sm:px-10 py-4 text-base sm:text-lg font-semibold text-white glass-card grain-texture hover:glass-intense border-primary/50 transition-all duration-300 hover:scale-105 min-h-[56px] jost-secondary"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover/secondary:opacity-100 transition-opacity duration-300" />
-
-                <div className="relative z-10 flex items-center justify-center space-x-2">
-                  <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="text-sm sm:text-lg font-medium">Resume</span>
-                </div>
-              </Button>
-            </motion.div>
-          </motion.div>
+            </Link>
+          ))}
         </div>
       </section>
-      {/* Moving Skills Ribbon */}
-      <MovingRibbon />
-      {/* Statistics Section */}
-      <section className="py-12 relative overflow-hidden">
-        {/* Elegant Background */}
-        <div className="absolute inset-0 grain-texture">
-          <div className="absolute inset-0 bg-gradient-to-br from-background/98 via-background/95 to-background/98" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/12 blur-3xl animate-pulse" />
-        </div>
 
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-10"
-          >
-            <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-white albert-sans-medium"
-              initial={{ scale: 0.9 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              ACHIEVEMENTS
-            </motion.h2>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed jost-secondary">
-              Measurable impact through product design, systems thinking, and execution
+      {/* ── ABOUT ── */}
+      <section id="about" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 40 }}>
+        <div style={{ marginBottom: 26 }} data-reveal><p className="pf-label">About</p></div>
+        <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 80, alignItems: "start" }} className="pf-about-grid">
+          <p className="pf-bigline" data-reveal>
+            I take messy, complicated platforms — the ones with roles, rules and legacy — and make them feel <em className="pf-em">simple, considered and calm.</em>
+          </p>
+          <div data-reveal style={{ ["--d" as any]: ".15s" }}>
+            <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--soft)", marginBottom: 18 }}>
+              I'm Karan — a product designer who works end-to-end: research, architecture, systems, UI, and the awkward questions in between.
             </p>
-          </motion.div>
-
-          {/* Achievement Stats - 2x2 Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {[
-              {
-                number: "40+",
-                label: "Products & Platforms Designed",
-                description: "Web and mobile SaaS products across B2B and consumer domains",
-                icon: Folder,
-                iconColor: "text-emerald-400",
-                bgColor: "from-emerald-500/20 to-emerald-600/20",
-              },
-              {
-                number: "",
-                label: "Cross-functional Design Leadership",
-                description: "Partnered with PMs, engineers, founders, and stakeholders",
-                icon: Users,
-                iconColor: "text-violet-400",
-                bgColor: "from-violet-500/20 to-violet-600/20",
-              },
-              {
-                number: "",
-                label: "Faster Design Cycles",
-                description: "Reduced iteration time through design systems and reusable components",
-                icon: Zap,
-                iconColor: "text-amber-400",
-                bgColor: "from-amber-500/20 to-amber-600/20",
-              },
-              {
-                number: "",
-                label: "High Client & Stakeholder Satisfaction",
-                description: "Delivered scalable, production-ready user experiences",
-                icon: Award,
-                iconColor: "text-orange-400",
-                bgColor: "from-orange-500/20 to-orange-600/20",
-              },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <Card className="relative overflow-hidden p-4 sm:p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30 h-full">
-                  {/* Background Effects */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-cyan-400/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                  {/* Content - Responsive Layout */}
-                  <div className="relative z-10">
-                    {/* Mobile: Vertical Layout */}
-                    <div className="block sm:hidden text-center space-y-3">
-                      <div
-                        className={`w-12 h-12 bg-gradient-to-br ${stat.bgColor} border border-white/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300`}
-                      >
-                        <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
-                      </div>
-                      <div>
-                        {stat.number && (
-                          <span className="text-2xl sm:text-3xl font-black text-primary albert-sans-medium block">
-                            {stat.number}
-                          </span>
-                        )}
-                        <h3 className={`text-white font-bold jost-secondary ${stat.number ? 'text-sm sm:text-base mt-1' : 'text-base sm:text-lg'}`}>
-                          {stat.label}
-                        </h3>
-                        <p className="text-white/60 text-xs sm:text-sm jost-secondary mt-1">
-                          {stat.description}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Tablet & Desktop: Horizontal Layout */}
-                    <div className="hidden sm:flex items-center space-x-4">
-                      <div
-                        className={`w-12 h-12 bg-gradient-to-br ${stat.bgColor} border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                      >
-                        <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-baseline space-x-3 mb-1">
-                          {stat.number && (
-                            <span className="text-2xl lg:text-3xl font-black text-primary albert-sans-medium">
-                              {stat.number}
-                            </span>
-                          )}
-                          <h3 className={`text-white font-bold jost-secondary ${stat.number ? 'text-sm lg:text-base' : 'text-base lg:text-lg'}`}>
-                            {stat.label}
-                          </h3>
-                        </div>
-                        <p className="text-white/60 text-xs lg:text-sm jost-secondary">
-                          {stat.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+            <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--soft)" }}>
+              Recent work spans a multi-tenant cybersecurity platform redesigned solo and shipped to production, a cost-benefit engine inside a project tool, and an emergency-first healthcare app for India.
+            </p>
           </div>
         </div>
-      </section>
-      {/* Projects Section */}
-      <section id="projects" className="py-16 relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <div className="relative inline-block mb-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white relative z-10 albert-sans-medium">
-                FEATURED PROJECTS
-              </h2>
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", marginTop: 70, borderTop: "1px solid var(--line)" }} className="pf-stats">
+          {[["0", "5", "Platforms shipped"], ["0", "4", "Industries — health · fintech · edtech · security"], ["100", "%", "End-to-end — research to production"]].map(([a, b, l], i) => (
+            <div className="pf-stat" key={l} data-reveal style={{ ["--d" as any]: `${i * 0.1}s`, padding: "30px 24px 8px 0", borderRight: i < 2 ? "1px solid var(--line)" : "none" }}>
+              <p className="num">{a}<em className="pf-em">{b}</em></p>
+              <p style={{ font: "500 11px 'Space Mono',monospace", letterSpacing: ".16em", textTransform: "uppercase", color: "var(--mut)", marginTop: 10 }}>{l}</p>
             </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed jost-secondary">A curated set of product designs solving complex problems across platforms and systems.</p>
-          </motion.div>
-
-          {/* 2x2 Grid Project Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group h-full"
-              >
-                <Card className="relative overflow-hidden glass-card grain-texture hover:glass-intense border border-white/20 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 group-hover:scale-[1.02] h-full flex flex-col">
-                  {/* Thumbnail */}
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={`${project.title} Platform`}
-                      className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-5 flex flex-col flex-1">
-                    {/* Project Title with Logo */}
-                    <div className="flex items-center justify-between gap-3 mb-4">
-                      <h3 className="text-xl font-bold text-white leading-tight group-hover:text-primary transition-colors duration-300 jost-secondary">
-                        {project.title}
-                      </h3>
-                      {/* Project Logo */}
-                      <div className="flex-shrink-0 bg-white/10 backdrop-blur-md rounded-lg p-2">
-                        <img
-                          src={project.logo}
-                          alt={`${project.title} Logo`}
-                          className="object-contain opacity-90"
-                          style={{
-                            width: project.title.includes("Future First Families") ? "60px" : "48px",
-                            height: project.title.includes("Future First Families") ? "36px" : "24px",
-                          }}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Action Buttons - pushed to bottom */}
-                    <div className="grid grid-cols-2 gap-3 mt-auto">
-                      {project.isComingSoon ? (
-                        <div
-                          className={`project-card-btn col-span-2 relative overflow-hidden bg-white/10 text-white/60 font-bold text-xs border border-white/20 cursor-not-allowed opacity-70`}
-                          style={{ WebkitTapHighlightColor: "transparent" }}
-                        >
-                          <div className="relative z-10 flex items-center justify-center space-x-2 jost-secondary">
-                            <span className="font-semibold">Confidential Case Study</span>
-                            {project.isConfidential && (
-                              <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded">Confidential</span>
-                            )}
-                          </div>
-                        </div>
-                      ) : (
-                        <>
-                          <a
-                            href={project.caseStudyUrl}
-                            className={`project-card-btn group/btn relative overflow-hidden cta-button grain-texture text-white font-bold text-xs border-0 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer no-underline shadow-lg hover:shadow-primary/25 ${project.liveUrl === "#" || !project.liveUrl ? "col-span-2" : ""}`}
-                            style={{ WebkitTapHighlightColor: "transparent" }}
-                          >
-                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                            <div className="relative z-10 flex items-center justify-center space-x-1 jost-secondary">
-                              <span className="font-semibold">Case Study</span>
-                              <ArrowUpRight className="w-3 h-3 group-hover/btn:rotate-45 transition-transform duration-300" />
-                            </div>
-                          </a>
-                          {project.liveUrl && project.liveUrl !== "#" && (
-                            <a
-                              href={project.liveUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="project-card-btn group/btn relative overflow-hidden text-white font-bold text-xs border border-white/30 hover:bg-white/10 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 touch-manipulation cursor-pointer backdrop-blur-sm shadow-lg hover:shadow-white/10 no-underline"
-                              style={{ WebkitTapHighlightColor: "transparent" }}
-                            >
-                              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                              <div className="relative z-10 flex items-center justify-center space-x-1 jost-secondary">
-                                <span className="font-semibold">Live Site</span>
-                                <ArrowUpRight className="w-3 h-3 group-hover/btn:rotate-45 transition-transform duration-300" />
-                              </div>
-                            </a>
-                          )}
-                        </>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Enhanced Ambient Effects */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+          ))}
         </div>
       </section>
-      {/* About Section */}
-      <section id="about" className="py-12 relative overflow-hidden">
-        {/* Elegant Background */}
-        <div className="absolute inset-0 grain-texture">
-          <div className="absolute inset-0 bg-gradient-to-br from-background/98 via-background/95 to-background/98" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-primary/10 blur-3xl animate-pulse" />
+
+      {/* ── SERVICES ── */}
+      <section id="services" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 20 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 26 }} data-reveal>
+          <p className="pf-label">Services</p>
+          <p style={{ font: "400 13px 'Space Mono',monospace", color: "var(--mut)" }}>For teams &amp; clients</p>
         </div>
+        {[
+          { n: "01", t: "Product & UX design", d: "End-to-end product design for SaaS — from research and flows to polished, production-ready UI." },
+          { n: "02", t: "Platform redesigns", d: "Taking dated, tangled products and re-architecting them into modern, coherent experiences — without losing what works." },
+          { n: "03", t: "Design systems", d: "Token-based systems and component libraries that keep large products consistent while they grow." },
+        ].map((s, i) => (
+          <div key={s.n} data-reveal style={{ ["--d" as any]: `${i * 0.08}s`, display: "grid", gridTemplateColumns: "70px 1fr 1.1fr", gap: 32, alignItems: "baseline", padding: "34px 0", borderBottom: "1px solid var(--line)", borderTop: i === 0 ? "1px solid var(--line)" : undefined }}
+               className="pf-svc">
+            <span style={{ font: "400 13px 'Space Mono',monospace", color: "var(--mut)" }}>{s.n}</span>
+            <h3 style={{ font: "400 26px 'Fraunces',serif" }}>{s.t}</h3>
+            <p style={{ fontSize: 14, lineHeight: 1.65, color: "var(--soft)" }}>{s.d}</p>
+          </div>
+        ))}
+      </section>
 
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-10"
-          >
-            <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-white albert-sans-medium"
-              initial={{ scale: 0.9 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              ABOUT ME
-            </motion.h2>
-            <p className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed jost-secondary">
-              Crafting innovative digital experiences through AI-enhanced design
-              workflows
-            </p>
-          </motion.div>
+      {/* ── MARQUEE ── */}
+      <div className="pf-marquee">
+        <div className="pf-marquee-inner">
+          {[...Array(2)].map((_, k) => (
+            <React.Fragment key={k}>
+              <span>UX Design <span style={{ color: "var(--mut)" }}>·</span></span>
+              <span><em className="pf-em">Product Design</em> <span style={{ color: "var(--mut)" }}>·</span></span>
+              <span>Design Systems <span style={{ color: "var(--mut)" }}>·</span></span>
+              <span><em className="pf-em">Research</em> <span style={{ color: "var(--mut)" }}>·</span></span>
+              <span>Platform Redesigns <span style={{ color: "var(--mut)" }}>·</span></span>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
 
-          {/* Main Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <Card className="relative overflow-hidden glass-intense grain-texture p-8">
-              {/* Background Effects */}
-              <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-400/6 to-emerald-400/6 blur-2xl" />
-
-              <div className="relative z-10 space-y-8">
-                {/* Profile Section - Photo and About Summary side by side */}
-                <div className="flex flex-col lg:flex-row gap-8 items-start">
-                  {/* Photo */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
-                    className="flex-shrink-0 mx-auto lg:mx-0"
-                  >
-                    <div className="w-44 h-auto rounded-lg border-2 border-white/20 overflow-hidden">
-                      <img
-                        src={
-                          new URL(
-                            "@assets/profile_photo_1770285040474.png",
-                            import.meta.url,
-                          ).href
-                        }
-                        alt="Karan Gadhave"
-                        className="w-full h-auto object-contain"
-                      />
-                    </div>
-                  </motion.div>
-
-                  {/* About Summary */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex-1 space-y-4"
-                  >
-                    <h4 className="text-lg font-bold text-white mb-4 flex items-center jost-secondary">
-                      <User className="w-5 h-5 text-cyan-400 mr-2" />
-                      About Me
-                    </h4>
-
-                    <div className="space-y-4">
-                      <p className="text-white/85 leading-relaxed text-base jost-secondary">
-                        I'm a Senior Product Designer with over 5 years of experience in designing{" "}
-                        <span className="text-primary font-semibold">
-                          SaaS and B2B platforms
-                        </span>{" "}
-                        for both web and mobile. I focus on solving complex workflow problems with strong UX structure, interaction design, and scalable design systems.
-                      </p>
-
-                      <p className="text-white/85 leading-relaxed text-base jost-secondary">
-                        I work directly across the entire design process, from{" "}
-                        <span className="text-primary font-semibold">
-                          discovery and user research
-                        </span>{" "}
-                        to high-fidelity UI, prototyping, and delivery. I collaborate closely with product managers and engineers.
-                      </p>
-
-                      <p className="text-white/85 leading-relaxed text-base jost-secondary">
-                        My work highlights clarity, usability, and long-term maintainability, especially in systems that are{" "}
-                        <span className="text-primary font-semibold">
-                          admin-heavy and role-based
-                        </span>. I'm motivated by user-centered design that balances business goals with real-world usability.
-                      </p>
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Skills Section */}
-                <motion.div
-                  className="mt-8 pt-6 border-t border-white/10"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  viewport={{ once: true }}
-                >
-                  <h4 className="text-lg font-bold text-white mb-4 text-center jost-secondary">
-                    Specialized Skills
-                  </h4>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-                    {[
-                      "Product Design (B2B & Consumer SaaS)",
-                      "UX Design & UX Architecture",
-                      "UI Design (Web & Mobile)",
-                      "Interaction & Workflow Design",
-                      "Information Architecture",
-                      "User Research",
-                      "Usability Testing",
-                      "Design Systems & Component Libraries",
-                      "Prototyping (Figma)",
-                      "Cross-functional Collaboration",
-                    ].map((skill, index) => (
-                      <motion.div
-                        key={skill}
-                        className="px-3 py-2 glass-card grain-texture text-white/90 text-xs font-medium hover:glass-intense transition-all duration-300 jost-secondary text-center border border-white/10 hover:border-primary/30 flex items-center justify-center"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: index * 0.03 }}
-                        viewport={{ once: true }}
-                      >
-                        {skill}
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
-            </Card>
-          </motion.div>
+      {/* ── CONTACT ── */}
+      <section id="contact" className="pf-wrap" style={{ paddingTop: 130, paddingBottom: 20 }}>
+        <p className="pf-label" data-reveal style={{ marginBottom: 34 }}>Contact</p>
+        <h2 style={{ font: "300 clamp(44px,6.6vw,92px)/1.08 'Fraunces',serif", letterSpacing: "-.015em", maxWidth: 900 }} data-reveal>
+          Let's build something people <em className="pf-em">actually trust.</em>
+        </h2>
+        <div ref={magWrap} style={{ display: "inline-block", marginTop: 56 }} data-reveal>
+          <a className="pf-mag" ref={mag} href="mailto:gadhavekaran@gmail.com">Start a conversation ↗</a>
         </div>
       </section>
-      {/* Design Philosophy Section */}
-      <section className="py-16 relative">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <div className="relative inline-block mb-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold glow-text relative z-10 albert-sans-medium">
-                DESIGN PHILOSOPHY
-              </h2>
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 blur-xl opacity-60 -z-10" />
-            </div>
-            <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed jost-secondary">
-              My approach to creating meaningful and impactful digital
-              experiences
-            </p>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <Card className="group relative overflow-hidden p-10 glass-intense grain-texture hover:glass-card transition-all duration-500">
-              {/* Background Elements */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-2xl" />
-
-              <div className="relative z-10">
-                <div className="flex items-center justify-center mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/25 to-white/20 flex items-center justify-center backdrop-blur-sm">
-                    <Sparkles className="w-8 h-8 text-primary" />
-                  </div>
-                </div>
-
-                <div className="space-y-8">
-                  <blockquote className="relative text-center">
-                    <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-400 to-primary/60"></div>
-                    <p className="text-white/95 leading-relaxed italic text-xl md:text-2xl pl-8 pr-8 font-medium jost-secondary">"Great design is invisible. It bridges human needs and system complexity, creating experiences that feel intuitive, purposeful, and effortless at scale."</p>
-                  </blockquote>
-
-                  <div className="text-center pt-6 border-t border-white/10">
-                    <p className="text-white/85 text-lg leading-relaxed max-w-3xl mx-auto jost-secondary">I focus on understanding problems deeply—through research, system thinking, and iteration—before shaping solutions that scale. Tools and technology support the process, but clarity, usability, and intent always lead the design.</p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
-      {/* Contact Section */}
-      <section id="contact" className="py-10 relative">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-6"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-white albert-sans-medium">
-              GET IN TOUCH
-            </h2>
-            <p className="text-xl text-muted-foreground jost-secondary max-w-3xl mx-auto">
-              Ready to collaborate on your next innovative project?
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="max-w-md mx-auto"
-          >
-            <Card className="p-6 glass-card grain-texture hover:glass-intense transition-all duration-500 border border-white/10 hover:border-primary/30">
-              <div className="space-y-4">
-                {/* Email */}
-                <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-5 h-5 text-emerald-400" />
-                    </div>
-                    <a
-                      href="mailto:gadhavekaran@gmail.com"
-                      className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
-                    >
-                      gadhavekaran@gmail.com
-                    </a>
-                  </div>
-                  <button
-                    onClick={(event) => {
-                      navigator.clipboard.writeText("gadhavekaran@gmail.com");
-                      const button = event.currentTarget;
-                      const originalContent = button.innerHTML;
-                      button.innerHTML =
-                        '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                      setTimeout(() => {
-                        button.innerHTML = originalContent;
-                      }, 2000);
-                    }}
-                    className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
-                    title="Copy email"
-                  >
-                    <FileText className="w-4 h-4" />
-                  </button>
-                </div>
-
-                {/* Phone */}
-                <div className="group flex items-center justify-between gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-5 h-5 text-cyan-400" />
-                    </div>
-                    <a
-                      href="https://wa.me/917744074265"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-primary transition-colors duration-300 jost-secondary"
-                    >
-                      +91 7744074265
-                    </a>
-                  </div>
-                  <button
-                    onClick={(event) => {
-                      navigator.clipboard.writeText("+917744074265");
-                      const button = event.currentTarget;
-                      const originalContent = button.innerHTML;
-                      button.innerHTML =
-                        '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                      setTimeout(() => {
-                        button.innerHTML = originalContent;
-                      }, 2000);
-                    }}
-                    className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 p-2 hover:bg-white/10 rounded-lg text-white/60 hover:text-primary"
-                    title="Copy phone"
-                  >
-                    <FileText className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
-      {/* Resume Modal */}
-      <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
-        <DialogContent className="resume-modal fixed w-full h-screen max-w-none top-0 left-0 right-0 translate-x-0 translate-y-0 m-0 p-0 glass-intense grain-texture border-0 overflow-hidden rounded-none z-[9999] flex flex-col [&>button]:hidden !gap-0">
-          <DialogHeader className="p-2 sm:p-3 md:p-4 pb-2 sm:pb-3 border-b border-primary/20 flex-shrink-0 !mb-0">
-            <DialogTitle className="flex items-center justify-between w-full">
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsResumeOpen(false)}
-                className="w-8 h-8 sm:w-10 sm:h-10 text-white hover:bg-white/20 hover:text-primary transition-colors flex-shrink-0 bg-black/20 border border-white/20"
-              >
-                <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-              </Button>
-
-              <div className="flex-1 flex justify-center">
-                <span className="text-xs sm:text-sm md:text-base font-bold text-white">
-                  Karan Gadhave - Resume
-                </span>
-              </div>
-
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsResumeOpen(false)}
-                className="w-8 h-8 sm:w-10 sm:h-10 text-white hover:bg-white/20 hover:text-primary transition-colors flex-shrink-0"
-              >
-                <X className="w-4 h-4 sm:w-5 sm:h-5" />
-              </Button>
-            </DialogTitle>
-          </DialogHeader>
-
-          <div className="flex-1 overflow-auto bg-white mt-0">
-            <div className="w-full h-full bg-white overflow-auto pb-8">
-              <div className="max-w-4xl mx-auto p-3 sm:p-6 md:p-8 pt-4 sm:pt-6 md:pt-8 bg-white text-black">
-                <div className="text-center mb-6 sm:mb-8">
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
-                    Karan Gadhave
-                  </h1>
-                  <h2 className="text-base sm:text-lg md:text-xl text-gray-600 mb-3 sm:mb-4">
-                    Lead Product Designer
-                  </h2>
-                  <p className="text-xs sm:text-sm text-gray-600">
-                    Pune, India | gadhavekaran@gmail.com | 7744074265
-                  </p>
-                </div>
-
-                <hr className="border-gray-300 mb-4 sm:mb-6" />
-
-                <section className="mb-6 sm:mb-8">
-                  <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-3">
-                    PROFILE SUMMARY
-                  </h3>
-                  <p className="text-xs sm:text-sm leading-relaxed">
-                    Product Designer with 5+ years of experience designing complex web and mobile products, including user-facing platforms, admin systems, and internal tools. Strong background in UX architecture, workflow-heavy systems, and scalable design systems. Experienced in end-to-end product design as an individual contributor, working closely with product and engineering teams to deliver clear, usable, and maintainable solutions in B2B and consumer contexts.
-                  </p>
-                </section>
-
-                <section className="mb-6 sm:mb-8">
-                  <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-3">
-                    CORE SKILLS
-                  </h3>
-                  <p className="text-xs sm:text-sm leading-relaxed">
-                    Product Design (B2B & Consumer SaaS), UX Architecture & Information Architecture, Interaction Design & Workflow Design, User Research & Usability Testing, Design Systems & Component Libraries, Web & Mobile UI Design, Prototyping (Figma), Cross-functional Collaboration (PM & Engineering)
-                  </p>
-                </section>
-
-                <section className="mb-6 sm:mb-8">
-                  <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">
-                    WORK EXPERIENCE
-                  </h3>
-
-                  <div className="mb-4 sm:mb-6">
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                      <h4 className="font-semibold text-sm sm:text-base">
-                        Lead Product Designer — Team Pumpkin
-                      </h4>
-                      <span className="text-xs sm:text-sm text-gray-600">
-                        Apr 2022 – Present
-                      </span>
-                    </div>
-                    <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
-                      <li className="leading-relaxed">
-                        Led end-to-end product design for complex web platforms, including user-facing products, admin systems, and internal tools.
-                      </li>
-                      <li className="leading-relaxed">
-                        Owned UX architecture and workflow design, simplifying multi-step, role-based processes across products.
-                      </li>
-                      <li className="leading-relaxed">
-                        Designed and shipped integrated platforms involving authentication, CRM/forms, analytics, automations, and admin controls.
-                      </li>
-                      <li className="leading-relaxed">
-                        Built and maintained scalable design systems to improve consistency, accessibility, and long-term product maintainability.
-                      </li>
-                      <li className="leading-relaxed">
-                        Worked closely with product managers, engineers, and founders as a hands-on individual contributor from discovery to delivery.
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="mb-4 sm:mb-6">
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                      <h4 className="font-semibold text-sm sm:text-base">
-                        UI UX Designer — Pepper Penny Finance Pvt. Ltd
-                      </h4>
-                      <span className="text-xs sm:text-sm text-gray-600">
-                        Jun 2021 – Mar 2022
-                      </span>
-                    </div>
-                    <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
-                      <li className="leading-relaxed">
-                        Designed core product experiences for a stock trading and learning platform, including dashboards, comparisons, and content flows.
-                      </li>
-                      <li className="leading-relaxed">
-                        Owned UX and UI for web and mobile surfaces, supporting successful product launch and early adoption.
-                      </li>
-                      <li className="leading-relaxed">
-                        Delivered high-volume interface work under tight timelines, enabling rapid iteration and validation.
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="mb-4 sm:mb-6">
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                      <h4 className="font-semibold text-sm sm:text-base">
-                        UI UX Designer — DBM Infotech Pvt. Ltd
-                      </h4>
-                      <span className="text-xs sm:text-sm text-gray-600">
-                        Mar 2021 – Jun 2021
-                      </span>
-                    </div>
-                    <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
-                      <li className="leading-relaxed">
-                        Designed end-to-end UX and UI for a mobile application, owning user flows and interface execution from concept to release.
-                      </li>
-                      <li className="leading-relaxed">
-                        Collaborated with product owners and developers to translate business requirements into clear, usable designs.
-                      </li>
-                    </ul>
-                  </div>
-                </section>
-
-                <section className="mb-6 sm:mb-8">
-                  <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">
-                    EARLY EXPERIENCE
-                  </h3>
-
-                  <div className="mb-3 sm:mb-4">
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                      <h4 className="font-semibold text-sm sm:text-base">
-                        UI UX Design Intern — FarmiGO
-                      </h4>
-                      <span className="text-xs sm:text-sm text-gray-600">
-                        Oct 2020 – Dec 2020
-                      </span>
-                    </div>
-                    <ul className="text-xs sm:text-sm space-y-2 list-disc list-inside pl-0">
-                      <li className="leading-relaxed">
-                        Designed the end-to-end UX and UI for a mobile application, conducting user interviews and translating research insights into structured flows and high-fidelity prototypes.
-                      </li>
-                    </ul>
-                  </div>
-                </section>
-
-                <section className="mb-6 sm:mb-8">
-                  <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">
-                    CERTIFICATES
-                  </h3>
-                  <p className="text-xs sm:text-sm">
-                    UX/UI Bootcamp (Designwings) · Web & Mobile Design (Udemy)
-                  </p>
-                </section>
-
-                <section>
-                  <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">
-                    EDUCATION
-                  </h3>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
-                    <div className="mb-2 sm:mb-0">
-                      <h4 className="font-semibold text-sm sm:text-base">
-                        Bachelor of Arts in History — Yashwantrao Chavan Maharashtra Open University
-                      </h4>
-                    </div>
-                    <span className="text-xs sm:text-sm text-gray-600">
-                      2016–2019
-                    </span>
-                  </div>
-                </section>
-              </div>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
-      {/* Footer */}
-      <footer className="py-16 border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-center justify-center mb-10">
-            <div className="flex items-center space-x-16">
-              {/* Logo Circle */}
-              <div className="flex-shrink-0">
-                <a href="#hero" className="block group">
-                  <div className="w-20 h-20 bg-gradient-to-br from-grey-600/30 to-white-600/30 rounded-full border-1.5 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
-                    <img
-                      src={LogoImage}
-                      alt="Logo"
-                      className="w-10 h-10 object-contain"
-                    />
-                  </div>
-                </a>
-              </div>
-
-              {/* LinkedIn Circle */}
-              <div className="flex-shrink-0">
-                <a
-                  href="https://www.linkedin.com/in/karan-gadhave/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block group"
-                >
-                  <div className="w-20 h-20 bg-gradient-to-br from-black-600/30 to-black-600/30 rounded-full border-1.5 border-white/30 flex items-center justify-center hover:border-white/50 hover:scale-105 transition-all duration-300">
-                    <img
-                      src={linkedinLogo}
-                      alt="LinkedIn"
-                      className="w-9 h-9 group-hover:scale-110 transition-all duration-300"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-600 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto mb-8"></div>
-
-          <div className="text-center">
-            <p className="text-white/70 text-sm font-light tracking-wider">
-              © 2025 Karn Kalaa. Designed & developed with passion.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <PageFooter />
     </div>
   );
 }

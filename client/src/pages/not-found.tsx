@@ -1,21 +1,30 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle } from "lucide-react";
+import React from "react";
+import { Link } from "wouter";
+import { PageFooter } from "@/components/case-study/template";
+import "@/styles/portfolio.css";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gray-50">
-      <Card className="w-full max-w-md mx-4">
-        <CardContent className="pt-6">
-          <div className="flex mb-4 gap-2">
-            <AlertCircle className="h-8 w-8 text-red-500" />
-            <h1 className="text-2xl font-bold text-gray-900">404 Page Not Found</h1>
-          </div>
+    <div className="pf" style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <nav className="pf-nav">
+        <Link href="/"><a className="logo">Karan Gadhave</a></Link>
+        <div className="links"><Link href="/"><a>Work</a></Link></div>
+      </nav>
 
-          <p className="mt-4 text-sm text-gray-600">
-            Did you forget to add the page to the router?
-          </p>
-        </CardContent>
-      </Card>
+      <main className="pf-wrap" style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", paddingTop: 140, paddingBottom: 80 }}>
+        <p className="pf-label" style={{ marginBottom: 34 }}>Error 404</p>
+        <h1 style={{ font: "300 clamp(44px,7vw,96px)/1.06 'Fraunces',serif", letterSpacing: "-.02em", maxWidth: 900 }}>
+          This page doesn't exist —<br />but the <em className="pf-em">work does.</em>
+        </h1>
+        <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--soft)", maxWidth: 460, marginTop: 30 }}>
+          The link may be out of date, or the page has moved. Everything worth seeing is one click away.
+        </p>
+        <div style={{ marginTop: 46 }}>
+          <Link href="/"><a className="pf-cta">← Back to the work</a></Link>
+        </div>
+      </main>
+
+      <PageFooter />
     </div>
   );
 }
