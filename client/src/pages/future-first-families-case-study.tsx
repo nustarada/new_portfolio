@@ -5,12 +5,40 @@ import {
 } from "@/components/case-study/template";
 
 import fffVideo from "@assets/FFF website video (video-converter.com)_1754054201797.webm";
-import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.png";
-import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.png";
-import lionfishThumb from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.png";
-import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.png";
+import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.jpg";
+import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.jpg";
+import lionfishThumb from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.jpg";
+import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.jpg";
 
 const ACCENT = "#4A4E9E";
+
+/* The walkthrough clip is 11MB — only fetch it once the reader actually reaches it. */
+function LazyVideo({ src, poster }: { src: string; poster: string }) {
+  const ref = React.useRef<HTMLVideoElement>(null);
+  const [load, setLoad] = React.useState(false);
+
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el || load) return;
+    const io = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setLoad(true); io.disconnect(); } },
+      { rootMargin: "300px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [load]);
+
+  return (
+    <video
+      ref={ref}
+      src={load ? src : undefined}
+      poster={poster}
+      autoPlay loop muted playsInline
+      preload="none"
+      style={{ display: "block", width: "100%" }}
+    />
+  );
+}
 
 export default function FutureFirstFamiliesCaseStudy() {
   return (
@@ -45,7 +73,7 @@ export default function FutureFirstFamiliesCaseStudy() {
         <div className="pf-wrap">
           <div className="pf-browser">
             <div className="bar"><i /><i /><i /><span className="url">futurefirstfamilies.com</span></div>
-            <video src={fffVideo} autoPlay loop muted playsInline style={{ display: "block", width: "100%" }} />
+            <LazyVideo src={fffVideo} poster={fffThumb} />
           </div>
           <div className="pf-cap">
             <p>The live site — a single scrolling arc from aspiration to action</p>

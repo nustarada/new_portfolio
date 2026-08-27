@@ -4,11 +4,11 @@ import { useReveal } from "@/components/case-study/template";
 import { PageFooter } from "@/components/case-study/template";
 import "@/styles/portfolio.css";
 
-import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.png";
-import lionfishThumb from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.png";
+import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.jpg";
+import lionfishThumb from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.jpg";
 import acedboardThumb from "@assets/acedboard_thumbnail.svg";
-import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.png";
-import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.png";
+import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.jpg";
+import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.jpg";
 
 type Work = { href: string; n: string; title: string; tag: string; year: string; img: string };
 

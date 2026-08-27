@@ -5,14 +5,14 @@ import {
   MoreProjects, PageFooter, Browser, type Step,
 } from "@/components/case-study/template";
 
-import homepageDesign from "@assets/Homepage (Wordpress)_1756635142322.png";
-import persona1 from "@assets/Persona 1 (Hubspot)_1756635142323.png";
-import persona2 from "@assets/Persona 2 (Hubspot)_1756635142324.png";
-import persona3 from "@assets/Persona 3 (Hubspot)_1756635142324.png";
+import homepageDesign from "@assets/Homepage (Wordpress)_1756635142322.jpg";
+import persona1 from "@assets/Persona 1 (Hubspot)_1756635142323.jpg";
+import persona2 from "@assets/Persona 2 (Hubspot)_1756635142324.jpg";
+import persona3 from "@assets/Persona 3 (Hubspot)_1756635142324.jpg";
 
-import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.png";
+import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.jpg";
 import acedboardThumb from "@assets/acedboard_thumbnail.svg";
-import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.png";
+import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.jpg";
 
 const ACCENT = "#5B4B9E";
 

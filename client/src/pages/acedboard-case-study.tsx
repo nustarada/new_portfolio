@@ -18,9 +18,9 @@ import advCalc from "@assets/proco-10-advanced-calc.png";
 import driverExpanded from "@assets/proco-12-driver-expanded.png";
 import costs from "@assets/proco-13-costs.png";
 
-import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.png";
-import lionfishThumb from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.png";
-import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.png";
+import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.jpg";
+import lionfishThumb from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.jpg";
+import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.jpg";
 
 const ACCENT = "#2F7D5B";
 

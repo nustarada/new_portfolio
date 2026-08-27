@@ -19,9 +19,9 @@ import Screen25 from "@assets/25. My Profile_1754469216929.png";
 import Screen28 from "@assets/28. Prescription_1754469216929.png";
 import Screen34 from "@assets/34. Health card_1754469216930.png";
 
-import lionfishThumb from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.png";
+import lionfishThumb from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.jpg";
 import acedboardThumb from "@assets/acedboard_thumbnail.svg";
-import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.png";
+import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.jpg";
 
 const ACCENT = "#B3402F";
 

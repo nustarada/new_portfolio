@@ -8,25 +8,25 @@ import {
 import lfOldBranding from "@assets/lf-old-branding.png";
 import lfOldLearning from "@assets/lf-old-learning.png";
 
-import lfLogin from "@assets/lf-login.png";
-import lfMfa from "@assets/lf-mfa.png";
+import lfLogin from "@assets/lf-login.jpg";
+import lfMfa from "@assets/lf-mfa.jpg";
 import lfDashboard from "@assets/lf-dashboard.png";
 import lfBranding from "@assets/lf-branding.png";
 import lfBranding2 from "@assets/lf-branding2.png";
 import lfBranding3 from "@assets/lf-branding3.png";
 import lfAssessment from "@assets/lf-assessment.png";
 import lfAssessment2 from "@assets/lf-assessment2.png";
-import lfAssessment3 from "@assets/lf-assessment3.png";
+import lfAssessment3 from "@assets/lf-assessment3.jpg";
 import lfCompliance from "@assets/lf-compliance.png";
 import lfCompliance2 from "@assets/lf-compliance2.png";
-import lfCompliance3 from "@assets/lf-compliance3.png";
+import lfCompliance3 from "@assets/lf-compliance3.jpg";
 import lfLearning from "@assets/lf-learning.png";
-import lfLearning2 from "@assets/lf-learning2.png";
-import lfPlayer from "@assets/lf-player.png";
+import lfLearning2 from "@assets/lf-learning2.jpg";
+import lfPlayer from "@assets/lf-player.jpg";
 
-import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.png";
+import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.jpg";
 import acedboardThumb from "@assets/acedboard_thumbnail.svg";
-import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.png";
+import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.jpg";
 
 const ACCENT = "#B8860B";
 const HOST = "cybertacklebox.com";
