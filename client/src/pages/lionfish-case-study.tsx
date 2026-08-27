@@ -110,8 +110,8 @@ export default function LionfishCaseStudy() {
       <section className="pf-wrap">
         <SectionHead
           label="Before / After"
-          title={<>Drag to see what <em className="pf-em">actually changed.</em></>}
-          body="The old platform is on the left, the redesign on the right. The clearest tell is the top of each screen — a horizontal menu that had run out of room, replaced by a grouped side rail that scales with the platform."
+          title={<>The same screens, <em className="pf-em">rebuilt.</em></>}
+          body="Old platform on the left, redesign on the right — same module, same job. The clearest tell is the top of each screen: a horizontal menu that had run out of room, replaced by a grouped side rail that scales with the platform."
         />
         <BeforeAfter
           before={lfOldBranding}

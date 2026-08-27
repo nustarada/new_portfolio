@@ -277,27 +277,24 @@ export const EvidenceCard = ({
   </div>
 );
 
-/* ── before / after slider (redesign projects) ─────────────── */
+/* ── before / after — side by side, full images ────────────── */
 export const BeforeAfter = ({
   before, after, caption, beforeLabel = "Before", afterLabel = "After",
-}: { before: string; after: string; caption?: string; beforeLabel?: string; afterLabel?: string }) => {
-  const [v, setV] = useState(50);
-  return (
-    <div data-reveal>
-      <div className="pf-ba">
-        <img className="pf-ba-img" src={before} alt={beforeLabel} />
-        <img className="pf-ba-img pf-ba-after" src={after} alt={afterLabel} style={{ clipPath: `inset(0 0 0 ${v}%)` }} />
-        <div className="pf-ba-divider" style={{ left: `${v}%` }} />
-        <div className="pf-ba-handle" style={{ left: `${v}%` }}><span>◂</span><span>▸</span></div>
-        <span className="pf-ba-tag l">{beforeLabel}</span>
-        <span className="pf-ba-tag r">{afterLabel}</span>
-        <input className="pf-ba-range" type="range" min={0} max={100} value={v}
-          onChange={e => setV(Number(e.target.value))} aria-label="Before and after comparison slider" />
+}: { before: string; after: string; caption?: string; beforeLabel?: string; afterLabel?: string }) => (
+  <div data-reveal>
+    <div className="pf-ba-pair">
+      <div className="pf-ba-col before">
+        <p className="tag">{beforeLabel}</p>
+        <div className="pf-ba-frame"><img src={before} alt={beforeLabel} loading="lazy" /></div>
       </div>
-      {caption && <p className="pf-figcap">{caption}</p>}
+      <div className="pf-ba-col after">
+        <p className="tag">{afterLabel}</p>
+        <div className="pf-ba-frame"><img src={after} alt={afterLabel} loading="lazy" /></div>
+      </div>
     </div>
-  );
-};
+    {caption && <p className="pf-ba-caption">{caption}</p>}
+  </div>
+);
 
 /* ── decisions ─────────────────────────────────────────────── */
 export const Decisions = ({
