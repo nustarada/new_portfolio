@@ -5,9 +5,8 @@ import {
   MoreProjects, PageFooter, Browser, BeforeAfter, type Step,
 } from "@/components/case-study/template";
 
-import lfOldTasks from "@assets/lf-old-tasks.png";
-import lfOldOccupation from "@assets/lf-old-occupation.png";
-import lfOldAuditor from "@assets/lf-old-auditor.png";
+import lfOldBranding from "@assets/lf-old-branding.png";
+import lfOldLearning from "@assets/lf-old-learning.png";
 
 import lfLogin from "@assets/lf-login.png";
 import lfMfa from "@assets/lf-mfa.png";
@@ -115,26 +114,19 @@ export default function LionfishCaseStudy() {
           body="The old platform is on the left, the redesign on the right. The clearest tell is the top of each screen — a horizontal menu that had run out of room, replaced by a grouped side rail that scales with the platform."
         />
         <BeforeAfter
-          before={lfOldTasks}
-          after={lfDashboard}
-          beforeLabel="Old — top nav"
-          afterLabel="New — side nav"
-          caption="Tasks / Dashboard — the navigation moves off the top bar, and the data table becomes readable"
+          before={lfOldBranding}
+          after={lfBranding}
+          beforeLabel="Old — cobrand branding"
+          afterLabel="New — cobrand branding"
+          caption="Cobrand branding — the same job (theme, colours, logo, subdomain), rebuilt with a clear in-page tab set, structured field groups and real form hierarchy"
         />
-        <div className="pf-two" style={{ marginTop: 22 }}>
+        <div style={{ marginTop: 26 }}>
           <BeforeAfter
-            before={lfOldAuditor}
-            after={lfBranding}
-            beforeLabel="Old"
-            afterLabel="New"
-            caption="Detail pages — cramped browser-default tabs become a clear in-page tab set"
-          />
-          <BeforeAfter
-            before={lfOldOccupation}
-            after={lfCompliance3}
-            beforeLabel="Old"
-            afterLabel="New"
-            caption="Dense data — the same information, given structure and breathing room"
+            before={lfOldLearning}
+            after={lfLearning}
+            beforeLabel="Old — My Learning"
+            afterLabel="New — My Learning"
+            caption="My Learning — a flat list of modules with 'Select one' dropdowns becomes course cards with real progress states"
           />
         </div>
         <div className="pf-ecard" style={{ marginTop: 26 }} data-reveal>
