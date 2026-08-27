@@ -2,8 +2,12 @@ import React from "react";
 import {
   CaseStudyShell, CaseHero, ChallengeSolution, Timeline, SectionHead,
   ShowcaseBand, StickyWalkthrough, Decisions, Statement, Outcomes,
-  MoreProjects, PageFooter, Browser, type Step,
+  MoreProjects, PageFooter, Browser, BeforeAfter, type Step,
 } from "@/components/case-study/template";
+
+import lfOldTasks from "@assets/lf-old-tasks.png";
+import lfOldOccupation from "@assets/lf-old-occupation.png";
+import lfOldAuditor from "@assets/lf-old-auditor.png";
 
 import lfLogin from "@assets/lf-login.png";
 import lfMfa from "@assets/lf-mfa.png";
@@ -100,6 +104,45 @@ export default function LionfishCaseStudy() {
               <p className="note" style={{ marginTop: 0 }}>{x.d}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── Before / After ── */}
+      <section className="pf-wrap">
+        <SectionHead
+          label="Before / After"
+          title={<>Drag to see what <em className="pf-em">actually changed.</em></>}
+          body="The old platform is on the left, the redesign on the right. The clearest tell is the top of each screen — a horizontal menu that had run out of room, replaced by a grouped side rail that scales with the platform."
+        />
+        <BeforeAfter
+          before={lfOldTasks}
+          after={lfDashboard}
+          beforeLabel="Old — top nav"
+          afterLabel="New — side nav"
+          caption="Tasks / Dashboard — the navigation moves off the top bar, and the data table becomes readable"
+        />
+        <div className="pf-two" style={{ marginTop: 22 }}>
+          <BeforeAfter
+            before={lfOldAuditor}
+            after={lfBranding}
+            beforeLabel="Old"
+            afterLabel="New"
+            caption="Detail pages — cramped browser-default tabs become a clear in-page tab set"
+          />
+          <BeforeAfter
+            before={lfOldOccupation}
+            after={lfCompliance3}
+            beforeLabel="Old"
+            afterLabel="New"
+            caption="Dense data — the same information, given structure and breathing room"
+          />
+        </div>
+        <div className="pf-ecard" style={{ marginTop: 26 }} data-reveal>
+          <p className="lbl">The detail that gives it away</p>
+          <p className="note" style={{ marginTop: 0 }}>
+            The old top navigation ended in a <b>"MORE"</b> overflow menu — the platform had outgrown its own navigation, and
+            modules were disappearing behind a dropdown. That single detail is the whole argument for the side rail.
+          </p>
         </div>
       </section>
 
