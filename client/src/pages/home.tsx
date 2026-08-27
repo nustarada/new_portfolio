@@ -10,6 +10,8 @@ import acedboardThumb from "@assets/acedboard_thumbnail.svg";
 import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.jpg";
 import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.jpg";
 
+const EMAIL = "gadhavekaran@gmail.com";
+
 type Work = { href: string; n: string; title: string; tag: string; year: string; img: string };
 
 const WORK: Work[] = [
@@ -28,6 +30,24 @@ export default function Home() {
   const previewImg = useRef<HTMLImageElement>(null);
   const magWrap = useRef<HTMLDivElement>(null);
   const mag = useRef<HTMLAnchorElement>(null);
+  const [copied, setCopied] = useState(false);
+
+  /* copy email — mailto: fails silently for anyone without a mail client set up */
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+    } catch {
+      const t = document.createElement("textarea");
+      t.value = EMAIL;
+      t.style.cssText = "position:fixed;opacity:0";
+      document.body.appendChild(t);
+      t.select();
+      document.execCommand("copy");
+      document.body.removeChild(t);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1800);
+  };
 
   /* nav state */
   useEffect(() => {
@@ -210,8 +230,65 @@ export default function Home() {
         <h2 style={{ font: "300 clamp(44px,6.6vw,92px)/1.08 'Fraunces',serif", letterSpacing: "-.015em", maxWidth: 900 }} data-reveal>
           Let's build something people <em className="pf-em">actually trust.</em>
         </h2>
+
+        <p className="pf-contact-intro" data-reveal>
+          Open to product design roles and select freelance work — platform redesigns,
+          design systems, and 0→1 product thinking. Tell me what you're building and
+          what's currently in the way.
+        </p>
+
+        <div className="pf-contact-grid">
+          <div className="pf-contact-channels" data-reveal>
+            <div className="pf-contact-row">
+              <span className="k">Email</span>
+              <span className="v">
+                <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                <button
+                  type="button"
+                  className={`pf-copy${copied ? " ok" : ""}`}
+                  onClick={copyEmail}
+                  aria-label="Copy email address"
+                >
+                  {copied ? "Copied ✓" : "Copy"}
+                </button>
+              </span>
+            </div>
+            <div className="pf-contact-row">
+              <span className="k">LinkedIn</span>
+              <span className="v">
+                <a href="https://www.linkedin.com/in/karan-gadhave/" target="_blank" rel="noopener noreferrer">
+                  /in/karan-gadhave ↗
+                </a>
+              </span>
+            </div>
+            <div className="pf-contact-row">
+              <span className="k">Based in</span>
+              <span className="v plain">Pune, India · IST (GMT+5:30)</span>
+            </div>
+            <div className="pf-contact-row">
+              <span className="k">Response</span>
+              <span className="v plain">Usually within 24 hours</span>
+            </div>
+          </div>
+
+          <aside className="pf-contact-card" data-reveal style={{ ["--d" as any]: ".1s" }}>
+            <p className="status"><i />Available for new work</p>
+            <p className="body">
+              Currently taking on projects starting from the coming month.
+              A short call is the fastest way to find out if it's a fit.
+            </p>
+            <ul className="fits">
+              <li>Platform &amp; dashboard redesigns</li>
+              <li>Design systems and component libraries</li>
+              <li>0→1 product design, research to shipped UI</li>
+            </ul>
+          </aside>
+        </div>
+
         <div ref={magWrap} style={{ display: "inline-block", marginTop: 56 }} data-reveal>
-          <a className="pf-mag" ref={mag} href="mailto:gadhavekaran@gmail.com">Start a conversation ↗</a>
+          <a className="pf-mag" ref={mag} href={`mailto:${EMAIL}?subject=${encodeURIComponent("Project enquiry")}`}>
+            Start a conversation ↗
+          </a>
         </div>
       </section>
 

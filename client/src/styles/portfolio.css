@@ -289,3 +289,84 @@
   .pf-statement { padding:80px 24px; }
   .pf-press { grid-template-columns:1fr; }
 }
+
+/* ── Contact ─────────────────────────────────────────── */
+.pf-contact-intro{
+  max-width:620px; margin-top:30px;
+  font-size:16px; line-height:1.72; color:var(--soft);
+}
+.pf-contact-grid{
+  display:grid; grid-template-columns:1.05fr .95fr; gap:60px;
+  align-items:start; margin-top:56px;
+  padding-top:44px; border-top:1px solid var(--line);
+}
+.pf-contact-row{
+  display:grid; grid-template-columns:104px 1fr; gap:20px;
+  align-items:baseline; padding:16px 0; border-bottom:1px solid var(--line);
+}
+.pf-contact-row:last-child{ border-bottom:0; }
+.pf-contact-row .k{
+  font:500 10px 'Space Mono',monospace; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--mut);
+}
+.pf-contact-row .v{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; font-size:16.5px; }
+.pf-contact-row .v.plain{ color:var(--soft); }
+.pf-contact-row .v a{
+  color:var(--ink); text-decoration:none;
+  background-image:linear-gradient(var(--pf-accent),var(--pf-accent));
+  background-size:0% 1px; background-position:0 100%; background-repeat:no-repeat;
+  transition:background-size .4s var(--ease), color .3s;
+}
+.pf-contact-row .v a:hover{ background-size:100% 1px; color:var(--pf-accent); }
+
+.pf-copy{
+  font:500 10px 'Space Mono',monospace; letter-spacing:.12em; text-transform:uppercase;
+  padding:5px 11px; border-radius:100px; cursor:pointer;
+  border:1px solid var(--line); background:transparent; color:var(--mut);
+  transition:border-color .3s, color .3s, background .3s;
+}
+.pf-copy:hover{ border-color:var(--pf-accent); color:var(--pf-accent); }
+.pf-copy.ok{ border-color:var(--pf-accent); color:#fff; background:var(--pf-accent); }
+
+.pf-contact-card{
+  background:var(--card); border:1px solid var(--line);
+  border-radius:12px; padding:30px 30px 26px;
+  box-shadow:0 14px 40px rgba(26,23,18,.06);
+}
+.pf-contact-card .status{
+  display:flex; align-items:center; gap:9px;
+  font:500 11px 'Space Mono',monospace; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--pf-accent);
+}
+.pf-contact-card .status i{
+  width:8px; height:8px; border-radius:50%; background:var(--pf-accent);
+  box-shadow:0 0 0 0 var(--pf-accent); animation:pf-pulse 2.4s infinite;
+}
+@keyframes pf-pulse{
+  0%{ box-shadow:0 0 0 0 rgba(196,80,27,.5); }
+  70%{ box-shadow:0 0 0 9px rgba(196,80,27,0); }
+  100%{ box-shadow:0 0 0 0 rgba(196,80,27,0); }
+}
+.pf-contact-card .body{
+  margin-top:16px; font-size:15px; line-height:1.68; color:var(--soft);
+}
+.pf-contact-card .fits{
+  margin-top:20px; padding-top:18px; border-top:1px solid var(--line);
+  list-style:none; display:grid; gap:9px;
+}
+.pf-contact-card .fits li{
+  position:relative; padding-left:17px; font-size:14.5px; color:var(--soft);
+}
+.pf-contact-card .fits li::before{
+  content:''; position:absolute; left:0; top:8px;
+  width:5px; height:5px; border-radius:50%; background:var(--pf-accent); opacity:.55;
+}
+
+@media (prefers-reduced-motion:reduce){ .pf-contact-card .status i{ animation:none; } }
+@media (max-width:960px){
+  .pf-contact-grid{ grid-template-columns:1fr; gap:38px; }
+}
+@media (max-width:560px){
+  .pf-contact-row{ grid-template-columns:1fr; gap:7px; padding:14px 0; }
+  .pf-contact-row .v{ font-size:15.5px; }
+}
