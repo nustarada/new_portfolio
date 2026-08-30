@@ -254,14 +254,6 @@ export default function Home() {
               </span>
             </div>
             <div className="pf-contact-row">
-              <span className="k">LinkedIn</span>
-              <span className="v">
-                <a href="https://www.linkedin.com/in/karan-gadhave/" target="_blank" rel="noopener noreferrer">
-                  /in/karan-gadhave ↗
-                </a>
-              </span>
-            </div>
-            <div className="pf-contact-row">
               <span className="k">Based in</span>
               <span className="v plain">Pune, India · IST (GMT+5:30)</span>
             </div>
