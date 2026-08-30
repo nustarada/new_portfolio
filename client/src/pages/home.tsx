@@ -12,14 +12,14 @@ import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.jpg";
 
 const EMAIL = "gadhavekaran@gmail.com";
 
-type Work = { href: string; n: string; title: string; tag: string; year: string; img: string };
+type Work = { href: string; n: string; title: string; tag: string; year: string; img: string; soon?: boolean };
 
 const WORK: Work[] = [
   { href: "/lionfish-case-study",       n: "01", title: "Lionfish Cyber Security", tag: "Cybersecurity · Platform redesign", year: "2025", img: lionfishThumb },
-  { href: "/acedboard-case-study",      n: "02", title: "Acedboard Proconomics",   tag: "Fintech · CBA engine",              year: "2025", img: acedboardThumb },
-  { href: "/liffo-case-study",          n: "03", title: "Liffo Healthcare",        tag: "Healthcare · Mobile, 34 screens",   year: "2024", img: liffoThumb },
-  { href: "/2hour-learning-case-study", n: "04", title: "2 Hour Learning",         tag: "EdTech · B2B page system",          year: "2025", img: twoHLThumb },
-  { href: "/fff-case-study",            n: "05", title: "Future First Families",   tag: "Advocacy · Conversion design",      year: "2025", img: fffThumb },
+  { href: "/liffo-case-study",          n: "02", title: "Liffo Healthcare",        tag: "Healthcare · Mobile, 34 screens",   year: "2024", img: liffoThumb },
+  { href: "/2hour-learning-case-study", n: "03", title: "2 Hour Learning",         tag: "EdTech · B2B page system",          year: "2025", img: twoHLThumb },
+  { href: "/fff-case-study",            n: "04", title: "Future First Families",   tag: "Advocacy · Conversion design",      year: "2025", img: fffThumb },
+  { href: "/acedboard-case-study",      n: "05", title: "Acedboard Proconomics",   tag: "Fintech · CBA engine",              year: "2025", img: acedboardThumb, soon: true },
 ];
 
 export default function Home() {
@@ -132,15 +132,29 @@ export default function Home() {
           <a className="pf-cta" href="#work">See the work →</a>
           <a className="pf-cta mut" href="#about">About me</a>
         </div>
-        <div style={{ marginTop: 100, display: "flex", gap: 64, paddingTop: 28, borderTop: "1px solid var(--line)", flexWrap: "wrap", ["--d" as any]: ".74s" }} data-reveal>
-          {[["Currently", "Open to full-time & freelance"], ["Focus", "SaaS platforms · complex systems"], ["Based", "Pune, India — working globally"]].map(([k, v]) => (
-            <div key={k}>
-              <p style={{ font: "500 11px 'Space Mono',monospace", letterSpacing: ".18em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 8 }}>{k}</p>
-              <p style={{ fontSize: 15 }}>{v}</p>
-            </div>
-          ))}
-        </div>
       </header>
+
+      {/* ── IDENTITY STRIP — the case study meta table, on the index ── */}
+      <div className="pf-wrap" data-reveal style={{ ["--d" as any]: ".74s" }}>
+        <div className="pf-idbar">
+          <div>
+            <p className="k">Role</p>
+            <p className="v">Lead Product Designer</p>
+          </div>
+          <div>
+            <p className="k">Experience</p>
+            <p className="v">5+ years · Team Pumpkin</p>
+          </div>
+          <div>
+            <p className="k">Based in</p>
+            <p className="v">Pune, India · IST</p>
+          </div>
+          <div>
+            <p className="k">Status</p>
+            <p className="v"><span className="live"><span className="pf-dot" />Open to work</span></p>
+          </div>
+        </div>
+      </div>
 
       {/* ── WORK ── */}
       <section id="work" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 40 }}>
@@ -157,6 +171,9 @@ export default function Home() {
                 <span className="t">{w.title}</span>
                 <span className="tag">{w.tag}</span>
                 <span className="yr">{w.year}</span>
+                {w.soon
+                  ? <span className="im soon"><span>In progress</span></span>
+                  : <span className="im"><img src={w.img} alt={w.title} loading="lazy" /></span>}
               </a>
             </Link>
           ))}
@@ -179,11 +196,16 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", marginTop: 70, borderTop: "1px solid var(--line)" }} className="pf-stats">
-          {[["0", "5", "Platforms shipped"], ["0", "4", "Industries — health · fintech · edtech · security"], ["100", "%", "End-to-end — research to production"]].map(([a, b, l], i) => (
-            <div className="pf-stat" key={l} data-reveal style={{ ["--d" as any]: `${i * 0.1}s`, padding: "30px 24px 8px 0", borderRight: i < 2 ? "1px solid var(--line)" : "none" }}>
-              <p className="num">{a}<em className="pf-em">{b}</em></p>
-              <p style={{ font: "500 11px 'Space Mono',monospace", letterSpacing: ".16em", textTransform: "uppercase", color: "var(--mut)", marginTop: 10 }}>{l}</p>
+        <div className="pf-outcomes" style={{ marginTop: 70 }}>
+          {[
+            { n: <>0<em className="pf-em">5</em></>, l: "Years designing products, end to end" },
+            { n: <>0<em className="pf-em">5</em></>, l: "Platforms shipped to production" },
+            { n: <>22<em className="pf-em">%</em></>, l: "Onboarding retention lift — Pepper Penny" },
+            { n: <>0<em className="pf-em">4</em></>, l: "Industries — health · fintech · edtech · security" },
+          ].map((s, i) => (
+            <div key={i} data-reveal style={{ ["--d" as any]: `${i * 0.08}s` }}>
+              <p className="n">{s.n}</p>
+              <p className="l">{s.l}</p>
             </div>
           ))}
         </div>
@@ -231,53 +253,32 @@ export default function Home() {
           Let's build something people <em className="pf-em">actually trust.</em>
         </h2>
 
-        <p className="pf-contact-intro" data-reveal>
-          Open to product design roles and select freelance work — platform redesigns,
-          design systems, and 0→1 product thinking. Tell me what you're building and
-          what's currently in the way.
-        </p>
-
-        <div className="pf-contact-grid">
-          <div className="pf-contact-channels" data-reveal>
-            <div className="pf-contact-row">
-              <span className="k">Email</span>
-              <span className="v">
-                <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-                <button
-                  type="button"
-                  className={`pf-copy${copied ? " ok" : ""}`}
-                  onClick={copyEmail}
-                  aria-label="Copy email address"
-                >
-                  {copied ? "Copied ✓" : "Copy"}
-                </button>
-              </span>
-            </div>
-            <div className="pf-contact-row">
-              <span className="k">Based in</span>
-              <span className="v plain">Pune, India · IST (GMT+5:30)</span>
-            </div>
-            <div className="pf-contact-row">
-              <span className="k">Response</span>
-              <span className="v plain">Usually within 24 hours</span>
-            </div>
+        <div className="pf-contact-channels" data-reveal style={{ marginTop: 44 }}>
+          <div className="pf-contact-row">
+            <span className="k">Email</span>
+            <span className="v">
+              <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+              <button
+                type="button"
+                className={`pf-copy${copied ? " ok" : ""}`}
+                onClick={copyEmail}
+                aria-label="Copy email address"
+              >
+                {copied ? "Copied ✓" : "Copy"}
+              </button>
+            </span>
           </div>
-
-          <aside className="pf-contact-card" data-reveal style={{ ["--d" as any]: ".1s" }}>
-            <p className="status"><i />Available for new work</p>
-            <p className="body">
-              Currently taking on projects starting from the coming month.
-              A short call is the fastest way to find out if it's a fit.
-            </p>
-            <ul className="fits">
-              <li>Platform &amp; dashboard redesigns</li>
-              <li>Design systems and component libraries</li>
-              <li>0→1 product design, research to shipped UI</li>
-            </ul>
-          </aside>
+          <div className="pf-contact-row">
+            <span className="k">Based in</span>
+            <span className="v plain">Pune, India · IST (GMT+5:30)</span>
+          </div>
+          <div className="pf-contact-row">
+            <span className="k">Response</span>
+            <span className="v plain">Usually within 24 hours</span>
+          </div>
         </div>
 
-        <div ref={magWrap} style={{ display: "inline-block", marginTop: 56 }} data-reveal>
+        <div ref={magWrap} style={{ display: "inline-block", marginTop: 48 }} data-reveal>
           <a className="pf-mag" ref={mag} href={`mailto:${EMAIL}?subject=${encodeURIComponent("Project enquiry")}`}>
             Start a conversation ↗
           </a>
