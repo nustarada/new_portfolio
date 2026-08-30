@@ -110,10 +110,14 @@ export default function Home() {
       <div className="pf-cursor" ref={cursor} />
       <div className="pf-preview" ref={preview}><img ref={previewImg} src={liffoThumb} alt="" /></div>
 
+      <div className="pf-announce">
+        Open to product design roles &amp; freelance <b>— Pune, India / remote · replies in 24h</b>
+      </div>
+
       <nav className={`pf-nav${scrolled ? " scrolled" : ""}`}>
         <Link href="/"><a className="logo">Karan Gadhave</a></Link>
         <div className="links">
-          <a href="#work">Work</a><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a>
+          <a href="#work">Work</a><a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a>
         </div>
       </nav>
 
@@ -156,33 +160,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── WORK ── */}
-      <section id="work" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 40 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 26 }} data-reveal>
-          <p className="pf-label">Selected work</p>
-          <p style={{ font: "400 13px 'Space Mono',monospace", color: "var(--mut)" }}>2024 — 2026</p>
-        </div>
-        <div className="pf-worklist">
-          {WORK.map((w, i) => (
-            <Link href={w.href} key={w.href}>
-              <a className="pf-row" data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}
-                 onMouseEnter={() => enterRow(w.img)} onMouseLeave={leaveRow}>
-                <span className="n">{w.n}</span>
-                <span className="t">{w.title}</span>
-                <span className="tag">{w.tag}</span>
-                <span className="yr">{w.year}</span>
-                {w.soon
-                  ? <span className="im soon"><span>In progress</span></span>
-                  : <span className="im"><img src={w.img} alt={w.title} loading="lazy" /></span>}
-              </a>
-            </Link>
-          ))}
-        </div>
-      </section>
-
       {/* ── ABOUT ── */}
       <section id="about" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 40 }}>
-        <div style={{ marginBottom: 26 }} data-reveal><p className="pf-label">About</p></div>
+        <div style={{ marginBottom: 34 }} data-reveal><span className="pf-chip">About</span></div>
         <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 80, alignItems: "start" }} className="pf-about-grid">
           <p className="pf-bigline" data-reveal>
             I take messy, complicated platforms — the ones with roles, rules and legacy — and make them feel <em className="pf-em">simple, considered and calm.</em>
@@ -211,49 +191,84 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SERVICES ── */}
+      {/* ── PROCESS — bordered boxes ── */}
+      <section id="process" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 20 }}>
+        <div style={{ marginBottom: 40 }} data-reveal><span className="pf-chip inv">How I work</span></div>
+        <div className="pf-boxes">
+          {[
+            { s: "Step 01", t: "Discover", d: "Stakeholder interviews, business process mapping and user journeys — understanding the roles, rules and legacy before proposing anything." },
+            { s: "Step 02", t: "Architect", d: "Information architecture, screen flows and wireframes. Getting the structure right on paper is cheaper than getting it wrong in code." },
+            { s: "Step 03", t: "Design", d: "Figma libraries, variables and Dev Mode handoff — with Ant Design and Material as references where an enterprise platform calls for them." },
+            { s: "Step 04", t: "Ship", d: "Backlog refinement, acceptance criteria, implementation reviews and QA until it is live. Not handoff-and-vanish." },
+          ].map((b, i) => (
+            <div className="pf-box" key={b.s} data-reveal style={{ ["--d" as any]: `${i * 0.07}s` }}>
+              <div className="hd">
+                <span className="step">{b.s}</span>
+                <span className="lead" />
+                <span className="ttl">{b.t}</span>
+              </div>
+              <p className="bd">{b.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── WORK ── */}
+      <section id="work" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 40 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 34 }} data-reveal>
+          <span className="pf-chip">Selected work</span>
+          <p style={{ font: "400 13px var(--font-mono)", color: "var(--mut)" }}>2024 — 2026</p>
+        </div>
+        <div className="pf-worklist">
+          {WORK.map((w, i) => (
+            <Link href={w.href} key={w.href}>
+              <a className="pf-row" data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}
+                 onMouseEnter={() => enterRow(w.img)} onMouseLeave={leaveRow}>
+                <span className="n">{w.n}</span>
+                <span className="t">{w.title}</span>
+                <span className="tag">{w.tag}</span>
+                <span className="yr">{w.year}</span>
+                {w.soon
+                  ? <span className="im soon"><span>In progress</span></span>
+                  : <span className="im"><img src={w.img} alt={w.title} loading="lazy" /></span>}
+              </a>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ── CAPABILITIES — numbered index ── */}
       <section id="services" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 20 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 26 }} data-reveal>
-          <p className="pf-label">Services</p>
-          <p style={{ font: "400 13px 'Space Mono',monospace", color: "var(--mut)" }}>For teams &amp; clients</p>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 34 }} data-reveal>
+          <span className="pf-chip ghost">What I do</span>
+          <p style={{ font: "400 13px var(--font-mono)", color: "var(--mut)" }}>For teams &amp; clients</p>
         </div>
         {[
           { n: "01", t: "Product & UX design", d: "End-to-end product design for SaaS — from research and flows to polished, production-ready UI." },
           { n: "02", t: "Platform redesigns", d: "Taking dated, tangled products and re-architecting them into modern, coherent experiences — without losing what works." },
           { n: "03", t: "Design systems", d: "Token-based systems and component libraries that keep large products consistent while they grow." },
         ].map((s, i) => (
-          <div key={s.n} data-reveal style={{ ["--d" as any]: `${i * 0.08}s`, display: "grid", gridTemplateColumns: "70px 1fr 1.1fr", gap: 32, alignItems: "baseline", padding: "34px 0", borderBottom: "1px solid var(--line)", borderTop: i === 0 ? "1px solid var(--line)" : undefined }}
-               className="pf-svc">
-            <span style={{ font: "400 13px 'Space Mono',monospace", color: "var(--mut)" }}>{s.n}</span>
-            <h3 style={{ font: "400 26px 'Fraunces',serif" }}>{s.t}</h3>
-            <p style={{ fontSize: 14, lineHeight: 1.65, color: "var(--soft)" }}>{s.d}</p>
+          <div className="pf-numrow" key={s.n} data-reveal style={{ ["--d" as any]: `${i * 0.07}s` }}>
+            <span className="no">{s.n}</span>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
           </div>
         ))}
       </section>
 
-      {/* ── MARQUEE ── */}
-      <div className="pf-marquee">
-        <div className="pf-marquee-inner">
-          {[...Array(2)].map((_, k) => (
-            <React.Fragment key={k}>
-              <span>UX Design <span style={{ color: "var(--mut)" }}>·</span></span>
-              <span><em className="pf-em">Product Design</em> <span style={{ color: "var(--mut)" }}>·</span></span>
-              <span>Design Systems <span style={{ color: "var(--mut)" }}>·</span></span>
-              <span><em className="pf-em">Research</em> <span style={{ color: "var(--mut)" }}>·</span></span>
-              <span>Platform Redesigns <span style={{ color: "var(--mut)" }}>·</span></span>
-            </React.Fragment>
-          ))}
+      {/* ── CLOSING CTA ── */}
+      <section className="pf-bigcta" data-reveal>
+        <div className="pf-wrap">
+          <h2>Let's build something people actually trust.</h2>
+          <a className="mailto" href="mailto:gadhavekaran@gmail.com">gadhavekaran@gmail.com</a>
         </div>
-      </div>
+      </section>
 
       {/* ── CONTACT ── */}
       <section id="contact" className="pf-wrap" style={{ paddingTop: 130, paddingBottom: 20 }}>
-        <p className="pf-label" data-reveal style={{ marginBottom: 34 }}>Contact</p>
-        <h2 style={{ font: "300 clamp(44px,6.6vw,92px)/1.08 'Fraunces',serif", letterSpacing: "-.015em", maxWidth: 900 }} data-reveal>
-          Let's build something people <em className="pf-em">actually trust.</em>
-        </h2>
+        <div data-reveal style={{ marginBottom: 34 }}><span className="pf-chip ghost">Contact</span></div>
 
-        <div className="pf-contact-channels" data-reveal style={{ marginTop: 44 }}>
+        <div className="pf-contact-channels" data-reveal>
           <div className="pf-contact-row">
             <span className="k">Email</span>
             <span className="v">

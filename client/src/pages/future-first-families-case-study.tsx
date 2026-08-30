@@ -95,7 +95,7 @@ export default function FutureFirstFamiliesCaseStudy() {
             { t: "Influence", d: "Private-school parents can genuinely move their school — if they're mobilised." },
           ].map((x, i) => (
             <div key={x.t} data-reveal style={{ ["--d" as any]: `${i * 0.08}s`, borderLeft: "2px solid var(--pf-accent)", paddingLeft: 20 }}>
-              <p style={{ font: "400 21px 'Fraunces',serif", color: "var(--pf-accent)", marginBottom: 8 }}>{x.t}</p>
+              <p style={{ font: "400 21px var(--font-display)", color: "var(--pf-accent)", marginBottom: 8 }}>{x.t}</p>
               <p style={{ fontSize: 14.5, lineHeight: 1.65, color: "var(--soft)" }}>{x.d}</p>
             </div>
           ))}
