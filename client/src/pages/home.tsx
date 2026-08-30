@@ -4,9 +4,10 @@ import { Link } from "wouter";
 import {
   useReveal, useSplitHeadline, useCountUp, useParallax,
   useScramble, useHorizontalPin, useVelocityMarquee, useCursor,
-  useImageReveal, useTextChars, useHoverMarquee,
+  useImageReveal, useTextChars, useHoverMarquee, useScrambleCycle,
 } from "@/lib/motion";
 import { Ticker } from "@/components/visuals";
+import gfxHero from "@assets/gfx-hero-glitch.jpg";
 import gfxPrism from "@assets/gfx-prism.jpg";
 import gfxRiso from "@assets/gfx-riso.jpg";
 import gfxLens from "@assets/gfx-lens.jpg";
@@ -21,6 +22,13 @@ import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.jpg";
 import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.jpg";
 
 const EMAIL = "gadhavekaran@gmail.com";
+
+const DISCIPLINES = [
+  "platform redesigns",
+  "design systems",
+  "information architecture",
+  "0 to 1 products",
+];
 
 type Work = { href: string; n: string; title: string; tag: string; year: string; img: string; soon?: boolean };
 
@@ -41,6 +49,7 @@ export default function Home() {
   useHoverMarquee(".pf-proj");
   useParallax(".pf-photoband img", 7);
   useScramble("[data-scramble]");
+  useScrambleCycle(".pf-cycle", DISCIPLINES, { chars: "!<>-_\\/[]{}=+*^?#", speed: 0.45, revealDelay: 0.4, hold: 1.5 });
   useHorizontalPin(".pf-hstrip", ".pf-hstrip-track");
   useVelocityMarquee(".pf-ticker-track");
   useCursor(".pf-cursor", ".pf-preview");
@@ -143,6 +152,9 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <header className="pf-home-hero pf-wrap">
+        <div className="pf-hero-bg" aria-hidden="true">
+          <img src={gfxHero} alt="" loading="eager" />
+        </div>
         <p className="pf-eyebrow" data-reveal><span className="pf-dot" />Product &amp; UX Designer, available for hire and freelance</p>
         <h1 style={{ opacity: 0 }}>
           Designing digital products people <em className="pf-em">actually trust.</em>
@@ -150,7 +162,10 @@ export default function Home() {
         <p data-reveal style={{ marginTop: 42, fontSize: 17, lineHeight: 1.65, color: "var(--soft)", maxWidth: 470, ["--d" as any]: ".5s" }}>
           Five shipped platforms across healthcare, fintech, edtech and cybersecurity, designed end to end from first research through to production.
         </p>
-        <div style={{ marginTop: 54, display: "flex", gap: 38, alignItems: "center", flexWrap: "wrap", ["--d" as any]: ".62s" }} data-reveal>
+        <p className="pf-cycleline" data-reveal>
+          Currently designing <span className="pf-cycle">platform redesigns</span>
+        </p>
+        <div style={{ marginTop: 44, display: "flex", gap: 38, alignItems: "center", flexWrap: "wrap", justifyContent: "center" }} data-reveal>
           <a className="pf-cta" href="#work">See the work →</a>
           <a className="pf-cta mut" href="#about">About me</a>
         </div>

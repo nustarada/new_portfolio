@@ -310,4 +310,30 @@ export function useHoverMarquee(itemSel: string) {
   }, [itemSel]);
 }
 
+
+/* ── ScrambleText: cycle a word through a list, forever ────── */
+export function useScrambleCycle(
+  selector: string,
+  phrases: string[],
+  opts: { chars?: string; speed?: number; revealDelay?: number; hold?: number } = {},
+) {
+  useEffect(() => {
+    const el = document.querySelector<HTMLElement>(selector);
+    if (!el || phrases.length < 2) return;
+    if (reduced()) { el.textContent = phrases[0]; return; }
+    const { chars = "upperAndLowerCase", speed = 0.4, revealDelay = 0.35, hold = 1.6 } = opts;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ repeat: -1, scrollTrigger: { trigger: el, start: "top 96%" } });
+      phrases.forEach((text) => {
+        tl.to(el, {
+          duration: 1,
+          scrambleText: { text, chars, speed, revealDelay, newClass: "pf-scrambling" },
+        }).to({}, { duration: hold });
+      });
+    });
+    return () => ctx.revert();
+  }, [selector, phrases, opts]);
+}
+
 export { gsap, ScrollTrigger, SplitText };
