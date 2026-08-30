@@ -1,7 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "wouter";
-import { useReveal, useSplitHeadline, useCountUp, useParallax } from "@/lib/motion";
+import {
+  useReveal, useSplitHeadline, useCountUp, useParallax,
+  useCharScrub, useScramble, useHorizontalPin, useDrawSVG, useMorph,
+  useVelocityMarquee, useCursor,
+} from "@/lib/motion";
+import { SystemGraphic, MorphBlob, Ticker, MORPHS } from "@/components/visuals";
 import { PageFooter } from "@/components/case-study/template";
 import "@/styles/portfolio.css";
 
@@ -27,7 +32,14 @@ export default function Home() {
   useReveal();
   useSplitHeadline(".pf-home-hero h1", 0.2);
   useCountUp("[data-to]");
-  useParallax(".pf-row .im img", 30);
+  useParallax(".pf-row .im img", 4);
+  useDrawSVG(".pf-sysgraphic");
+  useCharScrub(".pf-statement-line");
+  useScramble("[data-scramble]");
+  useHorizontalPin(".pf-hstrip", ".pf-hstrip-track");
+  useMorph("#pf-morph-path", MORPHS);
+  useVelocityMarquee(".pf-ticker-track");
+  useCursor(".pf-cursor", ".pf-preview");
   const [scrolled, setScrolled] = useState(false);
   const cursor = useRef<HTMLDivElement>(null);
   const preview = useRef<HTMLDivElement>(null);
@@ -127,6 +139,7 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <header className="pf-home-hero pf-wrap">
+        <SystemGraphic />
         <p className="pf-eyebrow" data-reveal><span className="pf-dot" />Product &amp; UX Designer, available for hire and freelance</p>
         <h1 style={{ opacity: 0 }}>
           Designing digital products people <em className="pf-em">actually trust.</em>
@@ -219,6 +232,45 @@ export default function Home() {
           </ol>
         </div>
       </section>
+
+      {/* ── STATEMENT — chars resolve on scroll scrub ── */}
+      <section className="pf-statement-band">
+        <MorphBlob />
+        <div className="pf-wrap">
+          <p className="pf-statement-kicker" data-scramble>The belief</p>
+          <h2 className="pf-statement-line">Good design is provocative.</h2>
+          <p className="pf-statement-sub" data-reveal>
+            Comfortable design gets approved. Provocative design gets used, argued
+            about, and remembered. I would rather ship the second one.
+          </p>
+        </div>
+      </section>
+
+      {/* ── PINNED HORIZONTAL STRIP ── */}
+      <section className="pf-hstrip">
+        <div className="pf-hstrip-track">
+          <div className="pf-hcard lead">
+            <span className="k" data-scramble>In practice</span>
+            <h3>Roles, rules,<br />and legacy.</h3>
+            <p>Scroll sideways. Every platform below started as somebody else's tangle.</p>
+          </div>
+          {WORK.filter(w => !w.soon).map((w) => (
+            <a className="pf-hcard" href={w.href} key={w.href}>
+              <div className="im"><img src={w.img} alt={w.title} loading="lazy" /></div>
+              <span className="yr">{w.year}</span>
+              <h3>{w.title}</h3>
+              <p>{w.tag}</p>
+            </a>
+          ))}
+          <div className="pf-hcard end">
+            <h3>Your platform next?</h3>
+            <a className="pf-cta" href="#contact">Start a conversation</a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TICKER ── */}
+      <Ticker items={["Product design", "Information architecture", "Design systems", "Platform redesigns", "Research"]} />
 
       {/* ── WORK ── */}
       <section id="work" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 40 }}>
