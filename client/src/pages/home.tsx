@@ -3,13 +3,11 @@ import { createPortal } from "react-dom";
 import { Link } from "wouter";
 import {
   useReveal, useSplitHeadline, useCountUp, useParallax,
-  useScramble, useHorizontalPin, useVelocityMarquee, useCursor,
-  useImageReveal, useTextChars, useHoverMarquee, useScrambleCycle,
+  useScramble, useHorizontalPin, useVelocityMarquee, useHeroCursor,
+  useImageReveal, useTextChars, useHoverMarquee, useScrambleCycle, useAboutScrub,
 } from "@/lib/motion";
 import { Ticker } from "@/components/visuals";
 import gfxHero from "@assets/gfx-hero-glitch.jpg";
-import gfxPrism from "@assets/gfx-prism.jpg";
-import gfxRiso from "@assets/gfx-riso.jpg";
 import gfxLens from "@assets/gfx-lens.jpg";
 import photoPortrait from "@assets/photo-portrait.jpg";
 import { PageFooter } from "@/components/case-study/template";
@@ -46,13 +44,15 @@ export default function Home() {
   useCountUp("[data-to]");
   useImageReveal(".pf-proj-media");
   useTextChars(".pf-proj-title", 0.016);
+  useTextChars(".pf-about-title", 0.012);
+  useImageReveal(".pf-about-portrait");
+  useAboutScrub(".pf-about-inner");
   useHoverMarquee(".pf-proj");
-  useParallax(".pf-photoband img", 7);
   useScramble("[data-scramble]");
   useScrambleCycle(".pf-cycle", DISCIPLINES, { chars: "!<>-_\\/[]{}=+*^?#", speed: 0.45, revealDelay: 0.4, hold: 1.5 });
   useHorizontalPin(".pf-hstrip", ".pf-hstrip-track");
   useVelocityMarquee(".pf-ticker-track");
-  useCursor(".pf-cursor", ".pf-preview");
+  useHeroCursor(".pf-home-hero", ".pf-cursor", ".pf-preview");
   const [scrolled, setScrolled] = useState(false);
   const cursor = useRef<HTMLDivElement>(null);
   const preview = useRef<HTMLDivElement>(null);
@@ -85,24 +85,6 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* cursor + hover preview follow */
-  useEffect(() => {
-    if (window.matchMedia("(pointer:coarse)").matches) return;
-    let cx = -100, cy = -100, tx = -100, ty = -100, px = 0, py = 0;
-    const onMove = (e: MouseEvent) => { tx = e.clientX; ty = e.clientY; };
-    window.addEventListener("mousemove", onMove);
-    let raf = 0;
-    const loop = () => {
-      cx += (tx - cx) * 0.18; cy += (ty - cy) * 0.18;
-      px += (tx - px) * 0.12; py += (ty - py) * 0.12;
-      if (cursor.current) { cursor.current.style.left = `${cx}px`; cursor.current.style.top = `${cy}px`; }
-      if (preview.current) { preview.current.style.left = `${px}px`; preview.current.style.top = `${py}px`; }
-      raf = requestAnimationFrame(loop);
-    };
-    loop();
-    return () => { window.removeEventListener("mousemove", onMove); cancelAnimationFrame(raf); };
-  }, []);
-
   /* magnetic contact button */
   useEffect(() => {
     const wrap = magWrap.current, btn = mag.current;
@@ -122,18 +104,6 @@ export default function Home() {
     return () => { wrap.removeEventListener("mousemove", move); wrap.removeEventListener("mouseleave", leave); };
   }, []);
 
-  const enterRow = (img: string) => {
-    if (previewImg.current) previewImg.current.src = img;
-    preview.current?.classList.add("on");
-    cursor.current?.classList.add("big");
-    if (cursor.current) cursor.current.textContent = "View";
-  };
-  const leaveRow = () => {
-    preview.current?.classList.remove("on");
-    cursor.current?.classList.remove("big");
-    if (cursor.current) cursor.current.textContent = "";
-  };
-
   return (
     <div className="pf" style={{ minHeight: "100vh" }}>
       {createPortal(<>
@@ -141,7 +111,7 @@ export default function Home() {
           Open to product design roles &amp; freelance <b>Pune, India / remote · replies in 24h</b>
         </div>
         <div className="pf-cursor" ref={cursor} />
-        <div className="pf-preview" ref={preview}><img ref={previewImg} src={liffoThumb} alt="" /></div>
+        <div className="pf-preview" ref={preview}><img ref={previewImg} src={gfxLens} alt="" /></div>
         <nav className={`pf-nav${scrolled ? " scrolled" : ""}`}>
           <Link href="/"><a className="logo">Karan Gadhave</a></Link>
           <div className="links">
@@ -193,32 +163,28 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── PHOTO BAND ── */}
-      <figure className="pf-photoband tall" data-reveal>
-        <img src={gfxPrism} alt="Abstract graphic composition in blue and amber" loading="lazy" />
-      </figure>
-
       {/* ── ABOUT ── */}
-      <section id="about" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 40 }}>
-        <div style={{ marginBottom: 34 }} data-reveal><span className="pf-chip">About</span></div>
-        <div className="pf-about-split">
-          <figure className="pf-portrait" data-reveal>
+      <section id="about" className="pf-wrap pf-about" style={{ paddingTop: 118, paddingBottom: 40 }}>
+        <div className="pf-about-inner">
+          <div data-reveal><span className="pf-chip">About</span></div>
+
+          <figure className="pf-portrait pf-about-portrait">
             <img src={photoPortrait} alt="Karan Gadhave" loading="lazy" />
           </figure>
-          <div>
-          <p className="pf-bigline" data-reveal>
-            I take messy, complicated platforms, the ones with roles, rules and legacy, and make them feel <em className="pf-em">simple, considered and calm.</em>
+
+          <h2 className="pf-about-title">
+            I take messy, complicated platforms and make them feel simple.
+          </h2>
+
+          <p className="pf-about-copy" data-reveal>
+            I am Karan, a product designer who works end to end: research, architecture,
+            systems, UI, and the awkward questions in between. Recent work spans a
+            multi-tenant cybersecurity platform redesigned solo and shipped to production,
+            a cost benefit engine inside a project tool, and an emergency first healthcare
+            app for India.
           </p>
-          <div data-reveal style={{ ["--d" as any]: ".15s" }}>
-            <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--soft)", marginBottom: 18 }}>
-              I'm Karan, a product designer who works end to end: research, architecture, systems, UI, and the awkward questions in between.
-            </p>
-            <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--soft)" }}>
-              Recent work spans a multi-tenant cybersecurity platform redesigned solo and shipped to production, a cost-benefit engine inside a project tool, and an emergency-first healthcare app for India.
-            </p>
-          </div>
-          </div>
         </div>
+
         <div className="pf-outcomes" style={{ marginTop: 70 }}>
           {[
             { n: <span data-to="5" data-pad="1" data-suffix="+" className="pf-num">0</span>, l: "Years designing products, research to production" },
@@ -298,8 +264,7 @@ export default function Home() {
         <div className="pf-projects">
           {WORK.map((w, i) => (
             <Link href={w.href} key={w.href}>
-              <a className={`pf-proj${i % 2 ? " alt" : ""}${w.soon ? " soon" : ""}`}
-                 onMouseEnter={() => !w.soon && enterRow(w.img)} onMouseLeave={leaveRow}>
+              <a className={`pf-proj${i % 2 ? " alt" : ""}${w.soon ? " soon" : ""}`}>
                 <div className="pf-proj-media">
                   {w.soon
                     ? <div className="ph"><span>Case study in progress</span></div>
@@ -349,11 +314,6 @@ export default function Home() {
           </div>
         ))}
       </section>
-
-      {/* ── PHOTO BAND 2 ── */}
-      <figure className="pf-photoband" data-reveal>
-        <img src={gfxRiso} alt="Grainy risograph gradient in teal and ochre" loading="lazy" />
-      </figure>
 
       {/* ── CLOSING CTA ── */}
       <section className="pf-bigcta" data-reveal>

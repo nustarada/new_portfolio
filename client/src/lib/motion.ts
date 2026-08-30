@@ -52,9 +52,18 @@ export function useSplitHeadline(selector: string, delay = 0.15) {
     if (reduced()) { gsap.set(el, { opacity: 1 }); return; }
     let split: SplitText | null = null;
     const ctx = gsap.context(() => {
-      split = new SplitText(el, { type: "lines", mask: "lines", linesClass: "pf-line" });
-      gsap.set(el, { opacity: 1 });
-      gsap.from(split.lines, { yPercent: 110, duration: 1.1, delay, ease: EASE.rise, stagger: 0.09 });
+      split = new SplitText(el, { type: "chars,words,lines" });
+      gsap.set(el, { opacity: 1, perspective: 900 });
+      gsap.from(split.chars, {
+        yPercent: -120,
+        rotateX: -85,
+        opacity: 0,
+        transformOrigin: "50% 100% -30px",
+        duration: 0.9,
+        delay,
+        ease: "back.out(1.6)",
+        stagger: { each: 0.022, from: "random" },
+      });
     });
     return () => { ctx.revert(); split?.revert(); };
   }, [selector, delay]);
@@ -228,23 +237,53 @@ export function useParallax(selector: string, amount = 4) {
   }, [selector, amount]);
 }
 
-/* ── cursor, driven by quickTo instead of a hand-rolled rAF ── */
-export function useCursor(dotSel: string, previewSel: string) {
+/* ── cursor: a single trailing image, hero only ────────────── */
+export function useHeroCursor(heroSel: string, dotSel: string, imgSel: string) {
   useEffect(() => {
     if (reduced() || window.matchMedia("(pointer:coarse)").matches) return;
+    const hero = document.querySelector<HTMLElement>(heroSel);
     const dot = document.querySelector<HTMLElement>(dotSel);
-    const prev = document.querySelector<HTMLElement>(previewSel);
-    if (!dot) return;
-    const dx = gsap.quickTo(dot, "x", { duration: 0.32, ease: EASE.crisp });
-    const dy = gsap.quickTo(dot, "y", { duration: 0.32, ease: EASE.crisp });
-    const px = prev ? gsap.quickTo(prev, "x", { duration: 0.62, ease: EASE.crisp }) : null;
-    const py = prev ? gsap.quickTo(prev, "y", { duration: 0.62, ease: EASE.crisp }) : null;
-    const move = (e: MouseEvent) => { dx(e.clientX); dy(e.clientY); px?.(e.clientX); py?.(e.clientY); };
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
-  }, [dotSel, previewSel]);
-}
+    const img = document.querySelector<HTMLElement>(imgSel);
+    if (!hero || !dot || !img) return;
 
+    const dx = gsap.quickTo(dot, "x", { duration: 0.26, ease: EASE.crisp });
+    const dy = gsap.quickTo(dot, "y", { duration: 0.26, ease: EASE.crisp });
+    const ix = gsap.quickTo(img, "x", { duration: 0.72, ease: EASE.crisp });
+    const iy = gsap.quickTo(img, "y", { duration: 0.72, ease: EASE.crisp });
+
+    let inside = false;
+    const show = (on: boolean) => {
+      if (on === inside) return;
+      inside = on;
+      hero.classList.toggle("cursor-live", on);
+      gsap.to([dot, img], {
+        opacity: on ? 1 : 0,
+        scale: on ? 1 : 0.82,
+        duration: on ? 0.45 : 0.3,
+        ease: on ? EASE.rise : EASE.crisp,
+        overwrite: true,
+      });
+    };
+
+    const move = (e: MouseEvent) => {
+      const r = hero.getBoundingClientRect();
+      const within = e.clientX >= r.left && e.clientX <= r.right &&
+                     e.clientY >= r.top && e.clientY <= r.bottom;
+      show(within);
+      if (!within) return;
+      dx(e.clientX); dy(e.clientY);
+      ix(e.clientX); iy(e.clientY);
+    };
+
+    gsap.set([dot, img], { opacity: 0, scale: 0.82, xPercent: -50, yPercent: -50 });
+    window.addEventListener("mousemove", move);
+    window.addEventListener("mouseout", () => show(false));
+    return () => {
+      window.removeEventListener("mousemove", move);
+      gsap.set([dot, img], { clearProps: "all" });
+    };
+  }, [heroSel, dotSel, imgSel]);
+}
 
 /* ── image: clip wipe + inner scale, unmistakably animated ─── */
 export function useImageReveal(selector: string) {
@@ -334,6 +373,32 @@ export function useScrambleCycle(
     });
     return () => ctx.revert();
   }, [selector, phrases, opts]);
+}
+
+
+/* ── About: portrait scales and rises as the block scrubs past ── */
+export function useAboutScrub(selector: string) {
+  useEffect(() => {
+    const root = document.querySelector<HTMLElement>(selector);
+    if (!root || reduced()) return;
+    const ctx = gsap.context(() => {
+      const portrait = root.querySelector(".pf-about-portrait");
+      const copy = root.querySelector(".pf-about-copy");
+      if (portrait) {
+        gsap.fromTo(portrait,
+          { scale: 0.88, y: 60 },
+          { scale: 1, y: 0, ease: "none",
+            scrollTrigger: { trigger: root, start: "top 78%", end: "top 26%", scrub: 0.7 } });
+      }
+      if (copy) {
+        gsap.from(copy, {
+          opacity: 0, y: 34, duration: 0.9, ease: EASE.enter,
+          scrollTrigger: { trigger: copy, start: "top 88%", once: true },
+        });
+      }
+    }, root);
+    return () => ctx.revert();
+  }, [selector]);
 }
 
 export { gsap, ScrollTrigger, SplitText };
