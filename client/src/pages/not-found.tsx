@@ -14,7 +14,7 @@ export default function NotFound() {
       <main className="pf-wrap" style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", paddingTop: 140, paddingBottom: 80 }}>
         <p className="pf-label" style={{ marginBottom: 34 }}>Error 404</p>
         <h1 style={{ font: "300 clamp(44px,7vw,96px)/1.06 var(--font-display)", letterSpacing: "-.02em", maxWidth: 900 }}>
-          This page doesn't exist —<br />but the <em className="pf-em">work does.</em>
+          This page doesn't exist -<br />but the <em className="pf-em">work does.</em>
         </h1>
         <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--soft)", maxWidth: 460, marginTop: 30 }}>
           The link may be out of date, or the page has moved. Everything worth seeing is one click away.

@@ -1,26 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "wouter";
 import "@/styles/portfolio.css";
+import { useReveal } from "@/lib/motion";
+
+export { useReveal };
 
 /* ════════════════════════════════════════════════════════════════
-   Shared case-study template — studio structure, paper theme.
+   Shared case-study template, studio structure, paper theme.
    Every case study is: data + an accent colour.
    ════════════════════════════════════════════════════════════════ */
 
 /* ── hooks ─────────────────────────────────────────────────── */
-export function useReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll("[data-reveal]");
-    const io = new IntersectionObserver(
-      es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }),
-      { threshold: 0.1 }
-    );
-    els.forEach(el => io.observe(el));
-    const t = setTimeout(() => document.body.classList.add("pf-loaded"), 80);
-    return () => { io.disconnect(); clearTimeout(t); };
-  }, []);
-}
-
 export function useProgress(ref: React.RefObject<HTMLDivElement>) {
   useEffect(() => {
     const onScroll = () => {
@@ -43,11 +34,14 @@ export const CaseStudyShell = ({
   useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
     <div className="pf" style={{ ["--pf-accent" as any]: accent, minHeight: "100vh" }}>
-      <div className="pf-progress" ref={prog} />
-      <div className="pf-topbar">
-        <Link href="/"><a className="back">← Karan Gadhave</a></Link>
-        <p className="r">{project} · {year}</p>
-      </div>
+      {createPortal(
+        <div style={{ ["--pf-accent" as any]: accent }}>
+          <div className="pf-progress" ref={prog} />
+          <div className="pf-topbar">
+            <Link href="/"><a className="back">← Karan Gadhave</a></Link>
+            <p className="r">{project} · {year}</p>
+          </div>
+        </div>, document.body)}
       {children}
     </div>
   );
@@ -277,7 +271,7 @@ export const EvidenceCard = ({
   </div>
 );
 
-/* ── before / after — side by side, full images ────────────── */
+/* ── before / after, side by side, full images ────────────── */
 export const BeforeAfter = ({
   before, after, caption, beforeLabel = "Before", afterLabel = "After",
 }: { before: string; after: string; caption?: string; beforeLabel?: string; afterLabel?: string }) => (
