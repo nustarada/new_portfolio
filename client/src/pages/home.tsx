@@ -6,8 +6,9 @@ import {
   useScramble, useHorizontalPin, useVelocityMarquee, useCursor,
 } from "@/lib/motion";
 import { Ticker } from "@/components/visuals";
-import photoWide from "@assets/photo-structure-wide.jpg";
-import photoGrid from "@assets/photo-grid.jpg";
+import gfxPrism from "@assets/gfx-prism.jpg";
+import gfxRiso from "@assets/gfx-riso.jpg";
+import gfxLens from "@assets/gfx-lens.jpg";
 import photoPortrait from "@assets/photo-portrait.jpg";
 import { PageFooter } from "@/components/case-study/template";
 import "@/styles/portfolio.css";
@@ -176,11 +177,7 @@ export default function Home() {
 
       {/* ── PHOTO BAND ── */}
       <figure className="pf-photoband tall" data-reveal>
-        <img src={photoWide} alt="Concrete structure of repeating modular bays" loading="lazy" />
-        <figcaption>
-          <span>Structure first</span>
-          <span>The systems I redesign look like this underneath</span>
-        </figcaption>
+        <img src={gfxPrism} alt="Abstract graphic composition in blue and amber" loading="lazy" />
       </figure>
 
       {/* ── ABOUT ── */}
@@ -221,6 +218,7 @@ export default function Home() {
 
       {/* ── PROCESS, numbered grid, connected by a rule ── */}
       <section id="process" className="pf-full pf-band-grain">
+        <img className="pf-band-art" src={gfxLens} alt="" aria-hidden="true" loading="lazy" />
         <div className="pf-wrap">
           <div className="pf-sechead" data-reveal>
             <span className="pf-chip inv">How I work</span>
@@ -317,7 +315,7 @@ export default function Home() {
 
       {/* ── PHOTO BAND 2 ── */}
       <figure className="pf-photoband" data-reveal>
-        <img src={photoGrid} alt="Grid of windows across a concrete facade" loading="lazy" />
+        <img src={gfxRiso} alt="Grainy risograph gradient in teal and ochre" loading="lazy" />
       </figure>
 
       {/* ── CLOSING CTA ── */}
