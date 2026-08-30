@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import {
   useReveal, useSplitHeadline, useCountUp, useParallax,
   useScramble, useHorizontalPin, useVelocityMarquee, useCursor,
+  useImageReveal, useTextChars, useHoverMarquee,
 } from "@/lib/motion";
 import { Ticker } from "@/components/visuals";
 import gfxPrism from "@assets/gfx-prism.jpg";
@@ -35,7 +36,9 @@ export default function Home() {
   useReveal();
   useSplitHeadline(".pf-home-hero h1", 0.2);
   useCountUp("[data-to]");
-  useParallax(".pf-row .im img", 4);
+  useImageReveal(".pf-proj-media");
+  useTextChars(".pf-proj-title", 0.016);
+  useHoverMarquee(".pf-proj");
   useParallax(".pf-photoband img", 7);
   useScramble("[data-scramble]");
   useHorizontalPin(".pf-hstrip", ".pf-hstrip-track");
@@ -270,24 +273,43 @@ export default function Home() {
       {/* ── TICKER ── */}
       <Ticker items={["Product design", "Information architecture", "Design systems", "Platform redesigns", "Research"]} />
 
-      {/* ── WORK ── */}
-      <section id="work" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 40 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 34 }} data-reveal>
+      {/* ── WORK — showcase ── */}
+      <section id="work" className="pf-wrap" style={{ paddingTop: 120, paddingBottom: 40 }}>
+        <div className="pf-workhead">
           <span className="pf-chip">Selected work</span>
-          <p style={{ font: "400 13px var(--font-mono)", color: "var(--mut)" }}>2024, 2026</p>
+          <p className="c" data-scramble>Five projects / 2024 to 2025</p>
         </div>
-        <div className="pf-worklist">
+
+        <div className="pf-projects">
           {WORK.map((w, i) => (
             <Link href={w.href} key={w.href}>
-              <a className="pf-row" data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}
-                 onMouseEnter={() => enterRow(w.img)} onMouseLeave={leaveRow}>
-                <span className="n">{w.n}</span>
-                <span className="t">{w.title}</span>
-                <span className="tag">{w.tag}</span>
-                <span className="yr">{w.year}</span>
-                {w.soon
-                  ? <span className="im soon"><span>In progress</span></span>
-                  : <span className="im"><img src={w.img} alt={w.title} loading="lazy" /></span>}
+              <a className={`pf-proj${i % 2 ? " alt" : ""}${w.soon ? " soon" : ""}`}
+                 onMouseEnter={() => !w.soon && enterRow(w.img)} onMouseLeave={leaveRow}>
+                <div className="pf-proj-media">
+                  {w.soon
+                    ? <div className="ph"><span>Case study in progress</span></div>
+                    : <><img src={w.img} alt={w.title} loading="lazy" />
+                        <div className="pf-proj-hover">
+                          <div className="pf-proj-strip">
+                            {[0, 1].map((k) => (
+                              <React.Fragment key={k}>
+                                {[0, 1, 2, 3].map((j) => (
+                                  <span key={`${k}-${j}`}>{w.title}<i>/</i></span>
+                                ))}
+                              </React.Fragment>
+                            ))}
+                          </div>
+                        </div>
+                      </>}
+                </div>
+                <div className="pf-proj-meta">
+                  <span className="n">{w.n}</span>
+                  <div>
+                    <h3 className="pf-proj-title">{w.title}</h3>
+                    <p className="tag">{w.tag}</p>
+                  </div>
+                  <span className="yr">{w.year}</span>
+                </div>
               </a>
             </Link>
           ))}

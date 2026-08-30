@@ -245,4 +245,69 @@ export function useCursor(dotSel: string, previewSel: string) {
   }, [dotSel, previewSel]);
 }
 
+
+/* ── image: clip wipe + inner scale, unmistakably animated ─── */
+export function useImageReveal(selector: string) {
+  useEffect(() => {
+    const wraps = gsap.utils.toArray<HTMLElement>(selector);
+    if (!wraps.length) return;
+    if (reduced()) { gsap.set(wraps, { clipPath: "inset(0%)" }); return; }
+    const ctx = gsap.context(() => {
+      wraps.forEach((w) => {
+        const img = w.querySelector("img");
+        const tl = gsap.timeline({
+          scrollTrigger: { trigger: w, start: "top 84%", once: true },
+        });
+        tl.fromTo(w,
+          { clipPath: "inset(0% 0% 100% 0%)" },
+          { clipPath: "inset(0% 0% 0% 0%)", duration: 1.15, ease: EASE.rise })
+          .fromTo(img, { scale: 1.35 }, { scale: 1, duration: 1.5, ease: EASE.rise }, 0);
+      });
+    });
+    return () => ctx.revert();
+  }, [selector]);
+}
+
+/* ── text: per-character rise, staggered ───────────────────── */
+export function useTextChars(selector: string, stagger = 0.018) {
+  useEffect(() => {
+    const els = gsap.utils.toArray<HTMLElement>(selector);
+    if (!els.length || reduced()) return;
+    const splits: SplitText[] = [];
+    const ctx = gsap.context(() => {
+      els.forEach((el) => {
+        const sp = new SplitText(el, { type: "chars,words", mask: "chars" });
+        splits.push(sp);
+        gsap.from(sp.chars, {
+          yPercent: 118, duration: 0.82, ease: EASE.rise, stagger,
+          scrollTrigger: { trigger: el, start: "top 88%", once: true },
+        });
+      });
+    });
+    return () => { ctx.revert(); splits.forEach((s) => s.revert()); };
+  }, [selector, stagger]);
+}
+
+/* ── hover: name marquee across the media ──────────────────── */
+export function useHoverMarquee(itemSel: string) {
+  useEffect(() => {
+    if (reduced()) return;
+    const items = gsap.utils.toArray<HTMLElement>(itemSel);
+    const kill: Array<() => void> = [];
+    items.forEach((item) => {
+      const strip = item.querySelector<HTMLElement>(".pf-proj-strip");
+      if (!strip) return;
+      const loop = gsap.to(strip, {
+        xPercent: -50, duration: 9, ease: "none", repeat: -1, paused: true,
+      });
+      const enter = () => { loop.play(); gsap.to(strip.parentElement, { opacity: 1, duration: 0.35, ease: EASE.crisp }); };
+      const leave = () => { loop.pause(); gsap.to(strip.parentElement, { opacity: 0, duration: 0.35, ease: EASE.crisp }); };
+      item.addEventListener("mouseenter", enter);
+      item.addEventListener("mouseleave", leave);
+      kill.push(() => { item.removeEventListener("mouseenter", enter); item.removeEventListener("mouseleave", leave); loop.kill(); });
+    });
+    return () => kill.forEach((f) => f());
+  }, [itemSel]);
+}
+
 export { gsap, ScrollTrigger, SplitText };
