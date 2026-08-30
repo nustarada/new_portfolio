@@ -3,10 +3,12 @@ import { createPortal } from "react-dom";
 import { Link } from "wouter";
 import {
   useReveal, useSplitHeadline, useCountUp, useParallax,
-  useCharScrub, useScramble, useHorizontalPin, useDrawSVG, useMorph,
-  useVelocityMarquee, useCursor,
+  useScramble, useHorizontalPin, useVelocityMarquee, useCursor,
 } from "@/lib/motion";
-import { SystemGraphic, MorphBlob, Ticker, MORPHS } from "@/components/visuals";
+import { Ticker } from "@/components/visuals";
+import photoWide from "@assets/photo-structure-wide.jpg";
+import photoGrid from "@assets/photo-grid.jpg";
+import photoPortrait from "@assets/photo-portrait.jpg";
 import { PageFooter } from "@/components/case-study/template";
 import "@/styles/portfolio.css";
 
@@ -33,11 +35,9 @@ export default function Home() {
   useSplitHeadline(".pf-home-hero h1", 0.2);
   useCountUp("[data-to]");
   useParallax(".pf-row .im img", 4);
-  useDrawSVG(".pf-sysgraphic");
-  useCharScrub(".pf-statement-line");
+  useParallax(".pf-photoband img", 7);
   useScramble("[data-scramble]");
   useHorizontalPin(".pf-hstrip", ".pf-hstrip-track");
-  useMorph("#pf-morph-path", MORPHS);
   useVelocityMarquee(".pf-ticker-track");
   useCursor(".pf-cursor", ".pf-preview");
   const [scrolled, setScrolled] = useState(false);
@@ -139,7 +139,6 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <header className="pf-home-hero pf-wrap">
-        <SystemGraphic />
         <p className="pf-eyebrow" data-reveal><span className="pf-dot" />Product &amp; UX Designer, available for hire and freelance</p>
         <h1 style={{ opacity: 0 }}>
           Designing digital products people <em className="pf-em">actually trust.</em>
@@ -175,10 +174,23 @@ export default function Home() {
         </div>
       </div>
 
+      {/* ── PHOTO BAND ── */}
+      <figure className="pf-photoband tall" data-reveal>
+        <img src={photoWide} alt="Concrete structure of repeating modular bays" loading="lazy" />
+        <figcaption>
+          <span>Structure first</span>
+          <span>The systems I redesign look like this underneath</span>
+        </figcaption>
+      </figure>
+
       {/* ── ABOUT ── */}
       <section id="about" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 40 }}>
         <div style={{ marginBottom: 34 }} data-reveal><span className="pf-chip">About</span></div>
-        <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 80, alignItems: "start" }} className="pf-about-grid">
+        <div className="pf-about-split">
+          <figure className="pf-portrait" data-reveal>
+            <img src={photoPortrait} alt="Karan Gadhave" loading="lazy" />
+          </figure>
+          <div>
           <p className="pf-bigline" data-reveal>
             I take messy, complicated platforms, the ones with roles, rules and legacy, and make them feel <em className="pf-em">simple, considered and calm.</em>
           </p>
@@ -189,6 +201,7 @@ export default function Home() {
             <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--soft)" }}>
               Recent work spans a multi-tenant cybersecurity platform redesigned solo and shipped to production, a cost-benefit engine inside a project tool, and an emergency-first healthcare app for India.
             </p>
+          </div>
           </div>
         </div>
         <div className="pf-outcomes" style={{ marginTop: 70 }}>
@@ -230,19 +243,6 @@ export default function Home() {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      {/* ── STATEMENT — chars resolve on scroll scrub ── */}
-      <section className="pf-statement-band">
-        <MorphBlob />
-        <div className="pf-wrap">
-          <p className="pf-statement-kicker" data-scramble>The belief</p>
-          <h2 className="pf-statement-line">Good design is provocative.</h2>
-          <p className="pf-statement-sub" data-reveal>
-            Comfortable design gets approved. Provocative design gets used, argued
-            about, and remembered. I would rather ship the second one.
-          </p>
         </div>
       </section>
 
@@ -314,6 +314,11 @@ export default function Home() {
           </div>
         ))}
       </section>
+
+      {/* ── PHOTO BAND 2 ── */}
+      <figure className="pf-photoband" data-reveal>
+        <img src={photoGrid} alt="Grid of windows across a concrete facade" loading="lazy" />
+      </figure>
 
       {/* ── CLOSING CTA ── */}
       <section className="pf-bigcta" data-reveal>
