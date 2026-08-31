@@ -592,6 +592,15 @@
   .pf-step-card:nth-child(odd){ padding-left:0; }
   .pf-step-card:nth-child(even){ padding-left:30px; }
   .pf-step-card:nth-child(n+3){ border-top:1px solid var(--line); padding-top:34px; }
+  /* the 82px foot is for four short columns; two wide ones do not need it */
+  .pf-step-card{ padding-bottom:40px; }
+  /* five steps across two columns leaves the fifth alone beside an empty
+     half row, so it takes the whole row and reads as a closing band */
+  .pf-step-card:last-child{
+    grid-column:1 / -1; border-right:0;
+    padding-left:var(--gutter); padding-right:var(--gutter);
+  }
+  .pf-step-card:last-child p{ max-width:58ch; }
 }
 @media (max-width:620px){
   .pf-steps{ grid-template-columns:1fr; }
@@ -1006,7 +1015,7 @@
     padding-left:calc(var(--gutter) + 18px); padding-right:calc(var(--gutter) + 18px);
   }
 }
-@media (max-width:1000px){
+@media (max-width:1180px){
   .pf-steps > .pf-step-card:nth-child(odd){ padding-left:var(--gutter); }
   .pf-steps > .pf-step-card:nth-child(even){ padding-right:var(--gutter); }
 }
