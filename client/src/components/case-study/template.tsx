@@ -96,7 +96,7 @@ export const SectionHead = ({
 /* ── device frames ─────────────────────────────────────────── */
 export const Phone = ({ src, alt = "", small = false, style }: { src: string; alt?: string; small?: boolean; style?: React.CSSProperties }) => (
   <div className={`pf-phone${small ? " sm" : ""}`} style={style}>
-    <img src={src} alt={alt} />
+    <img src={src} alt={alt} loading="lazy" decoding="async" />
     <i className="island" />
     <b className="btn action" /><b className="btn volup" /><b className="btn voldn" /><b className="btn power" />
   </div>
@@ -105,7 +105,7 @@ export const Phone = ({ src, alt = "", small = false, style }: { src: string; al
 export const Browser = ({ src, alt = "", url, imgId }: { src: string; alt?: string; url: string; imgId?: string }) => (
   <div className="pf-browser">
     <div className="bar"><i /><i /><i /><span className="url">{url}</span></div>
-    <img src={src} alt={alt} id={imgId} />
+    <img src={src} alt={alt} id={imgId} loading="lazy" decoding="async" />
   </div>
 );
 
@@ -157,7 +157,7 @@ export const Collage = ({
 }: { tiles: Array<{ src: string; size?: "sm" | "md" | "lg" }>; caption: string; count?: string }) => (
   <div className="pf-collage" data-reveal>
     <div className="pf-collage-track">
-      {tiles.map((t, i) => <div className={`pf-tile ${t.size || "md"}`} key={i}><img src={t.src} alt="" /></div>)}
+      {tiles.map((t, i) => <div className={`pf-tile ${t.size || "md"}`} key={i}><img src={t.src} alt="" loading="lazy" decoding="async" /></div>)}
     </div>
     <div className="pf-wrap pf-cap" style={{ paddingTop: 22 }}>
       <p>{caption}</p>{count && <p><b>{count}</b></p>}
@@ -207,12 +207,12 @@ export const StickyWalkthrough = ({ steps, variant = "mobile" }: { steps: Step[]
           {variant === "desktop" ? (
             <div className="pf-browser" style={{ width: "100%" }}>
               <div className="bar"><i /><i /><i /><span className="url">{cur.url}</span></div>
-              <img src={cur.img} alt="" style={{ opacity: fading ? 0 : 1 }} />
+              <img src={cur.img} alt="" loading="lazy" decoding="async" style={{ opacity: fading ? 0 : 1 }} />
             </div>
           ) : (
             <>
               <div className="pf-phone">
-                <img src={cur.img} alt="" style={{ opacity: fading ? 0 : 1 }} />
+                <img src={cur.img} alt="" loading="lazy" decoding="async" style={{ opacity: fading ? 0 : 1 }} />
                 <i className="island" />
                 <b className="btn action" /><b className="btn volup" /><b className="btn voldn" /><b className="btn power" />
               </div>
@@ -342,7 +342,7 @@ export const MoreProjects = ({ cards }: { cards: ProjectCard[] }) => (
       {cards.map((c, i) => (
         <Link href={c.href} key={c.href}
           className="pf-pcard" data-reveal style={{ ["--d" as any]: `${i * 0.08}s` }}>
-            <div className="im"><img src={c.img} alt={c.title} /></div>
+            <div className="im"><img src={c.img} alt={c.title} loading="lazy" decoding="async" /></div>
             <div className="meta">
               <div><p className="t">{c.title}</p><p className="s">{c.sub}</p></div>
               {c.badge && <p className="badge2">{c.badge}</p>}
