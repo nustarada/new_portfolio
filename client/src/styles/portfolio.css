@@ -95,28 +95,56 @@
 .pf-shead p { font-size:15.5px; line-height:1.7; color:var(--soft); max-width:680px; margin-top:18px; }
 
 /* ── device frames ─────────────────────────────────────────── */
-/* handset shell: rounded body, dynamic island, side button */
+/* iPhone 15 Pro shell, drawn to the real device geometry.
+   Every dimension derives from --pw, so one rule scales to any size.
+   Screen 393x852pt, 55pt screen radius, 125x36.7pt island, titanium rail. */
 .pf-phone{
-  position:relative; width:242px; aspect-ratio:9/19.5; flex-shrink:0;
-  padding:8px; border-radius:40px;
-  background:linear-gradient(152deg,#43434A 0%,#111114 46%,#2E2E34 100%);
-  box-shadow:0 34px 72px rgba(26,23,18,.3), inset 0 0 0 1px rgba(255,255,255,.16);
+  --pw:242px;
+  --rail:calc(var(--pw) * .0115);   /* titanium band          */
+  --bez:calc(var(--pw) * .0165);    /* black bezel inside it   */
+  position:relative; width:var(--pw); aspect-ratio:393/852; flex-shrink:0;
+  padding:calc(var(--rail) + var(--bez));
+  border-radius:calc(var(--pw) * .148);
+  background:linear-gradient(148deg,
+    #E7E4E0 0%, #8B8781 13%, #F4F2EF 27%, #6E6A65 45%,
+    #EFEDEA 63%, #7C7873 80%, #E2DFDB 92%, #918D87 100%);
+  box-shadow:
+    0 42px 84px rgba(26,23,18,.3),
+    0 5px 14px rgba(26,23,18,.16),
+    inset 0 0 0 1px rgba(255,255,255,.45);
+}
+/* the black bezel the screen is set into */
+.pf-phone::before{
+  content:''; position:absolute; inset:var(--rail); z-index:0;
+  border-radius:calc(var(--pw) * .1365);
+  background:#08080A;
 }
 .pf-phone img{
+  position:relative; z-index:1;
   width:100%; height:100%; display:block; background:#fff;
-  object-fit:cover; object-position:top; border-radius:32px;
+  object-fit:cover; object-position:top;
+  border-radius:calc(var(--pw) * .12);
 }
-.pf-phone::after{
-  content:''; position:absolute; z-index:2; top:16px; left:50%; transform:translateX(-50%);
-  width:30%; height:11px; border-radius:99px; background:#0A0A0C;
+/* Dynamic Island, 125 x 36.7pt sitting 11pt below the screen edge */
+.pf-phone .island{
+  position:absolute; z-index:2; left:50%; transform:translateX(-50%);
+  top:calc(var(--rail) + var(--bez) + var(--pw) * .028);
+  width:calc(var(--pw) * .318); height:calc(var(--pw) * .0934);
+  border-radius:99px; background:#000;
 }
-.pf-phone::before{
-  content:''; position:absolute; right:-2px; top:27%; width:2px; height:9%;
-  border-radius:2px; background:linear-gradient(#4E4E55,#26262B);
+/* side buttons, positioned as a fraction of the body height */
+.pf-phone .btn{
+  position:absolute; z-index:2; width:calc(var(--pw) * .0092);
+  background:linear-gradient(90deg,#9B9791,#D8D5D1 45%,#6E6A65);
 }
-.pf-phone.sm{ width:200px; padding:7px; border-radius:34px; }
-.pf-phone.sm img{ border-radius:27px; }
-.pf-phone.sm::after{ top:13px; height:9px; }
+.pf-phone .action{ left:calc(var(--pw) * -.0072); top:19.1%;  height:3.2%; border-radius:2px 0 0 2px; }
+.pf-phone .volup{  left:calc(var(--pw) * -.0072); top:24.2%;  height:5.3%; border-radius:2px 0 0 2px; }
+.pf-phone .voldn{  left:calc(var(--pw) * -.0072); top:31.0%;  height:5.3%; border-radius:2px 0 0 2px; }
+.pf-phone .power{
+  right:calc(var(--pw) * -.0072); top:22.6%; height:7.3%; border-radius:0 2px 2px 0;
+  background:linear-gradient(270deg,#9B9791,#D8D5D1 45%,#6E6A65);
+}
+.pf-phone.sm{ --pw:200px; }
 .pf-browser { border-radius:0; overflow:hidden; border:1px solid rgba(26,23,18,.16); box-shadow:0 34px 78px rgba(26,23,18,.2); background:#fff; }
 .pf-browser .bar { height:36px; background:#EFEAE2; border-bottom:1px solid var(--line); display:flex; align-items:center; padding:0 14px; gap:7px; }
 .pf-browser .bar i { width:9px; height:9px; border-radius:50%; background:#D6CEC2; display:block; }
@@ -169,7 +197,7 @@
 .pf-sticky.desktop { grid-template-columns:1.15fr .85fr; }
 .pf-stage { position:sticky; top:0; height:100vh; display:flex; align-items:center; justify-content:center; }
 .pf-stage-wrap { position:relative; width:100%; display:flex; flex-direction:column; align-items:center; gap:18px; }
-.pf-sticky.mobile .pf-phone { width:min(292px,25vw); }
+.pf-sticky.mobile .pf-phone { --pw:min(292px,25vw); }
 .pf-stage img { transition:opacity .3s; }
 .pf-stage-tag { background:var(--card); border:1px solid var(--line); border-radius:0; font:500 14px var(--font-display); color:var(--pf-accent); padding:7px 16px; box-shadow:0 10px 26px rgba(26,23,18,.1); }
 .pf-walk { padding:10vh 0 12vh; }
@@ -340,11 +368,9 @@
   .pf-cs > div, .pf-timeline > div { padding-right:0; }
   .pf-outcomes > div { border-right:none; border-bottom:1px solid var(--line); padding-left:0; }
   .pf-phones { gap:14px; }
-  .pf-phone { width:150px; padding:6px; border-radius:26px; }
-  .pf-phone img { border-radius:20px; }
-  .pf-phone::after { top:10px; height:7px; }
+  .pf-phone { --pw:150px; }
   .pf-stage { position:relative; height:auto; padding:24px 0; }
-  .pf-sticky.mobile .pf-phone { width:210px; }
+  .pf-sticky.mobile .pf-phone { --pw:210px; }
   .pf-walk-step { min-height:auto; padding:40px 0; }
 
   .pf-row { grid-template-columns:40px 1fr 92px; gap:16px; }

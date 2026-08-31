@@ -95,7 +95,11 @@ export const SectionHead = ({
 
 /* ── device frames ─────────────────────────────────────────── */
 export const Phone = ({ src, alt = "", small = false, style }: { src: string; alt?: string; small?: boolean; style?: React.CSSProperties }) => (
-  <div className={`pf-phone${small ? " sm" : ""}`} style={style}><img src={src} alt={alt} /></div>
+  <div className={`pf-phone${small ? " sm" : ""}`} style={style}>
+    <img src={src} alt={alt} />
+    <i className="island" />
+    <b className="btn action" /><b className="btn volup" /><b className="btn voldn" /><b className="btn power" />
+  </div>
 );
 
 export const Browser = ({ src, alt = "", url, imgId }: { src: string; alt?: string; url: string; imgId?: string }) => (
@@ -207,7 +211,11 @@ export const StickyWalkthrough = ({ steps, variant = "mobile" }: { steps: Step[]
             </div>
           ) : (
             <>
-              <div className="pf-phone"><img src={cur.img} alt="" style={{ opacity: fading ? 0 : 1 }} /></div>
+              <div className="pf-phone">
+                <img src={cur.img} alt="" style={{ opacity: fading ? 0 : 1 }} />
+                <i className="island" />
+                <b className="btn action" /><b className="btn volup" /><b className="btn voldn" /><b className="btn power" />
+              </div>
               {cur.tag && <p className="pf-stage-tag">{cur.tag}</p>}
             </>
           )}
