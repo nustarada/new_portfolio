@@ -35,23 +35,23 @@ type Work = { href: string; title: string; tag: string; img: string;
 const WORK: Work[] = [
   { href: "/lionfish-case-study", title: "Lionfish Cyber Security",
     tag: "Cybersecurity", img: lionfishThumb,
-    blurb: "An enterprise security platform rebuilt around role-based navigation, compliance workflows and multi-tenant access. Live in production.",
+    blurb: "I rebuilt an enterprise security platform around role-based navigation, compliance workflows and multi-tenant access. Live in production.",
     meta: ["Lead designer", "Platform redesign"] },
   { href: "/liffo-case-study", title: "Liffo Healthcare",
     tag: "Healthcare", img: liffoThumb,
-    blurb: "Ambulance dispatch and home care for the Indian market, designed from the ground up across 34 screens.",
+    blurb: "I designed ambulance dispatch and home care for the Indian market, from the ground up across 34 screens.",
     meta: ["Lead designer", "34 screens"] },
   { href: "/2hour-learning-case-study", title: "2 Hour Learning",
     tag: "EdTech", img: twoHLThumb,
-    blurb: "A four-page system for a committee purchase, with each page addressing what a specific stakeholder needs answered.",
+    blurb: "I built a four-page system for a committee purchase, each page answering what one stakeholder needs to know.",
     meta: ["Lead designer", "4-page system"] },
   { href: "/fff-case-study", title: "Future First Families",
     tag: "Advocacy", img: fffThumb,
-    blurb: "A single-page advocacy site structured to build credibility first and convert parents into advocates for the programme.",
+    blurb: "I designed a single-page advocacy site that builds credibility first, then asks parents to act.",
     meta: ["Lead designer", "Conversion design"] },
   { href: "/acedboard-case-study", title: "Acedboard Proconomics",
     tag: "Fintech", img: acedboardThumb, soon: true,
-    blurb: "A cost-benefit analysis engine built inside a project management tool, making financial modelling usable by delivery teams.",
+    blurb: "I designed a cost-benefit analysis engine inside a project management tool, so delivery teams can run the financial model themselves.",
     meta: ["Lead designer", "Case study in progress"] },
 ];
 
@@ -150,7 +150,7 @@ export default function Home() {
         </div>
         <p className="pf-eyebrow" data-reveal><span className="pf-dot" />Product and UX designer, open to new work</p>
         <h1 style={{ opacity: 0 }}>
-          Product design for the platforms people <em className="pf-em">work in every day.</em>
+          I design the software people <em className="pf-em">work in every day.</em>
         </h1>
         <p data-reveal style={{ marginTop: 42, fontSize: 17, lineHeight: 1.65, color: "var(--soft)", maxWidth: 470, ["--d" as any]: ".5s" }}>
           Five platforms shipped across healthcare, fintech, edtech and cybersecurity. I work from first research through to production.
@@ -196,7 +196,7 @@ export default function Home() {
               <img src={photoPortrait} alt="Karan Gadhave" loading="lazy" />
             </figure>
             <h2 className="pf-about-title">
-              I design complex platforms so they are straightforward to use.
+              I make complicated platforms straightforward to use.
             </h2>
           </div>
 
@@ -228,9 +228,9 @@ export default function Home() {
         <div className="pf-wrap">
           <div className="pf-sechead" data-reveal>
             <span className="pf-chip inv">How I work</span>
-            <h2>How a project runs, start to finish.</h2>
-            <p>Enterprise platforms carry roles, permissions and existing behaviour. Working in this
-              order keeps those constraints visible from the start.</p>
+            <h2>How I run a project, start to finish.</h2>
+            <p>Enterprise platforms carry roles, permissions and existing behaviour. I work in this
+              order so those constraints stay visible from the start.</p>
           </div>
 
           <ol className="pf-steps">
@@ -382,7 +382,7 @@ export default function Home() {
       {/* ── CLOSING CTA ── */}
       <section className="pf-bigcta" data-reveal>
         <div className="pf-wrap">
-          <h2>Let us work together.</h2>
+          <h2>Let's work together.</h2>
           <a className="mailto" href="mailto:gadhavekaran@gmail.com">gadhavekaran@gmail.com</a>
         </div>
       </section>

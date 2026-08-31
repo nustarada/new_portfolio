@@ -54,7 +54,7 @@ export default function LionfishCaseStudy() {
     <CaseStudyShell accent={ACCENT} project="Lionfish" year="2025">
       <CaseHero
         title="Lionfish"
-        tagline={<>A multi-tenant cybersecurity platform, redesigned and <em className="pf-em">shipped to production.</em></>}
+        tagline={<>I redesigned a multi-tenant cybersecurity platform and <em className="pf-em">shipped it to production.</em></>}
         meta={[
           ["Client", "Lionfish Cyber Security · Cyber Tacklebox"],
           ["Industry", "Cybersecurity · Compliance & workforce training · US"],
@@ -239,19 +239,19 @@ export default function LionfishCaseStudy() {
         <SectionHead label="Key decisions" title={<>What the redesign <em className="pf-em">changed.</em></>} />
         <Decisions items={[
           { n: "01", title: "Grouped, role-aware side navigation",
-            why: "The most significant change. A deep multi-module platform cannot be navigated from a top bar. The side rail groups modules under Home, Content Manager and Additional Content, and renders only what the signed-in role can access.",
+            why: "The most significant change I made. A deep multi-module platform cannot be navigated from a top bar, so I grouped modules into a side rail under Home, Content Manager and Additional Content, rendering only what the signed-in role can access.",
             tradeoff: "Costs horizontal space, returned in orientation and room to scale." },
           { n: "02", title: "Ant Design and Material 3 as the foundation",
-            why: "With one designer covering an entire platform alongside active development, consistency had to come from a system rather than page-by-page decisions. Established references provided proven patterns for tables, forms and navigation.",
+            why: "I was covering an entire platform alongside active development, so consistency had to come from a system rather than page-by-page decisions. Ant Design and Material 3 gave me proven patterns for tables, forms and navigation.",
             tradeoff: "Less bespoke visual character, appropriate for a tool used daily." },
           { n: "03", title: "Rebuild the components, not the surface",
-            why: "Tables, in-page tabs, buttons and their labels were redesigned as system components, so every module inherited the same behaviour rather than each screen solving it separately.",
-            tradeoff: "Slower to start than restyling screens, and what made a full-platform redesign feasible." },
+            why: "I rebuilt tables, in-page tabs, buttons and their labels as system components, so every module inherited the same behaviour rather than each screen solving it separately.",
+            tradeoff: "Slower to start than restyling screens, and what made a full-platform redesign feasible on my own." },
           { n: "04", title: "Inline editing and a modern learning experience",
-            why: "Editing in place was unavailable and the video player was dated. Both were rebuilt: inline editing across data views, and a chaptered player for the training content.",
+            why: "Editing in place was unavailable and the video player was dated. I rebuilt both: inline editing across data views, and a chaptered player for the training content.",
             tradeoff: "More interaction states to design and specify for engineering." },
           { n: "05", title: "Cobrand theming as a first-class constraint",
-            why: "Every screen had to hold up under a tenant's own logo and brand colours. Colour was kept structural, with no meaning carried by hue alone, so the system stays legible whatever palette a cobrand applies.",
+            why: "Every screen had to hold up under a tenant's own logo and brand colours, so I kept colour structural and carried no meaning by hue alone. The system stays legible whatever palette a cobrand applies.",
             tradeoff: "Rules out colour-dependent visual devices across the platform." },
         ]} />
       </section>
@@ -259,7 +259,7 @@ export default function LionfishCaseStudy() {
       <section className="pf-wrap">
         <SectionHead
           label="Outcomes"
-          title={<>Designed across seven months, delivered in an agile process, and <em className="pf-em">live in production.</em></>}
+          title={<>Seven months, delivered alongside development, and <em className="pf-em">live in production.</em></>}
         />
         <Outcomes items={[
           { n: <>1 <em className="pf-em">designer</em></>, l: "The full platform redesign, end to end" },

@@ -45,7 +45,7 @@ export default function FutureFirstFamiliesCaseStudy() {
     <CaseStudyShell accent={ACCENT} project="Future First Families" year="2025">
       <CaseHero
         title="Future First Families"
-        tagline={<>An advocacy site built to <em className="pf-em">earn belief before the ask.</em></>}
+        tagline={<>I built an advocacy site that <em className="pf-em">earns belief before it asks.</em></>}
         meta={[
           ["Client", "Future First Families, by 2 Hour Learning"],
           ["Industry", "EdTech · Parent advocacy"],
@@ -130,13 +130,13 @@ export default function FutureFirstFamiliesCaseStudy() {
         <SectionHead label="Key decisions" title={<>The decisions that shape how the page <em className="pf-em">makes its case.</em></>} />
         <Decisions items={[
           { n: "01", title: "Lead with the parent's aspiration, not the product",
-            why: "The hero reads 'Empower your Child. Influence your school', naming the parent's objective before any feature. The method is explained only after that.",
+            why: "I opened on 'Empower your Child. Influence your school', naming the parent's objective before any feature, and explained the method only after that.",
             tradeoff: "Delays the explanation of how it works, deliberately." },
           { n: "02", title: "Beat disbelief with layered proof, not one big number",
-            why: "Statistics, a direct comparison and student videos each address a different objection, so no single claim carries the argument alone.",
+            why: "I layered statistics, a direct comparison and student videos, each addressing a different objection, so no single claim carries the argument alone.",
             tradeoff: "A longer page, but each layer earns the next section." },
           { n: "03", title: "A single call to action, repeated throughout",
-            why: "A floating 'Lead the Change' control follows the reader, so the next step is available at whatever point the argument lands.",
+            why: "I kept a floating 'Lead the Change' control on the scroll, so the next step is available at whatever point the argument lands.",
             tradeoff: "Gives up secondary calls to action in favour of one clear route." },
           { n: "04", title: "Framed as advocacy rather than a purchase",
             why: "'Join the Parent Movement', 'Nominate School' and the advocacy guidance all ask the reader to act on the school's behalf, which matches how these programmes are actually adopted.",

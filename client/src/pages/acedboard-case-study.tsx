@@ -47,7 +47,7 @@ export default function AcedboardCaseStudy() {
     <CaseStudyShell accent={ACCENT} project="Proconomics" year="2025">
       <CaseHero
         title="Proconomics"
-        tagline={<>A project business case finance can <em className="pf-em">keep using.</em></>}
+        tagline={<>I designed a project business case finance can <em className="pf-em">keep using.</em></>}
         meta={[
           ["Client", "Acedboard"],
           ["Industry", "Project management, Financial modelling · SaaS"],
@@ -82,7 +82,7 @@ export default function AcedboardCaseStudy() {
         <SectionHead
           label="The Model"
           title={<>Assumptions are the single source. The model <em className="pf-em">references them rather than repeating them.</em></>}
-          body="Every cost and benefit is defined once under Assumptions, with variables, units and a calculated field. The model references those drivers rather than repeating numbers, so there is one place to update when an assumption changes."
+          body="I defined every cost and benefit once under Assumptions, with variables, units and a calculated field. The model references those drivers rather than repeating numbers, so there is one place to update when an assumption changes."
         />
         <div className="pf-two">
           <div data-reveal>
@@ -145,10 +145,10 @@ export default function AcedboardCaseStudy() {
             why: "Every cost and benefit is defined once under Assumptions, variables, units and a calculated field. The model references those drivers instead of re-typing numbers, so there's one place to update and one place to audit.",
             tradeoff: "Users set up drivers before seeing a result, which is what keeps the model accurate as assumptions change." },
           { n: "02", title: "A calculation engine, so any cell can be a formula",
-            why: "Advanced Calculation allows any value to be a formula referencing drivers and other cells, with live recalculation. Changing a driver updates everything downstream.",
+            why: "I specified Advanced Calculation so any value can be a formula referencing drivers and other cells, with live recalculation. Changing a driver updates everything downstream.",
             tradeoff: "Building a calculation engine into a web app is substantial work, and without it the tool is a form with totals." },
           { n: "03", title: "Every line modelled as baseline, projected and benefit",
-            why: "A stated benefit figure is an assertion. Requiring a baseline and a projected value makes the benefit a visible difference, reviewable on its inputs rather than its conclusion.",
+            why: "A stated benefit figure is an assertion, so I required a baseline and a projected value. That makes the benefit a visible difference, reviewable on its inputs rather than its conclusion.",
             tradeoff: "More structure to complete, and that structure is what makes the result defensible." },
           { n: "04", title: "Discount with a cost of capital, over periods",
             why: "Set at creation and applied across half-year and annual periods, so the dashboard reports NPV and payback, the measures finance and executives already use.",

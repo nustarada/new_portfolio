@@ -48,7 +48,7 @@ export default function LiffoCaseStudy() {
     <CaseStudyShell accent={ACCENT} project="Liffo" year="2024">
       <CaseHero
         title="Liffo"
-        tagline={<>Home nursing, doctors and emergency care, <em className="pf-em">arranged in one place.</em></>}
+        tagline={<>I designed home nursing, doctors and emergency care <em className="pf-em">into one app.</em></>}
         meta={[
           ["Client", "Liffo Health"],
           ["Industry", "Healthcare, Home-care services · India"],
@@ -196,13 +196,13 @@ export default function LiffoCaseStudy() {
         <SectionHead label="Key decisions" title={<>The key decisions and their <em className="pf-em">trade-offs.</em></>} />
         <Decisions items={[
           { n: "01", title: "Home-care leads, not the emergency",
-            why: "Home nursing was the underserved service and the clearest differentiator, so it takes the primary position over the more commoditised offerings.",
+            why: "Home nursing was the underserved service and the clearest differentiator, so I gave it the primary position over the more commoditised offerings.",
             tradeoff: "Emergency loses the primary position, offset by pinning it to the persistent tab bar." },
           { n: "02", title: "An ambulance flow built on verified availability",
-            why: "Routes to hospitals with verified availability, life-support tier and ETA, rather than promising dispatch from a fleet that does not exist.",
+            why: "I routed to hospitals with verified availability, life-support tier and ETA, rather than promising dispatch from a fleet that does not exist.",
             tradeoff: "Less impressive in a demo, and accurate at the point of use." },
           { n: "03", title: "Records by type, not by provider",
-            why: "Patients recall what a record is for rather than which clinic issued it, so records group by type across providers, with the government scheme alongside.",
+            why: "Patients recall what a record is for rather than which clinic issued it, so I grouped records by type across providers, with the government scheme alongside.",
             tradeoff: "Loses the per-hospital view in favour of the patient's own model." },
         ]} />
       </section>

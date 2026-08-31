@@ -36,7 +36,7 @@ export default function TwoHourLearningCaseStudy() {
     <CaseStudyShell accent={ACCENT} project="2 Hour Learning" year="2025">
       <CaseHero
         title={<>2 Hour Learning</> as any}
-        tagline={<>One purchase decision, <em className="pf-em">three stakeholders to convince.</em></>}
+        tagline={<>One purchase decision, and <em className="pf-em">three people I had to convince.</em></>}
         meta={[
           ["Client", "2 Hour Learning"],
           ["Industry", "EdTech · B2B, private schools"],
@@ -107,13 +107,13 @@ export default function TwoHourLearningCaseStudy() {
             why: "Stakeholders asked for each page to feel different. Type, colour, spacing and components stayed identical, with only the message changing, so the brand holds together when a rep links a contact from one page to another.",
             tradeoff: "Some reviewers felt the pages looked too similar. Consistency was the intent." },
           { n: "02", title: "CTAs matched to buying stage rather than a generic demo request",
-            why: "Each CTA matches the reader's stage: 'See how it works' for discovery, 'Let's Talk Results' for the head, 'Walk Through It Together' for academic evaluation, and a strategy call at leadership level.",
+            why: "I matched each CTA to the reader's stage: 'See how it works' for discovery, 'Let's Talk Results' for the head, 'Walk Through It Together' for academic evaluation, and a strategy call at leadership level.",
             tradeoff: "Four CTAs require a response protocol per page, covered by the routing guide." },
           { n: "03", title: "Each page opens on the reader's priority, not the product",
-            why: "The academic page opens on teachers and mastery rather than the AI framework. The leadership page opens on the strategic model. The product is the method, not the headline.",
+            why: "I opened the academic page on teachers and mastery rather than the AI framework, and the leadership page on the strategic model. The product is the method, not the headline.",
             tradeoff: "Each page required its own content structure rather than a single template." },
           { n: "04", title: "The sales rep treated as a fifth user",
-            why: "Four pages only work if reps know which to send. A one-page routing guide maps each contact type to its page and CTA.",
+            why: "Four pages only work if reps know which to send, so I wrote a one-page routing guide mapping each contact type to its page and CTA.",
             tradeoff: "An additional deliverable, and the one that makes the system usable." },
         ]} />
       </section>
