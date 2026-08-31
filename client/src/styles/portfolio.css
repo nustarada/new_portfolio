@@ -1528,3 +1528,6 @@
   .pf-copy{ padding:11px 16px; }
   .pf-workhead .c a, .pf-sechead a{ padding:8px 0; display:inline-block; }
 }
+
+/* a tall product capture reads from its header down, not from its middle */
+.pf-card-media.top img{ object-position:top; }

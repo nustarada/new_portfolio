@@ -16,7 +16,7 @@ import "@/styles/portfolio.css";
 
 import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.jpg";
 import lionfishThumb from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.jpg";
-import acedboardThumb from "@assets/acedboard_thumbnail.svg";
+import acedboardThumb from "@assets/proco-06-dashboard.png";
 import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.jpg";
 import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.jpg";
 
@@ -50,7 +50,7 @@ const WORK: Work[] = [
     blurb: "I designed a single-page advocacy site that builds credibility first, then asks parents to act.",
     meta: ["Lead designer", "Conversion design"] },
   { href: "/acedboard-case-study", title: "Acedboard Proconomics",
-    tag: "Fintech", img: acedboardThumb, soon: true,
+    tag: "Fintech", img: acedboardThumb, soon: true, topAlign: true,
     blurb: "I designed a cost-benefit analysis engine inside a project management tool, so delivery teams can run the financial model themselves.",
     meta: ["Lead designer", "Case study in progress"] },
 ];
@@ -254,7 +254,7 @@ export default function Home() {
           {WORK.map((w) => (
             <Link href={w.href} key={w.href}
               className={`pf-card${w.soon ? " soon" : ""}`} data-cta={w.soon ? "In progress" : "View case study"}>
-                <div className="pf-card-media pf-proj-media">
+                <div className={`pf-card-media pf-proj-media${w.topAlign ? " top" : ""}`}>
                   <img src={w.img} alt={w.title} loading="lazy" />
                   <span className="tag">{w.tag}</span>
                 </div>
