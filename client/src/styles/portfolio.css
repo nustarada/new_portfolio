@@ -95,9 +95,28 @@
 .pf-shead p { font-size:15.5px; line-height:1.7; color:var(--soft); max-width:680px; margin-top:18px; }
 
 /* ── device frames ─────────────────────────────────────────── */
-.pf-phone { border-radius:0; border:9px solid var(--ink); overflow:hidden; background:#fff; box-shadow:0 30px 70px rgba(26,23,18,.24); width:242px; aspect-ratio:9/19.2; flex-shrink:0; }
-.pf-phone img { width:100%; height:100%; object-fit:cover; object-position:top; display:block; }
-.pf-phone.sm { width:200px; border-width:7px; border-radius:0; }
+/* handset shell: rounded body, dynamic island, side button */
+.pf-phone{
+  position:relative; width:242px; aspect-ratio:9/19.5; flex-shrink:0;
+  padding:8px; border-radius:40px;
+  background:linear-gradient(152deg,#43434A 0%,#111114 46%,#2E2E34 100%);
+  box-shadow:0 34px 72px rgba(26,23,18,.3), inset 0 0 0 1px rgba(255,255,255,.16);
+}
+.pf-phone img{
+  width:100%; height:100%; display:block; background:#fff;
+  object-fit:cover; object-position:top; border-radius:32px;
+}
+.pf-phone::after{
+  content:''; position:absolute; z-index:2; top:16px; left:50%; transform:translateX(-50%);
+  width:30%; height:11px; border-radius:99px; background:#0A0A0C;
+}
+.pf-phone::before{
+  content:''; position:absolute; right:-2px; top:27%; width:2px; height:9%;
+  border-radius:2px; background:linear-gradient(#4E4E55,#26262B);
+}
+.pf-phone.sm{ width:200px; padding:7px; border-radius:34px; }
+.pf-phone.sm img{ border-radius:27px; }
+.pf-phone.sm::after{ top:13px; height:9px; }
 .pf-browser { border-radius:0; overflow:hidden; border:1px solid rgba(26,23,18,.16); box-shadow:0 34px 78px rgba(26,23,18,.2); background:#fff; }
 .pf-browser .bar { height:36px; background:#EFEAE2; border-bottom:1px solid var(--line); display:flex; align-items:center; padding:0 14px; gap:7px; }
 .pf-browser .bar i { width:9px; height:9px; border-radius:50%; background:#D6CEC2; display:block; }
@@ -108,18 +127,31 @@
 .pf-band { background:linear-gradient(135deg,var(--band),var(--band2)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:74px 0; overflow:hidden; }
 .pf-band.sm { padding:54px 0; }
 .pf-phones { display:flex; justify-content:center; align-items:center; gap:38px; }
-.pf-cap { display:flex; justify-content:space-between; padding-top:16px; gap:20px; }
-.pf-cap p { font:400 12px var(--font-mono); color:var(--mut); }
-.pf-cap p b { color:var(--soft); font-weight:400; }
+.pf-cap{
+  display:flex; justify-content:space-between; align-items:baseline; gap:24px;
+  margin-top:34px; padding-top:14px; border-top:1px solid rgba(20,20,20,.2);
+}
+.pf-cap p{
+  font:500 11px var(--font-mono); letter-spacing:.15em; text-transform:uppercase;
+  color:var(--soft);
+}
+.pf-cap p b{ color:var(--pf-accent); font-weight:500; white-space:nowrap; }
 
 /* ── collage ───────────────────────────────────────────────── */
 .pf-collage { background:linear-gradient(135deg,#EFE7DA,#E9DFCF); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:44px 0; overflow:hidden; }
 .pf-collage-track { display:flex; gap:14px; align-items:center; padding:0 56px; }
-.pf-tile { flex-shrink:0; border-radius:0; overflow:hidden; border:1px solid rgba(26,23,18,.16); box-shadow:0 12px 30px rgba(26,23,18,.14); background:#fff; }
-.pf-tile img { display:block; width:100%; height:100%; object-fit:cover; object-position:top; }
-.pf-tile.sm { width:104px; height:186px; }
-.pf-tile.md { width:132px; height:232px; }
-.pf-tile.lg { width:158px; height:280px; }
+.pf-tile{
+  flex-shrink:0; padding:4px; border-radius:16px;
+  background:linear-gradient(152deg,#43434A,#141417 52%,#2E2E34);
+  box-shadow:0 12px 30px rgba(26,23,18,.2);
+}
+.pf-tile img{
+  display:block; width:100%; height:100%; background:#fff;
+  object-fit:cover; object-position:top; border-radius:12px;
+}
+.pf-tile.sm { width:112px; height:194px; }
+.pf-tile.md { width:140px; height:240px; }
+.pf-tile.lg { width:166px; height:288px; }
 .pf-collage-track .pf-tile:nth-child(odd) { transform:rotate(-1.4deg); }
 .pf-collage-track .pf-tile:nth-child(even) { transform:rotate(1.2deg) translateY(10px); }
 
@@ -308,7 +340,9 @@
   .pf-cs > div, .pf-timeline > div { padding-right:0; }
   .pf-outcomes > div { border-right:none; border-bottom:1px solid var(--line); padding-left:0; }
   .pf-phones { gap:14px; }
-  .pf-phone { width:150px; border-width:6px; border-radius:0; }
+  .pf-phone { width:150px; padding:6px; border-radius:26px; }
+  .pf-phone img { border-radius:20px; }
+  .pf-phone::after { top:10px; height:7px; }
   .pf-stage { position:relative; height:auto; padding:24px 0; }
   .pf-sticky.mobile .pf-phone { width:210px; }
   .pf-walk-step { min-height:auto; padding:40px 0; }

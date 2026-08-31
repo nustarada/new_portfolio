@@ -137,8 +137,7 @@ export const ShowcaseBand = ({
         ) : (
           <div className="pf-phones" ref={inner}>
             {screens?.map((s, i) => (
-              <Phone key={i} src={s.src} alt={s.alt} small={small}
-                style={s.offset ? { transform: `translateY(${s.offset}px)` } : undefined} />
+              <Phone key={i} src={s.src} alt={s.alt} small={small} />
             ))}
           </div>
         )}
