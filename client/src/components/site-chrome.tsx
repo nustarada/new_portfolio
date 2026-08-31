@@ -15,6 +15,8 @@ export const EMAIL = "gadhavekaran@gmail.com";
 /* ── announcement bar + nav ────────────────────────────────── */
 export function SiteNav({ home = false }: { home?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const announce = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -23,25 +25,69 @@ export function SiteNav({ home = false }: { home?: boolean }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  /* the announcement bar wraps to two lines on narrow screens, so the nav
+     has to be told how far down to sit rather than assuming one line */
+  useEffect(() => {
+    const el = announce.current;
+    if (!el) return;
+    const sync = () =>
+      document.documentElement.style.setProperty("--announce-h", `${el.offsetHeight}px`);
+    sync();
+    const ro = new ResizeObserver(sync);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  /* the menu covers the page, so the page behind it must not scroll */
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    const esc = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", esc);
+    return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", esc); };
+  }, [open]);
+
   /* in-page anchors on the index, routed anchors everywhere else */
   const to = (hash: string) => (home ? hash : `/${hash}`);
+  const NAV: Array<[string, string]> = [["Work", "#work"], ["About", "#about"], ["Process", "#process"]];
 
   return createPortal(<>
-    <div className="pf-announce">
+    <div className="pf-announce" ref={announce}>
       Open to product design roles and freelance work <b>Pune, India and remote</b>
     </div>
     <div className="pf-follow"><span>View case study</span></div>
-    <nav className={`pf-nav${scrolled ? " scrolled" : ""}`}>
-      <Link href="/" className="logo" aria-label="Karan Gadhave, home">
+    <nav className={`pf-nav${scrolled ? " scrolled" : ""}${open ? " menu-open" : ""}`}>
+      <Link href="/" className="logo" aria-label="Karan Gadhave, home" onClick={() => setOpen(false)}>
         <img src={kgLogo} alt="Karan Gadhave" className="mark" />
       </Link>
       <div className="links">
-        <a href={to("#work")}>Work</a>
-        <a href={to("#about")}>About</a>
-        <a href={to("#process")}>Process</a>
+        {NAV.map(([label, hash]) => <a key={hash} href={to(hash)}>{label}</a>)}
       </div>
-      <a className="pf-navcta" href={to("#contact")}>Get in touch</a>
+      <a className="pf-navcta" href={to("#contact")} onClick={() => setOpen(false)}>Get in touch</a>
+      <button
+        type="button"
+        className="pf-navtoggle"
+        aria-label={open ? "Close menu" : "Open menu"}
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+      >
+        <i /><i />
+      </button>
     </nav>
+
+    <div className={`pf-menu${open ? " open" : ""}`} hidden={!open}>
+      <nav>
+        {NAV.map(([label, hash], i) => (
+          <a key={hash} href={to(hash)} onClick={() => setOpen(false)}
+             style={{ ["--i" as any]: `${i * 0.05}s` }}>
+            {label}
+          </a>
+        ))}
+      </nav>
+      <div className="foot">
+        <a className="pf-navcta" href={to("#contact")} onClick={() => setOpen(false)}>Get in touch</a>
+        <p>{EMAIL}</p>
+      </div>
+    </div>
   </>, document.body);
 }
 
