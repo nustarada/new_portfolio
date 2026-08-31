@@ -55,7 +55,8 @@ export function SiteNav({ home = false }: { home?: boolean }) {
       Open to product design roles and freelance work <b>Pune, India and remote</b>
     </div>
     <div className="pf-follow"><span>View case study</span></div>
-    <nav className={`pf-nav${scrolled ? " scrolled" : ""}${open ? " menu-open" : ""}`}>
+    {/* only the index has a dark hero for the bar to invert against */}
+    <nav className={`pf-nav${home ? " on-dark" : ""}${scrolled ? " scrolled" : ""}${open ? " menu-open" : ""}`}>
       <Link href="/" className="logo" aria-label="Karan Gadhave, home" onClick={() => setOpen(false)}>
         <img src={kgLogo} alt="Karan Gadhave" className="mark" />
       </Link>

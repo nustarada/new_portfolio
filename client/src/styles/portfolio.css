@@ -361,7 +361,9 @@
 
 /* ── responsive ────────────────────────────────────────────── */
 @media (max-width:960px){
-  .pf-wrap { padding:0 20px; }
+  /* shorthand here would reset the top padding of any wrap that sets one,
+     which is what buried the case study hero title under the fixed nav */
+  .pf-wrap { padding-left:20px; padding-right:20px; }
   .pf-nav { padding:16px 24px; }
   .pf-hero-grid, .pf-cs, .pf-timeline, .pf-two, .pf-three, .pf-outcomes, .pf-cards, .pf-sticky.mobile, .pf-sticky.desktop, .pf-drow { grid-template-columns:1fr; gap:22px; }
   .pf-cs > div + div, .pf-timeline > div + div { padding-left:0; border-left:none; border-top:1px solid var(--line); }
@@ -942,11 +944,11 @@
 .pf-nav .logo span{ transition:color .35s var(--ease); }
 
 /* over the dark hero the nav inverts, and back once scrolled past */
-.pf-nav:not(.scrolled) .logo .mark{ filter:none; }
-.pf-nav:not(.scrolled) .logo span{ color:var(--paper); }
-.pf-nav:not(.scrolled) .links{ border-color:rgba(247,245,242,.28); background:rgba(12,12,14,.34); }
-.pf-nav:not(.scrolled) .links a{ color:var(--paper); }
-.pf-nav:not(.scrolled) .links a:hover{ background:var(--paper); color:var(--ink); }
+.pf-nav.on-dark:not(.scrolled) .logo .mark{ filter:none; }
+.pf-nav.on-dark:not(.scrolled) .logo span{ color:var(--paper); }
+.pf-nav.on-dark:not(.scrolled) .links{ border-color:rgba(247,245,242,.28); background:rgba(12,12,14,.34); }
+.pf-nav.on-dark:not(.scrolled) .links a{ color:var(--paper); }
+.pf-nav.on-dark:not(.scrolled) .links a:hover{ background:var(--paper); color:var(--ink); }
 
 @media (max-width:820px){ .pf-nav .logo .mark{ width:26px; height:26px; } }
 
@@ -1285,7 +1287,7 @@
   padding:11px 18px; transition:background .28s var(--ease), color .28s var(--ease);
 }
 .pf-navcta:hover{ background:var(--ink); color:var(--paper); }
-.pf-nav:not(.scrolled) .pf-navcta:hover{ background:var(--paper); color:var(--ink); }
+.pf-nav.on-dark:not(.scrolled) .pf-navcta:hover{ background:var(--paper); color:var(--ink); }
 @media (max-width:620px){ .pf-navcta{ padding:9px 13px; font-size:10px; } }
 
 /* name under the About portrait */
@@ -1366,7 +1368,7 @@
 }
 .pf-navtoggle i:first-child{ transform:translateY(-4px); }
 .pf-navtoggle i:last-child{ transform:translateY(4px); }
-.pf-nav:not(.scrolled) .pf-navtoggle i{ background:var(--paper); }
+.pf-nav.on-dark:not(.scrolled) .pf-navtoggle i{ background:var(--paper); }
 .pf-nav.menu-open .pf-navtoggle i{ background:var(--ink); }
 .pf-nav.menu-open .pf-navtoggle i:first-child{ transform:rotate(45deg); }
 .pf-nav.menu-open .pf-navtoggle i:last-child{ transform:rotate(-45deg); }
@@ -1471,4 +1473,22 @@
   .pf-idbar > div:last-child{
     padding-left:var(--gutter); padding-right:var(--gutter);
   }
+}
+
+/* ══ mobile: case study pages ═════════════════════════════ */
+@media (max-width:820px){
+  /* clear the announcement bar and the nav, both fixed */
+  .pf-hero{ padding-top:calc(var(--announce-h,49px) + 96px); }
+  .pf-hero h1{ font-size:clamp(38px,11vw,54px); }
+  .pf-tagline{ font-size:18px; margin-top:16px; }
+  .pf-hero-grid{ gap:36px; }
+  .pf-meta-row{ grid-template-columns:96px 1fr; gap:14px; padding:13px 0; }
+
+  /* the walkthrough stops being sticky here, so the stage is just a figure */
+  .pf-sticky.mobile .pf-phone{ --pw:min(240px,62vw); }
+  .pf-walk-step{ padding:28px 0 34px; }
+  .pf-walk-step h3{ font-size:25px; }
+
+  /* the caption's two halves stack rather than fight for one line */
+  .pf-cap{ flex-direction:column; align-items:flex-start; gap:6px; margin-top:24px; }
 }
