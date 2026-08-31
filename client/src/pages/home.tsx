@@ -11,7 +11,7 @@ import { Brand } from "@/components/brands";
 import gfxHero from "@assets/gfx-hero.jpg";
 import kgLogo from "@assets/kg-logo.png";
 import photoPortrait from "@assets/photo-portrait.jpg";
-import { PageFooter } from "@/components/case-study/template";
+import { SiteNav, SiteClose, PageFooter } from "@/components/site-chrome";
 import "@/styles/portfolio.css";
 
 import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.jpg";
@@ -124,21 +124,7 @@ export default function Home() {
 
   return (
     <div className="pf" style={{ minHeight: "100vh" }}>
-      {createPortal(<>
-        <div className="pf-announce">
-          Open to product design roles and freelance work <b>Pune, India and remote</b>
-        </div>
-        <div className="pf-follow"><span>View case study</span></div>
-        <nav className={`pf-nav${scrolled ? " scrolled" : ""}`}>
-          <Link href="/" className="logo" aria-label="Karan Gadhave, home">
-            <img src={kgLogo} alt="Karan Gadhave" className="mark" />
-          </Link>
-          <div className="links">
-            <a href="#work">Work</a><a href="#about">About</a><a href="#process">Process</a>
-          </div>
-          <a className="pf-navcta" href="#contact">Get in touch</a>
-        </nav>
-      </>, document.body)}
+      <SiteNav home />
 
       {/* ── HERO ── */}
       <header className="pf-home-hero pf-wrap">
@@ -361,66 +347,7 @@ export default function Home() {
 
       </section>
 
-      {/* ── CONTACT, the closing section ── */}
-      <section id="contact" className="pf-close">
-        <div className="pf-wrap">
-          <div className="pf-close-head" data-reveal>
-            <span className="pf-chip ghost">Contact</span>
-            <span className="pf-close-year">{new Date().getFullYear()}</span>
-          </div>
-
-          <div className="pf-close-grid">
-            <div className="pf-close-main">
-              <h2 className="pf-close-title">Let's work together.</h2>
-
-              <a
-                className="pf-close-mail"
-                href={`mailto:${EMAIL}?subject=${encodeURIComponent("Project enquiry")}`}
-              >
-                <span data-scramble-hover>{EMAIL}</span>
-                <i aria-hidden="true" />
-              </a>
-
-              <button
-                type="button"
-                className={`pf-copy${copied ? " ok" : ""}`}
-                onClick={copyEmail}
-                aria-label="Copy email address"
-              >
-                {copied ? "Copied" : "Copy address"}
-              </button>
-            </div>
-
-            <aside className="pf-close-side">
-              <div className="r" data-reveal>
-                <span className="k">Status</span>
-                <span className="v accent"><span className="pf-dot" />Open to new work</span>
-              </div>
-              <div className="r" data-reveal style={{ ["--d" as any]: ".06s" }}>
-                <span className="k">Available for</span>
-                <span className="v">Full-time roles and freelance projects</span>
-              </div>
-              <div className="r" data-reveal style={{ ["--d" as any]: ".12s" }}>
-                <span className="k">Based in</span>
-                <span className="v">Pune, India · IST (GMT+5:30)</span>
-              </div>
-              <div className="r" data-reveal style={{ ["--d" as any]: ".18s" }}>
-                <span className="k">Response</span>
-                <span className="v">Within 24 hours</span>
-              </div>
-              <div className="r" data-reveal style={{ ["--d" as any]: ".24s" }}>
-                <span className="k">Elsewhere</span>
-                <span className="v">
-                  <a href="https://www.linkedin.com/in/karan-gadhave/" target="_blank" rel="noopener noreferrer">
-                    LinkedIn
-                  </a>
-                </span>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
-
+      <SiteClose />
       <PageFooter />
     </div>
   );

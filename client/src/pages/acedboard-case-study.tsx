@@ -2,7 +2,7 @@ import React from "react";
 import {
   CaseStudyShell, CaseHero, ChallengeSolution, Timeline, SectionHead,
   ShowcaseBand, StickyWalkthrough, Decisions, Statement, Outcomes,
-  MoreProjects, PageFooter, Browser, type Step,
+  MoreProjects, SiteClose, PageFooter, Browser, type Step,
 } from "@/components/case-study/template";
 
 import empty from "@assets/proco-01-empty.png";
@@ -22,7 +22,6 @@ import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.jpg";
 import lionfishThumb from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.jpg";
 import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.jpg";
 
-const ACCENT = "#2F7D5B";
 
 const steps: Step[] = [
   { n: "01", img: empty, url: "acedboard.com/proconomics", chip: "Empty state",
@@ -44,7 +43,7 @@ const steps: Step[] = [
 
 export default function AcedboardCaseStudy() {
   return (
-    <CaseStudyShell accent={ACCENT} project="Proconomics" year="2025">
+    <CaseStudyShell project="Proconomics" year="2025">
       <CaseHero
         title="Proconomics"
         tagline={<>I designed a project business case finance can <em className="pf-em">keep using.</em></>}
@@ -174,6 +173,7 @@ export default function AcedboardCaseStudy() {
         ]} />
       </section>
 
+      <SiteClose />
       <PageFooter />
     </CaseStudyShell>
   );

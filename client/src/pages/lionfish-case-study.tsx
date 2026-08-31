@@ -2,7 +2,7 @@ import React from "react";
 import {
   CaseStudyShell, CaseHero, ChallengeSolution, Timeline, SectionHead,
   ShowcaseBand, StickyWalkthrough, Decisions, Statement, Outcomes,
-  MoreProjects, PageFooter, Browser, BeforeAfter, type Step,
+  MoreProjects, SiteClose, PageFooter, Browser, BeforeAfter, type Step,
 } from "@/components/case-study/template";
 
 import lfOldBranding from "@assets/lf-old-branding.png";
@@ -28,7 +28,6 @@ import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.jpg";
 import acedboardThumb from "@assets/acedboard_thumbnail.svg";
 import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.jpg";
 
-const ACCENT = "#B8860B";
 const HOST = "cybertacklebox.com";
 
 const steps: Step[] = [
@@ -51,7 +50,7 @@ const steps: Step[] = [
 
 export default function LionfishCaseStudy() {
   return (
-    <CaseStudyShell accent={ACCENT} project="Lionfish" year="2025">
+    <CaseStudyShell project="Lionfish" year="2025">
       <CaseHero
         title="Lionfish"
         tagline={<>I redesigned a multi-tenant cybersecurity platform and <em className="pf-em">shipped it to production.</em></>}
@@ -277,6 +276,7 @@ export default function LionfishCaseStudy() {
         ]} />
       </section>
 
+      <SiteClose />
       <PageFooter />
     </CaseStudyShell>
   );

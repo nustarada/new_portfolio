@@ -2,46 +2,28 @@ import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "wouter";
 import "@/styles/portfolio.css";
-import { useReveal } from "@/lib/motion";
+import { useReveal, useTextChars } from "@/lib/motion";
+import { SiteNav, SiteClose, PageFooter, ReadingProgress } from "@/components/site-chrome";
 
 export { useReveal };
+export { SiteClose, PageFooter };
 
 /* ════════════════════════════════════════════════════════════════
    Shared case-study template, studio structure, paper theme.
    Every case study is: data + an accent colour.
    ════════════════════════════════════════════════════════════════ */
 
-/* ── hooks ─────────────────────────────────────────────────── */
-export function useProgress(ref: React.RefObject<HTMLDivElement>) {
-  useEffect(() => {
-    const onScroll = () => {
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      if (ref.current) ref.current.style.width = `${(window.scrollY / h) * 100}%`;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [ref]);
-}
-
 /* ── page shell ────────────────────────────────────────────── */
 export const CaseStudyShell = ({
-  accent, project, year, children,
-}: { accent: string; project: string; year: string; children: React.ReactNode }) => {
-  const prog = useRef<HTMLDivElement>(null);
+  project, year, children,
+}: { project?: string; year?: string; accent?: string; children: React.ReactNode }) => {
   useReveal();
-  useProgress(prog);
+  useTextChars(".pf-hero h1, .pf-shead h2", 0.014);
   useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
-    <div className="pf" style={{ ["--pf-accent" as any]: accent, minHeight: "100vh" }}>
-      {createPortal(
-        <div style={{ ["--pf-accent" as any]: accent }}>
-          <div className="pf-progress" ref={prog} />
-          <div className="pf-topbar">
-            <Link href="/" className="back">← Karan Gadhave</Link>
-            <p className="r">{project} · {year}</p>
-          </div>
-        </div>, document.body)}
+    <div className="pf" style={{ minHeight: "100vh" }}>
+      <ReadingProgress />
+      <SiteNav />
       {children}
     </div>
   );
@@ -364,38 +346,3 @@ export const MoreProjects = ({ cards }: { cards: ProjectCard[] }) => (
   </div>
 );
 
-export const PageFooter = () => (
-  <footer className="pf-footer">
-    <div className="pf-wrap">
-      <div className="pf-foot-grid">
-        <div className="col brand">
-          <p className="nm">Karan Gadhave</p>
-          <p className="ln">Product and UX designer working end to end on complex platforms, from research through to release.</p>
-        </div>
-        <div className="col">
-          <p className="h">Navigate</p>
-          <Link href="/">Home</Link>
-          <a href="/#work">Work</a>
-          <a href="/#about">About</a>
-          <a href="/#process">Process</a>
-        </div>
-        <div className="col">
-          <p className="h">Elsewhere</p>
-          <a href="https://www.linkedin.com/in/karan-gadhave/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="mailto:gadhavekaran@gmail.com">Email</a>
-        </div>
-        <div className="col">
-          <p className="h">Status</p>
-          <p className="live"><span className="pf-dot" />Open to work</p>
-          <p className="ln">Pune, India · IST</p>
-        </div>
-      </div>
-      <div className="f">
-        <p>© {new Date().getFullYear()} Karan Gadhave</p>
-        <a href="#top" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
-          Back to top ↑
-        </a>
-      </div>
-    </div>
-  </footer>
-);

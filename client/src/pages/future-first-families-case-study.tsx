@@ -1,7 +1,7 @@
 import React from "react";
 import {
   CaseStudyShell, CaseHero, ChallengeSolution, Timeline, SectionHead,
-  Decisions, Statement, Outcomes, MoreProjects, PageFooter,
+  Decisions, Statement, Outcomes, MoreProjects, SiteClose, PageFooter,
 } from "@/components/case-study/template";
 
 import fffVideo from "@assets/FFF website video (video-converter.com)_1754054201797.webm";
@@ -10,7 +10,6 @@ import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.jpg";
 import lionfishThumb from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.jpg";
 import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.jpg";
 
-const ACCENT = "#4A4E9E";
 
 /* The walkthrough clip is 11MB, only fetch it once the reader actually reaches it. */
 function LazyVideo({ src, poster }: { src: string; poster: string }) {
@@ -42,7 +41,7 @@ function LazyVideo({ src, poster }: { src: string; poster: string }) {
 
 export default function FutureFirstFamiliesCaseStudy() {
   return (
-    <CaseStudyShell accent={ACCENT} project="Future First Families" year="2025">
+    <CaseStudyShell project="Future First Families" year="2025">
       <CaseHero
         title="Future First Families"
         tagline={<>I built an advocacy site that <em className="pf-em">earns belief before it asks.</em></>}
@@ -165,6 +164,7 @@ export default function FutureFirstFamiliesCaseStudy() {
         ]} />
       </section>
 
+      <SiteClose />
       <PageFooter />
     </CaseStudyShell>
   );

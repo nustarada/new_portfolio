@@ -2,7 +2,7 @@ import React from "react";
 import {
   CaseStudyShell, CaseHero, ChallengeSolution, Timeline, SectionHead,
   ShowcaseBand, Collage, StickyWalkthrough, EvidenceCard, Decisions,
-  Statement, Outcomes, Validation, MoreProjects, PageFooter, Phone, type Step,
+  Statement, Outcomes, Validation, MoreProjects, SiteClose, PageFooter, Phone, type Step,
 } from "@/components/case-study/template";
 
 import Screen1 from "@assets/1. Walkthrough 1_1754469198499.png";
@@ -23,7 +23,6 @@ import lionfishThumb from "@assets/Lionfish_cybersecurity_thumbnail_new_17701043
 import acedboardThumb from "@assets/acedboard_thumbnail.svg";
 import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.jpg";
 
-const ACCENT = "#B3402F";
 
 const steps: Step[] = [
   { n: "01", img: Screen4, tag: "The dashboard", chip: "Home · hub",
@@ -45,7 +44,7 @@ const steps: Step[] = [
 
 export default function LiffoCaseStudy() {
   return (
-    <CaseStudyShell accent={ACCENT} project="Liffo" year="2024">
+    <CaseStudyShell project="Liffo" year="2024">
       <CaseHero
         title="Liffo"
         tagline={<>I designed home nursing, doctors and emergency care <em className="pf-em">into one app.</em></>}
@@ -237,6 +236,7 @@ export default function LiffoCaseStudy() {
         ]} />
       </section>
 
+      <SiteClose />
       <PageFooter />
     </CaseStudyShell>
   );

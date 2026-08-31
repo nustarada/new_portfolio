@@ -59,16 +59,12 @@
 .pf-em { font-style:normal; color:var(--pf-accent); }
 
 /* ── top bar (case study) ──────────────────────────────────── */
-.pf-topbar { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(250,246,240,.9); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; padding:13px 40px; }
-.pf-topbar a.back { font:500 15px var(--font-display); color:var(--ink); text-decoration:none; transition:color .25s; }
-.pf-topbar a.back:hover { color:var(--pf-accent); }
-.pf-topbar .r { font:500 11px var(--font-mono); letter-spacing:.16em; text-transform:uppercase; color:var(--mut); }
 .pf-progress { position:fixed; top:0; left:0; height:2px; background:var(--pf-accent); z-index:101; width:0; }
 
 /* ── hero + meta table ─────────────────────────────────────── */
-.pf-hero { padding-top:132px; }
+.pf-hero { padding-top:172px; }
 .pf-hero-grid { display:grid; grid-template-columns:1fr 460px; gap:70px; align-items:start; }
-.pf-hero h1 { font:500 clamp(50px,7vw,100px)/1.0 var(--font-display); letter-spacing:-.025em; }
+.pf-hero h1 { font:700 clamp(46px,6.4vw,88px)/1.0 var(--font-display); letter-spacing:-.038em; }
 .pf-tagline { font:500 21px/1.5 var(--font-display); color:var(--soft); margin-top:22px; max-width:470px; }
 .pf-meta { border-top:1px solid var(--ink); }
 .pf-meta-row { display:grid; grid-template-columns:104px 1fr; gap:20px; padding:15px 0; border-bottom:1px solid var(--line); align-items:start; }
@@ -306,7 +302,7 @@
 /* ── responsive ────────────────────────────────────────────── */
 @media (max-width:960px){
   .pf-wrap { padding:0 20px; }
-  .pf-nav, .pf-topbar { padding:16px 24px; }
+  .pf-nav { padding:16px 24px; }
   .pf-hero-grid, .pf-cs, .pf-timeline, .pf-two, .pf-three, .pf-outcomes, .pf-cards, .pf-sticky.mobile, .pf-sticky.desktop, .pf-drow { grid-template-columns:1fr; gap:22px; }
   .pf-cs > div + div, .pf-timeline > div + div { padding-left:0; border-left:none; border-top:1px solid var(--line); }
   .pf-cs > div, .pf-timeline > div { padding-right:0; }

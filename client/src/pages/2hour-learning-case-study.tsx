@@ -2,7 +2,7 @@ import React from "react";
 import {
   CaseStudyShell, CaseHero, ChallengeSolution, Timeline, SectionHead,
   ShowcaseBand, StickyWalkthrough, Decisions, Statement, Outcomes,
-  MoreProjects, PageFooter, Browser, type Step,
+  MoreProjects, SiteClose, PageFooter, Browser, type Step,
 } from "@/components/case-study/template";
 
 import homepageDesign from "@assets/Homepage (Wordpress)_1756635142322.jpg";
@@ -14,7 +14,6 @@ import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.jpg";
 import acedboardThumb from "@assets/acedboard_thumbnail.svg";
 import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.jpg";
 
-const ACCENT = "#5B4B9E";
 
 const steps: Step[] = [
   { n: "01", img: homepageDesign, url: "2hourlearning.com", chip: "WordPress · discovery",
@@ -33,7 +32,7 @@ const steps: Step[] = [
 
 export default function TwoHourLearningCaseStudy() {
   return (
-    <CaseStudyShell accent={ACCENT} project="2 Hour Learning" year="2025">
+    <CaseStudyShell project="2 Hour Learning" year="2025">
       <CaseHero
         title={<>2 Hour Learning</> as any}
         tagline={<>One purchase decision, and <em className="pf-em">three people I had to convince.</em></>}
@@ -139,6 +138,7 @@ export default function TwoHourLearningCaseStudy() {
         ]} />
       </section>
 
+      <SiteClose />
       <PageFooter />
     </CaseStudyShell>
   );
