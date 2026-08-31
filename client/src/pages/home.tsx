@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import {
   useReveal, useSplitHeadline, useCountUp, useParallax,
   useScramble, useVelocityMarquee, useHeroSpotlight,
-  useImageReveal, useTextChars, useScrambleCycle, useAboutScrub, useTextHighlight, useCardCursor,
+  useImageReveal, useTextChars, useScrambleCycle, useAboutScrub, useTextHighlight, useCardCursor, useScrambleHover,
 } from "@/lib/motion";
 import { Ticker, Icon } from "@/components/visuals";
 import { Brand } from "@/components/brands";
@@ -62,10 +62,12 @@ export default function Home() {
   useImageReveal(".pf-proj-media");
   useTextChars(".pf-proj-title", 0.016);
   useTextChars(".pf-about-title", 0.012);
+  useTextChars(".pf-close-title", 0.014);
   useImageReveal(".pf-about-portrait");
   useAboutScrub(".pf-about-inner");
   useTextHighlight(".pf-about-copy");
   useScramble("[data-scramble]");
+  useScrambleHover("[data-scramble-hover]");
   useScrambleCycle(".pf-cycle", DISCIPLINES, { chars: "!<>-_\\/[]{}=+*^?#", speed: 0.45, revealDelay: 0.4, hold: 1.5 });
   useVelocityMarquee(".pf-ticker-track");
   useHeroSpotlight(".pf-home-hero", ".pf-hero-reveal", ".pf-cursor");
@@ -361,49 +363,62 @@ export default function Home() {
 
       </section>
 
-      {/* ── CLOSING CTA ── */}
-      <section className="pf-bigcta" data-reveal>
+      {/* ── CONTACT, the closing section ── */}
+      <section id="contact" className="pf-close">
         <div className="pf-wrap">
-          <h2>Let's work together.</h2>
-          <a className="mailto" href="mailto:gadhavekaran@gmail.com">gadhavekaran@gmail.com</a>
-        </div>
-      </section>
+          <div className="pf-close-head" data-reveal>
+            <span className="pf-chip ghost">Contact</span>
+            <span className="pf-close-year">{new Date().getFullYear()}</span>
+          </div>
 
-      {/* ── CONTACT ── */}
-      <section id="contact" className="pf-wrap pf-contact">
-        <div className="pf-contact-head">
-          <div data-reveal><span className="pf-chip ghost">Contact</span></div>
-          <p className="avail" data-reveal><span className="pf-dot" />Open to new work</p>
-        </div>
+          <div className="pf-close-grid">
+            <div className="pf-close-main">
+              <h2 className="pf-close-title">Let's work together.</h2>
 
-        <a className="pf-mailto" href={`mailto:${EMAIL}?subject=${encodeURIComponent("Project enquiry")}`} data-reveal>
-          {EMAIL}
-        </a>
+              <a
+                className="pf-close-mail"
+                href={`mailto:${EMAIL}?subject=${encodeURIComponent("Project enquiry")}`}
+              >
+                <span data-scramble-hover>{EMAIL}</span>
+                <i aria-hidden="true" />
+              </a>
 
-        <div className="pf-contact-channels" data-reveal>
-          <div className="pf-contact-row">
-            <span className="k">Email</span>
-            <span className="v">
-              <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-              <button type="button" className={`pf-copy${copied ? " ok" : ""}`}
-                      onClick={copyEmail} aria-label="Copy email address">
-                {copied ? "Copied" : "Copy"}
+              <button
+                type="button"
+                className={`pf-copy${copied ? " ok" : ""}`}
+                onClick={copyEmail}
+                aria-label="Copy email address"
+              >
+                {copied ? "Copied" : "Copy address"}
               </button>
-            </span>
-          </div>
-          <div className="pf-contact-row">
-            <span className="k">Based in</span>
-            <span className="v plain">Pune, India · IST (GMT+5:30)</span>
-          </div>
-          <div className="pf-contact-row">
-            <span className="k">Response</span>
-            <span className="v plain">Within 24 hours</span>
-          </div>
-          <div className="pf-contact-row">
-            <span className="k">Elsewhere</span>
-            <span className="v">
-              <a href="https://www.linkedin.com/in/karan-gadhave/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            </span>
+            </div>
+
+            <aside className="pf-close-side">
+              <div className="r" data-reveal>
+                <span className="k">Status</span>
+                <span className="v accent"><span className="pf-dot" />Open to new work</span>
+              </div>
+              <div className="r" data-reveal style={{ ["--d" as any]: ".06s" }}>
+                <span className="k">Available for</span>
+                <span className="v">Full-time roles and freelance projects</span>
+              </div>
+              <div className="r" data-reveal style={{ ["--d" as any]: ".12s" }}>
+                <span className="k">Based in</span>
+                <span className="v">Pune, India · IST (GMT+5:30)</span>
+              </div>
+              <div className="r" data-reveal style={{ ["--d" as any]: ".18s" }}>
+                <span className="k">Response</span>
+                <span className="v">Within 24 hours</span>
+              </div>
+              <div className="r" data-reveal style={{ ["--d" as any]: ".24s" }}>
+                <span className="k">Elsewhere</span>
+                <span className="v">
+                  <a href="https://www.linkedin.com/in/karan-gadhave/" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                  </a>
+                </span>
+              </div>
+            </aside>
           </div>
         </div>
       </section>

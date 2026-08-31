@@ -105,6 +105,27 @@ export function useScramble(selector: string) {
   }, [selector]);
 }
 
+/* ── hover: scramble a label back into itself ──────────────── */
+export function useScrambleHover(selector: string) {
+  useEffect(() => {
+    if (reduced()) return;
+    const nodes = gsap.utils.toArray<HTMLElement>(selector);
+    const kill: Array<() => void> = [];
+    nodes.forEach((n) => {
+      const text = n.textContent || "";
+      const run = () =>
+        gsap.to(n, {
+          duration: 0.85, ease: "none", overwrite: true,
+          scrambleText: { text, chars: "01<>/_-.@", speed: 0.7, revealDelay: 0.08 },
+        });
+      const parent = n.closest("a") || n;
+      parent.addEventListener("mouseenter", run);
+      kill.push(() => parent.removeEventListener("mouseenter", run));
+    });
+    return () => kill.forEach((f) => f());
+  }, [selector]);
+}
+
 /* ── pinned horizontal strip ───────────────────────────────── */
 export function useHorizontalPin(sectionSel: string, trackSel: string) {
   useEffect(() => {
