@@ -185,10 +185,11 @@ export default function Home() {
 
         <div className="pf-about-statement">
           <p className="pf-about-copy">
-            Admin portals, compliance tools, dashboards. The kind of software someone is handed on
-            their first day and then uses for the next three years. I have spent five years on
-            products like that, usually as the only designer on them, and I stay through build and
-            QA because that is where a design either survives or quietly falls apart.
+            Admin portals, compliance tools, dashboards. I have spent five years designing the
+            software people are given rather than the software they choose, usually as the only
+            designer on the project. I take it from research and architecture through to the built
+            screens, and I stay through QA, because that is where a design either survives or
+            quietly falls apart.
           </p>
         </div>
 
