@@ -183,18 +183,21 @@ export default function Home() {
           <div className="pf-about-top">
             <figure className="pf-portrait pf-about-portrait">
               <img src={photoPortrait} alt="Karan Gadhave" loading="lazy" />
+              <figcaption>Karan Gadhave<span>Senior Product Designer</span></figcaption>
             </figure>
-            <h2 className="pf-about-title">
-              Most of my work is software people never chose to use.
-            </h2>
-          </div>
 
-          <p className="pf-about-copy">
-            Admin portals, compliance tools, dashboards. The kind of software someone is handed on
-            their first day and then uses for the next three years. I have spent five years on
-            products like that, usually as the only designer on them, and I stay through build and
-            QA because that is where a design either survives or quietly falls apart.
-          </p>
+            <div className="pf-about-side">
+              <h2 className="pf-about-title">
+                Most of my work is software people never chose to use.
+              </h2>
+              <p className="pf-about-copy">
+                Admin portals, compliance tools, dashboards. The kind of software someone is handed on
+                their first day and then uses for the next three years. I have spent five years on
+                products like that, usually as the only designer on them, and I stay through build and
+                QA because that is where a design either survives or quietly falls apart.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="pf-outcomes" style={{ marginTop: 70 }}>

@@ -425,9 +425,9 @@ export function useTextHighlight(selector: string) {
     const ctx = gsap.context(() => {
       split = new SplitText(el, { type: "words" });
       gsap.fromTo(split.words,
-        { color: "rgba(20,20,20,0.22)" },
+        { color: "rgba(20,20,20,0.16)" },
         {
-          color: "rgba(20,20,20,1)",
+          color: "rgba(11,11,13,1)",
           ease: "none",
           stagger: 0.4,
           scrollTrigger: {
