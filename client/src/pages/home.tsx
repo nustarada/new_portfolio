@@ -335,15 +335,19 @@ export default function Home() {
         <div className="pf-toolrows">
           {[
             { k: "AI", lead: true, tools: [
-              ["Claude Code", "anthropic"], ["Figma MCP", "figma"],
+              ["Claude Code", "claude"], ["Figma MCP", "figma"],
               ["Cursor", "cursor"], ["Higgsfield", ""], ["Replit", "replit"],
             ]},
             { k: "Design", tools: [
               ["Figma", "figma"], ["FigJam", "figma"], ["Miro", "miro"],
             ]},
-            { k: "Motion & build", tools: [
-              ["GSAP", "greensock"], ["Framer Motion", "framer"], ["Lenis", ""],
-              ["React", "react"], ["Tailwind", "tailwindcss"],
+            { k: "Systems & platforms", tools: [
+              ["Ant Design", "antdesign"], ["Material Design", "materialdesign"],
+              ["HubSpot", "hubspot"], ["WordPress", "wordpress"],
+              ["GSAP", "greensock"], ["HTML / CSS", "html5"],
+            ]},
+            { k: "Delivery", tools: [
+              ["Jira", "jira"], ["Confluence", "confluence"], ["Scrum / Kanban", ""],
             ]},
           ].map((g, i) => (
             <div className={`pf-toolrow${g.lead ? " lead" : ""}`} key={g.k}
