@@ -148,7 +148,6 @@ export default function Home() {
         <div className="pf-hero-reveal" aria-hidden="true">
           <img src={gfxHero} alt="" loading="eager" />
         </div>
-        <p className="pf-eyebrow" data-reveal><span className="pf-dot" />Pune, India, open to new work</p>
         <h1 style={{ opacity: 0 }}>
           A senior product designer for <em className="pf-em">complex software.</em>
         </h1>
