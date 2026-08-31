@@ -131,8 +131,7 @@ export default function Home() {
         <div className="pf-follow"><span>View case study</span></div>
         <nav className={`pf-nav${scrolled ? " scrolled" : ""}`}>
           <Link href="/" className="logo" aria-label="Karan Gadhave, home">
-            <img src={kgLogo} alt="" className="mark" />
-            <span>Karan Gadhave</span>
+            <img src={kgLogo} alt="Karan Gadhave" className="mark" />
           </Link>
           <div className="links">
             <a href="#work">Work</a><a href="#about">About</a><a href="#process">Process</a>
