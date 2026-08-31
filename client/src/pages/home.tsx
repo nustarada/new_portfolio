@@ -266,15 +266,14 @@ export default function Home() {
                 </div>
             </Link>
           ))}
-          <a className="pf-card pf-card-cta" href="#contact">
-            <div className="pf-card-cta-inner">
-              <span className="k">Next</span>
-              <h3>Your platform next.</h3>
-              <p>Tell me what you are building and where it is getting stuck.</p>
-              <span className="go">Get in touch<i>&#8594;</i></span>
-            </div>
-          </a>
         </div>
+
+        <a className="pf-nextstrip" href="#contact" data-reveal>
+          <span className="k">Next</span>
+          <h3>Your platform next.</h3>
+          <p>Tell me what you are building and where it is getting stuck.</p>
+          <span className="go">Get in touch<i>&#8594;</i></span>
+        </a>
       </section>
 
       {/* ── CAPABILITIES, numbered index ── */}
