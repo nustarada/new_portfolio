@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import {
   useReveal, useSplitHeadline, useCountUp, useParallax,
   useScramble, useMarquee, useHeroSpotlight,
-  useImageReveal, useTextChars, useScrambleCycle, useAboutScrub, useTextHighlight, useCardCursor, useScrambleHover,
+  useImageReveal, useTextChars, useScrambleCycle, useAboutScrub, useTextHighlight, useCardCursor,
 } from "@/lib/motion";
 import { Ticker, Icon } from "@/components/visuals";
 import { Brand } from "@/components/brands";
@@ -62,12 +62,10 @@ export default function Home() {
   useImageReveal(".pf-proj-media");
   useTextChars(".pf-proj-title", 0.016);
   useTextChars(".pf-about-title", 0.012);
-  useTextChars(".pf-close-title", 0.014);
   useImageReveal(".pf-about-portrait");
   useAboutScrub(".pf-about-inner");
   useTextHighlight(".pf-about-copy");
   useScramble("[data-scramble]");
-  useScrambleHover("[data-scramble-hover]");
   useScrambleCycle(".pf-cycle", DISCIPLINES, { chars: "!<>-_\\/[]{}=+*^?#", speed: 0.45, revealDelay: 0.4, hold: 1.5 });
   useMarquee(".pf-ticker-track");
   useHeroSpotlight(".pf-home-hero", ".pf-hero-reveal");
@@ -283,28 +281,31 @@ export default function Home() {
           <span className="pf-chip ghost">What I do</span>
           <p style={{ font: "400 13px var(--font-mono)", color: "var(--mut)" }}>For teams and clients</p>
         </div>
-        {[
-          { n: "01", t: "Platform redesign",
-            d: "An existing product that has grown awkward, rebuilt around roles, permissions and the screens people actually use. This is most of my work." },
-          { n: "02", t: "AI feature design",
-            d: "Interfaces for generative features: what the user is asked for, how a streaming answer behaves, where the model shows its sources, and what happens when it gets something wrong. The design problem is trust and recovery, not the chat box." },
-          { n: "03", t: "New product design",
-            d: "Zero to one. Research, information architecture and the full screen set, through to a build-ready Figma file." },
-          { n: "04", t: "Design system",
-            d: "A component library with variables and Dev Mode handoff, built so the team can keep using it after I hand it over." },
-          { n: "05", t: "Design audit",
-            d: "A structured review of a live product: where people get stuck, what the current architecture is costing you, and what to fix first." },
-          { n: "06", t: "Rapid prototyping",
-            d: "Working screens instead of static mockups. I use Figma MCP, Claude Code and Cursor to put a real, clickable idea in front of people in days, and generative image and motion tools for the assets that go inside them." },
-          { n: "07", t: "Marketing site",
-            d: "Pages built around one decision rather than a template. Content structure, design and build in WordPress or HubSpot." },
-        ].map((s, i) => (
-          <div className="pf-numrow" key={s.t} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
-            <span className="no">{s.n}</span>
-            <h3>{s.t}</h3>
-            <p>{s.d}</p>
-          </div>
-        ))}
+        <div className="pf-bento">
+          {[
+            { n: "01", size: "lg", t: "Platform redesign",
+              d: "An existing product that has grown awkward, rebuilt around roles, permissions and the screens people actually use. This is most of my work." },
+            { n: "02", size: "lg", t: "AI feature design",
+              d: "Interfaces for generative features: what the user is asked for, how a streaming answer behaves, where the model shows its sources, and what happens when it gets something wrong. The design problem is trust and recovery, not the chat box." },
+            { n: "03", size: "sm", t: "New product design",
+              d: "Zero to one. Research, information architecture and the full screen set, through to a build-ready Figma file." },
+            { n: "04", size: "sm", t: "Design system",
+              d: "A component library with variables and Dev Mode handoff, built so the team can keep using it after I hand it over." },
+            { n: "05", size: "sm", t: "Design audit",
+              d: "A structured review of a live product: where people get stuck, what the current architecture is costing you, and what to fix first." },
+            { n: "06", size: "sm", t: "Rapid prototyping",
+              d: "Working screens instead of static mockups. Figma MCP, Claude Code and Cursor put a real, clickable idea in front of people in days." },
+            { n: "07", size: "wide", t: "Marketing site",
+              d: "Pages built around one decision rather than a template. Content structure, design and build in WordPress or HubSpot." },
+          ].map((s, i) => (
+            <div className={`pf-bento-cell ${s.size}`} key={s.t} data-reveal
+                 style={{ ["--d" as any]: `${i * 0.05}s` }}>
+              <span className="no">{s.n}</span>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
 

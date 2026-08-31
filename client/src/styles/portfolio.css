@@ -1531,3 +1531,59 @@
 
 /* a tall product capture reads from its header down, not from its middle */
 .pf-card-media.top img{ object-position:top; }
+
+/* ══ what I do: bento ═════════════════════════════════════ */
+/* Seven full-width rows ran to about 1500px. As a grid of shared
+   hairlines the same content fits in roughly a third of that, and the
+   two engagements that matter most take the largest cells. */
+.pf-bento{
+  display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0;
+  border:1px solid var(--rule);
+}
+.pf-bento-cell{
+  display:flex; flex-direction:column;
+  padding:clamp(20px,2vw,30px);
+  border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+  transition:background .4s var(--ease);
+}
+.pf-bento-cell:hover{ background:var(--band); }
+.pf-bento-cell.lg{ grid-column:span 2; }
+.pf-bento-cell.wide{ grid-column:span 4; }
+/* the cells on the outer edges meet the frame, so they drop their own rule */
+.pf-bento-cell.lg:nth-child(2), .pf-bento-cell.sm:nth-child(6){ border-right:0; }
+.pf-bento-cell.wide{ border-right:0; border-bottom:0; }
+
+.pf-bento-cell .no{
+  font:400 12px var(--font-mono); letter-spacing:.14em; color:var(--pf-accent);
+  margin-bottom:auto; padding-bottom:26px;
+}
+.pf-bento-cell h3{
+  font:700 clamp(19px,1.7vw,24px)/1.2 var(--font-display);
+  letter-spacing:-.02em; margin-bottom:9px;
+}
+.pf-bento-cell p{ font-size:14.5px; line-height:1.62; color:var(--soft); margin:0; }
+.pf-bento-cell.lg{ min-height:236px; }
+.pf-bento-cell.lg h3{ font-size:clamp(22px,2.1vw,29px); }
+
+@media (max-width:960px){
+  .pf-bento{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .pf-bento-cell.lg{ grid-column:span 2; }
+  .pf-bento-cell.wide{ grid-column:span 2; }
+  /* every second cell sits on the frame */
+  .pf-bento-cell{ border-right:1px solid var(--line); }
+  .pf-bento-cell.lg, .pf-bento-cell.wide{ border-right:0; }
+  .pf-bento-cell.sm:nth-child(4), .pf-bento-cell.sm:nth-child(6){ border-right:0; }
+  .pf-bento-cell.lg{ min-height:0; }
+  /* two-up, the number stops pushing content to the foot: cells with a
+     one-line title and a two-line title would start at different heights */
+  .pf-bento-cell .no{ margin-bottom:0; padding-bottom:14px; }
+}
+@media (max-width:520px){
+  /* the four small cells stay two-up here, which is the whole point of the
+     grid on a phone: the section keeps its height down */
+  .pf-bento-cell{ padding:18px 16px 22px; }
+  .pf-bento-cell .no{ padding-bottom:16px; }
+  .pf-bento-cell h3{ font-size:17px; }
+  .pf-bento-cell p{ font-size:13.5px; line-height:1.55; }
+  .pf-bento-cell.lg p, .pf-bento-cell.wide p{ font-size:14.5px; }
+}
