@@ -173,7 +173,7 @@ export default function Home() {
 
             <div className="pf-about-side">
               <h2 className="pf-about-title">
-                Most of my work is software people never chose to use.
+                There is no such thing as a boring product. Only a badly organised one.
               </h2>
               <div className="pf-about-sig">
                 <p className="n">Karan Gadhave</p>
@@ -328,7 +328,7 @@ export default function Home() {
               ["Figma", "figma"], ["FigJam", "figma"], ["Miro", "miro"],
             ]},
             { k: "Systems & platforms", tools: [
-              ["Ant Design", "antdesign"], ["Material Design", "materialdesign"],
+              ["React", "react"], ["Next.js", "nextdotjs"],
               ["HubSpot", "hubspot"], ["WordPress", "wordpress"],
               ["GSAP", "greensock"], ["HTML / CSS", "html5"],
             ]},
