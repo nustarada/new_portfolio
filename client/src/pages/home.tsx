@@ -7,6 +7,7 @@ import {
   useImageReveal, useTextChars, useScrambleCycle, useAboutScrub, useTextHighlight, useCardCursor,
 } from "@/lib/motion";
 import { Ticker, Icon } from "@/components/visuals";
+import { Brand } from "@/components/brands";
 import gfxHero from "@assets/gfx-hero.jpg";
 import kgLogo from "@assets/kg-logo.png";
 import photoPortrait from "@assets/photo-portrait.jpg";
@@ -235,10 +236,10 @@ export default function Home() {
 
           <ol className="pf-steps">
             {[
-              { n: "01", icon: "messages-square", t: "Discover", d: "Stakeholder interviews, business process mapping and user journeys. Understanding who does what, and why it works that way today." },
-              { n: "02", icon: "network", t: "Architect", d: "Information architecture, screen flows and wireframes. Getting the structure right on paper is cheaper than getting it wrong in code." },
-              { n: "03", icon: "component", t: "Design", d: "Figma libraries, variables and Dev Mode handoff, with Ant Design or Material as the base where an enterprise platform calls for one." },
-              { n: "04", icon: "package-check", t: "Ship", d: "Backlog refinement, acceptance criteria, implementation review and QA, right through to release. Not handoff and vanish." },
+              { n: "01", icon: "user-search", t: "Discover", d: "Stakeholder interviews, business process mapping and user journeys. Understanding who does what, and why it works that way today." },
+              { n: "02", icon: "drafting-compass", t: "Architect", d: "Information architecture, screen flows and wireframes. Getting the structure right on paper is cheaper than getting it wrong in code." },
+              { n: "03", icon: "figma", t: "Design", d: "Figma libraries, variables and Dev Mode handoff, with Ant Design or Material as the base where an enterprise platform calls for one." },
+              { n: "04", icon: "rocket", t: "Ship", d: "Backlog refinement, acceptance criteria, implementation review and QA, right through to release. Not handoff and vanish." },
             ].map((b, i) => (
               <li className="pf-step-card" key={b.t} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
                 <div className="hd">
@@ -317,6 +318,62 @@ export default function Home() {
             <p>{s.d}</p>
           </div>
         ))}
+      </section>
+
+
+      {/* ── STACK ── */}
+      <section id="stack" className="pf-wrap pf-stack">
+        <div className="pf-workhead">
+          <span className="pf-chip">Technologies</span>
+          <p className="c" data-scramble>What I build with</p>
+        </div>
+
+        <p className="pf-stack-line" data-reveal>
+          AI changed how fast I get to a working screen. It did not change what makes the screen right.
+        </p>
+
+        <div className="pf-toolrows">
+          {[
+            { k: "AI", lead: true, tools: [
+              ["Claude Code", "anthropic"], ["Figma MCP", "figma"],
+              ["Cursor", "cursor"], ["Higgsfield", ""], ["Replit", "replit"],
+            ]},
+            { k: "Design", tools: [
+              ["Figma", "figma"], ["FigJam", "figma"], ["Miro", "miro"],
+            ]},
+            { k: "Motion & build", tools: [
+              ["GSAP", "greensock"], ["Framer Motion", "framer"], ["Lenis", ""],
+              ["React", "react"], ["Tailwind", "tailwindcss"],
+            ]},
+          ].map((g, i) => (
+            <div className={`pf-toolrow${g.lead ? " lead" : ""}`} key={g.k}
+                 data-reveal style={{ ["--d" as any]: `${i * 0.07}s` }}>
+              <p className="h">{g.k}</p>
+              <ul>
+                {g.tools.map(([n, brand]) => (
+                  <li key={n}><Brand name={brand} /><span>{n}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="pf-methods" data-reveal>
+          <p className="h">Method</p>
+          <ul>
+            {[
+              "Stakeholder interviews",
+              "Business process mapping",
+              "Information architecture",
+              "User journeys and screen flows",
+              "Wireframing and prototyping",
+              "Usability testing",
+              "Design systems and tokens",
+              "Accessibility",
+              "Acceptance criteria and QA",
+            ].map((m) => <li key={m}>{m}</li>)}
+          </ul>
+        </div>
       </section>
 
       {/* ── CLOSING CTA ── */}

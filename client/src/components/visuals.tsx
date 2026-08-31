@@ -18,42 +18,52 @@ export const Ticker = ({ items }: { items: string[] }) => (
 );
 
 /* Icons from Lucide (lucide.dev), ISC licensed, free for commercial use.
-   Paths copied verbatim from lucide-static v1.38.0. */
-const ICON_PATHS: Record<string, string[]> = {
-  "messages-square": [
-    "M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z",
-    "M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1",
-  ],
-  network: [
-    "M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3",
-    "M12 12V8",
-  ],
-  component: [
-    "M15.536 11.293a1 1 0 0 0 0 1.414l2.376 2.377a1 1 0 0 0 1.414 0l2.377-2.377a1 1 0 0 0 0-1.414l-2.377-2.377a1 1 0 0 0-1.414 0z",
-    "M2.297 11.293a1 1 0 0 0 0 1.414l2.377 2.377a1 1 0 0 0 1.414 0l2.377-2.377a1 1 0 0 0 0-1.414L6.088 8.916a1 1 0 0 0-1.414 0z",
-    "M8.916 17.912a1 1 0 0 0 0 1.415l2.377 2.376a1 1 0 0 0 1.414 0l2.377-2.376a1 1 0 0 0 0-1.415l-2.377-2.376a1 1 0 0 0-1.414 0z",
-    "M8.916 4.674a1 1 0 0 0 0 1.414l2.377 2.376a1 1 0 0 0 1.414 0l2.377-2.376a1 1 0 0 0 0-1.414l-2.377-2.377a1 1 0 0 0-1.414 0z",
-  ],
-  "package-check": [
-    "M12 22V12",
-    "m16 17 2 2 4-4",
-    "M21 11.127V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l1.32-.753",
-    "M3.29 7 12 12l8.71-5",
-    "m7.5 4.27 8.997 5.148",
-  ],
-};
+   Shapes copied verbatim from lucide-static v1.38.0, chosen to state the
+   step literally: research a person, an architect's compass, the Figma
+   mark itself, a launch. */
+type Shape =
+  | { p: string }
+  | { c: [number, number, number] };
 
-/* network also needs its three rects */
-const ICON_RECTS: Record<string, Array<[number, number, number, number]>> = {
-  network: [[16, 16, 6, 6], [2, 16, 6, 6], [9, 2, 6, 6]],
+const ICONS: Record<string, Shape[]> = {
+  /* Discover: a person under a magnifier, "understanding who does what" */
+  "user-search": [
+    { c: [10, 7, 4] },
+    { p: "M10.3 15H7a4 4 0 0 0-4 4v2" },
+    { c: [17, 17, 3] },
+    { p: "m21 21-1.9-1.9" },
+  ],
+  /* Architect: a drafting compass */
+  "drafting-compass": [
+    { p: "m12.99 6.74 1.93 3.44" },
+    { p: "M19.136 12a10 10 0 0 1-14.271 0" },
+    { p: "m21 21-2.16-3.84" },
+    { p: "m3 21 8.02-14.26" },
+    { c: [12, 5, 2] },
+  ],
+  /* Design: the Figma mark, since the step is Figma libraries and Dev Mode */
+  figma: [
+    { p: "M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z" },
+    { p: "M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" },
+    { p: "M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z" },
+    { p: "M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z" },
+    { p: "M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" },
+  ],
+  /* Ship: a launch */
+  rocket: [
+    { p: "M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" },
+    { p: "M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" },
+    { p: "M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" },
+    { p: "M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" },
+  ],
 };
 
 export const Icon = ({ name }: { name: string }) => (
   <svg className="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
        strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    {(ICON_RECTS[name] || []).map(([x, y, w, h], i) => (
-      <rect key={i} x={x} y={y} width={w} height={h} rx="1" />
-    ))}
-    {(ICON_PATHS[name] || []).map((d, i) => <path key={i} d={d} />)}
+    {(ICONS[name] || []).map((sh, i) =>
+      "c" in sh
+        ? <circle key={i} cx={sh.c[0]} cy={sh.c[1]} r={sh.c[2]} />
+        : <path key={i} d={sh.p} />)}
   </svg>
 );
