@@ -39,19 +39,19 @@ const WORK: Work[] = [
     meta: ["Lead designer", "Platform redesign"] },
   { href: "/liffo-case-study", title: "Liffo Healthcare",
     tag: "Healthcare", img: liffoThumb,
-    blurb: "Emergency-first healthcare for India: ambulance dispatch and home care, designed from scratch before the market had an answer.",
+    blurb: "Ambulance dispatch and home care for the Indian market, designed from the ground up across 34 screens.",
     meta: ["Lead designer", "34 screens"] },
   { href: "/2hour-learning-case-study", title: "2 Hour Learning",
     tag: "EdTech", img: twoHLThumb,
-    blurb: "One buying decision, three stakeholders who must all say yes. Four pages arguing the same case differently for each of them.",
+    blurb: "A four-page system for a committee purchase, with each page addressing what a specific stakeholder needs answered.",
     meta: ["Lead designer", "4-page system"] },
   { href: "/fff-case-study", title: "Future First Families",
     tag: "Advocacy", img: fffThumb,
-    blurb: "Recruiting a parent into a movement rather than selling them a product, on a single scrolling page built to move doubt to action.",
+    blurb: "A single-page advocacy site structured to build credibility first and convert parents into advocates for the programme.",
     meta: ["Lead designer", "Conversion design"] },
   { href: "/acedboard-case-study", title: "Acedboard Proconomics",
     tag: "Fintech", img: acedboardThumb, soon: true,
-    blurb: "A cost-benefit analysis engine built inside a project management tool, turning finance modelling into something a team can actually run.",
+    blurb: "A cost-benefit analysis engine built inside a project management tool, making financial modelling usable by delivery teams.",
     meta: ["Lead designer", "Case study in progress"] },
 ];
 
@@ -125,7 +125,7 @@ export default function Home() {
     <div className="pf" style={{ minHeight: "100vh" }}>
       {createPortal(<>
         <div className="pf-announce">
-          Open to product design roles &amp; freelance <b>Pune, India / remote · replies in 24h</b>
+          Open to product design roles and freelance work <b>Pune, India and remote</b>
         </div>
         <div className="pf-cursor" ref={cursor} />
         <div className="pf-follow"><span>View case study</span></div>
@@ -148,19 +148,19 @@ export default function Home() {
         <div className="pf-hero-reveal" aria-hidden="true">
           <img src={gfxHero} alt="" loading="eager" />
         </div>
-        <p className="pf-eyebrow" data-reveal><span className="pf-dot" />Product &amp; UX Designer, available for hire and freelance</p>
+        <p className="pf-eyebrow" data-reveal><span className="pf-dot" />Product and UX designer, open to new work</p>
         <h1 style={{ opacity: 0 }}>
-          Designing digital products people <em className="pf-em">actually trust.</em>
+          Product design for the platforms people <em className="pf-em">work in every day.</em>
         </h1>
         <p data-reveal style={{ marginTop: 42, fontSize: 17, lineHeight: 1.65, color: "var(--soft)", maxWidth: 470, ["--d" as any]: ".5s" }}>
-          Five shipped platforms across healthcare, fintech, edtech and cybersecurity, designed end to end from first research through to production.
+          Five platforms shipped across healthcare, fintech, edtech and cybersecurity. I work from first research through to production.
         </p>
         <p className="pf-cycleline" data-reveal>
-          Currently designing <span className="pf-cycle">platform redesigns</span>
+          Currently working on <span className="pf-cycle">platform redesigns</span>
         </p>
         <div style={{ marginTop: 44, display: "flex", gap: 38, alignItems: "center", flexWrap: "wrap", justifyContent: "center" }} data-reveal>
-          <a className="pf-cta" href="#work">See the work →</a>
-          <a className="pf-cta mut" href="#about">About me</a>
+          <a className="pf-cta" href="#work">View the work</a>
+          <a className="pf-cta mut" href="#about">About</a>
         </div>
       </header>
 
@@ -196,25 +196,24 @@ export default function Home() {
               <img src={photoPortrait} alt="Karan Gadhave" loading="lazy" />
             </figure>
             <h2 className="pf-about-title">
-              I take messy, complicated platforms and make them feel simple.
+              I design complex platforms so they are straightforward to use.
             </h2>
           </div>
 
           <p className="pf-about-copy">
-            I am Karan, a product designer who works end to end: research, architecture,
-            systems, UI, and the awkward questions in between. Recent work spans a
-            multi-tenant cybersecurity platform redesigned solo and shipped to production,
-            a cost benefit engine inside a project tool, and an emergency first healthcare
-            app for India.
+            I am a product designer working across research, information architecture, design
+            systems and interface design. Recent projects include a multi-tenant cybersecurity
+            platform redesigned and shipped to production, a cost-benefit engine built inside a
+            project management tool, and an emergency healthcare app for the Indian market.
           </p>
         </div>
 
         <div className="pf-outcomes" style={{ marginTop: 70 }}>
           {[
-            { n: <span data-to="5" data-pad="1" data-suffix="+" className="pf-num">0</span>, l: "Years designing products, research to production" },
-            { n: <span data-to="5" data-pad="1" className="pf-num">0</span>, l: "Platforms shipped and live" },
-            { n: <span data-to="22" data-suffix="%" className="pf-num">0</span>, l: "Onboarding retention lift at Pepper Penny" },
-            { n: <span data-to="4" data-pad="1" className="pf-num">0</span>, l: "Industries: health, fintech, edtech, security" },
+            { n: <span data-to="5" data-pad="1" data-suffix="+" className="pf-num">0</span>, l: "Years designing products" },
+            { n: <span data-to="5" data-pad="1" className="pf-num">0</span>, l: "Platforms shipped to production" },
+            { n: <span data-to="22" data-suffix="%" className="pf-num">0</span>, l: "Onboarding retention lift, Pepper Penny" },
+            { n: <span data-to="4" data-pad="1" className="pf-num">0</span>, l: "Industries: healthcare, fintech, edtech, security" },
           ].map((s, i) => (
             <div key={i} data-reveal style={{ ["--d" as any]: `${i * 0.08}s` }}>
               <p className="n">{s.n}</p>
@@ -229,17 +228,17 @@ export default function Home() {
         <div className="pf-wrap">
           <div className="pf-sechead" data-reveal>
             <span className="pf-chip inv">How I work</span>
-            <h2>Four steps, start to shipped.</h2>
-            <p>Every platform I take on has roles, rules and legacy. The order below is what
-              keeps that from turning into guesswork.</p>
+            <h2>How a project runs, start to finish.</h2>
+            <p>Enterprise platforms carry roles, permissions and existing behaviour. Working in this
+              order keeps those constraints visible from the start.</p>
           </div>
 
           <ol className="pf-steps">
             {[
-              { n: "01", icon: "user-search", t: "Discover", d: "Stakeholder interviews, business process mapping and user journeys. Understanding who does what, and why it works that way today." },
-              { n: "02", icon: "drafting-compass", t: "Architect", d: "Information architecture, screen flows and wireframes. Getting the structure right on paper is cheaper than getting it wrong in code." },
-              { n: "03", icon: "figma", t: "Design", d: "Figma libraries, variables and Dev Mode handoff, with Ant Design or Material as the base where an enterprise platform calls for one." },
-              { n: "04", icon: "rocket", t: "Ship", d: "Backlog refinement, acceptance criteria, implementation review and QA, right through to release. Not handoff and vanish." },
+              { n: "01", icon: "user-search", t: "Discover", d: "Stakeholder interviews, business process mapping and user journeys, to establish who does what and why the current system works the way it does." },
+              { n: "02", icon: "drafting-compass", t: "Architect", d: "Information architecture, screen flows and wireframes. Structural decisions are resolved and agreed before any interface design begins." },
+              { n: "03", icon: "figma", t: "Design", d: "Interface design in Figma with libraries, variables and Dev Mode handoff, built on Ant Design or Material where a platform already uses one." },
+              { n: "04", icon: "rocket", t: "Ship", d: "Backlog refinement, acceptance criteria, implementation review and QA collaboration, through to release." },
             ].map((b, i) => (
               <li className="pf-step-card" key={b.t} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
                 <div className="hd">
@@ -284,9 +283,9 @@ export default function Home() {
           <a className="pf-card pf-card-cta" href="#contact">
             <div className="pf-card-cta-inner">
               <span className="k">Next</span>
-              <h3>Your platform could be next.</h3>
-              <p>Tell me what you are building and what is currently in the way.</p>
-              <span className="go">Start a conversation<i>&#8594;</i></span>
+              <h3>Your platform next.</h3>
+              <p>Tell me what you are building and where it is getting stuck.</p>
+              <span className="go">Get in touch<i>&#8594;</i></span>
             </div>
           </a>
         </div>
@@ -296,21 +295,21 @@ export default function Home() {
       <section id="services" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 20 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 34 }} data-reveal>
           <span className="pf-chip ghost">What I do</span>
-          <p style={{ font: "400 13px var(--font-mono)", color: "var(--mut)" }}>For teams &amp; clients</p>
+          <p style={{ font: "400 13px var(--font-mono)", color: "var(--mut)" }}>For teams and clients</p>
         </div>
         {[
           { n: "01", t: "Product & UX design",
-            d: "End to end product design for SaaS, web and mobile. User journeys, screen flows, wireframes and polished, production ready UI." },
+            d: "End-to-end product design for SaaS, web and mobile, from user journeys and screen flows through to production-ready interface design." },
           { n: "02", t: "Platform & dashboard redesign",
-            d: "Dated, tangled enterprise products re-architected around roles, permissions and real workflows, without losing what already works." },
+            d: "Established enterprise products re-architected around roles, permissions and existing workflows, without discarding what already works." },
           { n: "03", t: "Research & information architecture",
-            d: "Stakeholder interviews, business process mapping, IA, competitive analysis and usability testing, so structure is decided on evidence." },
+            d: "Stakeholder interviews, business process mapping, information architecture, competitive analysis and usability testing." },
           { n: "04", t: "Design systems",
-            d: "Figma libraries, variables and Dev Mode handoff. Token based components that keep a product consistent as the team grows." },
+            d: "Figma libraries, variables and Dev Mode handoff. Token-based components that hold a product together as the team grows." },
           { n: "05", t: "Agile delivery support",
-            d: "Backlog refinement, user stories, acceptance criteria, sprint reviews and QA collaboration, right through to release." },
+            d: "Backlog refinement, user stories, acceptance criteria, sprint reviews and QA collaboration through to release." },
           { n: "06", t: "AI accelerated design",
-            d: "Figma MCP, Claude Code, Cursor and Replit used for high velocity prototyping, so ideas get tested as working screens, not slides." },
+            d: "Figma MCP, Claude Code, Cursor and Replit used to prototype at speed, so concepts are tested as working screens rather than static mockups." },
         ].map((s, i) => (
           <div className="pf-numrow" key={s.t} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
             <span className="no">{s.n}</span>
@@ -329,7 +328,7 @@ export default function Home() {
         </div>
 
         <p className="pf-stack-line" data-reveal>
-          AI changed how fast I get to a working screen. It did not change what makes the screen right.
+          AI has changed how quickly I reach a working screen. The judgement about what belongs on it has not changed.
         </p>
 
         <div className="pf-toolrows">
@@ -383,7 +382,7 @@ export default function Home() {
       {/* ── CLOSING CTA ── */}
       <section className="pf-bigcta" data-reveal>
         <div className="pf-wrap">
-          <h2>Let's build something people actually trust.</h2>
+          <h2>Let us work together.</h2>
           <a className="mailto" href="mailto:gadhavekaran@gmail.com">gadhavekaran@gmail.com</a>
         </div>
       </section>
@@ -392,7 +391,7 @@ export default function Home() {
       <section id="contact" className="pf-wrap pf-contact">
         <div className="pf-contact-head">
           <div data-reveal><span className="pf-chip ghost">Contact</span></div>
-          <p className="avail" data-reveal><span className="pf-dot" />Open to roles and freelance</p>
+          <p className="avail" data-reveal><span className="pf-dot" />Open to new work</p>
         </div>
 
         <a className="pf-mailto" href={`mailto:${EMAIL}?subject=${encodeURIComponent("Project enquiry")}`} data-reveal>
@@ -416,7 +415,7 @@ export default function Home() {
           </div>
           <div className="pf-contact-row">
             <span className="k">Response</span>
-            <span className="v plain">Usually within 24 hours</span>
+            <span className="v plain">Within 24 hours</span>
           </div>
           <div className="pf-contact-row">
             <span className="k">Elsewhere</span>

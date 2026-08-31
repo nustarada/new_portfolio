@@ -347,7 +347,7 @@ export const MoreProjects = ({ cards }: { cards: ProjectCard[] }) => (
   <div className="pf-more">
     <div className="h">
       <p>More projects</p>
-      <Link href="/#work">View all →</Link>
+      <Link href="/#work">View all</Link>
     </div>
     <div className="pf-cards">
       {cards.map((c, i) => (
@@ -370,7 +370,7 @@ export const PageFooter = () => (
       <div className="pf-foot-grid">
         <div className="col brand">
           <p className="nm">Karan Gadhave</p>
-          <p className="ln">Product &amp; UX designer working end to end on platforms with roles, rules and legacy.</p>
+          <p className="ln">Product and UX designer working end to end on complex platforms, from research through to release.</p>
         </div>
         <div className="col">
           <p className="h">Navigate</p>

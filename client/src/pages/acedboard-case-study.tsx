@@ -27,19 +27,19 @@ const ACCENT = "#2F7D5B";
 const steps: Step[] = [
   { n: "01", img: empty, url: "acedboard.com/proconomics", chip: "Empty state",
     title: <>Start from <em className="pf-em">nothing</em></>,
-    body: "Proconomics sits in the Acedboard sidebar beside Projects. The empty state does one job, create your first analysis." },
+    body: "Proconomics sits in the Acedboard sidebar beside Projects. The empty state has a single purpose: create the first analysis." },
   { n: "02", img: create, url: "acedboard.com/proconomics/new", chip: "Create · cost of capital",
     title: <>Set the <em className="pf-em">financial frame</em></>,
-    body: "Name, start date, cost of capital, frequency and period. The cost of capital is what turns a sum of numbers into a genuine NPV and payback later." },
+    body: "Name, start date, cost of capital, frequency and period. The cost of capital is what allows a genuine NPV and payback calculation later." },
   { n: "03", img: benefitDrivers, url: "acedboard.com/assumptions/benefit-drivers", chip: "Assumptions · drivers",
     title: <>Define the data <em className="pf-em">once</em></>,
-    body: "Cost Drivers and Benefit Drivers under Assumptions, each a set of variables with units, plus a calculated field. The single source everything downstream references." },
+    body: "Cost Drivers and Benefit Drivers sit under Assumptions, each a set of variables with units and a calculated field. Everything downstream references them." },
   { n: "04", img: benefitsModel, url: "acedboard.com/summary/benefits", chip: "The provable unit",
     title: <>Baseline → projected → <em className="pf-em">benefit</em></>,
-    body: "Areas of line items across years. A raw 'benefit: $200k' is an assertion; forcing a baseline and a projected value makes the benefit a visible, arguable delta." },
+    body: "Areas of line items across years. A stated benefit figure is an assertion; requiring a baseline and a projected value makes the benefit a visible difference that can be examined." },
   { n: "05", img: compare, url: "acedboard.com/scenarios/compare", chip: "Scenarios · compare",
     title: <>Answer <em className="pf-em">"what if we're wrong?"</em></>,
-    body: "Best, worst and realization scenarios built by flexing projections against the baseline, then compared side by side with an explicit difference column." },
+    body: "Best, worst and realization scenarios built by varying projections against the baseline, then compared side by side with an explicit difference column." },
 ];
 
 export default function AcedboardCaseStudy() {
@@ -47,7 +47,7 @@ export default function AcedboardCaseStudy() {
     <CaseStudyShell accent={ACCENT} project="Proconomics" year="2025">
       <CaseHero
         title="Proconomics"
-        tagline={<>Turning a project's promises into a model finance can <em className="pf-em">actually trust.</em></>}
+        tagline={<>A project business case finance can <em className="pf-em">keep using.</em></>}
         meta={[
           ["Client", "Acedboard"],
           ["Industry", "Project management, Financial modelling · SaaS"],
@@ -64,9 +64,9 @@ export default function AcedboardCaseStudy() {
           solution="A connected model inside Acedboard. Cost and benefit drivers are defined once under Assumptions, variables, units and a calculated field, and every cell downstream references them through a real formula engine, discounted at the cost of capital into NPV, ROI and payback."
         />
         <Timeline phases={[
-          { label: "Phase 01", title: "Model + Architecture", body: "Defining the data model, drivers as the single source, baseline → projected → benefit as the provable unit, and how a formula engine references it all." },
-          { label: "Phase 02", title: "Interface Design", body: "Making finance-grade mechanics, discounting, sensitivity, scenarios, usable inside a project tool's calmer patterns without dumbing the model down." },
-          { label: "Phase 03", title: "Build + Ship", body: "Agile delivery alongside engineering, edge cases and states, through to production release inside Acedboard." },
+          { label: "Phase 01", title: "Model + Architecture", body: "Defining the data model: drivers as the single source, baseline to projected to benefit as the unit of evidence, and how a formula engine references it." },
+          { label: "Phase 02", title: "Interface Design", body: "Making finance-grade mechanics, discounting, sensitivity and scenarios, usable within a project tool's interface patterns without simplifying the model." },
+          { label: "Phase 03", title: "Build + Ship", body: "Agile delivery alongside engineering, covering edge cases and states, through to production release inside Acedboard." },
         ]} />
       </div>
 
@@ -81,8 +81,8 @@ export default function AcedboardCaseStudy() {
       <section className="pf-wrap">
         <SectionHead
           label="The Model"
-          title={<>Assumptions are the source, <em className="pf-em">the model pulls, it never re-types.</em></>}
-          body="Every cost and benefit is defined once as a driver: variables with values and units, combined by a calculated field. Change 'Hourly Rate' and every figure downstream recomputes, the difference between a living model and a spreadsheet that rots."
+          title={<>Assumptions are the single source. The model <em className="pf-em">references them rather than repeating them.</em></>}
+          body="Every cost and benefit is defined once under Assumptions, with variables, units and a calculated field. The model references those drivers rather than repeating numbers, so there is one place to update when an assumption changes."
         />
         <div className="pf-two">
           <div data-reveal>
@@ -103,7 +103,7 @@ export default function AcedboardCaseStudy() {
       <section className="pf-wrap">
         <SectionHead
           label="The Product"
-          title={<>From an empty state to a board-ready answer, <em className="pf-em">step by step.</em></>}
+          title={<>From an empty state to a board-ready model, <em className="pf-em">step by step.</em></>}
         />
         <StickyWalkthrough steps={steps} variant="desktop" />
       </section>
@@ -139,30 +139,30 @@ export default function AcedboardCaseStudy() {
       </section>
 
       <section className="pf-wrap">
-        <SectionHead label="Key decisions" title={<>What made it trustworthy to the person <em className="pf-em">signing the cheque.</em></>} />
+        <SectionHead label="Key decisions" title={<>What made the model credible to <em className="pf-em">finance.</em></>} />
         <Decisions items={[
-          { n: "01", title: "Cost & Benefit Drivers are the single source of data",
+          { n: "01", title: "Cost and benefit drivers as the single source of data",
             why: "Every cost and benefit is defined once under Assumptions, variables, units and a calculated field. The model references those drivers instead of re-typing numbers, so there's one place to update and one place to audit.",
-            tradeoff: "Users set up drivers before they see a result, but it's what stops the model rotting the moment a number changes." },
-          { n: "02", title: "Make every cell a formula, a real calculation engine",
-            why: "Advanced Calculation lets any value be a formula referencing drivers and other cells, with live recalculation. Change a driver and everything downstream updates by itself.",
-            tradeoff: "Building a spreadsheet engine into a web app is heavy, but without it, it's just a form with totals." },
-          { n: "03", title: "Model every line as baseline → projected → benefit",
-            why: "A raw 'benefit' figure is an assertion. Forcing a baseline and a projected value makes the benefit a visible delta, arguable on its inputs rather than its conclusion.",
-            tradeoff: "More structure to fill in, but that structure is exactly what earns trust." },
+            tradeoff: "Users set up drivers before seeing a result, which is what keeps the model accurate as assumptions change." },
+          { n: "02", title: "A calculation engine, so any cell can be a formula",
+            why: "Advanced Calculation allows any value to be a formula referencing drivers and other cells, with live recalculation. Changing a driver updates everything downstream.",
+            tradeoff: "Building a calculation engine into a web app is substantial work, and without it the tool is a form with totals." },
+          { n: "03", title: "Every line modelled as baseline, projected and benefit",
+            why: "A stated benefit figure is an assertion. Requiring a baseline and a projected value makes the benefit a visible difference, reviewable on its inputs rather than its conclusion.",
+            tradeoff: "More structure to complete, and that structure is what makes the result defensible." },
           { n: "04", title: "Discount with a cost of capital, over periods",
-            why: "Set at creation and applied across half-year and annual periods, so the dashboard reports a genuine NPV and payback, the language finance and executives already use.",
-            tradeoff: "More upfront than a flat ROI, but it's the difference between a real model and a toy." },
+            why: "Set at creation and applied across half-year and annual periods, so the dashboard reports NPV and payback, the measures finance and executives already use.",
+            tradeoff: "More setup than a flat ROI, and the difference between a working model and an estimate." },
         ]} />
       </section>
 
       <section className="pf-wrap">
         <SectionHead label="Outcomes" title={<>Shipped and <em className="pf-em">live in production</em> inside Acedboard.</>} />
         <Outcomes items={[
-          { n: <>1 <em className="pf-em">source</em></>, l: "Assumptions feed the whole model, define once, reference everywhere" },
+          { n: <>1 <em className="pf-em">source</em></>, l: "Assumptions defined once and referenced throughout the model" },
           { n: <>Live <em className="pf-em">formulas</em></>, l: "Any cell computes from drivers and other cells, and recalculates" },
-          { n: <>NPV · <em className="pf-em">ROI</em></>, l: "Discounted metrics, payback and cashflow, not a flat ROI" },
-          { n: <>0<em className="pf-em">3</em></>, l: "Scenarios, best, worst and realization, compared in-tool" },
+          { n: <>NPV · <em className="pf-em">ROI</em></>, l: "Discounted metrics, payback and cashflow rather than a flat ROI" },
+          { n: <>0<em className="pf-em">3</em></>, l: "Best, worst and realization scenarios compared in the tool" },
         ]} />
       </section>
 

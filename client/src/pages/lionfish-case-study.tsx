@@ -34,10 +34,10 @@ const HOST = "cybertacklebox.com";
 const steps: Step[] = [
   { n: "01", img: lfLogin, url: `${HOST}/login`, chip: "Auth · MFA",
     title: <>A front door that <em className="pf-em">earns trust</em></>,
-    body: "A security platform has to look secure. The split layout pairs a considered brand image with a calm, single-column form, consent and recovery in plain sight rather than buried in fine print." },
+    body: "A security platform has to read as credible. The split layout pairs a brand image with a single-column form, keeping consent and recovery visible rather than in fine print." },
   { n: "02", img: lfDashboard, url: `${HOST}/dashboard`, chip: "Side nav · role-aware",
     title: <>The fix that changed <em className="pf-em">everything</em></>,
-    body: "The top bar becomes a grouped side rail, Home, Content Manager, Additional Content, rendering only what the signed-in role can reach. Task counts, an activity log and a calendar sit where they can actually be scanned." },
+    body: "The top bar becomes a grouped side rail of Home, Content Manager and Additional Content, rendering only what the signed-in role can access. Task counts, an activity log and a calendar sit where they can actually be scanned." },
   { n: "03", img: lfCompliance, url: `${HOST}/manage-compliances`, chip: "Admin · manage",
     title: <>Compliances, <em className="pf-em">managed</em></>,
     body: "Cobrand admins build and maintain compliance frameworks, domains, practices and questions, with proper tables, in-page tabs and inline editing where the old platform forced a round trip through a separate page." },
@@ -46,7 +46,7 @@ const steps: Step[] = [
     body: "What an admin manages as a Compliance, a customer completes as an Assessment. Framework selector, intro video, scored domain cards and a Dashboard / Domains / Report / Summary tab set, one entity, two vocabularies." },
   { n: "05", img: lfPlayer, url: `${HOST}/my-learning/section-1`, chip: "Learning · chapters",
     title: <>A learning experience worth <em className="pf-em">finishing</em></>,
-    body: "The dated player is replaced by a chaptered layout, completion states down the right rail, progress at a glance, and Overview / Task / Q&A / Notes / Uploads / Video Script tabs beneath the video." },
+    body: "The previous player is replaced by a chaptered layout with completion states in the right rail and Overview, Task, Q&A, Notes, Uploads and Video Script tabs beneath the video." },
 ];
 
 export default function LionfishCaseStudy() {
@@ -54,7 +54,7 @@ export default function LionfishCaseStudy() {
     <CaseStudyShell accent={ACCENT} project="Lionfish" year="2025">
       <CaseHero
         title="Lionfish"
-        tagline={<>Rebuilding a multi-tenant cybersecurity platform, <em className="pf-em">solo, and shipped.</em></>}
+        tagline={<>A multi-tenant cybersecurity platform, redesigned and <em className="pf-em">shipped to production.</em></>}
         meta={[
           ["Client", "Lionfish Cyber Security · Cyber Tacklebox"],
           ["Industry", "Cybersecurity · Compliance & workforce training · US"],
@@ -67,13 +67,13 @@ export default function LionfishCaseStudy() {
 
       <div className="pf-wrap">
         <ChallengeSolution
-          challenge="A working platform that fought its users. Navigation sat in a top bar instead of a side rail, menus were confusing, UX writing was weak, inline editing didn't exist, the video player was dated, and tables, in-page tabs and buttons were inconsistently designed and poorly placed. Functions existed but weren't connected properly."
+          challenge="A functioning platform with significant usability problems. Navigation sat in a top bar rather than a side rail, menu structure was unclear, UX writing was inconsistent, inline editing was unavailable, the video player was dated, tables were poorly structured, in-page tabs lacked hierarchy and buttons carried ambiguous labels."
           solution="A complete redesign on a systematic foundation, Ant Design and Material 3 as reference systems, replacing the top bar with a grouped, role-aware side navigation, and rebuilding tables, tabs, buttons, inline editing and the learning experience as consistent components across every module, in both light and dark themes."
         />
         <Timeline phases={[
-          { label: "Months 1–2", title: "Audit + Architecture", body: "Auditing the live platform module by module, cataloguing the UX failures, and restructuring the information architecture around a grouped side navigation that adapts to each role." },
-          { label: "Months 3–6", title: "System + Module Design", body: "Building the component foundation, then redesigning every module, dashboards, compliances, assessments, learning, cobrand branding, roles and permissions, in light and dark." },
-          { label: "Month 7 →", title: "Agile Delivery", body: "Design ran alongside active development, staying ahead of engineering while holding consistency across a moving target. Live in production." },
+          { label: "Months 1–2", title: "Audit + Architecture", body: "Auditing the live platform module by module, cataloguing the usability issues, and restructuring the information architecture around a grouped side navigation that adapts to each role." },
+          { label: "Months 3–6", title: "System + Module Design", body: "Building the component foundation, then redesigning every module: dashboards, compliances, assessments, learning, cobrand branding, roles and permissions, in light and dark." },
+          { label: "Month 7 →", title: "Agile Delivery", body: "Design ran alongside active development, staying ahead of engineering while maintaining consistency as scope moved. Now live in production." },
         ]} />
       </div>
 
@@ -89,14 +89,14 @@ export default function LionfishCaseStudy() {
       <section className="pf-wrap">
         <SectionHead
           label="The Problem"
-          title={<>It worked. It just <em className="pf-em">fought everyone using it.</em></>}
+          title={<>A functioning platform that was <em className="pf-em">difficult to work in.</em></>}
           body="This wasn't a broken product, it was execution debt, accumulated across navigation, components and copy. Each issue was small on its own; together they made a capable platform feel unusable."
         />
         <div className="pf-three">
           {[
-            { t: "Navigation", d: "A top bar carrying a deep, multi-module platform, with a confusing menu structure that hid where things lived." },
-            { t: "Components", d: "Tables poorly designed and placed, in-page tab menus badly structured, buttons weak and inconsistently labelled." },
-            { t: "Interaction", d: "No inline editing anywhere, a dated video player, and functions that existed but weren't properly connected to each other." },
+            { t: "Navigation", d: "A top bar carrying a deep, multi-module platform, with a menu structure that obscured where features lived." },
+            { t: "Components", d: "Tables poorly structured and placed, in-page tab menus unclear, and buttons inconsistently labelled." },
+            { t: "Interaction", d: "No inline editing, a dated video player, and features that existed but were not properly connected." },
           ].map((x, i) => (
             <div className="pf-ecard" key={x.t} data-reveal style={{ ["--d" as any]: `${i * 0.08}s` }}>
               <p className="lbl">{x.t}</p>
@@ -146,7 +146,7 @@ export default function LionfishCaseStudy() {
       <section className="pf-wrap">
         <SectionHead
           label="The Platform"
-          title={<>Five modules, one system, walked through <em className="pf-em">screen by screen.</em></>}
+          title={<>Five modules on one system, <em className="pf-em">screen by screen.</em></>}
         />
         <StickyWalkthrough steps={steps} variant="desktop" />
       </section>
@@ -184,7 +184,7 @@ export default function LionfishCaseStudy() {
       <section className="pf-wrap">
         <SectionHead
           label="One entity, two names"
-          title={<>The same thing is a <em className="pf-em">Compliance</em> or an <em className="pf-em">Assessment</em>, depending on who you are.</>}
+          title={<>The same object is a <em className="pf-em">Compliance</em> or an <em className="pf-em">Assessment</em>, depending on the role.</>}
           body="Admins under a cobrand create and manage Compliances. The customers those cobrands serve complete them as Assessments. Same underlying entity, named for the job each role is doing, so the interface speaks each user's language without duplicating the system underneath."
         />
         <div className="pf-two">
@@ -213,7 +213,7 @@ export default function LionfishCaseStudy() {
       <section className="pf-wrap">
         <SectionHead
           label="Learning"
-          title={<>The training experience the platform <em className="pf-em">exists to deliver.</em></>}
+          title={<>The training experience at the <em className="pf-em">centre of the platform.</em></>}
           body="Cyber awareness training is the product's reason for being, and it was running on a dated player. The rebuilt experience puts chapters, completion state and progress alongside the video, with the supporting material, tasks, Q&A, notes, uploads, transcript, one tab away."
         />
         <div className="pf-two">
@@ -236,36 +236,36 @@ export default function LionfishCaseStudy() {
 
       {/* ── Decisions ── */}
       <section className="pf-wrap">
-        <SectionHead label="Key decisions" title={<>What the redesign actually <em className="pf-em">changed.</em></>} />
+        <SectionHead label="Key decisions" title={<>What the redesign <em className="pf-em">changed.</em></>} />
         <Decisions items={[
-          { n: "01", title: "Top bar → grouped, role-aware side navigation",
-            why: "The single biggest fix. A deep multi-module platform can't live in a top bar. The new side rail groups modules under Home, Content Manager and Additional Content, and renders only what the signed-in role can access.",
-            tradeoff: "Costs horizontal space, repaid immediately in orientation and scale headroom." },
-          { n: "02", title: "Ant Design + Material 3 as the foundation",
-            why: "With one designer covering an entire platform alongside active development, consistency had to come from a system rather than page-by-page decisions. Mature references gave proven patterns for tables, tabs, forms and states.",
-            tradeoff: "Less bespoke visual novelty, the right trade for a tool people work in daily." },
-          { n: "03", title: "Rebuild the components, not just the skin",
-            why: "Tables, in-page tabs, buttons and their labels were redesigned as system components, so every module inherited the same behaviour instead of each screen solving it differently.",
-            tradeoff: "Slower start than restyling screens, but it's what made a full-platform redesign possible solo." },
+          { n: "01", title: "Grouped, role-aware side navigation",
+            why: "The most significant change. A deep multi-module platform cannot be navigated from a top bar. The side rail groups modules under Home, Content Manager and Additional Content, and renders only what the signed-in role can access.",
+            tradeoff: "Costs horizontal space, returned in orientation and room to scale." },
+          { n: "02", title: "Ant Design and Material 3 as the foundation",
+            why: "With one designer covering an entire platform alongside active development, consistency had to come from a system rather than page-by-page decisions. Established references provided proven patterns for tables, forms and navigation.",
+            tradeoff: "Less bespoke visual character, appropriate for a tool used daily." },
+          { n: "03", title: "Rebuild the components, not the surface",
+            why: "Tables, in-page tabs, buttons and their labels were redesigned as system components, so every module inherited the same behaviour rather than each screen solving it separately.",
+            tradeoff: "Slower to start than restyling screens, and what made a full-platform redesign feasible." },
           { n: "04", title: "Inline editing and a modern learning experience",
-            why: "Editing without leaving context was missing entirely; the video player was dated. Both were rebuilt, inline edit across data views, and a chaptered player for the training content the platform exists to deliver.",
+            why: "Editing in place was unavailable and the video player was dated. Both were rebuilt: inline editing across data views, and a chaptered player for the training content.",
             tradeoff: "More interaction states to design and specify for engineering." },
           { n: "05", title: "Cobrand theming as a first-class constraint",
-            why: "Every screen had to hold up under a tenant's own logo and brand colours. Colour was kept structural, meaning never carried by hue alone, so the system stays legible whatever palette a cobrand applies.",
-            tradeoff: "Rules out colour-dependent visual devices across the whole platform." },
+            why: "Every screen had to hold up under a tenant's own logo and brand colours. Colour was kept structural, with no meaning carried by hue alone, so the system stays legible whatever palette a cobrand applies.",
+            tradeoff: "Rules out colour-dependent visual devices across the platform." },
         ]} />
       </section>
 
       <section className="pf-wrap">
         <SectionHead
           label="Outcomes"
-          title={<>Designed solo across seven months, delivered agile, and <em className="pf-em">live in production.</em></>}
+          title={<>Designed across seven months, delivered in an agile process, and <em className="pf-em">live in production.</em></>}
         />
         <Outcomes items={[
           { n: <>1 <em className="pf-em">designer</em></>, l: "The full platform redesign, end to end" },
           { n: <>Side <em className="pf-em">nav</em></>, l: "Grouped and role-aware, replacing the top bar" },
           { n: <>2 <em className="pf-em">themes</em></>, l: "Light and dark, across every module" },
-          { n: <>Live</>, l: "Shipped to production and in use by cobrand organisations" },
+          { n: <>Live</>, l: "In production and in use by cobrand organisations" },
         ]} />
       </section>
 

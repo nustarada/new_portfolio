@@ -31,16 +31,16 @@ const steps: Step[] = [
     body: "Home-care, doctors, diagnostics, records and emergency, each one tap from the dashboard, with a 24/7 call banner and live nurse-visit tracking above the fold." },
   { n: "02", img: Screen14, tag: "Home-care, the hero", chip: "Home-care · the differentiator",
     title: <>Nursing, <em className="pf-em">to your door</em></>,
-    body: "The pillar no competitor organised. Six clinical categories, short-term, critical, chronic, post-surgical, physio, occupational, with a visible per-visit price and one booking action, replacing an opaque WhatsApp negotiation." },
+    body: "The service no competitor had organised. Six clinical categories, short-term, critical, chronic, post-surgical, physiotherapy and occupational, each with a visible per-visit price and a single booking action, replacing an informal WhatsApp negotiation." },
   { n: "03", img: Screen11, tag: "Emergency, one tap", chip: "Emergency · persistent tab",
     title: <>Emergency that <em className="pf-em">doesn't ask questions</em></>,
-    body: "A panicking user shouldn't recall a number or type an address. The emergency tab is persistent; the action is single and decisive, with near-zero reading load." },
+    body: "A user in an emergency should not have to recall a number or type an address. The emergency tab is persistent and the action is single, with minimal reading required." },
   { n: "04", img: Screen13, tag: "Hospitals, honest availability", chip: "Select hospital · BLS / ALS",
     title: <>An <em className="pf-em">honest</em> ambulance flow</>,
-    body: "Hospitals listed with real ambulance availability, life-support tier and ETA, call the hospital or book the ambulance. Credible beats flashy at the worst possible moment." },
+    body: "Hospitals listed with actual ambulance availability, life-support tier and ETA, with the option to call the hospital or book the ambulance." },
   { n: "05", img: Screen34, tag: "Records, hand the phone over", chip: "Records · by type",
     title: <>Records readable <em className="pf-em">in one scroll</em></>,
-    body: "Grouped by type, appointments, prescriptions, labs, family history, plus the government RBSK health card, built for the moment you hand your phone across a doctor's desk." },
+    body: "Grouped by type: appointments, prescriptions, labs and family history, alongside the government RBSK health card, so records can be shown quickly during a consultation." },
 ];
 
 export default function LiffoCaseStudy() {
@@ -48,7 +48,7 @@ export default function LiffoCaseStudy() {
     <CaseStudyShell accent={ACCENT} project="Liffo" year="2024">
       <CaseHero
         title="Liffo"
-        tagline={<>Healthcare that <em className="pf-em">arrives</em>, nursing, doctors and emergency care at your door.</>}
+        tagline={<>Home nursing, doctors and emergency care, <em className="pf-em">arranged in one place.</em></>}
         meta={[
           ["Client", "Liffo Health"],
           ["Industry", "Healthcare, Home-care services · India"],
@@ -62,12 +62,12 @@ export default function LiffoCaseStudy() {
       <div className="pf-wrap">
         <ChallengeSolution
           challenge="Indian families juggle seven disconnected channels for one household's health, home nursing arranged over WhatsApp, doctors by phone, labs in person, emergencies through a number 1 in 4 people can't correctly recall. No product treated routine care and crisis care as the same journey."
-          solution="A home-first health app built around five pillars, with organised home-care nursing, the service nobody had productised, as the hero. Emergency lives one tap away on a persistent tab, routed honestly through hospitals with verified ambulance availability rather than a fleet that doesn't exist."
+          solution="A home-first health app built around five services, led by organised home-care nursing, the offering nobody had productised. Emergency sits one tap away on a persistent tab, routed through hospitals with verified ambulance availability rather than a dispatch promise the fleet could not meet."
         />
         <Timeline phases={[
           { label: "Weeks 1–3", title: "Research + Architecture", body: "Published EMS and golden-hour data, competitive audit of the Indian market, task analysis of the phone-based emergency process, and the five-pillar information architecture." },
-          { label: "Weeks 4–10", title: "Design + Iteration", body: "Lo-fi structure through to 34 production screens. Heaviest iteration on the emergency flow and the home-care booking model, the two pillars carrying the product's promise." },
-          { label: "Weeks 11–13", title: "System + Handoff", body: "Component library, states and edge cases, accessibility passes for panic-state use, and developer handoff across iOS and Android." },
+          { label: "Weeks 4–10", title: "Design + Iteration", body: "Low-fidelity structure through to 34 production screens, with the most iteration on the emergency flow and the home-care booking model." },
+          { label: "Weeks 11–13", title: "System + Handoff", body: "Component library, states and edge cases, accessibility review for high-stress use, and developer handoff across iOS and Android." },
         ]} />
       </div>
 
@@ -88,8 +88,8 @@ export default function LiffoCaseStudy() {
       <section className="pf-wrap">
         <SectionHead
           label="Research + Discovery"
-          title={<>Emergency care in India fails <em className="pf-em">before the call is made.</em></>}
-          body="As a solo designer without research participants, the evidence base came from published studies, government data and a competitive audit of the Indian market, then every flow was pressure-tested through scenario walkthroughs."
+          title={<>Emergency care in India breaks down <em className="pf-em">before the call is made.</em></>}
+          body="Working without research participants, the evidence base came from published studies, government data and a competitive audit of the Indian market, with each flow tested through scenario walkthroughs."
         />
         <div className="pf-three">
           <EvidenceCard
@@ -142,7 +142,7 @@ export default function LiffoCaseStudy() {
       <section className="pf-wrap">
         <SectionHead
           label="The Product"
-          title={<>Five pillars, one home, walked through <em className="pf-em">screen by screen.</em></>}
+          title={<>Five services in one place, <em className="pf-em">screen by screen.</em></>}
         />
         <StickyWalkthrough steps={steps} variant="mobile" />
       </section>
@@ -160,8 +160,8 @@ export default function LiffoCaseStudy() {
       <section className="pf-wrap">
         <SectionHead
           label="Emergency, in detail"
-          title={<>Designed for a user who <em className="pf-em">cannot read carefully.</em></>}
-          body="Oversized single-thumb targets in the natural reach zone, zero typing on the critical path, a two-tap guard against accidental dispatch, and meaning never carried by colour alone, panic treated as an accessibility constraint, not an edge case."
+          title={<>Designed for use <em className="pf-em">under stress.</em></>}
+          body="Oversized single-thumb targets within natural reach, no typing on the critical path, a two-tap guard against accidental dispatch, and no meaning carried by colour alone. High-stress use was treated as an accessibility requirement rather than an edge case."
         />
         <div className="pf-three">
           {[
@@ -193,17 +193,17 @@ export default function LiffoCaseStudy() {
 
       {/* ── Key decisions ── */}
       <section className="pf-wrap">
-        <SectionHead label="Key decisions" title={<>The judgement calls, and what each one <em className="pf-em">cost.</em></>} />
+        <SectionHead label="Key decisions" title={<>The key decisions and their <em className="pf-em">trade-offs.</em></>} />
         <Decisions items={[
           { n: "01", title: "Home-care leads, not the emergency",
-            why: "It's the underserved, differentiating pillar. Nursing-to-the-door is what no competitor organised, so it earns the hero slot over the commodity services.",
-            tradeoff: "Emergency gives up the top spot, recovered by pinning it to the persistent tab bar." },
-          { n: "02", title: "An honest ambulance flow",
-            why: "Route to hospitals with verified availability, life-support tier and ETA, not a fake Uber-style 'dispatched' promise on a fleet that doesn't exist.",
-            tradeoff: "Less flashy in a demo. Credible at the worst possible moment, which is the one that matters." },
+            why: "Home nursing was the underserved service and the clearest differentiator, so it takes the primary position over the more commoditised offerings.",
+            tradeoff: "Emergency loses the primary position, offset by pinning it to the persistent tab bar." },
+          { n: "02", title: "An ambulance flow built on verified availability",
+            why: "Routes to hospitals with verified availability, life-support tier and ETA, rather than promising dispatch from a fleet that does not exist.",
+            tradeoff: "Less impressive in a demo, and accurate at the point of use." },
           { n: "03", title: "Records by type, not by provider",
-            why: "Patients recall 'that prescription for my back', not which clinic issued it. Records group by type, cross-provider, with the government scheme alongside.",
-            tradeoff: "Loses the per-hospital view, the patient's mental model won." },
+            why: "Patients recall what a record is for rather than which clinic issued it, so records group by type across providers, with the government scheme alongside.",
+            tradeoff: "Loses the per-hospital view in favour of the patient's own model." },
         ]} />
       </section>
 
@@ -211,7 +211,7 @@ export default function LiffoCaseStudy() {
       <section className="pf-wrap">
         <SectionHead
           label="Outcomes"
-          title={<>Design outcomes, the product had not launched, so these are <em className="pf-em">properties of the design.</em></>}
+          title={<>The product had not launched, so these describe the <em className="pf-em">design as delivered.</em></>}
         />
         <Outcomes items={[
           { n: <>3<em className="pf-em">4</em></>, l: "Production-ready screens across 6 flows, zero dead ends" },
@@ -221,7 +221,7 @@ export default function LiffoCaseStudy() {
         ]} />
         <Validation
           title="The market followed a year later"
-          body="When Liffo was designed, app-based emergency healthcare barely existed in India. In January 2025 Blinkit launched a 10-minute app-dispatched ambulance service in Gurugram, validating the core bet that emergency care belongs in the same app people use for everyday health."
+          body="When Liffo was designed, app-based emergency healthcare was largely absent in India. In January 2025 Blinkit launched a 10-minute app-dispatched ambulance service in Gurugram, confirming the premise that emergency care belongs in the same app people use for everyday health."
           sources={[
             { text: "Blinkit launch · eHealth", href: "https://ehealth.eletsonline.com/2025/01/blinkit-launches-10-minute-ambulance-service-in-gurugram-could-this-revolutionize-emergency-healthcare-in-india/" },
             { text: "Expansion · Business Standard", href: "https://www.business-standard.com/companies/start-ups/blinkit-expands-10-minute-ambulance-service-125072401442_1.html" },

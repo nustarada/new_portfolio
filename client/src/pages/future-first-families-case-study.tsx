@@ -45,7 +45,7 @@ export default function FutureFirstFamiliesCaseStudy() {
     <CaseStudyShell accent={ACCENT} project="Future First Families" year="2025">
       <CaseHero
         title="Future First Families"
-        tagline={<>Recruiting a parent into a <em className="pf-em">movement</em>, not selling them a product.</>}
+        tagline={<>An advocacy site built to <em className="pf-em">earn belief before the ask.</em></>}
         meta={[
           ["Client", "Future First Families, by 2 Hour Learning"],
           ["Industry", "EdTech · Parent advocacy"],
@@ -58,13 +58,13 @@ export default function FutureFirstFamiliesCaseStudy() {
 
       <div className="pf-wrap">
         <ChallengeSolution
-          challenge="The claim is almost unbelievable: two hours of school a day, and double the academic growth. For a busy private-school parent who has heard 'revolutionary' before, the barrier isn't awareness, it's disbelief. And the company can't adopt itself into a school; parents have to ask for it."
-          solution="A single scrolling page engineered as a persuasion arc, aspiration first, then the problem with the status quo, then layered proof, then one repeated ask. A persistent 'Lead the Change' CTA follows the whole scroll so the next step is always one tap away, the moment conviction peaks."
+          challenge="The core claim is hard to accept: two hours of school a day, with double the academic growth. For a private-school parent who has heard similar claims before, the barrier is credibility rather than awareness. The company also cannot adopt itself into a school, so parents have to request it."
+          solution="A single scrolling page ordered to build the case in sequence: what the parent wants, the problem with the current model, three layers of evidence, then one consistent ask. A persistent 'Lead the Change' CTA follows the scroll so the next step is available at any point."
         />
         <Timeline phases={[
-          { label: "Phase 01", title: "Audience + Strategy", body: "Understanding the skeptical parent, what they want for their child, what they've heard before, and what evidence would actually move them from doubt to action." },
-          { label: "Phase 02", title: "Persuasion Architecture", body: "Sequencing the page as a conviction curve: aspiration, the problem, three layers of proof, then the ask, with nothing competing for attention." },
-          { label: "Phase 03", title: "Design + Build", body: "Visual design and HubSpot build, including the persistent movement CTA, video testimonial modules and the nominate-a-school path." },
+          { label: "Phase 01", title: "Audience + Strategy", body: "Establishing what the parent wants for their child, what claims they have already encountered, and what evidence would move them to act." },
+          { label: "Phase 02", title: "Persuasion Architecture", body: "Ordering the page as a single argument: outcome, problem, three layers of evidence, then the ask, with no competing calls to action." },
+          { label: "Phase 03", title: "Design + Build", body: "Visual design and HubSpot build, covering the persistent call to action, video testimonial modules and the nominate-a-school path." },
         ]} />
       </div>
 
@@ -76,7 +76,7 @@ export default function FutureFirstFamiliesCaseStudy() {
             <LazyVideo src={fffVideo} poster={fffThumb} />
           </div>
           <div className="pf-cap">
-            <p>The live site, a single scrolling arc from aspiration to action</p>
+            <p>The live site, ordered as a single argument</p>
             <p><b>Full walkthrough</b></p>
           </div>
         </div>
@@ -85,14 +85,14 @@ export default function FutureFirstFamiliesCaseStudy() {
       <section className="pf-wrap">
         <SectionHead
           label="The Problem"
-          title={<>The barrier isn't awareness. It's <em className="pf-em">disbelief.</em></>}
-          body="A parent's first reaction to 'two hours of school' is that it sounds too good to be true. Every design decision follows from that: the page has to earn credibility before it asks for anything, and the ask has to be frictionless when it finally comes."
+          title={<>The barrier is credibility, not <em className="pf-em">awareness.</em></>}
+          body="Most parents meet the two-hour claim with scepticism. Every design decision follows from that: the page establishes credibility before making any request, and the request itself is kept simple."
         />
         <div className="pf-three">
           {[
-            { t: "Disbelief", d: "The first emotion to overcome, the claim sounds impossible on its face." },
-            { t: "Inertia", d: "Even a convinced parent needs a single, frictionless next step to act on." },
-            { t: "Influence", d: "Private-school parents can genuinely move their school, if they're mobilised." },
+            { t: "Disbelief", d: "The claim is difficult to accept at face value and has to be evidenced." },
+            { t: "Inertia", d: "A convinced parent still needs one clear next step to act on." },
+            { t: "Influence", d: "Private-school parents can influence adoption decisions at their school." },
           ].map((x, i) => (
             <div key={x.t} data-reveal style={{ ["--d" as any]: `${i * 0.08}s`, borderLeft: "2px solid var(--pf-accent)", paddingLeft: 20 }}>
               <p style={{ font: "400 21px var(--font-display)", color: "var(--pf-accent)", marginBottom: 8 }}>{x.t}</p>
@@ -103,20 +103,20 @@ export default function FutureFirstFamiliesCaseStudy() {
       </section>
 
       <Statement kicker="The reframe">
-        The site isn't selling a learning product. It's recruiting a <em className="pf-em">parent into a movement</em>, and belief has to be earned before the ask.
+        The site is not selling a product. It is asking a parent to <em className="pf-em">advocate for one</em>, which means the evidence has to land first.
       </Statement>
 
       <section className="pf-wrap">
         <SectionHead
           label="Layered proof"
-          title={<>No single claim has to carry the <em className="pf-em">whole weight of doubt.</em></>}
-          body="Different parents are convinced by different evidence, so the page stacks three kinds, and each one re-earns the next scroll."
+          title={<>Three kinds of evidence, so no single claim <em className="pf-em">carries the argument.</em></>}
+          body="Different parents are persuaded by different evidence, so the page presents three kinds in sequence."
         />
         <div className="pf-three">
           {[
-            { t: "Numbers", d: "Hard outcome statistics, measurable improvement, national-ranking percentiles, engagement, answering 'does it actually work?'" },
-            { t: "Contrast", d: "A head-to-head comparison against the traditional full-day, same-pace classroom that reframes the status quo as the risky choice." },
-            { t: "Faces", d: "Real student-voice video testimonials, the emotional proof that turns a statistic into something a parent believes." },
+            { t: "Numbers", d: "Outcome statistics: measurable improvement, national ranking percentiles and engagement data." },
+            { t: "Contrast", d: "A direct comparison against the traditional full-day, same-pace classroom." },
+            { t: "Faces", d: "Student video testimonials, which give the statistics a human reference point." },
           ].map((x, i) => (
             <div className="pf-ecard" key={x.t} data-reveal style={{ ["--d" as any]: `${i * 0.08}s` }}>
               <p className="lbl">{x.t}</p>
@@ -127,33 +127,33 @@ export default function FutureFirstFamiliesCaseStudy() {
       </section>
 
       <section className="pf-wrap">
-        <SectionHead label="Key decisions" title={<>What makes the page <em className="pf-em">persuade</em> rather than merely inform.</>} />
+        <SectionHead label="Key decisions" title={<>The decisions that shape how the page <em className="pf-em">makes its case.</em></>} />
         <Decisions items={[
           { n: "01", title: "Lead with the parent's aspiration, not the product",
-            why: "The hero is 'Empower your Child. Influence your school', the parent's dream, before a single feature. You earn the right to explain the method by first naming what they want.",
-            tradeoff: "Delays the 'how', deliberately, because the 'whether' must land first." },
+            why: "The hero reads 'Empower your Child. Influence your school', naming the parent's objective before any feature. The method is explained only after that.",
+            tradeoff: "Delays the explanation of how it works, deliberately." },
           { n: "02", title: "Beat disbelief with layered proof, not one big number",
-            why: "Statistics, a traditional-vs-new comparison, and real student videos each answer a different flavour of doubt. No single claim has to carry the skepticism alone.",
-            tradeoff: "A longer page, but each proof layer re-earns the scroll." },
-          { n: "03", title: "One persistent CTA, the whole scroll",
-            why: "A floating 'Lead the Change' pill follows the reader so the next step is always one tap away, at the moment conviction peaks, wherever on the page that happens.",
-            tradeoff: "Gives up secondary asks, but a movement needs one rallying action." },
-          { n: "04", title: "Frame it as a movement, not a purchase",
-            why: "'Join the Parent Movement', 'Nominate School', advocacy tips, the language recruits an advocate rather than closing a sale, which fits how schools actually adopt: parent demand.",
-            tradeoff: "Softer on direct conversion, right for an advocacy goal, not e-commerce." },
+            why: "Statistics, a direct comparison and student videos each address a different objection, so no single claim carries the argument alone.",
+            tradeoff: "A longer page, but each layer earns the next section." },
+          { n: "03", title: "A single call to action, repeated throughout",
+            why: "A floating 'Lead the Change' control follows the reader, so the next step is available at whatever point the argument lands.",
+            tradeoff: "Gives up secondary calls to action in favour of one clear route." },
+          { n: "04", title: "Framed as advocacy rather than a purchase",
+            why: "'Join the Parent Movement', 'Nominate School' and the advocacy guidance all ask the reader to act on the school's behalf, which matches how these programmes are actually adopted.",
+            tradeoff: "Weaker on direct conversion, appropriate for an advocacy objective." },
         ]} />
       </section>
 
       <section className="pf-wrap">
         <SectionHead
           label="Outcomes"
-          title={<>Delivered as a live marketing site, these are <em className="pf-em">properties of the design</em>, not post-launch analytics.</>}
+          title={<>Delivered as a live marketing site. These describe the <em className="pf-em">design as built</em>, not post-launch analytics.</>}
         />
         <Outcomes items={[
-          { n: <>1 <em className="pf-em">page</em></>, l: "A single scrolling arc engineered to move doubt to action" },
-          { n: <>0<em className="pf-em">3</em></>, l: "Proof layers, statistics, comparison and student voices" },
-          { n: <>1 <em className="pf-em">CTA</em></>, l: "A persistent 'Lead the Change' ask, the whole scroll" },
-          { n: <>0<em className="pf-em">4</em></>, l: "Weeks, strategy, design and HubSpot build, end to end" },
+          { n: <>1 <em className="pf-em">page</em></>, l: "Scrolling page, ordered as one continuous argument" },
+          { n: <>0<em className="pf-em">3</em></>, l: "Evidence layers: statistics, comparison, student testimonials" },
+          { n: <>1 <em className="pf-em">CTA</em></>, l: "Persistent call to action across the full page" },
+          { n: <>0<em className="pf-em">4</em></>, l: "Weeks, from strategy through design to HubSpot build" },
         ]} />
       </section>
 
