@@ -323,7 +323,7 @@ export default function Home() {
           {[
             { k: "AI", lead: true, tools: [
               ["Claude Code", "claude"], ["Figma MCP", "figma"],
-              ["Cursor", "cursor"], ["Higgsfield", ""], ["Replit", "replit"],
+              ["Cursor", "cursor"], ["Higgsfield", "higgsfield"], ["Replit", "replit"],
             ]},
             { k: "Design", tools: [
               ["Figma", "figma"], ["FigJam", "figma"], ["Miro", "miro"],
