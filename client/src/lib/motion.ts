@@ -414,4 +414,32 @@ export function useAboutScrub(selector: string) {
   }, [selector]);
 }
 
+
+/* ── paragraph that lights up word by word as it scrolls ───── */
+export function useTextHighlight(selector: string) {
+  useEffect(() => {
+    const el = document.querySelector<HTMLElement>(selector);
+    if (!el) return;
+    if (reduced()) { el.style.color = "var(--ink)"; return; }
+    let split: SplitText | null = null;
+    const ctx = gsap.context(() => {
+      split = new SplitText(el, { type: "words" });
+      gsap.fromTo(split.words,
+        { color: "rgba(20,20,20,0.22)" },
+        {
+          color: "rgba(20,20,20,1)",
+          ease: "none",
+          stagger: 0.4,
+          scrollTrigger: {
+            trigger: el,
+            start: "top 78%",
+            end: "bottom 58%",
+            scrub: 0.5,
+          },
+        });
+    });
+    return () => { ctx.revert(); split?.revert(); };
+  }, [selector]);
+}
+
 export { gsap, ScrollTrigger, SplitText };

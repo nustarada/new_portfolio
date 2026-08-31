@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import {
   useReveal, useSplitHeadline, useCountUp, useParallax,
   useScramble, useVelocityMarquee, useHeroSpotlight,
-  useImageReveal, useTextChars, useScrambleCycle, useAboutScrub,
+  useImageReveal, useTextChars, useScrambleCycle, useAboutScrub, useTextHighlight,
 } from "@/lib/motion";
 import { Ticker } from "@/components/visuals";
 import gfxHero from "@assets/gfx-hero.jpg";
@@ -63,6 +63,7 @@ export default function Home() {
   useTextChars(".pf-about-title", 0.012);
   useImageReveal(".pf-about-portrait");
   useAboutScrub(".pf-about-inner");
+  useTextHighlight(".pf-about-copy");
   useScramble("[data-scramble]");
   useScrambleCycle(".pf-cycle", DISCIPLINES, { chars: "!<>-_\\/[]{}=+*^?#", speed: 0.45, revealDelay: 0.4, hold: 1.5 });
   useVelocityMarquee(".pf-ticker-track");
@@ -189,15 +190,16 @@ export default function Home() {
         <div className="pf-about-inner">
           <div data-reveal><span className="pf-chip">About</span></div>
 
-          <figure className="pf-portrait pf-about-portrait">
-            <img src={photoPortrait} alt="Karan Gadhave" loading="lazy" />
-          </figure>
+          <div className="pf-about-top">
+            <figure className="pf-portrait pf-about-portrait">
+              <img src={photoPortrait} alt="Karan Gadhave" loading="lazy" />
+            </figure>
+            <h2 className="pf-about-title">
+              I take messy, complicated platforms and make them feel simple.
+            </h2>
+          </div>
 
-          <h2 className="pf-about-title">
-            I take messy, complicated platforms and make them feel simple.
-          </h2>
-
-          <p className="pf-about-copy" data-reveal>
+          <p className="pf-about-copy">
             I am Karan, a product designer who works end to end: research, architecture,
             systems, UI, and the awkward questions in between. Recent work spans a
             multi-tenant cybersecurity platform redesigned solo and shipped to production,
