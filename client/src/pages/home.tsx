@@ -194,9 +194,9 @@ export default function Home() {
         <div className="pf-outcomes" style={{ marginTop: 70 }}>
           {[
             { n: <span data-to="5" data-pad="1" data-suffix="+" className="pf-num">0</span>, l: "Years designing products" },
-            { n: <span data-to="5" data-pad="1" className="pf-num">0</span>, l: "Platforms shipped to production" },
-            { n: <span data-to="22" data-suffix="%" className="pf-num">0</span>, l: "Onboarding retention lift, Pepper Penny" },
-            { n: <span data-to="4" data-pad="1" className="pf-num">0</span>, l: "Industries: healthcare, fintech, edtech, security" },
+            { n: <span data-to="40" data-suffix="+" className="pf-num">0</span>, l: "Products and platforms designed" },
+            { n: <span data-to="35" data-suffix="%" className="pf-num">0</span>, l: "Rise in user satisfaction, Acedboard" },
+            { n: <span data-to="25" data-suffix="%" className="pf-num">0</span>, l: "Rise in user engagement, Aeroplane" },
           ].map((s, i) => (
             <div key={i} data-reveal style={{ ["--d" as any]: `${i * 0.08}s` }}>
               <p className="n">{s.n}</p>
@@ -213,17 +213,16 @@ export default function Home() {
             <span className="pf-chip inv">How I work</span>
             <h2>How I run a project, start to finish.</h2>
             <p>Enterprise platforms carry roles, permissions and existing behaviour. I work in this
-              order so those constraints stay visible from the start. AI earns its place in the
-              middle of it, where the cost of being slow is highest.</p>
+              order so those constraints stay visible from the start.</p>
           </div>
 
           <ol className="pf-steps">
             {[
-              { n: "01", icon: "user-search", t: "Discover", d: "I start with the people who own the process. Who does what, what they answer for, and why the system ended up this way. I use AI to get through the volume of notes, recordings and legacy documentation, so more of the time goes on the conversations themselves." },
-              { n: "02", icon: "drafting-compass", t: "Architect", d: "I settle the structure before anything gets styled. Navigation, flows and wireframes, agreed on paper, because changing this later means changing code. This part stays a judgement call." },
-              { n: "03", icon: "terminal", t: "Prototype", d: "Before the design is signed off I build a working version with Claude Code and Replit. Stakeholders react to a product they can click through rather than a picture of one, which is a different quality of feedback." },
-              { n: "04", icon: "figma", t: "Design", d: "Interface design in Figma, with libraries and variables so it holds together as it grows, and Figma MCP to move between the file and the build. If a platform already runs on Ant Design or Material, I build on that rather than fight it." },
-              { n: "05", icon: "rocket", t: "Ship", d: "I stay on it. Refining the backlog, writing acceptance criteria, reviewing what gets built and working with QA until it is actually live." },
+              { n: "01", icon: "user-search", t: "Discover", d: "I start with the people who own the process. AI handles the notes and the legacy documentation, so the time goes on the conversations." },
+              { n: "02", icon: "drafting-compass", t: "Architect", d: "Navigation, flows and wireframes, agreed on paper. Changing this later means changing code, so it stays a judgement call." },
+              { n: "03", icon: "terminal", t: "Prototype", d: "Claude Code and Replit put a working version in front of stakeholders before sign-off. They react to a product, not a picture." },
+              { n: "04", icon: "figma", t: "Design", d: "Figma, with libraries and variables so it holds together as it grows. If a platform runs on Ant Design or Material, I build on it." },
+              { n: "05", icon: "rocket", t: "Ship", d: "I stay on it. Backlog, acceptance criteria, build reviews and QA, until it is actually live." },
             ].map((b, i) => (
               <li className="pf-step-card" key={b.t} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
                 <div className="hd">
