@@ -745,25 +745,23 @@
 .pf-card.soon .pf-card-media img{ filter:grayscale(1) opacity(.5); }
 
 .pf-card-body{ padding-top:20px; display:flex; flex-direction:column; flex:1; }
-.pf-card-body .hd{ display:grid; grid-template-columns:38px 1fr; gap:12px; align-items:baseline; }
-.pf-card-body .idx{ font:400 12px var(--font-mono); color:var(--pf-accent); }
 .pf-card .pf-proj-title{
   font:700 clamp(21px,2.1vw,28px) var(--font-display); letter-spacing:-.026em; line-height:1.06;
   transition:color .3s var(--ease);
 }
 .pf-card:hover .pf-proj-title{ color:var(--pf-accent); }
 .pf-card .blurb{
-  margin:12px 0 0 50px; font-size:15px; line-height:1.62; color:var(--soft); max-width:46ch;
+  margin:14px 0 0; font-size:15px; line-height:1.62; color:var(--soft); max-width:46ch;
 }
 .pf-card .meta{
-  list-style:none; margin:16px 0 0 50px; padding:0; display:flex; flex-wrap:wrap; gap:8px;
+  list-style:none; margin:18px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:8px;
 }
 .pf-card .meta li{
   font:500 10px var(--font-mono); letter-spacing:.13em; text-transform:uppercase;
   color:var(--mut); border:1px solid var(--line); padding:5px 9px;
 }
 .pf-card .go{
-  margin:auto 0 0 50px; padding-top:18px;
+  margin:auto 0 0; padding-top:20px;
   font:500 12.5px var(--font-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--ink);
   display:inline-flex; align-items:center; gap:9px;
 }
@@ -775,8 +773,6 @@
 @media (max-width:900px){
   .pf-projects{ grid-template-columns:1fr; }
   .pf-card:nth-child(odd){ border-right:0; }
-  .pf-card .blurb, .pf-card .meta, .pf-card .go{ margin-left:0; }
-  .pf-card-body .hd{ grid-template-columns:30px 1fr; gap:10px; }
 }
 @media (prefers-reduced-motion:reduce){
   .pf-card-media, .pf-proj-media{ clip-path:none; }
@@ -1019,3 +1015,16 @@
 @media (max-width:560px){
   .pf-foot-grid{ grid-template-columns:1fr; }
 }
+
+/* ══ cursor-following CTA on the project cards ════════════ */
+.pf-follow{
+  position:fixed; top:0; left:0; z-index:9998; pointer-events:none; opacity:0;
+  background:var(--pf-accent); color:#fff; padding:14px 22px; white-space:nowrap;
+  display:flex; align-items:center; gap:10px;
+  font:500 11.5px var(--font-mono); letter-spacing:.14em; text-transform:uppercase;
+}
+.pf-follow::after{ content:'\2192'; font-size:14px; }
+/* the pill is the affordance, so the arrow gets out of the way */
+.pf-card:not(.pf-card-cta):hover{ cursor:none; }
+.pf-card:not(.pf-card-cta):hover *{ cursor:none; }
+@media (pointer:coarse){ .pf-follow{ display:none; } }

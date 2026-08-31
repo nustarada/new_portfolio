@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import {
   useReveal, useSplitHeadline, useCountUp, useParallax,
   useScramble, useVelocityMarquee, useHeroSpotlight,
-  useImageReveal, useTextChars, useScrambleCycle, useAboutScrub, useTextHighlight,
+  useImageReveal, useTextChars, useScrambleCycle, useAboutScrub, useTextHighlight, useCardCursor,
 } from "@/lib/motion";
 import { Ticker } from "@/components/visuals";
 import gfxHero from "@assets/gfx-hero.jpg";
@@ -28,27 +28,27 @@ const DISCIPLINES = [
   "0 to 1 products",
 ];
 
-type Work = { href: string; n: string; title: string; tag: string; img: string;
+type Work = { href: string; title: string; tag: string; img: string;
   blurb: string; meta: string[]; soon?: boolean };
 
 const WORK: Work[] = [
-  { href: "/lionfish-case-study", n: "01", title: "Lionfish Cyber Security",
+  { href: "/lionfish-case-study", title: "Lionfish Cyber Security",
     tag: "Cybersecurity", img: lionfishThumb,
     blurb: "An enterprise security platform rebuilt around role-based navigation, compliance workflows and multi-tenant access. Live in production.",
     meta: ["Lead designer", "Platform redesign"] },
-  { href: "/liffo-case-study", n: "02", title: "Liffo Healthcare",
+  { href: "/liffo-case-study", title: "Liffo Healthcare",
     tag: "Healthcare", img: liffoThumb,
     blurb: "Emergency-first healthcare for India: ambulance dispatch and home care, designed from scratch before the market had an answer.",
     meta: ["Lead designer", "34 screens"] },
-  { href: "/2hour-learning-case-study", n: "03", title: "2 Hour Learning",
+  { href: "/2hour-learning-case-study", title: "2 Hour Learning",
     tag: "EdTech", img: twoHLThumb,
     blurb: "One buying decision, three stakeholders who must all say yes. Four pages arguing the same case differently for each of them.",
     meta: ["Lead designer", "4-page system"] },
-  { href: "/fff-case-study", n: "04", title: "Future First Families",
+  { href: "/fff-case-study", title: "Future First Families",
     tag: "Advocacy", img: fffThumb,
     blurb: "Recruiting a parent into a movement rather than selling them a product, on a single scrolling page built to move doubt to action.",
     meta: ["Lead designer", "Conversion design"] },
-  { href: "/acedboard-case-study", n: "05", title: "Acedboard Proconomics",
+  { href: "/acedboard-case-study", title: "Acedboard Proconomics",
     tag: "Fintech", img: acedboardThumb, soon: true,
     blurb: "A cost-benefit analysis engine built inside a project management tool, turning finance modelling into something a team can actually run.",
     meta: ["Lead designer", "Case study in progress"] },
@@ -68,6 +68,7 @@ export default function Home() {
   useScrambleCycle(".pf-cycle", DISCIPLINES, { chars: "!<>-_\\/[]{}=+*^?#", speed: 0.45, revealDelay: 0.4, hold: 1.5 });
   useVelocityMarquee(".pf-ticker-track");
   useHeroSpotlight(".pf-home-hero", ".pf-hero-reveal", ".pf-cursor");
+  useCardCursor(".pf-card:not(.pf-card-cta)", ".pf-follow");
   const [scrolled, setScrolled] = useState(false);
   const cursor = useRef<HTMLDivElement>(null);
   const preview = useRef<HTMLDivElement>(null);
@@ -126,6 +127,7 @@ export default function Home() {
           Open to product design roles &amp; freelance <b>Pune, India / remote · replies in 24h</b>
         </div>
         <div className="pf-cursor" ref={cursor} />
+        <div className="pf-follow"><span>View case study</span></div>
         <nav className={`pf-nav${scrolled ? " scrolled" : ""}`}>
           <Link href="/">
             <a className="logo" aria-label="Karan Gadhave, home">
@@ -235,10 +237,10 @@ export default function Home() {
 
           <ol className="pf-steps">
             {[
-              { n: "01", t: "Discover", d: "Stakeholder interviews, business process mapping and user journeys. Understanding who does what, and why it works that way today." },
-              { n: "02", t: "Architect", d: "Information architecture, screen flows and wireframes. Getting the structure right on paper is cheaper than getting it wrong in code." },
-              { n: "03", t: "Design", d: "Figma libraries, variables and Dev Mode handoff, with Ant Design or Material as the base where an enterprise platform calls for one." },
-              { n: "04", t: "Ship", d: "Backlog refinement, acceptance criteria, implementation review and QA, right through to release. Not handoff and vanish." },
+              { t: "Discover", d: "Stakeholder interviews, business process mapping and user journeys. Understanding who does what, and why it works that way today." },
+              { t: "Architect", d: "Information architecture, screen flows and wireframes. Getting the structure right on paper is cheaper than getting it wrong in code." },
+              { t: "Design", d: "Figma libraries, variables and Dev Mode handoff, with Ant Design or Material as the base where an enterprise platform calls for one." },
+              { t: "Ship", d: "Backlog refinement, acceptance criteria, implementation review and QA, right through to release. Not handoff and vanish." },
             ].map((b, i) => (
               <li className="pf-step-card" key={b.n} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
                 <span className="idx">{b.n}</span>
@@ -263,21 +265,17 @@ export default function Home() {
         <div className="pf-projects">
           {WORK.map((w) => (
             <Link href={w.href} key={w.href}>
-              <a className={`pf-card${w.soon ? " soon" : ""}`}>
+              <a className={`pf-card${w.soon ? " soon" : ""}`} data-cta={w.soon ? "In progress" : "View case study"}>
                 <div className="pf-card-media pf-proj-media">
                   <img src={w.img} alt={w.title} loading="lazy" />
                   <span className="tag">{w.tag}</span>
                 </div>
                 <div className="pf-card-body">
-                  <div className="hd">
-                    <span className="idx">{w.n}</span>
-                    <h3 className="pf-proj-title">{w.title}</h3>
-                  </div>
+                  <h3 className="pf-proj-title">{w.title}</h3>
                   <p className="blurb">{w.blurb}</p>
                   <ul className="meta">
                     {w.meta.map((m) => <li key={m}>{m}</li>)}
                   </ul>
-                  <span className="go">{w.soon ? "In progress" : "Read the case study"}<i>&#8594;</i></span>
                 </div>
               </a>
             </Link>
@@ -285,7 +283,7 @@ export default function Home() {
           <a className="pf-card pf-card-cta" href="#contact">
             <div className="pf-card-cta-inner">
               <span className="k">Next</span>
-              <h3>Your platform could be 06.</h3>
+              <h3>Your platform could be next.</h3>
               <p>Tell me what you are building and what is currently in the way.</p>
               <span className="go">Start a conversation<i>&#8594;</i></span>
             </div>
@@ -300,17 +298,17 @@ export default function Home() {
           <p style={{ font: "400 13px var(--font-mono)", color: "var(--mut)" }}>For teams &amp; clients</p>
         </div>
         {[
-          { n: "01", t: "Product & UX design",
+          { t: "Product & UX design",
             d: "End to end product design for SaaS, web and mobile. User journeys, screen flows, wireframes and polished, production ready UI." },
-          { n: "02", t: "Platform & dashboard redesign",
+          { t: "Platform & dashboard redesign",
             d: "Dated, tangled enterprise products re-architected around roles, permissions and real workflows, without losing what already works." },
-          { n: "03", t: "Research & information architecture",
+          { t: "Research & information architecture",
             d: "Stakeholder interviews, business process mapping, IA, competitive analysis and usability testing, so structure is decided on evidence." },
-          { n: "04", t: "Design systems",
+          { t: "Design systems",
             d: "Figma libraries, variables and Dev Mode handoff. Token based components that keep a product consistent as the team grows." },
-          { n: "05", t: "Agile delivery support",
+          { t: "Agile delivery support",
             d: "Backlog refinement, user stories, acceptance criteria, sprint reviews and QA collaboration, right through to release." },
-          { n: "06", t: "AI accelerated design",
+          { t: "AI accelerated design",
             d: "Figma MCP, Claude Code, Cursor and Replit used for high velocity prototyping, so ideas get tested as working screens, not slides." },
         ].map((s, i) => (
           <div className="pf-numrow" key={s.n} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>

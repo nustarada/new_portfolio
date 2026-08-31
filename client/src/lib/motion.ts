@@ -442,4 +442,57 @@ export function useTextHighlight(selector: string) {
   }, [selector]);
 }
 
+
+/* ── a CTA pill that rides the cursor across the project cards ── */
+export function useCardCursor(cardSel: string, pillSel: string) {
+  useEffect(() => {
+    if (reduced() || window.matchMedia("(pointer:coarse)").matches) return;
+    const pill = document.querySelector<HTMLElement>(pillSel);
+    const cards = gsap.utils.toArray<HTMLElement>(cardSel);
+    if (!pill || !cards.length) return;
+
+    const label = pill.querySelector<HTMLElement>("span");
+    gsap.set(pill, { opacity: 0, scale: 0.5, xPercent: -50, yPercent: -50 });
+
+    const qx = gsap.quickTo(pill, "x", { duration: 0.34, ease: EASE.crisp });
+    const qy = gsap.quickTo(pill, "y", { duration: 0.34, ease: EASE.crisp });
+
+    const move = (e: MouseEvent) => { qx(e.clientX); qy(e.clientY); };
+    const cleanups: Array<() => void> = [];
+    let hovering = false;
+
+    cards.forEach((card) => {
+      const enter = (e: MouseEvent) => {
+        hovering = true;
+        if (label) label.textContent = card.dataset.cta || "View case study";
+        gsap.set(pill, { x: e.clientX, y: e.clientY });
+        gsap.to(pill, { opacity: 1, scale: 1, duration: 0.42, ease: "back.out(1.7)", overwrite: true });
+      };
+      const leave = () => {
+        hovering = false;
+        gsap.to(pill, { opacity: 0, scale: 0.5, duration: 0.26, ease: EASE.crisp, overwrite: true });
+      };
+      card.addEventListener("mouseenter", enter);
+      card.addEventListener("mousemove", move);
+      card.addEventListener("mouseleave", leave);
+      cleanups.push(() => {
+        card.removeEventListener("mouseenter", enter);
+        card.removeEventListener("mousemove", move);
+        card.removeEventListener("mouseleave", leave);
+      });
+    });
+
+    /* scrolling the cards out from under a still pointer dismisses it,
+       but never while the pointer is genuinely on a card */
+    const onScroll = () => {
+      if (hovering) return;
+      gsap.to(pill, { opacity: 0, scale: 0.5, duration: 0.2, overwrite: true });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    cleanups.push(() => window.removeEventListener("scroll", onScroll));
+
+    return () => cleanups.forEach((f) => f());
+  }, [cardSel, pillSel]);
+}
+
 export { gsap, ScrollTrigger, SplitText };
