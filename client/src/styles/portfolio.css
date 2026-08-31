@@ -33,11 +33,12 @@
   --band2:#E8E2D9;
   --w:1320px;
   --ease:cubic-bezier(.16,1,.3,1);
+  --gutter:clamp(16px,2.6vw,48px);
 }
 
 .pf { background:var(--paper); color:var(--ink); font-family:var(--font-text); -webkit-font-smoothing:antialiased; }
 .pf ::selection { background:var(--pf-accent); color:var(--paper); }
-.pf-wrap { width:100%; max-width:none; margin:0 auto; padding:0 clamp(16px,2.6vw,48px); }
+.pf-wrap { width:100%; max-width:none; margin:0 auto; padding:0 var(--gutter); }
 
 /* ── motion primitives ─────────────────────────────────────── */
 /* [data-reveal] is driven by GSAP ScrollTrigger — see lib/motion.ts */
@@ -909,3 +910,45 @@
 }
 .pf-card-cta .go i{ font-style:normal; transition:transform .32s var(--ease); }
 .pf-card-cta:hover .go i{ transform:translateX(6px); }
+
+/* ══ full-bleed ruled grids ═══════════════════════════════
+   These sit inside .pf-wrap, so pulling them out by exactly the
+   gutter makes their rules run edge to edge while the text inside
+   stays aligned to the page. No 100vw, so no scrollbar overflow. */
+.pf-idbar,
+.pf-outcomes,
+.pf-steps,
+.pf-workhead,
+.pf-projects{
+  margin-left:calc(-1 * var(--gutter));
+  margin-right:calc(-1 * var(--gutter));
+}
+
+/* first and last cells keep the text on the page gutter */
+.pf-idbar > div:first-child,
+.pf-outcomes > div:first-child,
+.pf-steps > .pf-step-card:first-child{ padding-left:var(--gutter); }
+.pf-idbar > div:last-child,
+.pf-outcomes > div:last-child,
+.pf-steps > .pf-step-card:last-child{ padding-right:var(--gutter); }
+
+.pf-workhead{ padding-left:var(--gutter); padding-right:var(--gutter); }
+
+/* the project grid loses its side borders and gains gutter padding */
+.pf-projects{ border-left:0; border-right:0; }
+.pf-card:nth-child(odd){ padding-left:calc(var(--gutter) + clamp(18px,1.8vw,26px)); }
+.pf-card:nth-child(even){ padding-right:calc(var(--gutter) + clamp(18px,1.8vw,26px)); }
+
+@media (max-width:900px){
+  .pf-card:nth-child(odd), .pf-card:nth-child(even){
+    padding-left:calc(var(--gutter) + 18px); padding-right:calc(var(--gutter) + 18px);
+  }
+}
+@media (max-width:1000px){
+  .pf-steps > .pf-step-card:nth-child(odd){ padding-left:var(--gutter); }
+  .pf-steps > .pf-step-card:nth-child(even){ padding-right:var(--gutter); }
+}
+@media (max-width:860px){
+  .pf-idbar > div:nth-child(odd){ padding-left:var(--gutter); }
+  .pf-idbar > div:nth-child(even){ padding-right:var(--gutter); }
+}
