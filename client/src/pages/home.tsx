@@ -282,6 +282,14 @@ export default function Home() {
               </a>
             </Link>
           ))}
+          <a className="pf-card pf-card-cta" href="#contact">
+            <div className="pf-card-cta-inner">
+              <span className="k">Next</span>
+              <h3>Your platform could be 06.</h3>
+              <p>Tell me what you are building and what is currently in the way.</p>
+              <span className="go">Start a conversation<i>&#8594;</i></span>
+            </div>
+          </a>
         </div>
       </section>
 
