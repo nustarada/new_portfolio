@@ -135,8 +135,9 @@ export default function Home() {
             <span>Karan Gadhave</span>
           </Link>
           <div className="links">
-            <a href="#work">Work</a><a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a>
+            <a href="#work">Work</a><a href="#about">About</a><a href="#process">Process</a>
           </div>
+          <a className="pf-navcta" href="#contact">Get in touch</a>
         </nav>
       </>, document.body)}
 
@@ -151,10 +152,6 @@ export default function Home() {
         <h1 style={{ opacity: 0 }}>
           A senior product designer for <em className="pf-em">complex software.</em>
         </h1>
-        <div style={{ marginTop: 44, display: "flex", gap: 38, alignItems: "center", flexWrap: "wrap", justifyContent: "center" }} data-reveal>
-          <a className="pf-cta" href="#work">View the work</a>
-          <a className="pf-cta mut" href="#about">About</a>
-        </div>
       </header>
 
       {/* ── IDENTITY STRIP, the case study meta table, on the index ── */}

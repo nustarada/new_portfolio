@@ -1159,3 +1159,14 @@
   .pf-stackcol{ border-right:0; padding-left:var(--gutter); padding-right:var(--gutter); }
   .pf-stackcol + .pf-stackcol{ border-top:1px solid var(--line); padding-left:var(--gutter); }
 }
+
+/* nav contact button */
+.pf-navcta{
+  justify-self:end; text-decoration:none;
+  background:var(--pf-accent); color:#fff;
+  font:500 11px var(--font-mono); letter-spacing:.14em; text-transform:uppercase;
+  padding:11px 18px; transition:background .28s var(--ease), color .28s var(--ease);
+}
+.pf-navcta:hover{ background:var(--ink); color:var(--paper); }
+.pf-nav:not(.scrolled) .pf-navcta:hover{ background:var(--paper); color:var(--ink); }
+@media (max-width:620px){ .pf-navcta{ padding:9px 13px; font-size:10px; } }
