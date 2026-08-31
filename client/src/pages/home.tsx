@@ -148,16 +148,10 @@ export default function Home() {
         <div className="pf-hero-reveal" aria-hidden="true">
           <img src={gfxHero} alt="" loading="eager" />
         </div>
-        <p className="pf-eyebrow" data-reveal><span className="pf-dot" />Product and UX designer, open to new work</p>
+        <p className="pf-eyebrow" data-reveal><span className="pf-dot" />Pune, India, open to new work</p>
         <h1 style={{ opacity: 0 }}>
-          I design the software people <em className="pf-em">work in every day.</em>
+          A senior product designer for <em className="pf-em">complex software.</em>
         </h1>
-        <p data-reveal style={{ marginTop: 42, fontSize: 17, lineHeight: 1.65, color: "var(--soft)", maxWidth: 470, ["--d" as any]: ".5s" }}>
-          Five platforms shipped across healthcare, fintech, edtech and cybersecurity. I work from first research through to production.
-        </p>
-        <p className="pf-cycleline" data-reveal>
-          Currently working on <span className="pf-cycle">platform redesigns</span>
-        </p>
         <div style={{ marginTop: 44, display: "flex", gap: 38, alignItems: "center", flexWrap: "wrap", justifyContent: "center" }} data-reveal>
           <a className="pf-cta" href="#work">View the work</a>
           <a className="pf-cta mut" href="#about">About</a>
