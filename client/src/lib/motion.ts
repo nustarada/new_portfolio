@@ -284,9 +284,16 @@ export function useHeroSpotlight(heroSel: string, revealSel: string, dotSel: str
     window.addEventListener("mousemove", move);
     const out = () => setInside(false);
     document.addEventListener("mouseleave", out);
+    /* scrolling past the hero without moving the mouse must also dismiss it */
+    const onScroll = () => {
+      const r = hero.getBoundingClientRect();
+      if (r.bottom <= 0 || r.top >= innerHeight) setInside(false);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("mousemove", move);
       document.removeEventListener("mouseleave", out);
+      window.removeEventListener("scroll", onScroll);
     };
   }, [heroSel, revealSel, dotSel]);
 }

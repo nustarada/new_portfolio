@@ -8,6 +8,7 @@ import {
 } from "@/lib/motion";
 import { Ticker } from "@/components/visuals";
 import gfxHero from "@assets/gfx-hero.jpg";
+import kgLogo from "@assets/kg-logo.png";
 import photoPortrait from "@assets/photo-portrait.jpg";
 import { PageFooter } from "@/components/case-study/template";
 import "@/styles/portfolio.css";
@@ -110,7 +111,12 @@ export default function Home() {
         </div>
         <div className="pf-cursor" ref={cursor} />
         <nav className={`pf-nav${scrolled ? " scrolled" : ""}`}>
-          <Link href="/"><a className="logo">Karan Gadhave</a></Link>
+          <Link href="/">
+            <a className="logo" aria-label="Karan Gadhave, home">
+              <img src={kgLogo} alt="" className="mark" />
+              <span>Karan Gadhave</span>
+            </a>
+          </Link>
           <div className="links">
             <a href="#work">Work</a><a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a>
           </div>

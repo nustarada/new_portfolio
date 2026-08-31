@@ -850,3 +850,22 @@
   .pf-bigcta{ margin-top:68px; padding:56px 0 60px; }
   .pf-projects{ gap:62px; }
 }
+
+/* ══ logo ═════════════════════════════════════════════════ */
+.pf-nav .logo{ display:inline-flex; align-items:center; gap:11px; }
+.pf-nav .logo .mark{
+  width:30px; height:30px; display:block; flex:none;
+  /* the asset is white; tint it to ink over light ground */
+  filter:brightness(0);
+  transition:filter .35s var(--ease);
+}
+.pf-nav .logo span{ transition:color .35s var(--ease); }
+
+/* over the dark hero the nav inverts, and back once scrolled past */
+.pf-nav:not(.scrolled) .logo .mark{ filter:none; }
+.pf-nav:not(.scrolled) .logo span{ color:var(--paper); }
+.pf-nav:not(.scrolled) .links{ border-color:rgba(247,245,242,.28); background:rgba(12,12,14,.34); }
+.pf-nav:not(.scrolled) .links a{ color:var(--paper); }
+.pf-nav:not(.scrolled) .links a:hover{ background:var(--paper); color:var(--ink); }
+
+@media (max-width:820px){ .pf-nav .logo .mark{ width:26px; height:26px; } }
