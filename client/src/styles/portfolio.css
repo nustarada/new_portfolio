@@ -724,10 +724,10 @@
 }
 .pf-card{
   display:flex; flex-direction:column; text-decoration:none; color:var(--ink);
-  padding:clamp(18px,1.8vw,26px); border-bottom:1px solid var(--rule);
+  padding:clamp(18px,1.8vw,26px); border-bottom:1px solid var(--line);
   transition:background .4s var(--ease);
 }
-.pf-card:nth-child(odd){ border-right:1px solid var(--rule); }
+.pf-card:nth-child(odd){ border-right:1px solid var(--line); }
 .pf-card:hover{ background:var(--band); }
 
 .pf-card-media{

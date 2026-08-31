@@ -228,10 +228,10 @@ export default function Home() {
 
           <ol className="pf-steps">
             {[
-              { n: "01", icon: "user-search", t: "Discover", d: "Stakeholder interviews, business process mapping and user journeys, to establish who does what and why the current system works the way it does." },
-              { n: "02", icon: "drafting-compass", t: "Architect", d: "Information architecture, screen flows and wireframes. Structural decisions are resolved and agreed before any interface design begins." },
-              { n: "03", icon: "figma", t: "Design", d: "Interface design in Figma with libraries, variables and Dev Mode handoff, built on Ant Design or Material where a platform already uses one." },
-              { n: "04", icon: "rocket", t: "Ship", d: "Backlog refinement, acceptance criteria, implementation review and QA collaboration, through to release." },
+              { n: "01", icon: "user-search", t: "Discover", d: "I start with the people who own the process. Who does what, what they answer for, and why the system ended up this way. Most of the real constraints surface here rather than later." },
+              { n: "02", icon: "drafting-compass", t: "Architect", d: "I settle the structure before anything gets styled. Navigation, flows and wireframes, agreed on paper, because changing this later means changing code." },
+              { n: "03", icon: "figma", t: "Design", d: "Interface design in Figma, with libraries and variables so it holds together as it grows. If a platform already runs on Ant Design or Material, I build on that rather than fight it." },
+              { n: "04", icon: "rocket", t: "Ship", d: "I stay on it. Refining the backlog, writing acceptance criteria, reviewing what gets built and working with QA until it is actually live." },
             ].map((b, i) => (
               <li className="pf-step-card" key={b.t} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
                 <div className="hd">
@@ -291,18 +291,18 @@ export default function Home() {
           <p style={{ font: "400 13px var(--font-mono)", color: "var(--mut)" }}>For teams and clients</p>
         </div>
         {[
-          { n: "01", t: "Product & UX design",
-            d: "End-to-end product design for SaaS, web and mobile, from user journeys and screen flows through to production-ready interface design." },
-          { n: "02", t: "Platform & dashboard redesign",
-            d: "Established enterprise products re-architected around roles, permissions and existing workflows, without discarding what already works." },
-          { n: "03", t: "Research & information architecture",
-            d: "Stakeholder interviews, business process mapping, information architecture, competitive analysis and usability testing." },
-          { n: "04", t: "Design systems",
-            d: "Figma libraries, variables and Dev Mode handoff. Token-based components that hold a product together as the team grows." },
-          { n: "05", t: "Agile delivery support",
-            d: "Backlog refinement, user stories, acceptance criteria, sprint reviews and QA collaboration through to release." },
-          { n: "06", t: "AI accelerated design",
-            d: "Figma MCP, Claude Code, Cursor and Replit used to prototype at speed, so concepts are tested as working screens rather than static mockups." },
+          { n: "01", t: "Platform redesign",
+            d: "An existing product that has grown awkward, rebuilt around roles, permissions and the screens people actually use. This is most of my work." },
+          { n: "02", t: "New product design",
+            d: "Zero to one. Research, information architecture and the full screen set, through to a build-ready Figma file." },
+          { n: "03", t: "Design system",
+            d: "A component library with variables and Dev Mode handoff, built so the team can keep using it after I hand it over." },
+          { n: "04", t: "Design audit",
+            d: "A structured review of a live product: where people get stuck, what the current architecture is costing you, and what to fix first." },
+          { n: "05", t: "Marketing site",
+            d: "Pages built around one decision rather than a template. Content structure, design and build in WordPress or HubSpot." },
+          { n: "06", t: "Rapid prototyping",
+            d: "Working screens instead of static mockups. I use Figma MCP, Claude Code and Cursor to put a real, clickable idea in front of people in days." },
         ].map((s, i) => (
           <div className="pf-numrow" key={s.t} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
             <span className="no">{s.n}</span>
@@ -354,22 +354,6 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="pf-methods" data-reveal>
-          <p className="h">Method</p>
-          <ul>
-            {[
-              "Stakeholder interviews",
-              "Business process mapping",
-              "Information architecture",
-              "User journeys and screen flows",
-              "Wireframing and prototyping",
-              "Usability testing",
-              "Design systems and tokens",
-              "Accessibility",
-              "Acceptance criteria and QA",
-            ].map((m) => <li key={m}>{m}</li>)}
-          </ul>
-        </div>
       </section>
 
       {/* ── CLOSING CTA ── */}
