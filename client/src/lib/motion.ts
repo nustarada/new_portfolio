@@ -432,8 +432,8 @@ export function useTextHighlight(selector: string) {
           stagger: 0.4,
           scrollTrigger: {
             trigger: el,
-            start: "top 78%",
-            end: "bottom 58%",
+            start: "top 85%",
+            end: "bottom 50%",
             scrub: 0.5,
           },
         });

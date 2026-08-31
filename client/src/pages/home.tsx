@@ -192,7 +192,9 @@ export default function Home() {
               </h2>
             </div>
           </div>
+        </div>
 
+        <div className="pf-about-statement">
           <p className="pf-about-copy">
             Admin portals, compliance tools, dashboards. The kind of software someone is handed on
             their first day and then uses for the next three years. I have spent five years on
