@@ -214,9 +214,9 @@ export const StickyWalkthrough = ({ steps, variant = "mobile" }: { steps: Step[]
           )}
         </div>
       </div>
-      <div className="pf-steps">
+      <div className="pf-walk">
         {steps.map((s, i) => (
-          <div className="pf-step" key={i} ref={el => (stepRefs.current[i] = el)}>
+          <div className="pf-walk-step" key={i} ref={el => (stepRefs.current[i] = el)}>
             <p className="no">{s.n}</p>
             <h3>{s.title}</h3>
             <p>{s.body}</p>
