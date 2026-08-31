@@ -1517,3 +1517,14 @@
   .pf-collage-track::-webkit-scrollbar{ display:none; }
   .pf-collage-track .pf-tile{ scroll-snap-align:center; }
 }
+
+/* ══ mobile: touch targets ════════════════════════════════ */
+/* Footer and contact links sat at 19 to 24px tall, well under the 44px
+   a finger needs. Padding rather than font size, so nothing resizes. */
+@media (max-width:820px){
+  .pf-foot-grid .col a{ padding:9px 0; }
+  .pf-close-side .v a,
+  .pf-footer .f a{ display:inline-block; padding:8px 0; }
+  .pf-copy{ padding:11px 16px; }
+  .pf-workhead .c a, .pf-sechead a{ padding:8px 0; display:inline-block; }
+}
