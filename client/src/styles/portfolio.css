@@ -1492,3 +1492,28 @@
   /* the caption's two halves stack rather than fight for one line */
   .pf-cap{ flex-direction:column; align-items:flex-start; gap:6px; margin-top:24px; }
 }
+
+/* ══ mobile: screen bands become swipeable ════════════════ */
+/* A centred flex row of four handsets is far wider than the screen, and
+   the band clips its overflow, so the outer two were cut in half with no
+   way to reach them. On touch they scroll instead. */
+@media (max-width:820px){
+  .pf-band{ overflow:visible; }
+  .pf-phones{
+    justify-content:flex-start; gap:18px;
+    overflow-x:auto; scroll-snap-type:x mandatory;
+    padding:2px var(--gutter) 14px;
+    margin-left:calc(-1 * var(--gutter)); margin-right:calc(-1 * var(--gutter));
+    -webkit-overflow-scrolling:touch; scrollbar-width:none;
+  }
+  .pf-phones::-webkit-scrollbar{ display:none; }
+  .pf-phones .pf-phone{ scroll-snap-align:center; --pw:min(210px,56vw); }
+
+  .pf-collage-track{
+    padding:6px var(--gutter) 10px;
+    overflow-x:auto; scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch; scrollbar-width:none;
+  }
+  .pf-collage-track::-webkit-scrollbar{ display:none; }
+  .pf-collage-track .pf-tile{ scroll-snap-align:center; }
+}
