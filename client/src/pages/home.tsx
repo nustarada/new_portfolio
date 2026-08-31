@@ -195,8 +195,8 @@ export default function Home() {
           {[
             { n: <span data-to="5" data-pad="1" data-suffix="+" className="pf-num">0</span>, l: "Years designing products" },
             { n: <span data-to="40" data-suffix="+" className="pf-num">0</span>, l: "Products and platforms designed" },
-            { n: <span data-to="35" data-suffix="%" className="pf-num">0</span>, l: "Rise in user satisfaction, Acedboard" },
-            { n: <span data-to="25" data-suffix="%" className="pf-num">0</span>, l: "Rise in user engagement, Aeroplane" },
+            { n: <span data-to="6" data-pad="1" data-suffix="+" className="pf-num">0</span>, l: "Apps designed and built with AI" },
+            { n: <span data-to="35" data-suffix="%" className="pf-num">0</span>, l: "Rise in user satisfaction after a platform redesign" },
           ].map((s, i) => (
             <div key={i} data-reveal style={{ ["--d" as any]: `${i * 0.08}s` }}>
               <p className="n">{s.n}</p>
