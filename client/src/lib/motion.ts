@@ -190,28 +190,21 @@ export function useMorph(selector: string, targets: string[]) {
 }
 
 /* ── marquee that reacts to scroll velocity ────────────────── */
-export function useVelocityMarquee(trackSel: string, base = 0.55) {
+export function useMarquee(trackSel: string, duration = 30) {
   useEffect(() => {
     const track = document.querySelector<HTMLElement>(trackSel);
     if (!track || reduced()) return;
     const ctx = gsap.context(() => {
+      /* the track holds two copies of the list, so wrapping at half its
+         width puts it back exactly where it started */
       const half = track.scrollWidth / 2;
-      const loop = gsap.to(track, {
-        x: -half, duration: 26, ease: "none", repeat: -1,
+      gsap.to(track, {
+        x: -half, duration, ease: "none", repeat: -1,
         modifiers: { x: gsap.utils.unitize((x) => parseFloat(x) % half) },
-      });
-      const skew = gsap.quickTo(track, "skewX", { duration: 0.5, ease: EASE.crisp });
-      ScrollTrigger.create({
-        onUpdate: (self) => {
-          const v = self.getVelocity();
-          loop.timeScale(gsap.utils.clamp(0.25, 6, base + Math.abs(v) / 380));
-          skew(gsap.utils.clamp(-14, 14, -v / 260));
-          gsap.to({}, { duration: 0.25, onComplete: () => skew(0) });
-        },
       });
     });
     return () => ctx.revert();
-  }, [trackSel, base]);
+  }, [trackSel, duration]);
 }
 
 /* ── counters ──────────────────────────────────────────────── */

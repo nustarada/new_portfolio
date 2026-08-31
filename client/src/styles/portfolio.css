@@ -565,7 +565,7 @@
 /* process: four numbered cards on one rule */
 .pf-steps{
   list-style:none; margin:0; padding:0;
-  display:grid; grid-template-columns:repeat(4,1fr);
+  display:grid; grid-template-columns:repeat(5,1fr);
   border-top:1px solid var(--rule);
 }
 .pf-step-card{ padding:34px 30px 82px 0; border-right:1px solid var(--line); position:relative; }
@@ -584,7 +584,7 @@
 /* SplitText line masks */
 .pf-home-hero h1 .pf-line{ padding-bottom:.06em; }
 
-@media (max-width:1000px){
+@media (max-width:1180px){
   .pf-steps{ grid-template-columns:repeat(2,1fr); }
   .pf-step-card:nth-child(2n){ border-right:0; }
   .pf-step-card:nth-child(odd){ padding-left:0; }

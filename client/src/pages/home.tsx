@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { Link } from "wouter";
 import {
   useReveal, useSplitHeadline, useCountUp, useParallax,
-  useScramble, useVelocityMarquee, useHeroSpotlight,
+  useScramble, useMarquee, useHeroSpotlight,
   useImageReveal, useTextChars, useScrambleCycle, useAboutScrub, useTextHighlight, useCardCursor, useScrambleHover,
 } from "@/lib/motion";
 import { Ticker, Icon } from "@/components/visuals";
@@ -69,7 +69,7 @@ export default function Home() {
   useScramble("[data-scramble]");
   useScrambleHover("[data-scramble-hover]");
   useScrambleCycle(".pf-cycle", DISCIPLINES, { chars: "!<>-_\\/[]{}=+*^?#", speed: 0.45, revealDelay: 0.4, hold: 1.5 });
-  useVelocityMarquee(".pf-ticker-track");
+  useMarquee(".pf-ticker-track");
   useHeroSpotlight(".pf-home-hero", ".pf-hero-reveal");
   useCardCursor(".pf-card:not(.pf-card-cta)", ".pf-follow");
   const [scrolled, setScrolled] = useState(false);
@@ -214,15 +214,17 @@ export default function Home() {
             <span className="pf-chip inv">How I work</span>
             <h2>How I run a project, start to finish.</h2>
             <p>Enterprise platforms carry roles, permissions and existing behaviour. I work in this
-              order so those constraints stay visible from the start.</p>
+              order so those constraints stay visible from the start. AI earns its place in the
+              middle of it, where the cost of being slow is highest.</p>
           </div>
 
           <ol className="pf-steps">
             {[
-              { n: "01", icon: "user-search", t: "Discover", d: "I start with the people who own the process. Who does what, what they answer for, and why the system ended up this way. Most of the real constraints surface here rather than later." },
-              { n: "02", icon: "drafting-compass", t: "Architect", d: "I settle the structure before anything gets styled. Navigation, flows and wireframes, agreed on paper, because changing this later means changing code." },
-              { n: "03", icon: "figma", t: "Design", d: "Interface design in Figma, with libraries and variables so it holds together as it grows. If a platform already runs on Ant Design or Material, I build on that rather than fight it." },
-              { n: "04", icon: "rocket", t: "Ship", d: "I stay on it. Refining the backlog, writing acceptance criteria, reviewing what gets built and working with QA until it is actually live." },
+              { n: "01", icon: "user-search", t: "Discover", d: "I start with the people who own the process. Who does what, what they answer for, and why the system ended up this way. I use AI to get through the volume of notes, recordings and legacy documentation, so more of the time goes on the conversations themselves." },
+              { n: "02", icon: "drafting-compass", t: "Architect", d: "I settle the structure before anything gets styled. Navigation, flows and wireframes, agreed on paper, because changing this later means changing code. This part stays a judgement call." },
+              { n: "03", icon: "terminal", t: "Prototype", d: "Before the design is signed off I build a working version with Claude Code and Replit. Stakeholders react to a product they can click through rather than a picture of one, which is a different quality of feedback." },
+              { n: "04", icon: "figma", t: "Design", d: "Interface design in Figma, with libraries and variables so it holds together as it grows, and Figma MCP to move between the file and the build. If a platform already runs on Ant Design or Material, I build on that rather than fight it." },
+              { n: "05", icon: "rocket", t: "Ship", d: "I stay on it. Refining the backlog, writing acceptance criteria, reviewing what gets built and working with QA until it is actually live." },
             ].map((b, i) => (
               <li className="pf-step-card" key={b.t} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
                 <div className="hd">
@@ -284,16 +286,18 @@ export default function Home() {
         {[
           { n: "01", t: "Platform redesign",
             d: "An existing product that has grown awkward, rebuilt around roles, permissions and the screens people actually use. This is most of my work." },
-          { n: "02", t: "New product design",
+          { n: "02", t: "AI feature design",
+            d: "Interfaces for generative features: what the user is asked for, how a streaming answer behaves, where the model shows its sources, and what happens when it gets something wrong. The design problem is trust and recovery, not the chat box." },
+          { n: "03", t: "New product design",
             d: "Zero to one. Research, information architecture and the full screen set, through to a build-ready Figma file." },
-          { n: "03", t: "Design system",
+          { n: "04", t: "Design system",
             d: "A component library with variables and Dev Mode handoff, built so the team can keep using it after I hand it over." },
-          { n: "04", t: "Design audit",
+          { n: "05", t: "Design audit",
             d: "A structured review of a live product: where people get stuck, what the current architecture is costing you, and what to fix first." },
-          { n: "05", t: "Marketing site",
-            d: "Pages built around one decision rather than a template. Content structure, design and build in WordPress or HubSpot." },
           { n: "06", t: "Rapid prototyping",
-            d: "Working screens instead of static mockups. I use Figma MCP, Claude Code and Cursor to put a real, clickable idea in front of people in days." },
+            d: "Working screens instead of static mockups. I use Figma MCP, Claude Code and Cursor to put a real, clickable idea in front of people in days, and generative image and motion tools for the assets that go inside them." },
+          { n: "07", t: "Marketing site",
+            d: "Pages built around one decision rather than a template. Content structure, design and build in WordPress or HubSpot." },
         ].map((s, i) => (
           <div className="pf-numrow" key={s.t} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
             <span className="no">{s.n}</span>
