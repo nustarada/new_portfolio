@@ -64,9 +64,9 @@ export default function AcedboardCaseStudy() {
           solution="A connected model inside Acedboard. Cost and benefit drivers are defined once under Assumptions, variables, units and a calculated field, and every cell downstream references them through a real formula engine, discounted at the cost of capital into NPV, ROI and payback."
         />
         <Timeline phases={[
-          { label: "Phase 01", title: "Model + Architecture", body: "Defining the data model: drivers as the single source, baseline to projected to benefit as the unit of evidence, and how a formula engine references it." },
-          { label: "Phase 02", title: "Interface Design", body: "Making finance-grade mechanics, discounting, sensitivity and scenarios, usable within a project tool's interface patterns without simplifying the model." },
-          { label: "Phase 03", title: "Build + Ship", body: "Agile delivery alongside engineering, covering edge cases and states, through to production release inside Acedboard." },
+          { label: "Phase 01", title: "Model + Architecture", body: "I defined the data model: drivers as the single source, baseline to projected to benefit as the unit of evidence, and how a formula engine references it." },
+          { label: "Phase 02", title: "Interface Design", body: "I made finance-grade mechanics, discounting, sensitivity and scenarios, usable within a project tool's interface patterns without simplifying the model." },
+          { label: "Phase 03", title: "Build + Ship", body: "I delivered alongside engineering in an agile process, covering edge cases and states, through to production release inside Acedboard." },
         ]} />
       </div>
 
@@ -97,7 +97,7 @@ export default function AcedboardCaseStudy() {
       </section>
 
       <Statement kicker="The reframe">
-        Not a calculator you re-type each time, a <em className="pf-em">connected model</em> where the value computes itself, all the way to the board report.
+        I built it as a <em className="pf-em">connected model</em> rather than a calculator, so one changed assumption carries through to the board report.
       </Statement>
 
       <section className="pf-wrap">

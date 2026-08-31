@@ -53,9 +53,9 @@ export default function TwoHourLearningCaseStudy() {
           solution="A system of four pages: one brand homepage for discovery, plus three persona pages, each leading with what that reader actually cares about, proof, teacher workload, or strategic advantage, with a CTA matched to their stage. One shared visual system, so the brand never fragments."
         />
         <Timeline phases={[
-          { label: "Phase 01", title: "Sales + Stakeholder Mapping", body: "Interviews with the sales team identified where deals stalled, at the handover between stakeholders. Each role was mapped to the risk it was accountable for." },
-          { label: "Phase 02", title: "Messaging Architecture", body: "Before any visual design, each page was specified as an ordered set of questions that reader needs answered, and the CTA that follows." },
-          { label: "Phase 03", title: "Design + Build", body: "One visual system across four pages, built in WordPress and HubSpot, with a routing guide mapping each contact type to a page." },
+          { label: "Phase 01", title: "Sales + Stakeholder Mapping", body: "I interviewed the sales team to find where deals stalled, at the handover between stakeholders, and mapped each role to the risk it owns." },
+          { label: "Phase 02", title: "Messaging Architecture", body: "Before any visual design, I specified each page as an ordered set of questions that reader needs answered, and the CTA that follows." },
+          { label: "Phase 03", title: "Design + Build", body: "I built one visual system across four pages in WordPress and HubSpot, with a routing guide mapping each contact type to a page." },
         ]} />
       </div>
 
@@ -86,7 +86,7 @@ export default function TwoHourLearningCaseStudy() {
       </section>
 
       <Statement kicker="The reframe">
-        The brief said <span style={{ color: "var(--mut)" }}>"a better website."</span> The truth was <em className="pf-em">four different arguments</em>, for four different readers, of the same decision.
+        The brief asked for <span style={{ color: "var(--mut)" }}>a better website.</span> What it needed was <em className="pf-em">four arguments</em> for the same decision, one for each reader.
       </Statement>
 
       <section className="pf-wrap">

@@ -71,9 +71,9 @@ export default function LionfishCaseStudy() {
           solution="A complete redesign on a systematic foundation, Ant Design and Material 3 as reference systems, replacing the top bar with a grouped, role-aware side navigation, and rebuilding tables, tabs, buttons, inline editing and the learning experience as consistent components across every module, in both light and dark themes."
         />
         <Timeline phases={[
-          { label: "Months 1–2", title: "Audit + Architecture", body: "Auditing the live platform module by module, cataloguing the usability issues, and restructuring the information architecture around a grouped side navigation that adapts to each role." },
-          { label: "Months 3–6", title: "System + Module Design", body: "Building the component foundation, then redesigning every module: dashboards, compliances, assessments, learning, cobrand branding, roles and permissions, in light and dark." },
-          { label: "Month 7 →", title: "Agile Delivery", body: "Design ran alongside active development, staying ahead of engineering while maintaining consistency as scope moved. Now live in production." },
+          { label: "Months 1–2", title: "Audit + Architecture", body: "I audited the live platform module by module, catalogued the usability issues, and restructured the information architecture around a grouped side navigation that adapts to each role." },
+          { label: "Months 3–6", title: "System + Module Design", body: "I built the component foundation, then redesigned every module: dashboards, compliances, assessments, learning, cobrand branding, roles and permissions, in light and dark." },
+          { label: "Month 7 →", title: "Agile Delivery", body: "I designed alongside active development, staying ahead of engineering and holding consistency as scope moved. Now live in production." },
         ]} />
       </div>
 
@@ -139,7 +139,7 @@ export default function LionfishCaseStudy() {
       </section>
 
       <Statement kicker="The reframe">
-        Not a reskin, a <em className="pf-em">systematic rebuild.</em> Fix the foundation once, and every module inherits the fix.
+        I rebuilt the components rather than <em className="pf-em">restyling the screens</em>, so every module inherited the same fix.
       </Statement>
 
       {/* ── Walkthrough ── */}

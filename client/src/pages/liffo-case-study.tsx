@@ -65,9 +65,9 @@ export default function LiffoCaseStudy() {
           solution="A home-first health app built around five services, led by organised home-care nursing, the offering nobody had productised. Emergency sits one tap away on a persistent tab, routed through hospitals with verified ambulance availability rather than a dispatch promise the fleet could not meet."
         />
         <Timeline phases={[
-          { label: "Weeks 1–3", title: "Research + Architecture", body: "Published EMS and golden-hour data, competitive audit of the Indian market, task analysis of the phone-based emergency process, and the five-pillar information architecture." },
-          { label: "Weeks 4–10", title: "Design + Iteration", body: "Low-fidelity structure through to 34 production screens, with the most iteration on the emergency flow and the home-care booking model." },
-          { label: "Weeks 11–13", title: "System + Handoff", body: "Component library, states and edge cases, accessibility review for high-stress use, and developer handoff across iOS and Android." },
+          { label: "Weeks 1–3", title: "Research + Architecture", body: "I worked from published EMS and golden-hour data, a competitive audit of the Indian market and a task analysis of the phone-based emergency process, then built the five-service information architecture from it." },
+          { label: "Weeks 4–10", title: "Design + Iteration", body: "I took it from low-fidelity structure to 34 production screens, iterating most on the emergency flow and the home-care booking model." },
+          { label: "Weeks 11–13", title: "System + Handoff", body: "I built the component library, covered states and edge cases, reviewed accessibility for high-stress use, and handed off to developers across iOS and Android." },
         ]} />
       </div>
 
@@ -135,7 +135,7 @@ export default function LiffoCaseStudy() {
       </div>
 
       <Statement kicker="The reframe">
-        Not an ambulance app, and not a clinic in your pocket, a <em className="pf-em">home-first health hub</em> where the everyday lives next to the emergency.
+        I put the everyday services and the emergency in <em className="pf-em">one app</em>, because that is how a household actually needs them.
       </Statement>
 
       {/* ── The product ── */}

@@ -62,9 +62,9 @@ export default function FutureFirstFamiliesCaseStudy() {
           solution="A single scrolling page ordered to build the case in sequence: what the parent wants, the problem with the current model, three layers of evidence, then one consistent ask. A persistent 'Lead the Change' CTA follows the scroll so the next step is available at any point."
         />
         <Timeline phases={[
-          { label: "Phase 01", title: "Audience + Strategy", body: "Establishing what the parent wants for their child, what claims they have already encountered, and what evidence would move them to act." },
-          { label: "Phase 02", title: "Persuasion Architecture", body: "Ordering the page as a single argument: outcome, problem, three layers of evidence, then the ask, with no competing calls to action." },
-          { label: "Phase 03", title: "Design + Build", body: "Visual design and HubSpot build, covering the persistent call to action, video testimonial modules and the nominate-a-school path." },
+          { label: "Phase 01", title: "Audience + Strategy", body: "I established what the parent wants for their child, what claims they have already encountered, and what evidence would move them to act." },
+          { label: "Phase 02", title: "Persuasion Architecture", body: "I ordered the page as a single argument: outcome, problem, three layers of evidence, then the ask, with no competing calls to action." },
+          { label: "Phase 03", title: "Design + Build", body: "I handled visual design and the HubSpot build, including the persistent call to action, video testimonial modules and the nominate-a-school path." },
         ]} />
       </div>
 
@@ -103,7 +103,7 @@ export default function FutureFirstFamiliesCaseStudy() {
       </section>
 
       <Statement kicker="The reframe">
-        The site is not selling a product. It is asking a parent to <em className="pf-em">advocate for one</em>, which means the evidence has to land first.
+        The site asks a parent to <em className="pf-em">advocate for the programme</em>, not to buy it, so the evidence has to hold up before the ask.
       </Statement>
 
       <section className="pf-wrap">
