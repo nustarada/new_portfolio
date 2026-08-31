@@ -837,18 +837,13 @@
 .pf-home-hero::before{ display:none; }          /* drop the old dotted disc */
 .pf-hero-bg, .pf-hero-reveal{ position:absolute; inset:0; z-index:0; pointer-events:none; }
 .pf-hero-bg img, .pf-hero-reveal img{ width:100%; height:100%; object-fit:cover; display:block; }
-.pf-hero-bg img{ filter:brightness(.5) saturate(.8) contrast(1.06); }
-/* colour dodge divides by the base, so pure black can never brighten.
-   Lift the blacks a little and the lens has headroom everywhere. */
-.pf-hero-bg::after{
-  content:""; position:absolute; inset:0;
-  background:#332E42; mix-blend-mode:screen; opacity:.3;
-}
+.pf-hero-bg img{ filter:brightness(.34) saturate(.5) contrast(1.1); }
 .pf-hero-reveal{
-  clip-path:circle(0px at 50% 50%);
   mix-blend-mode:color-dodge;
+  -webkit-mask-image:radial-gradient(circle 0px at 50% 50%, #000 0%, transparent 100%);
+  mask-image:radial-gradient(circle 0px at 50% 50%, #000 0%, transparent 100%);
 }
-.pf-hero-reveal img{ filter:brightness(1.25) saturate(1.9) contrast(1.1); }
+.pf-hero-reveal img{ filter:brightness(.86) saturate(1.7) contrast(1.05); }
 .pf-home-hero > *:not(.pf-hero-bg):not(.pf-hero-reveal){ position:relative; z-index:1; }
 
 .pf-home-hero h1{ color:var(--paper); }

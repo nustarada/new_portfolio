@@ -70,10 +70,9 @@ export default function Home() {
   useScrambleHover("[data-scramble-hover]");
   useScrambleCycle(".pf-cycle", DISCIPLINES, { chars: "!<>-_\\/[]{}=+*^?#", speed: 0.45, revealDelay: 0.4, hold: 1.5 });
   useVelocityMarquee(".pf-ticker-track");
-  useHeroSpotlight(".pf-home-hero", ".pf-hero-reveal", ".pf-cursor");
+  useHeroSpotlight(".pf-home-hero", ".pf-hero-reveal");
   useCardCursor(".pf-card:not(.pf-card-cta)", ".pf-follow");
   const [scrolled, setScrolled] = useState(false);
-  const cursor = useRef<HTMLDivElement>(null);
   const preview = useRef<HTMLDivElement>(null);
   const previewImg = useRef<HTMLImageElement>(null);
   const magWrap = useRef<HTMLDivElement>(null);
@@ -129,7 +128,6 @@ export default function Home() {
         <div className="pf-announce">
           Open to product design roles and freelance work <b>Pune, India and remote</b>
         </div>
-        <div className="pf-cursor" ref={cursor} />
         <div className="pf-follow"><span>View case study</span></div>
         <nav className={`pf-nav${scrolled ? " scrolled" : ""}`}>
           <Link href="/" className="logo" aria-label="Karan Gadhave, home">

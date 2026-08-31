@@ -260,18 +260,23 @@ export function useParallax(selector: string, amount = 4) {
 
 /* ── hero: a spotlight that follows the cursor, revealing the
    background at full strength. Hero only; normal cursor after. ── */
-export function useHeroSpotlight(heroSel: string, revealSel: string, dotSel: string) {
+export function useHeroSpotlight(heroSel: string, revealSel: string, dotSel?: string) {
   useEffect(() => {
     if (reduced() || window.matchMedia("(pointer:coarse)").matches) return;
     const hero = document.querySelector<HTMLElement>(heroSel);
     const reveal = document.querySelector<HTMLElement>(revealSel);
-    const dot = document.querySelector<HTMLElement>(dotSel);
+    const dot = dotSel ? document.querySelector<HTMLElement>(dotSel) : null;
     if (!hero || !reveal) return;
 
     const R = { v: 0 };
     const pos = { x: innerWidth / 2, y: 260 };
-    const apply = () =>
-      reveal.style.clipPath = `circle(${R.v}px at ${pos.x}px ${pos.y}px)`;
+    /* a soft radial mask, so the lens fades out instead of cutting a hard edge */
+    const apply = () => {
+      const m = `radial-gradient(circle ${R.v}px at ${pos.x}px ${pos.y}px,` +
+                ` #000 0%, rgba(0,0,0,.92) 46%, rgba(0,0,0,.45) 74%, transparent 100%)`;
+      reveal.style.webkitMaskImage = m;
+      reveal.style.maskImage = m;
+    };
 
     const qx = gsap.quickTo(pos, "x", { duration: 0.5, ease: EASE.crisp, onUpdate: apply });
     const qy = gsap.quickTo(pos, "y", { duration: 0.5, ease: EASE.crisp, onUpdate: apply });
@@ -284,7 +289,7 @@ export function useHeroSpotlight(heroSel: string, revealSel: string, dotSel: str
       inside = on;
       hero.classList.toggle("cursor-live", on);
       gsap.to(R, {
-        v: on ? 108 : 0, duration: on ? 0.6 : 0.4,
+        v: on ? 150 : 0, duration: on ? 0.6 : 0.4,
         ease: on ? EASE.rise : EASE.crisp, overwrite: true, onUpdate: apply,
       });
       if (dot) gsap.to(dot, { opacity: on ? 1 : 0, scale: on ? 1 : 0.4, duration: 0.35, overwrite: true });
