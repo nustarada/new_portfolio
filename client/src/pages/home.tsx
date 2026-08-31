@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import {
   useReveal, useSplitHeadline, useCountUp, useParallax,
   useScramble, useVelocityMarquee, useHeroSpotlight,
-  useImageReveal, useTextChars, useHoverMarquee, useScrambleCycle, useAboutScrub,
+  useImageReveal, useTextChars, useScrambleCycle, useAboutScrub,
 } from "@/lib/motion";
 import { Ticker } from "@/components/visuals";
 import gfxHero from "@assets/gfx-hero.jpg";
@@ -28,14 +28,30 @@ const DISCIPLINES = [
   "0 to 1 products",
 ];
 
-type Work = { href: string; n: string; title: string; tag: string; year: string; img: string; soon?: boolean };
+type Work = { href: string; n: string; title: string; tag: string; img: string;
+  blurb: string; meta: string[]; soon?: boolean };
 
 const WORK: Work[] = [
-  { href: "/lionfish-case-study",       n: "01", title: "Lionfish Cyber Security", tag: "Cybersecurity · Platform redesign", year: "2025", img: lionfishThumb },
-  { href: "/liffo-case-study",          n: "02", title: "Liffo Healthcare",        tag: "Healthcare · Mobile, 34 screens",   year: "2024", img: liffoThumb },
-  { href: "/2hour-learning-case-study", n: "03", title: "2 Hour Learning",         tag: "EdTech · B2B page system",          year: "2025", img: twoHLThumb },
-  { href: "/fff-case-study",            n: "04", title: "Future First Families",   tag: "Advocacy · Conversion design",      year: "2025", img: fffThumb },
-  { href: "/acedboard-case-study",      n: "05", title: "Acedboard Proconomics",   tag: "Fintech · CBA engine",              year: "2025", img: acedboardThumb, soon: true },
+  { href: "/lionfish-case-study", n: "01", title: "Lionfish Cyber Security",
+    tag: "Cybersecurity", img: lionfishThumb,
+    blurb: "An enterprise security platform rebuilt around role-based navigation, compliance workflows and multi-tenant access. Live in production.",
+    meta: ["Lead designer", "Platform redesign"] },
+  { href: "/liffo-case-study", n: "02", title: "Liffo Healthcare",
+    tag: "Healthcare", img: liffoThumb,
+    blurb: "Emergency-first healthcare for India: ambulance dispatch and home care, designed from scratch before the market had an answer.",
+    meta: ["Lead designer", "34 screens"] },
+  { href: "/2hour-learning-case-study", n: "03", title: "2 Hour Learning",
+    tag: "EdTech", img: twoHLThumb,
+    blurb: "One buying decision, three stakeholders who must all say yes. Four pages arguing the same case differently for each of them.",
+    meta: ["Lead designer", "4-page system"] },
+  { href: "/fff-case-study", n: "04", title: "Future First Families",
+    tag: "Advocacy", img: fffThumb,
+    blurb: "Recruiting a parent into a movement rather than selling them a product, on a single scrolling page built to move doubt to action.",
+    meta: ["Lead designer", "Conversion design"] },
+  { href: "/acedboard-case-study", n: "05", title: "Acedboard Proconomics",
+    tag: "Fintech", img: acedboardThumb, soon: true,
+    blurb: "A cost-benefit analysis engine built inside a project management tool, turning finance modelling into something a team can actually run.",
+    meta: ["Lead designer", "Case study in progress"] },
 ];
 
 export default function Home() {
@@ -47,7 +63,6 @@ export default function Home() {
   useTextChars(".pf-about-title", 0.012);
   useImageReveal(".pf-about-portrait");
   useAboutScrub(".pf-about-inner");
-  useHoverMarquee(".pf-proj");
   useScramble("[data-scramble]");
   useScrambleCycle(".pf-cycle", DISCIPLINES, { chars: "!<>-_\\/[]{}=+*^?#", speed: 0.45, revealDelay: 0.4, hold: 1.5 });
   useVelocityMarquee(".pf-ticker-track");
@@ -240,37 +255,27 @@ export default function Home() {
       <section id="work" className="pf-wrap" style={{ paddingTop: 120, paddingBottom: 40 }}>
         <div className="pf-workhead">
           <span className="pf-chip">Selected work</span>
-          <p className="c" data-scramble>Five projects / 2024 to 2025</p>
+          <p className="c" data-scramble>Five projects</p>
         </div>
 
         <div className="pf-projects">
-          {WORK.map((w, i) => (
+          {WORK.map((w) => (
             <Link href={w.href} key={w.href}>
-              <a className={`pf-proj${i % 2 ? " alt" : ""}${w.soon ? " soon" : ""}`}>
-                <div className="pf-proj-media">
-                  {w.soon
-                    ? <div className="ph"><span>Case study in progress</span></div>
-                    : <><img src={w.img} alt={w.title} loading="lazy" />
-                        <div className="pf-proj-hover">
-                          <div className="pf-proj-strip">
-                            {[0, 1].map((k) => (
-                              <React.Fragment key={k}>
-                                {[0, 1, 2, 3].map((j) => (
-                                  <span key={`${k}-${j}`}>{w.title}<i>/</i></span>
-                                ))}
-                              </React.Fragment>
-                            ))}
-                          </div>
-                        </div>
-                      </>}
+              <a className={`pf-card${w.soon ? " soon" : ""}`}>
+                <div className="pf-card-media pf-proj-media">
+                  <img src={w.img} alt={w.title} loading="lazy" />
+                  <span className="tag">{w.tag}</span>
                 </div>
-                <div className="pf-proj-meta">
-                  <span className="n">{w.n}</span>
-                  <div>
+                <div className="pf-card-body">
+                  <div className="hd">
+                    <span className="idx">{w.n}</span>
                     <h3 className="pf-proj-title">{w.title}</h3>
-                    <p className="tag">{w.tag}</p>
                   </div>
-                  <span className="yr">{w.year}</span>
+                  <p className="blurb">{w.blurb}</p>
+                  <ul className="meta">
+                    {w.meta.map((m) => <li key={m}>{m}</li>)}
+                  </ul>
+                  <span className="go">{w.soon ? "In progress" : "Read the case study"}<i>&#8594;</i></span>
                 </div>
               </a>
             </Link>
