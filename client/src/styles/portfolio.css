@@ -1028,3 +1028,15 @@
 .pf-card:not(.pf-card-cta):hover{ cursor:none; }
 .pf-card:not(.pf-card-cta):hover *{ cursor:none; }
 @media (pointer:coarse){ .pf-follow{ display:none; } }
+
+/* the closing tile hovers to accent, so its link must not also be accent */
+.pf-card-cta:hover .go{ color:var(--paper); }
+.pf-card-cta:hover p{ color:rgba(247,245,242,.86); }
+
+/* step icons */
+.pf-step-card .hd{ display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:22px; padding-right:30px; }
+.pf-step-card .idx{ margin-bottom:0; }
+.pf-icon{ width:30px; height:30px; color:var(--ink); opacity:.42; flex:none; }
+.pf-step-card:hover .pf-icon{ opacity:1; color:var(--pf-accent); }
+.pf-icon, .pf-step-card:hover .pf-icon{ transition:opacity .35s var(--ease), color .35s var(--ease); }
+@media (max-width:620px){ .pf-step-card .hd{ padding-right:0; } }

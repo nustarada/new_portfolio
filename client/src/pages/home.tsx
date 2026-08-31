@@ -6,7 +6,7 @@ import {
   useScramble, useVelocityMarquee, useHeroSpotlight,
   useImageReveal, useTextChars, useScrambleCycle, useAboutScrub, useTextHighlight, useCardCursor,
 } from "@/lib/motion";
-import { Ticker } from "@/components/visuals";
+import { Ticker, Icon } from "@/components/visuals";
 import gfxHero from "@assets/gfx-hero.jpg";
 import kgLogo from "@assets/kg-logo.png";
 import photoPortrait from "@assets/photo-portrait.jpg";
@@ -235,13 +235,16 @@ export default function Home() {
 
           <ol className="pf-steps">
             {[
-              { n: "01", t: "Discover", d: "Stakeholder interviews, business process mapping and user journeys. Understanding who does what, and why it works that way today." },
-              { n: "02", t: "Architect", d: "Information architecture, screen flows and wireframes. Getting the structure right on paper is cheaper than getting it wrong in code." },
-              { n: "03", t: "Design", d: "Figma libraries, variables and Dev Mode handoff, with Ant Design or Material as the base where an enterprise platform calls for one." },
-              { n: "04", t: "Ship", d: "Backlog refinement, acceptance criteria, implementation review and QA, right through to release. Not handoff and vanish." },
+              { n: "01", icon: "messages-square", t: "Discover", d: "Stakeholder interviews, business process mapping and user journeys. Understanding who does what, and why it works that way today." },
+              { n: "02", icon: "network", t: "Architect", d: "Information architecture, screen flows and wireframes. Getting the structure right on paper is cheaper than getting it wrong in code." },
+              { n: "03", icon: "component", t: "Design", d: "Figma libraries, variables and Dev Mode handoff, with Ant Design or Material as the base where an enterprise platform calls for one." },
+              { n: "04", icon: "package-check", t: "Ship", d: "Backlog refinement, acceptance criteria, implementation review and QA, right through to release. Not handoff and vanish." },
             ].map((b, i) => (
               <li className="pf-step-card" key={b.t} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
-                <span className="idx">{b.n}</span>
+                <div className="hd">
+                  <span className="idx">{b.n}</span>
+                  <Icon name={b.icon} />
+                </div>
                 <h3>{b.t}</h3>
                 <p>{b.d}</p>
               </li>
