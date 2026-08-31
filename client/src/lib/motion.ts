@@ -284,7 +284,7 @@ export function useHeroSpotlight(heroSel: string, revealSel: string, dotSel: str
       inside = on;
       hero.classList.toggle("cursor-live", on);
       gsap.to(R, {
-        v: on ? 210 : 0, duration: on ? 0.75 : 0.45,
+        v: on ? 108 : 0, duration: on ? 0.6 : 0.4,
         ease: on ? EASE.rise : EASE.crisp, overwrite: true, onUpdate: apply,
       });
       if (dot) gsap.to(dot, { opacity: on ? 1 : 0, scale: on ? 1 : 0.4, duration: 0.35, overwrite: true });
