@@ -7,8 +7,8 @@ export default function NotFound() {
   return (
     <div className="pf" style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <nav className="pf-nav">
-        <Link href="/"><a className="logo">Karan Gadhave</a></Link>
-        <div className="links"><Link href="/"><a>Work</a></Link></div>
+        <Link href="/" className="logo">Karan Gadhave</Link>
+        <div className="links"><Link href="/">Work</Link></div>
       </nav>
 
       <main className="pf-wrap" style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", paddingTop: 140, paddingBottom: 80 }}>
@@ -20,7 +20,7 @@ export default function NotFound() {
           The link may be out of date, or the page has moved. Everything worth seeing is one click away.
         </p>
         <div style={{ marginTop: 46 }}>
-          <Link href="/"><a className="pf-cta">← Back to the work</a></Link>
+          <Link href="/" className="pf-cta">← Back to the work</Link>
         </div>
       </main>
 

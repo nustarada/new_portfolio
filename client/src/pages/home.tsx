@@ -129,11 +129,9 @@ export default function Home() {
         <div className="pf-cursor" ref={cursor} />
         <div className="pf-follow"><span>View case study</span></div>
         <nav className={`pf-nav${scrolled ? " scrolled" : ""}`}>
-          <Link href="/">
-            <a className="logo" aria-label="Karan Gadhave, home">
-              <img src={kgLogo} alt="" className="mark" />
-              <span>Karan Gadhave</span>
-            </a>
+          <Link href="/" className="logo" aria-label="Karan Gadhave, home">
+            <img src={kgLogo} alt="" className="mark" />
+            <span>Karan Gadhave</span>
           </Link>
           <div className="links">
             <a href="#work">Work</a><a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a>
@@ -237,12 +235,12 @@ export default function Home() {
 
           <ol className="pf-steps">
             {[
-              { t: "Discover", d: "Stakeholder interviews, business process mapping and user journeys. Understanding who does what, and why it works that way today." },
-              { t: "Architect", d: "Information architecture, screen flows and wireframes. Getting the structure right on paper is cheaper than getting it wrong in code." },
-              { t: "Design", d: "Figma libraries, variables and Dev Mode handoff, with Ant Design or Material as the base where an enterprise platform calls for one." },
-              { t: "Ship", d: "Backlog refinement, acceptance criteria, implementation review and QA, right through to release. Not handoff and vanish." },
+              { n: "01", t: "Discover", d: "Stakeholder interviews, business process mapping and user journeys. Understanding who does what, and why it works that way today." },
+              { n: "02", t: "Architect", d: "Information architecture, screen flows and wireframes. Getting the structure right on paper is cheaper than getting it wrong in code." },
+              { n: "03", t: "Design", d: "Figma libraries, variables and Dev Mode handoff, with Ant Design or Material as the base where an enterprise platform calls for one." },
+              { n: "04", t: "Ship", d: "Backlog refinement, acceptance criteria, implementation review and QA, right through to release. Not handoff and vanish." },
             ].map((b, i) => (
-              <li className="pf-step-card" key={b.n} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
+              <li className="pf-step-card" key={b.t} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
                 <span className="idx">{b.n}</span>
                 <h3>{b.t}</h3>
                 <p>{b.d}</p>
@@ -264,8 +262,8 @@ export default function Home() {
 
         <div className="pf-projects">
           {WORK.map((w) => (
-            <Link href={w.href} key={w.href}>
-              <a className={`pf-card${w.soon ? " soon" : ""}`} data-cta={w.soon ? "In progress" : "View case study"}>
+            <Link href={w.href} key={w.href}
+              className={`pf-card${w.soon ? " soon" : ""}`} data-cta={w.soon ? "In progress" : "View case study"}>
                 <div className="pf-card-media pf-proj-media">
                   <img src={w.img} alt={w.title} loading="lazy" />
                   <span className="tag">{w.tag}</span>
@@ -277,7 +275,6 @@ export default function Home() {
                     {w.meta.map((m) => <li key={m}>{m}</li>)}
                   </ul>
                 </div>
-              </a>
             </Link>
           ))}
           <a className="pf-card pf-card-cta" href="#contact">
@@ -298,20 +295,20 @@ export default function Home() {
           <p style={{ font: "400 13px var(--font-mono)", color: "var(--mut)" }}>For teams &amp; clients</p>
         </div>
         {[
-          { t: "Product & UX design",
+          { n: "01", t: "Product & UX design",
             d: "End to end product design for SaaS, web and mobile. User journeys, screen flows, wireframes and polished, production ready UI." },
-          { t: "Platform & dashboard redesign",
+          { n: "02", t: "Platform & dashboard redesign",
             d: "Dated, tangled enterprise products re-architected around roles, permissions and real workflows, without losing what already works." },
-          { t: "Research & information architecture",
+          { n: "03", t: "Research & information architecture",
             d: "Stakeholder interviews, business process mapping, IA, competitive analysis and usability testing, so structure is decided on evidence." },
-          { t: "Design systems",
+          { n: "04", t: "Design systems",
             d: "Figma libraries, variables and Dev Mode handoff. Token based components that keep a product consistent as the team grows." },
-          { t: "Agile delivery support",
+          { n: "05", t: "Agile delivery support",
             d: "Backlog refinement, user stories, acceptance criteria, sprint reviews and QA collaboration, right through to release." },
-          { t: "AI accelerated design",
+          { n: "06", t: "AI accelerated design",
             d: "Figma MCP, Claude Code, Cursor and Replit used for high velocity prototyping, so ideas get tested as working screens, not slides." },
         ].map((s, i) => (
-          <div className="pf-numrow" key={s.n} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
+          <div className="pf-numrow" key={s.t} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
             <span className="no">{s.n}</span>
             <h3>{s.t}</h3>
             <p>{s.d}</p>

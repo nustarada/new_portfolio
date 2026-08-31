@@ -38,7 +38,7 @@ export const CaseStudyShell = ({
         <div style={{ ["--pf-accent" as any]: accent }}>
           <div className="pf-progress" ref={prog} />
           <div className="pf-topbar">
-            <Link href="/"><a className="back">← Karan Gadhave</a></Link>
+            <Link href="/" className="back">← Karan Gadhave</Link>
             <p className="r">{project} · {year}</p>
           </div>
         </div>, document.body)}
@@ -347,18 +347,17 @@ export const MoreProjects = ({ cards }: { cards: ProjectCard[] }) => (
   <div className="pf-more">
     <div className="h">
       <p>More projects</p>
-      <Link href="/#work"><a>View all →</a></Link>
+      <Link href="/#work">View all →</Link>
     </div>
     <div className="pf-cards">
       {cards.map((c, i) => (
-        <Link href={c.href} key={c.href}>
-          <a className="pf-pcard" data-reveal style={{ ["--d" as any]: `${i * 0.08}s` }}>
+        <Link href={c.href} key={c.href}
+          className="pf-pcard" data-reveal style={{ ["--d" as any]: `${i * 0.08}s` }}>
             <div className="im"><img src={c.img} alt={c.title} /></div>
             <div className="meta">
               <div><p className="t">{c.title}</p><p className="s">{c.sub}</p></div>
               {c.badge && <p className="badge2">{c.badge}</p>}
             </div>
-          </a>
         </Link>
       ))}
     </div>
@@ -375,7 +374,7 @@ export const PageFooter = () => (
         </div>
         <div className="col">
           <p className="h">Navigate</p>
-          <Link href="/"><a>Home</a></Link>
+          <Link href="/">Home</Link>
           <a href="/#work">Work</a>
           <a href="/#about">About</a>
           <a href="/#process">Process</a>
