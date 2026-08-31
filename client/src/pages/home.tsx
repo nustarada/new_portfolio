@@ -162,7 +162,7 @@ export default function Home() {
         <div className="pf-idbar">
           <div>
             <p className="k">Role</p>
-            <p className="v">Lead Product Designer</p>
+            <p className="v">Senior Product Designer</p>
           </div>
           <div>
             <p className="k">Experience</p>

@@ -53,7 +53,7 @@ export default function LiffoCaseStudy() {
           ["Client", "Liffo Health"],
           ["Industry", "Healthcare, Home-care services · India"],
           ["Services", "Product Strategy, UX Research, End-to-end UI Design, Design System"],
-          ["Role", "Lead Product Designer, sole designer"],
+          ["Role", "Lead Designer, sole designer"],
           ["Scope", "34 screens · 6 flows · iOS & Android"],
           ["Year", "2024 · 13 weeks"],
         ]}

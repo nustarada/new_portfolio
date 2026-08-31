@@ -59,7 +59,7 @@ export default function LionfishCaseStudy() {
           ["Client", "Lionfish Cyber Security · Cyber Tacklebox"],
           ["Industry", "Cybersecurity · Compliance & workforce training · US"],
           ["Services", "UX Audit, Information Architecture, Design System, End-to-end UI"],
-          ["Role", "Lead Designer, sole designer on the redesign"],
+          ["Role", "Lead Designer, sole designer"],
           ["Scope", "Full platform · multi-tenant, role-based, light & dark"],
           ["Year", "7 months design · live in production"],
         ]}

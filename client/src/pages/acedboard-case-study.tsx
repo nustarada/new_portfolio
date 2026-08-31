@@ -52,7 +52,7 @@ export default function AcedboardCaseStudy() {
           ["Client", "Acedboard"],
           ["Industry", "Project management, Financial modelling · SaaS"],
           ["Services", "Product Strategy, UX Architecture, End-to-end UI Design"],
-          ["Role", "Product Designer"],
+          ["Role", "Lead Designer, sole designer"],
           ["Scope", "Cost-benefit analysis module inside Acedboard"],
           ["Status", "Live in production"],
         ]}

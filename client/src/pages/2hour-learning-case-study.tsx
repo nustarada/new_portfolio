@@ -41,7 +41,7 @@ export default function TwoHourLearningCaseStudy() {
           ["Client", "2 Hour Learning"],
           ["Industry", "EdTech · B2B, private schools"],
           ["Services", "Content Strategy, Messaging Architecture, Web Design"],
-          ["Role", "Lead Designer"],
+          ["Role", "Lead Designer, sole designer"],
           ["Scope", "4 pages, 1 WordPress + 3 HubSpot"],
           ["Year", "2025"],
         ]}

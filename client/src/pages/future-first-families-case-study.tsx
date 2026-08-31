@@ -50,7 +50,7 @@ export default function FutureFirstFamiliesCaseStudy() {
           ["Client", "Future First Families, by 2 Hour Learning"],
           ["Industry", "EdTech · Parent advocacy"],
           ["Services", "Conversion Strategy, Messaging Architecture, Web Design"],
-          ["Role", "Lead Designer"],
+          ["Role", "Lead Designer, sole designer"],
           ["Scope", "Single-page advocacy site · HubSpot"],
           ["Year", "2025 · 4 weeks"],
         ]}
