@@ -805,13 +805,13 @@
   clip-path:inset(0% 0% 100% 0%);
 }
 .pf-about-top{
-  display:grid; grid-template-columns:minmax(0,360px) minmax(0,1fr);
-  gap:clamp(28px,5vw,80px); align-items:start; margin:44px 0 0; text-align:left;
+  display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr);
+  gap:clamp(28px,5vw,80px); align-items:stretch; margin:44px 0 0; text-align:left;
 }
 .pf-about-portrait img{ width:100%; display:block; filter:grayscale(1) contrast(1.05); }
 .pf-about-title{
-  font:700 clamp(28px,3.6vw,48px)/1.06 var(--font-display);
-  letter-spacing:-.034em; margin:0; max-width:20ch; text-wrap:balance;
+  font:700 clamp(32px,5.6vw,76px)/1.04 var(--font-display);
+  letter-spacing:-.038em; margin:0; max-width:15ch;
 }
 .pf-about-statement{ padding:clamp(72px,10vw,150px) 0 clamp(20px,4vw,56px); }
 .pf-about-copy{
@@ -1186,4 +1186,11 @@
 @media (max-width:820px){ .pf-about-portrait figcaption{ text-align:center; align-items:center; } }
 
 /* About: the scroll highlight resolves to full ink */
-.pf-about-side{ display:flex; flex-direction:column; }
+.pf-about-side{ display:flex; flex-direction:column; justify-content:space-between; gap:40px; }
+.pf-about-sig{ border-top:1px solid var(--line); padding-top:18px; }
+.pf-about-sig .n{ margin:0; font:700 19px/1.2 var(--font-display); letter-spacing:-.02em; }
+.pf-about-sig .r{
+  margin:6px 0 0; font:400 11.5px/1 var(--font-mono);
+  letter-spacing:.16em; text-transform:uppercase; color:var(--mut);
+}
+@media (max-width:820px){ .pf-about-side{ gap:26px; } }

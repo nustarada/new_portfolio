@@ -183,13 +183,16 @@ export default function Home() {
           <div className="pf-about-top">
             <figure className="pf-portrait pf-about-portrait">
               <img src={photoPortrait} alt="Karan Gadhave" loading="lazy" />
-              <figcaption>Karan Gadhave<span>Senior Product Designer</span></figcaption>
             </figure>
 
             <div className="pf-about-side">
               <h2 className="pf-about-title">
                 Most of my work is software people never chose to use.
               </h2>
+              <div className="pf-about-sig">
+                <p className="n">Karan Gadhave</p>
+                <p className="r">Senior Product Designer, Pune</p>
+              </div>
             </div>
           </div>
         </div>
