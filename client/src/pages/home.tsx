@@ -3,12 +3,11 @@ import { createPortal } from "react-dom";
 import { Link } from "wouter";
 import {
   useReveal, useSplitHeadline, useCountUp, useParallax,
-  useScramble, useHorizontalPin, useVelocityMarquee, useHeroCursor,
+  useScramble, useVelocityMarquee, useHeroSpotlight,
   useImageReveal, useTextChars, useHoverMarquee, useScrambleCycle, useAboutScrub,
 } from "@/lib/motion";
 import { Ticker } from "@/components/visuals";
-import gfxHero from "@assets/gfx-hero-glitch.jpg";
-import gfxLens from "@assets/gfx-lens.jpg";
+import gfxHero from "@assets/gfx-hero.jpg";
 import photoPortrait from "@assets/photo-portrait.jpg";
 import { PageFooter } from "@/components/case-study/template";
 import "@/styles/portfolio.css";
@@ -50,9 +49,8 @@ export default function Home() {
   useHoverMarquee(".pf-proj");
   useScramble("[data-scramble]");
   useScrambleCycle(".pf-cycle", DISCIPLINES, { chars: "!<>-_\\/[]{}=+*^?#", speed: 0.45, revealDelay: 0.4, hold: 1.5 });
-  useHorizontalPin(".pf-hstrip", ".pf-hstrip-track");
   useVelocityMarquee(".pf-ticker-track");
-  useHeroCursor(".pf-home-hero", ".pf-cursor", ".pf-preview");
+  useHeroSpotlight(".pf-home-hero", ".pf-hero-reveal", ".pf-cursor");
   const [scrolled, setScrolled] = useState(false);
   const cursor = useRef<HTMLDivElement>(null);
   const preview = useRef<HTMLDivElement>(null);
@@ -111,7 +109,6 @@ export default function Home() {
           Open to product design roles &amp; freelance <b>Pune, India / remote · replies in 24h</b>
         </div>
         <div className="pf-cursor" ref={cursor} />
-        <div className="pf-preview" ref={preview}><img ref={previewImg} src={gfxLens} alt="" /></div>
         <nav className={`pf-nav${scrolled ? " scrolled" : ""}`}>
           <Link href="/"><a className="logo">Karan Gadhave</a></Link>
           <div className="links">
@@ -123,6 +120,9 @@ export default function Home() {
       {/* ── HERO ── */}
       <header className="pf-home-hero pf-wrap">
         <div className="pf-hero-bg" aria-hidden="true">
+          <img src={gfxHero} alt="" loading="eager" />
+        </div>
+        <div className="pf-hero-reveal" aria-hidden="true">
           <img src={gfxHero} alt="" loading="eager" />
         </div>
         <p className="pf-eyebrow" data-reveal><span className="pf-dot" />Product &amp; UX Designer, available for hire and freelance</p>
@@ -202,7 +202,6 @@ export default function Home() {
 
       {/* ── PROCESS, numbered grid, connected by a rule ── */}
       <section id="process" className="pf-full pf-band-grain">
-        <img className="pf-band-art" src={gfxLens} alt="" aria-hidden="true" loading="lazy" />
         <div className="pf-wrap">
           <div className="pf-sechead" data-reveal>
             <span className="pf-chip inv">How I work</span>
@@ -225,29 +224,6 @@ export default function Home() {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      {/* ── PINNED HORIZONTAL STRIP ── */}
-      <section className="pf-hstrip">
-        <div className="pf-hstrip-track">
-          <div className="pf-hcard lead">
-            <span className="k" data-scramble>In practice</span>
-            <h3>Roles, rules,<br />and legacy.</h3>
-            <p>Scroll sideways. Every platform below started as somebody else's tangle.</p>
-          </div>
-          {WORK.filter(w => !w.soon).map((w) => (
-            <a className="pf-hcard" href={w.href} key={w.href}>
-              <div className="im"><img src={w.img} alt={w.title} loading="lazy" /></div>
-              <span className="yr">{w.year}</span>
-              <h3>{w.title}</h3>
-              <p>{w.tag}</p>
-            </a>
-          ))}
-          <div className="pf-hcard end">
-            <h3>Your platform next?</h3>
-            <a className="pf-cta" href="#contact">Start a conversation</a>
-          </div>
         </div>
       </section>
 

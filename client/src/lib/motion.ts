@@ -237,52 +237,58 @@ export function useParallax(selector: string, amount = 4) {
   }, [selector, amount]);
 }
 
-/* ── cursor: a single trailing image, hero only ────────────── */
-export function useHeroCursor(heroSel: string, dotSel: string, imgSel: string) {
+/* ── hero: a spotlight that follows the cursor, revealing the
+   background at full strength. Hero only; normal cursor after. ── */
+export function useHeroSpotlight(heroSel: string, revealSel: string, dotSel: string) {
   useEffect(() => {
     if (reduced() || window.matchMedia("(pointer:coarse)").matches) return;
     const hero = document.querySelector<HTMLElement>(heroSel);
+    const reveal = document.querySelector<HTMLElement>(revealSel);
     const dot = document.querySelector<HTMLElement>(dotSel);
-    const img = document.querySelector<HTMLElement>(imgSel);
-    if (!hero || !dot || !img) return;
+    if (!hero || !reveal) return;
 
-    const dx = gsap.quickTo(dot, "x", { duration: 0.26, ease: EASE.crisp });
-    const dy = gsap.quickTo(dot, "y", { duration: 0.26, ease: EASE.crisp });
-    const ix = gsap.quickTo(img, "x", { duration: 0.72, ease: EASE.crisp });
-    const iy = gsap.quickTo(img, "y", { duration: 0.72, ease: EASE.crisp });
+    const R = { v: 0 };
+    const pos = { x: innerWidth / 2, y: 260 };
+    const apply = () =>
+      reveal.style.clipPath = `circle(${R.v}px at ${pos.x}px ${pos.y}px)`;
+
+    const qx = gsap.quickTo(pos, "x", { duration: 0.5, ease: EASE.crisp, onUpdate: apply });
+    const qy = gsap.quickTo(pos, "y", { duration: 0.5, ease: EASE.crisp, onUpdate: apply });
+    const dx = dot ? gsap.quickTo(dot, "x", { duration: 0.22, ease: EASE.crisp }) : null;
+    const dy = dot ? gsap.quickTo(dot, "y", { duration: 0.22, ease: EASE.crisp }) : null;
 
     let inside = false;
-    const show = (on: boolean) => {
+    const setInside = (on: boolean) => {
       if (on === inside) return;
       inside = on;
       hero.classList.toggle("cursor-live", on);
-      gsap.to([dot, img], {
-        opacity: on ? 1 : 0,
-        scale: on ? 1 : 0.82,
-        duration: on ? 0.45 : 0.3,
-        ease: on ? EASE.rise : EASE.crisp,
-        overwrite: true,
+      gsap.to(R, {
+        v: on ? 210 : 0, duration: on ? 0.75 : 0.45,
+        ease: on ? EASE.rise : EASE.crisp, overwrite: true, onUpdate: apply,
       });
+      if (dot) gsap.to(dot, { opacity: on ? 1 : 0, scale: on ? 1 : 0.4, duration: 0.35, overwrite: true });
     };
 
     const move = (e: MouseEvent) => {
       const r = hero.getBoundingClientRect();
       const within = e.clientX >= r.left && e.clientX <= r.right &&
                      e.clientY >= r.top && e.clientY <= r.bottom;
-      show(within);
+      setInside(within);
       if (!within) return;
-      dx(e.clientX); dy(e.clientY);
-      ix(e.clientX); iy(e.clientY);
+      qx(e.clientX); qy(e.clientY - r.top);
+      dx?.(e.clientX); dy?.(e.clientY);
     };
 
-    gsap.set([dot, img], { opacity: 0, scale: 0.82, xPercent: -50, yPercent: -50 });
+    if (dot) gsap.set(dot, { opacity: 0, scale: 0.4, xPercent: -50, yPercent: -50 });
+    apply();
     window.addEventListener("mousemove", move);
-    window.addEventListener("mouseout", () => show(false));
+    const out = () => setInside(false);
+    document.addEventListener("mouseleave", out);
     return () => {
       window.removeEventListener("mousemove", move);
-      gsap.set([dot, img], { clearProps: "all" });
+      document.removeEventListener("mouseleave", out);
     };
-  }, [heroSel, dotSel, imgSel]);
+  }, [heroSel, revealSel, dotSel]);
 }
 
 /* ── image: clip wipe + inner scale, unmistakably animated ─── */
