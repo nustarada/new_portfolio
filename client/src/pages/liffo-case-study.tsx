@@ -64,9 +64,9 @@ export default function LiffoCaseStudy() {
           solution="A home-first health app built around five services, led by organised home-care nursing, the offering nobody had productised. Emergency sits one tap away on a persistent tab, routed through hospitals with verified ambulance availability rather than a dispatch promise the fleet could not meet."
         />
         <Timeline phases={[
-          { label: "Weeks 1–3", title: "Research + Architecture", body: "I worked from published EMS and golden-hour data, a competitive audit of the Indian market and a task analysis of the phone-based emergency process, then built the five-service information architecture from it." },
-          { label: "Weeks 4–10", title: "Design + Iteration", body: "I took it from low-fidelity structure to 34 production screens, iterating most on the emergency flow and the home-care booking model." },
-          { label: "Weeks 11–13", title: "System + Handoff", body: "I built the component library, covered states and edge cases, reviewed accessibility for high-stress use, and handed off to developers across iOS and Android." },
+          { label: "Weeks 1 to 3", title: "Research + Architecture", body: "I worked from published EMS and golden-hour data, a competitive audit of the Indian market and a task analysis of the phone-based emergency process, then built the five-service information architecture from it." },
+          { label: "Weeks 4 to 10", title: "Design + Iteration", body: "I took it from low-fidelity structure to 34 production screens, iterating most on the emergency flow and the home-care booking model." },
+          { label: "Weeks 11 to 13", title: "System + Handoff", body: "I built the component library, covered states and edge cases, reviewed accessibility for high-stress use, and handed off to developers across iOS and Android." },
         ]} />
       </div>
 
@@ -113,7 +113,7 @@ export default function LiffoCaseStudy() {
               { name: "Urban average", value: "14 min", width: "35%", color: "#C4842B" },
               { name: "Rural average", value: "31 min", width: "78%", color: "#B3402F" },
             ]}
-            note={<>…and roughly <b>1 ambulance per 80–100k people</b>, half the WHO recommendation.</>}
+            note={<>…and roughly <b>1 ambulance per 80 to 100k people</b>, half the WHO recommendation.</>}
             source={{ text: "2019 EMS data · EPW", href: "https://www.epw.in/engage/article/108-services-are-plagued-complacency-and" }}
             delay={0.2}
           />

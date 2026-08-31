@@ -70,8 +70,8 @@ export default function LionfishCaseStudy() {
           solution="A complete redesign on a systematic foundation, Ant Design and Material 3 as reference systems, replacing the top bar with a grouped, role-aware side navigation, and rebuilding tables, tabs, buttons, inline editing and the learning experience as consistent components across every module, in both light and dark themes."
         />
         <Timeline phases={[
-          { label: "Months 1–2", title: "Audit + Architecture", body: "I audited the live platform module by module, catalogued the usability issues, and restructured the information architecture around a grouped side navigation that adapts to each role." },
-          { label: "Months 3–6", title: "System + Module Design", body: "I built the component foundation, then redesigned every module: dashboards, compliances, assessments, learning, cobrand branding, roles and permissions, in light and dark." },
+          { label: "Months 1 to 2", title: "Audit + Architecture", body: "I audited the live platform module by module, catalogued the usability issues, and restructured the information architecture around a grouped side navigation that adapts to each role." },
+          { label: "Months 3 to 6", title: "System + Module Design", body: "I built the component foundation, then redesigned every module: dashboards, compliances, assessments, learning, cobrand branding, roles and permissions, in light and dark." },
           { label: "Month 7 →", title: "Agile Delivery", body: "I designed alongside active development, staying ahead of engineering and holding consistency as scope moved. Now live in production." },
         ]} />
       </div>

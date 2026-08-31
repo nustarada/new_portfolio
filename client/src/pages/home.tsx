@@ -242,7 +242,7 @@ export default function Home() {
       {/* ── TICKER ── */}
       <Ticker items={["Product design", "Information architecture", "Design systems", "Platform redesigns", "Research"]} />
 
-      {/* ── WORK — showcase ── */}
+      {/* ── WORK, showcase ── */}
       <section id="work" className="pf-wrap" style={{ paddingTop: 120, paddingBottom: 40 }}>
         <div className="pf-workhead">
           <span className="pf-chip">Selected work</span>

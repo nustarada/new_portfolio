@@ -17,7 +17,7 @@ const ResumeSection = () => {
     {
       company: "Team Pumpkin",
       role: "Lead Product Designer",
-      period: "Apr 2022 – Present",
+      period: "Apr 2022 to Present",
       location: "India",
       achievements: [
         "Led end-to-end product design for complex web platforms, including user-facing products, admin systems, and internal tools",
@@ -30,7 +30,7 @@ const ResumeSection = () => {
     {
       company: "Pepper Penny Finance Pvt. Ltd",
       role: "UI UX Designer",
-      period: "Jun 2021 – Mar 2022",
+      period: "Jun 2021 to Mar 2022",
       location: "India",
       achievements: [
         "Designed core product experiences for a stock trading and learning platform, including dashboards, comparisons, and content flows",
@@ -41,7 +41,7 @@ const ResumeSection = () => {
     {
       company: "DBM Infotech Pvt. Ltd",
       role: "UI UX Designer",
-      period: "Mar 2021 – Jun 2021",
+      period: "Mar 2021 to Jun 2021",
       location: "Pune, India",
       achievements: [
         "Designed end-to-end UX and UI for a mobile application, owning user flows and interface execution from concept to release",
@@ -54,7 +54,7 @@ const ResumeSection = () => {
     {
       company: "FarmiGO",
       role: "UI UX Design Intern",
-      period: "Oct 2020 – Dec 2020",
+      period: "Oct 2020 to Dec 2020",
       location: "India",
       achievements: [
         "Designed the end-to-end UX and UI for a mobile application, conducting user interviews and translating research insights into structured flows and high-fidelity prototypes"
@@ -195,7 +195,7 @@ const ResumeSection = () => {
             <Card className="bg-white/5 border-white/10 p-6">
               <h4 className="text-lg font-bold jost-secondary text-primary mb-2">Bachelor of Arts in History</h4>
               <p className="text-white jost-secondary mb-1">Yashwantrao Chavan Maharashtra Open University</p>
-              <p className="text-white/60 jost-secondary text-sm">2016 – 2019</p>
+              <p className="text-white/60 jost-secondary text-sm">2016 to 2019</p>
             </Card>
           </div>
           <div>

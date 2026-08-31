@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════════
-   Karan Gadhave — portfolio design system
+   Karan Gadhave, portfolio design system
    Boxy editorial · Cabinet Grotesk display · Switzer text · DM Mono labels
    ════════════════════════════════════════════════════════════════ */
 
@@ -41,7 +41,7 @@
 .pf-wrap { width:100%; max-width:none; margin:0 auto; padding:0 var(--gutter); }
 
 /* ── motion primitives ─────────────────────────────────────── */
-/* [data-reveal] is driven by GSAP ScrollTrigger — see lib/motion.ts */
+/* [data-reveal] is driven by GSAP ScrollTrigger, see lib/motion.ts */
 .pf-mask { overflow:hidden; display:block; }
 .pf-mask > span { display:block; transform:translateY(112%); transition:transform 1.05s var(--ease); transition-delay:var(--d,0s); }
 .pf-loaded .pf-mask > span { transform:translateY(0); }
@@ -223,7 +223,7 @@
 .pf-ecard .bignum { font:500 46px var(--font-display); }
 .pf-ecard .note { font-size:13.5px; line-height:1.6; color:var(--soft); margin-top:10px; }
 
-/* ── before / after — side by side, full images ────────────── */
+/* ── before / after, side by side, full images ────────────── */
 .pf-ba-pair { display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start; }
 .pf-ba-col .tag {
   font:500 10px var(--font-mono); letter-spacing:.18em; text-transform:uppercase;
@@ -313,7 +313,7 @@
 .pf-cta:hover { color:var(--pf-accent); border-color:var(--pf-accent); }
 .pf-cta.mut { border-color:rgba(26,23,18,.25); color:var(--mut); }
 
-/* work row — same hairline index as before, but every row now carries the work */
+/* work row, same hairline index as before, but every row now carries the work */
 .pf-row { display:grid; grid-template-columns:62px 1fr auto auto 132px; gap:30px; align-items:center; padding:20px 0; border-bottom:1px solid var(--line); text-decoration:none; color:var(--ink); transition:padding-left .35s var(--ease), opacity .3s; }
 .pf-row:first-child { border-top:1px solid var(--line); }
 .pf-row:hover { padding-left:18px; }
@@ -331,7 +331,7 @@
   repeating-linear-gradient(-45deg,transparent 0 8px,rgba(26,23,18,.05) 8px 9px); }
 .pf-row .im.soon span { font:500 9px var(--font-mono); letter-spacing:.12em; text-transform:uppercase; color:var(--mut); text-align:center; padding:0 6px; }
 
-/* identity strip — the case study meta table, used on the index */
+/* identity strip, the case study meta table, used on the index */
 .pf-idbar { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); border-bottom:1px solid var(--line); }
 .pf-idbar > div { padding:18px 24px 20px 0; }
 .pf-idbar > div + div { padding-left:24px; border-left:1px solid var(--line); }
@@ -467,7 +467,7 @@
   .pf-contact-row .v{ font-size:15.5px; }
 }
 
-/* ══ homepage — boxy editorial structure ══════════════════ */
+/* ══ homepage, boxy editorial structure ══════════════════ */
 
 /* thin announcement bar, top of page */
 .pf-announce {
@@ -477,7 +477,7 @@
 }
 .pf-announce b { color:var(--pf-accent); font-weight:400; }
 
-/* section label as a solid chip — replaces the rule-and-caps eyebrow */
+/* section label as a solid chip, replaces the rule-and-caps eyebrow */
 .pf-chip {
   display:inline-block; background:var(--pf-accent); color:#fff;
   font:500 11px var(--font-mono); letter-spacing:.14em; text-transform:uppercase;
@@ -498,7 +498,7 @@
 .pf-box .hd .ttl { font:500 19px var(--font-display); letter-spacing:-.01em; }
 .pf-box .bd { padding:16px 18px; font-size:14.5px; line-height:1.68; color:var(--soft); }
 
-/* numbered index rows — services / capabilities */
+/* numbered index rows, services / capabilities */
 .pf-numrow {
   display:grid; grid-template-columns:64px 1fr 1.05fr; gap:28px; align-items:baseline;
   padding:26px 0; border-top:1px solid var(--line);
