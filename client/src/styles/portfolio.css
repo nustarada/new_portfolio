@@ -963,3 +963,59 @@
   margin-right:calc(-1 * var(--gutter));
   padding-left:var(--gutter); padding-right:var(--gutter);
 }
+
+/* ══ contact ══════════════════════════════════════════════ */
+.pf-contact{ padding-top:104px; padding-bottom:0; }
+.pf-contact-head{
+  display:flex; justify-content:space-between; align-items:center; gap:20px;
+  flex-wrap:wrap; margin-bottom:36px;
+}
+.pf-contact-head .avail{
+  display:inline-flex; align-items:center; gap:9px;
+  font:500 11px var(--font-mono); letter-spacing:.16em; text-transform:uppercase; color:var(--pf-accent);
+}
+.pf-mailto{
+  display:block; text-decoration:none; color:var(--ink);
+  font:700 clamp(30px,6.2vw,88px)/1 var(--font-display); letter-spacing:-.04em;
+  word-break:break-word; margin-bottom:52px;
+  transition:color .3s var(--ease);
+}
+.pf-mailto:hover{ color:var(--pf-accent); }
+
+/* ══ footer ═══════════════════════════════════════════════ */
+.pf-footer{ padding-top:0 !important; padding-bottom:0 !important; background:var(--ink); color:var(--paper); margin-top:104px; }
+.pf-foot-grid{
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px;
+  padding:64px 0 52px;
+}
+.pf-foot-grid .col{ display:flex; flex-direction:column; gap:9px; align-items:flex-start; }
+.pf-foot-grid .brand .nm{ font:700 20px var(--font-display); letter-spacing:-.02em; }
+.pf-foot-grid .ln{ font-size:14px; line-height:1.6; color:rgba(247,245,242,.56); max-width:34ch; }
+.pf-foot-grid .h{
+  font:500 10px var(--font-mono); letter-spacing:.2em; text-transform:uppercase;
+  color:rgba(247,245,242,.42); margin-bottom:5px;
+}
+.pf-foot-grid a{
+  color:var(--paper); text-decoration:none; font-size:14.5px;
+  transition:color .25s var(--ease);
+}
+.pf-foot-grid a:hover{ color:var(--pf-accent); }
+.pf-foot-grid .live{
+  display:inline-flex; align-items:center; gap:9px; font-size:14.5px; color:var(--pf-accent);
+}
+.pf-footer .f{
+  display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  border-top:1px solid rgba(247,245,242,.16); padding-top:20px; padding-bottom:34px;
+}
+.pf-footer .f p, .pf-footer .f a{
+  font:400 12px var(--font-mono); color:rgba(247,245,242,.5); text-decoration:none;
+}
+.pf-footer .f a:hover{ color:var(--pf-accent); }
+
+@media (max-width:900px){
+  .pf-foot-grid{ grid-template-columns:1fr 1fr; gap:32px; padding:48px 0 36px; }
+  .pf-foot-grid .brand{ grid-column:1/-1; }
+}
+@media (max-width:560px){
+  .pf-foot-grid{ grid-template-columns:1fr; }
+}

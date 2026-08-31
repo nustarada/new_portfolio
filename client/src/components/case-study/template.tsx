@@ -366,11 +366,37 @@ export const MoreProjects = ({ cards }: { cards: ProjectCard[] }) => (
 );
 
 export const PageFooter = () => (
-  <footer className="pf-footer pf-wrap">
-    <div className="f">
-      <p>© {new Date().getFullYear()} Karan Gadhave</p>
-      <a href="https://www.linkedin.com/in/karan-gadhave/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-      <p>Pune, India</p>
+  <footer className="pf-footer">
+    <div className="pf-wrap">
+      <div className="pf-foot-grid">
+        <div className="col brand">
+          <p className="nm">Karan Gadhave</p>
+          <p className="ln">Product &amp; UX designer working end to end on platforms with roles, rules and legacy.</p>
+        </div>
+        <div className="col">
+          <p className="h">Navigate</p>
+          <Link href="/"><a>Home</a></Link>
+          <a href="/#work">Work</a>
+          <a href="/#about">About</a>
+          <a href="/#process">Process</a>
+        </div>
+        <div className="col">
+          <p className="h">Elsewhere</p>
+          <a href="https://www.linkedin.com/in/karan-gadhave/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:gadhavekaran@gmail.com">Email</a>
+        </div>
+        <div className="col">
+          <p className="h">Status</p>
+          <p className="live"><span className="pf-dot" />Open to work</p>
+          <p className="ln">Pune, India · IST</p>
+        </div>
+      </div>
+      <div className="f">
+        <p>© {new Date().getFullYear()} Karan Gadhave</p>
+        <a href="#top" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+          Back to top ↑
+        </a>
+      </div>
     </div>
   </footer>
 );

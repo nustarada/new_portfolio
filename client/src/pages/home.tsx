@@ -300,11 +300,20 @@ export default function Home() {
           <p style={{ font: "400 13px var(--font-mono)", color: "var(--mut)" }}>For teams &amp; clients</p>
         </div>
         {[
-          { n: "01", t: "Product & UX design", d: "End to end product design for SaaS, from research and flows to polished, production ready UI." },
-          { n: "02", t: "Platform redesigns", d: "Taking dated, tangled products and re-architecting them into modern, coherent experiences, without losing what works." },
-          { n: "03", t: "Design systems", d: "Token-based systems and component libraries that keep large products consistent while they grow." },
+          { n: "01", t: "Product & UX design",
+            d: "End to end product design for SaaS, web and mobile. User journeys, screen flows, wireframes and polished, production ready UI." },
+          { n: "02", t: "Platform & dashboard redesign",
+            d: "Dated, tangled enterprise products re-architected around roles, permissions and real workflows, without losing what already works." },
+          { n: "03", t: "Research & information architecture",
+            d: "Stakeholder interviews, business process mapping, IA, competitive analysis and usability testing, so structure is decided on evidence." },
+          { n: "04", t: "Design systems",
+            d: "Figma libraries, variables and Dev Mode handoff. Token based components that keep a product consistent as the team grows." },
+          { n: "05", t: "Agile delivery support",
+            d: "Backlog refinement, user stories, acceptance criteria, sprint reviews and QA collaboration, right through to release." },
+          { n: "06", t: "AI accelerated design",
+            d: "Figma MCP, Claude Code, Cursor and Replit used for high velocity prototyping, so ideas get tested as working screens, not slides." },
         ].map((s, i) => (
-          <div className="pf-numrow" key={s.n} data-reveal style={{ ["--d" as any]: `${i * 0.07}s` }}>
+          <div className="pf-numrow" key={s.n} data-reveal style={{ ["--d" as any]: `${i * 0.06}s` }}>
             <span className="no">{s.n}</span>
             <h3>{s.t}</h3>
             <p>{s.d}</p>
@@ -321,21 +330,24 @@ export default function Home() {
       </section>
 
       {/* ── CONTACT ── */}
-      <section id="contact" className="pf-wrap" style={{ paddingTop: 130, paddingBottom: 20 }}>
-        <div data-reveal style={{ marginBottom: 34 }}><span className="pf-chip ghost">Contact</span></div>
+      <section id="contact" className="pf-wrap pf-contact">
+        <div className="pf-contact-head">
+          <div data-reveal><span className="pf-chip ghost">Contact</span></div>
+          <p className="avail" data-reveal><span className="pf-dot" />Open to roles and freelance</p>
+        </div>
+
+        <a className="pf-mailto" href={`mailto:${EMAIL}?subject=${encodeURIComponent("Project enquiry")}`} data-reveal>
+          {EMAIL}
+        </a>
 
         <div className="pf-contact-channels" data-reveal>
           <div className="pf-contact-row">
             <span className="k">Email</span>
             <span className="v">
               <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-              <button
-                type="button"
-                className={`pf-copy${copied ? " ok" : ""}`}
-                onClick={copyEmail}
-                aria-label="Copy email address"
-              >
-                {copied ? "Copied ✓" : "Copy"}
+              <button type="button" className={`pf-copy${copied ? " ok" : ""}`}
+                      onClick={copyEmail} aria-label="Copy email address">
+                {copied ? "Copied" : "Copy"}
               </button>
             </span>
           </div>
@@ -347,12 +359,12 @@ export default function Home() {
             <span className="k">Response</span>
             <span className="v plain">Usually within 24 hours</span>
           </div>
-        </div>
-
-        <div ref={magWrap} style={{ display: "inline-block", marginTop: 48 }} data-reveal>
-          <a className="pf-mag" ref={mag} href={`mailto:${EMAIL}?subject=${encodeURIComponent("Project enquiry")}`}>
-            Start a conversation ↗
-          </a>
+          <div className="pf-contact-row">
+            <span className="k">Elsewhere</span>
+            <span className="v">
+              <a href="https://www.linkedin.com/in/karan-gadhave/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </span>
+          </div>
         </div>
       </section>
 
