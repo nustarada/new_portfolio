@@ -40,8 +40,52 @@ export function useReveal() {
       });
     });
     const id = setTimeout(() => ScrollTrigger.refresh(), 300);
-    return () => { clearTimeout(id); ctx.revert(); };
+    const stop = watchLayout();
+    return () => { clearTimeout(id); stop(); ctx.revert(); };
   }, []);
+}
+
+/* ── keep trigger positions honest ─────────────────────────────
+   ScrollTrigger measures start and end once, at creation. The display
+   faces arrive from a CDN and the imagery loads lazily, and both reflow
+   the page underneath those cached numbers: a scrubbed block then reads
+   as though it began before it was reached, because the position it was
+   anchored to is no longer where it sits. Re-measure whenever the page
+   actually changes height. */
+function watchLayout() {
+  if (reduced()) return () => {};
+  const refresh = () => ScrollTrigger.refresh();
+
+  document.fonts?.ready.then(refresh).catch(() => {});
+  window.addEventListener("load", refresh);
+
+  /* lazily loaded images land long after mount, each one shifting what is
+     below it */
+  const imgs = Array.from(document.images).filter((i) => !i.complete);
+  imgs.forEach((i) => i.addEventListener("load", refresh, { once: true }));
+
+  /* and anything else that resizes the document. refresh() can itself nudge
+     the document height, so only react to a real change and give up after a
+     few rounds, or the observer feeds itself forever */
+  let t: ReturnType<typeof setTimeout>;
+  let last = document.body.scrollHeight;
+  let rounds = 0;
+  const ro = new ResizeObserver(() => {
+    const h = document.body.scrollHeight;
+    if (Math.abs(h - last) < 4 || rounds > 6) return;
+    last = h;
+    rounds += 1;
+    clearTimeout(t);
+    t = setTimeout(() => { last = document.body.scrollHeight; refresh(); }, 150);
+  });
+  ro.observe(document.body);
+
+  return () => {
+    window.removeEventListener("load", refresh);
+    imgs.forEach((i) => i.removeEventListener("load", refresh));
+    clearTimeout(t);
+    ro.disconnect();
+  };
 }
 
 /* ── headline: masked lines ────────────────────────────────── */

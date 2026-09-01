@@ -149,7 +149,7 @@ export function SiteClose() {
           <aside className="pf-close-side">
             <div className="r" data-reveal>
               <span className="k">Status</span>
-              <span className="v accent"><span className="pf-dot" />Open to new work</span>
+              <span className="v accent">Open to new work</span>
             </div>
             <div className="r" data-reveal style={{ ["--d" as any]: ".06s" }}>
               <span className="k">Available for</span>
