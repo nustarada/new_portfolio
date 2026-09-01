@@ -184,7 +184,7 @@ export const PageFooter = () => (
     <div className="pf-wrap">
       <div className="pf-foot-grid">
         <div className="col brand">
-          <p className="nm">Karan Gadhave</p>
+          <img src={kgLogo} alt="Karan Gadhave" className="mark" />
           <p className="ln">Product and UX designer working end to end on complex platforms, from research through to release.</p>
         </div>
         <div className="col">

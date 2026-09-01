@@ -1123,6 +1123,8 @@
 }
 .pf-foot-grid .col{ display:flex; flex-direction:column; gap:9px; align-items:flex-start; }
 .pf-foot-grid .brand .nm{ font:700 20px var(--font-display); letter-spacing:-.02em; }
+/* the asset is white, which is what the dark footer wants, so no tint here */
+.pf-foot-grid .brand .mark{ width:58px; height:58px; display:block; margin-bottom:10px; }
 .pf-foot-grid .ln{ font-size:14px; line-height:1.6; color:rgba(247,245,242,.56); max-width:34ch; }
 .pf-foot-grid .h{
   font:500 10px var(--font-mono); letter-spacing:.2em; text-transform:uppercase;

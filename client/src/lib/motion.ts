@@ -483,14 +483,16 @@ export function useTextHighlight(selector: string) {
   useEffect(() => {
     const el = document.querySelector<HTMLElement>(selector);
     if (!el) return;
-    if (reduced()) { el.style.color = "var(--ink)"; return; }
+    if (reduced()) { el.style.color = "var(--pf-accent)"; return; }
     let split: SplitText | null = null;
     const ctx = gsap.context(() => {
       split = new SplitText(el, { type: "words" });
+      /* the statement resolves into the brand orange, from a faint tint of the
+         same colour so the block reads as one hue rather than two */
       gsap.fromTo(split.words,
-        { color: "rgba(20,20,20,0.16)" },
+        { color: "rgba(225,84,27,0.22)" },
         {
-          color: "rgba(11,11,13,1)",
+          color: "rgba(225,84,27,1)",
           ease: "none",
           stagger: 0.4,
           scrollTrigger: {
