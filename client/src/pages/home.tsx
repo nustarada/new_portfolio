@@ -9,6 +9,7 @@ import {
 import { Ticker, Icon } from "@/components/visuals";
 import { Brand } from "@/components/brands";
 import gfxHero from "@assets/gfx-hero.jpg";
+import heroVideo from "@assets/cosmos.mp4";
 import kgLogo from "@assets/kg-logo.png";
 import photoPortrait from "@assets/photo-portrait.jpg";
 import { SiteNav, SiteClose, PageFooter } from "@/components/site-chrome";
@@ -71,6 +72,23 @@ export default function Home() {
   useHeroSpotlight(".pf-home-hero", ".pf-hero-reveal");
   useCardCursor(".pf-card:not(.pf-card-cta)", ".pf-follow");
   const [scrolled, setScrolled] = useState(false);
+  const revealVideo = useRef<HTMLVideoElement>(null);
+  const [finePointer] = useState(
+    () => typeof window !== "undefined" && window.matchMedia("(pointer:fine)").matches,
+  );
+
+  /* the two layers play the same file independently, so nudge the reveal back
+     into step whenever it drifts far enough to be visible at the lens edge */
+  useEffect(() => {
+    if (!finePointer) return;
+    const id = setInterval(() => {
+      const base = document.querySelector<HTMLVideoElement>(".pf-hero-bg video");
+      const top = revealVideo.current;
+      if (!base || !top || base.readyState < 2 || top.readyState < 2) return;
+      if (Math.abs(base.currentTime - top.currentTime) > 0.06) top.currentTime = base.currentTime;
+    }, 1000);
+    return () => clearInterval(id);
+  }, [finePointer]);
   const preview = useRef<HTMLDivElement>(null);
   const previewImg = useRef<HTMLImageElement>(null);
   const magWrap = useRef<HTMLDivElement>(null);
@@ -127,11 +145,15 @@ export default function Home() {
       {/* ── HERO ── */}
       <header className="pf-home-hero pf-wrap">
         <div className="pf-hero-bg" aria-hidden="true">
-          <img src={gfxHero} alt="" loading="eager" />
+          <video src={heroVideo} poster={gfxHero} autoPlay muted loop playsInline preload="auto" />
         </div>
-        <div className="pf-hero-reveal" aria-hidden="true">
-          <img src={gfxHero} alt="" loading="eager" />
-        </div>
+        {/* the lens needs a second, brighter copy to dodge through. It is only
+            ever visible to a mouse, so touch devices decode one video, not two */}
+        {finePointer && (
+          <div className="pf-hero-reveal" aria-hidden="true">
+            <video ref={revealVideo} src={heroVideo} autoPlay muted loop playsInline preload="auto" />
+          </div>
+        )}
         <h1 style={{ opacity: 0 }}>
           A senior product designer for <em className="pf-em">complex software.</em>
         </h1>

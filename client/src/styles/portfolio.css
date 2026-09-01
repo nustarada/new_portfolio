@@ -915,14 +915,19 @@
 }
 .pf-home-hero::before{ display:none; }          /* drop the old dotted disc */
 .pf-hero-bg, .pf-hero-reveal{ position:absolute; inset:0; z-index:0; pointer-events:none; }
-.pf-hero-bg img, .pf-hero-reveal img{ width:100%; height:100%; object-fit:cover; display:block; }
+.pf-hero-bg img, .pf-hero-reveal img,
+.pf-hero-bg video, .pf-hero-reveal video{ width:100%; height:100%; object-fit:cover; display:block; }
 .pf-hero-bg img{ filter:brightness(.34) saturate(.5) contrast(1.1); }
+/* the footage is already dark, so it needs far less holding back than the
+   foil still it replaced, which was bright edge to edge */
+.pf-hero-bg video{ filter:brightness(.78) saturate(.9) contrast(1.06); }
 .pf-hero-reveal{
   mix-blend-mode:color-dodge;
   -webkit-mask-image:radial-gradient(circle 0px at 50% 50%, #000 0%, transparent 100%);
   mask-image:radial-gradient(circle 0px at 50% 50%, #000 0%, transparent 100%);
 }
 .pf-hero-reveal img{ filter:brightness(.86) saturate(1.7) contrast(1.05); }
+.pf-hero-reveal video{ filter:brightness(1.25) saturate(1.9) contrast(1.08); }
 .pf-home-hero > *:not(.pf-hero-bg):not(.pf-hero-reveal){ position:relative; z-index:1; }
 
 .pf-home-hero h1{ color:var(--paper); }
