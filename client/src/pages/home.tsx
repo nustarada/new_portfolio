@@ -77,13 +77,13 @@ export default function Home() {
     () => typeof window !== "undefined" && window.matchMedia("(pointer:fine)").matches,
   );
 
-  /* three quarter speed. Browsers reset the rate when the source reloads, so
-     it is reapplied on metadata rather than set once */
+  /* half speed. Browsers reset the rate when the source reloads, so it is
+     reapplied on metadata rather than set once */
   useEffect(() => {
     const vids = Array.from(
       document.querySelectorAll<HTMLVideoElement>(".pf-home-hero video"),
     );
-    const apply = () => vids.forEach((v) => { v.playbackRate = 0.75; });
+    const apply = () => vids.forEach((v) => { v.playbackRate = 0.5; });
     apply();
     vids.forEach((v) => v.addEventListener("loadedmetadata", apply));
     return () => vids.forEach((v) => v.removeEventListener("loadedmetadata", apply));
