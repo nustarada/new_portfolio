@@ -685,11 +685,12 @@ button,
 
 /* Ensure proper mobile button interaction */
 @media (max-width: 768px) {
-  a[href] {
-    display: block;
-    width: 100%;
-    text-decoration: none;
-  }
+  /* An a[href] { display:block; width:100% } rule used to live here, from the
+     previous site. It hit every link on the page: the closing address could
+     not sit inline with its arrow, and the full-bleed Next strip resolved to
+     a definite width, so its negative right margin had nothing to pull
+     against and it stopped short of the screen edge. The current design sets
+     display on the links it styles, so the blanket rule is gone. */
 
   button {
     min-height: 44px;

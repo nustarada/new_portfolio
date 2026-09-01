@@ -451,8 +451,11 @@ export function useTextHighlight(selector: string) {
           stagger: 0.4,
           scrollTrigger: {
             trigger: el,
-            start: "top 85%",
-            end: "bottom 50%",
+            /* the statement is close to a full screen tall on a phone, so the
+               range is kept tight: any earlier and the opening words resolve
+               while still below the fold, any later and it finishes off-screen */
+            start: "top 78%",
+            end: "bottom 62%",
             scrub: 0.5,
           },
         });
