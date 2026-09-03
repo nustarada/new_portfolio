@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { Link } from "wouter";
 import {
   useReveal, useSplitHeadline, useCountUp, useParallax,
-  useScramble, useMarquee, useHeroSpotlight,
+  useMarquee, useHeroSpotlight,
   useImageReveal, useTextChars, useScrambleCycle, useAboutScrub, useTextHighlight, useCardCursor,
 } from "@/lib/motion";
 import { Ticker, Icon } from "@/components/visuals";
@@ -66,7 +66,6 @@ export default function Home() {
   useImageReveal(".pf-about-portrait");
   useAboutScrub(".pf-about-inner");
   useTextHighlight(".pf-about-copy");
-  useScramble("[data-scramble]");
   useScrambleCycle(".pf-cycle", DISCIPLINES, { chars: "!<>-_\\/[]{}=+*^?#", speed: 0.45, revealDelay: 0.4, hold: 1.5 });
   useMarquee(".pf-ticker-track");
   useHeroSpotlight(".pf-home-hero", ".pf-hero-reveal");
@@ -278,7 +277,7 @@ export default function Home() {
       <section id="work" className="pf-wrap" style={{ paddingTop: 120, paddingBottom: 40 }}>
         <div className="pf-workhead">
           <span className="pf-chip">Selected work</span>
-          <p className="c" data-scramble>Five projects</p>
+          <p className="c">Five projects</p>
         </div>
 
         <div className="pf-projects">
@@ -310,9 +309,9 @@ export default function Home() {
 
       {/* ── CAPABILITIES, numbered index ── */}
       <section id="services" className="pf-wrap" style={{ paddingTop: 110, paddingBottom: 20 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 34 }} data-reveal>
-          <span className="pf-chip ghost">What I do</span>
-          <p style={{ font: "400 13px var(--font-mono)", color: "var(--mut)" }}>For teams and clients</p>
+        <div className="pf-workhead" data-reveal>
+          <span className="pf-chip">What I do</span>
+          <p className="c">For teams and clients</p>
         </div>
         <div className="pf-bento">
           {[
@@ -346,7 +345,7 @@ export default function Home() {
       <section id="stack" className="pf-wrap pf-stack">
         <div className="pf-workhead">
           <span className="pf-chip">Technologies</span>
-          <p className="c" data-scramble>What I build with</p>
+          <p className="c">What I build with</p>
         </div>
 
         <p className="pf-stack-line" data-reveal>

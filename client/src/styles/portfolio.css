@@ -54,7 +54,18 @@
 /* ── type helpers ──────────────────────────────────────────── */
 .pf-serif { font-family:var(--font-display); }
 .pf-mono  { font-family:var(--font-mono); }
-.pf-label { font:500 11px var(--font-mono); letter-spacing:.2em; text-transform:uppercase; color:var(--mut); display:flex; gap:14px; align-items:center; }
+/* ── section captions ──────────────────────────────────────────
+   The small mono line that sits opposite a section label. It had six
+   different settings across the site: 11, 12 and 13px, four tracking
+   values and two weights. One setting now, everywhere. */
+.pf-cap-mono,
+.pf-label,
+.pf-workhead .c,
+.pf-cap p,
+.pf-close-year{
+  font:500 11px var(--font-mono); letter-spacing:.18em; text-transform:uppercase;
+}
+.pf-label { color:var(--mut); display:flex; gap:14px; align-items:center; }
 .pf-label::before { content:''; width:44px; height:1px; background:var(--pf-accent); }
 .pf-em { font-style:normal; color:var(--pf-accent); }
 
@@ -92,7 +103,8 @@
 .pf-shead { padding:92px 0 30px; }
 .pf-shead .pf-label { margin-bottom:20px; }
 .pf-shead h2 { font:500 clamp(30px,3.8vw,46px)/1.12 var(--font-display); max-width:820px; }
-.pf-shead p { font-size:15.5px; line-height:1.7; color:var(--soft); max-width:680px; margin-top:18px; }
+/* the label is a <p> too, so this has to exclude it or it inherits body size */
+.pf-shead p:not(.pf-label) { font-size:15.5px; line-height:1.7; color:var(--soft); max-width:680px; margin-top:18px; }
 
 /* ── device frames ─────────────────────────────────────────── */
 /* iPhone 15 Pro shell, drawn to the real device geometry.
@@ -159,10 +171,7 @@
   display:flex; justify-content:space-between; align-items:baseline; gap:24px;
   margin-top:34px; padding-top:14px; border-top:1px solid rgba(20,20,20,.2);
 }
-.pf-cap p{
-  font:500 11px var(--font-mono); letter-spacing:.15em; text-transform:uppercase;
-  color:var(--soft);
-}
+.pf-cap p{ color:var(--soft); }
 .pf-cap p b{ color:var(--pf-accent); font-weight:500; white-space:nowrap; }
 
 /* ── collage ───────────────────────────────────────────────── */
@@ -787,7 +796,7 @@
   display:flex; justify-content:space-between; align-items:center; gap:24px;
   padding-bottom:20px; margin-bottom:0; border-bottom:1px solid var(--rule);
 }
-.pf-workhead .c{ font:500 12px var(--font-mono); letter-spacing:.18em; text-transform:uppercase; color:var(--mut); }
+.pf-workhead .c{ color:var(--mut); }
 
 .pf-projects{
   display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:0;
@@ -1066,9 +1075,7 @@
   gap:20px; padding-bottom:clamp(40px,6vw,76px);
 }
 .pf-close .pf-chip.ghost{ border-color:rgba(247,245,242,.3); color:var(--paper); }
-.pf-close-year{
-  font:500 11px var(--font-mono); letter-spacing:.2em; color:rgba(247,245,242,.45);
-}
+.pf-close-year{ color:rgba(247,245,242,.45); }
 .pf-close-grid{
   display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
   gap:clamp(40px,6vw,88px); align-items:start;
