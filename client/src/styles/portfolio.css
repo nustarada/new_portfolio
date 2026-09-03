@@ -1198,31 +1198,55 @@
 }
 
 /* one labelled row per group, chips on the right */
-.pf-toolrows{
+/* ══ technologies: tiers ══════════════════════════════════ */
+/* Six equal rows put a group of eight beside a group of two and left the
+   short ones mostly empty. The groups are tiered instead: the craft and AI
+   lead on the sand band, the build stack pairs off below. */
+.pf-tiers{
   margin-left:calc(-1 * var(--gutter)); margin-right:calc(-1 * var(--gutter));
   border-top:1px solid var(--rule);
 }
-.pf-toolrow{
-  display:grid; grid-template-columns:170px 1fr; gap:28px; align-items:start;
-  padding:24px var(--gutter); border-bottom:1px solid var(--line);
+.pf-tier{
+  display:grid; grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--line);
 }
-.pf-toolrow .h{
+.pf-tier.lead{ background:var(--band); }
+.pf-tier .t{
+  padding:26px var(--gutter) 30px;
+  border-right:1px solid var(--line);
+}
+.pf-tier .t:last-child{ border-right:0; }
+.pf-tier .h{
   font:500 10px var(--font-mono); letter-spacing:.2em; text-transform:uppercase;
-  color:var(--mut); padding-top:9px;
+  color:var(--mut); margin-bottom:18px;
 }
-.pf-toolrow.lead .h{
-  color:#fff; background:var(--pf-accent); justify-self:start;
-  padding:7px 11px; margin-top:4px;
+.pf-tier .h.hot{
+  color:#fff; background:var(--pf-accent); display:inline-block; padding:7px 11px;
+  margin-bottom:15px;
 }
-.pf-toolrow ul{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:10px; }
-.pf-toolrow li{
+.pf-tier ul{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:10px; }
+.pf-tier li{
   display:inline-flex; align-items:center; gap:9px;
   border:1px solid var(--line); padding:9px 14px;
   font:500 14.5px var(--font-text); background:var(--paper);
   transition:border-color .28s var(--ease), color .28s var(--ease);
 }
-.pf-toolrow li:hover{ border-color:var(--pf-accent); color:var(--pf-accent); }
-.pf-toolrow.lead li{ font-size:15.5px; }
+.pf-tier li:hover{ border-color:var(--pf-accent); color:var(--pf-accent); }
+.pf-tier.lead li{ font-size:15.5px; padding:10px 15px; }
+.pf-tier li:hover .pf-brand{ opacity:1; }
+
+@media (max-width:860px){
+  /* two columns of chips is too narrow to hold a name like Tailwind CSS */
+  .pf-tier{ grid-template-columns:1fr; }
+  .pf-tier .t{ border-right:0; border-bottom:1px solid var(--line); padding:18px var(--gutter) 20px; }
+  .pf-tier .t:last-child{ border-bottom:0; }
+  .pf-tier .h{ margin-bottom:13px; }
+  .pf-tier .h.hot{ margin-bottom:11px; padding:6px 10px; }
+  .pf-tier ul{ gap:8px; }
+  .pf-tier li{ padding:8px 12px; font-size:14px; }
+  .pf-tier.lead li{ font-size:14px; padding:8px 12px; }
+}
+
 .pf-brand{ width:17px; height:17px; flex:none; opacity:.85; }
 .pf-brand.dot{
   width:7px; height:7px; border-radius:50%; background:var(--mut);

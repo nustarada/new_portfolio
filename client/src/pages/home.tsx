@@ -353,32 +353,52 @@ export default function Home() {
           AI has changed how quickly I reach a working screen. The judgement about what belongs on it has not changed.
         </p>
 
-        <div className="pf-toolrows">
+        {/* Tiers, not six equal rows: the craft leads, AI sits beside it, and
+            the build stack pairs off below so a group of eight never shares a
+            row with a group of two. */}
+        <div className="pf-tiers">
           {[
-            { k: "AI", lead: true, tools: [
-              ["Claude Code", "claude"], ["Figma MCP", "figma"],
-              ["Cursor", "cursor"], ["Higgsfield", "higgsfield"], ["Replit", "replit"],
+            { lead: true, cols: [
+              { k: "Design", tools: [
+                ["Figma", "figma"], ["FigJam", "figma"], ["Miro", "miro"],
+              ]},
+              { k: "AI", hot: true, tools: [
+                ["Claude Code", "claude"], ["Figma MCP", "figma"],
+                ["Replit", "replit"], ["Higgsfield", "higgsfield"],
+              ]},
             ]},
-            { k: "Design", tools: [
-              ["Figma", "figma"], ["FigJam", "figma"], ["Miro", "miro"],
+            { cols: [
+              { k: "Front-end", tools: [
+                ["React", "react"], ["Next.js", "nextdotjs"], ["TypeScript", "typescript"],
+                ["Vite", "vite"], ["Tailwind CSS", "tailwindcss"],
+                ["GSAP", "greensock"], ["Framer Motion", "framer"], ["HTML / CSS", "html5"],
+              ]},
+              { k: "Back-end & data", tools: [
+                ["Node.js", "nodedotjs"], ["Express", "express"],
+                ["PostgreSQL", "postgresql"], ["Drizzle ORM", "drizzle"], ["Zod", "zod"],
+              ]},
             ]},
-            { k: "Systems & platforms", tools: [
-              ["React", "react"], ["Next.js", "nextdotjs"],
-              ["HubSpot", "hubspot"], ["WordPress", "wordpress"],
-              ["GSAP", "greensock"], ["HTML / CSS", "html5"],
+            { cols: [
+              { k: "Platforms", tools: [
+                ["HubSpot", "hubspot"], ["WordPress", "wordpress"],
+              ]},
+              { k: "Delivery", tools: [
+                ["Jira", "jira"], ["Confluence", "confluence"], ["Scrum / Kanban", ""],
+              ]},
             ]},
-            { k: "Delivery", tools: [
-              ["Jira", "jira"], ["Confluence", "confluence"], ["Scrum / Kanban", ""],
-            ]},
-          ].map((g, i) => (
-            <div className={`pf-toolrow${g.lead ? " lead" : ""}`} key={g.k}
-                 data-reveal style={{ ["--d" as any]: `${i * 0.07}s` }}>
-              <p className="h">{g.k}</p>
-              <ul>
-                {g.tools.map(([n, brand]) => (
-                  <li key={n}><Brand name={brand} /><span>{n}</span></li>
-                ))}
-              </ul>
+          ].map((tier, ti) => (
+            <div className={`pf-tier${tier.lead ? " lead" : ""}`} key={ti}>
+              {tier.cols.map((g, gi) => (
+                <div className="t" key={g.k} data-reveal
+                     style={{ ["--d" as any]: `${(ti * 2 + gi) * 0.06}s` }}>
+                  <p className={`h${g.hot ? " hot" : ""}`}>{g.k}</p>
+                  <ul>
+                    {g.tools.map(([n, brand]) => (
+                      <li key={n}><Brand name={brand} /><span>{n}</span></li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           ))}
         </div>
