@@ -201,7 +201,7 @@ export const PageFooter = () => (
         </div>
         <div className="col">
           <p className="h">Colophon</p>
-          <p className="ln">Designed and built by me with Claude Code. React, GSAP, Cabinet Grotesk and Switzer.</p>
+          <p className="ln">Designed and built without a single lorem ipsum.</p>
         </div>
       </div>
       <div className="f">
