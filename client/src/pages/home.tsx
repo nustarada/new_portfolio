@@ -15,11 +15,6 @@ import photoPortrait from "@assets/photo-portrait.jpg";
 import { SiteNav, SiteClose, PageFooter } from "@/components/site-chrome";
 import "@/styles/portfolio.css";
 
-import liffoThumb from "@assets/Liffo_thumbnail_1770103573838.jpg";
-import lionfishThumb from "@assets/Lionfish_cybersecurity_thumbnail_new_1770104312578.jpg";
-import acedboardThumb from "@assets/proco-06-dashboard.png";
-import twoHLThumb from "@assets/2_Hour_Learning_thumbnail_1770103573825.jpg";
-import fffThumb from "@assets/FutureFirstFamilies_thumbnail_1770103573837.jpg";
 
 const EMAIL = "gadhavekaran@gmail.com";
 
@@ -30,31 +25,9 @@ const DISCIPLINES = [
   "0 to 1 products",
 ];
 
-type Work = { href: string; title: string; tag: string; img: string;
-  blurb: string; meta: string[]; soon?: boolean };
-
-const WORK: Work[] = [
-  { id: "lionfish", title: "Lionfish Cyber Security",
-    tag: "Cybersecurity", img: lionfishThumb,
-    blurb: "I rebuilt an enterprise security platform around role-based navigation, compliance workflows and multi-tenant access. Live in production.",
-    meta: ["Lead designer", "Platform redesign"] },
-  { id: "liffo", title: "Liffo Healthcare",
-    tag: "Healthcare", img: liffoThumb,
-    blurb: "I designed ambulance dispatch and home care for the Indian market, from the ground up across 34 screens.",
-    meta: ["Lead designer", "34 screens"] },
-  { id: "2hour-learning", title: "2 Hour Learning",
-    tag: "EdTech", img: twoHLThumb,
-    blurb: "I built a four-page system for a committee purchase, each page answering what one stakeholder needs to know.",
-    meta: ["Lead designer", "4-page system"] },
-  { id: "fff", title: "Future First Families",
-    tag: "Advocacy", img: fffThumb,
-    blurb: "I designed a single-page advocacy site that builds credibility first, then asks parents to act.",
-    meta: ["Lead designer", "Conversion design"] },
-  { id: "acedboard", title: "Acedboard Proconomics",
-    tag: "Fintech", img: acedboardThumb, soon: true, topAlign: true,
-    blurb: "I designed a cost-benefit analysis engine inside a project management tool, so delivery teams can run the financial model themselves.",
-    meta: ["Lead designer", "Case study in progress"] },
-];
+/* The work is anonymised while the case studies are being rewritten: no
+   client names, no client imagery. Sectors only. */
+const SECTORS = ["Cybersecurity", "Healthcare", "EdTech", "Advocacy", "Fintech"];
 
 export default function Home() {
   useReveal();
@@ -277,27 +250,20 @@ export default function Home() {
       <section id="work" className="pf-wrap" style={{ paddingTop: 120, paddingBottom: 40 }}>
         <div className="pf-workhead">
           <span className="pf-chip">Selected work</span>
-          <p className="c">Five projects</p>
+          <p className="c">In progress</p>
         </div>
 
-        <div className="pf-projects">
-          {/* The case studies are withdrawn, so a card is a card and not a link:
-              nothing here navigates anywhere. */}
-          {WORK.map((w) => (
-            <div key={w.id} className="pf-card" data-cta="Case study coming soon">
-              <div className={`pf-card-media pf-proj-media${w.topAlign ? " top" : ""}`}>
-                <img src={w.img} alt={w.title} loading="lazy" />
-                <span className="tag">{w.tag}</span>
-              </div>
-              <div className="pf-card-body">
-                <h3 className="pf-proj-title">{w.title}</h3>
-                <p className="blurb">{w.blurb}</p>
-                <ul className="meta">
-                  {w.meta.map((m) => <li key={m}>{m}</li>)}
-                </ul>
-              </div>
-            </div>
-          ))}
+        <div className="pf-underway" data-reveal>
+          <p className="k">Under construction</p>
+          <p className="t">The case studies are being rewritten.</p>
+          <p className="d">
+            Five shipped products across enterprise security, healthcare, education,
+            advocacy and finance. The write-ups are coming back shortly. Ask me about
+            any of them in the meantime.
+          </p>
+          <ul className="s">
+            {SECTORS.map((x) => <li key={x}>{x}</li>)}
+          </ul>
         </div>
 
         <a className="pf-nextstrip" href="#contact" data-reveal>
