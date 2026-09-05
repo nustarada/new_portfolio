@@ -26,8 +26,13 @@ const DISCIPLINES = [
 ];
 
 /* The work is anonymised while the case studies are being rewritten: no
-   client names, no client imagery. Sectors only. */
-const SECTORS = ["Cybersecurity", "Healthcare", "EdTech", "Advocacy", "Fintech"];
+   client names, no client imagery. Domains only, and all of them rather
+   than the five being written up, so the section reads as range. */
+const DOMAINS = [
+  "Enterprise security", "Compliance", "Healthcare", "Home care",
+  "EdTech", "Learning platforms", "Fintech", "Wealth management",
+  "Trading platforms", "Project management", "Advocacy", "Marketing sites",
+];
 
 export default function Home() {
   useReveal();
@@ -263,15 +268,13 @@ export default function Home() {
               any of the others in the meantime.
             </p>
           </div>
-          {/* the slots the five cards will come back into, drawn in the page's
-              own hairlines rather than filled with a stock photograph */}
-          <div className="f" aria-hidden="true">
-            {SECTORS.map((x, i) => (
-              <div className="slot" key={x} style={{ ["--d" as any]: `${i * 0.07}s` }}>
-                <span className="n">{String(i + 1).padStart(2, "0")}</span>
-                <span className="l">{x}</span>
-              </div>
-            ))}
+          {/* the range, rather than five placeholders that read as the whole
+              body of work */}
+          <div className="f">
+            <p className="fh">Domains worked in<span>{DOMAINS.length}</span></p>
+            <ul>
+              {DOMAINS.map((x) => <li key={x}>{x}</li>)}
+            </ul>
           </div>
         </div>
 
