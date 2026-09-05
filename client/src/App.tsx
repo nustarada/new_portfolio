@@ -4,23 +4,15 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
+/* The case study routes are withdrawn: their pages are not linked and not
+   reachable, so those URLs fall through to NotFound like any other. */
 import Home from "@/pages/home";
-import FutureFirstFamiliesCaseStudy from "@/pages/future-first-families-case-study";
-import LiffoCaseStudy from "@/pages/liffo-case-study";
-import TwoHourLearningCaseStudy from "@/pages/2hour-learning-case-study";
-import AcedboardCaseStudy from "@/pages/acedboard-case-study";
-import LionfishCaseStudy from "@/pages/lionfish-case-study";
 import NotFound from "@/pages/not-found";
 
 function Routes() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/lionfish-case-study" component={LionfishCaseStudy} />
-      <Route path="/acedboard-case-study" component={AcedboardCaseStudy} />
-      <Route path="/liffo-case-study" component={LiffoCaseStudy} />
-      <Route path="/2hour-learning-case-study" component={TwoHourLearningCaseStudy} />
-      <Route path="/fff-case-study" component={FutureFirstFamiliesCaseStudy} />
       <Route>
         <NotFound />
       </Route>

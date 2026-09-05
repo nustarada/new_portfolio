@@ -34,23 +34,23 @@ type Work = { href: string; title: string; tag: string; img: string;
   blurb: string; meta: string[]; soon?: boolean };
 
 const WORK: Work[] = [
-  { href: "/lionfish-case-study", title: "Lionfish Cyber Security",
+  { id: "lionfish", title: "Lionfish Cyber Security",
     tag: "Cybersecurity", img: lionfishThumb,
     blurb: "I rebuilt an enterprise security platform around role-based navigation, compliance workflows and multi-tenant access. Live in production.",
     meta: ["Lead designer", "Platform redesign"] },
-  { href: "/liffo-case-study", title: "Liffo Healthcare",
+  { id: "liffo", title: "Liffo Healthcare",
     tag: "Healthcare", img: liffoThumb,
     blurb: "I designed ambulance dispatch and home care for the Indian market, from the ground up across 34 screens.",
     meta: ["Lead designer", "34 screens"] },
-  { href: "/2hour-learning-case-study", title: "2 Hour Learning",
+  { id: "2hour-learning", title: "2 Hour Learning",
     tag: "EdTech", img: twoHLThumb,
     blurb: "I built a four-page system for a committee purchase, each page answering what one stakeholder needs to know.",
     meta: ["Lead designer", "4-page system"] },
-  { href: "/fff-case-study", title: "Future First Families",
+  { id: "fff", title: "Future First Families",
     tag: "Advocacy", img: fffThumb,
     blurb: "I designed a single-page advocacy site that builds credibility first, then asks parents to act.",
     meta: ["Lead designer", "Conversion design"] },
-  { href: "/acedboard-case-study", title: "Acedboard Proconomics",
+  { id: "acedboard", title: "Acedboard Proconomics",
     tag: "Fintech", img: acedboardThumb, soon: true, topAlign: true,
     blurb: "I designed a cost-benefit analysis engine inside a project management tool, so delivery teams can run the financial model themselves.",
     meta: ["Lead designer", "Case study in progress"] },
@@ -281,21 +281,22 @@ export default function Home() {
         </div>
 
         <div className="pf-projects">
+          {/* The case studies are withdrawn, so a card is a card and not a link:
+              nothing here navigates anywhere. */}
           {WORK.map((w) => (
-            <Link href={w.href} key={w.href}
-              className={`pf-card${w.soon ? " soon" : ""}`} data-cta={w.soon ? "In progress" : "View case study"}>
-                <div className={`pf-card-media pf-proj-media${w.topAlign ? " top" : ""}`}>
-                  <img src={w.img} alt={w.title} loading="lazy" />
-                  <span className="tag">{w.tag}</span>
-                </div>
-                <div className="pf-card-body">
-                  <h3 className="pf-proj-title">{w.title}</h3>
-                  <p className="blurb">{w.blurb}</p>
-                  <ul className="meta">
-                    {w.meta.map((m) => <li key={m}>{m}</li>)}
-                  </ul>
-                </div>
-            </Link>
+            <div key={w.id} className="pf-card" data-cta="Case study coming soon">
+              <div className={`pf-card-media pf-proj-media${w.topAlign ? " top" : ""}`}>
+                <img src={w.img} alt={w.title} loading="lazy" />
+                <span className="tag">{w.tag}</span>
+              </div>
+              <div className="pf-card-body">
+                <h3 className="pf-proj-title">{w.title}</h3>
+                <p className="blurb">{w.blurb}</p>
+                <ul className="meta">
+                  {w.meta.map((m) => <li key={m}>{m}</li>)}
+                </ul>
+              </div>
+            </div>
           ))}
         </div>
 
