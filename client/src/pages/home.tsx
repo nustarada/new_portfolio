@@ -9,7 +9,6 @@ import {
 import { Ticker, Icon } from "@/components/visuals";
 import { Brand } from "@/components/brands";
 import gfxHero from "@assets/gfx-hero.jpg";
-import gfxUnderway from "@assets/gfx-underway.jpg";
 import heroVideo from "@assets/cosmos.mp4";
 import kgLogo from "@assets/kg-logo.png";
 import photoPortrait from "@assets/photo-portrait.jpg";
@@ -263,13 +262,17 @@ export default function Home() {
               advocacy and finance. The write-ups are coming back shortly. Ask me about
               any of them in the meantime.
             </p>
-            <ul className="s">
-              {SECTORS.map((x) => <li key={x}>{x}</li>)}
-            </ul>
           </div>
-          <figure className="f">
-            <img src={gfxUnderway} alt="" loading="lazy" decoding="async" />
-          </figure>
+          {/* the slots the five cards will come back into, drawn in the page's
+              own hairlines rather than filled with a stock photograph */}
+          <div className="f" aria-hidden="true">
+            {SECTORS.map((x, i) => (
+              <div className="slot" key={x} style={{ ["--d" as any]: `${i * 0.07}s` }}>
+                <span className="n">{String(i + 1).padStart(2, "0")}</span>
+                <span className="l">{x}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         <a className="pf-nextstrip" href="#contact" data-reveal>

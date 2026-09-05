@@ -1681,19 +1681,19 @@
 }
 
 /* ══ work: under construction ═════════════════════════════ */
-/* The card grid is withdrawn while the case studies are rewritten. Type
-   waiting to be set is the picture of that, and it fills the half of the
-   band the copy was leaving empty. */
+/* The card grid is withdrawn while the case studies are rewritten. Rather
+   than a decorative photograph, which nothing else on this page uses, the
+   right half holds the empty slots the cards will come back into, drawn in
+   the same hairline the grid itself used. */
 .pf-underway{
   margin-left:calc(-1 * var(--gutter)); margin-right:calc(-1 * var(--gutter));
   border-bottom:1px solid var(--line);
   background:var(--band);
-  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.82fr);
-  align-items:stretch;
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.92fr);
+  align-items:center;
 }
 .pf-underway .c{
-  padding:clamp(48px,6vw,86px) clamp(34px,4vw,64px) clamp(52px,6vw,90px) var(--gutter);
-  align-self:center;
+  padding:clamp(48px,6vw,88px) clamp(34px,4vw,64px) clamp(50px,6vw,92px) var(--gutter);
 }
 .pf-underway .k{
   font:500 11px var(--font-mono); letter-spacing:.18em; text-transform:uppercase;
@@ -1708,40 +1708,37 @@
   font:400 clamp(15px,1.5vw,17px)/1.62 var(--font-text); color:var(--soft);
   margin:18px 0 0; max-width:46ch;
 }
-.pf-underway .s{
-  list-style:none; margin:30px 0 0; padding:0;
-  display:flex; flex-wrap:wrap; gap:9px;
-}
-.pf-underway .s li{
-  font:500 11px var(--font-mono); letter-spacing:.14em; text-transform:uppercase;
-  color:var(--soft); border:1px solid var(--line); padding:8px 13px;
-  background:var(--paper);
-}
+
+/* the waiting slots */
 .pf-underway .f{
-  margin:0; overflow:hidden; position:relative;
-  border-left:1px solid var(--line);
-  min-height:340px;
+  display:grid; grid-template-columns:1fr 1fr; gap:12px;
+  padding:clamp(40px,4.6vw,70px) var(--gutter) clamp(44px,4.6vw,74px) 0;
+  align-self:stretch; align-content:center;
 }
-.pf-underway .f img{
-  position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover; display:block;
-  filter:grayscale(1) contrast(1.06) brightness(.94);
+.pf-underway .slot{
+  border:1px dashed rgba(20,20,20,.26);
+  min-height:74px; padding:13px 15px;
+  display:flex; flex-direction:column; justify-content:space-between;
+  background:linear-gradient(rgba(247,245,242,.5),rgba(247,245,242,.5));
 }
-/* the band's tone carries through the picture so it belongs to the section */
-.pf-underway .f::after{
-  content:""; position:absolute; inset:0;
-  background:var(--band); mix-blend-mode:color; opacity:.5;
+/* five into two columns leaves one over, so it takes the width */
+.pf-underway .slot:last-child{ grid-column:1 / -1; }
+.pf-underway .slot .n{
+  font:400 10px var(--font-mono); letter-spacing:.16em; color:var(--mut);
+}
+.pf-underway .slot .l{
+  font:500 11px var(--font-mono); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--soft);
 }
 
 @media (max-width:860px){
   .pf-underway{ grid-template-columns:1fr; }
-  .pf-underway .c{ padding:40px var(--gutter) 44px; }
+  .pf-underway .c{ padding:40px var(--gutter) 30px; }
   .pf-underway .t{ max-width:20ch; }
-  .pf-underway .f{ border-left:0; border-top:1px solid var(--line); min-height:220px; }
+  .pf-underway .f{ padding:0 var(--gutter) 40px; }
 }
 @media (max-width:620px){
-  .pf-underway .c{ padding-top:34px; padding-bottom:38px; }
-  .pf-underway .s{ margin-top:24px; gap:8px; }
-  .pf-underway .s li{ font-size:10px; padding:7px 11px; }
-  .pf-underway .f{ min-height:180px; }
+  .pf-underway .c{ padding-top:34px; padding-bottom:26px; }
+  .pf-underway .f{ gap:10px; padding-bottom:34px; }
+  .pf-underway .slot{ min-height:62px; padding:11px 13px; }
 }
