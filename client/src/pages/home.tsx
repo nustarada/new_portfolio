@@ -9,6 +9,7 @@ import {
 import { Ticker, Icon } from "@/components/visuals";
 import { Brand } from "@/components/brands";
 import gfxHero from "@assets/gfx-hero.jpg";
+import gfxUnderway from "@assets/gfx-underway.jpg";
 import heroVideo from "@assets/cosmos.mp4";
 import kgLogo from "@assets/kg-logo.png";
 import photoPortrait from "@assets/photo-portrait.jpg";
@@ -254,16 +255,21 @@ export default function Home() {
         </div>
 
         <div className="pf-underway" data-reveal>
-          <p className="k">Under construction</p>
-          <p className="t">The case studies are being rewritten.</p>
-          <p className="d">
-            Five shipped products across enterprise security, healthcare, education,
-            advocacy and finance. The write-ups are coming back shortly. Ask me about
-            any of them in the meantime.
-          </p>
-          <ul className="s">
-            {SECTORS.map((x) => <li key={x}>{x}</li>)}
-          </ul>
+          <div className="c">
+            <p className="k">Under construction</p>
+            <p className="t">The case studies are being rewritten.</p>
+            <p className="d">
+              Five shipped products across enterprise security, healthcare, education,
+              advocacy and finance. The write-ups are coming back shortly. Ask me about
+              any of them in the meantime.
+            </p>
+            <ul className="s">
+              {SECTORS.map((x) => <li key={x}>{x}</li>)}
+            </ul>
+          </div>
+          <figure className="f">
+            <img src={gfxUnderway} alt="" loading="lazy" decoding="async" />
+          </figure>
         </div>
 
         <a className="pf-nextstrip" href="#contact" data-reveal>
