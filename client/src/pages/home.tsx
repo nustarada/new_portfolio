@@ -258,9 +258,9 @@ export default function Home() {
             <p className="k">Under construction</p>
             <p className="t">The case studies are being rewritten.</p>
             <p className="d">
-              Five shipped products across enterprise security, healthcare, education,
-              advocacy and finance. The write-ups are coming back shortly. Ask me about
-              any of them in the meantime.
+              Forty-plus products in five years, across security, healthcare, education,
+              finance and more. Five of them are being written up in full. Ask me about
+              any of the others in the meantime.
             </p>
           </div>
           {/* the slots the five cards will come back into, drawn in the page's
